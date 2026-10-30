@@ -1,0 +1,132 @@
+---
+name: ben-mode
+version: 0.2.0
+description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
+---
+# Ben Mode (Token-First & Integrity Spine)
+
+> **⚠️ WAJIB SEBELUM EKSEKUSI** — Muat dulu `references/hard-gate-10.md` via `skill_view(name="dsh-imported\ben-mode", file_path="references/hard-gate-10.md")`. Dokumen itu memuat spesifikasi HARD GATE #10 yang mengikat tiap eksekusi; jangan lewati, jangan jalankan mode apa pun tanpa membacanya lebih dulu.
+
+Skill ini mewajibkan agen menerapkan efisiensi token secara otomatis dan berkelanjutan (first-principle) tanpa menunggu instruksi manual per-subskill:
+
+## 1. Otomasi Efisiensi Token (Phase B - Token-First Enforced)
+Agen wajib menerapkan aturan efisiensi berikut secara instan dan otomatis:
+- **`ponytail` Otomatis**: Aktif pada SEMUA tugas coding, skrip, dan modifikasi konfigurasi. Terapkan prinsip YAGNI ekstrem, gunakan library standar/fitur bawaan platform, diff kode sesingkat mungkin, tolak abstraksi/boilerplate tak diminta.
+- **`caveman` Otomatis**: Bahasa tanggapan padat dan langsung ke poin teknis (*fluff gone, facts kept*). Hapus basa-basi pembuka/penutup, ceremony, kata pengisi (*just/basically/actually*). Jawab langsung inti solusi teknis.
+- **`code-mode-runtime` Otomatis**: Untuk alur kerja yang melibatkan 3+ pemanggilan tool berturut-turut atau perulangan/filtering data, wajib alihkan dari pemanggilan tool JSON serial ke eksekusi satu blok program terisolasi (TypeScript/Python via `execute_code`). Mereduksi token 75–98% dan merekam jejak audit ke repositori trajektori git lokal.
+- **`RTK` / Output Compression**: Wajib gunakan binary `rtk` (~/bin/rtk-bin/rtk.exe) atau filter baris saat memanggil CLI command yang menghasilkan output besar (git status, log, diff, directory listing) agar terminal output tidak membanjiri konteks.
+- **Web research**: Untuk riset multi-sudut, route ke `parallel-web` bila tersedia; gunakan `web_search`/`web_extract` dalam batch terbatas bila tidak. Pilih `research-lookup` untuk paket bukti akademik dan `last30days` untuk diskusi publik terbaru. Sintesis dengan sumber dan perbedaan temuan; laporkan jumlah URL berhasil, gagal, dan tidak diambil. Jangan duplikasi skill riset yang ada atau mengasumsikan tool khusus OpenCode.
+  - Jangan anggap klaim upstream tentang 100 URL paralel sebagai jaminan: skill sumber menginstruksikan 10–20 fetch paralel, tanpa uji/kontrak batas konkuren.
+- **Dokumen & Konteks**:
+  - Teks panjang/log/wiki: kompresi via `llm-text-compressor` dan `context-compressor` (interseptor output CLI/JSON/stack-trace).
+  - Dokumen <10 hal: `docling` / stdlib regex.
+  - Dokumen >10 hal / tabel kompleks: `mineru`.
+  - Codebase: Graphify per-repo knowledge graph atau codebase-memory-mcp traversal; hindari recursive grep besar.
+
+## 2. Router & Integritas (Phase A - Integrity Spine & Functional Routing)
+- **4 Layer Integritas**:
+  1. Artifact honesty (Purpose test, R-17 sampai R-38).
+  2. Evidence (Proof over flags, disclosure kewajiban mutlak, zero unverified claims).
+  3. Process inspectability (Konfigurasi deterministik, anti black-box, fail-loudly).
+  4. Settled truth (Settlement ladder: run execution over plausibility).
+
+### Matriks Routing Fungsional (300+ Skills Terpetakan):
+Routing tugas secara deterministik ke kluster fungsional yang tepat, cegah pemborosan token dan platform mismatch:
+
+1. **Token-First & Integrity Spine** (Otomasi, Audit, Tata Kelola):
+   - `ben-mode` (formerly `ultimate-combined`; trigger phrase: `ben`), `ultimate-skill`, `ultimate-skills`, `delivery-gate`, `evidence-settlement`, `memory-fallback-routing`, `skill-routing-v3.7`, `ultimate-skill-verification`, `pstack-verify`, `context-compressor`, `code-mode-runtime`, `ponytail`, `caveman`, `antislop`, `anti-slop`, `no-ai-slop`, `skill-routing-v3-7`, `model-routing`.
+2. **Autonomous AI Agents & Multi-Agent Orchestration**:
+   - `hermes-agent`, `claude-code`, `codex`, `opencode`, `computer-use`, `agentbrowser`, `sandbase-harness`, `nanobot`, `strix`, `webbrain`, `task-observer`, `agent-reach`, `pinchtab-browser`, `pi-bolt`.
+3. **Software Development, Testing & Systems Engineering**:
+   - `codebase-inspection`, `dogfood`, `evidence-based-script-review`, `github`, `hermes-agent-skill-authoring`, `inspecting-hermes-desktop-dom`, `integration-trigger-verification`, `node-inspect-debugger`, `requesting-code-review`, `simplify-code`, `spike`, `systematic-debugging`, `test-driven-development`, `third-party-ruleset-adoption`, `windows-config-repair`, `sdlc-review`, `architecture-decision-records`, `superpowers`, `agent-skills`, `agent-experience`, `plannotator`, `cordis-plugin-development`, `cordis-composition-reference`, `editing-cordis-compositions`, `engineer-skills`, `dirsearch`, `tldr`.
+4. **Knowledge Graph, Codebase Intelligence & Memory**:
+   - `graphify` (AST structural + semantic knowledge graphs), `codebase-memory` (graph traversal & symbols), `obsidian` / `dsh-imported/obsidian-mind`, `llm-wiki`, `open-notebook`.
+5. **Productivity, Office Deliverables & Workspace**:
+   - `airtable`, `box`, `document-compliance-audit`, `document-to-action-items`, `docx`, `google-workspace`, `maps`, `meeting-action-items`, `notion`, `pdf`, `powerpoint`, `ppt-master` (otoritas utama deck presentasi visual), `product-price-monitor`, `report-documents-from-source-notes`, `weekly-review-planning`, `xlsx`, `document-format-replication`, `himalaya`, `email-inbox-triage`, `workspace-cleanup`.
+6. **Document Processing, OCR & Context Compression**:
+   - `mineru` (PDF >10 hal, layout/tabel kompleks), `docling` (dokumen ringan/konversi), `convert-documents-to-markdown`, `llm-text-compressor`, `context-compressor`, `post-extract`, `reel-transcript`, `social-video-transcript`.
+7. **Creative Design, UI/UX & Media**:
+   - `design-master` (otoritas utama UI/UX terpadu), `design-md`, `design-taste-skill`, `design-ui-ux-pro-max`, `design-hallmark`, `design-impeccable`, `claude-design`, `popular-web-designs`, `architecture-diagram`, `diagram-design`, `infographics`, `baoyu-infographic`, `scientific-schematics`, `oil-ui`, `ryux`, `ascii-video`, `manim-video`, `p5js`, `songwriting-and-ai-music`, `gif-search`, `songsee`, `youtube-content`, `earshot-evidence`, `design-uiux-canon`.
+8. **Research, Academic Intelligence & Scientific Literature**:
+   - `arxiv`, `competitor-news-monitor`, `grounded-citations`, `literature-review`, `literature-search`, `paper-lookup`, `paperclip`, `paperzilla`, `research-lookup`, `scholar-evaluation`, `scientific-brainstorming`, `scientific-critical-thinking`, `scientific-writing`, `last30days`.
+9. **Academic Deliverables, Practicum & Education**:
+   - `laporan-praktikum`, `practicum-audit`, `eli5`, `bantulokal-website`, `repo-link-via-ultimate-skill`.
+10. **Scientific Computing & Domain-Specific Packages (200+ Imported Modules)**:
+    - *Bioinformatika & Genomik*: `biopython`, `scanpy`, `anndata`, `scvelo`, `scvi-tools`, `bulk-rnaseq`, `pysam`, `primer-design`, `pathway-enrichment`.
+    - *Kimia Komputasi & Farmasi*: `rdkit`, `chemistry-rdkit`, `datamol`, `deepchem`, `diffdock`, `medchem`, `molfeat`, `pyopenms`.
+    - *Kuantum & Fisika*: `qiskit`, `cirq`, `pennylane`, `qutip`, `astropy`, `cantera`, `fluidsim`.
+    - *Matematika, Graf & Pemodelan Data*: `networkx`, `torch-geometric`, `transformers`, `pytorch-lightning`, `scikit-learn`, `polars`, `dask`, `vaex`, `sympy`, `pymc`, `statsmodels`.
+
+## 3. Verifikasi & Sinkronisasi (Phase C - HARD GATE #10 & TDD)
+
+- TDD RED → GREEN Proof: Ukur kondisi RED sebelum manipulasi file/katalog. Lihat `references/tdd-red-green.md`.
+- Eksekusi perbaikan tanpa link simbolik / junction (`find -type l` = 0).
+- Verifikasi GREEN: Sinkronkan salinan fisik yang memang aktif; pastikan salinan pendukung lengkap dan konsisten.
+- Menambah rujukan eksternal (mis. dari awesome-agent-harness) ke arsitektur gate: verifikasi repo nyata & klaim cocok via `web_extract` sebelum mengutip; petakan tiap entri ke seksi gate yang diperkuatnya (mis. §10/15/16); lalu sinkronkan **seluruh pohon** skill (bukan hanya SKILL.md) ke 4 replika dan verifikasi md5 identik + jumlah file penuh.
+- Untuk rename/sinkronisasi skill, inventarisasi dulu root katalog aktif, duplikasi nama, referensi pemicu, dan arsip. Pilih slug unik valid; `name:` harus sama dengan nama folder. Perbarui trigger phrase dan referensi lintas-skill, lalu salin seluruh skill dari satu sumber canonical ke root aktif yang dimaksud. Tandai snapshot lama sebagai arsip, jangan menimpa atau menghapusnya tanpa kebutuhan.
+- Verifikasi dengan parser YAML yang sudah tersedia, `skill_view` dan daftar skill Hermes; bandingkan hash semua file di salinan aktif, serta pastikan BOM/link/junction nol. Jangan memasang dependensi hanya untuk validasi frontmatter.
+
+### HARD GATE #10 Enforcement (dari `references/hard-gate-10.md`)
+
+Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
+
+1. **Jalankan verifikasi** setelah copy: `./scripts/verify-hard-gate.sh`
+2. **Schema validation** frontmatter SKILL.md (name, description, name=folder)
+3. **Per-skill replica checksum** — setiap skill punya 1 hash konsisten di semua katalog (md5sum)
+4. **Zero symlinks/junctions** — `find -type l` harus 0
+5. **Minimal 2 katalog fisik** + **4 file SKILL.md fisik**
+6. **Exit code 0** = PASS, 1 = FAIL — tidak ada "manual override"
+
+**Scripts terintegrasi** (di `scripts/`):
+- `verify-hard-gate.sh` — verifikasi lengkap + JSON audit log + schema check
+- `verify_skill_replicas.py` — PHP verifikasi setara (pure stdlib) utk host tempat `bash` tak me-resolve ke Git-Bash (mis. me-resolve ke WSL tanpa /bin/bash). Dipanggil: `python scripts/verify_skill_replicas.py --root <canonical> --replica <target> ...`. Cek seluruh pohon file, bukan hanya SKILL.md.
+- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift) buktikan gate menangkap fault
+- `sync-skills.sh` — atomic rsync + verify + rollback on fail (change management workflow)
+
+**Workflow Phase C**:
+1. RED: jalankan `verify-hard-gate.sh` sebelum sync (catat baseline)
+2. Copy skill ke 4 lokasi fisik via `sync-skills.sh` (atau manual + verify)
+3. GREEN: jalankan `verify-hard-gate.sh` lagi — harus PASS
+4. Log ke `hard-gate-audit.log` + `hard-gate-audit.log.json` (structured)
+5. Jika FAIL → rollback otomatis via `sync-skills.sh` atau manual, re-run, never skip
+
+**Pitfalls** (dari buku kanonikal):
+- Symlink/junction = technical debt (DDIA Ch3, Essential Arch) — gunakan `cp -r`/`rsync -a`/`robocopy /MIR`
+- Checksum drift = artifact drift (ML Systems Ch8) — verifikasi per-sync, cron harian untuk drift detection
+- Schema mismatch = breaking change (DDIA Ch4) — validasi frontmatter sebelum gate
+- Manual verification = unverified claim (Pragmatic Tip 44, TSNA Ch18) — selalu script, never manual check
+- Setelah sync, verifikasi **seluruh pohon** replika (setiap file), bukan hanya `SKILL.md` — salinan parsial lolos cek hash SKILL.md namun tetap gagal quorum saat file referensi/script hilang. Bandingkan set key + hash tiap file.
+- Saat membandingkan replika, kunci hash dengan **path root**, bukan basename folder — dua root berbeda bisa berbagi basename yang sama, memicu KeyError/banding salah.
+- Simpan baseline/manifest hash dan log audit **di luar pohon** yang diverifikasi — jika ditulis ke dalam pohon, penulisan itu mengubah hash yang sedang dihitung (self-invalidation) dan membuat cek reproduksibilitas/`P_reproducible` gagal. Letakkan di direktori meta terpisah, bukan di dalam root skill.
+- Scanner pola statis (injeksi/malware) **self-incriminate**: polanya sering muncul di dokumen yang mendeskripsikan teknik itu atau di kode sumber tool itu sendiri → false positive. Arahkan scanner hanya ke direktori input runtime yang ditunjuk (`--runtime-inputs`); jangan pindai prosa/referensi/dokumentasi.
+- Large file write over pagination/tools: Hindari `write_file` parsial setelah `read_file` terpaginasi (tool menolak overwrite bila state pembacaan parsial/stale). Gunakan `execute_code` Python dengan raw multiline string (`r"""..."""`) untuk mencegah kegagalan unicode escape (`\U...`/`\u...`) atau shell quoting truncation saat memperbarui dokumen spesifikasi besar (>15KB).
+- Multi-edit batch pada dokumen spesifikasi besar (>15KB): ikuti prosedur assertion-guarded batched replacement di `references/large-document-editing.md` — daftar (old, new, expected_count), anchor unik pendek (bukan blok multiline), lalu verifikasi ulang dengan cek audit yang sama.
+- Jangan menyatakan sebuah mekanisme "tidak bisa dieksekusi" karena "tooling eksternal hilang" tanpa memeriksa ketersediaannya lebih dulu (import / shutil.which / ls). Klaim infeasible yang tidak diperiksa mengeraskan diri jadi penolakan yang mengunci pekerjaan; cek dulu baru putuskan.
+- Edit yang memperkenalkan sekuens backslash-escape ke dalam kode sumber (byte literal, regex) via `patch`/`write_file`: tool dapat menerjemahkan escape menjadi karakter kontrol hidup di dalam string literal → syntax error "unterminated string". Untuk edit semacam itu, rekonstruksi baris presisi via `execute_code` (baca baris, ganti, tulis ulang), bukan `patch`.
+- Menjalankan script `.sh` gate dari `execute_code`/subprocess: jangan panggil `bash` telanjang (di host ini me-resolve ke WSL tanpa /bin/bash). Panggil jalur absolut Git-Bash: `C:\Program Files\Git\bin\bash.exe`. Verifier `.py` berjalan dengan `sys.executable`.
+- Marker status "Implemented & runtime-verified" di `hard-gate-10.md` adalah klaim, bukan fakta — jalankan artefaknya sebelum mempercayainya. Jalankan dengan interpreter/env yang SAMA dengan cron gate (`run_daily_monitor.cmd`), dan buktikan dependensi importable (mis. `import z3`) / binary eksternal ada (mis. `which opa`) bila skrip mengaku runtime-verified — file yang ada tapi dependensinya tak termuat tetap gagal saat dieksekusi. Contoh ditemukan: verifier replika canonical menyimpan syntax error lama sehingga tak pernah ter-compile; baru terungkap saat benar-benar dieksekusi.
+- Jalankan gate/verifier secara **bebas-efek samping** terhadap pohon yang diperiksa: script Python membuat `__pycache__/*.pyc` (set `PYTHONDONTWRITEBYTECODE=1`) dan default jalur audit yang relatif/tak-absolut menulis JSONL ke dalam `scripts/` — keduanya memutus identitas replika pada verifikasi berikutnya sendiri. Arahkan audit log ke absolut `tempfile.gettempdir()`, jangan pernah relatif atau ke-dalam-pohon.
+- Generate baseline/manifest signature **hanya setelah edit terakhir**, lalu verifikasi dalam satu landasan — baseline yang direkam sebelum edit lanjutan langsung basi, sehingga pohon bersih pun gagal verifikasi. Urutan aman: sinkronkan replika → regenerate baseline → verifikasi.
+- Gate pemindai katalog harus menghitung **hanya skill aktif**: lewati path arsip/`backup/*` dan file nyasar tingkat-root (skill asli hidup di sub-direktori katalog). SKILL.md lama/arsip yang ikut terhitung akan gagal schema dan memerah seluruh gate.
+- Negative test yang menyerah diam-diam saat tak bisa membangun fixture-nya memberi keyakinan palsu: di Windows/MSYS `ln -s` gagal tanpa privilege admin, sehingga uji symlink ber-pola `if [ -L ... ]; then ... fi` menjadi no-op dan terhitung "PASS" tanpa pernah memverifikasi apa pun. Buat kegagalan setup menjadi FAIL (exit 1) — verifikasi fixture benar-benar tercipta sebelum menyatakan test PASS.
+- Gate memakai DUA mekanisme manifest berbeda: `check_signed_manifest` (`gate_predicates.py` → `.hardgate_manifest.sha256`) dan `verify-hard-gate.sh` (→ `.hard-gate-meta/<skill>.manifest.sha256`). Edit skill → regenerasi baseline via `generate_manifest.py --baseline <file-di-luar-pohon>` lalu jalankan ulang verify; baseline yang basi membuat gate RED walau semua predicate lain PASS.
+- Panggil eksekutabel native (python, pip, opa) dari Git-Bash hanya dengan path native hasil `cygpath -w`: argumen `/c/...` sering termutilasi menjadi `C:\c\Users\...` (prefix drive + komponen pertama dipertahankan) oleh auto-conversion MSYS yang tidak konsisten antar-shell — python gagal membuka script/berkas dan gate melaporkan FAIL palsu (mis. manifest). Definisikan `SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"` sekali, lalu pakai `$SCRIPT_W/...` di semua pemanggilan python; lakukan sama untuk tiap argumen berkas (requirements.txt, input OPA).
+- Deteksi/ciptakan junction Windows: `os.path.islink` mengembalikan False untuk junction — deteksi via ctypes `GetFileAttributesW(p) & 0x400`. Buat junction dengan PowerShell `New-Item -ItemType Junction -Path <L> -Target <T>`; jangan `cmd //c mklink /J` (di Git-Bash bisa membuka cmd interaktif dan tidak mengeksekusi). Recipe lengkap di `references/windows-execution.md`.
+
+## References:
+- references/version-identification.md
+- references/vault-correction-2026-10-21.md
+- references/hard-gate-10.md  # ⚠️ WAJIB DIBACA setiap kali skill aktif (gate inti)
+- references/tdd-red-green.md
+- references/large-document-editing.md
+- references/article-evidence.md
+- references/pdf-corpus-regeneration.md
+- references/content-to-skill.md — alur mengubah konten eksternal/web menjadi skill (provenance, routing, sinkronisasi).
+- references/gate-audit-procedure.md — prosedur audit total klaim gate: jalankan artefak dengan env cron, klasifikasi klaim (real/overstated/broken), susun plan P0/P1/P2.
+- references/windows-execution.md — resep menjalankan toolchain gate di Windows/Git-Bash: konversi path native, pembuatan/deteksi junction, OPA, generate_manifest, konstrain schema nama-folder untuk fixture test.
+- Reference harness implementations (mendukung klaim HARD GATE #10 §§10,15,16); dikurasi dari awesome-agent-harness (Picrew), diverifikasi 2026-10-29:
+  - `google/ax` (Apache-2.0) — Agent Executor: event-log snapshots, isolated actors, audit & policy → §10 audit trail & §16 execution deterministik. https://github.com/google/ax
+  - `block/buzz` (Apache-2.0) — signed Nostr event log; audit trail identik utk manusia & agen → §15 crypto attestation/append-only log. https://github.com/block/buzz
+  - `Kocoro-lab/Shannon` (MIT) — WASI sandboxing, OPA policies, token budgets, temporal debugging → §16.1 hermetic sandbox & §13 governance. https://github.com/Kocoro-lab/Shannon
+  - `KodekaTeam/superior-skills` (MIT) — portable skill-package design: satu canonical `skills/` tree melayani banyak format agen (Claude/Codex/Cursor/Gemini/Kimi), routing by work-type, progressive disclosure via `references/` → memvalidasi pendekatan multi-replika ben-mode (katalog fisik + tree canonical). https://github.com/KodekaTeam/superior-skills
+  - `roedyrustam/vibes-plug` (MIT) — swarm plugin dgn P1–P7 engine (SMT invariant verifier→§14.1; WASM sandbox→§16.1; CycloneDX SBOM→§15.1; adversarial fuzzing→§13.1). ⚠️ Klaim performa (potong 75–90% biaya, 10x TTFT) adalah marketing tak-terverifikasi; rujukan untuk POLA desain saja. https://github.com/roedyrustam/vibes-plug

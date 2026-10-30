@@ -1,0 +1,204 @@
+{
+  "schema": "agent-skill-manifest/v1",
+  "skill": "ben-mode",
+  "algorithm": "sha256",
+  "generated_at": "2026-10-30T23:31:37.080224+00:00",
+  "file_count": 39,
+  "files": [
+    {
+      "path": "CHANGELOG.md",
+      "size": 1017,
+      "sha256": "0cd5552a38e6bb195167b01f94180408ad193c62ac162361583a3ed6a5f9725f"
+    },
+    {
+      "path": "SKILL.md",
+      "size": 18992,
+      "sha256": "ec741f943feb811eaa9dfaa763381dbb930e92cbd0d39766aa7aaa130db02997"
+    },
+    {
+      "path": "references/article-evidence.md",
+      "size": 292616,
+      "sha256": "4baa3455cb7f6f62e5542fd609f54be44283c781caa8817a7bf5c3ff58493c56"
+    },
+    {
+      "path": "references/bibliography-articles.md",
+      "size": 72280,
+      "sha256": "dba32490278133309a9bd67520bc5df778d49ecfacb9719a1c5a517e34f70a39"
+    },
+    {
+      "path": "references/content-to-skill.md",
+      "size": 2754,
+      "sha256": "35b891a44a2d860fd636a7a0faa3c262b1e1d058cd0da8b0d0f4223251b902c3"
+    },
+    {
+      "path": "references/gate-audit-procedure.md",
+      "size": 2625,
+      "sha256": "6453e7b34900d629697034e6bec9856708ad47e0d709622e925b3c755233c1e0"
+    },
+    {
+      "path": "references/hard-gate-10.md",
+      "size": 57184,
+      "sha256": "a9292c0f235a91064fa536a98c3d7dde9572c966e2a80cbdbd796acb01aeb22c"
+    },
+    {
+      "path": "references/large-document-editing.md",
+      "size": 4677,
+      "sha256": "fced11f3ca32ddbfbd23badb2a35675197f0820082b703a4908a594eaebe7c2d"
+    },
+    {
+      "path": "references/pdf-corpus-regeneration.md",
+      "size": 2540,
+      "sha256": "2935beadb932d47e82712478605f4da8b2e154252382269c95360276c851ea00"
+    },
+    {
+      "path": "references/tdd-red-green.md",
+      "size": 562,
+      "sha256": "14e3945e6b16b90ef797b1a01a2165d0a9c32b79d2af1316fb22ef95917587d1"
+    },
+    {
+      "path": "references/vault-correction-2026-10-21.md",
+      "size": 1774,
+      "sha256": "c7a9ae6aaf9c15bea40a8c795b83ab278c00b04e0312714f2242fdff1bbb8cdf"
+    },
+    {
+      "path": "references/version-identification.md",
+      "size": 1422,
+      "sha256": "1cb5460780530172cf0c6140dbe10ba2a0b5d27ae5b36ea803710cd53bb6434e"
+    },
+    {
+      "path": "references/windows-execution.md",
+      "size": 3571,
+      "sha256": "73d51d64f7d02edde80690d262a38c698fbdc78f9ec9ffa2e78d691b713bdbf2"
+    },
+    {
+      "path": "scripts/agentlog2trace.py",
+      "size": 2776,
+      "sha256": "1f2e693577259f222944f9d10b376a709f4ece4ea66ef84e72b3eb9d7148ca7f"
+    },
+    {
+      "path": "scripts/aggregate-audit.py",
+      "size": 1744,
+      "sha256": "223af6f2858772a5b92edbdc173318d0aed9fadc1b18afe46f68b8c1686f7cec"
+    },
+    {
+      "path": "scripts/bmc_replica_state.py",
+      "size": 3237,
+      "sha256": "e7711d46124665e0475ff44796893a62519e99c4c6915c0f57d43efcb6ae89c7"
+    },
+    {
+      "path": "scripts/bootstrap-deps.sh",
+      "size": 1493,
+      "sha256": "600ef9838f39cd80065b771a0fa3fbb4c78744a5ac9ac83930576289d8669819"
+    },
+    {
+      "path": "scripts/cron-hard-gate-monitor.sh",
+      "size": 2719,
+      "sha256": "36f6ee61819f2bf5c5dcbcadf9a7da459b53f61ad0381cbe999ab61bdc736b56"
+    },
+    {
+      "path": "scripts/gate_predicates.py",
+      "size": 6328,
+      "sha256": "b3069b39ec48c9bd4c70b3566fc0c9e2aea07b12e9052f9ce77c173058d3c84b"
+    },
+    {
+      "path": "scripts/generate_manifest.py",
+      "size": 3037,
+      "sha256": "968f1d44f514f3a5a81bdbc485cf6c48d2d66e07fc7833172162dde38d294570"
+    },
+    {
+      "path": "scripts/install-precommit-hook.sh",
+      "size": 1735,
+      "sha256": "1c91f86f796fc76df738ece16ba43bc18e1ba9190df5d3ca46d714a6387e9465"
+    },
+    {
+      "path": "scripts/opa-policy-check.py",
+      "size": 2267,
+      "sha256": "0921f72af26a6e8add627653586a7b4c27d28fe503d02fdb5abc33a29ec734a5"
+    },
+    {
+      "path": "scripts/quorum-check.py",
+      "size": 2874,
+      "sha256": "f3583ee422b2efb4d426beda0bbfee052cd8254180deb3b8d0dc6eda46f0b934"
+    },
+    {
+      "path": "scripts/refresh-baseline.sh",
+      "size": 1641,
+      "sha256": "7f39ae77dc883b1038de7ef323b6f2c8ec6ba8985f57b56a2ff6a7546d1d0af1"
+    },
+    {
+      "path": "scripts/report-drift.py",
+      "size": 2799,
+      "sha256": "9efc1bd120025748491386cf0226c847dcef7cf0d8303569d4089c71a271efc2"
+    },
+    {
+      "path": "scripts/requirements.txt",
+      "size": 18,
+      "sha256": "a96c6da94455d8f8f00121533abdeb6fe995505f9e84af02d0a59de7df7913c1"
+    },
+    {
+      "path": "scripts/runtime-gate-scan.sh",
+      "size": 1178,
+      "sha256": "08dea4987ef680d4c5319fffb75b4460dec9aa103bb73891ec846257f1dcb045"
+    },
+    {
+      "path": "scripts/runtime_gate.py",
+      "size": 3022,
+      "sha256": "b72b36cfccbb24615b340e12de28792a035dd50ba24aad7c50830e221929c21b"
+    },
+    {
+      "path": "scripts/sync-all-roots.sh",
+      "size": 1694,
+      "sha256": "dbc90b338d083cecf693ccfc8fd2d76792d4e4b894d39fdc0353052d5780d700"
+    },
+    {
+      "path": "scripts/sync-skills.sh",
+      "size": 2938,
+      "sha256": "c433970e938d7283e142c01bb3600882567d743562a80217b05e15209b858fec"
+    },
+    {
+      "path": "scripts/test-hard-gate-negative.sh",
+      "size": 8175,
+      "sha256": "31571f23bffba382e4d21d25e236ff3fdccd97d400775bfd1aae2d882f40d799"
+    },
+    {
+      "path": "scripts/verify-hard-gate-sandbox.sh",
+      "size": 1032,
+      "sha256": "1d44a8180b31ca83e397fd1d41e38d2c6334f57686094d3fd9f6407b25bb3510"
+    },
+    {
+      "path": "scripts/verify-hard-gate.sh",
+      "size": 9331,
+      "sha256": "0f7f63612be92836fa078209cee1462b5efd956e324206aa4f57eda4f6acdcc7"
+    },
+    {
+      "path": "scripts/verify_skill_replicas.py",
+      "size": 7135,
+      "sha256": "a2366bf7317764e9bf8a9ff7e55cb2367056e307507cb2f428f4e99599899c61"
+    },
+    {
+      "path": "scripts/fixtures/clean.jsonl",
+      "size": 535,
+      "sha256": "f6e1bfe24d55c0aaff3a0b33094dba6d49e7f5c2ed89bf6d565c5b2eda6190c8"
+    },
+    {
+      "path": "scripts/fixtures/highrisk.jsonl",
+      "size": 228,
+      "sha256": "98b7b77cf36e837d7e56644c1e6317a1dd862c302d53d1aece8d8ae9092e9a06"
+    },
+    {
+      "path": "scripts/fixtures/inject.jsonl",
+      "size": 223,
+      "sha256": "68c632084fc6e171ed06964eeda945c4703f609e86d24bf4e8dcb49e8de23fdc"
+    },
+    {
+      "path": "scripts/hooks/pre-commit.ben-mode",
+      "size": 488,
+      "sha256": "a5c8db13466fe384679a74086dc10334d6c00c128e379a912eeccc0654b30125"
+    },
+    {
+      "path": "scripts/policies/rule6.rego",
+      "size": 605,
+      "sha256": "ef8812a5019817ca5a9db322a5680dea92873d6e3d3c8e18a2dd3da56359ee2e"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+# HARD GATE #10 pre-commit hook (template).
+# Copy to <root>/.git/hooks/pre-commit and chmod +x.
+set -euo pipefail
+ROOT="$(git rev-parse --show-toplevel)"
+# Only run when staged files touch a skill tree.
+if git diff --cached --name-only | grep -qE '/(SKILL\.md|references/|scripts/)'; then
+    "$(dirname "$0")/../.." 2>/dev/null || true
+    cd "$ROOT"
+    bash "C:/Users/AMMAR/AppData/Local/hermes/skills/dsh-imported/ben-mode/scripts/verify-hard-gate.sh" "$ROOT"
+fi

@@ -1,0 +1,11 @@
+{
+  "timestamp": "2026-10-25T10:36:48Z",
+  "event": "SMOKE_TEST_EXECUTION",
+  "status": "VERIFIED",
+  "evidence": {
+    "yt_dlp_version": "2026.08.19",
+    "github_repo_verified": "yt-dlp/yt-dlp",
+    "hard_gate_status": "PASS",
+    "exit_code": 0
+  }
+}

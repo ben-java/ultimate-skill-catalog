@@ -1,0 +1,4 @@
+{"session_id": "s1", "ts": "2026-11-01T00:00:01Z", "event_type": "verify"}
+{"session_id": "s1", "ts": "2026-11-01T00:00:02Z", "event_type": "input", "payload": "apa itu BGP?", "sanitized": true}
+{"session_id": "s1", "ts": "2026-11-01T00:00:03Z", "event_type": "output", "payload": {"answer": "BGP = Border Gateway Protocol", "source": "ref"}, "expected_schema": ["answer", "source"]}
+{"session_id": "s1", "ts": "2026-11-01T00:00:04Z", "event_type": "action", "payload": {"category": "read", "target": "SPEC.md"}, "approved": true}

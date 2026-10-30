@@ -1,0 +1,2 @@
+{"session_id": "s3", "ts": "2026-11-01T00:02:01Z", "event_type": "verify"}
+{"session_id": "s3", "ts": "2026-11-01T00:02:02Z", "event_type": "action", "payload": {"category": "credential", "target": ".env"}, "approved": false}
