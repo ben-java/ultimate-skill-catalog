@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T15:26:12.098415+00:00",
+  "generated_at": "2026-10-31T15:28:14.929065+00:00",
   "file_count": 84,
   "files": [
     {
@@ -113,7 +113,7 @@
     {
       "path": "scripts/benctl.sh",
       "size": 5993,
-      "sha256": "e8df72dff3dccf58a5617d638cb8ec60a72afa43f6c1d69e5510e7f2e1690a8c"
+      "sha256": "e65c0aa882e019125027262b0e8716cdeea809bfd1c05f87f922d331c663570c"
     },
     {
       "path": "scripts/bmc_concurrency.py",

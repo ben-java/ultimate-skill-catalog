@@ -122,4 +122,3 @@ jobs:
       - name: Verify keyless attestation (P14-C2, gh)
         run: |
           gh attestation verify ben-mode/scripts/sigstore-pipeline.sh --owner "${{ github.repository_owner }}"
-
