@@ -13,6 +13,12 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Provision cosign (Test 19)
+        shell: bash
+        run: |
+          mkdir -p "$HOME/bin"
+          curl -fsSL -o "$HOME/bin/cosign.exe" https://github.com/sigstore/cosign/releases/latest/download/cosign-windows-amd64.exe
+          "$HOME/bin/cosign.exe" version
       - name: Regenerate baseline (fresh CI, self-consistent)
         shell: bash
         run: bash ben-mode/scripts/refresh-baseline.sh . ben-mode
