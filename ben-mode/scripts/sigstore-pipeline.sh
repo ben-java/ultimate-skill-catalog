@@ -12,6 +12,7 @@ SIG="$BL.sig"
 PUB="$META/sigstore/manifest.ed25519.pub"
 command -v openssl >/dev/null 2>&1 || { echo "sigstore-pipeline: openssl missing"; exit 2; }
 
+mkdir -p "$META/sigstore"
 if [ ! -f "$KEY" ]; then
   openssl genpkey -algorithm ED25519 -out "$KEY" >/dev/null 2>&1
   openssl pkey -in "$KEY" -pubout -out "$PUB" >/dev/null 2>&1

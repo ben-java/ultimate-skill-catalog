@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:42:43.318611+00:00",
+  "generated_at": "2026-10-31T17:44:59.941941+00:00",
   "file_count": 92,
   "files": [
     {
@@ -292,8 +292,8 @@
     },
     {
       "path": "scripts/sigstore-pipeline.sh",
-      "size": 1349,
-      "sha256": "abfba03dbe18d44a32f3946a8d85a558b6c87bee55aa1788fc29dba01cb597da"
+      "size": 1402,
+      "sha256": "4b6c13f3623da8f6874c322d2faebadb721f3b66b379a0267e861acecf238504"
     },
     {
       "path": "scripts/sigstore-verify.py",
