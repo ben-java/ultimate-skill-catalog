@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T01:08:14.601235+00:00",
-  "file_count": 42,
+  "generated_at": "2026-10-31T01:11:30.014583+00:00",
+  "file_count": 47,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -86,6 +86,11 @@
       "sha256": "223af6f2858772a5b92edbdc173318d0aed9fadc1b18afe46f68b8c1686f7cec"
     },
     {
+      "path": "scripts/allowlist.py",
+      "size": 4696,
+      "sha256": "aafa3df15941e465d9031d281b8992dd30ff3810b2f3c1a38aa7eb85117ec59c"
+    },
+    {
       "path": "scripts/bmc_replica_state.py",
       "size": 3237,
       "sha256": "e7711d46124665e0475ff44796893a62519e99c4c6915c0f57d43efcb6ae89c7"
@@ -97,8 +102,8 @@
     },
     {
       "path": "scripts/cron-hard-gate-monitor.sh",
-      "size": 2719,
-      "sha256": "36f6ee61819f2bf5c5dcbcadf9a7da459b53f61ad0381cbe999ab61bdc736b56"
+      "size": 3559,
+      "sha256": "c6692cd3ea9e9dd0950bd297943673fc3b8e4870dd4972ef2f59cb5f8b74f86c"
     },
     {
       "path": "scripts/gate-stats.sh",
@@ -119,6 +124,11 @@
       "path": "scripts/install-precommit-hook.sh",
       "size": 1735,
       "sha256": "1c91f86f796fc76df738ece16ba43bc18e1ba9190df5d3ca46d714a6387e9465"
+    },
+    {
+      "path": "scripts/manifest-sign.sh",
+      "size": 784,
+      "sha256": "9703a90c4d69768a327769aa977d38ec017e1dd364819b678192b094cf3f8986"
     },
     {
       "path": "scripts/opa-policy-check.py",
@@ -152,8 +162,8 @@
     },
     {
       "path": "scripts/runtime_gate.py",
-      "size": 3022,
-      "sha256": "b72b36cfccbb24615b340e12de28792a035dd50ba24aad7c50830e221929c21b"
+      "size": 5390,
+      "sha256": "2722c8dc0cb570fd7a63146f3d51f857725360fbec1fce8ef780479fc70e9be3"
     },
     {
       "path": "scripts/sync-all-roots.sh",
@@ -172,8 +182,8 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 8175,
-      "sha256": "31571f23bffba382e4d21d25e236ff3fdccd97d400775bfd1aae2d882f40d799"
+      "size": 9388,
+      "sha256": "6e80a050f8bc4bed57b488befba73d880af248dac28d2fd5e3fa552f1f7a4506"
     },
     {
       "path": "scripts/verify-hard-gate-sandbox.sh",
@@ -184,6 +194,11 @@
       "path": "scripts/verify-hard-gate.sh",
       "size": 9331,
       "sha256": "0f7f63612be92836fa078209cee1462b5efd956e324206aa4f57eda4f6acdcc7"
+    },
+    {
+      "path": "scripts/verify-manifest-sig.sh",
+      "size": 924,
+      "sha256": "2143b5c27cdbbe59a8892afcc591e3d87b3530e2c35181091378a2caf7ea3a2e"
     },
     {
       "path": "scripts/verify_skill_replicas.py",
@@ -204,6 +219,16 @@
       "path": "scripts/fixtures/inject.jsonl",
       "size": 223,
       "sha256": "68c632084fc6e171ed06964eeda945c4703f609e86d24bf4e8dcb49e8de23fdc"
+    },
+    {
+      "path": "scripts/fixtures/multi_inject.jsonl",
+      "size": 269,
+      "sha256": "ba1831a5eb0526aba822382e796e59120a8496364e4ebeeeec5d72afd00afc9c"
+    },
+    {
+      "path": "scripts/fixtures/secret.jsonl",
+      "size": 296,
+      "sha256": "1e5239e290ff5e7eaa123d044eff98615f5f218ff04d8f64e0e4379e1cbe6a3e"
     },
     {
       "path": "scripts/hooks/pre-commit.ben-mode",

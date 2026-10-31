@@ -44,13 +44,23 @@ if "$VERIFY_SCRIPT" "$ROOT" >/dev/null 2>&1    && "$PY_BIN" "$SCRIPT_W/quorum-ch
     exit 0
 else
     echo "⚠️  Drift check FAILED — drift or corruption detected! (gate or canonical quorum)" | tee -a "$ALERT_LOG"
-    # Re-run with output for details
-    "$VERIFY_SCRIPT" "$ROOT" 2>&1 | tee -a "$ALERT_LOG"
+    # Re-run with output for details (guard: verify exits 1 under set -e)
+    "$VERIFY_SCRIPT" "$ROOT" 2>&1 | tee -a "$ALERT_LOG" || true
     echo "--- quorum detail ---" | tee -a "$ALERT_LOG"
-    "$PY_BIN" "$SCRIPT_W/quorum-check.py" "${QARGS[@]}" 2>&1 | tee -a "$ALERT_LOG"
-    # Optional out-of-band notification (P1.4): set ALERT_WEBHOOK to enable.
+    QOUT=$("$PY_BIN" "$SCRIPT_W/quorum-check.py" "${QARGS[@]}" 2>&1 | tee -a "$ALERT_LOG" || true)
+    # P4 A4: optional self-repair (sync canonical -> replicas -> re-verify)
+    if [ "${REPAIR_FLAG:-0}" = "1" ]; then
+        echo "↻ REPAIR: syncing canonical -> all replicas" | tee -a "$ALERT_LOG"
+        if "$SCRIPT_DIR/sync-all-roots.sh" >/dev/null 2>&1            && "$SCRIPT_DIR/refresh-baseline.sh" "$ROOT" ben-mode >/dev/null 2>&1            && "$VERIFY_SCRIPT" "$ROOT" >/dev/null 2>&1; then
+            echo "✅ REPAIR succeeded — gate GREEN after sync" | tee -a "$ALERT_LOG"
+        else
+            echo "❌ REPAIR failed — manual intervention required" | tee -a "$ALERT_LOG"
+        fi
+    fi
+    # Optional out-of-band notification (P1.4/P4 A4): set ALERT_WEBHOOK to enable.
     if [ -n "${ALERT_WEBHOOK:-}" ]; then
-        PAYLOAD=$(printf '{"ts":"%s","status":"FAIL","root":"%s","hook":"hardgate10"}' "$TIMESTAMP" "$ROOT")
+        QJSON=$(printf '%s' "$QOUT" | python -c "import json,sys; print(json.dumps(sys.stdin.read()[-400:]))" 2>/dev/null || printf '""')
+        PAYLOAD=$(printf '{"ts":"%s","status":"FAIL","root":"%s","hook":"hardgate10","quorum":%s}' "$TIMESTAMP" "$ROOT" "$QJSON")
         if curl -fsS -m 15 -H "Content-Type: application/json" -d "$PAYLOAD" "$ALERT_WEBHOOK" >/dev/null 2>&1; then
             echo "✅ Alert sent to ALERT_WEBHOOK" | tee -a "$ALERT_LOG"
         else
