@@ -13,6 +13,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Regenerate baseline (fresh CI, self-consistent)
+        shell: bash
+        run: bash ben-mode/scripts/refresh-baseline.sh . ben-mode
       - name: HARD GATE #10
         shell: bash
         run: bash ben-mode/scripts/verify-hard-gate.sh .
