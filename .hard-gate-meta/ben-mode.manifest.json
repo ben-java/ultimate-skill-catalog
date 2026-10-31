@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:40:03.070726+00:00",
+  "generated_at": "2026-10-31T17:42:43.318611+00:00",
   "file_count": 92,
   "files": [
     {
@@ -257,8 +257,8 @@
     },
     {
       "path": "scripts/routing-health.py",
-      "size": 4576,
-      "sha256": "9dad91c0a69f889d2578e2e9ce650440f115ab6bf3152980e686b368f418da28"
+      "size": 4814,
+      "sha256": "96815817e428a4094f77f48fcf21a85f9f3440539bca646e3e77dfa97680c423"
     },
     {
       "path": "scripts/runtime-gate-scan.sh",

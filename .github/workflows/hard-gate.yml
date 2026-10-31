@@ -65,7 +65,7 @@ jobs:
       - name: Routing health (P9-S#5)
         shell: bash
         run: |
-          python ben-mode/scripts/routing-health.py
+          python ben-mode/scripts/routing-health.py --ci-smoke
       - name: Regression oracle baseline (P9-S#6)
         shell: bash
         run: |
