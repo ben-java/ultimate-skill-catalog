@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:13:41.124568+00:00",
+  "generated_at": "2026-10-31T17:19:24.237212+00:00",
   "file_count": 92,
   "files": [
     {
@@ -37,8 +37,8 @@
     },
     {
       "path": "references/browser-automation-method1.md",
-      "size": 5312,
-      "sha256": "87503497a97b28bf68d32459935d586b749ca8e172ff7cf9eabc8133fca361db"
+      "size": 6264,
+      "sha256": "09755ebbcd711135820f61d7cc100366a22d4ac7d9531fd46c4a8113eaee5c52"
     },
     {
       "path": "references/content-to-skill.md",
@@ -327,8 +327,8 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 22868,
-      "sha256": "eb515eaa095cb65b98ec35340d070f537c3c4adeb00373822eab4afb728daeff"
+      "size": 23069,
+      "sha256": "64d80087699b6684a57e3bcbfb7678945a70930d0371b886a92922029f8b4a65"
     },
     {
       "path": "scripts/traceability.py",

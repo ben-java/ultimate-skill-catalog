@@ -18,7 +18,9 @@ jobs:
         run: |
           mkdir -p "$HOME/bin"
           curl -fsSL -o "$HOME/bin/cosign.exe" https://github.com/sigstore/cosign/releases/latest/download/cosign-windows-amd64.exe
+          curl -fsSL -o "$HOME/bin/opa.exe" https://github.com/open-policy-agent/opa/releases/latest/download/opa_windows_amd64.exe
           "$HOME/bin/cosign.exe" version
+          "$HOME/bin/opa.exe" version
       - name: Regenerate baseline (fresh CI, self-consistent)
         shell: bash
         run: bash ben-mode/scripts/refresh-baseline.sh . ben-mode

@@ -48,6 +48,16 @@ Saat trigger `ben` atau `ben-mode` memicu eksekusi yang melibatkan akses browser
 - **Jangan menulis `echo "PASS"` tanpa `echo:;` yang eksplisit** — dalam konteks bash di Windows/MSYS, output kosong atau format salah dapat disalahartikan sebagai kegagalan oleh parser audit.
 - **Jangan menjalankan `bash` telanjang** dari Python di Windows — gunakan `sys.executable` untuk Python dan `C:\Program Files\Git\bin\bash.exe` secara eksplisit untuk bash.
 
+## Profil yang benar (penyebab 0 post terlihat pada eksekusi sebelumnya)
+
+Pada verifikasi nyata, relaunch memakai profil `Ad Blocking` (folder pertama di `Edge\User Data`). Profil ini TIDAK berisi sesi login Threads kamu; sesi login kemungkinan ada di `Default` (atau profil lain yang kamu pakai saat login manual). Sebelum eksekusi, pastikan `--user-data-dir=` menunjuk folder profil yang benar.
+
+Perintah tepat (ganti `<PROFIL_LOG_IN_KAMU>` dengan `Default` atau nama folder profil yang berisi sesi):
+```
+"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --remote-debugging-port=9222 --user-data-dir="C:\Users\AMMAR\AppData\Local\Microsoft\Edge\User Data\<PROFIL_LOG_IN_KAMU>" --start-maximized https://www.threads.net/
+```
+Port `9222` wajib tetap sama agar Playwright (`connect_over_cdp`) terhubung. Tanpa port ini, Playwright memakai instance baru (tanpa cookie sesi) dan halaman repost akan kosong (`visible_elements`: 0).
+
 ## Perintah referensi cepat
 ```python
 # Verifikasi executable

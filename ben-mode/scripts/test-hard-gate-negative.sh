@@ -13,7 +13,12 @@ SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"
 VERIFY_SCRIPT="$SCRIPT_DIR/verify-hard-gate.sh"
 GATE_PRED="$SCRIPT_W/gate_predicates.py"
 PY=${PYTHON:-python}
-OPA="${OPA_BIN:-$(command -v opa || echo ~/bin/opa.exe || echo C:/Users/AMMAR/bin/opa.exe)}"
+OPA=""
+if [ -n "${OPA_BIN:-}" ]; then OPA="$OPA_BIN"
+elif command -v opa >/dev/null 2>&1; then OPA="$(command -v opa)"
+elif [ -x "$HOME/bin/opa.exe" ]; then OPA="$HOME/bin/opa.exe"
+elif [ -x "C:/Users/AMMAR/bin/opa.exe" ]; then OPA="C:/Users/AMMAR/bin/opa.exe"
+fi
 W() { cygpath -w "$1"; }
 
 TMP_TEST=$(mktemp -d "${TMPDIR:-/tmp}/hg10-test-XXXXXX")
@@ -447,7 +452,7 @@ else
 fi
 
 # Test 32: OPA rule7 must deny unknown tool param (P26-1)
-if [ -n "$OPA" ]; then
+if [ -n "${OPA:-}" ] && [ -x "${OPA:-}" ]; then
     TMP_T7="$TMP_TEST/t7"
     mkdir -p "$TMP_T7"
     cat > "$TMP_T7/in.json" <<JSON
