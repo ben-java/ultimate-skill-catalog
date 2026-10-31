@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T16:19:29.617181+00:00",
-  "file_count": 89,
+  "generated_at": "2026-10-31T16:57:52.349187+00:00",
+  "file_count": 90,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -269,6 +269,11 @@
       "path": "scripts/runtime_gate.py",
       "size": 10096,
       "sha256": "6b9f4ae75a6e577977e3dcb28cda0410ce4ac16759c43d005edbeece3efe443b"
+    },
+    {
+      "path": "scripts/scitt-receipt.py",
+      "size": 3554,
+      "sha256": "93be86c244447950148e2f9b02e385a8b2a85c9ed386548cdd7d34186bba38e1"
     },
     {
       "path": "scripts/settle-unverified.py",
