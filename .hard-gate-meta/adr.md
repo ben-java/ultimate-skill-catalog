@@ -273,3 +273,8 @@ penuh + simpan sig baru.
 - **Status**: Accepted
 - **Decision**: 1) pre-commit hook mengecualikan .sig/.bin dari whitespace --check (commit normal tanpa --no-verify); 2) weekly-summary.py menampilkan last gate verdict; 3) CI keyless tetap BLOCKED-BY-REMOTE.
 - **Consequences**: Guard commit pulih (tanpa bypass); paritas observability lengkap di matrix/dashboard/weekly.
+
+## ADR-29: Phase 26 Agent-Runtime Hardening (2026-10-31)
+- **Status**: Accepted
+- **Decision**: Tambah P_rt_ifc, P_rt_plan_drift, P_rt_tool_schema di runtime_gate.py; OPA Rule 7 tool-policy; Test 31/32 (TOTAL_TESTS=32).
+- **Consequences**: Runtime gate menolak cross-boundary trust flow, urutan tool drift, dan param tool invalid; OPA menegakkan allowlist tool.

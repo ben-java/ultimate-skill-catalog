@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.22.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.23.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1298,6 +1298,11 @@ $$
 - Pre-commit hook di-hardening: `git diff --cached --check` mengecualikan artefak
   biner/provenans (`.sig`, `.bin`) sehingga commit baseline tidak terpaksa
   `--no-verify`; guard gate tetap berjalan untuk SKILL.md/references/scripts.
+- P26 runtime hardening: `P_rt_ifc` (info flow control — untrusted input→high-risk
+  action tanpa verify/approval ditolak), `P_rt_plan_drift` (urutan tool-call
+  menyimpang dari `plan_step` monotonic ditolak), `P_rt_tool_schema` (param tool
+  wajib lolos tipe schema); OPA Rule 7 (`policies/rule7.rego`) menegakkan policy
+  invokasi tool (allowlist + max_params + tipe param) di `opa-policy-check.py`.
 
 ---
 

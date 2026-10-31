@@ -52,6 +52,10 @@ MAP = {
     "P24-D fresh-guard test": ([], [], ["test-hard-gate-negative.sh"]),
     "P25-A hook hardening": ([], [], ["install-precommit-hook.sh"]),
     "P25-B weekly gate verdict": ([], [], ["weekly-summary.py"]),
+    "P26-1 tool policy (OPA7)": ([], [], ["opa-policy-check.py", "policies/rule7.rego"]),
+    "P26-2 plan drift": (["P_rt_plan_drift"], [], ["runtime_gate.py"]),
+    "P26-3 IFC": (["P_rt_ifc"], [], ["runtime_gate.py"]),
+    "P26-6 tool schema": (["P_rt_tool_schema"], [], ["runtime_gate.py"]),
 }
 
 

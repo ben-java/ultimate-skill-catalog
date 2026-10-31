@@ -1,0 +1,3 @@
+{"session_id":"s1","ts":"2026-10-31T10:00:00Z","event_type":"verify"}
+{"session_id":"s1","ts":"2026-10-31T10:00:01Z","event_type":"action","payload":{"category":"read","trust":"trusted","plan_step":1,"params":{"path":"a"},"param_schema":{"path":"str"}}}
+{"session_id":"s1","ts":"2026-10-31T10:00:02Z","event_type":"action","payload":{"category":"read","trust":"trusted","plan_step":2,"params":{"path":"b"},"param_schema":{"path":"str"}}}

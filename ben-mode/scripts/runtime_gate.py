@@ -6,6 +6,9 @@ Predicates:
   P_rt_highrisk_hitl - destructive/credential action requires approved==true
   P_rt_output_structure - output with expected_schema must carry required keys
   P_rt_sessions    - zero-trust: tiap session diverifikasi ulang (quorum fresh)
+  P_rt_ifc         - information flow control: untrusted input->high-risk action tanpa verify boundary
+  P_rt_plan_drift  - plan drift: tool-call sequence menyimpang dari urutan/plan yang diizinkan
+  P_rt_tool_schema - tool param harus lolos schema ketat (tipe/sejumlah/allowlist)
 Exit: 0 PASS, 1 FAIL.
 """
 import sys, os, json, re, hashlib, datetime
@@ -64,6 +67,7 @@ def _scan_secrets(text):
 def check_trace(path):
     fails = {}
     sessions = set()
+    _last_plan = {}
     if not os.path.isfile(path):
         return {"trace_missing": True}
     with open(path, encoding="utf-8") as f:
@@ -93,6 +97,29 @@ def check_trace(path):
         sec = _scan_secrets(text)
         if sec and not ev.get("approved"):
             fails.setdefault("P_rt_secrets", []).append(sec[0])
+        # P_rt_ifc (P26-3): untrusted input boundary -> high-risk action tanpa verify/approval
+        if et == "action":
+            cat = str(pl.get("category", "")).lower()
+            trust = str(pl.get("trust", "trusted")).lower()
+            if any(h in cat for h in HIGH_RISK) and trust == "untrusted" and not ev.get("approved"):
+                fails.setdefault("P_rt_ifc", []).append(f"{ev.get('session_id')}:{cat}")
+        # P_rt_plan_drift (P26-2): tool-call sequence menyimpang dari plan_step monotonic
+        if et == "action" and isinstance(pl.get("plan_step"), int):
+            _s = ev.get("session_id")
+            _prev = _last_plan.get(_s)
+            if _prev is not None and pl["plan_step"] < _prev:
+                fails.setdefault("P_rt_plan_drift", []).append(f"{_s}:step{pl['plan_step']}after{_prev}")
+            _last_plan[_s] = pl["plan_step"]
+        # P_rt_tool_schema (P26-6): tool param wajib cocok schema
+        if et == "action" and isinstance(pl.get("params"), dict) and isinstance(pl.get("param_schema"), dict):
+            for _pn, _pt in pl["param_schema"].items():
+                if _pn not in pl["params"]:
+                    continue
+                _val = pl["params"][_pn]
+                if _pt == "str" and not isinstance(_val, str):
+                    fails.setdefault("P_rt_tool_schema", []).append(f"{_pn}:want-str-got-{type(_val).__name__}")
+                elif _pt == "int" and not isinstance(_val, int):
+                    fails.setdefault("P_rt_tool_schema", []).append(f"{_pn}:want-int-got-{type(_val).__name__}")
     # P_rt_sessions: zero-trust
     recs = {}
     for ev in (json.loads(l) for l in lines):

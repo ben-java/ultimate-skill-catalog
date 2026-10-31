@@ -4,7 +4,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # test-hard-gate-negative.sh — adversarial tests proving HARD GATE #10 fails on invalid states.
 # Every fixture-setup failure must FAIL loudly (exit 1), never silently skip.
 set -euo pipefail
-TOTAL_TESTS=30
+TOTAL_TESTS=32
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Native Windows path for python invocations — MSYS auto-conversion of
@@ -13,6 +13,7 @@ SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"
 VERIFY_SCRIPT="$SCRIPT_DIR/verify-hard-gate.sh"
 GATE_PRED="$SCRIPT_W/gate_predicates.py"
 PY=${PYTHON:-python}
+OPA="${OPA_BIN:-$(command -v opa || echo ~/bin/opa.exe || echo C:/Users/AMMAR/bin/opa.exe)}"
 W() { cygpath -w "$1"; }
 
 TMP_TEST=$(mktemp -d "${TMPDIR:-/tmp}/hg10-test-XXXXXX")
@@ -433,6 +434,39 @@ if ! grep -q 'fresh-machine disabled' "$BENCTL"; then
     exit 1
 fi
 echo "✅ Test 30 PASS: fresh-machine guard default ON + honest OFF-warning guaranteed"
+
+
+# Test 31: IFC + tool-schema violations in trace must fail runtime gate (P26)
+TMP_IFC="$TMP_TEST/ifc"
+mkdir -p "$TMP_IFC"
+cat > "$TMP_IFC/bad.jsonl" <<JSON
+{"session_id":"s2","ts":"2026-10-31T10:00:00Z","event_type":"verify"}
+{"session_id":"s2","ts":"2026-10-31T10:00:01Z","event_type":"action","payload":{"category":"credential","trust":"untrusted"}}
+{"session_id":"s2","ts":"2026-10-31T10:00:02Z","event_type":"action","payload":{"category":"read","trust":"trusted","plan_step":2,"params":{"path":"b"},"param_schema":{"path":"int"}}}
+JSON
+if "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_IFC/bad.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 31 FAIL: IFC/tool-schema violations passed"
+    exit 1
+else
+    echo "✅ Test 31 PASS: IFC + tool-schema violations rejected"
+fi
+
+# Test 32: OPA rule7 must deny unknown tool param (P26-1)
+if [ -n "$OPA" ]; then
+    TMP_T7="$TMP_TEST/t7"
+    mkdir -p "$TMP_T7"
+    cat > "$TMP_T7/in.json" <<JSON
+{"allowed_tools":[{"name":"read_file","max_params":1,"param_types":{"path":"str"}}],"invocation":{"tool":"read_file","params":{"path":"x","extra":1}}}
+JSON
+    if "$OPA" eval --format json --data "$SCRIPT_DIR/policies/rule7.rego" --input "$TMP_T7/in.json" data.hardgate.tool.allow 2>/dev/null | grep -q '"value": false'; then
+        echo "✅ Test 32 PASS: OPA rule7 denied unknown param"
+    else
+        echo "❌ Test 32 FAIL: rule7 should deny unknown param"
+        exit 1
+    fi
+else
+    echo "✅ Test 32 SKIPPED: OPA absent (honest skip)"
+fi
 
 
 echo "🎉 All negative/adversarial tests PASSED."

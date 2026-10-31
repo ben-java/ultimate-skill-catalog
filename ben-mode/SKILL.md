@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.22.0
+version: 0.23.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -81,7 +81,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - `benctl.sh` — satu perintah orkestrasi penuh (`sync-all-roots` → `refresh-baseline` → `verify-hard-gate` → `quorum-check` → `dashboard` → `status-matrix`) dengan flag `--redgreen`.
 - `verify-hard-gate.sh` — verifikasi lengkap + JSON audit log + schema check + auto-source `gate.conf`
 - `verify_skill_replicas.py` — PHP verifikasi setara (pure stdlib) utk host tempat `bash` tak me-resolve ke Git-Bash (mis. me-resolve ke WSL tanpa /bin/bash). Dipanggil: `python scripts/verify_skill_replicas.py --root <canonical> --replica <target> ...`. Cek seluruh pohon file, bukan hanya SKILL.md.
-- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 30/30 tests) buktikan gate menangkap fault
+- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 32/32 tests) buktikan gate menangkap fault
 - `sync-skills.sh` — atomic rsync + verify + rollback on fail (change management workflow)
 
 **Workflow Phase C**:
@@ -144,7 +144,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Saat matriks status perlu mencerminkan verdict checker lain (mis. traceability, coverage): jalankan checker itu via `subprocess` dan parse stdout-nya — jangan meng-ulang logikanya inline, atau dua salinan logika drift diam-diam.
 - Log audit append-only (JSONL/log) tumbuh tanpa batas; tambahkan langkah rotasi/retensi (arsip ke `meta/archive/<ts>/` lalu truncate live) di monitor terjadwal, bukan hanya saat disk penuh.
 - Label/hitungan statik pada output orkestrasi (mis. `benctl` "negative adversarial suite (29/29)") langsung basi saat jumlah suite bertambah; turunkan dari sumber tunggal yang sama (`TOTAL_TESTS`) atau perbarui serentak dengan bump hitungan, kalau tidak laporan menampilkan angka lebih rendah daripada suite yang benar-benar dieksekusi.
-- Commit baseline git yang menyertakan artefak provenans biner (`.sig`) dan workflow YAML terkena pre-commit whitespace/blank-line-EOF → bypass `--no-verify` hanya untuk file tak tersentuh dan catat jujur; idealnya konfigurasi hook agar melewatkan ekstensi biner/signature supaya commit normal berikutnya tetap tertahan.
+- Pre-commit `git diff --cached --check` gagal pada artefak provenans biner (`.sig`, `.bin`) dan blank-line-EOF YAML → jangan bypass `--no-verify`; kunci exklusi via pathspec pada perintah check itu sendiri: `git diff --cached --check -- . ':(exclude)*.sig' ':(exclude)*.bin'`. Ini menyimpan guard whitespace untuk file teks, melewatkan biner, dan membuat commit normal tetap tertahan tanpa bypass. Bila tetap harus `--no-verify`, batasi hanya untuk file tak tersentuh dan catat jujur.
 - Subprocess `git commit` via execute_code wajib set `GIT_AUTHOR_NAME`/`GIT_AUTHOR_EMAIL` (+ COMMITTER) eksplisit — tanpa itu gagal "Author identity unknown". Decode output subprocess dgn `errors="replace"` karena pre-commit hook dapat memuntahkan byte non-UTF8 yang menghentikan decode ketat.
 - `git add -A -- ':(exclude)…'` hanya mengecualikan file belum-di-tracking; artefak self-healing yang sudah ter-tracking tetap ikut ter-stage — bila ingin dikeluarkan, unstage setelah add atau terima melacaknya.
 - Mekanisme gate baru wajib didokumentasikan di BADAN spec (BAGIAN), bukan sekadar bump header versi — grep istilah implementasi di doc harus positif setelah rilis; header saja membuat klaim "selaras" menipu.
@@ -184,3 +184,21 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
   - `Kocoro-lab/Shannon` (MIT) — WASI sandboxing, OPA policies, token budgets, temporal debugging → §16.1 hermetic sandbox & §13 governance. https://github.com/Kocoro-lab/Shannon
   - `KodekaTeam/superior-skills` (MIT) — portable skill-package design: satu canonical `skills/` tree melayani banyak format agen (Claude/Codex/Cursor/Gemini/Kimi), routing by work-type, progressive disclosure via `references/` → memvalidasi pendekatan multi-replika ben-mode (katalog fisik + tree canonical). https://github.com/KodekaTeam/superior-skills
   - `roedyrustam/vibes-plug` (MIT) — swarm plugin dgn P1–P7 engine (SMT invariant verifier→§14.1; WASM sandbox→§16.1; CycloneDX SBOM→§15.1; adversarial fuzzing→§13.1). ⚠️ Klaim performa (potong 75–90% biaya, 10x TTFT) adalah marketing tak-terverifikasi; rujukan untuk POLA desain saja. https://github.com/roedyrustam/vibes-plug
+
+---
+
+### 4. Browser Context Automation — Metode 1 (CDP / Playwright)
+Alur eksekusi saat tugas melibatkan akses browser (mis. `agentbrowser`, akses akun sosial melalui sesi browser yang sudah diautentikasi oleh pengguna). Ini bukan pengganti `hard-gate-10.md`; hanya prosedur teknis.
+
+**Urutan wajib (tidak bisa dilewati):**
+1. Muat `references/hard-gate-10.md`.
+2. Verifikasi lingkungan fisik: `os.path.isfile` untuk executable (`Helium.exe`, `chrome.exe`, `msedge.exe`, `firefox.exe`); periksa direktori profil (`User Data`, `Profiles`); `tasklist` untuk proses berjalan; `import playwright` atau `pip list`.
+3. Tulis script (`method1_cdp_script_*.py`) dengan `HELIUM_BIN`, `PROFILE_DIR`, `DEBUG_PORT = 9222`, dan perintah `subprocess.Popen` untuk membuka browser dengan `--remote-debugging-port=9222 --user-data-dir=...`.
+4. **Tidak memasukkan username/password secara otomatis** — pengguna memasukkannya manual.
+5. Buat audit JSON (`audit-*.json`) dengan `execution_timestamp`, `honesty_flag`: "Tidak ada akses berhasil dieksekusi oleh agen; hanya pembukaan browser yang diverifikasi.", `action`: perintah yang dijalankan, status executable (`*_found`), status Playwright (`playwright_available`), dan `integrity_notes`.
+6. Verifikasi proses (`tasklist /FI "PID eq ..."`) untuk membuktikan browser berjalan.
+7. Jika lingkungan tidak siap (missing executable, missing Playwright), laporkan jujur, berikan perintah perbaikan (`pip install playwright && playwright install chromium`), dan **jangan klaim akses berhasil**.
+
+**Pitfall (aturan tetap):** Jangan menyatakan "tidak bisa dieksekusi" tanpa memeriksa terlebih dahulu (`import`, `os.path.isfile`, `tasklist`). Jangan mengklaim akses berhasil tanpa audit file fisik (`honesty_flag`). Jangan menyuntikkan kredensial secara otomatis — akses akun sosial memerlukan otorisasi manual pengguna. Lihat `references/browser-automation-method1.md` untuk detail perintah dan template audit.
+
+Lihat juga: `references/browser-automation-method1.md`.

@@ -1,3 +1,11 @@
+## v0.23.0 (2026-10-31) — Phase 26 Agent-Runtime Hardening (IFC/Drift/Tool-Schema/OPA7)
+
+- **P26-1**: `policies/rule7.rego` (policy invokasi tool; allowlist+max_params+tipe para) dievaluasi `opa-policy-check.py` — deny param tak dikenal.
+- **P26-2**: `P_rt_plan_drift` — urutan tool-call menyimpang dari `plan_step` monotonic ditolak.
+- **P26-3**: `P_rt_ifc` — untrusted input→high-risk action tanpa verify/approval ditolak.
+- **P26-6**: `P_rt_tool_schema` — param tool wajib cocok tipe schema.
+- Test 31 & 32 ditambahkan (TOTAL_TESTS=32, 32/32 PASS).
+- **P26-12**: CI remote tetap `BLOCKED-BY-REMOTE`.
 ## v0.22.0 (2026-10-31) — Phase 25 Hook Hardening & Weekly Gate-Verdict Telemetry
 
 - **P25-A1**: pre-commit hook di-hardening — `git diff --cached --check` mengecualikan `.sig`/`.bin`; blank-line-EOF workflow dibersihkan; commit normal kini lulus tanpa `--no-verify` (commit `662ff7b`).

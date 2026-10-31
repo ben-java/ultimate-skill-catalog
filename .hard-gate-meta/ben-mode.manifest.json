@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T15:35:21.242416+00:00",
-  "file_count": 84,
+  "generated_at": "2026-10-31T15:58:04.976314+00:00",
+  "file_count": 88,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 21552,
-      "sha256": "a0d30da27a1282736e68a6dc71c941382b0d8a56fc7aeb732f8a41f1be65e9a8"
+      "size": 22175,
+      "sha256": "569e8089eb6895771e7edfcac584515bf188fadc2368c10b2d302f19502bf812"
     },
     {
       "path": "SKILL.md",
-      "size": 32920,
-      "sha256": "6772d9abb023c8e54e8b7f4de363d8d8465d1bbbf68c5d3932c61a95cde88a38"
+      "size": 35103,
+      "sha256": "694b5e81ead5a283fb4f19f3b4079328041e7a0f5720b4ed772eacff14692910"
     },
     {
       "path": "gate.conf",
@@ -36,6 +36,11 @@
       "sha256": "dba32490278133309a9bd67520bc5df778d49ecfacb9719a1c5a517e34f70a39"
     },
     {
+      "path": "references/browser-automation-method1.md",
+      "size": 5312,
+      "sha256": "87503497a97b28bf68d32459935d586b749ca8e172ff7cf9eabc8133fca361db"
+    },
+    {
       "path": "references/content-to-skill.md",
       "size": 2754,
       "sha256": "35b891a44a2d860fd636a7a0faa3c262b1e1d058cd0da8b0d0f4223251b902c3"
@@ -47,8 +52,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 63838,
-      "sha256": "49c83cbfeeb00f261a79878d1edb79b17566ce39ec631c2ca38c0c7298b9ce06"
+      "size": 64249,
+      "sha256": "928fe39b7699711d298099997cb7e32ea2871c6ff07b74f876eda2c7bcc521a2"
     },
     {
       "path": "references/large-document-editing.md",
@@ -113,7 +118,7 @@
     {
       "path": "scripts/benctl.sh",
       "size": 5993,
-      "sha256": "e65c0aa882e019125027262b0e8716cdeea809bfd1c05f87f922d331c663570c"
+      "sha256": "f9e9d4484ac46f9064d4dc48ad0dd9b11a61543f23ad2bd1cfab4e5b1adaee4e"
     },
     {
       "path": "scripts/bmc_concurrency.py",
@@ -207,8 +212,8 @@
     },
     {
       "path": "scripts/opa-policy-check.py",
-      "size": 2509,
-      "sha256": "7bbfc6c2c3dd8637d31eee43e5a33037efcb4effc1e8b173fd6423abf63be8e9"
+      "size": 3761,
+      "sha256": "c08d6db896266c3899d6cc873905ed91148d9e0a366ec51cb388e7dd6cc7039e"
     },
     {
       "path": "scripts/quorum-check.py",
@@ -262,8 +267,8 @@
     },
     {
       "path": "scripts/runtime_gate.py",
-      "size": 6664,
-      "sha256": "f7a3511dec9610fe51e0501700066c73a7088f115bdf6992504a8cb205881279"
+      "size": 8724,
+      "sha256": "ab1b8e0ac6af32ed479b769bdb9e717b932208e35bdf618a200985d23bf3213b"
     },
     {
       "path": "scripts/settle-unverified.py",
@@ -302,13 +307,13 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 19440,
-      "sha256": "3d1cb96a54f3124cd87bc3cd37df1ccd8a4e947b9acef94abb0194c1b5e09c60"
+      "size": 21058,
+      "sha256": "db31382e93ca165316ac3052843e78b542568f88eb67811e7bdcb1cbc94ffc2c"
     },
     {
       "path": "scripts/traceability.py",
-      "size": 4394,
-      "sha256": "582451792c79070ef4ffc6a9d0c0a43007fc7ac8101a81c76d0bd1336e688a8e"
+      "size": 4692,
+      "sha256": "52a02ae83a9609b400536d2dbe9f8202f5ff5cd7244f2511dcccb8acfe9b75a8"
     },
     {
       "path": "scripts/transparency-log.py",
@@ -401,6 +406,16 @@
       "sha256": "8f294b0dc3667cba94424834be1fad91c2f8b872bf9b2ba3f0b1b70bf1d2b40e"
     },
     {
+      "path": "scripts/fixtures/p26_clean.jsonl",
+      "size": 441,
+      "sha256": "411b125a225ee96a7e08b8eb5d8d7e2d51b7097502ebb33690eb367f5167573e"
+    },
+    {
+      "path": "scripts/fixtures/p26_ifc.jsonl",
+      "size": 383,
+      "sha256": "7bbc11736f919d8620168ca7eb062b686a8c93e9e48291c25e05c472a86a13dc"
+    },
+    {
       "path": "scripts/fixtures/secret.jsonl",
       "size": 296,
       "sha256": "1e5239e290ff5e7eaa123d044eff98615f5f218ff04d8f64e0e4379e1cbe6a3e"
@@ -419,6 +434,11 @@
       "path": "scripts/policies/rule6.rego",
       "size": 605,
       "sha256": "ef8812a5019817ca5a9db322a5680dea92873d6e3d3c8e18a2dd3da56359ee2e"
+    },
+    {
+      "path": "scripts/policies/rule7.rego",
+      "size": 549,
+      "sha256": "93ab124a462025a4ee6e20745df3fbcf037259ad9ad98f308a31856c75635b6c"
     },
     {
       "path": "scripts/tests/test_toolchain.py",
