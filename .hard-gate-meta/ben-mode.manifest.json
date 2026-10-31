@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T16:06:13.353978+00:00",
-  "file_count": 88,
+  "generated_at": "2026-10-31T16:17:56.439552+00:00",
+  "file_count": 89,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 22819,
-      "sha256": "d53187d4bac5e9509337523827ef1b4e1be1643cbd786d37febed5b802b1e23e"
+      "size": 23170,
+      "sha256": "b2a66b659bbd628ca732aa787aef2c5bb5fbc96e0d5c5d1313363cff49595293"
     },
     {
       "path": "SKILL.md",
-      "size": 36328,
-      "sha256": "31b6d69b6c2a9b83006bf79016e0e6beb0e97fdfad37ff1629253e148575a5ee"
+      "size": 36816,
+      "sha256": "5cab7fda82fdc26e038771b5c01cda20a53c1715cbf0d81c37303ab140eb0193"
     },
     {
       "path": "gate.conf",
@@ -52,8 +52,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 64652,
-      "sha256": "e866240a6f1d0692e633c294c3b0ba2d685042318f75b0c3bdb91b660ac199cf"
+      "size": 64786,
+      "sha256": "a505de7dc430af0514474168b3c262b5e504e06fd1fc55ed4f3e74e83cf9cb2b"
     },
     {
       "path": "references/large-document-editing.md",
@@ -117,8 +117,8 @@
     },
     {
       "path": "scripts/benctl.sh",
-      "size": 6957,
-      "sha256": "156d6583b176e2fe8429f950cd6e9393b5419d8c48799cbe2f1a2e68a4a8af0c"
+      "size": 7308,
+      "sha256": "28597d1763780d0ef473ee482a14fa41fe8631be6b69a74b90459b971170eb8d"
     },
     {
       "path": "scripts/bmc_concurrency.py",
@@ -286,6 +286,11 @@
       "sha256": "a0cf5fe678c81618fe0846ed81864fe95c582db702ff0945ff7851aa7d9488cb"
     },
     {
+      "path": "scripts/span-tree.py",
+      "size": 2486,
+      "sha256": "71d1a565815e1b1222a2e32e67fce5188ce7f53881f32cb252ea9fc10c807174"
+    },
+    {
       "path": "scripts/status-matrix.py",
       "size": 10273,
       "sha256": "96be401482af960739f0676f797e0d89e59131497169c6f5f866a0fe5cea706d"
@@ -307,13 +312,13 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 22249,
-      "sha256": "785968a501c044b91cc60be3510bdef88e847c9c338c68395c060436df174d71"
+      "size": 22805,
+      "sha256": "d8b5aa0c34f3c3947fe270a5d1fc3fa9c010a8d328a6221fb8b40a048f0bbdf3"
     },
     {
       "path": "scripts/traceability.py",
-      "size": 5014,
-      "sha256": "e0fdc43cb7184c39c27b3db6b4bf4505d8469fb971a060daddde01effb8707b1"
+      "size": 5066,
+      "sha256": "a90ddbeb043de3997abaa02fdcebe81026a9faaa75c43ffbdaa1126b5f7ad89b"
     },
     {
       "path": "scripts/transparency-log.py",

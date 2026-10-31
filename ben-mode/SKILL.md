@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.24.0
+version: 0.25.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -81,7 +81,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - `benctl.sh` — satu perintah orkestrasi penuh (`sync-all-roots` → `refresh-baseline` → `verify-hard-gate` → `quorum-check` → `dashboard` → `status-matrix`) dengan flag `--redgreen`.
 - `verify-hard-gate.sh` — verifikasi lengkap + JSON audit log + schema check + auto-source `gate.conf`
 - `verify_skill_replicas.py` — PHP verifikasi setara (pure stdlib) utk host tempat `bash` tak me-resolve ke Git-Bash (mis. me-resolve ke WSL tanpa /bin/bash). Dipanggil: `python scripts/verify_skill_replicas.py --root <canonical> --replica <target> ...`. Cek seluruh pohon file, bukan hanya SKILL.md.
-- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 34/34 tests) buktikan gate menangkap fault
+- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 35/35 tests) buktikan gate menangkap fault
 - `sync-skills.sh` — atomic rsync + verify + rollback on fail (change management workflow)
 
 **Workflow Phase C**:
@@ -152,6 +152,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - OPA `eval --input -` (stdin) tidak konsisten — tulis input ke temp file lalu teruskan path-nya; dan output `--format json` untuk deny adalah `"value": false` (dengan spasi), bukan `"false"` — skrip grep/skema harus mencocokkan `"value": false`.
 - Cabang "skip" di suite adversarial jangan men-echo `Test N PASS` (mis. saat tool absent) — `status-matrix.py` menghitung kemunculan `Test \d+ PASS` dan membandingkannya dengan `TOTAL_TESTS`; dup match membuat `negative_pass_consistent=false` walau suite lolos. Pakai kata `SKIPPED` untuk skip jujur.
 - Hook pre-commit menjalankan `verify-hard-gate.sh` pada tiap commit yang menyentuh SKILL.md, references, atau scripts — jadi baseline manifest WALIB terkini pada saat commit: edit apa pun (termasuk perbaikan trailing whitespace atau bump label) harus diikuti `refresh-baseline.sh` + `sync-all-roots.sh` SEBELUM commit, atau hook gagal "Manifest FAIL" dan menolak commit (bukan bypass `--no-verify`).
+- Scanner self-BOM (`status-matrix.py` `missing_bom`) memindai setiap baris yang diawali `- ` di SKILL.md dan mengekstrak path `(references|scripts)/...` — prosa dalam bullet yang secara literal memuat frasa `references` dirangkai slash diikuti sub-path (mis. `references` dirangkai `scripts`) memicu `SELF-BOM FAIL` palsu walau tak ada referensi hilang. Jauhkan literal mirip-path dari prosa bullet; reword (mis. `references dan scripts`) atau jangan tulis frasa itu di baris bullet.
 
 ## References:
 - references/version-identification.md

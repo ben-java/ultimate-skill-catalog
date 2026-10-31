@@ -61,6 +61,7 @@ MAP = {
     "P26-9 msg auth": (["P_rt_msg_auth"], [], ["runtime_gate.py"]),
     "P26-10 redteam": ([], [], ["benctl.sh"]),
     "P26-11 token scope": (["P_rt_secrets"], [], ["runtime_gate.py"]),
+    "P26-7 span tree": ([], [], ["span-tree.py"]),
 }
 
 

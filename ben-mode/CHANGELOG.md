@@ -1,3 +1,8 @@
+## v0.25.0 (2026-10-31) — Phase 26 final: Span-Tree Hierarchy (P26-7)
+
+- **P26-7**: `span-tree.py` baru — validasi hierarki span (parent_span resolve, anti-siklus, hitung handoff); terintegrasi deep `benctl`.
+- Test 35 ditambahkan (TOTAL_TESTS=35, 35/35 PASS).
+- **P26-4** SCITT/COSE & **P26-12** CI remote tetap `BLOCKED-BY-REMOTE`/tooling.
 ## v0.24.0 (2026-10-31) — Phase 26 lanjutan: Throttle, Msg-Auth, Token-Scope, AIBOM, Redteam
 
 - **P26-5**: `check_ai_bom` + `--ai-bom` → `P_ai_bom` (manifest `.ai-bom.json`).

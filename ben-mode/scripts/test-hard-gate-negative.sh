@@ -4,7 +4,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # test-hard-gate-negative.sh — adversarial tests proving HARD GATE #10 fails on invalid states.
 # Every fixture-setup failure must FAIL loudly (exit 1), never silently skip.
 set -euo pipefail
-TOTAL_TESTS=34
+TOTAL_TESTS=35
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Native Windows path for python invocations — MSYS auto-conversion of
@@ -493,6 +493,20 @@ if "$PY" "$SCRIPT_DIR/gate_predicates.py" --ai-bom "$TMP_BOM" >/dev/null 2>&1; t
     exit 1
 else
     echo "✅ Test 34 PASS: missing AIBOM rejected"
+fi
+
+
+# Test 35: malformed span tree (child references missing parent) must fail (P26-7)
+TMP_SP="$TMP_TEST/sp"; mkdir -p "$TMP_SP"
+cat > "$TMP_SP/bad.jsonl" <<JSON
+{"span_id":"A","event_type":"action","payload":{"category":"read"}}
+{"span_id":"B","parent_span":"ZZZ","event_type":"action","payload":{"category":"read"}}
+JSON
+if "$PY" "$SCRIPT_DIR/span-tree.py" "$TMP_SP/bad.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 35 FAIL: missing-parent span tree passed"
+    exit 1
+else
+    echo "✅ Test 35 PASS: missing-parent span tree rejected"
 fi
 
 

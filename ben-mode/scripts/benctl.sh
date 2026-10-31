@@ -116,7 +116,14 @@ fi
 
 if [ "$NO_REPORT" = "0" ]; then
   if [ "$FULL" = "1" ]; then
-    mark GREEN "negative adversarial suite (34/34)"
+    # P26-7: span-tree validation on runtime audit
+  mark GREEN "span-tree hierarchy (P26-7)"
+  if [ -f "$ROOT/.hard-gate-meta/runtime-audit.jsonl" ]; then
+    "$PY_BIN" "$SCRIPT_W/span-tree.py" "$(cygpath -w "$ROOT/.hard-gate-meta/runtime-audit.jsonl")" || fail "span-tree"
+  else
+    echo "⚠️ span-tree: no runtime-audit.jsonl (skip)"
+  fi
+  mark GREEN "negative adversarial suite (34/34)"
     "$BASH_BIN" "$SCRIPT_W/test-hard-gate-negative.sh" >/dev/null || fail "negative-suite"
   fi
   mark GREEN "routing-health + coverage"

@@ -283,3 +283,8 @@ penuh + simpan sig baru.
 - **Status**: Accepted
 - **Decision**: Tambah P_rt_throttle, P_rt_msg_auth, validasi token scoped di P_rt_secrets, P_ai_bom; mode benctl --redteam; Test 33/34 (TOTAL_TESTS=34).
 - **Consequences**: Blast-radius dibatasi; anti-spoofing antar-agent; model manifest AIBOM diverifikasi; red-team dapat dijalankan tanpa menyentuh prod.
+
+## ADR-31: Phase 26 final — Span-Tree Tracing (2026-10-31)
+- **Status**: Accepted
+- **Decision**: Tambah scripts/span-tree.py (validasi parent_span, anti-siklus, handoff) + predicate deep benctl; Test 35 (TOTAL_TESTS=35).
+- **Consequences**: Observability hierarkis span tersedia; P26 tuntas kecuali item 4 (COSE) & 12 (remote) yang tercatat blocked.

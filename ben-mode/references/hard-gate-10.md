@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.24.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.25.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1308,6 +1308,8 @@ $$
   validasi token scoped/short-lived (wajib `token_scope`+`token_exp`),
   `P_ai_bom` (manifest model-level `.ai-bom.json` — model_name/model_hash/deps/risks),
   mode `benctl --redteam` (jalankan korpus adversarial cascade, wajib ditolak).
+- P26-7: `span-tree.py` memvalidasi hierarki span (parent_span resolve, bebas
+  siklus, hitung handoff) — predikat deep `benctl`.
 
 ---
 
