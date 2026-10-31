@@ -116,11 +116,10 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Generate dashboard (P13-D1/D2)
+      - name: Generate dashboard (P13-D1/D2) — sanitized, dashboard only
         run: |
           mkdir -p public
           python ben-mode/scripts/generate-dashboard.py "$PWD/.hard-gate-meta" "public/index.html"
-          cp -r ben-mode docs public/ 2>/dev/null || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
