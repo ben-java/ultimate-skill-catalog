@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T01:11:30.014583+00:00",
-  "file_count": 47,
+  "generated_at": "2026-10-31T01:13:17.952208+00:00",
+  "file_count": 50,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -67,8 +67,8 @@
     },
     {
       "path": "references/version-identification.md",
-      "size": 1422,
-      "sha256": "1cb5460780530172cf0c6140dbe10ba2a0b5d27ae5b36ea803710cd53bb6434e"
+      "size": 1947,
+      "sha256": "f6df6d0897671b80579b3167cea63d629bf09603bef2e18b03d6af9ef5f58cc3"
     },
     {
       "path": "references/windows-execution.md",
@@ -91,6 +91,11 @@
       "sha256": "aafa3df15941e465d9031d281b8992dd30ff3810b2f3c1a38aa7eb85117ec59c"
     },
     {
+      "path": "scripts/bmc_concurrency.py",
+      "size": 4922,
+      "sha256": "1392a0d273c08d3b3fc0ccb09d172575b48a5c4c2be1fce05ec96c137505c789"
+    },
+    {
       "path": "scripts/bmc_replica_state.py",
       "size": 3237,
       "sha256": "e7711d46124665e0475ff44796893a62519e99c4c6915c0f57d43efcb6ae89c7"
@@ -99,6 +104,11 @@
       "path": "scripts/bootstrap-deps.sh",
       "size": 1493,
       "sha256": "600ef9838f39cd80065b771a0fa3fbb4c78744a5ac9ac83930576289d8669819"
+    },
+    {
+      "path": "scripts/cost-report.py",
+      "size": 1154,
+      "sha256": "2d7353ed47d7fac3c4a00401330b7defa92ed8f8db1fe51b8b13a570a376dc1e"
     },
     {
       "path": "scripts/cron-hard-gate-monitor.sh",
@@ -159,6 +169,11 @@
       "path": "scripts/runtime-gate-scan.sh",
       "size": 1178,
       "sha256": "08dea4987ef680d4c5319fffb75b4460dec9aa103bb73891ec846257f1dcb045"
+    },
+    {
+      "path": "scripts/runtime-monitor.sh",
+      "size": 2201,
+      "sha256": "43116267534be72b1adb369f6a141d45ae7f1fecc9637ba7ed01e78e2f8676af"
     },
     {
       "path": "scripts/runtime_gate.py",

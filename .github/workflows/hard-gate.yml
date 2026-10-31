@@ -1,0 +1,25 @@
+name: hard-gate
+on:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  gate:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: HARD GATE #10
+        run: bash scripts/verify-hard-gate.sh .
+      - name: Negative / adversarial suite
+        run: bash scripts/test-hard-gate-negative.sh
+      - name: TDD RED→GREEN
+        run: bash scripts/tdd-red-green.sh
+      - name: Runtime trace fixtures
+        run: |
+          python scripts/runtime_gate.py scripts/fixtures/clean.jsonl
+          python scripts/runtime_gate.py scripts/fixtures/inject.jsonl || true
+          python scripts/runtime_gate.py scripts/fixtures/multi_inject.jsonl || true
+          python scripts/runtime_gate.py scripts/fixtures/secret.jsonl || true
