@@ -132,12 +132,17 @@ def main():
     ap.add_argument("--meta-dir", default="")
     ap.add_argument("--runtime-inputs", default="")
     ap.add_argument("--ai-rmf", default="")
+    ap.add_argument("--ai-bom", default="")
     args = ap.parse_args()
-    if not (args.ai_rmf or args.root):
-        ap.error("--root (or --ai-rmf) required")
+    if not (args.ai_rmf or args.ai_bom or args.root):
+        ap.error("--root (or --ai-rmf/--ai-bom) required")
     if args.ai_rmf:
         ok = check_ai_rmf(args.ai_rmf)
         print("P_ai_rmf: %s" % ("PASS" if ok else "FAIL"))
+        sys.exit(0 if ok else 1)
+    if args.ai_bom:
+        ok = check_ai_bom(args.ai_bom)
+        print("P_ai_bom: %s" % ("PASS" if ok else "FAIL"))
         sys.exit(0 if ok else 1)
     roots = [args.root] + args.replica
     os.makedirs(args.meta_dir, exist_ok=True)
@@ -198,6 +203,19 @@ def main():
     print("  manifest:", m_msg)
     print(f"OVERALL: {'PASS' if ok else 'FAIL'} | exit {0 if ok else 1}")
     sys.exit(0 if ok else 1)
+def check_ai_bom(meta, required=("model_name", "model_hash", "deps", "risks")) -> bool:
+    """P26-5: AIBOM/MBOM model-level manifest (EU CoEvolution / Coalition Secure AI)."""
+    path = os.path.join(meta or "", ".ai-bom.json")
+    if not os.path.isfile(path):
+        return False
+    try:
+        import json as _j
+        bom = _j.load(open(path, encoding="utf-8"))
+        return all(k in bom for k in required)
+    except Exception:
+        return False
+
+
 
 if __name__ == "__main__":
     main()

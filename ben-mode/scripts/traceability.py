@@ -56,6 +56,11 @@ MAP = {
     "P26-2 plan drift": (["P_rt_plan_drift"], [], ["runtime_gate.py"]),
     "P26-3 IFC": (["P_rt_ifc"], [], ["runtime_gate.py"]),
     "P26-6 tool schema": (["P_rt_tool_schema"], [], ["runtime_gate.py"]),
+    "P26-5 AIBOM": (["P_ai_bom"], [], ["gate_predicates.py"]),
+    "P26-8 throttle": (["P_rt_throttle"], [], ["runtime_gate.py"]),
+    "P26-9 msg auth": (["P_rt_msg_auth"], [], ["runtime_gate.py"]),
+    "P26-10 redteam": ([], [], ["benctl.sh"]),
+    "P26-11 token scope": (["P_rt_secrets"], [], ["runtime_gate.py"]),
 }
 
 

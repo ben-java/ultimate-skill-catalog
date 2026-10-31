@@ -278,3 +278,8 @@ penuh + simpan sig baru.
 - **Status**: Accepted
 - **Decision**: Tambah P_rt_ifc, P_rt_plan_drift, P_rt_tool_schema di runtime_gate.py; OPA Rule 7 tool-policy; Test 31/32 (TOTAL_TESTS=32).
 - **Consequences**: Runtime gate menolak cross-boundary trust flow, urutan tool drift, dan param tool invalid; OPA menegakkan allowlist tool.
+
+## ADR-30: Phase 26 lanjutan — Throttle/Msg-Auth/Token-Scope/AIBOM/Redteam (2026-10-31)
+- **Status**: Accepted
+- **Decision**: Tambah P_rt_throttle, P_rt_msg_auth, validasi token scoped di P_rt_secrets, P_ai_bom; mode benctl --redteam; Test 33/34 (TOTAL_TESTS=34).
+- **Consequences**: Blast-radius dibatasi; anti-spoofing antar-agent; model manifest AIBOM diverifikasi; red-team dapat dijalankan tanpa menyentuh prod.

@@ -5,7 +5,7 @@ export PYTHONIOENCODING=utf-8
 # benctl.sh — P8-M#1: satu-perintah orkestrasi HARD GATE #10.
 # Alur: sync-all-roots -> refresh-baseline -> verify -> quorum -> status-matrix.
 # Usage:
-#   benctl.sh [root] [--no-sync] [--no-report] [--redgreen]
+#   benctl.sh [root] [--no-sync] [--no-report] [--redgreen] [--redteam]
 # Flags:
 #   --redgreen  cetak marker [RED]/[GREEN] menyeluruh (TDD-style proof).
 #   --no-sync   lewati sinkronisasi replika.
@@ -24,12 +24,13 @@ trap 'rmdir "$LOCK" 2>/dev/null || true' EXIT
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"
 ROOT="C:/Users/AMMAR/Hermes Agents/Projects/ultimate-skill-catalog"
-NO_SYNC=0; NO_REPORT=0; REDGREEN=0; QUICK=0; FULL=1
+NO_SYNC=0; NO_REPORT=0; REDGREEN=0; QUICK=0; FULL=1; REDTEAM=0
 for a in "$@"; do
   case "$a" in
     --no-sync) NO_SYNC=1 ;;
     --no-report) NO_REPORT=1 ;;
     --redgreen) REDGREEN=1 ;;
+    --redteam) REDTEAM=1 ;;
     --quick) QUICK=1 ;;
     --*) echo "❌ unknown option: $a"; exit 2 ;;
     *) ROOT="$a" ;;
@@ -115,13 +116,28 @@ fi
 
 if [ "$NO_REPORT" = "0" ]; then
   if [ "$FULL" = "1" ]; then
-    mark GREEN "negative adversarial suite (32/32)"
+    mark GREEN "negative adversarial suite (34/34)"
     "$BASH_BIN" "$SCRIPT_W/test-hard-gate-negative.sh" >/dev/null || fail "negative-suite"
   fi
   mark GREEN "routing-health + coverage"
   "$PY_BIN" "$SCRIPT_W/routing-health.py" >/dev/null || fail "routing-health"
   mark GREEN "unit tests (6/6)"
   "$PY_BIN" -m unittest discover -s "$SCRIPT_W/tests" >/dev/null || fail "unit-tests"
+  # P26-10: red-team mode — scan hostile trace corpus (cascade/rogue) expecting FAIL
+  if [ "$REDTEAM" = "1" ]; then
+    mark GREEN "redteam: adversarial cascade traces"
+    RT_DIR="$(mktemp -d "${TMPDIR:-/tmp}/benctl-redteam-XXXXXX")"
+    cat > "$RT_DIR/cascade.jsonl" <<JSON
+{"session_id":"rt1","ts":"2026-10-31T10:00:00Z","event_type":"verify"}
+{"session_id":"rt1","ts":"2026-10-31T10:00:01Z","event_type":"action","payload":{"category":"credential","trust":"untrusted"}}
+{"session_id":"rt1","ts":"2026-10-31T10:00:02Z","event_type":"action","payload":{"category":"exfiltration","trust":"untrusted"}}
+JSON
+    if "$PY_BIN" "$SCRIPT_W/runtime_gate.py" "$(cygpath -w "$RT_DIR/cascade.jsonl")" >/dev/null 2>&1; then
+      echo "❌ redteam FAIL: cascade trace passed (should be rejected)"; rm -rf "$RT_DIR"; exit 1
+    fi
+    echo "✅ redteam: cascade trace rejected"
+    rm -rf "$RT_DIR"
+  fi
   mark GREEN "status-matrix + self-BOM"
   "$PY_BIN" "$SCRIPT_W/status-matrix.py" >/dev/null || fail "status-matrix"
   mark GREEN "generate-dashboard"

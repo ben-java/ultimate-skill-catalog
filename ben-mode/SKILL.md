@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.23.0
+version: 0.24.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -81,7 +81,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - `benctl.sh` — satu perintah orkestrasi penuh (`sync-all-roots` → `refresh-baseline` → `verify-hard-gate` → `quorum-check` → `dashboard` → `status-matrix`) dengan flag `--redgreen`.
 - `verify-hard-gate.sh` — verifikasi lengkap + JSON audit log + schema check + auto-source `gate.conf`
 - `verify_skill_replicas.py` — PHP verifikasi setara (pure stdlib) utk host tempat `bash` tak me-resolve ke Git-Bash (mis. me-resolve ke WSL tanpa /bin/bash). Dipanggil: `python scripts/verify_skill_replicas.py --root <canonical> --replica <target> ...`. Cek seluruh pohon file, bukan hanya SKILL.md.
-- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 32/32 tests) buktikan gate menangkap fault
+- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 34/34 tests) buktikan gate menangkap fault
 - `sync-skills.sh` — atomic rsync + verify + rollback on fail (change management workflow)
 
 **Workflow Phase C**:
@@ -148,6 +148,10 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Subprocess `git commit` via execute_code wajib set `GIT_AUTHOR_NAME`/`GIT_AUTHOR_EMAIL` (+ COMMITTER) eksplisit — tanpa itu gagal "Author identity unknown". Decode output subprocess dgn `errors="replace"` karena pre-commit hook dapat memuntahkan byte non-UTF8 yang menghentikan decode ketat.
 - `git add -A -- ':(exclude)…'` hanya mengecualikan file belum-di-tracking; artefak self-healing yang sudah ter-tracking tetap ikut ter-stage — bila ingin dikeluarkan, unstage setelah add atau terima melacaknya.
 - Mekanisme gate baru wajib didokumentasikan di BADAN spec (BAGIAN), bukan sekadar bump header versi — grep istilah implementasi di doc harus positif setelah rilis; header saja membuat klaim "selaras" menipu.
+- Rego (OPA) memakai `x and y` / `every k, v in ... { }` / ref kata kunci baru → wajib `import future.keywords.and` / `import future.keywords.every` di header policy; tanpa itu OPA gagal parse "unexpected identifier token" (hint: `import future.keywords.and`).
+- OPA `eval --input -` (stdin) tidak konsisten — tulis input ke temp file lalu teruskan path-nya; dan output `--format json` untuk deny adalah `"value": false` (dengan spasi), bukan `"false"` — skrip grep/skema harus mencocokkan `"value": false`.
+- Cabang "skip" di suite adversarial jangan men-echo `Test N PASS` (mis. saat tool absent) — `status-matrix.py` menghitung kemunculan `Test \d+ PASS` dan membandingkannya dengan `TOTAL_TESTS`; dup match membuat `negative_pass_consistent=false` walau suite lolos. Pakai kata `SKIPPED` untuk skip jujur.
+- Hook pre-commit menjalankan `verify-hard-gate.sh` pada tiap commit yang menyentuh SKILL.md, references, atau scripts — jadi baseline manifest WALIB terkini pada saat commit: edit apa pun (termasuk perbaikan trailing whitespace atau bump label) harus diikuti `refresh-baseline.sh` + `sync-all-roots.sh` SEBELUM commit, atau hook gagal "Manifest FAIL" dan menolak commit (bukan bypass `--no-verify`).
 
 ## References:
 - references/version-identification.md

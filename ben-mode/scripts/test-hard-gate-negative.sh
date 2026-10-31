@@ -4,7 +4,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # test-hard-gate-negative.sh — adversarial tests proving HARD GATE #10 fails on invalid states.
 # Every fixture-setup failure must FAIL loudly (exit 1), never silently skip.
 set -euo pipefail
-TOTAL_TESTS=32
+TOTAL_TESTS=34
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Native Windows path for python invocations — MSYS auto-conversion of
@@ -466,6 +466,33 @@ JSON
     fi
 else
     echo "✅ Test 32 SKIPPED: OPA absent (honest skip)"
+fi
+
+
+# Test 33: throttle burst + msg_auth + token-missing-scope rejected (P26-8/9/11)
+TMP_RT="$TMP_TEST/rt"
+mkdir -p "$TMP_RT"
+{
+  echo '{"session_id":"r","ts":"2026-10-31T10:00:00Z","event_type":"verify"}'
+  for i in $(seq 1 12); do
+    echo "{\"session_id\":\"r\",\"ts\":\"2026-10-31T10:00:0${i}Z\",\"event_type\":\"action\",\"payload\":{\"category\":\"read\",\"trust\":\"trusted\",\"plan_step\":$i}}"
+  done
+  echo '{"session_id":"r","ts":"2026-10-31T10:01:00Z","event_type":"action","payload":{"category":"read","trust":"trusted","target_agent":"a2","token_scope":null}}'
+} > "$TMP_RT/bad.jsonl"
+if "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_RT/bad.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 33 FAIL: throttle/msg_auth/token-scope violations passed"
+    exit 1
+else
+    echo "✅ Test 33 PASS: throttle burst + msg_auth + token-scope rejected"
+fi
+
+# Test 34: missing AIBOM manifest must fail P_ai_bom (P26-5)
+TMP_BOM="$TMP_TEST/bom"; mkdir -p "$TMP_BOM"
+if "$PY" "$SCRIPT_DIR/gate_predicates.py" --ai-bom "$TMP_BOM" >/dev/null 2>&1; then
+    echo "❌ Test 34 FAIL: missing AIBOM passed"
+    exit 1
+else
+    echo "✅ Test 34 PASS: missing AIBOM rejected"
 fi
 
 

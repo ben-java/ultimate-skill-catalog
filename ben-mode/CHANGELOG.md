@@ -1,3 +1,12 @@
+## v0.24.0 (2026-10-31) — Phase 26 lanjutan: Throttle, Msg-Auth, Token-Scope, AIBOM, Redteam
+
+- **P26-5**: `check_ai_bom` + `--ai-bom` → `P_ai_bom` (manifest `.ai-bom.json`).
+- **P26-8**: `P_rt_throttle` — burst tool-call >8/jendela ditolak.
+- **P26-9**: `P_rt_msg_auth` — pesan antar-agent tanpa `msg_sig` ditolak.
+- **P26-11**: `P_rt_secrets` + validasi token scoped/short-lived (`token_scope`+`token_exp`).
+- **P26-10**: mode `benctl --redteam` — korpus adversarial cascade wajib ditolak.
+- Test 33 & 34 ditambahkan (TOTAL_TESTS=34, 34/34 PASS).
+- **P26-4** SCITT/COSE & **P26-12** CI remote: `BLOCKED-BY-REMOTE`/tooling.
 ## v0.23.0 (2026-10-31) — Phase 26 Agent-Runtime Hardening (IFC/Drift/Tool-Schema/OPA7)
 
 - **P26-1**: `policies/rule7.rego` (policy invokasi tool; allowlist+max_params+tipe para) dievaluasi `opa-policy-check.py` — deny param tak dikenal.

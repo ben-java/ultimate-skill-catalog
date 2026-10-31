@@ -9,6 +9,8 @@ Predicates:
   P_rt_ifc         - information flow control: untrusted input->high-risk action tanpa verify boundary
   P_rt_plan_drift  - plan drift: tool-call sequence menyimpang dari urutan/plan yang diizinkan
   P_rt_tool_schema - tool param harus lolos schema ketat (tipe/sejumlah/allowlist)
+  P_rt_throttle    - burst tool-call tak wajar dalam jendela waktu (blast-radius)
+  P_rt_msg_auth    - pesan antar-agent wajib bertanda tangan (anti-spoofing)
 Exit: 0 PASS, 1 FAIL.
 """
 import sys, os, json, re, hashlib, datetime
@@ -68,6 +70,7 @@ def check_trace(path):
     fails = {}
     sessions = set()
     _last_plan = {}
+    _thr = {}
     if not os.path.isfile(path):
         return {"trace_missing": True}
     with open(path, encoding="utf-8") as f:
@@ -120,6 +123,24 @@ def check_trace(path):
                     fails.setdefault("P_rt_tool_schema", []).append(f"{_pn}:want-str-got-{type(_val).__name__}")
                 elif _pt == "int" and not isinstance(_val, int):
                     fails.setdefault("P_rt_tool_schema", []).append(f"{_pn}:want-int-got-{type(_val).__name__}")
+        # P_rt_throttle (P26-8): burst action > N dalam window
+        if et == "action":
+            _s = ev.get("session_id")
+            _t_iso = ev.get("ts")
+            _slot = (ev.get("ts") or "")[:16]  # minute granularity
+            _thr.setdefault(_s, {}).setdefault(_slot, 0)
+            _thr[_s][_slot] += 1
+            if _thr[_s][_slot] > 8:
+                fails.setdefault("P_rt_throttle", []).append(f"{_s}:{_slot}:{_thr[_s][_slot]}")
+        # P_rt_msg_auth (P26-9): inter-agent message tanpa signature
+        if et == "action" and pl.get("target_agent") and not ev.get("msg_sig"):
+            fails.setdefault("P_rt_msg_auth", []).append(f"{ev.get('session_id')}:{pl.get('target_agent')}")
+        # P_rt_secrets: token scoped/short-lived wajib punya scope+exp
+        if et in ("input", "action"):
+            _txt = pl if isinstance(pl, str) else json.dumps(pl, ensure_ascii=False)
+            if re.search(r"\b(?:ghp_|github_pat_|sk-|xox)[A-Za-z0-9_-]+\b", _txt):
+                if isinstance(pl, dict) and not (pl.get("token_scope") and pl.get("token_exp")):
+                    fails.setdefault("P_rt_secrets", []).append("token-missing-scope-or-exp")
     # P_rt_sessions: zero-trust
     recs = {}
     for ev in (json.loads(l) for l in lines):

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.23.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.24.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1303,6 +1303,11 @@ $$
   menyimpang dari `plan_step` monotonic ditolak), `P_rt_tool_schema` (param tool
   wajib lolos tipe schema); OPA Rule 7 (`policies/rule7.rego`) menegakkan policy
   invokasi tool (allowlist + max_params + tipe param) di `opa-policy-check.py`.
+- P26 lanjutan: `P_rt_throttle` (burst tool-call > ambang/jendela ditolak),
+  `P_rt_msg_auth` (pesan antar-agent wajib tanda tangan), `P_rt_secrets` ditambah
+  validasi token scoped/short-lived (wajib `token_scope`+`token_exp`),
+  `P_ai_bom` (manifest model-level `.ai-bom.json` — model_name/model_hash/deps/risks),
+  mode `benctl --redteam` (jalankan korpus adversarial cascade, wajib ditolak).
 
 ---
 
