@@ -1,0 +1,23 @@
+{
+  "type": "https://slsa.dev/verification_summary/v0.2",
+  "subject": [
+    {
+      "name": "ben-mode.manifest.json",
+      "digest": {
+        "sha256": "9ed9e1496596cf478e27afb8d299df0b78900147ea2dd0ae813e34843de497b8"
+      }
+    },
+    {
+      "name": "transparency.merkle",
+      "digest": {
+        "sha256": "8a8b6a96c27305d2ecb350615f25cc62599b8d696aea425deddcffe01d346433"
+      }
+    }
+  ],
+  "verifier": {
+    "id": "benmode.hard-gate-10",
+    "version": "0.10.0"
+  },
+  "result": "PASS",
+  "timestamp": "2026-10-31T16:18:16.329569Z"
+}

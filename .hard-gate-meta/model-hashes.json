@@ -1,0 +1,9 @@
+{
+  "description": "P16-C2 sample model-asset manifest (dashboard artifact)",
+  "assets": [
+    {
+      "path": ".hard-gate-meta/dashboard.html",
+      "sha256": "d5ec873a500c3d536dd52e047bd74b527b06ba3bfd8807f2f129e8dee8a2776a"
+    }
+  ]
+}

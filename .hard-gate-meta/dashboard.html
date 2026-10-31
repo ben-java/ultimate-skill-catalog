@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>HARD GATE #10 Dashboard</title>
+<style>
+body { font-family: -apple-system, Segoe UI, sans-serif; margin: 2rem; background: #0f141c; color: #e6edf3; }
+h1, h2 { color: #58a6ff; }
+.cards { display: flex; gap: 1rem; margin-bottom: 2rem; }
+.card { background: #161b22; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; flex: 1; }
+.card .val { font-size: 1.8rem; font-weight: bold; color: #3fb950; }
+table { width: 100%; border-collapse: collapse; margin-bottom: 2rem; }
+th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #21262d; font-size: 0.9rem; }
+th { color: #8b949e; background: #161b22; }
+</style>
+</head>
+<body>
+<h1>HARD GATE #10 Observability Dashboard</h1>
+<div class="cards">
+  <div class="card"><div>Total Token Proxy</div><div class="val">266,493</div></div>
+  <div class="card"><div>Tree Bytes</div><div class="val">534,708</div></div>
+  <div class="card"><div>Last Cron RC</div><div class="val">n/a</div></div>
+  <div class="card"><div>Audits Recorded</div><div class="val">4</div></div>
+  <div class="card"><div>Last Gate Run</div><div class="val">2026-10-31 23:18</div></div>
+  <div class="card"><div>Oracle v / neg-tests</div><div class="val">0.24.0 / 34</div></div>
+  <div class="card"><div>Merkle Root</div><div class="val">f7b3bfb506e1e17f</div></div>
+  <div class="card"><div>VSA Result</div><div class="val">PASS</div></div>
+  <div class="card"><div>OPA Enforce</div><div class="val">enforced</div></div>
+  <div class="card"><div>Model-hashes</div><div class="val">present</div></div>
+  <div class="card"><div>SBOM</div><div class="val">10-31 23:17</div></div>
+  <div class="card"><div>Spec v</div><div class="val">0.25.0</div></div>
+  <div class="card"><div>Routing cov</div><div class="val">50%</div></div>
+  <div class="card"><div>Budget usage</div><div class="val">26%</div></div>
+  <div class="card"><div>Gate Verdict</div><div class="val">PASS</div></div>
+</div>
+<h2>Recent Gate Executions (Cost)</h2>
+<table>
+<thead><tr><th>Timestamp</th><th>Token Proxy</th><th>Skills</th><th>Bytes</th></tr></thead>
+<tbody><tr><td>2026-10-30T23:33:37Z</td><td>133677</td><td>0</td><td>534708</td></tr><tr><td>2026-10-30T23:33:01Z</td><td>132816</td><td>0</td><td>531266</td></tr></tbody>
+</table>
+<h2>Recent Gate Runtimes (Wall-Clock)</h2>
+<table>
+<thead><tr><th>Timestamp</th><th>Wall Clock</th><th>Exit Code</th></tr></thead>
+<tbody><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr><tr><td></td><td>0.00s</td><td>0</td></tr></tbody>
+</table>
+<h2>Recent Token Budget Trend (14 runs)</h2><div style="margin-bottom:2rem;"><div style="display:flex;align-items:center;gap:8px;"><div style="width:130px;color:#8b949e;font-size:0.78rem;">10-30T23:33</div><div style="background:#3fb950;height:14px;width:99%;border-radius:3px;"></div><div style="color:#e6edf3;font-size:0.8rem;">132816 tok</div></div><div style="display:flex;align-items:center;gap:8px;"><div style="width:130px;color:#8b949e;font-size:0.78rem;">10-30T23:33</div><div style="background:#3fb950;height:14px;width:100%;border-radius:3px;"></div><div style="color:#e6edf3;font-size:0.8rem;">133677 tok</div></div></div>
+<p style="color:#8b949e; font-size:0.8rem;">Generated deterministically by generate-dashboard.py (P8-O#6). Zero external script runtime.</p>
+</body>
+</html>
