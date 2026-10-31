@@ -173,9 +173,10 @@ echo "✅ Test 9 PASS: hidden-instruction injection rejected"
 #          trees MUST pass (proves normalization prevents false positives)
 mkdir -p "$TMP_TEST/crlf/a/skill" "$TMP_TEST/crlf/b/skill"
 "$PY" -c "import sys,os; base=os.path.join(sys.argv[1],'SKILL.md'); d=os.path.join(sys.argv[2],'SKILL.md'); open(base,'wb').write(b'---\nname: skill\ndescription: test\n---\n'); open(d,'wb').write(open(base,'rb').read().replace(b'\n', b'\r\n'))" "$(W "$TMP_TEST/crlf/a/skill")" "$(W "$TMP_TEST/crlf/b/skill")"
-if ! "$PY" "$SCRIPT_W/verify_skill_replicas.py" --root "$(W "$TMP_TEST/crlf/a/skill")" \
-     --replica "$(W "$TMP_TEST/crlf/b/skill")" >/dev/null 2>&1; then
+if ! OUT10=$("$PY" "$SCRIPT_W/verify_skill_replicas.py" --root "$(W "$TMP_TEST/crlf/a/skill")" \
+     --replica "$(W "$TMP_TEST/crlf/b/skill")" 2>&1); then
     echo "❌ Test 10 FAIL: CRLF-canonical trees falsely rejected"
+    echo "  verifier output: $OUT10" | head -20
     exit 1
 fi
 echo "✅ Test 10 PASS: CRLF canonicalization handled (no false positive)"

@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:09:47.424647+00:00",
+  "generated_at": "2026-10-31T17:11:37.097610+00:00",
   "file_count": 92,
   "files": [
     {
@@ -327,8 +327,8 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 22821,
-      "sha256": "7de7b082d2fdc2d95e7aa5fcdfe9cff143598436e7419257cdb2beecbe2b107e"
+      "size": 22868,
+      "sha256": "eb515eaa095cb65b98ec35340d070f537c3c4adeb00373822eab4afb728daeff"
     },
     {
       "path": "scripts/traceability.py",
