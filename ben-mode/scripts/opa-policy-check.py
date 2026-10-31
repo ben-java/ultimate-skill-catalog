@@ -33,7 +33,13 @@ SAMPLE_INPUT = {
 
 
 def main():
-    opa = shutil.which("opa")
+    opa = os.environ.get("OPA_BIN") or shutil.which("opa")
+    if not opa:
+        for cand in (os.path.expanduser("~/bin/opa.exe"),
+                     r"C:\Users\AMMAR\bin\opa.exe"):
+            if os.path.isfile(cand):
+                opa = cand
+                break
     if not opa:
         print("opa-policy-check: SKIPPED (opa binary not installed; optional enforcement)")
         return 0

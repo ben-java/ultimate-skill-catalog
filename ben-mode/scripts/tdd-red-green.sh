@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # tdd-red-green.sh — executable RED→GREEN proof for the HARD GATE #10 verifier.
 #   RED   : inject a one-byte fault into a replica → verifier must FAIL (exit 1)
 #   GREEN  : restore from canonical → verifier must PASS (exit 0)

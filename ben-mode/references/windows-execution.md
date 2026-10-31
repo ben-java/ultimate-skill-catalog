@@ -56,3 +56,41 @@ Aturan:
 1. Sinkronkan seluruh replika fisik (`cp -r` dari canonical; verifikasi md5 identik).
 2. Regenerate baseline (refresh-baseline.sh).
 3. Verifikasi gate — cek `GATE_EXIT` dari script, bukan dari `echo $?` setelah pipe `tail` (tail menutupi exit code).
+
+## 7. Pipefail / set -e pada cabang error
+
+Di script gate (`set -euo pipefail`), pipeline yang exit-nya non-zero (verifier/quorum saat gagal) membuat shell berhenti sebelum baris berikutnya — termasuk blok repair/notifikasi. Guard dengan `|| true` agar eksekusi berlanjut:
+  ```bash
+  QOUT=$("$PY_BIN" "$SCRIPT_W/quorum-check.py" "${QARGS[@]}" 2>&1 | tee -a "$LOG" || true)
+  "$VERIFY_SCRIPT" "$ROOT" 2>&1 | tee -a "$LOG" || true
+  ```
+Tanpa guard itu, cabang FAIL di `cron-hard-gate-monitor.sh` berhenti sebelum `REPAIR_FLAG=1` sempat menjalankan sync/restore (bug nyata di P4).
+
+## 8. Path dinamis di `python -c`: serahkan via argv, jangan sisipkan ke string kode
+
+Saat membangun perintah `python -c "..."` di bash dan ingin memakai nilai shell di dalam kode (mis. `f='$TMP_TL/...'`), ekspansi variabel di dalam string double-quoted multiline tidak dapat diandalkan — contoh nyata: cek `[ -f ]` di shell menemukan file, tapi Python (baris sama persis) melaporkan FileNotFoundError. Jangan berulang menebak quoting. Oper penerusan deterministik: kirim nilai sebagai argumen program dan baca dengan `sys.argv[1]`:
+  ```bash
+  "$PY" -c "import json,sys; d=json.load(open(sys.argv[1],encoding='utf-8')); ..." "$TMP_TL/transparency.merkle.json"
+  ```
+- Aturan yang sama berlaku untuk script inline python lain yang memakai path/variabel dari shell — selalu argv, tidak pernah string-in-j-string.
+
+## 9. Verifikasi scheduled task (schtasks) yang robust
+
+Jangan parse `schtasks /Query /TN <T> /FO LIST /V` dengan regex header tetap — header berbahasa lokal (mis. `Last Result Code:` vs `Hasil Terakhir:`) dan pola gagal diam-diam. Gunakan CSV + parser csv:
+  ```python
+  import csv, io, subprocess
+  r = subprocess.run(["schtasks","/Query","/TN",tn,"/FO","CSV","/V"],
+                     capture_output=True, text=True)
+  rows = list(csv.reader(io.StringIO(r.stdout)))
+  hdr = rows[0]
+  def col(*names):
+      for i,h in enumerate(hdr):
+          if any(n in h.strip().lower() for n in names): return i
+      return None
+  ires, ist = col("last result"), col("status")
+  result, status = rows[1][ires], rows[1][ist]
+  ```
+Perilaku ini wajib dipahami:
+- `0x41301` (267009) = SCHED_S_TASK_RUNNING — tugas **sedang berjalan**, bukan error. Poll sampai `status == Ready` lalu baca `Last Result`; jika berhenti di `Running` saja, verifikasi belum selesai.
+- Ash task yang menjalankan `benctl` bisa jatuh ke **full pipeline** (tree berubah) jauh lebih lama dari quick (~60s+); tunggu sampai Ready sebelum menyimpulkan hasil.
+- Bukti integrasi = hasil `schtasks /Run` + status akhir `Ready` + `Last Result = 0`, bukan hanya grep launcher `.cmd`.

@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # runtime-gate-scan.sh — run the runtime predicate gate over one or more agent
 # action traces (JSONL), e.g. Hermes session logs exported as JSONL.
 # Usage: runtime-gate-scan.sh <trace1.jsonl> [trace2.jsonl ...]

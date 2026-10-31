@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # refresh-baseline.sh — regenerate the manifest baseline(s) for a skill AFTER
 # intentional edits, then re-run the gate. Baseline lives OUTSIDE the skill tree
 # (under <root>/.hard-gate-meta), so writing it never invalidates itself.

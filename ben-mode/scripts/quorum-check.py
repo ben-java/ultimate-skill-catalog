@@ -52,9 +52,19 @@ def count_links(root):
     return n
 
 
+import sys
+if hasattr(sys.stdout, "reconfigure"):
+    try:
+        sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+        sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+    except Exception:
+        pass
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("roots", nargs="+")
+    ap.add_argument("--strict", action="store_true",
+                    help="require N/N agreement (P5 A1 default for >2 roots)")
     args = ap.parse_args()
     if len(args.roots) < 2:
         print("quorum: need >=2 roots")
@@ -73,10 +83,10 @@ def main():
     counts = Counter(sigs.values())
     best, agree = counts.most_common(1)[0]
     n = len(args.roots)
-    threshold = n // 2 + 1
+    threshold = n if args.strict else n // 2 + 1
     for r, s in sigs.items():
         print(f"  {r}  {s[:16]}…")
-    print(f"quorum = {agree}/{n} roots agree (threshold ≥{threshold})")
+    print(f"quorum = {agree}/{n} roots agree (threshold ≥{threshold}, strict={args.strict})")
     if agree < threshold:
         fails.append(f"quorum FAIL: {agree}/{n} (need ≥{threshold})")
 

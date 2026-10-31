@@ -38,10 +38,48 @@ def tree_signature(root):
             lines.append(f"{rel} {hashlib.sha256(data).hexdigest()}")
     return hashlib.sha256("\n".join(sorted(lines)).encode()).hexdigest()
 
+
+def check_spec_parity(spec_files):
+    """P18-A1/P19-A2: scan spec/SKILL for declared suite-size counts that are
+    STALE (< actual TOTAL_TESTS). Actual is read dynamically from the negative
+    test script so adding suite tests needs no second sync point."""
+    actual = 29
+    _base = os.path.dirname(os.path.abspath(__file__))
+    _neg = os.path.join(_base, "test-hard-gate-negative.sh")
+    if os.path.isfile(_neg):
+        _m = re.search(r"TOTAL_TESTS=(\d+)", open(_neg, encoding="utf-8", errors="ignore").read())
+        if _m:
+            actual = int(_m.group(1))
+    stale = []
+    pat = re.compile(r"\b(\d+)\s+(?:(?:adversarial|synthetic)\s+)?(?:tests?|fault\s+injections?|corruption\s+patterns?)\b")
+    for f in spec_files:
+        if not os.path.isfile(f):
+            continue
+        txt = open(f, encoding="utf-8", errors="ignore").read()
+        for m in pat.finditer(txt):
+            n = int(m.group(1))
+            if 0 < n < actual:
+                ctx = txt[max(0,m.start()-40):m.end()+20].replace("\n"," ")
+                stale.append((os.path.basename(f), n, ctx.strip()))
+    return stale
+
 def check_schema(root):
     txt = open(os.path.join(root, "SKILL.md"), encoding="utf-8-sig").read()
     nm = re.search(r'^name:\s*(.+)$', txt, re.M)
     return bool(nm) and nm.group(1).strip() == os.path.basename(root)
+
+def check_ai_rmf(meta_dir):
+    """P_ai_rmf (BAGIAN 22): RMF marker .ai-rmf.json must declare all four
+    functions (govern/map/measure/manage) from NIST AI RMF 1.0."""
+    p = os.path.join(meta_dir, ".ai-rmf.json")
+    if not os.path.isfile(p):
+        return False
+    try:
+        d = json.load(open(p, encoding="utf-8"))
+    except Exception:
+        return False
+    return all(bool(d.get(k)) for k in ("govern", "map", "measure", "manage"))
+
 
 def check_bom_inventory(root):
     txt = open(os.path.join(root, "SKILL.md"), encoding="utf-8-sig").read()
@@ -89,11 +127,18 @@ def check_runtime_static(runtime_inputs):
 
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--root", required=True)
-    ap.add_argument("--replica", action="append", required=True)
-    ap.add_argument("--meta-dir", required=True)
+    ap.add_argument("--root", default="")
+    ap.add_argument("--replica", action="append", default=[])
+    ap.add_argument("--meta-dir", default="")
     ap.add_argument("--runtime-inputs", default="")
+    ap.add_argument("--ai-rmf", default="")
     args = ap.parse_args()
+    if not (args.ai_rmf or args.root):
+        ap.error("--root (or --ai-rmf) required")
+    if args.ai_rmf:
+        ok = check_ai_rmf(args.ai_rmf)
+        print("P_ai_rmf: %s" % ("PASS" if ok else "FAIL"))
+        sys.exit(0 if ok else 1)
     roots = [args.root] + args.replica
     os.makedirs(args.meta_dir, exist_ok=True)
     log_path = os.path.join(args.meta_dir, "hard-gate-audit.jsonl")
@@ -124,6 +169,10 @@ def main():
     status["P_signed_manifest"] = m_ok
     static = check_runtime_static(args.runtime_inputs)
     status["P_runtime_static"] = len(static) == 0
+    _spec_parity = check_spec_parity([
+        os.path.join(SCRIPT_DIR, "..", "SKILL.md"),
+        os.path.join(SCRIPT_DIR, "..", "references", "hard-gate-10.md")])
+    status["P_spec_parity"] = len(_spec_parity) == 0
 
     ok = all(status.values())
     status["ok"] = ok
@@ -144,6 +193,8 @@ def main():
             print(f"  {k}: {'PASS' if v else 'FAIL'}")
     if bom[args.root]:
         print("  missing refs:", bom[args.root])
+    if _spec_parity:
+        print("  spec parity stale:", _spec_parity)
     print("  manifest:", m_msg)
     print(f"OVERALL: {'PASS' if ok else 'FAIL'} | exit {0 if ok else 1}")
     sys.exit(0 if ok else 1)

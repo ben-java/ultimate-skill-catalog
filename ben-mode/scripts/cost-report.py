@@ -10,6 +10,7 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("meta")
     ap.add_argument("--budget", type=int, default=0)
+    ap.add_argument("--threshold", type=int, default=80)
     args = ap.parse_args()
     path = os.path.join(args.meta, "gate-cost.jsonl")
     if not os.path.isfile(path):
@@ -29,6 +30,11 @@ def main():
     if args.budget and total > args.budget:
         print(f"❌ BUDGET ALERT: {total} > {args.budget}")
         sys.exit(1)
+    if args.budget > 0:
+        pct = total * 100 // args.budget
+        print(f"budget usage: {pct}% of {args.budget}")
+        if pct >= args.threshold:
+            print(f"⚠️  BUDGET {pct}% >= {args.threshold}% threshold — approaching cap")
     sys.exit(0)
 
 

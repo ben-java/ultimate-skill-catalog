@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # sync-all-roots.sh — sync canonical ben-mode tree to all physical replicas,
 # then verify full-tree quorum across every root (P3 #1/#3).
 # Usage: sync-all-roots.sh [canonical] [root1 root2 ...]
@@ -9,7 +11,18 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"
 
-CANONICAL="${1:-C:/Users/AMMAR/AppData/Local/hermes/skills/dsh-imported/ben-mode}"
+MODE="sync"
+if [ "${1:-}" = "--diff" ] || [ "${1:-}" = "--check" ] || [ "${1:-}" = "--reverse" ]; then
+    MODE="$1"; shift
+fi
+CANONICAL="C:/Users/AMMAR/AppData/Local/hermes/skills/dsh-imported/ben-mode"
+REVERSE_SRC=""
+if [ "$MODE" = "--reverse" ]; then
+    [ "$#" -ge 1 ] || { echo "❌ --reverse needs a source replica"; exit 2; }
+    REVERSE_SRC="$1"; shift
+else
+    [ "$#" -ge 1 ] && CANONICAL="$1" && shift
+fi
 shift || true
 if [ "$#" -ge 1 ]; then
     REPLICAS=("$@")
@@ -34,6 +47,31 @@ find_python() {
 PY_BIN=$(find_python) || { echo "❌ sync-all: no python found"; exit 2; }
 
 [ -d "$CANONICAL" ] || { echo "❌ sync-all: canonical missing: $CANONICAL"; exit 2; }
+
+if [ "$MODE" = "--diff" ] || [ "$MODE" = "--check" ]; then
+    for rep in "${REPLICAS[@]}"; do
+        if [ -d "$rep" ]; then
+            echo "--- drift: $(basename "$rep") vs canonical ---"
+            diff -rq "$CANONICAL" "$rep" 2>&1 | head -20 || true
+        fi
+    done
+    if [ "$MODE" = "--check" ]; then
+        ARGS=(--strict "$(cygpath -w "$CANONICAL")")
+        for rep in "${REPLICAS[@]}"; do ARGS+=("$(cygpath -w "$rep")"); done
+        "$PY_BIN" "$SCRIPT_W/quorum-check.py" "${ARGS[@]}" || exit 1
+    fi
+    exit 0
+fi
+
+if [ "$MODE" = "--reverse" ]; then
+    [ -d "$REVERSE_SRC" ] || { echo "❌ source replica missing: $REVERSE_SRC"; exit 2; }
+    echo "↻ reverse sync: $(basename "$REVERSE_SRC") -> canonical"
+    rm -rf "$CANONICAL"
+    mkdir -p "$(dirname "$CANONICAL")"
+    cp -r "$REVERSE_SRC" "$CANONICAL"
+    echo "reverse-synced canonical <- $REVERSE_SRC"
+    exit 0
+fi
 
 for rep in "${REPLICAS[@]}"; do
     rm -rf "$rep"

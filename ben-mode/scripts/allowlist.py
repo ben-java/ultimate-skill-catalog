@@ -69,6 +69,10 @@ def main():
     ap3.add_argument("--skill", required=True)
     ap3.add_argument("--hash", required=True)
     sub.add_parser("validate")
+    ap5 = sub.add_parser("sign")
+    ap5.add_argument("--key", required=True)
+    ap6 = sub.add_parser("validatesig")
+    ap6.add_argument("--pub", required=True)
     args = ap.parse_args()
 
     data, path = load(args.root)
@@ -130,6 +134,48 @@ def main():
         open(path, "w", encoding="utf-8").write(
             json.dumps(data, indent=2, ensure_ascii=False) + "\n")
         print("removed")
+        sys.exit(0)
+
+
+    if args.cmd == "sign":
+        import subprocess
+        sig = path + ".sig"
+        r = subprocess.run(
+            ["openssl", "pkeyutl", "-sign", "-inkey", args.key,
+             "-rawin", "-in", path, "-out", sig],
+            capture_output=True, text=True)
+        if r.returncode != 0:
+            print("sign FAIL:", r.stderr[-300:])
+            sys.exit(1)
+        print("signed:", sig)
+        sys.exit(0)
+
+    if args.cmd == "validatesig":
+        import subprocess, tempfile, os as _os
+        sig = path + ".sig"
+        if not _os.path.isfile(sig):
+            print("validatesig FAIL: no signature file", sig)
+            sys.exit(1)
+        pub = args.pub
+        tmp_pub = None
+        if "PRIVATE KEY" in open(args.pub, encoding="utf-8", errors="ignore").read():
+            fd, tmp_pub = tempfile.mkstemp(suffix=".pub")
+            _os.close(fd)
+            subprocess.run(["openssl", "pkey", "-in", args.pub, "-pubout",
+                            "-out", tmp_pub], check=True, capture_output=True)
+            pub = tmp_pub
+        try:
+            r = subprocess.run(
+                ["openssl", "pkeyutl", "-verify", "-pubin", "-inkey", pub,
+                 "-rawin", "-in", path, "-sigfile", sig],
+                capture_output=True, text=True)
+        finally:
+            if tmp_pub:
+                _os.unlink(tmp_pub)
+        if r.returncode != 0:
+            print("validatesig INVALID")
+            sys.exit(1)
+        print("validatesig VALID")
         sys.exit(0)
 
 

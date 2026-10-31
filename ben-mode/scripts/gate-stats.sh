@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # gate-stats.sh — record cheap observability metrics for one gate run (P3 #9):
 # counts (catalogs/SKILL.md/symlinks) + total bytes of the ben-mode tree, plus
 # a token-proxy estimate (bytes/4 ≈ tokens). Appends one line to

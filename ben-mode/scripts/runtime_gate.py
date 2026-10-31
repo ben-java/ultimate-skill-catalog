@@ -108,10 +108,37 @@ def check_trace(path):
         for sid, flag in recs.items():
             print(f"    {sid}: redact/approve: {', '.join(sorted(flag))}")
     # P_rt_sessions: zero-trust - tiap sesi wajib punya minimal verifikasi (quorum) ditandai
+    # P6-F: + freshness - action/output setelah verify lebih tua dari jendela = FAIL.
+    FRESHNESS = int(os.environ.get("HARD_GATE_SESSION_FRESHNESS", "3600"))
+    def _ep(ev):
+        return ev.get("event_type"), ev.get("session_id"), ev.get("ts"), ev
+    events = [json.loads(l) for l in lines]
     for s in sessions:
-        if not any(ev.get("session_id") == s and ev.get("event_type") == "verify"
-                   for ev in (json.loads(l) for l in lines)):
-            fails.setdefault("P_rt_sessions", []).append(str(s))
+        se = [ev for ev in events if ev.get("session_id") == s]
+        has_verify = any(ev.get("event_type") == "verify" for ev in se)
+        if not has_verify:
+            fails.setdefault("P_rt_sessions", []).append(str(s) + ":no-verify")
+            continue
+        # freshness: last verify ts vs max ts of later non-verify events
+        vtimes = []
+        for ev in se:
+            if ev.get("event_type") == "verify" and ev.get("ts"):
+                try:
+                    vtimes.append(datetime.datetime.fromisoformat(ev["ts"].replace("Z", "+00:00")))
+                except Exception:
+                    pass
+        if not vtimes:
+            continue
+        last_verify = max(vtimes)
+        for ev in se:
+            if ev.get("event_type") in ("action", "output") and ev.get("ts"):
+                try:
+                    t = datetime.datetime.fromisoformat(ev["ts"].replace("Z", "+00:00"))
+                except Exception:
+                    continue
+                if t > last_verify and (t - last_verify).total_seconds() > FRESHNESS:
+                    fails.setdefault("P_rt_sessions", []).append(str(s) + ":stale-after-verify")
+                    break
     return fails
 
 def main():

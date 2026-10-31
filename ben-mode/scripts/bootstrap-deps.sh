@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # bootstrap-deps.sh — provision python deps for ben-mode gate scripts (z3 for BMC).
 # Resolves a python the same way verify-hard-gate.sh does (env PYTHON first),
 # ensures pip exists, installs requirements.txt, and verifies importability.

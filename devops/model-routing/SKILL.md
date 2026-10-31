@@ -20,8 +20,8 @@ Two roles share the work; each has its own primary + fallback chain (primary fir
 
 | Role | Primary → fallback chain |
 |---|---|
-| 🧠 **Plan maker** (main agent turn / orchestrator) | `wz/mimo-v2.6-pro` (×6.5) → `cx/gpt-6.1-sol` (×4) → `cx/claude-sonnet-5.5`-class (×5) |
-| ⚡ **Agent/subagent** (`delegate_task` children) | `mercury-3` (inceptionlabs) → `wz/muse-spark-1.3-contributor` (×2.3) → `wz/mimo-v2.6-flash` (×3.5) |
+| 🧠 **Plan maker** (main agent turn / orchestrator) | `cx/gpt-6.1-sol` (×4) → `wz/weizerouter-v1` (×4.0) → `cx/claude-sonnet-5.5`-class (×5) |
+| ⚡ **Agent/subagent** (`delegate_task` children) | `mercury-3` (inceptionlabs) → `wz/mimo-v2.6-pro` (×6.5) → `wz/gpt-6-luna` (×2.0) |
 
 Note: `mercury-3` (fast primary) is the configured **primary model** (`model.default` via `inceptionlabs`). Fallback chain (verified via `hermes fallback list`): `mercury-3` → `wz/muse-spark-1.3-contributor` → `wz/mimo-v2.6-flash` → `wz/deepseek-v4.1-flash`. **Retry-before-failover**: `agent.api_max_retries = 3` — a model is retried 3× before the chain advances, so it does NOT switch on the first error. Global setting → applies to all tiers. `delegation` (subagents) stays single-provider on weizerouter; this cross-provider chain is the routing map the main agent follows. Fast-tier `wz/muse-spark-1.3-contributor` is a data-training tier (gate `security.allow_data_training_tiers_noninteractive` = true) and intermittently busy, hence the fallback chain. Effective cost = multiplier × Rp65/1M; full official table in `references/weizerouter-multipliers.md`.
 

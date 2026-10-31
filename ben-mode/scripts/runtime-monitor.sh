@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+
+export PYTHONDONTWRITEBYTECODE=1
 # runtime-monitor.sh — continuous runtime-trace drift monitor (P4 C1).
 # Slices the latest agent.log, converts to trace JSONL, scans with runtime_gate,
 # appends PASS/FAIL to the aggregated audit, and tracks MTTR (time since last
@@ -43,17 +45,29 @@ set -e
 STATUS=PASS; [ "$RC" -eq 0 ] || STATUS=FAIL
 python - "$META" "$STATUS" "$TS" <<EOF
 import json, os, sys
+from datetime import datetime, timezone
 meta, status, ts = sys.argv[1], sys.argv[2], sys.argv[3]
 path = os.path.join(meta, "runtime-audit.jsonl")
-prev = None
+# since_clean = duration since most recent previous PASS record (verified-clean), or N/A
+since = "N/A"
+try:
+    now = datetime.fromisoformat(ts.replace("Z", "+00:00"))
+except Exception:
+    now = datetime.now(timezone.utc)
 if os.path.exists(path):
     try:
         lines = [l for l in open(path, encoding="utf-8") if l.strip()]
-        if lines:
-            prev = json.loads(lines[-1])["ts"]
+        for l in reversed(lines):
+            rec = json.loads(l)
+            if rec.get("status") == "PASS":
+                t = datetime.fromisoformat(rec["ts"].replace("Z", "+00:00"))
+                d = now - t
+                secs = int(d.total_seconds())
+                since = "0s" if secs < 1 else (f"{secs//3600}h{(secs%3600)//60}m" if secs >= 3600 else (f"{secs//60}m{secs%60}s" if secs >= 60 else f"{secs}s"))
+                break
     except Exception:
-        prev = None
-entry = {"ts": ts, "status": status, "since_clean": prev or "N/A"}
+        since = "N/A"
+entry = {"ts": ts, "status": status, "since_clean": since}
 with open(path, "a", encoding="utf-8") as f:
     f.write(json.dumps(entry) + "\n")
 print("runtime monitor:", json.dumps(entry))

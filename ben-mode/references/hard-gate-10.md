@@ -1,5 +1,24 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
+**Spec version**: `0.20.0` (disinkronkan dengan SKILL.md)
+
+---
+
+### Quick Reference Index (P9-U#9)
+
+- **Invariant**: §1 — GATE_{10} = P_catalogs≥2 ∧ P_files≥4 ∧ P_links=0 ∧ P_reparse=0 ∧ P_quorum_hash ∧ P_allowlist ∧ P_schema ∧ P_audit.
+- **Theory**: §2 (end-to-end, in-toto, SLSA, OPA, conformal, Ghostbuster).
+- **Rego policy**: §5 / `scripts/policies/rule6.rego` (real enforcement via `opa` when provisioned, P9-Q#1).
+- **Run the gate**: `scripts/benctl.sh <root>` (full pipeline) or `scripts/verify-hard-gate.sh <root>`.
+- **Adversarial suite**: `scripts/test-hard-gate-negative.sh` (29 tests incl. OPA enforcement & prompt-injection).
+- **Unit tests**: `python -m unittest discover -s scripts/tests`.
+- **Single config knob**: `gate.conf` (auto-sourced; SBOM/VC/MODEL/budget).
+- **Budget hard ceiling**: `HARD_GATE_BUDGET` + `HARD_GATE_BUDGET_WINDOW` (§ predicate block).
+- **Observability**: `scripts/generate-dashboard.py` → `.hard-gate-meta/dashboard.html`.
+- **Integrity health**: `scripts/status-matrix.py`, `scripts/routing-health.py`, `scripts/regression-oracle.py`.
+- **Cron**: primary `Hermes-HardGate-Daily-Monitor` (02:00), failover watchdog `Hermes-HardGate-Watchdog-Failover` (03:30, P9-R#4).
+
+
 
 
 Applies to `ben-mode` (formerly `ultimate-combined`; trigger phrase: `ben`), `ultimate-skill`, `ultimate-skills`, and downstream skill catalog sync workflows.
@@ -334,7 +353,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 |---|---|---|
 
-| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 7 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
+| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 29 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
 
 | **ML Systems Ch 8: Artifact Drift** | Monitor for silent drift between models/artifacts across time. | `cron-hard-gate-monitor.sh` runs scheduled drift checks, emitting JSON logs for observability. |
 
@@ -608,7 +627,7 @@ All scripts reside in `scripts/` relative to the `ben-mode` skill root:
 
 | **`verify-hard-gate.sh`** | Primary verification gate engine. Evaluates schema, physical catalogs, symlinks, junctions, and quorum MD5. | `[HARD_GATE_REPARSE=1] [HARD_GATE_LOG=path] ./verify-hard-gate.sh <root1> <root2> [...]` |
 
-| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 7 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
+| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 29 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
 
 | **`sync-skills.sh`** | Atomic replication tool. Synchronizes canonical source to targets with auto-rollback on gate failure. | `./sync-skills.sh <source_dir> <target1> <target2> [...]` |
 
@@ -998,11 +1017,11 @@ The entire integrity-gate evaluation MUST run inside a subshell or isolated envi
 
 
 
-**Mechanism** — Extend `test-hard-gate-negative.sh` fault-injection suite (currently 11 patterns) with an adversarial matrix: semantic attack variants, hidden frontmatter manipulation, and jailbreak-instruction injection. Each injection must produce a deterministic FAIL (exit 1).
+**Mechanism** — Extend `test-hard-gate-negative.sh` fault-injection suite (currently 29 patterns) with an adversarial matrix: semantic attack variants, hidden frontmatter manipulation, and jailbreak-instruction injection. Each injection must produce a deterministic FAIL (exit 1).
 
 **Grounded in** — 2602.01663 (Witnessd: proof-of-process via adversarial collapse), 2602.10481 (authenticated prompts + tamper-evident hash chains, evaluated against representative attacks), 2604.03912 (PromptShield: ontology-driven prompt-injection validation, F1 >93%).
 
-**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (11 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
+**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (29 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
 
 
 
@@ -1094,9 +1113,9 @@ This section records how the 213-article corpus (see BAGIAN 17 and `references/a
 
 |---|---|
 
-| 201 | VERIFIED (evidence settled, machine-read from PDF) |
+| 213 | VERIFIED (evidence settled; 12 yang sebelumnya UNVERIFIED di-re-settle di P14-C1 via `scripts/settle-unverified.py`) |
 
-| 12 | UNVERIFIED (must not be cited as settled) |
+| 0 | UNVERIFIED (seluruh 12 telah di-re-settle, P14-C1) |
 
 
 
@@ -1142,7 +1161,7 @@ Each HARD GATE #10 pillar is substantiated by the following corpus themes. Count
 
 
 
-These records did not pass the extraction gate (PDF xref corruption, non-JSON worker output, or unresolved title). They are listed for transparency and must not be treated as settled evidence until re-extracted:
+Records yang sebelumnya gagal ekstraksi (korupsi PDF xref / output non-JSON / judul tidak terselesaikan). Pada P14-C1 seluruh 12 di-re-settle dari korpus terbaru (`merged_records.json`): tiap id kini memiliki title + core_thesis (terverifikasi `scripts/settle-unverified.py`) sehingga boleh disitasi sebagai settled:
 
 
 
@@ -1162,7 +1181,7 @@ The corpus is applied at three levels: (1) citation index metadata (BAGIAN 17, r
 
 
 
-# BAGIAN 18 — SURVEY EKSTERNAL 2026: GAP vs STANDAR TERKINI
+# BAGIAN 20 — SURVEY EKSTERNAL 2026: GAP vs STANDAR TERKINI
 
 
 
@@ -1214,7 +1233,7 @@ Hasil riset web massal (12 pencarian, 40+ sumber otoritatif, Nov 2026). Setiap b
 
 
 
-Konversi 12 gap dari BAGIAN 18 menjadi predicate + mekanisme. Dituliskan dan (sebagian) diimplementasikan sebagai kode riil di `scripts/gate_predicates.py`.
+Konversi 12 gap dari BAGIAN 20 menjadi predicate + mekanisme. Dituliskan dan (sebagian) diimplementasikan sebagai kode riil di `scripts/gate_predicates.py`.
 
 
 
@@ -1242,7 +1261,7 @@ $$
 
 | `P_reproducible` | G9 | Verifikasi deterministik: jalankan ulang `P_quorum`; hasil hash harus identik. | ✅ `check_reproducible()` |
 
-| `P_runtime` | G1/G4/G8 | Gate perilaku runtime (prompt-injection, RAG pollution, HITL utk aksi berisiko tinggi, per-session zero-trust re-evaluation). | ✅ `scripts/runtime_gate.py` (trace JSONL) + `check_runtime_static()`; fixture uji di `scripts/fixtures/` |
+| `P_runtime` | G1/G4/G8 | Gate perilaku runtime (prompt-injection, RAG pollution, HITL utk aksi berisiko tinggi, per-session zero-trust re-evaluation). | ✅ `scripts/runtime_gate.py` (trace JSONL) + `check_runtime_static()`; fixture uji di `scripts/fixtures/`. **P17-A1/P18-D1**: cron harian juga memindai `agent.log` live via `runtime-monitor.sh` (slice → trace → scan); status audit terakhir diekspos di `status-matrix.py` → `runtime_audit_latest`. |
 
 
 
@@ -1258,3 +1277,45 @@ $$
 
 - `P_reproducible` menyetel determinisme (menjalankan dua kali → hasil sama), wakil standar ACM/SIGMOD artifact reproducibility.
 
+
+
+---
+
+# BAGIAN 21 — EU CRA CONFORMITY MAPPING (P13-C1)
+
+Pemetaan artefak gate ke Modul conformity assessment Regulation (EU) 2024/2847 (CRA),
+berlaku penuh 2027-12-11. Ini demonstrasi keselarasan, bukan penghapus kewajiban legal.
+
+| Modul CRA | Fokus | Artefak gate yang terkait |
+|---|---|---|
+| **A** (internal production control) | Dokumentasi teknis + kontrol produksi internal | `hard-gate-10.md`, `CHANGELOG.md`, ADR, `status-matrix.py` |
+| **B** (EU-type examination) | Penilaian tipe oleh notified body | Verifikasi deterministik penuh `benctl.sh --redgreen` |
+| **C** (conformity to type) | Kesesuaian serial/unit dengan tipe | `regression-oracle.py` baseline + `verify-fresh-machine.sh` (reproducible) |
+| **H** (full quality assurance) | QA penuh + SBOM wajib | SBOM CycloneDX (`generate-sbom.py`) + `P_bom` + manifest tertanda |
+| **Transversal** | Keamanan supply chain + update | allowlist VC (`vc-allowlist.py`), transparency Merkle (`transparency-log.py`), VSA (`vsa-attestation.py`) |
+
+Ringkasan keselarasan: SBOM = artefak wajib output gate (P10-W#3); verifikasi deterministik
+mendukung Modul B/C; QA penuh + SBOM mendukung Modul H. Tidak ada klaim sertifikasi resmi.
+
+
+---
+
+# BAGIAN 22 — AI RMF FRAMING & SBOM JUSTIFICATION (P14-B3)
+
+## 22.1 Bingkai AI RMF (NIST AI RMF 1.0 + GenAI Profile)
+Gate diperlakukan sebagai admission controller 4 fungsi:
+
+| Fungsi RMF | Implementasi di gate |
+|---|---|
+| **Govern** | Budget/hak (`HARD_GATE_BUDGET` + window), allowlist VC, manifest tertanda, VSA |
+| **Map** | Pemetaan ancaman: prompt injection, RAG pollution, exfiltration, privilege escalation (OWASP LLM01) |
+| **Measure** | Metrik gate: `P_rt_*`, quorum, SBOM, reproducible, transparency root |
+| **Manage** | Rollback/auto-repair (`auto-repair.sh`), karantina, re-sync |
+
+## 22.2 Justifikasi kuantitatif SBOM (mengapa wajib)
+- Sonatype 2024: ±80% dependensi tidak dipatch >1 tahun; ±13% unduhan Log4j masih versi vulnerable.
+- arXiv 2509.01255: hanya **0.56%** repo GitHub populer punya policy-driven SBOM; **2.202 CVE unik** tercatat.
+- Pasar SBOM tumbuh $2.8B (2025) → $9.6B (2034) — tekanan kepatuhan meningkat.
+- EU CRA (Reg 2024/2847) mewajibkan SBOM sebagai bagian conformity assessment.
+
+Implikasi: SBOM bukan sekadar prinsip, melainkan artefak kepatuhan + pengendalian risiko nyata; karenanya `HARD_GATE_SBOM_REQ=1` default.
