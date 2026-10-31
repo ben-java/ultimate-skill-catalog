@@ -172,13 +172,7 @@ echo "✅ Test 9 PASS: hidden-instruction injection rejected"
 # Test 10: CRLF-shuffle canonicalization — byte-different but CRLF-normalized-equal
 #          trees MUST pass (proves normalization prevents false positives)
 mkdir -p "$TMP_TEST/crlf/a/skill" "$TMP_TEST/crlf/b/skill"
-cat > "$TMP_TEST/crlf/a/skill/SKILL.md" <<'EOF'
----
-name: skill
-description: test
----
-EOF
-"$PY" -c "import sys; s,d=sys.argv[1],sys.argv[2]; open(d,'wb').write(open(s,'rb').read().replace(b'\n', b'\r\n'))" "$(W "$TMP_TEST/crlf/a/skill/SKILL.md")" "$(W "$TMP_TEST/crlf/b/skill/SKILL.md")"
+"$PY" -c "import sys,os; base=os.path.join(sys.argv[1],'SKILL.md'); d=os.path.join(sys.argv[2],'SKILL.md'); open(base,'wb').write(b'---\nname: skill\ndescription: test\n---\n'); open(d,'wb').write(open(base,'rb').read().replace(b'\n', b'\r\n'))" "$(W "$TMP_TEST/crlf/a/skill")" "$(W "$TMP_TEST/crlf/b/skill")"
 if ! "$PY" "$SCRIPT_W/verify_skill_replicas.py" --root "$(W "$TMP_TEST/crlf/a/skill")" \
      --replica "$(W "$TMP_TEST/crlf/b/skill")" >/dev/null 2>&1; then
     echo "❌ Test 10 FAIL: CRLF-canonical trees falsely rejected"

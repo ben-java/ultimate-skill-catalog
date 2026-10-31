@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:01:18.651544+00:00",
-  "file_count": 90,
+  "generated_at": "2026-10-31T17:09:47.424647+00:00",
+  "file_count": 92,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -12,8 +12,8 @@
     },
     {
       "path": "SKILL.md",
-      "size": 36816,
-      "sha256": "5cab7fda82fdc26e038771b5c01cda20a53c1715cbf0d81c37303ab140eb0193"
+      "size": 38385,
+      "sha256": "97aaa74c5b6a4699acfdaea35926918f4d2b23d69c0ec6aa664fce08fff571eb"
     },
     {
       "path": "gate.conf",
@@ -46,9 +46,19 @@
       "sha256": "35b891a44a2d860fd636a7a0faa3c262b1e1d058cd0da8b0d0f4223251b902c3"
     },
     {
+      "path": "references/cose-scitt-receipt.md",
+      "size": 1917,
+      "sha256": "b2f81f87a1353689a6a704db524bebbdc4863619907929e25633682a93b307d8"
+    },
+    {
       "path": "references/gate-audit-procedure.md",
       "size": 2625,
       "sha256": "6453e7b34900d629697034e6bec9856708ad47e0d709622e925b3c755233c1e0"
+    },
+    {
+      "path": "references/github-actions-ci.md",
+      "size": 3027,
+      "sha256": "3579c4c2365727cb6ef74c9f7678668e98f9e4dd9382a5625c2d21b7d26e3a19"
     },
     {
       "path": "references/hard-gate-10.md",
@@ -317,8 +327,8 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 22805,
-      "sha256": "d8b5aa0c34f3c3947fe270a5d1fc3fa9c010a8d328a6221fb8b40a048f0bbdf3"
+      "size": 22821,
+      "sha256": "7de7b082d2fdc2d95e7aa5fcdfe9cff143598436e7419257cdb2beecbe2b107e"
     },
     {
       "path": "scripts/traceability.py",
@@ -337,8 +347,8 @@
     },
     {
       "path": "scripts/verify-fresh-machine.sh",
-      "size": 2768,
-      "sha256": "2d1543422f9c617039870bfc67eef002cf0b1007ef6e5b0adbf59ca6cd69ac9b"
+      "size": 2930,
+      "sha256": "e44ee4043491a5e0b77582b60b1cad7f66bf107eadb608c5e3938c64d9299df1"
     },
     {
       "path": "scripts/verify-hard-gate-sandbox.sh",

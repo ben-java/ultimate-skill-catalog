@@ -9,7 +9,8 @@ export PYTHONDONTWRITEBYTECODE=1
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"
+win_path() { if command -v cygpath >/dev/null 2>&1; then cygpath -w "$1"; else printf "%s" "$1"; fi; }
+SCRIPT_W="$(win_path "$SCRIPT_DIR")"
 CANONICAL="${1:-$(cd "$SCRIPT_DIR/.." && pwd)}"
 
 PY_BIN="${PYTHON:-python3}"
@@ -32,8 +33,8 @@ rm -rf "$SANDBOX/catA/ben-mode/.hard-gate-meta" "$SANDBOX/catB/ben-mode/.hard-ga
 # First run: compute checksum in isolated topology
 set +e
 OUT1=$("$PY_BIN" "$SCRIPT_W/verify_skill_replicas.py" \
-  --root "$(cygpath -w "$SANDBOX/catA/ben-mode")" \
-  --replica "$(cygpath -w "$SANDBOX/catB/ben-mode")" 2>&1)
+  --root "$(win_path "$SANDBOX/catA/ben-mode")" \
+  --replica "$(win_path "$SANDBOX/catB/ben-mode")" 2>&1)
 RC1=$?
 set -e
 [ "$RC1" -eq 0 ] || { echo "❌ Run 1 failed in fresh sandbox:"; echo "$OUT1"; exit 1; }
@@ -49,8 +50,8 @@ rm -rf "$SANDBOX2/catA/ben-mode/.hard-gate-meta" "$SANDBOX2/catB/ben-mode/.hard-
 
 set +e
 OUT2=$("$PY_BIN" "$SCRIPT_W/verify_skill_replicas.py" \
-  --root "$(cygpath -w "$SANDBOX2/catA/ben-mode")" \
-  --replica "$(cygpath -w "$SANDBOX2/catB/ben-mode")" 2>&1)
+  --root "$(win_path "$SANDBOX2/catA/ben-mode")" \
+  --replica "$(win_path "$SANDBOX2/catB/ben-mode")" 2>&1)
 RC2=$?
 set -e
 [ "$RC2" -eq 0 ] || { echo "❌ Run 2 failed in fresh sandbox:"; echo "$OUT2"; exit 1; }

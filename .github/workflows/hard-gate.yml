@@ -125,5 +125,7 @@ jobs:
           subject-path: ben-mode/scripts/sigstore-pipeline.sh
           predicate-type: "https://in-toto.io/Statement/v0.1"
       - name: Verify keyless attestation (P14-C2, gh)
+        env:
+          GH_TOKEN: ${{ github.token }}
         run: |
           gh attestation verify ben-mode/scripts/sigstore-pipeline.sh --owner "${{ github.repository_owner }}"

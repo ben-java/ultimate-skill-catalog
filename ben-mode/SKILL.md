@@ -154,7 +154,16 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Hook pre-commit menjalankan `verify-hard-gate.sh` pada tiap commit yang menyentuh SKILL.md, references, atau scripts — jadi baseline manifest WALIB terkini pada saat commit: edit apa pun (termasuk perbaikan trailing whitespace atau bump label) harus diikuti `refresh-baseline.sh` + `sync-all-roots.sh` SEBELUM commit, atau hook gagal "Manifest FAIL" dan menolak commit (bukan bypass `--no-verify`).
 - Scanner self-BOM (`status-matrix.py` `missing_bom`) memindai setiap baris yang diawali `- ` di SKILL.md dan mengekstrak path `(references|scripts)/...` — prosa dalam bullet yang secara literal memuat frasa `references` dirangkai slash diikuti sub-path (mis. `references` dirangkai `scripts`) memicu `SELF-BOM FAIL` palsu walau tak ada referensi hilang. Jauhkan literal mirip-path dari prosa bullet; reword (mis. `references dan scripts`) atau jangan tulis frasa itu di baris bullet.
 
+- Workflow GitHub Actions hanya berjalan pada event yang didaftarkan di `on:`. Ingin memicu via push → tambah `push: branches: [main]`; tanpa itu push tidak menjalankan apa pun dan run lama tetap tampil sebagai "terbaru" (menyesatkan poll).
+- Referensi `needs:` di workflow harus menunjuk nama job yang nyata; salah nama membuat seluruh run gagal dengan pesan samar "workflow file issue" tanpa detail job — verifikasi nama job terhadap blok `jobs:` sebelum push.
+- Attestation GitHub (`attest-build-provenance`/keyless) tidak tersedia untuk repo privat milik user — jangan klaim keyless verified pada repo privat; skip job tersebut secara jujur atau publikasikan repo dahulu.
+- Baseline manifest gate bersifat host-spesifik (baris baru/file ekstra) — pada fresh clone CI ia melenceng dan memicu "Manifest FAIL" padahal lokal PASS. Regenerasi baseline di dalam CI sebelum verify (`refresh-baseline.sh . ben-mode`) dan tegakkan canonical LF via `.gitattributes` + `git add --renormalize` agar hash konsisten lintas-host.
+- `git push` bisa menggantung saat credential helper meminta interaksi — panggil dengan helper dinonaktifkan dan token disematkan: `git -c credential.helper= push https://x-access-token:$GH_TOKEN@github.com/<owner>/<repo>.git main` (hindari prompt interaktif).
+
 ## References:
+-
+ references/github-actions-ci.md — deployment HARD GATE #10 ke GitHub Actions: trigger, validasi needs, keterbatasan attestation repo privat, parity baseline LF.
+- references/cose-scitt-receipt.md — resep COSE_Sign1 (python-cose) untuk receipt SCITT/attestation.
 - references/version-identification.md
 - references/vault-correction-2026-10-21.md
 - references/hard-gate-10.md  # ⚠️ WAJIB DIBACA setiap kali skill aktif (gate inti)
