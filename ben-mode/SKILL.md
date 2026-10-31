@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.21.0
+version: 0.22.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -143,6 +143,11 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Setiap kapabilitas gate baru wajib disurfacing **serentak di semua permukaan observability**: field `status-matrix.py`, anchor `traceability.py`, baris `weekly-summary.py`, dan kartu dashboard — kalau tidak, satu permukaan melaporkan kelengkapan basi dan mengerdilkan keputusan.
 - Saat matriks status perlu mencerminkan verdict checker lain (mis. traceability, coverage): jalankan checker itu via `subprocess` dan parse stdout-nya — jangan meng-ulang logikanya inline, atau dua salinan logika drift diam-diam.
 - Log audit append-only (JSONL/log) tumbuh tanpa batas; tambahkan langkah rotasi/retensi (arsip ke `meta/archive/<ts>/` lalu truncate live) di monitor terjadwal, bukan hanya saat disk penuh.
+- Label/hitungan statik pada output orkestrasi (mis. `benctl` "negative adversarial suite (29/29)") langsung basi saat jumlah suite bertambah; turunkan dari sumber tunggal yang sama (`TOTAL_TESTS`) atau perbarui serentak dengan bump hitungan, kalau tidak laporan menampilkan angka lebih rendah daripada suite yang benar-benar dieksekusi.
+- Commit baseline git yang menyertakan artefak provenans biner (`.sig`) dan workflow YAML terkena pre-commit whitespace/blank-line-EOF → bypass `--no-verify` hanya untuk file tak tersentuh dan catat jujur; idealnya konfigurasi hook agar melewatkan ekstensi biner/signature supaya commit normal berikutnya tetap tertahan.
+- Subprocess `git commit` via execute_code wajib set `GIT_AUTHOR_NAME`/`GIT_AUTHOR_EMAIL` (+ COMMITTER) eksplisit — tanpa itu gagal "Author identity unknown". Decode output subprocess dgn `errors="replace"` karena pre-commit hook dapat memuntahkan byte non-UTF8 yang menghentikan decode ketat.
+- `git add -A -- ':(exclude)…'` hanya mengecualikan file belum-di-tracking; artefak self-healing yang sudah ter-tracking tetap ikut ter-stage — bila ingin dikeluarkan, unstage setelah add atau terima melacaknya.
+- Mekanisme gate baru wajib didokumentasikan di BADAN spec (BAGIAN), bukan sekadar bump header versi — grep istilah implementasi di doc harus positif setelah rilis; header saja membuat klaim "selaras" menipu.
 
 ## References:
 - references/version-identification.md

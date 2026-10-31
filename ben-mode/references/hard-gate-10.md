@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.21.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.22.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1292,6 +1292,12 @@ $$
 - Sidecar `routing-coverage.json` memuat field `unresolved[]` (daftar
   `[cluster N] <skill>` yang tidak terpasang) agar coverage 50% dapat
   ditindaklanjuti secara actionable, bukan hanya angka.
+- `weekly-summary.py` menyertakan verdict gate nyata (`last gate verdict: PASS/FAIL @ ts`)
+  agar paritas telemetri tercapai di semua permukaan observability (status-matrix,
+  dashboard, weekly).
+- Pre-commit hook di-hardening: `git diff --cached --check` mengecualikan artefak
+  biner/provenans (`.sig`, `.bin`) sehingga commit baseline tidak terpaksa
+  `--no-verify`; guard gate tetap berjalan untuk SKILL.md/references/scripts.
 
 ---
 

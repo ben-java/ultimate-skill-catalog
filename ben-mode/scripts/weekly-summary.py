@@ -62,6 +62,29 @@ def main():
         if mm:
             print(f"spec version: {mm.group(1)}")
 
+    # P25-B1: last real gate verdict from audit log (mirror status-matrix)
+    import tempfile as _tf
+    _ga = os.path.join(_tf.gettempdir(), "hard-gate-audit.log.json")
+    _gate_status = "n/a"; _gate_ts = "n/a"
+    _proj_root = "C:/Users/AMMAR/Hermes Agents/Projects/ultimate-skill-catalog"
+    if os.path.isfile(_ga):
+        try:
+            _txt = open(_ga, encoding="utf-8", errors="ignore").read()
+            _dec = json.JSONDecoder(); _i = 0
+            while _i < len(_txt):
+                while _i < len(_txt) and _txt[_i] in " \t\r\n": _i += 1
+                if _i >= len(_txt): break
+                if _txt[_i] != "{": _i += 1; continue
+                try: _obj, _end = _dec.raw_decode(_txt, _i)
+                except Exception: _i += 1; continue
+                if _proj_root in _obj.get("root", "") and _obj.get("status") in ("PASS", "FAIL"):
+                    _gate_status = _obj.get("status")
+                    _gate_ts = _obj.get("timestamp", _obj.get("ts", ""))
+                _i = _end
+        except Exception:
+            pass
+    print(f"last gate verdict: {_gate_status} @ {_gate_ts}")
+
     if aggr:
         st = Counter(r.get("status") for r in aggr[-200:])
         print(f"audit events: {dict(st)}")

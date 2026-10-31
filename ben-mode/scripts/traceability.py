@@ -50,6 +50,8 @@ MAP = {
     "P24-A spec parity fresh": ([], [], ["gate_predicates.py"]),
     "P24-C git baseline": ([], [], ["benctl.sh"]),
     "P24-D fresh-guard test": ([], [], ["test-hard-gate-negative.sh"]),
+    "P25-A hook hardening": ([], [], ["install-precommit-hook.sh"]),
+    "P25-B weekly gate verdict": ([], [], ["weekly-summary.py"]),
 }
 
 

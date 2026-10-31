@@ -1,3 +1,8 @@
+## v0.22.0 (2026-10-31) — Phase 25 Hook Hardening & Weekly Gate-Verdict Telemetry
+
+- **P25-A1**: pre-commit hook di-hardening — `git diff --cached --check` mengecualikan `.sig`/`.bin`; blank-line-EOF workflow dibersihkan; commit normal kini lulus tanpa `--no-verify` (commit `662ff7b`).
+- **P25-B1**: `weekly-summary.py` menyertakan `last gate verdict` (PASS/FAIL @ ts) dari audit log — paritas telemetri dengan status-matrix & dashboard.
+- **P25-C1**: CI `keyless-attest`/`fresh-linux`/`publish-dashboard` tetap `BLOCKED-BY-REMOTE`.
 ## v0.21.0 (2026-10-31) — Phase 24 Spec Parity, Git Baseline & Fresh-Guard Test
 
 - **P24-A1**: `hard-gate-10.md` memperoleh BAGIAN 19.3 — mendokumentasikan `HARD_GATE_FRESH` default ON, field `last_gate_status`/`last_gate_ts`, dan schema sidecar `routing-coverage.json` (`unresolved[]`).

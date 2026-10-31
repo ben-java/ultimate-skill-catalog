@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T15:28:14.929065+00:00",
+  "generated_at": "2026-10-31T15:35:21.242416+00:00",
   "file_count": 84,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 21007,
-      "sha256": "4bedfab8c2b38685cecb1551549695be8e03587e676b8f2e45472c4341a546c5"
+      "size": 21552,
+      "sha256": "a0d30da27a1282736e68a6dc71c941382b0d8a56fc7aeb732f8a41f1be65e9a8"
     },
     {
       "path": "SKILL.md",
-      "size": 31531,
-      "sha256": "9216826400d30803d46e769c8f6f71ac19cbf1aac5ce222e8fcb4dde400a487c"
+      "size": 32920,
+      "sha256": "6772d9abb023c8e54e8b7f4de363d8d8465d1bbbf68c5d3932c61a95cde88a38"
     },
     {
       "path": "gate.conf",
@@ -47,8 +47,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 63401,
-      "sha256": "723953b3400fab5b4abceba97f3713fc73f460f1cefa7cc01d079e3913cdf047"
+      "size": 63838,
+      "sha256": "49c83cbfeeb00f261a79878d1edb79b17566ce39ec631c2ca38c0c7298b9ce06"
     },
     {
       "path": "references/large-document-editing.md",
@@ -307,8 +307,8 @@
     },
     {
       "path": "scripts/traceability.py",
-      "size": 4257,
-      "sha256": "cb893e84a53de891554379e0b78387c0e769b827af48d016addecb6b1d1012ee"
+      "size": 4394,
+      "sha256": "582451792c79070ef4ffc6a9d0c0a43007fc7ac8101a81c76d0bd1336e688a8e"
     },
     {
       "path": "scripts/transparency-log.py",
@@ -362,8 +362,8 @@
     },
     {
       "path": "scripts/weekly-summary.py",
-      "size": 3647,
-      "sha256": "a86081bc6805a3e484c87cedad1c7f12d2dab5006ef0b5addfd0c4ebbe0644fc"
+      "size": 4792,
+      "sha256": "865d95e3031ddc44a3f4f68374c5b2fb242916235963908f2e483b3cf437d9be"
     },
     {
       "path": "scripts/zero-trust-pep.py",

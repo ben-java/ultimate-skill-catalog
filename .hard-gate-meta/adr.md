@@ -268,3 +268,8 @@ penuh + simpan sig baru.
 - **Status**: Accepted
 - **Decision**: 1) Dokumen P23 (fresh default, gate verdict, unresolved sidecar) ke BAGIAN 19.3 spec; 2) commit baseline git (eksklusi meta via info/exclude); 3) Test 30 untuk guard fresh default-ON + warning OFF jujur (TOTAL_TESTS=30).
 - **Consequences**: Spec selaras dengan implementasi; riwayat drift dapat dilacak via git; fresh reproducibility tak bisa di-silence tanpa catatan.
+
+## ADR-28: Phase 25 Hook Hardening & Weekly Gate-Verdict Telemetry (2026-10-31)
+- **Status**: Accepted
+- **Decision**: 1) pre-commit hook mengecualikan .sig/.bin dari whitespace --check (commit normal tanpa --no-verify); 2) weekly-summary.py menampilkan last gate verdict; 3) CI keyless tetap BLOCKED-BY-REMOTE.
+- **Consequences**: Guard commit pulih (tanpa bypass); paritas observability lengkap di matrix/dashboard/weekly.
