@@ -4,7 +4,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # test-hard-gate-negative.sh — adversarial tests proving HARD GATE #10 fails on invalid states.
 # Every fixture-setup failure must FAIL loudly (exit 1), never silently skip.
 set -euo pipefail
-TOTAL_TESTS=29
+TOTAL_TESTS=30
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Native Windows path for python invocations — MSYS auto-conversion of
@@ -413,5 +413,26 @@ if "$PY" "$SCRIPT_DIR/check-model-signed.py" "$TMP_MDL29" >/dev/null 2>&1; then
 else
     echo "✅ Test 29 PASS: empty asset manifest rejected"
 fi
+
+# Test 30: fresh-machine guard must default ON; forced OFF must warn honestly (P24-D1)
+BENCTL="$SCRIPT_DIR/benctl.sh"
+if [ ! -f "$BENCTL" ]; then
+    echo "❌ Test 30 FAIL: benctl.sh missing"
+    exit 1
+fi
+if grep -q 'HARD_GATE_FRESH:-0' "$BENCTL"; then
+    echo "❌ Test 30 FAIL: FRESH guard default OFF (regression, must be :-1)"
+    exit 1
+fi
+if ! grep -q 'HARD_GATE_FRESH:-1' "$BENCTL"; then
+    echo "❌ Test 30 FAIL: FRESH guard default ON missing (:-1)"
+    exit 1
+fi
+if ! grep -q 'fresh-machine disabled' "$BENCTL"; then
+    echo "❌ Test 30 FAIL: no honest skip-warning for FRESH=0"
+    exit 1
+fi
+echo "✅ Test 30 PASS: fresh-machine guard default ON + honest OFF-warning guaranteed"
+
 
 echo "🎉 All negative/adversarial tests PASSED."

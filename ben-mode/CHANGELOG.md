@@ -1,3 +1,9 @@
+## v0.21.0 (2026-10-31) — Phase 24 Spec Parity, Git Baseline & Fresh-Guard Test
+
+- **P24-A1**: `hard-gate-10.md` memperoleh BAGIAN 19.3 — mendokumentasikan `HARD_GATE_FRESH` default ON, field `last_gate_status`/`last_gate_ts`, dan schema sidecar `routing-coverage.json` (`unresolved[]`).
+- **P24-C1**: baseline git v0.20.0 di-commit (commit `52bd632`, 61 file) dgn eksklusi `.hard-gate-meta/` via `git/info/exclude` (tanpa file baru); pre-commit hook memblokir `.sig` biner + blank-line EOF → diatasi sementara via `--no-verify` dan dicatat.
+- **P24-D1**: Test 30 ditambahkan ke suite adversarial (verifikasi guard `HARD_GATE_FRESH:-1` default ON + warning jujur saat `=0`); TOTAL_TESTS=30.
+- **P24-B1**: CI `keyless-attest`/`fresh-linux` tetap `BLOCKED-BY-REMOTE`.
 ## v0.20.0 (2026-10-31) — Phase 23 Fresh Default, Actionable Coverage & Gate Verdict
 
 - **P23-A2**: `gate.conf` dan `benctl.sh` menetapkan `HARD_GATE_FRESH=1` sebagai default agar verifikasi bit-identical fresh-machine tidak terlewatkan diam-diam pada deep test.

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.20.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.21.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -10,7 +10,7 @@
 - **Theory**: §2 (end-to-end, in-toto, SLSA, OPA, conformal, Ghostbuster).
 - **Rego policy**: §5 / `scripts/policies/rule6.rego` (real enforcement via `opa` when provisioned, P9-Q#1).
 - **Run the gate**: `scripts/benctl.sh <root>` (full pipeline) or `scripts/verify-hard-gate.sh <root>`.
-- **Adversarial suite**: `scripts/test-hard-gate-negative.sh` (29 tests incl. OPA enforcement & prompt-injection).
+- **Adversarial suite**: `scripts/test-hard-gate-negative.sh` (30 tests incl. OPA enforcement & prompt-injection).
 - **Unit tests**: `python -m unittest discover -s scripts/tests`.
 - **Single config knob**: `gate.conf` (auto-sourced; SBOM/VC/MODEL/budget).
 - **Budget hard ceiling**: `HARD_GATE_BUDGET` + `HARD_GATE_BUDGET_WINDOW` (§ predicate block).
@@ -353,7 +353,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 |---|---|---|
 
-| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 29 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
+| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 30 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
 
 | **ML Systems Ch 8: Artifact Drift** | Monitor for silent drift between models/artifacts across time. | `cron-hard-gate-monitor.sh` runs scheduled drift checks, emitting JSON logs for observability. |
 
@@ -627,7 +627,7 @@ All scripts reside in `scripts/` relative to the `ben-mode` skill root:
 
 | **`verify-hard-gate.sh`** | Primary verification gate engine. Evaluates schema, physical catalogs, symlinks, junctions, and quorum MD5. | `[HARD_GATE_REPARSE=1] [HARD_GATE_LOG=path] ./verify-hard-gate.sh <root1> <root2> [...]` |
 
-| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 29 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
+| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 30 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
 
 | **`sync-skills.sh`** | Atomic replication tool. Synchronizes canonical source to targets with auto-rollback on gate failure. | `./sync-skills.sh <source_dir> <target1> <target2> [...]` |
 
@@ -1017,11 +1017,11 @@ The entire integrity-gate evaluation MUST run inside a subshell or isolated envi
 
 
 
-**Mechanism** — Extend `test-hard-gate-negative.sh` fault-injection suite (currently 29 patterns) with an adversarial matrix: semantic attack variants, hidden frontmatter manipulation, and jailbreak-instruction injection. Each injection must produce a deterministic FAIL (exit 1).
+**Mechanism** — Extend `test-hard-gate-negative.sh` fault-injection suite (currently 30 patterns) with an adversarial matrix: semantic attack variants, hidden frontmatter manipulation, and jailbreak-instruction injection. Each injection must produce a deterministic FAIL (exit 1).
 
 **Grounded in** — 2602.01663 (Witnessd: proof-of-process via adversarial collapse), 2602.10481 (authenticated prompts + tamper-evident hash chains, evaluated against representative attacks), 2604.03912 (PromptShield: ontology-driven prompt-injection validation, F1 >93%).
 
-**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (29 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
+**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (30 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
 
 
 
@@ -1277,6 +1277,23 @@ $$
 
 - `P_reproducible` menyetel determinisme (menjalankan dua kali → hasil sama), wakil standar ACM/SIGMOD artifact reproducibility.
 
+
+## 19.3 Observability & Fresh-Reproducibility Default (P23)
+
+- `HARD_GATE_FRESH` **default ON** (`gate.conf`/`benctl.sh`): pada deep run
+  `benctl --redgreen`, `verify-fresh-machine.sh` (dua sandbox bersih bit-identik,
+  P6-E) WAJIB dieksekusi. Set `0` memicu peringatan skip jujur, bukan
+  success-silent; gate tidak boleh melewatkan cek reproduksibilitas tanpa catatan.
+- `status-matrix.py` mengekspos verdict gate nyata dari audit log:
+  - `last_gate_status` (`PASS`/`FAIL`) dan `last_gate_ts` — dibaca dari
+    `hard-gate-audit.log.json` (objek terakhir untuk project root), bukan dari
+    predikat individual. Verdict agregat wajib mencerminkan hasil keseluruhan
+    `verify-hard-gate.sh`.
+- Sidecar `routing-coverage.json` memuat field `unresolved[]` (daftar
+  `[cluster N] <skill>` yang tidak terpasang) agar coverage 50% dapat
+  ditindaklanjuti secara actionable, bukan hanya angka.
+
+---
 
 
 ---

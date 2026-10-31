@@ -47,6 +47,9 @@ MAP = {
     "P23-A fresh default": ([], [], ["benctl.sh", "verify-fresh-machine.sh"]),
     "P23-B actionable coverage": ([], [], ["routing-health.py"]),
     "P23-C gate verdict": ([], [], ["status-matrix.py"]),
+    "P24-A spec parity fresh": ([], [], ["gate_predicates.py"]),
+    "P24-C git baseline": ([], [], ["benctl.sh"]),
+    "P24-D fresh-guard test": ([], [], ["test-hard-gate-negative.sh"]),
 }
 
 

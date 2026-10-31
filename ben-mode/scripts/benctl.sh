@@ -115,7 +115,7 @@ fi
 
 if [ "$NO_REPORT" = "0" ]; then
   if [ "$FULL" = "1" ]; then
-    mark GREEN "negative adversarial suite (29/29)"
+    mark GREEN "negative adversarial suite (30/30)"
     "$BASH_BIN" "$SCRIPT_W/test-hard-gate-negative.sh" >/dev/null || fail "negative-suite"
   fi
   mark GREEN "routing-health + coverage"
