@@ -236,7 +236,7 @@ def main():
         code = 1
     if code:
         sys.exit(code)
-    print("SELF-BOM OK: all SKILL.md references exist; version consistent.")
+    sys.stderr.write("SELF-BOM OK: all SKILL.md references exist; version consistent.\n")
 
 
 if __name__ == "__main__":

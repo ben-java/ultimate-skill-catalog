@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:19:24.237212+00:00",
+  "generated_at": "2026-10-31T17:40:03.070726+00:00",
   "file_count": 92,
   "files": [
     {
@@ -12,8 +12,8 @@
     },
     {
       "path": "SKILL.md",
-      "size": 38385,
-      "sha256": "97aaa74c5b6a4699acfdaea35926918f4d2b23d69c0ec6aa664fce08fff571eb"
+      "size": 39504,
+      "sha256": "77dde1fff1358c45b33a52fbfe979e1cb836a39abaeb49cb6b191bb0addc9b32"
     },
     {
       "path": "gate.conf",
@@ -307,8 +307,8 @@
     },
     {
       "path": "scripts/status-matrix.py",
-      "size": 10273,
-      "sha256": "96be401482af960739f0676f797e0d89e59131497169c6f5f866a0fe5cea706d"
+      "size": 10286,
+      "sha256": "f1cb42ad26661b21695693eb783f7c1a9e5996f1b4bcc0566feaddc5d75d4240"
     },
     {
       "path": "scripts/sync-all-roots.sh",
