@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:44:59.941941+00:00",
+  "generated_at": "2026-10-31T17:53:25.980794+00:00",
   "file_count": 92,
   "files": [
     {
@@ -12,8 +12,8 @@
     },
     {
       "path": "SKILL.md",
-      "size": 39504,
-      "sha256": "77dde1fff1358c45b33a52fbfe979e1cb836a39abaeb49cb6b191bb0addc9b32"
+      "size": 40477,
+      "sha256": "0d88c9953c495b66c25398828f942f271e427eae4f959a6240dd07842c1f870a"
     },
     {
       "path": "gate.conf",
