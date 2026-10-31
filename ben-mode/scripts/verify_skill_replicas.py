@@ -21,6 +21,12 @@ Checks (exit 0 = PASS, 1 = FAIL):
 """
 import argparse, hashlib, json, os, re, shutil, sys, tempfile, datetime
 
+try:
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+    sys.stderr.reconfigure(encoding="utf-8", errors="replace")
+except Exception:
+    pass
+
 DEFAULT_ROOTS = [
     r"C:\Users\AMMAR\AppData\Local\hermes\skills\dsh-imported",
     r"C:\Users\AMMAR\Tools\dsh-skill-wrappers",
@@ -151,7 +157,7 @@ def main():
     # §15.2: quorum = majority of [N/2]+1 replicas must report identical hashes
     quorum_ok, agree, threshold, total = quorum_report(hashes)
     if not quorum_ok:
-        fails.append(f"quorum FAIL: {agree}/{total} replicas agree (need ≥{threshold})")
+        fails.append(f"quorum FAIL: {agree}/{total} replicas agree (need >={threshold})")
 
     # §15.1/§16.2: verify tree against reproducible manifest baseline, if given
     if args.manifest:
@@ -180,7 +186,7 @@ def main():
         f.write(json.dumps(entry) + "\n")
 
     print(f"status = {status}")
-    print(f"quorum = {agree}/{total} replicas agree (threshold ≥{threshold})")
+    print(f"quorum = {agree}/{total} replicas agree (threshold >={threshold})")
     for f in fails:
         print("  -", f)
     sys.exit(0 if status == "PASS" else 1)

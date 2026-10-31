@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:11:37.097610+00:00",
+  "generated_at": "2026-10-31T17:13:41.124568+00:00",
   "file_count": 92,
   "files": [
     {
@@ -372,8 +372,8 @@
     },
     {
       "path": "scripts/verify_skill_replicas.py",
-      "size": 7135,
-      "sha256": "a2366bf7317764e9bf8a9ff7e55cb2367056e307507cb2f428f4e99599899c61"
+      "size": 7488,
+      "sha256": "b01292b529bf8b16aae43cb9fde284124b680bf8f5c04403bf1276f616eacded"
     },
     {
       "path": "scripts/vsa-attestation.py",
