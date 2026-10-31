@@ -62,6 +62,7 @@ MAP = {
     "P26-10 redteam": ([], [], ["benctl.sh"]),
     "P26-11 token scope": (["P_rt_secrets"], [], ["runtime_gate.py"]),
     "P26-7 span tree": ([], [], ["span-tree.py"]),
+    "P26-4 SCITT COSE": ([], [], ["scitt-receipt.py"]),
 }
 
 

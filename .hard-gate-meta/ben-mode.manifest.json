@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T16:57:52.349187+00:00",
+  "generated_at": "2026-10-31T17:01:18.651544+00:00",
   "file_count": 90,
   "files": [
     {
@@ -322,8 +322,8 @@
     },
     {
       "path": "scripts/traceability.py",
-      "size": 5066,
-      "sha256": "a90ddbeb043de3997abaa02fdcebe81026a9faaa75c43ffbdaa1126b5f7ad89b"
+      "size": 5123,
+      "sha256": "b0ca5924ad51e8c2248fdcda4811d8d832fbfe67ba807dd56b1e15a09caa08c2"
     },
     {
       "path": "scripts/transparency-log.py",
