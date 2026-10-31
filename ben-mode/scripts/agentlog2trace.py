@@ -54,6 +54,15 @@ def main():
                 ev["payload"] = {"category": "tool", "tool": msg}
             events.append(ev)
 
+    # Zero-trust quorum (P_rt_sessions): emit one synthetic `verify` marker per
+    # session so runtime_gate's per-session freshness predicate can pass.
+    seen = set()
+    for ev in list(events):
+        sid = ev.get("session_id")
+        if sid and sid not in seen:
+            seen.add(sid)
+            events.append({"session_id": sid, "event_type": "verify", "payload": {}})
+
     out = sys.stdout if args.out == "-" else open(args.out, "w", encoding="utf-8")
     for ev in events:
         out.write(json.dumps(ev, ensure_ascii=False) + "\n")

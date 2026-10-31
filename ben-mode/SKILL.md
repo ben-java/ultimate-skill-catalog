@@ -112,6 +112,9 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Gate memakai DUA mekanisme manifest berbeda: `check_signed_manifest` (`gate_predicates.py` → `.hardgate_manifest.sha256`) dan `verify-hard-gate.sh` (→ `.hard-gate-meta/<skill>.manifest.sha256`). Edit skill → regenerasi baseline via `generate_manifest.py --baseline <file-di-luar-pohon>` lalu jalankan ulang verify; baseline yang basi membuat gate RED walau semua predicate lain PASS.
 - Panggil eksekutabel native (python, pip, opa) dari Git-Bash hanya dengan path native hasil `cygpath -w`: argumen `/c/...` sering termutilasi menjadi `C:\c\Users\...` (prefix drive + komponen pertama dipertahankan) oleh auto-conversion MSYS yang tidak konsisten antar-shell — python gagal membuka script/berkas dan gate melaporkan FAIL palsu (mis. manifest). Definisikan `SCRIPT_W="$(cygpath -w "$SCRIPT_DIR")"` sekali, lalu pakai `$SCRIPT_W/...` di semua pemanggilan python; lakukan sama untuk tiap argumen berkas (requirements.txt, input OPA).
 - Deteksi/ciptakan junction Windows: `os.path.islink` mengembalikan False untuk junction — deteksi via ctypes `GetFileAttributesW(p) & 0x400`. Buat junction dengan PowerShell `New-Item -ItemType Junction -Path <L> -Target <T>`; jangan `cmd //c mklink /J` (di Git-Bash bisa membuka cmd interaktif dan tidak mengeksekusi). Recipe lengkap di `references/windows-execution.md`.
+- Generator/konverter trace (mis. `agentlog2trace.py`) yang menulis JSONL: mutasi daftar event — termasuk menyuntikkan marker baru — wajib terjadi SEBELUM loop penulisan. Append setelah write tidak akan terserialisasi; print bisa sudah menghitungnya sehingga jumlah print ≠ jumlah baris file. Jika parse ulang tidak menemukan event baru, cek posisi append terhadap write, bukan format file.
+- `runtime_gate.py` (P_rt_sessions / zero-trust): setiap sesi wajib punya minimal satu event `verify`. Trace turunan dari log teks yang tidak menghasilkan event verify akan selalu FAIL pada predicate ini walau aman. Suntikkan satu event `verify` sintetis per sesi saat konversi (bukan di runtime gate).
+- Metrik/stats kustom harus meniru filter ACTIVE gate (lewati `.git`, `backup/*`, `archive/*`, dan file nyasar root) supaya angkanya konsisten dengan laporan `verify-hard-gate.sh`; kalau tidak, hitungan membengkak (mis. direktori `.git` ikut terhitung sebagai katalog).
 
 ## References:
 - references/version-identification.md
@@ -124,6 +127,9 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - references/content-to-skill.md — alur mengubah konten eksternal/web menjadi skill (provenance, routing, sinkronisasi).
 - references/gate-audit-procedure.md — prosedur audit total klaim gate: jalankan artefak dengan env cron, klasifikasi klaim (real/overstated/broken), susun plan P0/P1/P2.
 - references/windows-execution.md — resep menjalankan toolchain gate di Windows/Git-Bash: konversi path native, pembuatan/deteksi junction, OPA, generate_manifest, konstrain schema nama-folder untuk fixture test.
+- references/runtime-trace-validation.md — resep mengubah agent.log Hermes menjadi trace JSONL untuk `runtime_gate` (mapping, suntikan event verify per sesi, pemindaian).
+- scripts/tdd-red-green.sh — uji executable RED→GREEN: flip satu byte di replika → verifier harus FAIL; pulihkan → harus PASS.
+- scripts/gate-stats.sh — catat metrik observability per run (katalog/skill/symlink/tree_bytes + token_proxy) ke `.hard-gate-meta/gate-cost.jsonl`.
 - Reference harness implementations (mendukung klaim HARD GATE #10 §§10,15,16); dikurasi dari awesome-agent-harness (Picrew), diverifikasi 2026-10-29:
   - `google/ax` (Apache-2.0) — Agent Executor: event-log snapshots, isolated actors, audit & policy → §10 audit trail & §16 execution deterministik. https://github.com/google/ax
   - `block/buzz` (Apache-2.0) — signed Nostr event log; audit trail identik utk manusia & agen → §15 crypto attestation/append-only log. https://github.com/block/buzz

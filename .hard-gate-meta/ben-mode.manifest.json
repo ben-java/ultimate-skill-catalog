@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-30T23:31:37.080224+00:00",
-  "file_count": 39,
+  "generated_at": "2026-10-31T01:08:14.601235+00:00",
+  "file_count": 42,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -12,8 +12,8 @@
     },
     {
       "path": "SKILL.md",
-      "size": 18992,
-      "sha256": "ec741f943feb811eaa9dfaa763381dbb930e92cbd0d39766aa7aaa130db02997"
+      "size": 20558,
+      "sha256": "7681db6f9ab4850e7bd6866c33ddd72919f353e2cdd44b51915e698662b1d1b2"
     },
     {
       "path": "references/article-evidence.md",
@@ -51,6 +51,11 @@
       "sha256": "2935beadb932d47e82712478605f4da8b2e154252382269c95360276c851ea00"
     },
     {
+      "path": "references/runtime-trace-validation.md",
+      "size": 1767,
+      "sha256": "55d78e815e7a3cda2750302cb2089822b9ce47748dc2071b7c336b8b3f8d59e2"
+    },
+    {
       "path": "references/tdd-red-green.md",
       "size": 562,
       "sha256": "14e3945e6b16b90ef797b1a01a2165d0a9c32b79d2af1316fb22ef95917587d1"
@@ -72,8 +77,8 @@
     },
     {
       "path": "scripts/agentlog2trace.py",
-      "size": 2776,
-      "sha256": "1f2e693577259f222944f9d10b376a709f4ece4ea66ef84e72b3eb9d7148ca7f"
+      "size": 3159,
+      "sha256": "f00db008a602d06e2c45df8b0ef705dfa4ea4f356a84c40579de5091faf2db20"
     },
     {
       "path": "scripts/aggregate-audit.py",
@@ -94,6 +99,11 @@
       "path": "scripts/cron-hard-gate-monitor.sh",
       "size": 2719,
       "sha256": "36f6ee61819f2bf5c5dcbcadf9a7da459b53f61ad0381cbe999ab61bdc736b56"
+    },
+    {
+      "path": "scripts/gate-stats.sh",
+      "size": 1372,
+      "sha256": "80211fd703e36ab4d9637ee3a634d49484fad0c67f36de32882727ff446e45ac"
     },
     {
       "path": "scripts/gate_predicates.py",
@@ -154,6 +164,11 @@
       "path": "scripts/sync-skills.sh",
       "size": 2938,
       "sha256": "c433970e938d7283e142c01bb3600882567d743562a80217b05e15209b858fec"
+    },
+    {
+      "path": "scripts/tdd-red-green.sh",
+      "size": 1687,
+      "sha256": "565c55f0a3d458749233fcbdebad25adebbc2113f14029fe5a38b767efc746bd"
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
