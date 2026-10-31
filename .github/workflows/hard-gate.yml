@@ -67,7 +67,9 @@ jobs:
         run: |
           mkdir -p "$HOME/bin"
           curl -fsSL -o "$HOME/bin/opa.exe" https://github.com/open-policy-agent/opa/releases/latest/download/opa_windows_amd64.exe
+          curl -fsSL -o "$HOME/bin/cosign.exe" https://github.com/sigstore/cosign/releases/latest/download/cosign-windows-amd64.exe
           OPA_BIN="$HOME/bin/opa.exe" python ben-mode/scripts/opa-policy-check.py
+          "$HOME/bin/cosign.exe" version || echo "cosign provision warning"
           python ben-mode/scripts/sigstore-verify.py || echo "sigstore-verify: not provisioned in CI (honest)"
       - name: Manifest artifact provenance attestation (P12-D#9)
         shell: bash
