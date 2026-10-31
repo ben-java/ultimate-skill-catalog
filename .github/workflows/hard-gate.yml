@@ -118,8 +118,9 @@ jobs:
           python-version: '3.12'
       - name: Generate dashboard (P13-D1/D2)
         run: |
-          python ben-mode/scripts/generate-dashboard.py "$PWD/.hard-gate-meta" "docs/dashboard.html" || true
-          mkdir -p public && cp -r ben-mode docs public/ 2>/dev/null || true
+          mkdir -p public
+          python ben-mode/scripts/generate-dashboard.py "$PWD/.hard-gate-meta" "public/index.html"
+          cp -r ben-mode docs public/ 2>/dev/null || true
       - uses: actions/upload-pages-artifact@v3
         with:
           path: public
