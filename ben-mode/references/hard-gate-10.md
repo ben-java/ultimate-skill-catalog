@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.43.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.44.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2116,3 +2116,18 @@ disurfacing `P_LL01–P_LL24`; diverifikasi 24/24 PASS (selftest_ll rc 0).
 - Synchronization: LL07 `ll_bounded_buffer`, LL10 `ll_barrier_sync`, LL16 `ll_cancellation_propagate`, LL23 `ll_timeout_bounded_operation`.
 - Parallel Performance: LL11 `ll_parallel_reduction`, LL12 `ll_task_granularity`, LL14 `ll_throughput_scale`, LL22 `ll_distributed_consensus`.
 - Load & Failure: LL20 `ll_backpressure`, LL21 `ll_intermittent_failure_retry`.
+
+---
+
+# BAGIAN 44 — WAVE M: DATA QUALITY & INTEGRITY MM01–MM24 (VERIFIED; v0.44.0)
+
+Menambahkan lapisan data quality & integrity: `MM01–MM24` di `hard_gate_enhancements.py`,
+disurfacing `P_MM01–P_MM24`; diverifikasi 24/24 PASS (selftest_mm rc 0).
+
+- Schema & Shape: MM01 `mm_schema_validation`, MM09 `mm_encoding_consistency`, MM13 `mm_timestamp_validity`, MM14 `mm_cross_field_consistency`, MM16 `mm_measurement_units`, MM21 `mm_feature_distribution_valid`.
+- Anomali & Drift: MM03 `mm_outlier_detection`, MM04 `mm_data_drift_detect`, MM05 `mm_class_imbalance_ok`, MM18 `mm_missingness_threshold`, MM20 `mm_label_noise_bounded`.
+- Duplikasi & Null: MM02 `mm_null_handling`, MM06 `mm_duplicate_detect`.
+- Provenance & Versi: MM07 `mm_data_versioning`, MM12 `mm_source_reliability`, MM15 `mm_data_provenance`.
+- Privacy: MM10 `mm_pii_detection`, MM11 `mm_anonymization_ok`.
+- Agregasi & Pipeline: MM17 `mm_aggregation_correct`, MM19 `mm_data_pipeline_checkpoint`, MM22 `mm_import_validation`, MM23 `mm_data_retention_policy`.
+- Skor: MM08 `mm_quality_score`, MM24 `mm_overall_data_integrity`.

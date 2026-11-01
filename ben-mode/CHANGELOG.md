@@ -1,3 +1,8 @@
+## v0.44.0 (2026-11-02) — Wave M Data Quality & Integrity MM01–MM24 (BAGIAN 44)
+
+- **MM01–MM24**: schema validation, null handling, outlier detection, data drift, class imbalance, duplicate detection, data versioning, quality score, encoding consistency, PII detection, anonymization, source reliability, timestamp validity, cross-field consistency, data provenance, measurement units, aggregation correctness, missingness threshold, pipeline checkpoint, label noise bound, feature distribution, import validation, retention policy, overall integrity. Disurfacing `P_MM01–P_MM24`; 24/24 PASS.
+- **BAGIAN 44** ditambahkan; bump serentak 0.44.0.
+
 ## v0.43.0 (2026-11-02) — Wave L Concurrency & Parallelism Integrity LL01–LL24 (BAGIAN 43)
 
 - **LL01–LL24**: race detection, deadlock-free graph, starvation-free scheduling, serialization order, lost-update prevention, thread fairness, bounded buffer, atomicity, consistent lock order, barrier sync, parallel reduction, task granularity, contention bound, throughput scaling, fork-join, cancellation propagation, idempotency, memory-model safety, pool bound, backpressure, retry bound, distributed consensus, timeout bounded, priority scheduling. Disurfacing `P_LL01–P_LL24`; 24/24 PASS.

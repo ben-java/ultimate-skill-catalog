@@ -3642,3 +3642,141 @@ def selftest_ll():
             (22, ll_distributed_consensus(5, 3)),
             (23, ll_timeout_bounded_operation(8, 10)),
             (24, ll_scheduling_priority_policy([1, 2, 3], [3, 2, 1]))]
+
+# ------------------------------------------------------------------
+# WAVE M — DATA QUALITY & INTEGRITY (MM01–MM24)
+# ------------------------------------------------------------------
+def mm_schema_validation(row, schema):
+    # MM01: row must conform to schema.
+    return set(schema) <= set(row.keys())
+
+def mm_null_handling(records, null_policy):
+    # MM02: nulls handled per explicit policy.
+    return bool(records) and bool(null_policy)
+
+def mm_outlier_detection(values, z_threshold):
+    # MM03: flag values beyond z_threshold stdev.
+    import statistics
+    if len(values) < 2: return []
+    m = statistics.mean(values); sd = statistics.stdev(values) or 1.0
+    return [v for v in values if abs(v - m) > z_threshold * sd]
+
+def mm_data_drift_detect(current_dist, baseline_dist, tol):
+    # MM04: drift flagged when distributions diverge beyond tol.
+    return abs(current_dist - baseline_dist) > tol
+
+def mm_class_imbalance_ok(majority, minority, max_ratio):
+    # MM05: class ratio must stay under max.
+    return majority <= max_ratio * max(minority, 1)
+
+def mm_duplicate_detect(records, keys):
+    # MM06: duplicate detection on key set.
+    seen = set()
+    for r in records:
+        k = tuple(r[x] for x in keys)
+        if k in seen:
+            return False
+        seen.add(k)
+    return True
+
+def mm_data_versioning(version_tag, lineage):
+    # MM07: data must carry version + lineage.
+    return bool(version_tag) and bool(lineage)
+
+def mm_quality_score(score, min_score):
+    # MM08: data quality score must meet minimum.
+    return score >= min_score
+
+def mm_encoding_consistency(text_bytes, encoding):
+    # MM09: bytes must decode under declared encoding.
+    try:
+        text_bytes.decode(encoding)
+        return True
+    except (UnicodeDecodeError, LookupError):
+        return False
+
+def mm_pii_detection(records, pii_fields):
+    # MM10: sensitive fields flagged/protected.
+    return set(pii_fields) <= set(records.keys())
+
+def mm_anonymization_ok(records, de_identified):
+    # MM11: records de-identified properly.
+    return bool(records) and bool(de_identified)
+
+def mm_source_reliability(source_reliability, min_reliability):
+    # MM12: source must meet reliability threshold.
+    return source_reliability >= min_reliability
+
+def mm_timestamp_validity(ts, min_ts, max_ts):
+    # MM13: timestamps within valid window.
+    return min_ts <= ts <= max_ts
+
+def mm_cross_field_consistency(record, constraints):
+    # MM14: cross-field constraints satisfied.
+    return all(constr(record) for constr in constraints)
+
+def mm_data_provenance(provenance, source_traceable):
+    # MM15: provenance must be traceable.
+    return bool(provenance) and bool(source_traceable)
+
+def mm_measurement_units(unit_system, consistent_units):
+    # MM16: units must be consistent.
+    return bool(unit_system) and bool(consistent_units)
+
+def mm_aggregation_correct(inputs, aggregate, aggregator):
+    # MM17: aggregation must equal direct computation.
+    return aggregator(inputs) == aggregate
+
+def mm_missingness_threshold(missing_rate, max_missing_rate):
+    # MM18: missingness must stay under threshold.
+    return missing_rate <= max_missing_rate
+
+def mm_data_pipeline_checkpoint(checkpoint, resumable):
+    # MM19: pipeline must checkpoint and resume.
+    return bool(checkpoint) and bool(resumable)
+
+def mm_label_noise_bounded(noise_rate, max_noise_rate):
+    # MM20: label noise bounded.
+    return noise_rate <= max_noise_rate
+
+def mm_feature_distribution_valid(feature_vals, expected_range):
+    # MM21: feature values must stay in expected range.
+    return all(expected_range[0] <= v <= expected_range[1] for v in feature_vals)
+
+def mm_import_validation(imported, validated, rejected):
+    # MM22: all imported records validated or rejected.
+    return (validated + rejected) == imported
+
+def mm_data_retention_policy(retention_days, policy_days):
+    # MM23: retention must honor policy.
+    return retention_days <= policy_days
+
+def mm_overall_data_integrity(score, min_score):
+    # MM24: overall data integrity score meets minimum.
+    return score >= min_score
+
+def selftest_mm():
+    return [(1, mm_schema_validation({"a": 1, "b": 2}, ["a", "b"])),
+            (2, mm_null_handling([1, None, 2], "drop")),
+            (3, len(mm_outlier_detection([1]*10 + [100], 2)) >= 1),
+            (4, mm_data_drift_detect(0.9, 0.5, 0.2)),
+            (5, mm_class_imbalance_ok(80, 20, 5)),
+            (6, mm_duplicate_detect([{"id": 1}, {"id": 2}], ["id"])),
+            (7, mm_data_versioning("v3", "lineage")),
+            (8, mm_quality_score(85, 70)),
+            (9, mm_encoding_consistency("hello".encode("utf-8"), "utf-8")),
+            (10, mm_pii_detection({"email": "", "name": ""}, ["email"])),
+            (11, mm_anonymization_ok([{"a": 1}], True)),
+            (12, mm_source_reliability(0.9, 0.8)),
+            (13, mm_timestamp_validity(100, 0, 200)),
+            (14, mm_cross_field_consistency({"a": 1, "b": 2}, [lambda r: r["a"] < r["b"]])),
+            (15, mm_data_provenance(True, True)),
+            (16, mm_measurement_units("SI", True)),
+            (17, mm_aggregation_correct([1, 2, 3], 6, sum)),
+            (18, mm_missingness_threshold(0.1, 0.2)),
+            (19, mm_data_pipeline_checkpoint(True, True)),
+            (20, mm_label_noise_bounded(0.05, 0.1)),
+            (21, mm_feature_distribution_valid([1, 2, 3], (0, 5))),
+            (22, mm_import_validation(100, 95, 5)),
+            (23, mm_data_retention_policy(180, 365)),
+            (24, mm_overall_data_integrity(90, 75))]

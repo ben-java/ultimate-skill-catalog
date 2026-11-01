@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T22:45:56.483450+00:00",
-  "file_count": 138,
+  "generated_at": "2026-11-01T23:15:04.408638+00:00",
+  "file_count": 139,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 36125,
-      "sha256": "e14e53a71e97806c9955136e9c7ab5b6d050f5d54441b57f01d072257ed0fc8c"
+      "size": 36783,
+      "sha256": "5edd214e0bd307b4c41dfc10cffe1b559758537cd2030a34752a417b735e928f"
     },
     {
       "path": "SKILL.md",
-      "size": 57068,
-      "sha256": "20b6604a3019b26dd2b4422f6e900fad4a34615d6dc535a5ac3e4779cee5d111"
+      "size": 58692,
+      "sha256": "1f802c2490564aad4988c7c17de8be725d5c4aff0e78e935777814af2df3f5d3"
     },
     {
       "path": "gate.conf",
@@ -61,6 +61,11 @@
       "sha256": "24a7fef9161b0f810fffa0af69c72e35fbc86466abf35a2dcc6921b689a84621"
     },
     {
+      "path": "references/device-performance-adb.md",
+      "size": 4596,
+      "sha256": "52d0d7d2178410d50dc7aba50dfd32c30a55feecb0a5a8e961e1cfc44dbd9327"
+    },
+    {
       "path": "references/external-skill-install.md",
       "size": 2157,
       "sha256": "afe2cdca49db90dc539bab0f79ccc578d9ce8198dc1cf90066a8e305ab351c95"
@@ -77,8 +82,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 124579,
-      "sha256": "bbec2bcaf3f0ea164ccb973e403107f23e426a15a075e4fc89ff8d162d7f2420"
+      "size": 125694,
+      "sha256": "5a2a890bfb68b6f4457ad225c068a0803de869788f13bc1d407436cd695f9ead"
     },
     {
       "path": "references/large-document-editing.md",
@@ -87,8 +92,8 @@
     },
     {
       "path": "references/mechanism-extension-recipe.md",
-      "size": 6803,
-      "sha256": "022a9c922090dc593ffeeb775b5ac1266309037675440c71d4be048242b36b22"
+      "size": 8014,
+      "sha256": "ca98446c872158204c184b012b3c1491282714dd6a0bb50e74bb6577dfc587e4"
     },
     {
       "path": "references/pdf-corpus-regeneration.md",
@@ -202,8 +207,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 106770,
-      "sha256": "3bbd1063d0c613abad2bd6563545bddd73dba9cf19d1426637b702c5444da414"
+      "size": 108679,
+      "sha256": "e491e55297f9d41337a295b2c9fa099aba9c2b5131755a61bc5e4d8ebabcd6e6"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -222,8 +227,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 158502,
-      "sha256": "9dbaa92e9cbc224b3c3abd130feff9311871dba751cb5df39096724ad154a729"
+      "size": 164186,
+      "sha256": "3b281094cc1e3950efdf9426a0ef2a9c4ca77f05a2ec655bd754b12acc7a6b79"
     },
     {
       "path": "scripts/install-precommit-hook.sh",

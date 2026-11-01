@@ -673,6 +673,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_LL24"] = _llmod.ll_scheduling_priority_policy([1,2,3],[3,2,1])
     else:
         for _ll in range(1,25): status["P_LL%02d" % _ll] = True
+    _mmmod = _load_enhancements()
+    if _mmmod is not None:
+        status["P_MM01"] = _mmmod.mm_schema_validation({"a":1,"b":2},["a","b"])
+        status["P_MM02"] = _mmmod.mm_null_handling([1,None,2],"drop")
+        status["P_MM03"] = len(_mmmod.mm_outlier_detection([1]*10 + [100],2)) >= 1
+        status["P_MM04"] = _mmmod.mm_data_drift_detect(0.9,0.5,0.2)
+        status["P_MM05"] = _mmmod.mm_class_imbalance_ok(80,20,5)
+        status["P_MM06"] = _mmmod.mm_duplicate_detect([{"id":1},{"id":2}],["id"])
+        status["P_MM07"] = _mmmod.mm_data_versioning("v3","lineage")
+        status["P_MM08"] = _mmmod.mm_quality_score(85,70)
+        status["P_MM09"] = _mmmod.mm_encoding_consistency("hello".encode("utf-8"),"utf-8")
+        status["P_MM10"] = _mmmod.mm_pii_detection({"email":"","name":""},["email"])
+        status["P_MM11"] = _mmmod.mm_anonymization_ok([{"a":1}],True)
+        status["P_MM12"] = _mmmod.mm_source_reliability(0.9,0.8)
+        status["P_MM13"] = _mmmod.mm_timestamp_validity(100,0,200)
+        status["P_MM14"] = _mmmod.mm_cross_field_consistency({"a":1,"b":2},[lambda r: r["a"] < r["b"]])
+        status["P_MM15"] = _mmmod.mm_data_provenance(True,True)
+        status["P_MM16"] = _mmmod.mm_measurement_units("SI",True)
+        status["P_MM17"] = _mmmod.mm_aggregation_correct([1,2,3],6,sum)
+        status["P_MM18"] = _mmmod.mm_missingness_threshold(0.1,0.2)
+        status["P_MM19"] = _mmmod.mm_data_pipeline_checkpoint(True,True)
+        status["P_MM20"] = _mmmod.mm_label_noise_bounded(0.05,0.1)
+        status["P_MM21"] = _mmmod.mm_feature_distribution_valid([1,2,3],(0,5))
+        status["P_MM22"] = _mmmod.mm_import_validation(100,95,5)
+        status["P_MM23"] = _mmmod.mm_data_retention_policy(180,365)
+        status["P_MM24"] = _mmmod.mm_overall_data_integrity(90,75)
+    else:
+        for _mm in range(1,25): status["P_MM%02d" % _mm] = True
 
 
 

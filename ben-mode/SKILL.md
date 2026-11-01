@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.43.0
+version: 0.44.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -265,7 +265,7 @@ Lihat juga: `references/browser-automation-method1.md`.
 
 **Pitfall khusus:** Instruksi "cek aja" / "ini loh maksudku" dengan bukti `adb` berarti pengguna sudah melakukan langkah otorisasi, bukan meminta agent menyuntikkan kredensial. Kesalahan paling sering adalah agen mengulangi pertanyaan klarifikasi berulang kali (seperti 3x di sesi ini). Setelah bukti diberikan dan audit ditulis, langkah selanjutnya adalah **tindakan berdasarkan perintah eksplisit**, bukan lebih banyak pertanyaan.
 
-Referensi pendukung: references/browser-automation-method1.md (CDP/adb audit), references/device-cleanup-adb.md (recipe pembersihan HP via adb: inventory, klasifikasi, delete berfase, audit), references/windows-execution.md (scheduled-task verify), scripts/cleanup_probe.py (read-only probe untuk workspace-cleanup lokal).
+Referensi pendukung: references/browser-automation-method1.md (CDP/adb audit), references/device-cleanup-adb.md (recipe pembersihan HP via adb: inventory, klasifikasi, delete berfase, audit), references/device-performance-adb.md (tuning performa/baterai HP via adb: baseline read-only, settings reversible, verifikasi read-back, rollback), references/windows-execution.md (scheduled-task verify), scripts/cleanup_probe.py (read-only probe untuk workspace-cleanup lokal).
 
 Pitfall device cleanup (adb):
 - Jangan pakai cleanup_probe.py untuk device — ia hanya filesystem lokal; pakai du -sm, ls -laSh, find via adb shell.
@@ -273,3 +273,12 @@ Pitfall device cleanup (adb):
 - sort -h tidak ada di toybox Android dan bc tidak ada di MSYS bash — pakai sort -rn plus awk untuk arithmetic.
 - du cache app sering ~0 MB (cache pindah ke internal storage) — jangan tunggu hasil besar dari sana; ukur files/ dan direktori unduhan app.
 - Hapus konten bernama (film, APK terunduh, game data) hanya setelah konfirmasi user; hapus hanya sampah teknis dan cache media.
+- Tuning performa/baterai: baseline read-only dulu (baterai, wakelock, alarm, RAM, thermal, refresh rate) sebelum mengubah apa pun; kalau kapasitas baterai sudah turun signifikan, tuning software tidak menolong — rekomendasikan ganti baterai.
+- Cek nilai setting SAAT INI sebelum apply quick win — nilai non-default bisa jadi pilihan sengaja user; kalau sudah optimal laporkan no-op, jangan timpa.
+- Saat user menyebut nilai target eksplisit (mis. skala animasi 0.0), terapkan persis nilai itu; jangan substitusi dengan angka rekomendasi sendiri.
+- Setiap `settings put` wajib dibaca balik dengan `settings get` di namespace yang sama (global/system/secure) dan dilaporkan PASS/FAIL, plus baris rollback ke nilai before.
+- MIUI: refresh rate ada di `user_refresh_rate`, bukan `peak_refresh_rate`/`min_refresh_rate` gaya AOSP yang bisa null — grep `settings list` sebelum menyimpulkan.
+- Jangan blanket-restrict background di MIUI (lmk sudah agresif → notifikasi telat); restrict hanya app yang baseline tunjukkan leaky.
+- Kapasitas baterai efektif ukur dari `dumpsys batterystats` (Estimated battery capacity) + cross-check charge_counter/level; sysfs charge_full_design sering N/A tanpa root.
+- Tekanan RAM dinilai dari Used RAM + ZRAM swap di `dumpsys meminfo`; solusinya kurangi package/bloatware, bukan restrict background lebih agresif.
+- Hapus akun Google cadangan hanya setelah keputusan user — sync periodik berlipat per akun dan butuh login ulang.
