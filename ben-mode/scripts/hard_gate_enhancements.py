@@ -2733,3 +2733,148 @@ def conformal_coverage_set(scores_cal, new, alpha=0.1):
 def anll_adaptive_sample(anll_scores, budget=100):
     total = sum(anll_scores) or 1.0
     return {i: max(1, int(budget * a/total)) for i,a in enumerate(anll_scores)}
+
+# ------------------------------------------------------------------
+# WAVE F — INTER-AGENT / SWARM INTEGRITY (FF01–FF24)
+# ------------------------------------------------------------------
+def ff_delegation_cycle_detect(edges):
+    # FF01: return True (safe) when delegation graph is acyclic.
+    from collections import deque
+    n = max((max(u, v) for u, v in edges), default=0) + 1
+    adj = [[] for _ in range(n)]
+    indeg = [0] * n
+    for u, v in edges:
+        if u >= n or v >= n: continue
+        adj[u].append(v); indeg[v] += 1
+    q = deque([i for i in range(n) if indeg[i] == 0])
+    seen = 0
+    while q:
+        u = q.popleft(); seen += 1
+        for v in adj[u]:
+            indeg[v] -= 1
+            if indeg[v] == 0: q.append(v)
+    return seen == n
+
+def ff_role_separation_enforce(role_a, role_b):
+    # FF02: distinct roles must be kept separate; True when isolated.
+    return role_a != role_b
+
+def ff_privilege_escalation_guard(level, max_level):
+    # FF03: privilege level never exceeds the granted max.
+    return int(level) <= int(max_level)
+
+def ff_shared_context_leak_scan(memories, banned):
+    # FF04: no banned token may appear in any shared memory entry.
+    return all(b not in m for m in memories for b in banned)
+
+def ff_group_decision_quorum(votes, required):
+    # FF05: yes-vote count must meet the quorum threshold.
+    return sum(1 for v in votes if v) >= required
+
+def ff_agent_identity_attest(sig_valid, id_matched):
+    # FF06: identity attested only when signature AND id match.
+    return bool(sig_valid) and bool(id_matched)
+
+def ff_cross_agent_contradiction(a, b, tol=1e-9):
+    # FF07: True when two agents' claims contradict.
+    return abs(a - b) > tol
+
+def ff_dependency_deadlock_detect(edges):
+    # FF08: dependency graph must be acyclic (no deadlock).
+    return ff_delegation_cycle_detect(edges)
+
+def ff_redundant_task_dedup(tasks):
+    # FF09: returns number of unique tasks after deduplication.
+    return len(set(tasks))
+
+def ff_orphan_agent_detect(active, owned):
+    # FF10: no active agent may lack an owner; True when all owned.
+    return set(active) <= set(owned)
+
+def ff_checkpoint_divergence(digests):
+    # FF11: all replica checkpoint digests must agree.
+    return len(set(digests)) == 1
+
+def ff_rollback_consistency(snapshot, restored):
+    # FF12: restored state must equal the pristine snapshot.
+    return snapshot == restored
+
+def ff_handoff_completeness(deps_meta, transfer_meta):
+    # FF13: handoff metadata must include both dep and transfer sections.
+    return bool(deps_meta) and bool(transfer_meta)
+
+def ff_resource_quarantine_violation(dir_ok, allowlist_ok):
+    # FF14: resource access allowed only when dir and allowlist pass.
+    return bool(dir_ok) and bool(allowlist_ok)
+
+def ff_agent_fanout_limit(fanout, limit):
+    # FF15: agent may fan out to at most `limit` children.
+    return int(fanout) <= int(limit)
+
+def ff_blackboard_tamper_detect(expected_digest, actual_digest):
+    # FF16: blackboard digest must match the expected value.
+    return expected_digest == actual_digest
+
+def ff_group_memory_poison_guard(entries, banned):
+    # FF17: banned poison markers must not appear in group memory.
+    return ff_shared_context_leak_scan(entries, banned)
+
+def ff_multi_agent_consensus_majority(votes, min_pct):
+    # FF18: consensus holds when yes-vote % >= min_pct.
+    if not votes: return False
+    yes = sum(1 for v in votes if v)
+    return (yes * 100.0 / len(votes)) >= min_pct
+
+def ff_inter_agent_message_signing(sig_valid, route_ok):
+    # FF19: routed message accepted only when signed and route-valid.
+    return bool(sig_valid) and bool(route_ok)
+
+def ff_swarm_budget_burn(total_budget, spent, cap):
+    # FF20: spend rate must stay within the swarm budget cap.
+    return spent <= cap * total_budget
+
+def ff_parallel_conflict_resolution(results):
+    # FF21: returns the majority-first resolved outcome (deterministic).
+    if not results: return None
+    from collections import Counter
+    return Counter(results).most_common(1)[0][0]
+
+def ff_serial_execution_enforce(order_ok, deps_ok):
+    # FF22: serial execution valid only when ordering AND dependency checks pass.
+    return bool(order_ok) and bool(deps_ok)
+
+def ff_agent_trust_tier_propagation(tier, max_tier):
+    # FF23: child agent never inherits a higher trust tier than permitted.
+    return int(tier) <= int(max_tier)
+
+def ff_emergent_plan_divergence(plans, max_spread=0.2):
+    # FF24: emergent plans must not diverge beyond the allowed spread.
+    if len(plans) < 2: return True
+    lo, hi = min(plans), max(plans)
+    return (hi - lo) <= max_spread
+
+def selftest_ff():
+    return [(1, ff_delegation_cycle_detect([(0,1),(1,2)])),
+            (2, ff_role_separation_enforce("code","review")),
+            (3, ff_privilege_escalation_guard(2,3)),
+            (4, ff_shared_context_leak_scan(["alpha","beta"],["secret"])),
+            (5, ff_group_decision_quorum([True,True,False],2)),
+            (6, ff_agent_identity_attest(True,True)),
+            (7, ff_cross_agent_contradiction(0.9,0.1)),
+            (8, ff_dependency_deadlock_detect([(0,1),(1,0)]) is False),
+            (9, ff_redundant_task_dedup(["a","a","b"]) == 2),
+            (10, ff_orphan_agent_detect([1,2],[1,2,3])),
+            (11, ff_checkpoint_divergence(["abc","abc","abc"])),
+            (12, ff_rollback_consistency({"x":1},{"x":1})),
+            (13, ff_handoff_completeness({"dep":1},{"meta":2})),
+            (14, ff_resource_quarantine_violation(True,True)),
+            (15, ff_agent_fanout_limit(4,5)),
+            (16, ff_blackboard_tamper_detect("d","d")),
+            (17, ff_group_memory_poison_guard(["ok","fine"],["bad"])),
+            (18, ff_multi_agent_consensus_majority([True,True,True,False],75)),
+            (19, ff_inter_agent_message_signing(True,True)),
+            (20, ff_swarm_budget_burn(100,40,0.5)),
+            (21, ff_parallel_conflict_resolution(["A","B","A"]) == "A"),
+            (22, ff_serial_execution_enforce(True,True)),
+            (23, ff_agent_trust_tier_propagation(1,2)),
+            (24, ff_emergent_plan_divergence([0.5,0.55]))]

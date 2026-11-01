@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.36.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.37.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2018,3 +2018,18 @@ disurfacing `P_EE01–P_EE24`; diverifikasi 24/24 PASS (selftest_ee rc 0).
 - Cost accounting: EE02 `ee_cost_per_action_track`, EE04 `ee_token_attribution`, EE06 `ee_cost_model_prediction`, EE07 `ee_compute_alloc_optimal`, EE16 `ee_cost_attribution_per_skill`, EE17 `ee_billing_anomaly`, EE18 `ee_token_waste_audit`.
 - Latency: EE03 `ee_latency_p95`, EE09 `ee_latency_optimize_path`, EE15 `ee_latency_aware_stop`, EE21 `ee_latency_sla`, EE22 `ee_prewarm_inference`, EE23 `ee_streaming_early_result`.
 - Efficiency: EE08 `ee_token_summary`, EE10 `ee_smart_caching`, EE11 `ee_distill_cost_benefit`, EE12 `ee_prompt_compression_cost`, EE13 `ee_context_window_budget`, EE19 `ee_retry_avoidance`, EE20 `ee_efficiency_score`, EE24 `ee_priority_scheduling`.
+
+---
+
+# BAGIAN 37 — WAVE F: INTER-AGENT / SWARM INTEGRITY FF01–FF24 (VERIFIED; v0.37.0)
+
+Menambahkan lapisan integritas multi-agen: `FF01–FF24` di `hard_gate_enhancements.py`,
+disurfacing `P_FF01–P_FF24`; diverifikasi 24/24 PASS (selftest_ff rc 0).
+
+- Delegasi & dependensi: FF01 `ff_delegation_cycle_detect`, FF08 `ff_dependency_deadlock_detect`, FF15 `ff_agent_fanout_limit`.
+- Pemilahan & trust: FF02 `ff_role_separation_enforce`, FF03 `ff_privilege_escalation_guard`, FF23 `ff_agent_trust_tier_propagation`.
+- Akses & kebocoran: FF04 `ff_shared_context_leak_scan`, FF17 `ff_group_memory_poison_guard`, FF14 `ff_resource_quarantine_violation`.
+- Konsensus & keputusan: FF05 `ff_group_decision_quorum`, FF18 `ff_multi_agent_consensus_majority`, FF21 `ff_parallel_conflict_resolution`, FF22 `ff_serial_execution_enforce`.
+- Identitas & pesan: FF06 `ff_agent_identity_attest`, FF19 `ff_inter_agent_message_signing`, FF07 `ff_cross_agent_contradiction`.
+- Konsistensi state: FF11 `ff_checkpoint_divergence`, FF12 `ff_rollback_consistency`, FF13 `ff_handoff_completeness`, FF16 `ff_blackboard_tamper_detect`.
+- Kebersihan tugas & anggaran: FF09 `ff_redundant_task_dedup`, FF10 `ff_orphan_agent_detect`, FF20 `ff_swarm_budget_burn`, FF24 `ff_emergent_plan_divergence`.

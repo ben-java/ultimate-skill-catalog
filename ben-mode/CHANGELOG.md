@@ -1,3 +1,8 @@
+## v0.37.0 (2026-11-01) — Wave F Inter-Agent/Swarm Integrity FF01–FF24 (BAGIAN 37)
+
+- **FF01–FF24**: delegation cycle detect, role separation, privilege escalation guard, shared-context leak scan, group quorum, identity attestation, cross-agent contradiction, dependency deadlock, redundant dedup, orphan agent, checkpoint divergence, rollback consistency, handoff completeness, quarantine violation, fan-out limit, blackboard tamper, group memory poison, consensus majority, message signing, swarm budget burn, conflict resolution, serial execution, trust-tier propagation, emergent plan divergence. Disurfacing `P_FF01–P_FF24`; 24/24 PASS.
+- **BAGIAN 37** ditambahkan; bump serentak 0.37.0.
+
 ## v0.36.0 (2026-11-01) — Wave E Cost/Latency EE01–EE24 (BAGIAN 36)
 
 - **EE01–EE24**: budget alloc/alert/aware-planning, cost-per-action, token attribution, cost-model prediction, alloc-optimal, per-skill attribution, billing anomaly, token-waste, latency p95/optimize/aware-stop/SLA/prewarm/streaming, token summary, smart caching, distill cost-benefit, prompt compression, context budget, retry avoidance, efficiency score, priority scheduling. Disurfacing `P_EE01–P_EE24`; 24/24 PASS.

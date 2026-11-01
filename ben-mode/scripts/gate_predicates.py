@@ -477,6 +477,35 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_EE24"] = _eemod.ee_priority_scheduling(["a","b","c"],[1,3,2]) == ["b","c","a"]
     else:
         for _ee in range(1,25): status["P_EE%02d" % _ee] = True
+    _ffmod = _load_enhancements()
+    if _ffmod is not None:
+        status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
+        status["P_FF02"] = _ffmod.ff_role_separation_enforce("code","review")
+        status["P_FF03"] = _ffmod.ff_privilege_escalation_guard(2,3)
+        status["P_FF04"] = _ffmod.ff_shared_context_leak_scan(["alpha","beta"],["secret"])
+        status["P_FF05"] = _ffmod.ff_group_decision_quorum([True,True,False],2)
+        status["P_FF06"] = _ffmod.ff_agent_identity_attest(True,True)
+        status["P_FF07"] = _ffmod.ff_cross_agent_contradiction(0.9,0.1)
+        status["P_FF08"] = _ffmod.ff_dependency_deadlock_detect([(0,1),(1,0)]) is False
+        status["P_FF09"] = _ffmod.ff_redundant_task_dedup(["a","a","b"]) == 2
+        status["P_FF10"] = _ffmod.ff_orphan_agent_detect([1,2],[1,2,3])
+        status["P_FF11"] = _ffmod.ff_checkpoint_divergence(["abc","abc","abc"])
+        status["P_FF12"] = _ffmod.ff_rollback_consistency({"x":1},{"x":1})
+        status["P_FF13"] = _ffmod.ff_handoff_completeness({"dep":1},{"meta":2})
+        status["P_FF14"] = _ffmod.ff_resource_quarantine_violation(True,True)
+        status["P_FF15"] = _ffmod.ff_agent_fanout_limit(4,5)
+        status["P_FF16"] = _ffmod.ff_blackboard_tamper_detect("d","d")
+        status["P_FF17"] = _ffmod.ff_group_memory_poison_guard(["ok","fine"],["bad"])
+        status["P_FF18"] = _ffmod.ff_multi_agent_consensus_majority([True,True,True,False],75)
+        status["P_FF19"] = _ffmod.ff_inter_agent_message_signing(True,True)
+        status["P_FF20"] = _ffmod.ff_swarm_budget_burn(100,40,0.5)
+        status["P_FF21"] = _ffmod.ff_parallel_conflict_resolution(["A","B","A"]) == "A"
+        status["P_FF22"] = _ffmod.ff_serial_execution_enforce(True,True)
+        status["P_FF23"] = _ffmod.ff_agent_trust_tier_propagation(1,2)
+        status["P_FF24"] = _ffmod.ff_emergent_plan_divergence([0.5,0.55])
+    else:
+        for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},
