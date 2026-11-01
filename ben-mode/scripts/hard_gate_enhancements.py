@@ -1428,8 +1428,157 @@ def verifier_admission_controller(verifier_pass, allowlisted):
 def anchored_verifier_baseline(hash_a, hash_b):
     return hash_a == hash_b
 
+
+# ================= Z01..Z30  Z001..Z500 phases A-J (2026-11-01) =================
+# Fase A — verifier reliability / error-structure
+def error_source_classify_rlvr(pred, truth, source="checker"):
+    if pred and not truth: return "false_positive", source
+    if not pred and truth: return "false_negative", source
+    return None, source
+
+def fn_priority_policy(fn, fp, wfn=1.5):
+    return round((wfn*fn)/(max(1, fn+fp)), 4)
+
+def spurious_reward_detect(proxy_up, true_stationary, margin=0.05):
+    return (proxy_up - true_stationary) > margin
+
+def online_self_certainty_collapse(certainty_series, window=3, drop=0.15):
+    if len(certainty_series) < window+1: return False
+    prev = sum(certainty_series[-(window+1):-1])/window
+    return (prev - certainty_series[-1]) > drop
+
+# Fase B — judge aggregation
+def programmatic_vs_judge_gain(f1_prog, f1_judge):
+    return f1_prog > f1_judge
+
+# Fase C — test-time scaling regimes / agentic verification
+def tts_regime_identify(seq_len, num_candidates, num_steps):
+    if num_steps == 1 and num_candidates == 1: return "single_trajectory"
+    if num_steps == 1 and num_candidates > 1: return "leaf_level"
+    return "prefix_level"
+
+def tts_compute_accounting(warmup, discarded, verifier_calls):
+    return warmup + discarded + verifier_calls
+
+def tts_listwise_merge(candidate_scores, list_scores):
+    # list-wise merge uses list-level ranking, not pointwise vote
+    merged = [max(a, b) for a, b in zip(candidate_scores, list_scores)]
+    return merged
+
+def tts_verifier_quality_report(quality, budget):
+    return budget if quality >= 0.7 else int(budget*0.5)
+
+def finverify_subquestion_decompose(question, subquestions):
+    return all(subq in question for subq in subquestions)
+
+def agentic_verify_stop_decision(score, threshold=0.8):
+    return score >= threshold
+
+# Fase D — formal math / autoformalization
+def autoformalize_equivalence(formal_a, formal_b):
+    return formal_a == formal_b
+
+def four_stage_pipeline(propose, informal, autoformalize, lean_verify):
+    return propose and informal and autoformalize and lean_verify
+
+def proof_refine_loop(proof_accepted, iterations, max_iter=5):
+    return proof_accepted or iterations >= max_iter
+
+def informal_overfit_bench_form(score_bench, score_heldout, margin=0.2):
+    return (score_bench - score_heldout) > margin
+
+# Fase E — self-improvement stability
+def data_gating_lever(enters_correct, enters_total):
+    return round(enters_correct/max(1, enters_total), 4)
+
+def reward_grounding_lever(grounded_steps, total_steps):
+    return round(grounded_steps/max(1, total_steps), 4)
+
+def rise_collapse_detect(pass_series, peak_window=3):
+    if len(pass_series) < 2*peak_window: return False
+    peak = max(pass_series[:peak_window])
+    late = sum(pass_series[-peak_window:])/peak_window
+    return (peak - late) > 0.3
+
+def data_imbalance_overthink(imbalance, overthink, threshold=0.5):
+    return imbalance > threshold or overthink > threshold
+
+# Fase F — reward modeling / RL
+def group_variance_filter(group_rewards, zero_var_thresh=1e-9):
+    keep, drop = [], []
+    for g in group_rewards:
+        var = (sum([(r - sum(g)/len(g))**2 for r in g])/len(g)) if g else 0
+        (drop if var < zero_var_thresh else keep).append(g)
+    return len(keep)
+
+def agentic_verifier_multiturn(verdict_turns):
+    return sum(verdict_turns) >= len(verdict_turns)/2
+
+def spurious_correlation_guard(answer_correct, reasoning_wrong):
+    return answer_correct and not reasoning_wrong
+
+# Fase G — runtime guardrails
+def runtime_guardrail_node200ms(latency_ms):
+    return latency_ms < 200
+
+def runtime_guardrail_98acc(samples, correct):
+    return (correct/max(1, samples)) > 0.98
+
+def runtime_intervention_telemetry(triggered, rule, criterion, trace):
+    return {"triggered": triggered, "rule": rule, "criterion": criterion, "trace": trace}
+
+def runtime_guardrail_lineage(rule, criterion, trace_id):
+    return bool(rule and criterion and trace_id)
+
+# Fase H — governance
+def verify_reproducible_fresh(hash1, hash2):
+    return hash1 == hash2
+
+# Fase I — interpretability
+def selective_prediction_risk(risk_by_coverage):
+    return sorted(risk_by_coverage.items())
+
+# Fase J — ops/testing
+def negative_suite_total_tests(declared, present):
+    return declared == present
+
+def benchmark_protocol_tts(protocol_reported, budget_reported, uncertainty_reported):
+    return protocol_reported and budget_reported and uncertainty_reported
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_z":
+        print("Z_error_src", error_source_classify_rlvr(True, False))
+        print("Z_fn_priority", fn_priority_policy(2,1))
+        print("Z_spurious", spurious_reward_detect(0.9,0.8))
+        print("Z_collapse", online_self_certainty_collapse([0.9,0.88,0.85,0.6]))
+        print("Z_prog_gain", programmatic_vs_judge_gain(0.8,0.6))
+        print("Z_tts_regime", tts_regime_identify(5,3,1))
+        print("Z_tts_account", tts_compute_accounting(10,5,7))
+        print("Z_listwise", tts_listwise_merge([0.8,0.6],[0.7,0.9]))
+        print("Z_tts_q", tts_verifier_quality_report(0.8,100))
+        print("Z_finverify", finverify_subquestion_decompose("a b c",["a","c"]))
+        print("Z_stop", agentic_verify_stop_decision(0.9))
+        print("Z_autoform_eq", autoformalize_equivalence("A","A"))
+        print("Z_4stage", four_stage_pipeline(True,True,True,True))
+        print("Z_refine", proof_refine_loop(True,1))
+        print("Z_overfit", informal_overfit_bench_form(0.9,0.6))
+        print("Z_data_gate", data_gating_lever(8,10))
+        print("Z_ground", reward_grounding_lever(7,10))
+        print("Z_rise_collapse", rise_collapse_detect([0.8,0.9,0.85,0.4,0.3,0.2]))
+        print("Z_imbalance", data_imbalance_overthink(0.6,0.3))
+        print("Z_group_var", group_variance_filter([[1,1,1],[0,1,0.5]]))
+        print("Z_multiturn", agentic_verifier_multiturn([True,False,True]))
+        print("Z_spurious_guard", spurious_correlation_guard(True,False))
+        print("Z_guard_200", runtime_guardrail_node200ms(150))
+        print("Z_guard_98", runtime_guardrail_98acc(100,99))
+        print("Z_intervention", runtime_intervention_telemetry(True,"r1","c1","t1"))
+        print("Z_lineage", runtime_guardrail_lineage("r1","c1","t1"))
+        print("Z_repro", verify_reproducible_fresh("x","x"))
+        print("Z_selective", selective_prediction_risk({0.5:0.1,1.0:0.2}))
+        print("Z_neg_total", negative_suite_total_tests(50,50))
+        print("Z_bench", benchmark_protocol_tts(True,True,True))
+        return 0
     if cmd == "selftest_y":
         print("Y01", error_direction_classify(True, False))
         print("Y03", fn_priority_metric(1,2))

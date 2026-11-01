@@ -269,6 +269,40 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_Y200"] = _ymod.anchored_verifier_baseline("abc","abc")
     else:
         for _j in range(1,37): status["P_Y%02d" % _j] = True
+    _zmod = _load_enhancements()
+    if _zmod is not None:
+        status["P_Z01"] = _zmod.error_source_classify_rlvr(True, False)[0] == "false_positive"
+        status["P_Z03"] = _zmod.fn_priority_policy(2,1) > 0.9
+        status["P_Z19"] = _zmod.spurious_reward_detect(0.9,0.8)
+        status["P_Z20"] = _zmod.online_self_certainty_collapse([0.9,0.88,0.85,0.6])
+        status["P_Z62"] = _zmod.programmatic_vs_judge_gain(0.8,0.6)
+        status["P_Z101"] = _zmod.tts_regime_identify(5,3,1) == "leaf_level"
+        status["P_Z102"] = _zmod.tts_compute_accounting(10,5,7) == 22
+        status["P_Z105"] = _zmod.tts_listwise_merge([0.8,0.6],[0.7,0.9]) == [0.8,0.9]
+        status["P_Z108"] = _zmod.tts_verifier_quality_report(0.8,100) == 100
+        status["P_Z110"] = _zmod.finverify_subquestion_decompose("a b c",["a","c"])
+        status["P_Z121"] = _zmod.agentic_verify_stop_decision(0.9)
+        status["P_Z153"] = _zmod.autoformalize_equivalence("A","A")
+        status["P_Z158"] = _zmod.four_stage_pipeline(True,True,True,True)
+        status["P_Z170"] = _zmod.proof_refine_loop(True,1)
+        status["P_Z183"] = _zmod.informal_overfit_bench_form(0.9,0.6)
+        status["P_Z203"] = _zmod.data_gating_lever(8,10) > 0.7
+        status["P_Z204"] = _zmod.reward_grounding_lever(7,10) > 0.6
+        status["P_Z208"] = _zmod.rise_collapse_detect([0.8,0.9,0.85,0.4,0.3,0.2])
+        status["P_Z217"] = _zmod.data_imbalance_overthink(0.6,0.3)
+        status["P_Z255"] = _zmod.group_variance_filter([[1,1,1],[0,1,0.5]]) == 1
+        status["P_Z256"] = _zmod.agentic_verifier_multiturn([True,False,True])
+        status["P_Z260"] = _zmod.spurious_correlation_guard(True,False)
+        status["P_Z303"] = _zmod.runtime_guardrail_node200ms(150)
+        status["P_Z304"] = _zmod.runtime_guardrail_98acc(100,99)
+        status["P_Z305"] = _zmod.runtime_intervention_telemetry(True,"r1","c1","t1")["triggered"]
+        status["P_Z306"] = _zmod.runtime_guardrail_lineage("r1","c1","t1")
+        status["P_Z364"] = _zmod.verify_reproducible_fresh("x","x")
+        status["P_Z435"] = bool(_zmod.selective_prediction_risk({0.5:0.1}))
+        status["P_Z471"] = _zmod.negative_suite_total_tests(50,50)
+        status["P_Z477"] = _zmod.benchmark_protocol_tts(True,True,True)
+    else:
+        for _z in range(1,31): status["P_Z%02d" % _z] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

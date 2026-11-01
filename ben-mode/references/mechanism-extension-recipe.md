@@ -18,6 +18,8 @@ Resep end-to-end untuk menambah satu mekanisme verifikasi baru ke gate ben-mode 
 
 **Pitfall — insert ke list literal Python via string replace:** saat menyisipkan entri ke daftar multi-baris dengan mengganti baris anchor yang sudah berujung koma, hasilnya bisa `"check_o21",,` (double comma → SyntaxError). Selalu jalankan `ast.parse` setelah write; koma ganda ketahuan di sana.
 
+**Pitfall — coll predicate di `evaluate()`:** sisipkan blok `P_<x>` baru di **level body method** (indentasi 4 spasi) dan letakkan SEBELUM `ok = all(status.values())`. Jangan mengganti/menempatkan blok DI DALAM cabang `if/else` yang sudah ada (mis. fallback `else: for ...`) — blok yang indentasinya tidak selaras dengan body `else` memicu `IndentationError: expected an indented block`. Maka: baca struktur method dulu, sisipkan sebagai blok independen sebelum `ok = ...`, lalu `ast.parse`.
+
 ## 3. Surfacing di status-matrix
 - Regex `predicates()` di `status-matrix.py` harus mencakup set karakter token: `[A-Za-z0-9_]+` (bukan `[a-z_]+`). Token yang memuat huruf kapital/digit (mis. `P_N1_...`, `P_O1_...`) akan diam-diam dijatuhkan oleh regex lowercase → kapabilitas baru tak pernah muncul di dashboard walau gate PASS.
 - Verifikasi `P_N*/P_O*` muncul: `python status-matrix.py --root <project> | grep P_N`.

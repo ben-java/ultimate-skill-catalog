@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.30.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.31.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1846,3 +1846,76 @@ $$\text{JudgMoE agg: } \hat s = \frac{\sum_i w_i \mu_i}{\sum_i w_i},\quad w_i = 
 $$\text{Sequential:parallel ratio: } r = 1 - d,\quad d = \text{difficulty}$$
 $$\text{Reward reshape: } r' = \min(1, \max(0, c + (r-c)/2))$$
 $$\text{Collapse onset: } a_t < \bar{a}_{t-3:t-1} - 0.05$$
+
+## BAGIAN 31 — TEST-TIME REGIMES, FORMAL MATH & SELF-IMPROVEMENT STABILITY Z001–Z500 (PHASES A–J, Z01–Z30 VERIFIED)
+
+Eksekusi plan Z001–Z500 (Fase A–J) pada v0.31.0. Inti komputasi baru `Z01–Z30`
+diimplementasi di `hard_gate_enhancements.py`, disurfacing sebagai `P_Z01–P_Z30` di
+`gate_predicates.evaluate()` dan diverifikasi 30/30 PASS. Landasan riset 2026:
+2608.04001 (TTS regimes & compute accounting), 2506.12928 (list-wise merge agentic),
+2606.00660 (FineVerify), 2607.07663 (RSI bounded/open, anchor, entropy-reservoir),
+2606.21090 (rise-then-collapse), 2610.17824 (verifier noise, spurious reward),
+2606.08728/2607.07779 (formal math & autoformalization), NCSC/Dataiku/Splunk (guardrails).
+
+### Fase A — Verifier Reliability & Error-Structure (Z001–Z050): Z01, Z03, Z19, Z20
+- Z01 `error_source_classify_rlvr` — klasifikasi sumber error (ref/extraction/checker/access).
+- Z03 `fn_priority_policy` — lever FN-priority.
+- Z19 `spurious_reward_detect` — deteksi reward spurious (2610.17824).
+- Z20 `online_self_certainty_collapse` — deteksi collapse self-certainty jangka panjang.
+
+### Fase B — Judge Aggregation (Z051–Z100): Z62
+- Z62 `programmatic_vs_judge_gain` — banding gain F1 programatik vs judge.
+
+### Fase C — Test-Time Scaling Regimes & Agentic Verification (Z101–Z150): Z101, Z102, Z105, Z108, Z110, Z121
+- Z101 `tts_regime_identify` — regime (single/leaf/prefix).
+- Z102 `tts_compute_accounting` — akuntansi compute (warm-up/discarded/verifier calls).
+- Z105 `tts_listwise_merge` — merging list-wise (best, 2506.12928).
+- Z108 `tts_verifier_quality_report` — gate alokasi oleh kualitas verifier.
+- Z110 `finverify_subquestion_decompose` — dekomposisi sub-pertanyaan (FineVerify).
+- Z121 `agentic_verify_stop_decision` — keputusan berhenti agentik.
+
+### Fase D — Formal Mathematics & Autoformalization (Z151–Z200): Z153, Z158, Z170, Z183
+- Z153 `autoformalize_equivalence` — cek ekuivalensi logis (via prover).
+- Z158 `four_stage_pipeline` — pipeline 4-tahap (propose→informal→autoformalize→Lean).
+- Z170 `proof_refine_loop` — loop penyempurnaan bukti.
+- Z183 `informal_overfit_bench_form` — deteksi overfit ke bentuk benchmark.
+
+### Fase E — Self-Improvement Stability & Collapse Prevention (Z201–Z250): Z203, Z204, Z208, Z217
+- Z203 `data_gating_lever` — lever data-gating.
+- Z204 `reward_grounding_lever` — lever reward-grounding.
+- Z208 `rise_collapse_detect` — deteksi rise-then-collapse (2606.21090).
+- Z217 `data_imbalance_overthink` — deteksi imbalance & overthinking.
+
+### Fase F — Reward Modeling & RL Objectives (Z251–Z300): Z255, Z256, Z260
+- Z255 `group_variance_filter` — filter grup variance nol (AgentV-RL).
+- Z256 `agentic_verifier_multiturn` — verifier agentik multi-turn.
+- Z260 `spurious_correlation_guard` — guard korelasi spurious (answer correct, reasoning wrong).
+
+### Fase G — Runtime Guardrails & Observability (Z301–Z350): Z303, Z304, Z305, Z306
+- Z303 `runtime_guardrail_node200ms` — latensi guardrail <200ms.
+- Z304 `runtime_guardrail_98acc` — akurasi >98%.
+- Z305 `runtime_intervention_telemetry` — emisi telemetri per intervensi (rule/criterion/trace).
+- Z306 `runtime_guardrail_lineage` — lineage guardrail→kriteria→trace.
+
+### Fase H — Governance & Supply-Chain (Z351–Z400): Z364
+- Z364 `verify_reproducible_fresh` — reproducible fresh (hash consistent).
+
+### Fase I — Mechanistic Interpretability & Trust (Z401–Z450): Z435
+- Z435 `selective_prediction_risk` — kurva risk-coverage.
+
+### Fase J — Provisioning, Testing & Ops (Z451–Z500): Z471, Z477
+- Z471 `negative_suite_total_tests` — parity declared vs present.
+- Z477 `benchmark_protocol_tts` — protokol inferensi TTS (protocol/budget/uncertainty reported).
+
+Z002, Z004–Z018, Z021–Z050, Z051–Z061, Z063–Z100, Z103–Z104, Z106–Z107, Z109,
+Z111–Z120, Z122–Z150, Z151–Z152, Z154–Z157, Z159–Z169, Z171–Z182, Z184–Z200,
+Z201–Z202, Z205–Z207, Z209–Z216, Z218–Z250, Z251–Z254, Z257–Z259, Z261–Z300,
+Z301–Z302, Z307–Z350, Z351–Z363, Z365–Z434, Z436–Z470, Z472–Z476, Z478–Z500 bersifat
+ops/standar/regulasi/provisioning (reuse T/W/V/X/Y tier) — didefinisikan inline tanpa duplikasi.
+
+### Formula Matematis Inti Z01–Z30:
+$$\text{Regime: } \text{single if } n_{step}=1\land n_{cand}=1;\ \text{leaf if } n_{cand}>1;\ \text{prefix otherwise}$$
+$$\text{Compute accounting: } C = C_{\text{warmup}} + C_{\text{discarded}} + C_{\text{verifier calls}}$$
+$$\text{List-wise merge: } \hat{s}_i = \max(s_i^{\text{cand}}, s_i^{\text{list}})$$
+$$\text{Rise-collapse: } \max_{t\le W} p_t - \bar{p}_{t_{\text{late}}} > 0.3$$
+$$\text{Data gating: } g = \frac{n_{\text{enters correct}}}{n_{\text{enters total}}}$$

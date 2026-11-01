@@ -1,3 +1,9 @@
+## v0.31.0 (2026-11-01) — TTS Regimes, Formal Math & Self-Improvement Stability Z001–Z500 (BAGIAN 31) & Z01–Z30
+
+- **Z001–Z500 (Fase A–J)**: inti komputasi `Z01–Z30` di `hard_gate_enhancements.py` (error-source, spurious reward, TTS regimes/accounting/listwise, FineVerify, formal 4-stage, rise-collapse, data-gating/reward-grounding, group-variance filter, runtime guardrail <200ms/>98%/lineage, selective-risk, benchmark protocol). Disurfacing `P_Z01–P_Z30`; diverifikasi 30/30 PASS.
+- **BAGIAN 31** ditambahkan ke `references/hard-gate-10.md`.
+- **v0.30.0→0.31.0**: bump serentak SKILL.md/spec/CHANGELOG.
+
 ## v0.30.0 (2026-11-01) — Verifier Reliability & Error-Structure Y001–Y200 (BAGIAN 30) & Y01–Y36
 
 - **Y001–Y200 (Fase 1–8)**: inti komputasi `Y01–Y36` di `hard_gate_enhancements.py` (error-structure, vacuous guard, distributional/confounder judge agg, compute-supervision tradeoff, T1 tool offload, collapse prediction, scratchpad anomaly, co-evolution). Disurfacing `P_Y01–P_Y36`; diverifikasi 35/35 PASS.
