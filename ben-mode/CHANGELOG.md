@@ -1,3 +1,13 @@
+## v0.27.0 (2026-11-01) — Phase 28: Runtime Attestation, Decision Provenance, Model-Spec Auth & Signed Ledger
+
+- **P28-A**: Per-action runtime attestation wajib untuk aksi berisiko tinggi (`P_rt_action_attest`).
+- **P28-B**: Decision provenance binding — `decision_id` wajib merujuk event `plan`/`decision` nyata (`P_rt_decision_prov`).
+- **P28-C**: Model-Spec-driven authorization via `HARD_GATE_MODEL_SPEC` (`P_rt_model_spec`).
+- **P28-D**: Spec-derived tool authorization via `HARD_GATE_TOOL_SPEC` (`P_rt_tool_spec`).
+- **P28-E**: `cost-report.py --attribution` — atribusi token per-skill jujur dari runtime audit.
+- **P28-F**: `verification-ledger.py` — entri verdict bertanda Ed25519 yang dapat diverifikasi eksternal.
+- Suite adversarial diperluas menjadi 44/44 uji negatif.
+
 ## v0.26.0 (2026-11-01) — Phase 27: Mathematical Verification, SMT, Multi-Turn & HITL
 
 - **P27-1 Probabilistic Verdict**: Multi-trial sampling (`--trials N`) dengan interval kepercayaan Wilson score 95% & majority amplification di `gate_predicates.py`.

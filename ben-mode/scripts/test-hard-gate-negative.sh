@@ -4,7 +4,7 @@ export PYTHONDONTWRITEBYTECODE=1
 # test-hard-gate-negative.sh — adversarial tests proving HARD GATE #10 fails on invalid states.
 # Every fixture-setup failure must FAIL loudly (exit 1), never silently skip.
 set -euo pipefail
-TOTAL_TESTS=40
+TOTAL_TESTS=44
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 # Native Windows path for python invocations — MSYS auto-conversion of
@@ -564,6 +564,64 @@ if BEN_MUTATOR_ACTOR="alice" BEN_AUDIT_ACTOR="alice" "$PY" "$SCRIPT_W\\regressio
     exit 1
 else
     echo "✅ Test 40 PASS: self-confirming evaluator lineage caught"
+fi
+
+# Test 41: high-risk action without runtime attestation must fail (P28-A)
+TMP_A="$TMP_TEST/p28a"; mkdir -p "$TMP_A"
+cat > "$TMP_A/noattest.jsonl" <<'JSON'
+{"session_id":"s41","event_type":"verify","ts":"2026-11-01T00:00:00Z"}
+{"session_id":"s41","event_type":"action","ts":"2026-11-01T00:00:10Z","approved":true,"hitl_ticket_id":"t1","payload":{"category":"publish_external","tool_name":"execute_code"}}
+JSON
+if "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_A/noattest.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 41 FAIL: action without attestation passed"
+    exit 1
+else
+    echo "✅ Test 41 PASS: missing action attestation rejected"
+fi
+
+# Test 42: action referencing dangling decision_id must fail (P28-B)
+TMP_B="$TMP_TEST/p28b"; mkdir -p "$TMP_B"
+cat > "$TMP_B/dangling.jsonl" <<'JSON'
+{"session_id":"s42","event_type":"verify","ts":"2026-11-01T00:00:00Z"}
+{"session_id":"s42","event_type":"action","ts":"2026-11-01T00:00:10Z","approved":true,"payload":{"category":"safe_read","tool_name":"read_file","decision_id":"DEC_NONE"}}
+JSON
+if "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_B/dangling.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 42 FAIL: dangling decision_id passed"
+    exit 1
+else
+    echo "✅ Test 42 PASS: dangling decision_id rejected"
+fi
+
+# Test 43: model-spec denied category must fail (P28-C)
+TMP_C="$TMP_TEST/p28c"; mkdir -p "$TMP_C"
+cat > "$TMP_C/spec.json" <<'JSON'
+{"allowed_categories":["safe_read"],"denied_categories":["eval_code"]}
+JSON
+cat > "$TMP_C/violate.jsonl" <<'JSON'
+{"session_id":"s43","event_type":"verify","ts":"2026-11-01T00:00:00Z"}
+{"session_id":"s43","event_type":"action","ts":"2026-11-01T00:00:10Z","approved":true,"payload":{"category":"eval_code","tool_name":"execute_code"}}
+JSON
+if HARD_GATE_MODEL_SPEC="$TMP_C/spec.json" "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_C/violate.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 43 FAIL: model-spec violation passed"
+    exit 1
+else
+    echo "✅ Test 43 PASS: model-spec denied category rejected"
+fi
+
+# Test 44: tool outside spec-allowed set must fail (P28-D)
+TMP_D="$TMP_TEST/p28d"; mkdir -p "$TMP_D"
+cat > "$TMP_D/toolspec.json" <<'JSON'
+{"allowed_tools":["read_file","execute_code"]}
+JSON
+cat > "$TMP_D/badtool.jsonl" <<'JSON'
+{"session_id":"s44","event_type":"verify","ts":"2026-11-01T00:00:00Z"}
+{"session_id":"s44","event_type":"action","ts":"2026-11-01T00:00:10Z","approved":true,"payload":{"category":"safe_read","tool_name":"shred"}}
+JSON
+if HARD_GATE_TOOL_SPEC="$TMP_D/toolspec.json" "$PY" "$SCRIPT_DIR/runtime_gate.py" "$TMP_D/badtool.jsonl" >/dev/null 2>&1; then
+    echo "❌ Test 44 FAIL: tool outside spec-allowed passed"
+    exit 1
+else
+    echo "✅ Test 44 PASS: tool outside spec-allowed rejected"
 fi
 
 echo "🎉 All negative/adversarial tests PASSED."

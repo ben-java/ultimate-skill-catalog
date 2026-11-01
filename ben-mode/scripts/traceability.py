@@ -71,6 +71,12 @@ MAP = {
     "P27-6 admission controller": ([], [], ["self-improvement-gate.py"]),
     "P27-8 SLSA v1.2 VSA": (["P_attestation"], [], ["vsa-attestation.py"]),
     "P27-13 model swap retest": (["P_model_signed"], [], ["check-model-signed.py"]),
+    "P28-A action attestation": (["P_rt_action_attest"], [], ["runtime_gate.py"]),
+    "P28-B decision provenance": (["P_rt_decision_prov"], [], ["runtime_gate.py"]),
+    "P28-C model spec": (["P_rt_model_spec"], [], ["runtime_gate.py"]),
+    "P28-D tool spec": (["P_rt_tool_spec"], [], ["runtime_gate.py"]),
+    "P28-E attribution": ([], [], ["cost-report.py"]),
+    "P28-F ledger": ([], [], ["verification-ledger.py"]),
 }
 
 

@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:ba0238a4-78d4-4b62-8cfb-bd38433e76d4",
+  "serialNumber": "urn:uuid:101752d0-3b34-4ac7-aaaf-dca98842f87e",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T01:12:11Z",
+    "timestamp": "2026-11-01T01:25:46Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "cf1d41431c0564766cee3c75bdbe6c1c8196e04cee002c86c7fd1b8f1dbca007"
+          "content": "3e245a8cd299b74760ba1f341046404f74c0b74b376efc4e49bd53246fc083e3"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "955f2ff059abe5c661f103b676c6935914095a10d43d167741081efa49091b56"
+          "content": "dc9a455fcfe9e191ac13a98095b272a2326d9d68c4506af374a4517dd6194429"
         }
       ]
     },
@@ -131,7 +131,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "2c75d7ad0ef47b920164b727caab4da1299b22026f38950d97db91ec8a1e1370"
+          "content": "9a75f3cd0ef89886d3de6fba676c510ee1697b30e7c0d3e07b84de11e5e52ede"
         }
       ]
     },
@@ -340,7 +340,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "56d0e7cca937f9255c97b81087e78d016c98d45d5a9d5601e577e3cc737b864b"
+          "content": "fb860c309f740b2baa39b0ee3b1eb13f158ca13cc42fd2263c68850d0d95627b"
         }
       ]
     },
@@ -516,7 +516,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "f6a2caf5ac9b44f1253449ee7e251ab59aa535efdc9cd236bb3dfbf0c44f3fbc"
+          "content": "c4a71ec9ad9f93ecaff10e68eda49e3821f210587308a3ac488508b8da31d949"
         }
       ]
     },
@@ -604,7 +604,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "d1b6d2799227ffccd87b04e2a2cb9381087f7f03d098296ae594e4768fdfb099"
+          "content": "cae74cc5a522d711fe77db48b83ee0377f080d9a825ea463180e5b861fbf6a36"
         }
       ]
     },
@@ -725,7 +725,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "e8013006c63209b88234343a401352afa7c004773e8609de785b75d03df9d6c7"
+          "content": "3b4d2b0e8568e865fbbaecb208999af298042de822e855b9c929cfeb89dad826"
         }
       ]
     },
@@ -736,7 +736,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ee4eac840803a4ceabeb26b9a6f0906a44878ad3f0dd0e44dcbe71fc9f80e1fe"
+          "content": "611674db747ad08477648c33037058452238718446b418fcdebb36951fb62862"
         }
       ]
     },
@@ -759,6 +759,17 @@
         {
           "alg": "SHA-256",
           "content": "5b1ef0971bffcfd2528c9d0d9b7a14f8a7a246d90e41a1486871c4799e7f69c5"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "name": "scripts/verification-ledger.py",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "a888e776bf959abfdb1e5f9bad3bf47b8fd1d22bec0b9f8a12252bb42de1c433"
         }
       ]
     },

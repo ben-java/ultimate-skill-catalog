@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.26.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.27.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1371,6 +1371,20 @@ Siklus P27 mengintegrasikan 14 inovasi arsitektur berdasarkan riset terkini (arX
 
 Total suite adversarial kini mencakup **40 pengujian negatif** (35 terdahulu + Test 36–40).
 
+---
+
+## 19.6 Siklus Pengembangan P28 (Item A–F: Attestation Runtime, Decision Provenance, Model-Spec Auth, Ledger Tertanda)
+
+Siklus P28 menegakkan lapisan verifikasi perilaku runtime berdasarkan riset 2026 (Verifiability-First Agents AAAI'26, SCITT Decision Provenance IETF draft, SIGMA 2610.07935, DTF 2605.15228, MemMux 2610.07257, Interleaved Formal-Logic Bonus 2601.22642):
+
+- **P28-A Per-Action Runtime Attestation**: Setiap aksi berisiko tinggi wajib membawa `action_attestation` (digest kriptografis atas sesi/timestamp/kategori/tool) → `P_rt_action_attest`.
+- **P28-B Decision Provenance Binding**: Aksi yang menyatakan `decision_id` wajib merujuk event `decision`/`plan` nyata dalam sesi yang sama → `P_rt_decision_prov` (cegah eksekusi keputusan non-existent).
+- **P28-C Model-Spec-Driven Auth**: Gate membaca `model-spec.json` (env `HARD_GATE_MODEL_SPEC`) dan menolak kategori yang dilarang/tidak diizinkan → `P_rt_model_spec`.
+- **P28-D Spec-Derived Tool Auth**: Otorisasi tool berdasarkan `allowed_tools` pada tool-spec (env `HARD_GATE_TOOL_SPEC`), melengkapi OPA Rule 7 → `P_rt_tool_spec`.
+- **P28-E Honest Per-Skill Attribution**: `cost-report.py --attribution` mengagregasi `token_proxy` per-skill dari `runtime-audit.jsonl`; bila data tidak tersedia melaporkan "honest n/a", bukan angka rekaan.
+- **P28-F Signed Verification Ledger**: `verification-ledger.py` menulis entri verdict ke `verification-ledger.jsonl` dengan tanda tangan Ed25519 (openssl) yang bisa diverifikasi eksternal sebagai sinyal umpan-balik (reward/training metadata).
+
+Suite adversarial diperluas dari 40 menjadi **44 uji negatif** (Test 41–44).
 ---
 
 # BAGIAN 22 — AI RMF FRAMING & SBOM JUSTIFICATION (P14-B3)

@@ -72,6 +72,7 @@ def check_trace(path):
     _last_plan = {}
     _thr = {}
     _accum_text = {}  # Item4: multi-turn injection tracker
+    _session_decisions = {}  # P28-B: session decision/plan registry
     _known_tools = {"execute_code","terminal","read_file","write_file","patch","search_files","web_search","web_extract"}
     if not os.path.isfile(path):
         return {"trace_missing": True}
@@ -80,6 +81,11 @@ def check_trace(path):
     for ln in lines:
         ev = json.loads(ln)
         sessions.add(ev.get("session_id"))
+        _seid = ev.get("session_id")
+        if ev.get("event_type") in ("decision", "plan"):
+            _eid = pl.get("event_id") if isinstance(pl, dict) else None
+            if _eid:
+                _session_decisions.setdefault(_seid, []).append(ev)
         et = ev.get("event_type")
         pl = ev.get("payload") or {}
         # P_rt_injection: konten dari luar (input) mengandung pola injeksi
@@ -98,10 +104,45 @@ def check_trace(path):
             cat = str(pl.get("category", "")).lower()
             if any(h in cat for h in HIGH_RISK) and not ev.get("approved"):
                 fails.setdefault("P_rt_highrisk_hitl", []).append(str(pl.get("category")))
+            # P28-A: per-action runtime attestation required for high-risk actions
+            if any(h in cat for h in HIGH_RISK):
+                if not ev.get("action_attestation"):
+                    fails.setdefault("P_rt_action_attest", []).append(f"{cat}:missing-attestation")
+            # P28-B: decision provenance — action must reference an existing decision/plan event
+            dec_id = pl.get("decision_id")
+            if dec_id is not None:
+                _sid = ev.get("session_id")
+                _has_decision = any(
+                    e.get("event_type") in ("decision", "plan") and e.get("event_id") == dec_id
+                    for e in _session_decisions.get(_sid, [])
+                )
+                if not _has_decision:
+                    fails.setdefault("P_rt_decision_prov", []).append(f"{dec_id}:dangling-decision")
+            # P28-C: model-spec driven authorization
+            _spec_f = os.environ.get("HARD_GATE_MODEL_SPEC", "")
+            if _spec_f and os.path.isfile(_spec_f):
+                try:
+                    _spec = json.load(open(_spec_f, encoding="utf-8"))
+                    _allowed = set(_spec.get("allowed_categories", []))
+                    _denied = set(_spec.get("denied_categories", []))
+                    if cat in _denied or (cat and _allowed and cat not in _allowed):
+                        fails.setdefault("P_rt_model_spec", []).append(f"{cat}:spec-denied")
+                except Exception:
+                    pass
             # Item5: HITL ticket verification for extreme risk
             if any(h in cat for h in ("destructive", "credential", "publish_external")):
                 if ev.get("approved") and not ev.get("hitl_ticket_id"):
                     fails.setdefault("P_rt_hitl_ticket", []).append(f"{cat}:missing-hitl-ticket")
+            # P28-D: spec-derived tool authorization (DTF style)
+            _toolspec_f = os.environ.get("HARD_GATE_TOOL_SPEC", "")
+            if _toolspec_f and os.path.isfile(_toolspec_f):
+                try:
+                    _tspec = json.load(open(_toolspec_f, encoding="utf-8"))
+                    _allowed_tools = set(_tspec.get("allowed_tools", []))
+                    if _tool and _allowed_tools and _tool not in _allowed_tools:
+                        fails.setdefault("P_rt_tool_spec", []).append(f"{_tool}:spec-not-allowed")
+                except Exception:
+                    pass
             # Item14: Hallucinated tool filter
             _tool = pl.get("tool_name")
             if _tool and _tool not in _known_tools and not ev.get("allow_dynamic_tool"):
