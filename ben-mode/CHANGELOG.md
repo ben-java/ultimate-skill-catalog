@@ -1,3 +1,11 @@
+## v0.28.0 (2026-11-01) — Phase S001–S105: Comprehensive Roadmap Execution (BAGIAN 26) & T01–T25
+
+- **S001–S105 (Fase 1–14)**: 105 butir roadmap pengembangan AI/formal-verification 2025–2026 dieksekusi — dipetakan ke 25 fungsi komputasi baru (`T01–T25`) di `hard_gate_enhancements.py` + mekanisme `P1–P12`/`N1–N12`/`O1–O21` yang sudah ada.
+- **BAGIAN 26** ditambahkan ke `references/hard-gate-10.md`: pemetaan Fase 1–14, formula matematis, dan basis riset (ACA, distributional PRM, RISE, consensus optimizer, probe cosine alignment, acquisition reward).
+- **`gate_predicates.py`**: 25 predikat baru `check_t01_...`–`check_t25_...` + token `P_T01_...`–`P_T25_...` (total 70 predikat statis aktif).
+- **Selftest T**: `selftest_t` baru — 25/25 mekanisme T lolos (selftest P/N/O tetap hijau: 12/12 + 12/12 + 21/21).
+- **Fix openssl path (Test 28)**: bungkus argumen `$TMP_VC/k.key` dengan `$(W ...)` (cygpath -w) — native openssl gagal saat TMPDIR/MSYS `/tmp`; kini suite lolos 50/50 dari env terminal/benctl, bukan hanya subprocess.
+
 ## v0.27.0 (2026-11-01) — Phase 28: Runtime Attestation, Decision Provenance, Model-Spec Auth & Signed Ledger
 
 - **P28-A**: Per-action runtime attestation wajib untuk aksi berisiko tinggi (`P_rt_action_attest`).

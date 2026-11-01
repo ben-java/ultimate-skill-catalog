@@ -9,71 +9,92 @@ Saat trigger `ben` atau `ben-mode` memicu eksekusi yang melibatkan akses browser
 
 1. **Muat `references/hard-gate-10.md`** sebelum menyentuh apa pun.
 2. **Verifikasi lingkungan secara fisik** (tidak asumsi):
-   - Periksa executable browser (`Helium.exe`, `chrome.exe`, `msedge.exe`, `firefox.exe`) di path standar dan alternatif (`AppData`, per-user, portable).
+   - Periksa executable browser (`msedge.exe`, `chrome.exe`, `firefox.exe`, `Helium.exe`) di path standar dan alternatif (`AppData`, per-user, portable).
    - Periksa direktori profil/user data (`User Data`, `Profiles`).
    - Periksa apakah proses browser sedang berjalan (`tasklist`).
-   - Periksa apakah `playwright` dapat di-import (`python -c "import playwright"` atau `pip list`).
-3. **Buat artefak script** (`method1_cdp_script_*.py`) dengan:
-   - Definisi `HELIUM_BIN`, `PROFILE_DIR`, `DEBUG_PORT`.
-   - Perintah peluncuran: `"<BIN>" --remote-debugging-port=9222 --user-data-dir="<PROFILE>" --start-maximized <URL>`
-   - Koneksi `playwright.connect_over_cdp("http://localhost:9222")`.
-   - Catatan eksplisit: **tidak memasukkan username/password secara otomatis**; pengguna memasukkannya manual.
+   - Periksa apakah `playwright` (atau `websocket-client` untuk CDP mentah) dapat di-import.
+3. **Buat artefak script** (`method1_cdp_script_*.py`) — lihat bagian CDP di bawah.
 4. **Eksekusi pembukaan browser** menggunakan `subprocess.Popen` (tidak blocking) dengan PID tercatat.
-5. **Buat audit JSON** (`audit-*.json`) dengan:
-   - `execution_timestamp`
-   - Status eksistensi executable (`*_found`)
-   - Status Playwright (`playwright_available`)
-   - `action` (perintah yang dijalankan)
-   - `honesty_flag`: eksplisit menyatakan tidak ada akses berhasil dieksekusi oleh agen, hanya pembukaan browser.
-   - `integrity_notes`: ringkasan bahwa pengguna akan memasukkan kredensial manual.
-6. **Verifikasi proses** (`tasklist /FI "PID eq <PID>"`) untuk membuktikan browser benar-benar berjalan.
-7. **Jika lingkungan tidak siap** (missing executable, missing Playwright): laporkan jujur, berikan perintah perbaikan (`pip install playwright`), dan **jangan klaim akses berhasil**.
+5. **Buat audit JSON** (`audit-*.json`) dengan `execution_timestamp`, `*_found`, `connection_ok`, `action`, `honesty_flag`, `integrity_notes`.
+6. **Verifikasi port CDP** (`curl http://localhost:9222/json/version`) SEBELUM klaim koneksi.
+7. **Jika lingkungan tidak siap**: laporkan jujur; jangan klaim akses berhasil.
 
-## Konfigurasi per browser (contoh dari verifikasi nyata)
+## Aturan CDP pada browser dengan sesi login (yang sudah terverifikasi)
 
-- **Edge (`msedge.exe`)** — terbukti ada di `C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe`; proses dapat diluncurkan; profil default di `AppData\Local\Microsoft\Edge\User Data`.
-- **Chrome (`chrome.exe`)** — proses `chrome.exe` dapat berjalan meskipun file `.exe` tidak berada di `Program Files` (kemungkinan instalasi per-user/portable); periksa dengan `where chrome /r` atau `dir /s`.
-- **Helium (`Helium.exe`)** — tidak tersedia dalam verifikasi ini (`C:\Program Files\Helium`, `AppData`); jika pengguna mengklaim sudah login di Helium, berarti Helium berjalan di host/machine lain atau profil berbeda; sesuaikan `HELIUM_BIN` dan `PROFILE_DIR` secara eksplisit.
-- **Firefox** — tidak ditemukan dalam verifikasi ini.
+### 1. Remote debugging DITOLAK pada direktori profil DEFAULT
+Chromium/Edge menolak `--remote-debugging-port` bila `--user-data-dir` menunjuk direktori profil default (mis. `AppData\Local\Microsoft\Edge\User Data`). stderr-nya eksplisit:
+```
+DevTools remote debugging requires a non-default data directory. Specify this using --user-data-dir.
+```
+Jadi jalur `User Data` tidak akan pernah membuka port 9222. Solusi: **salin profil ke direktori non-default** lalu launch di situ:
+```bash
+# salin Local State + folder profil (mis. Default) ke direktori baru
+cp "<User Data>/Local State" "<DST>/Local State"
+robocopy "<User Data>/Default" "<DST>/Default" /E /R:1 /W:1 /NFL /NDL /NJH /NJS /NC /NS /NP
+```
+Lalu launch: `msedge.exe --remote-debugging-port=9222 --remote-allow-origins=* --user-data-dir="<DST>"`.
+
+### 2. Websocket CDP ditolak kecuali `--remote-allow-origins`
+Handshake websocket ke `webSocketDebuggerUrl` gagal 403 dengan: _"Rejected an incoming WebSocket connection from the http://localhost:9222 origin"_. Tambahkan `--remote-allow-origins=*` (atau origin eksplisit) pada baris launch.
+
+### 3. Launch ke profil yang sedang dipakai = "attach", flag diabaikan
+Memanggil `msedge.exe --user-data-dir=<profil aktif>` saat instance profil itu sudah berjalan hanya meneruskan ke sesi ada (output: _"Opening in existing browser session."_) — semua flag debug diabaikan, port tidak terbuka. **Bunuh SEMUA instance dulu.** Di Windows, `taskkill //F //IM msedge.exe` bisa diam-diam tidak menurunkan jumlah proses; `powershell -NoProfile -Command "Get-Process msedge -ErrorAction SilentlyContinue | Stop-Process -Force"` terbukti andal. Verifikasi `tasklist | grep -ci msedge` = 0 sebelum launch ulang.
+
+### 4. Profil tersalin TIDAK otomatis membawa sesi login server
+Menyalin `Default` + `Local State` mempertahankan data lokal, tetapi **tidak menjamin sesi login server (mis. Threads) ikut terbawa** — cookies sesi bisa tidak valid/terikat. Setelah koneksi, deteksi login-wall di DOM (mis. teks "Log in to see more"); jika muncul, minta pengguna login sekali di profil CDP baru itu, lalu rerun ekstraksi. Jangan mengklaim akses repost sebelum login terkonfirmasi.
+
+### 5. Klien CDP alternatif (tanpa playwright)
+Jika `playwright` tidak terpasang, pakai `websocket-client` (`pip install websocket-client`) + endpoint HTTP `/json/list`:
+```python
+import json, urllib.request, websocket, time
+pages = [t for t in json.load(urllib.request.urlopen("http://localhost:9222/json/list")) if t.get("type")=="page"]
+ws = websocket.create_connection(pages[0]["webSocketDebuggerUrl"], timeout=45)
+# kirim {"id":N,"method":...}; jawab dengan id yang sama
+# Page.navigate -> tunggu 10-14s (SPA) -> Runtime.evaluate (returnByValue=True)
+```
+Gunakan `Runtime.evaluate` dengan `returnByValue: true` dan ekspresi yang mengembalikan `JSON.stringify({url, title, loginWall, articles, pressables, sample})` untuk bukti jujur.
+
+## Mengekstrak konten yang dirender via animasi/ketik (SPA generated output)
+Beberapa situs tool (mis. generator prompt client-side) menampilkan hasil dengan efek mengetik: teks bertambah karakter demi karakter dan **berhenti di tengah** saat dibaca cepat. `innerText`/`textContent` hanya mengembalikan prefiks terketik — membaca ulang tidak akan pernah memberi teks penuh, dan polling panjang (mis. 10–60s) juga bisa macet di panjang parsial.
+
+Solusi andal: **tidak membaca DOM**, melainkan menangkap string yang disalin. Tombol "Copy" pada tool semacam itu menyalin teks penuh via Clipboard API:
+```javascript
+// Patch handler sebelum klik tombol Copy
+(() => {
+  const orig = navigator.clipboard.writeText.bind(navigator.clipboard);
+  window.__copied = null;
+  navigator.clipboard.writeText = async function(t){ window.__copied = t; return orig(t); };
+})()
+// lalu klik tombol Copy, dan baca window.__copied
+```
+Catatan: `navigator.clipboard.readText()` gagal dengan `NotAllowedError: Document is not focused` di sesi browser yang tidak fokus — jangan pakai readText; pakai patch writeText di atas (tidak butuh fokus).
+
+Jika konten yang disalin masih terpotong di panjang sama, periksa apakah hasilnya memang satu template dengan blok `PERSYARATAN SPESIALIS`/role yang berubah per tool, bukan 888 prompt unik — verifikasi nyata jumlah template inti sebelum melaporkan jumlah "tool".
 
 ## Integritas (wajib untuk setiap eksekusi)
 - **Tidak ada klaim akses berhasil tanpa audit file fisik** (`audit-*.json` dengan `honesty_flag`).
-- **Tidak ada injeksi kredensial otomatis** — pengguna memasukkan username dan password secara manual. Ini bukan sekadar preferensi; ini adalah batas integritas untuk akses akun sosial.
-- **Tidak menyembunyikan kegagalan lingkungan** — jika `playwright` belum terinstal atau executable tidak ditemukan, laporkan dengan jelas dan berikan perintah perbaikan (`pip install playwright && playwright install chromium`).
-- **Audit log disimpan di luar pohon verifikasi** (misalnya `C:\Users\AMMAR\Hermes Agents\threads-method1-cdp\`) agar tidak merusak hash replika.
+- **Tidak ada injeksi kredensial otomatis** — pengguna memasukkan username dan password secara manual. Ini batas integritas untuk akses akun sosial.
+- **Tidak menyembunyikan kegagalan lingkungan** — laporkan jelas, berikan perintah perbaikan.
+- **Audit log disimpan di luar pohon verifikasi** (mis. `C:\Users\AMMAR\Hermes Agents\threads-method1-cdp\`) agar tidak merusak hash replika.
 
 ## Pitfall utama
-- **Jangan menyatakan "tidak bisa dieksekusi" tanpa memeriksa terlebih dahulu** (`os.path.isfile`, `subprocess.run`, `tasklist`, `import playwright`). Klaim infeasible yang tidak diperiksa akan mengunci pekerjaan secara permanen (`hard-gate-10.md` §Pitfalls).
-- **Jangan mengasumsikan path browser** — selalu periksa beberapa kandidat sebelum menyimpulkan browser tidak tersedia.
-- **Jangan menulis `echo "PASS"` tanpa `echo:;` yang eksplisit** — dalam konteks bash di Windows/MSYS, output kosong atau format salah dapat disalahartikan sebagai kegagalan oleh parser audit.
-- **Jangan menjalankan `bash` telanjang** dari Python di Windows — gunakan `sys.executable` untuk Python dan `C:\Program Files\Git\bin\bash.exe` secara eksplisit untuk bash.
-
-## Profil yang benar (penyebab 0 post terlihat pada eksekusi sebelumnya)
-
-Pada verifikasi nyata, relaunch memakai profil `Ad Blocking` (folder pertama di `Edge\User Data`). Profil ini TIDAK berisi sesi login Threads kamu; sesi login kemungkinan ada di `Default` (atau profil lain yang kamu pakai saat login manual). Sebelum eksekusi, pastikan `--user-data-dir=` menunjuk folder profil yang benar.
-
-Perintah tepat (ganti `<PROFIL_LOG_IN_KAMU>` dengan `Default` atau nama folder profil yang berisi sesi):
-```
-"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --remote-debugging-port=9222 --user-data-dir="C:\Users\AMMAR\AppData\Local\Microsoft\Edge\User Data\<PROFIL_LOG_IN_KAMU>" --start-maximized https://www.threads.net/
-```
-Port `9222` wajib tetap sama agar Playwright (`connect_over_cdp`) terhubung. Tanpa port ini, Playwright memakai instance baru (tanpa cookie sesi) dan halaman repost akan kosong (`visible_elements`: 0).
+- **Jangan menyatakan "tidak bisa dieksekusi" tanpa memeriksa terlebih dahulu** (`os.path.isfile`, `subprocess.run`, `tasklist`, `import`).
+- **Jangan mengasumsikan path browser** — periksa beberapa kandidat.
+- **Jangan menulis `echo "PASS"` tanpa `echo:;` yang eksplisit** — di bash Windows/MSYS, output kosong/format salah bisa disalahartikan parser audit.
+- **Jangan menjalankan `bash` telanjang** dari Python di Windows — pakai `sys.executable` / `C:\Program Files\Git\bin\bash.exe`.
+- **Verifikasi port (`curl /json/version`) sebelum koneksi** — jika kosong, jangan lanjut ke ekstraksi.
 
 ## Perintah referensi cepat
 ```python
-# Verifikasi executable
-os.path.isfile(r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe")
-
-# Verifikasi Playwright
-import importlib.util
-spec = importlib.util.find_spec("playwright")
-
-# Peluncuran browser dengan remote debugging (tidak blocking)
-subprocess.Popen([EDGE_BIN, "--remote-debugging-port=9222",
-                  "--start-maximized", "https://www.threads.net/"])
-
-# Koneksi Playwright (setelah browser terbuka)
-from playwright.sync_api import sync_playwright
-with sync_playwright() as p:
-    browser = p.chromium.connect_over_cdp("http://localhost:9222")
-    contexts = browser.contexts  # mempertahankan sesi login pengguna
+import os, subprocess
+EDGE = r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe"
+# Bunuh semua instance sebelum launch
+subprocess.run(["powershell","-NoProfile","-Command",
+  "Get-Process msedge -ErrorAction SilentlyContinue | Stop-Process -Force"])
+# Launch profil NON-DEFAULT dengan CDP
+subprocess.Popen([EDGE, "--remote-debugging-port=9222", "--remote-allow-origins=*",
+                  f"--user-data-dir={NON_DEFAULT_PROFILE}", "--no-first-run", "about:blank"],
+                 creationflags=subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP)
+# Verifikasi sebelum ekstraksi
+# curl -s http://localhost:9222/json/version
 ```

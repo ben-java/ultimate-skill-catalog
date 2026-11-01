@@ -123,7 +123,7 @@ if [ "$NO_REPORT" = "0" ]; then
   else
     echo "⚠️ span-tree: no runtime-audit.jsonl (skip)"
   fi
-  mark GREEN "negative adversarial suite (44/44)"
+  mark GREEN "negative adversarial suite ($(grep -oP 'TOTAL_TESTS=\K\d+' "$SCRIPT_DIR/test-hard-gate-negative.sh" || echo 0)/$(grep -oP 'TOTAL_TESTS=\K\d+' "$SCRIPT_DIR/test-hard-gate-negative.sh" || echo 0))"
     "$BASH_BIN" "$SCRIPT_W/test-hard-gate-negative.sh" >/dev/null || fail "negative-suite"
   fi
   mark GREEN "routing-health + coverage"

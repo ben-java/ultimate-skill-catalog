@@ -66,7 +66,7 @@ def predicates(script):
     if not os.path.isfile(p):
         return []
     txt = open(p, encoding="utf-8", errors="ignore").read()
-    return sorted(set(re.findall(r"\bP_[a-z_]+", txt)))
+    return sorted(set(re.findall(r"\bP_[A-Za-z0-9_]+", txt)))
 
 
 def versions_consistent():

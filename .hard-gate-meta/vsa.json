@@ -5,7 +5,7 @@
     {
       "name": "ben-mode.manifest.json",
       "digest": {
-        "sha256": "635bcf8198af1564592b20b651265042297f95fcf644f1d6b536412542623ff8"
+        "sha256": "b211dfffb86b2e3538fd4d1f3e0f1683b5e8fa8192412e5177446ad3d6d3f208"
       }
     },
     {
@@ -25,5 +25,5 @@
     "SLSA_SOURCE_L3",
     "SLSA_BUILD_L2"
   ],
-  "timestamp": "2026-11-01T01:26:22.647110Z"
+  "timestamp": "2026-11-01T13:04:02.876292Z"
 }
