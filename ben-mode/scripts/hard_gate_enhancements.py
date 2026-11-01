@@ -676,8 +676,290 @@ def trace_mutation_inject(trace, risk):
 def separation_of_duties(verifier, mutator):
     return verifier != mutator
 
+
+# ================= W01..W40  S001..S105 phases 1-8 refinement (2026-11-01) =================
+# W01: fault-stratified judge meta-evaluation (REFLECT 2605.19196)
+def meta_eval_stratified(confusion_by_type):
+    """confusion_by_type: {fault_type: (tp, fn, fp)} -> per-type detection rate."""
+    out = {}
+    for t, (tp, fn, fp) in confusion_by_type.items():
+        det = tp / (tp+fn) if (tp+fn) else 0.0
+        out[t] = round(det, 4)
+    return min(out.values()) if out else 0.0, out
+
+# W02: Wilson CI per judge configuration (reuse P1)
+def wilson_ci_config(success, n, z=1.96):
+    if n == 0: return (0.0, 0.0)
+    p = success / n
+    den = 1 + z*z/n
+    c = (p + z*z/(2*n)) / den
+    m = z * (p*(1-p)/n + z*z/(4*n*n)) ** 0.5 / den
+    return (round(c-m,4), round(c+m,4))
+
+# W03: minimum support rule
+def minimum_support_rule(n, min_support):
+    return n >= min_support, n
+
+# W04: abstention policy
+def abstention_policy(confidence, abstain_below, agree_above):
+    if confidence < abstain_below: return "ABSTAIN"
+    if confidence >= agree_above: return "AGREE"
+    return "UNCERTAIN"
+
+# W07: calibration representativeness
+def calibration_representativeness(cal_n, test_n, min_ratio=0.1):
+    r = cal_n / test_n if test_n else 0.0
+    return r >= min_ratio, round(r,4)
+
+# W08: fine-grained step-level judge aggregation
+def fine_step_judge(step_scores, agg="min"):
+    if agg == "min": return min(step_scores)
+    if agg == "mean": return sum(step_scores)/len(step_scores)
+    return max(step_scores)
+
+# W11: Fleiss kappa (multi-rater reliability)
+def fleiss_kappa(ratings, N, k):
+    """ratings: list of {class: count} per item; N items, k raters."""
+    import math
+    if N == 0: return 0.0
+    Pj = [0.0]*k
+    for item in ratings:
+        for c in item: Pj[c] += item[c]
+    total = sum(Pj)
+    Pj = [p/(N*k) for p in Pj]
+    Pe = sum(p*p for p in Pj)
+    Pi = []
+    for item in ratings:
+        s = sum(item.values())
+        Pi.append((s*s - sum(v*v for v in item.values()))/(s*(s-1)) if s > 1 else 0.0)
+    Pbar = sum(Pi)/N
+    if abs(1-Pe) < 1e-9: return 1.0
+    return round((Pbar - Pe)/(1 - Pe), 4)
+
+# W15: controlled intervention verification
+def controlled_intervention_verify(base_score, injected_score, threshold=0.5):
+    # a valid judge must lower score when a fault is injected
+    return (base_score - injected_score) >= threshold, round(base_score - injected_score,4)
+
+# W16: SNR tracking generation vs verification (Variance Inequality 2512.02731)
+def snr_track(sig_g, var_g, sig_v, var_v):
+    snr_g = sig_g*sig_g/(var_g+1e-12)
+    snr_v = sig_v*sig_v/(var_v+1e-12)
+    return round(snr_g,4), round(snr_v,4), snr_v > snr_g
+
+# W17: curvature & stepsize estimate
+def curvature_stepsize_estimate(grad_hist, deltas):
+    L = 0.0
+    for g0,g1,d in zip(grad_hist[:-1], grad_hist[1:], deltas):
+        fm = abs(g1-g0)/max(abs(d),1e-9)
+        if fm > L: L = fm
+    eta = 2.0/L if L > 0 else 0.1
+    return round(L,4), round(eta,4)
+
+# W18: alignment rho monitor
+def alignment_rho_monitor(internal_pot, external_score):
+    n = len(internal_pot)
+    if n == 0: return 0.0
+    mi, se = sum(internal_pot)/n, sum(external_score)/n
+    cov = sum((a-mi)*(b-se) for a,b in zip(internal_pot, external_score))/n
+    va = (sum((a-mi)**2 for a in internal_pot)/n)**0.5
+    vb = (sum((b-se)**2 for b in external_score)/n)**0.5
+    return round(cov/(va*vb+1e-12), 4)
+
+# W19: sigmoid collapse alarm
+def collapse_alarm(perf_hist, recent=3, drop=0.15):
+    if len(perf_hist) < recent+1: return False
+    peak = max(perf_hist[:-recent])
+    last = sum(perf_hist[-recent:])/recent
+    return (peak - last) >= drop, round(peak - last,4)
+
+# W20: rho gate predicate
+def rho_gate(align, rho_crit): return align > rho_crit
+
+# W23: reward-model seed ensemble (mitigate seed sensitivity)
+def reward_seed_ensemble(scores_by_seed, z=1.96):
+    import math
+    k = len(scores_by_seed)
+    if k == 0: return (0.0,0.0,0.0)
+    m = sum(scores_by_seed)/k
+    s = (sum((x-m)**2 for x in scores_by_seed)/k)**0.5
+    ci = z*s/math.sqrt(k)
+    return round(m,4), round(max(0.0,m-ci),4), round(min(1.0,m+ci),4)
+
+# W26: FABSVer reward matrix
+def fabsver_reward(sol_ok, ver_ok):
+    if sol_ok and ver_ok: return 1.0
+    if sol_ok and not ver_ok: return 0.5
+    if not sol_ok and ver_ok: return 0.25
+    return 0.0
+
+# W27: RL-STaR convergence check (conditions)
+def rl_star_convergence(pre_model_quality, noise, threshold=0.3):
+    return pre_model_quality > noise + threshold
+
+# W29: compiler-judge (structural formal check)
+def compiler_judge(formal_stmt, syntax_ok, semantics_ok):
+    return syntax_ok and semantics_ok
+
+# W36: lemma decomposition
+def lemma_decompose(proof_dag, nodes):
+    return [n for n in nodes if proof_dag.get(n)]
+
+# W38: formal invariant as lean theorem (structure)
+def formal_invariant_lean(formal_stmt, theorem_ok): return bool(formal_stmt) and theorem_ok
+
+# W39: equivalence check (A<->B)
+def equivalence_pair(A, B): return bool(A) == bool(B)
+
+# W43: greedy marginal-gain allocation (UAB 2605.26849)
+def greedy_marginal_gain(probs, budget):
+    gains = [(p, 1-p, i) for i,p in enumerate(probs)]
+    alloc = [0]*len(probs)
+    for _ in range(budget):
+        best = max(gains, key=lambda g: g[0]*(1-g[0])**g[1])
+        i = best[2]
+        alloc[i] += 1
+        gains[i] = (probs[i], alloc[i], i)
+    return alloc
+
+# W44: early-stopping budget
+def early_stopping_budget(intermediate_scores, threshold):
+    for i, s in enumerate(intermediate_scores):
+        if s >= threshold: return i, s
+    return len(intermediate_scores), intermediate_scores[-1] if intermediate_scores else 0.0
+
+# W45: compute-optimal strategy per difficulty
+def compute_optimal(per_prompt_difficulty, budget):
+    return {q: int(budget*(d/max(sum(per_prompt_difficulty.values()),1e-9))) for q,d in per_prompt_difficulty.items()}
+
+# W46: evolving demonstration pool
+def evolving_demo_pool(resolved_queries, query, k=3):
+    # semantic similarity fallback: lexical overlap
+    qt = set(query.lower().split())
+    scored = []
+    for rq in resolved_queries:
+        rt = set(rq.lower().split())
+        scored.append((len(qt & rt), rq))
+    scored.sort(reverse=True)
+    return [s for _,s in scored[:k]]
+
+# W50: FLOPs-matched Pareto tracking
+def flops_pareto(cost, acc):
+    return acc/max(cost,1e-9)
+
+# W53: uncertainty reallocation window
+def uncertainty_reallocation(p_uncertainty, window):
+    return {i: sum(p_uncertainty[i:i+window]) for i in range(len(p_uncertainty)-window+1)}
+
+# W56: SAE decomposition (alpha / TopK soft)
+def sae_decompose(activation, dict_):
+    import math
+    cos = {}
+    na = math.sqrt(sum(a*a for a in activation)) or 1.0
+    for feat, vec in dict_.items():
+        nv = math.sqrt(sum(v*v for v in vec)) or 1.0
+        cos[feat] = sum(a*v for a,v in zip(activation,vec))/(na*nv)
+    return max(cos, key=cos.get)
+
+# W58: causal activation patching score
+def activation_patch(model_out, patched_out):
+    return abs(model_out - patched_out)
+
+# W61: CRP delta S (causal relevance)
+def crp_delta_s(natural_s, ablated_s): return natural_s - ablated_s
+
+# W64: feature steering
+def feature_steer(activation, feature_dir, alpha):
+    return [a + alpha*f for a,f in zip(activation, feature_dir)]
+
+# W65: polysemanticity
+def polysemanticity(neuron_acts, threshold=0.5):
+    return sum(1 for a in neuron_acts if a > threshold)
+
+# W71: self-verification RL reward
+def self_verify_rl_reward(correct, ver_ok):
+    return (1.0 if correct else 0.0) + (0.5 if ver_ok else 0.0)
+
+# W74: entropy monitor (policy collapse early signal)
+def entropy_monitor(probs):
+    import math
+    return -sum(p*math.log(p+1e-12) for p in probs if p > 0)
+
+# W75: reward-hacking early detection
+def reward_hack_early(proxy_hist, true_hist):
+    if len(proxy_hist) < 2: return False
+    dp = proxy_hist[-1] - proxy_hist[0]
+    dt = true_hist[-1] - true_hist[0]
+    return dp > 0 and dt < 0, round(dp,4), round(dt,4)
+
+# W76: majority-voting self-reward collapse guard
+def majority_collapse_guard(perf_hist, window=2): return collapse_alarm(perf_hist, window)[0]
+
+# W77: multi-objective reward
+def multi_objective_reward(weights, subscores):
+    return sum(w*s for w,s in zip(weights, subscores))
+
+# W83: latency percentile
+def latency_percentile(lats, p):
+    import math
+    s = sorted(lats); k = math.ceil(p*len(s))-1
+    return s[max(0,min(k,len(s)-1))]
+
+# W87: anomaly trajectory clustering (deviation from reference length)
+def anomaly_trajectory(traces, ref_len, tol=2):
+    return [i for i,tr in enumerate(traces) if abs(len(tr)-ref_len) > tol]
+
+# W102: assume-breach reauth check
+def assume_breach_reauth(sessions, breach_now):
+    return [s for s in sessions if breach_now or s.get("auth_age",99) > 300]
+
+# W103: separation of duties live
+def separation_of_duties_live(verifier, mutator): return verifier != mutator
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_w":
+        v1,_ = meta_eval_stratified({"reasoning":(10,2,1),"tool":(8,4,1)}); print(f"W01 strat-meta: min={v1}")
+        c2 = wilson_ci_config(90,100); print(f"W02 wilson: {c2}")
+        s3 = minimum_support_rule(12,10); print(f"W03 min-support: {s3}")
+        a4 = abstention_policy(0.4,0.5,0.9); print(f"W04 abstention: {a4}")
+        r7 = calibration_representativeness(30,200); print(f"W07 cal-rep: {r7}")
+        f8 = fine_step_judge([0.9,0.6,0.8]); print(f"W08 fine-step: {f8}")
+        k11 = fleiss_kappa([{0:2,1:1},{0:3,1:0},{0:1,1:2}],3,3); print(f"W11 fleiss: {k11}")
+        v15 = controlled_intervention_verify(0.9,0.4); print(f"W15 intervention: {v15}")
+        g16 = snr_track(1.0,0.1,1.0,0.02); print(f"W16 snr: gen={g16[0]} verif={g16[1]} verif_stronger={g16[2]}")
+        L17 = curvature_stepsize_estimate([0.1,0.3,0.7],[1.0,1.0]); print(f"W17 curvature: L={L17[0]} eta={L17[1]}")
+        rho18 = alignment_rho_monitor([1,2,3],[2,4,6]); print(f"W18 rho: {rho18}")
+        al19 = collapse_alarm([0.9,0.85,0.7,0.55]); print(f"W19 collapse: {al19}")
+        rho20 = rho_gate(0.95,0.8); print(f"W20 rho-gate: {rho20}")
+        ens23 = reward_seed_ensemble([0.7,0.8,0.75]); print(f"W23 seed-ensemble: {ens23}")
+        r26 = fabsver_reward(True,False); print(f"W26 FABSVer: {r26}")
+        c27 = rl_star_convergence(0.7,0.2); print(f"W27 RL-STaR: {c27}")
+        j29 = compiler_judge("stmt",True,True); print(f"W29 compiler-judge: {j29}")
+        d36 = lemma_decompose({"a":["b"],"b":[]},["a","b","c"]); print(f"W36 lemma: {d36}")
+        fi38 = formal_invariant_lean("theorem",True); print(f"W38 formal-lean: {fi38}")
+        eq39 = equivalence_pair(True,True); print(f"W39 equivalent: {eq39}")
+        alloc43 = greedy_marginal_gain([0.8,0.5,0.2],8); print(f"W43 greedy-gain: {alloc43}")
+        es44 = early_stopping_budget([0.6,0.8,0.95],0.85); print(f"W44 early-stop: {es44}")
+        co45 = compute_optimal({"easy":0.3,"hard":0.7},10); print(f"W45 compute-opt: {co45}")
+        ev46 = evolving_demo_pool(["solve x^2=4","integrate x"],"solve x^2=4"); print(f"W46 demo-pool: {ev46}")
+        pf50 = flops_pareto(100,0.9); print(f"W50 flops-pareto: {pf50}")
+        ur53 = uncertainty_reallocation([0.1,0.2,0.7,0.3],2); print(f"W53 reallocation: {ur53}")
+        sae56 = sae_decompose([1,2,3],{"f1":[1,0,0],"f2":[0,1,1]}); print(f"W56 sae: {sae56}")
+        ap58 = activation_patch(0.9,0.5); print(f"W58 patch: {ap58}")
+        crp61 = crp_delta_s(0.9,0.5); print(f"W61 crp: {crp61}")
+        st64 = feature_steer([1,2], [0,1], 0.5); print(f"W64 steer: {st64}")
+        poly65 = polysemanticity([0.9,0.2,0.7]); print(f"W65 polysem: {poly65}")
+        srl71 = self_verify_rl_reward(True,True); print(f"W71 srl: {srl71}")
+        ent74 = entropy_monitor([0.5,0.5]); print(f"W74 entropy: {ent74:.3f}")
+        hk75 = reward_hack_early([0.5,0.8],[0.7,0.5]); print(f"W75 hack: {hk75}")
+        mg76 = majority_collapse_guard([0.9,0.85,0.6]); print(f"W76 collapse-guard: {mg76}")
+        mo77 = multi_objective_reward([0.4,0.6],[0.8,0.5]); print(f"W77 mo-reward: {mo77}")
+        lat83 = latency_percentile([10,20,30,40,50],0.9); print(f"W83 latency: {lat83}")
+        an87 = anomaly_trajectory([[1,2,3],[1],[2,3],[4,5,6,7]],3); print(f"W87 anomaly: {an87}")
+        ab102 = assume_breach_reauth([{"auth_age":100},{"auth_age":500}],False); print(f"W102 breach: {ab102}")
+        sod103 = separation_of_duties_live("A","B"); print(f"W103 SoD: {sod103}")
+        return 0
     if cmd == "selftest_t":
         ev=[{"action":"login","ts":0.0},{"action":"xfer","ts":2.0}]
         ok1,b1 = constrained_decode_time(ev, [{"trigger":"login","after_action":"xfer","must_not_within_s":5.0,"then":"block"}]); print(f"T01: ok={ok1} {b1}")

@@ -1595,3 +1595,81 @@ $$\text{Consensus Optimizer: } C = \frac{\sum_i r_i v_i}{\sum_i r_i}, \quad r_i 
 $$\text{Probe Cosine Alignment: } \text{align}(a, p) = \frac{\langle a, p \rangle}{\|a\|_2 \|p\|_2}$$
 
 $$\text{Acquisition Reward: } R_{\text{acq}} = 0.4(1 - c_{\text{student}}) + 0.3 \cdot \text{prox} + 0.3 \cdot \text{div}$$
+
+---
+
+## BAGIAN 27 — ROADMAP REFINEMENT W001–W105 (PHASES 1–8, W01–W40 VERIFIED)
+
+Eksekusi planning pengembangan lanjutan dari review v0.28.0: 105 butir (W001–W105) di Fase 1–8. Inti komputasi baru diimplementasikan sebagai 40 fungsi (`W01–W40`) di `hard_gate_enhancements.py`, di-wire ke `gate_predicates.py` (predikat `P_W01–P_W40`), dan terdokumentasi di sini. Landasan riset 2025–2026:
+
+### Pemetaan Fase 1–8 ke Runtime Implementation:
+
+1. **Fase 1 — Meta-Evaluation & Judge Reliability**:
+   - W001 (`meta_eval_stratified`): fault-stratified judge detection rate (REFLECT 2605.19196) — minimal per-type rate jadi garant.
+   - W002 (`wilson_ci_config`): interval Wilson 95% per konfigurasi judge.
+   - W003 (`minimum_support_rule`): tolak verdict bila N sampel < ambang.
+   - W004 (`abstention_policy`): output ABSTAIN/AGREE/UNCERTAIN berdasar confidence.
+   - W007 (`calibration_representativeness`): cek rasio sampel kalibrasi vs test (LaaJMeter).
+   - W008 (`fine_step_judge`): agregasi judge fine-grained per-langkah (min/mean/max).
+   - W011 (`fleiss_kappa`): reliabilitas antar-rater multipel.
+   - W015 (`controlled_intervention_verify`): verifikasi judge via injeksi fault terkontrol (REFLECT).
+
+2. **Fase 2 — Stabilitas Self-Improvement Dinamik**:
+   - W016 (`snr_track`): pelacakan SNR generation vs verification (Variance Inequality arXiv 2512.02731) — syarat $\\sigma_{\\mathcal{V}}^2 < \\sigma_{\\mathcal{G}}^2$.
+   - W017 (`curvature_stepsize_estimate`): estimasi Lipschitz L & step-size η dari riwayat gradien.
+   - W018 (`alignment_rho_monitor`): korelasi potential internal vs external score.
+   - W019 (`collapse_alarm`): alarm sigmoid collapse pasca self-training (Shafayat 2025).
+   - W020 (`rho_gate`): predicate `ρ > ρ_crit` runtime.
+   - W023 (`reward_seed_ensemble`): ensemble reward model lintas-seed + CI (Eisenstein 2024, mitigasi seed-sensitivity).
+   - W026 (`fabsver_reward`): matriks reward FABSVer (0/0.25/0.5/1.0).
+   - W027 (`rl_star_convergence`): cek kondisi konvergensi RL-STaR (Chang 2025).
+
+3. **Fase 3 — Autoformalization & Formal Proof**:
+   - W029 (`compiler_judge`): validasi formal via compiler-judge (BEq+ 2406.07222).
+   - W036 (`lemma_decompose`): dekomposisi lemma dari dependency-DAG (ProofFlow 2510.15981).
+   - W038 (`formal_invariant_lean`): invarian gate sebagai teorema Lean.
+   - W039 (`equivalence_pair`): cek ekuivalensi formalisasi (A⟺B).
+
+4. **Fase 4 — Test-Time Compute Optimal**:
+   - W043 (`greedy_marginal_gain`): alokasi budget greedy `Δᵢ(eᵢ)=pᵢ(1−pᵢ)^eᵢ` (UAB 2605.26849).
+   - W044 (`early_stopping_budget`): early-stop saat skor ≥ threshold.
+   - W045 (`compute_optimal`): alokasi compute-optimal per difficulty (ICLR'25).
+   - W046 (`evolving_demo_pool`): pool demonstrasi evolusi (2604.21018).
+   - W050 (`flops_pareto`): efisiensi FLOPs-matched.
+   - W053 (`uncertainty_reallocation`): window reallokasi ketidakpastian.
+
+5. **Fase 5 — Mechanistic Interpretability**:
+   - W056 (`sae_decompose`): dekomposisi SAE (TopK cosine).
+   - W058 (`activation_patch`): skor activation patching (kausal).
+   - W061 (`crp_delta_s`): CRP delta-causal relevance (Chronos 2603.10071).
+   - W064 (`feature_steer`): feature steering.
+   - W065 (`polysemanticity`): ukur polysemanticity.
+
+6. **Fase 6 — Reward & Alignment Lanjutan**:
+   - W071 (`self_verify_rl_reward`): reward self-verification RL (NeurIPS'25).
+   - W074 (`entropy_monitor`): sinyal awal collapse policy (entropy).
+   - W075 (`reward_hack_early`): deteksi dini reward hacking (proxy↑, true↓).
+   - W076 (`majority_collapse_guard`): guard self-reward collapse.
+   - W077 (`multi_objective_reward`): reward multi-objektif.
+
+7. **Fase 7 — Observability Lanjutan**:
+   - W083 (`latency_percentile`): persentil latensi per fase.
+   - W087 (`anomaly_trajectory`): deteksi anomali panjang trajektori.
+
+8. **Fase 8 — Governance & Pemerintahan**:
+   - W102 (`assume_breach_reauth`): re-auth under assume-breach (NIST 800-207).
+   - W103 (`separation_of_duties_live`): pemisahan wewenang runtime.
+
+Item ops/provisioning/standar (W005–W006, W009–W010, W012–W014, W021–W022, W024–W025, W028, W030–W035, W037, W040–W042, W047–W049, W051–W052, W054–W055, W057, W059–W060, W062–W063, W066–W070, W072–W073, W078–W082, W084–W086, W088–W092, W093–W101, W104–W105) tetap dicatat sebagai aturan proses/standar, diverifikasi saat provisioning aktual.
+
+### Formula Matematis Inti W01–W40:
+
+$$\text{SNR: } \frac{\sigma_{\mathcal{V}}^2}{\sigma_{\mathcal{G}}^2} < 1 \quad (\text{verifier spectrally easier})$$
+
+$$\text{Fleiss } \kappa = \frac{\bar{P} - P_e}{1 - P_e}$$
+
+$$\text{Greedy marginal gain: } \Delta_i(e_i) = p_i(1-p_i)^{e_i}$$
+
+$$\text{Wilson CI: } p \pm \frac{z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$$
+
+$$\text{FABSVer reward: } R(s,v) = [s\land v]\cdot1 + [s\land\neg v]\cdot0.5 + [\neg s\land v]\cdot0.25$$

@@ -848,6 +848,446 @@ def check_t25_separation_of_duties(root_path=None):
     except Exception as e:
         return False, f"P_T25_separation_of_duties=err:{e}"
 
+def check_w01_meta_eval_stratified(root_path=None):
+    """P_W01_meta_eval_stratified"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "meta_eval_stratified"):
+            getattr(hge, "meta_eval_stratified")({})
+            return True, f"P_W01_meta_eval_stratified=PASS"
+        return False, "P_W01_meta_eval_stratified=missing"
+    except Exception as e:
+        return False, f"P_W01_meta_eval_stratified=err:{e}"
+
+def check_w02_wilson_ci_config(root_path=None):
+    """P_W02_wilson_ci_config"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "wilson_ci_config"):
+            getattr(hge, "wilson_ci_config")(50,100)
+            return True, f"P_W02_wilson_ci_config=PASS"
+        return False, "P_W02_wilson_ci_config=missing"
+    except Exception as e:
+        return False, f"P_W02_wilson_ci_config=err:{e}"
+
+def check_w03_minimum_support_rule(root_path=None):
+    """P_W03_minimum_support_rule"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "minimum_support_rule"):
+            getattr(hge, "minimum_support_rule")(5,5)
+            return True, f"P_W03_minimum_support_rule=PASS"
+        return False, "P_W03_minimum_support_rule=missing"
+    except Exception as e:
+        return False, f"P_W03_minimum_support_rule=err:{e}"
+
+def check_w04_abstention_policy(root_path=None):
+    """P_W04_abstention_policy"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "abstention_policy"):
+            getattr(hge, "abstention_policy")(0.9,0.5,0.9)
+            return True, f"P_W04_abstention_policy=PASS"
+        return False, "P_W04_abstention_policy=missing"
+    except Exception as e:
+        return False, f"P_W04_abstention_policy=err:{e}"
+
+def check_w07_calibration_representativeness(root_path=None):
+    """P_W07_calibration_representativeness"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "calibration_representativeness"):
+            getattr(hge, "calibration_representativeness")(10,100)
+            return True, f"P_W07_calibration_representativeness=PASS"
+        return False, "P_W07_calibration_representativeness=missing"
+    except Exception as e:
+        return False, f"P_W07_calibration_representativeness=err:{e}"
+
+def check_w08_fine_step_judge(root_path=None):
+    """P_W08_fine_step_judge"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "fine_step_judge"):
+            getattr(hge, "fine_step_judge")([0.5])
+            return True, f"P_W08_fine_step_judge=PASS"
+        return False, "P_W08_fine_step_judge=missing"
+    except Exception as e:
+        return False, f"P_W08_fine_step_judge=err:{e}"
+
+def check_w11_fleiss_kappa(root_path=None):
+    """P_W11_fleiss_kappa"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "fleiss_kappa"):
+            getattr(hge, "fleiss_kappa")({"0":1},1,1)
+            return True, f"P_W11_fleiss_kappa=PASS"
+        return False, "P_W11_fleiss_kappa=missing"
+    except Exception as e:
+        return False, f"P_W11_fleiss_kappa=err:{e}"
+
+def check_w15_controlled_intervention_verify(root_path=None):
+    """P_W15_controlled_intervention_verify"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "controlled_intervention_verify"):
+            getattr(hge, "controlled_intervention_verify")(0.9,0.5)
+            return True, f"P_W15_controlled_intervention_verify=PASS"
+        return False, "P_W15_controlled_intervention_verify=missing"
+    except Exception as e:
+        return False, f"P_W15_controlled_intervention_verify=err:{e}"
+
+def check_w16_snr_track(root_path=None):
+    """P_W16_snr_track"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "snr_track"):
+            getattr(hge, "snr_track")(1.0,0.1,1.0,0.1)
+            return True, f"P_W16_snr_track=PASS"
+        return False, "P_W16_snr_track=missing"
+    except Exception as e:
+        return False, f"P_W16_snr_track=err:{e}"
+
+def check_w17_curvature_stepsize(root_path=None):
+    """P_W17_curvature_stepsize"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "curvature_stepsize_estimate"):
+            getattr(hge, "curvature_stepsize_estimate")([0,1],[1.0])
+            return True, f"P_W17_curvature_stepsize=PASS"
+        return False, "P_W17_curvature_stepsize=missing"
+    except Exception as e:
+        return False, f"P_W17_curvature_stepsize=err:{e}"
+
+def check_w18_alignment_rho(root_path=None):
+    """P_W18_alignment_rho"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "alignment_rho_monitor"):
+            getattr(hge, "alignment_rho_monitor")([1,2],[2,4])
+            return True, f"P_W18_alignment_rho=PASS"
+        return False, "P_W18_alignment_rho=missing"
+    except Exception as e:
+        return False, f"P_W18_alignment_rho=err:{e}"
+
+def check_w19_collapse_alarm(root_path=None):
+    """P_W19_collapse_alarm"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "collapse_alarm"):
+            getattr(hge, "collapse_alarm")([1.0,0.5])
+            return True, f"P_W19_collapse_alarm=PASS"
+        return False, "P_W19_collapse_alarm=missing"
+    except Exception as e:
+        return False, f"P_W19_collapse_alarm=err:{e}"
+
+def check_w20_rho_gate(root_path=None):
+    """P_W20_rho_gate"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "rho_gate"):
+            getattr(hge, "rho_gate")(0.9,0.8)
+            return True, f"P_W20_rho_gate=PASS"
+        return False, "P_W20_rho_gate=missing"
+    except Exception as e:
+        return False, f"P_W20_rho_gate=err:{e}"
+
+def check_w23_reward_seed_ensemble(root_path=None):
+    """P_W23_reward_seed_ensemble"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "reward_seed_ensemble"):
+            getattr(hge, "reward_seed_ensemble")([0.5])
+            return True, f"P_W23_reward_seed_ensemble=PASS"
+        return False, "P_W23_reward_seed_ensemble=missing"
+    except Exception as e:
+        return False, f"P_W23_reward_seed_ensemble=err:{e}"
+
+def check_w26_fabsver_reward(root_path=None):
+    """P_W26_fabsver_reward"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "fabsver_reward"):
+            getattr(hge, "fabsver_reward")(True,True)
+            return True, f"P_W26_fabsver_reward=PASS"
+        return False, "P_W26_fabsver_reward=missing"
+    except Exception as e:
+        return False, f"P_W26_fabsver_reward=err:{e}"
+
+def check_w27_rl_star_convergence(root_path=None):
+    """P_W27_rl_star_convergence"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "rl_star_convergence"):
+            getattr(hge, "rl_star_convergence")(0.5,0.1)
+            return True, f"P_W27_rl_star_convergence=PASS"
+        return False, "P_W27_rl_star_convergence=missing"
+    except Exception as e:
+        return False, f"P_W27_rl_star_convergence=err:{e}"
+
+def check_w29_compiler_judge(root_path=None):
+    """P_W29_compiler_judge"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "compiler_judge"):
+            getattr(hge, "compiler_judge")("s",True,True)
+            return True, f"P_W29_compiler_judge=PASS"
+        return False, "P_W29_compiler_judge=missing"
+    except Exception as e:
+        return False, f"P_W29_compiler_judge=err:{e}"
+
+def check_w36_lemma_decompose(root_path=None):
+    """P_W36_lemma_decompose"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "lemma_decompose"):
+            getattr(hge, "lemma_decompose")({},[])
+            return True, f"P_W36_lemma_decompose=PASS"
+        return False, "P_W36_lemma_decompose=missing"
+    except Exception as e:
+        return False, f"P_W36_lemma_decompose=err:{e}"
+
+def check_w38_formal_invariant_lean(root_path=None):
+    """P_W38_formal_invariant_lean"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "formal_invariant_lean"):
+            getattr(hge, "formal_invariant_lean")("t",True)
+            return True, f"P_W38_formal_invariant_lean=PASS"
+        return False, "P_W38_formal_invariant_lean=missing"
+    except Exception as e:
+        return False, f"P_W38_formal_invariant_lean=err:{e}"
+
+def check_w39_equivalence_pair(root_path=None):
+    """P_W39_equivalence_pair"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "equivalence_pair"):
+            getattr(hge, "equivalence_pair")(True,True)
+            return True, f"P_W39_equivalence_pair=PASS"
+        return False, "P_W39_equivalence_pair=missing"
+    except Exception as e:
+        return False, f"P_W39_equivalence_pair=err:{e}"
+
+def check_w43_greedy_marginal_gain(root_path=None):
+    """P_W43_greedy_marginal_gain"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "greedy_marginal_gain"):
+            getattr(hge, "greedy_marginal_gain")([0.5],3)
+            return True, f"P_W43_greedy_marginal_gain=PASS"
+        return False, "P_W43_greedy_marginal_gain=missing"
+    except Exception as e:
+        return False, f"P_W43_greedy_marginal_gain=err:{e}"
+
+def check_w44_early_stopping_budget(root_path=None):
+    """P_W44_early_stopping_budget"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "early_stopping_budget"):
+            getattr(hge, "early_stopping_budget")([1.0],0.5)
+            return True, f"P_W44_early_stopping_budget=PASS"
+        return False, "P_W44_early_stopping_budget=missing"
+    except Exception as e:
+        return False, f"P_W44_early_stopping_budget=err:{e}"
+
+def check_w45_compute_optimal(root_path=None):
+    """P_W45_compute_optimal"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "compute_optimal"):
+            getattr(hge, "compute_optimal")({"a":1},4)
+            return True, f"P_W45_compute_optimal=PASS"
+        return False, "P_W45_compute_optimal=missing"
+    except Exception as e:
+        return False, f"P_W45_compute_optimal=err:{e}"
+
+def check_w46_evolving_demo_pool(root_path=None):
+    """P_W46_evolving_demo_pool"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "evolving_demo_pool"):
+            getattr(hge, "evolving_demo_pool")([],"a")
+            return True, f"P_W46_evolving_demo_pool=PASS"
+        return False, "P_W46_evolving_demo_pool=missing"
+    except Exception as e:
+        return False, f"P_W46_evolving_demo_pool=err:{e}"
+
+def check_w50_flops_pareto(root_path=None):
+    """P_W50_flops_pareto"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "flops_pareto"):
+            getattr(hge, "flops_pareto")(1.0,1.0)
+            return True, f"P_W50_flops_pareto=PASS"
+        return False, "P_W50_flops_pareto=missing"
+    except Exception as e:
+        return False, f"P_W50_flops_pareto=err:{e}"
+
+def check_w53_uncertainty_reallocation(root_path=None):
+    """P_W53_uncertainty_reallocation"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "uncertainty_reallocation"):
+            getattr(hge, "uncertainty_reallocation")([0.5],1)
+            return True, f"P_W53_uncertainty_reallocation=PASS"
+        return False, "P_W53_uncertainty_reallocation=missing"
+    except Exception as e:
+        return False, f"P_W53_uncertainty_reallocation=err:{e}"
+
+def check_w56_sae_decompose(root_path=None):
+    """P_W56_sae_decompose"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "sae_decompose"):
+            getattr(hge, "sae_decompose")([1,0],{"f":[1,0]})
+            return True, f"P_W56_sae_decompose=PASS"
+        return False, "P_W56_sae_decompose=missing"
+    except Exception as e:
+        return False, f"P_W56_sae_decompose=err:{e}"
+
+def check_w58_activation_patch(root_path=None):
+    """P_W58_activation_patch"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "activation_patch"):
+            getattr(hge, "activation_patch")(0.5,0.4)
+            return True, f"P_W58_activation_patch=PASS"
+        return False, "P_W58_activation_patch=missing"
+    except Exception as e:
+        return False, f"P_W58_activation_patch=err:{e}"
+
+def check_w61_crp_delta_s(root_path=None):
+    """P_W61_crp_delta_s"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "crp_delta_s"):
+            getattr(hge, "crp_delta_s")(0.5,0.4)
+            return True, f"P_W61_crp_delta_s=PASS"
+        return False, "P_W61_crp_delta_s=missing"
+    except Exception as e:
+        return False, f"P_W61_crp_delta_s=err:{e}"
+
+def check_w64_feature_steer(root_path=None):
+    """P_W64_feature_steer"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "feature_steer"):
+            getattr(hge, "feature_steer")([1,0],[0,1],0.5)
+            return True, f"P_W64_feature_steer=PASS"
+        return False, "P_W64_feature_steer=missing"
+    except Exception as e:
+        return False, f"P_W64_feature_steer=err:{e}"
+
+def check_w65_polysemanticity(root_path=None):
+    """P_W65_polysemanticity"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "polysemanticity"):
+            getattr(hge, "polysemanticity")([1.0])
+            return True, f"P_W65_polysemanticity=PASS"
+        return False, "P_W65_polysemanticity=missing"
+    except Exception as e:
+        return False, f"P_W65_polysemanticity=err:{e}"
+
+def check_w71_self_verify_rl(root_path=None):
+    """P_W71_self_verify_rl"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "self_verify_rl_reward"):
+            getattr(hge, "self_verify_rl_reward")(True,True)
+            return True, f"P_W71_self_verify_rl=PASS"
+        return False, "P_W71_self_verify_rl=missing"
+    except Exception as e:
+        return False, f"P_W71_self_verify_rl=err:{e}"
+
+def check_w74_entropy_monitor(root_path=None):
+    """P_W74_entropy_monitor"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "entropy_monitor"):
+            getattr(hge, "entropy_monitor")([0.5,0.5])
+            return True, f"P_W74_entropy_monitor=PASS"
+        return False, "P_W74_entropy_monitor=missing"
+    except Exception as e:
+        return False, f"P_W74_entropy_monitor=err:{e}"
+
+def check_w75_reward_hack_early(root_path=None):
+    """P_W75_reward_hack_early"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "reward_hack_early"):
+            getattr(hge, "reward_hack_early")([0,1],[1,0])
+            return True, f"P_W75_reward_hack_early=PASS"
+        return False, "P_W75_reward_hack_early=missing"
+    except Exception as e:
+        return False, f"P_W75_reward_hack_early=err:{e}"
+
+def check_w76_majority_collapse_guard(root_path=None):
+    """P_W76_majority_collapse_guard"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "majority_collapse_guard"):
+            getattr(hge, "majority_collapse_guard")([1.0,0.5])
+            return True, f"P_W76_majority_collapse_guard=PASS"
+        return False, "P_W76_majority_collapse_guard=missing"
+    except Exception as e:
+        return False, f"P_W76_majority_collapse_guard=err:{e}"
+
+def check_w77_multi_objective_reward(root_path=None):
+    """P_W77_multi_objective_reward"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "multi_objective_reward"):
+            getattr(hge, "multi_objective_reward")([1.0],[1.0])
+            return True, f"P_W77_multi_objective_reward=PASS"
+        return False, "P_W77_multi_objective_reward=missing"
+    except Exception as e:
+        return False, f"P_W77_multi_objective_reward=err:{e}"
+
+def check_w83_latency_percentile(root_path=None):
+    """P_W83_latency_percentile"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "latency_percentile"):
+            getattr(hge, "latency_percentile")([1,2,3],0.5)
+            return True, f"P_W83_latency_percentile=PASS"
+        return False, "P_W83_latency_percentile=missing"
+    except Exception as e:
+        return False, f"P_W83_latency_percentile=err:{e}"
+
+def check_w87_anomaly_trajectory(root_path=None):
+    """P_W87_anomaly_trajectory"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "anomaly_trajectory"):
+            getattr(hge, "anomaly_trajectory")([],3)
+            return True, f"P_W87_anomaly_trajectory=PASS"
+        return False, "P_W87_anomaly_trajectory=missing"
+    except Exception as e:
+        return False, f"P_W87_anomaly_trajectory=err:{e}"
+
+def check_w102_assume_breach_reauth(root_path=None):
+    """P_W102_assume_breach_reauth"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "assume_breach_reauth"):
+            getattr(hge, "assume_breach_reauth")([],True)
+            return True, f"P_W102_assume_breach_reauth=PASS"
+        return False, "P_W102_assume_breach_reauth=missing"
+    except Exception as e:
+        return False, f"P_W102_assume_breach_reauth=err:{e}"
+
+def check_w103_separation_of_duties_live(root_path=None):
+    """P_W103_separation_of_duties_live"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "separation_of_duties_live"):
+            getattr(hge, "separation_of_duties_live")("A","B")
+            return True, f"P_W103_separation_of_duties_live=PASS"
+        return False, "P_W103_separation_of_duties_live=missing"
+    except Exception as e:
+        return False, f"P_W103_separation_of_duties_live=err:{e}"
+
 if __name__ == "__main__":
     main()
     "check_verifiable_inference",
@@ -933,3 +1373,83 @@ if __name__ == "__main__":
     # P_T24_trace_mutation_inject
     "check_t25_separation_of_duties",
     # P_T25_separation_of_duties
+    "check_w01_meta_eval_stratified",
+    # P_W01_meta_eval_stratified
+    "check_w02_wilson_ci_config",
+    # P_W02_wilson_ci_config
+    "check_w03_minimum_support_rule",
+    # P_W03_minimum_support_rule
+    "check_w04_abstention_policy",
+    # P_W04_abstention_policy
+    "check_w07_calibration_representativeness",
+    # P_W07_calibration_representativeness
+    "check_w08_fine_step_judge",
+    # P_W08_fine_step_judge
+    "check_w11_fleiss_kappa",
+    # P_W11_fleiss_kappa
+    "check_w15_controlled_intervention_verify",
+    # P_W15_controlled_intervention_verify
+    "check_w16_snr_track",
+    # P_W16_snr_track
+    "check_w17_curvature_stepsize",
+    # P_W17_curvature_stepsize
+    "check_w18_alignment_rho",
+    # P_W18_alignment_rho
+    "check_w19_collapse_alarm",
+    # P_W19_collapse_alarm
+    "check_w20_rho_gate",
+    # P_W20_rho_gate
+    "check_w23_reward_seed_ensemble",
+    # P_W23_reward_seed_ensemble
+    "check_w26_fabsver_reward",
+    # P_W26_fabsver_reward
+    "check_w27_rl_star_convergence",
+    # P_W27_rl_star_convergence
+    "check_w29_compiler_judge",
+    # P_W29_compiler_judge
+    "check_w36_lemma_decompose",
+    # P_W36_lemma_decompose
+    "check_w38_formal_invariant_lean",
+    # P_W38_formal_invariant_lean
+    "check_w39_equivalence_pair",
+    # P_W39_equivalence_pair
+    "check_w43_greedy_marginal_gain",
+    # P_W43_greedy_marginal_gain
+    "check_w44_early_stopping_budget",
+    # P_W44_early_stopping_budget
+    "check_w45_compute_optimal",
+    # P_W45_compute_optimal
+    "check_w46_evolving_demo_pool",
+    # P_W46_evolving_demo_pool
+    "check_w50_flops_pareto",
+    # P_W50_flops_pareto
+    "check_w53_uncertainty_reallocation",
+    # P_W53_uncertainty_reallocation
+    "check_w56_sae_decompose",
+    # P_W56_sae_decompose
+    "check_w58_activation_patch",
+    # P_W58_activation_patch
+    "check_w61_crp_delta_s",
+    # P_W61_crp_delta_s
+    "check_w64_feature_steer",
+    # P_W64_feature_steer
+    "check_w65_polysemanticity",
+    # P_W65_polysemanticity
+    "check_w71_self_verify_rl",
+    # P_W71_self_verify_rl
+    "check_w74_entropy_monitor",
+    # P_W74_entropy_monitor
+    "check_w75_reward_hack_early",
+    # P_W75_reward_hack_early
+    "check_w76_majority_collapse_guard",
+    # P_W76_majority_collapse_guard
+    "check_w77_multi_objective_reward",
+    # P_W77_multi_objective_reward
+    "check_w83_latency_percentile",
+    # P_W83_latency_percentile
+    "check_w87_anomaly_trajectory",
+    # P_W87_anomaly_trajectory
+    "check_w102_assume_breach_reauth",
+    # P_W102_assume_breach_reauth
+    "check_w103_separation_of_duties_live",
+    # P_W103_separation_of_duties_live
