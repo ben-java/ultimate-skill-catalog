@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T15:06:36.249626+00:00",
+  "generated_at": "2026-11-01T15:25:46.299971+00:00",
   "file_count": 2518,
   "files": [
     {
@@ -13,7 +13,7 @@
     {
       "path": "SKILL.md",
       "size": 55504,
-      "sha256": "c2f79ecec3b328669c4f7102625ac712535cf5e96a6a830a30a09a7f6e5cec3c"
+      "sha256": "185d02b69111a34da0e7b061b91f05bbf5933af33f77cf1561a89d9a1890eca7"
     },
     {
       "path": "gate.conf",
@@ -11978,7 +11978,7 @@
     {
       "path": "references/hard-gate-10.md",
       "size": 116165,
-      "sha256": "5ce1f4df63178fa4dae5827cab8912f6834f8f92c10980e180bfdb289e2e3822"
+      "sha256": "b58e654d98443e225c60cad0aa8a3b3b0f3e65f0917a92e113cc7e93e648582b"
     },
     {
       "path": "references/large-document-editing.md",
@@ -12467,8 +12467,8 @@
     },
     {
       "path": "scripts/__pycache__/hard_gate_enhancements.cpython-314.pyc",
-      "size": 105932,
-      "sha256": "1453d1a6de4b8981e54c825b685b6e4dac6016397a4be2a18278388012bf461b"
+      "size": 200809,
+      "sha256": "5453cc405573e3285a5c7e1a34e1d409bb232787d482b04de327baddd84e7095"
     },
     {
       "path": "scripts/__pycache__/keyless-check.cpython-314.pyc",

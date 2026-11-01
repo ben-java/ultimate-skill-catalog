@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:81f01896-1274-46ba-ab8d-572e8e2d306c",
+  "serialNumber": "urn:uuid:8aeb7e87-62da-4e95-93ac-613ef625f1a0",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T15:06:33Z",
+    "timestamp": "2026-11-01T15:16:08Z",
     "component": {
       "type": "application",
       "name": "ben-mode",

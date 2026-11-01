@@ -354,7 +354,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 |---|---|---|
 
-| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 30 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
+| **ML Systems Ch 5: Adversarial Testing** | Validate gate robustness by deliberately injecting corrupt inputs. | `test-hard-gate-negative.sh` executes 50 fault injections (symlink, partial copy, drift, missing YAML, wrong folder, etc.) to prove the gate catches errors. |
 
 | **ML Systems Ch 8: Artifact Drift** | Monitor for silent drift between models/artifacts across time. | `cron-hard-gate-monitor.sh` runs scheduled drift checks, emitting JSON logs for observability. |
 
@@ -628,7 +628,7 @@ All scripts reside in `scripts/` relative to the `ben-mode` skill root:
 
 | **`verify-hard-gate.sh`** | Primary verification gate engine. Evaluates schema, physical catalogs, symlinks, junctions, and quorum MD5. | `[HARD_GATE_REPARSE=1] [HARD_GATE_LOG=path] ./verify-hard-gate.sh <root1> <root2> [...]` |
 
-| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 30 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
+| **`test-hard-gate-negative.sh`** | Adversarial fault injection suite. Verifies gate failure across 50 synthetic corruption patterns. | `./test-hard-gate-negative.sh` (Runs inside isolated `$TMPDIR`) |
 
 | **`sync-skills.sh`** | Atomic replication tool. Synchronizes canonical source to targets with auto-rollback on gate failure. | `./sync-skills.sh <source_dir> <target1> <target2> [...]` |
 
@@ -1022,7 +1022,7 @@ The entire integrity-gate evaluation MUST run inside a subshell or isolated envi
 
 **Grounded in** — 2602.01663 (Witnessd: proof-of-process via adversarial collapse), 2602.10481 (authenticated prompts + tamper-evident hash chains, evaluated against representative attacks), 2604.03912 (PromptShield: ontology-driven prompt-injection validation, F1 >93%).
 
-**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (30 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
+**Status** — Implemented & runtime-verified via `scripts/test-hard-gate-negative.sh` (50 adversarial tests: partial-copy, tree-drift, symlink/junction (fail-loudly pada Windows), BOM-poisoning, hidden-instruction static scan, CRLF canonicalization): PASS.
 
 
 

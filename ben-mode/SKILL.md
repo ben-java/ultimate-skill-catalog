@@ -83,7 +83,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - `benctl.sh` — satu perintah orkestrasi penuh (`sync-all-roots` → `refresh-baseline` → `verify-hard-gate` → `quorum-check` → `dashboard` → `status-matrix`) dengan flag `--redgreen`.
 - `verify-hard-gate.sh` — verifikasi lengkap + JSON audit log + schema check + auto-source `gate.conf`
 - `verify_skill_replicas.py` — PHP verifikasi setara (pure stdlib) utk host tempat `bash` tak me-resolve ke Git-Bash (mis. me-resolve ke WSL tanpa /bin/bash). Dipanggil: `python scripts/verify_skill_replicas.py --root <canonical> --replica <target> ...`. Cek seluruh pohon file, bukan hanya SKILL.md.
-- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 35/35 tests) buktikan gate menangkap fault
+- `test-hard-gate-negative.sh` — adversarial test (symlink, partial copy, drift, hard budget ceiling; 50/50 tests) buktikan gate menangkap fault
 - `sync-skills.sh` — atomic rsync + verify + rollback on fail (change management workflow)
 
 **Workflow Phase C**:
