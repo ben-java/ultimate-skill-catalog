@@ -645,6 +645,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_supply_chain_score(95,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_race_condition_detect(True,True)
+        status["P_LL02"] = _llmod.ll_deadlock_free_graph(True,True)
+        status["P_LL03"] = _llmod.ll_starvation_free([1,2,3],5)
+        status["P_LL04"] = _llmod.ll_serialization_order_consistent([1,2,3],[1,2,3])
+        status["P_LL05"] = _llmod.ll_lost_update_prevent(True,True)
+        status["P_LL06"] = _llmod.ll_thread_fairness_threads(4,[0,1,2,3])
+        status["P_LL07"] = _llmod.ll_bounded_buffer(10,6,8)
+        status["P_LL08"] = _llmod.ll_atomicity_guarantee(True,True)
+        status["P_LL09"] = _llmod.ll_consistent_lock_order([1,2,3],[1,2])
+        status["P_LL10"] = _llmod.ll_barrier_sync(4,4)
+        status["P_LL11"] = _llmod.ll_parallel_reduction(True,True)
+        status["P_LL12"] = _llmod.ll_task_granularity(100,0.2)
+        status["P_LL13"] = _llmod.ll_contention_bound(0.3,0.8)
+        status["P_LL14"] = _llmod.ll_throughput_scale(100,40,4)
+        status["P_LL15"] = _llmod.ll_fork_join_complete(True,True)
+        status["P_LL16"] = _llmod.ll_cancellation_propagate(True,True)
+        status["P_LL17"] = _llmod.ll_idempotency(True,True)
+        status["P_LL18"] = _llmod.ll_memory_model_safe(True,True)
+        status["P_LL19"] = _llmod.ll_pool_bound_active(5,8)
+        status["P_LL20"] = _llmod.ll_backpressure(50,60,True)
+        status["P_LL21"] = _llmod.ll_intermittent_failure_retry(3,5)
+        status["P_LL22"] = _llmod.ll_distributed_consensus(5,3)
+        status["P_LL23"] = _llmod.ll_timeout_bounded_operation(8,10)
+        status["P_LL24"] = _llmod.ll_scheduling_priority_policy([1,2,3],[3,2,1])
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
 
 
 

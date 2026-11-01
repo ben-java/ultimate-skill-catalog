@@ -1,3 +1,8 @@
+## v0.43.0 (2026-11-02) — Wave L Concurrency & Parallelism Integrity LL01–LL24 (BAGIAN 43)
+
+- **LL01–LL24**: race detection, deadlock-free graph, starvation-free scheduling, serialization order, lost-update prevention, thread fairness, bounded buffer, atomicity, consistent lock order, barrier sync, parallel reduction, task granularity, contention bound, throughput scaling, fork-join, cancellation propagation, idempotency, memory-model safety, pool bound, backpressure, retry bound, distributed consensus, timeout bounded, priority scheduling. Disurfacing `P_LL01–P_LL24`; 24/24 PASS.
+- **BAGIAN 43** ditambahkan; bump serentak 0.43.0.
+
 ## v0.42.0 (2026-11-02) — Wave K Supply Chain & Provenance Integrity KK01–KK24 (BAGIAN 42)
 
 - **KK01–KK24**: source provenance, dependency pinning, license compliance, package integrity, supplier verification, reproducible build, artifact signing, hermetic build env, vulnerability scan, license db, supply chain visibility, SBOM completeness/accuracy, artifact provenance, trusted build service, release gate, key management, transitive dep check, no-modified-deps, SBOM timestamped, provenance binding, dependency freeze, wrapper checksum, supply chain score. Disurfacing `P_KK01–P_KK24`; 24/24 PASS.

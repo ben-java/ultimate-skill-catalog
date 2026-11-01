@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.42.0
+version: 0.43.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -132,6 +132,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 
 - Script bash dengan `set -euo pipefail`: pipeline yang sengaja gagal di cabang error (mis. `verify-hard-gate.sh ... | tee -a log`) tetap menghentikan seluruh script SEBELUM blok recovery/repair sempat jalan. Guard setiap panggilan verifikasi/quorum non-zero dengan `|| true` bila masih ada logika lanjutan setelahnya.
 - Gate `verify-hard-gate.sh` hanya memindai root yang diberikan (project); drift canonical vs replika TIDAK terlihat oleh gate (bisa gate PASS padahal quorum 3/4). Setelah edit canonical, urutan bukti: `sync-all-roots.sh` → `refresh-baseline.sh` → `verify-hard-gate.sh`, lalu buktikan `quorum-check.py --root <canonical> <replicas...>` = 4/4 (atau cukup jalankan `benctl.sh --redgreen`).
+- Quorum determinism FAIL pada root canonical sering berasal dari artefak nyasar yang tidak ter-track git (mis. distribusi Python tertanam 100+MB) di dalam pohon skill yang ikut terhitung tree hash walau sudah ada di `.gitignore`. `sync-all-roots.sh` memakai `cp -r` yang TIDAK mirror penghapusan — file yang hilang dari sumber tetap tertinggal di replika, jadi menghapus hanya dari canonical tidak menyehatkan quorum; hapus manual dari SEMUA replika lalu jalankan ulang sync + refresh-baseline + verify.
 - Allowlist `hard-gate-allowlist.json` TIDAK menurunkan hitungan quorum di `verify-hard-gate.sh`: script hanya memvalidasi JSON + masa berlaku (`expires_at`) dan signature opsional, TIDAK mengurangkan `approved_hashes` dari `PAIRCOUNT`/`SKILLS`. Jadi menambahkan entri allowlist untuk divergence yang sengaja tidak membuat gate multi-root hijau — angkanya tetap menimbang hash divergen. Gate hijau hanya terjadi per-root/per-project (di mana tiap skill hanya punya satu replika) atau setelah verifier secara eksplisit memfilter allowlist. Jangan klaim "allowlist menyelesaikan drift" tanpa memverifikasi bahwa untukifier benar-benar membacanya.
 - Wrapper bash scripts yang memanggil sub-skrip (.sh vs .py): jangan mendispatch skrip bash via `$PY_BIN` (`python` akan gagal syntax error pada statement shell seperti `export`); pisahkan variabel `$BASH_BIN` (menunjuk `bash.exe` Git-Bash) dan `$PY_BIN` secara eksplisit.
 - Path literal Windows di script generator/pembantu: gunakan forward-slash (`/`) atau `os.path.abspath` untuk menghindari Python syntax/unicode error `\U...` escape truncation. Pastikan direktori metadata (`.hard-gate-meta/`) hanya dibuat di root repositori/proyek, jangan pernah dibuat di dalam subfolder skill pohon replika (hindari self-invalidation).

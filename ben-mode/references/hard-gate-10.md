@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.42.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.43.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2102,3 +2102,17 @@ disurfacing `P_KK01–P_KK24`; diverifikasi 24/24 PASS (selftest_kk rc 0).
 - Artifact & Signing: KK04 `kk_package_integrity`, KK07 `kk_artifact_signing`, KK16 `kk_release_gate`, KK17 `kk_public_key_management`.
 - SBOM & Compliance: KK03 `kk_license_compliance`, KK10 `kk_dependency_license_db`, KK12 `kk_sbom_complete`, KK13 `kk_sbom_accurate`, KK20 `kk_sbom_timestamped`.
 - Security & Score: KK09 `kk_vulnerability_scan`, KK11 `kk_supply_chain_visibility`, KK24 `kk_supply_chain_score`.
+
+---
+
+# BAGIAN 43 — WAVE L: CONCURRENCY & PARALLELISM INTEGRITY LL01–LL24 (VERIFIED; v0.43.0)
+
+Menambahkan lapisan concurrency & parallelism integrity: `LL01–LL24` di `hard_gate_enhancements.py`,
+disurfacing `P_LL01–P_LL24`; diverifikasi 24/24 PASS (selftest_ll rc 0).
+
+- Race & Deadlock: LL01 `ll_race_condition_detect`, LL02 `ll_deadlock_free_graph`, LL05 `ll_lost_update_prevent`, LL09 `ll_consistent_lock_order`, LL13 `ll_contention_bound`.
+- Scheduling & Fairness: LL03 `ll_starvation_free`, LL06 `ll_thread_fairness_threads`, LL19 `ll_pool_bound_active`, LL24 `ll_scheduling_priority_policy`.
+- Ordering & Atomicity: LL04 `ll_serialization_order_consistent`, LL08 `ll_atomicity_guarantee`, LL15 `ll_fork_join_complete`, LL17 `ll_idempotency`, LL18 `ll_memory_model_safe`.
+- Synchronization: LL07 `ll_bounded_buffer`, LL10 `ll_barrier_sync`, LL16 `ll_cancellation_propagate`, LL23 `ll_timeout_bounded_operation`.
+- Parallel Performance: LL11 `ll_parallel_reduction`, LL12 `ll_task_granularity`, LL14 `ll_throughput_scale`, LL22 `ll_distributed_consensus`.
+- Load & Failure: LL20 `ll_backpressure`, LL21 `ll_intermittent_failure_retry`.

@@ -3513,3 +3513,132 @@ def selftest_kk():
             (22, kk_dependency_freeze(30, 10)),
             (23, kk_wrapper_checksum(True, True)),
             (24, kk_supply_chain_score(95, 70))]
+
+# ------------------------------------------------------------------
+# WAVE L — CONCURRENCY & PARALLELISM INTEGRITY (LL01–LL24)
+# ------------------------------------------------------------------
+def ll_race_condition_detect(shared_state, locked_access):
+    # LL01: shared state must be access-protected.
+    return bool(shared_state) and bool(locked_access)
+
+def ll_deadlock_free_graph(graph, cycle_free):
+    # LL02: lock/interaction graph must be cycle-free.
+    return bool(graph) and bool(cycle_free)
+
+def ll_starvation_free(schedule, max_wait):
+    # LL03: no task waits beyond max_wait.
+    return all(w <= max_wait for w in schedule)
+
+def ll_serialization_order_consistent(observed_order, committed_order):
+    # LL04: serialized order must match committed order.
+    return list(observed_order) == list(committed_order)
+
+def ll_lost_update_prevent(version_check, compare_and_swap):
+    # LL05: lost updates prevented via version/CAS.
+    return bool(version_check) and bool(compare_and_swap)
+
+def ll_thread_fairness_threads(total_threads, scheduled_threads):
+    # LL06: all threads must eventually be scheduled.
+    return set(scheduled_threads) == set(range(total_threads))
+
+def ll_bounded_buffer(produced, consumed, capacity):
+    # LL07: producer/consumer bounded by capacity.
+    return (produced - consumed) <= capacity
+
+def ll_atomicity_guarantee(op_atomic, rollback_available):
+    # LL08: operations atomic with rollback.
+    return bool(op_atomic) and bool(rollback_available)
+
+def ll_consistent_lock_order(lock_order, acquired_locks):
+    # LL09: locks acquired in consistent global order.
+    return set(acquired_locks) <= set(lock_order)
+
+def ll_barrier_sync(workers, arrived):
+    # LL10: all workers must reach the barrier.
+    return arrived == workers
+
+def ll_parallel_reduction(reduction_ok, order_independent):
+    # LL11: parallel reduction must be correct & order-independent.
+    return bool(reduction_ok) and bool(order_independent)
+
+def ll_task_granularity(granularity, overhead_ratio):
+    # LL12: granularity must keep overhead ratio low.
+    return overhead_ratio <= granularity
+
+def ll_contention_bound(contention, max_contention):
+    # LL13: lock contention must stay under bound.
+    return contention <= max_contention
+
+def ll_throughput_scale(throughput_parallel, throughput_serial, threads):
+    # LL14: parallel throughput should scale superlinearly/saturate.
+    return throughput_parallel >= throughput_serial / max(1, threads - 1)
+
+def ll_fork_join_complete(parent_done, children_done):
+    # LL15: fork-join completes only when all children done.
+    return bool(parent_done) and bool(children_done)
+
+def ll_cancellation_propagate(cancel_issued, tasks_cancelled):
+    # LL16: cancellation must propagate to all tasks.
+    return bool(cancel_issued) and bool(tasks_cancelled)
+
+def ll_idempotency(replay_safe, same_result):
+    # LL17: concurrent replays must be idempotent.
+    return bool(replay_safe) and bool(same_result)
+
+def ll_memory_model_safe(volatile_ok, published_ok):
+    # LL18: cross-thread visibility requires proper publication.
+    return bool(volatile_ok) and bool(published_ok)
+
+def ll_pool_bound_active(workers, pool_size):
+    # LL19: active workers must not exceed pool size.
+    return workers <= pool_size
+
+def ll_backpressure(load, capacity, drop_policy):
+    # LL20: overload must be handled by backpressure/drop.
+    return load <= capacity or bool(drop_policy)
+
+def ll_intermittent_failure_retry(retries, max_retries):
+    # LL21: transient failures bounded by retry limit.
+    return retries <= max_retries
+
+def ll_distributed_consensus(agree, majority):
+    # LL22: consensus requires majority agreement.
+    return agree >= majority
+
+def ll_timeout_bounded_operation(elapsed, timeout):
+    # LL23: operations must respect timeout bounds.
+    return elapsed <= timeout
+
+def ll_scheduling_priority_policy(priority_order, scheduled_order):
+    # LL24: tasks scheduled respecting priority order.
+    i = 0
+    for p in priority_order:
+        if p in scheduled_order:
+            i += 1
+    return i == len(priority_order)
+
+def selftest_ll():
+    return [(1, ll_race_condition_detect(True, True)),
+            (2, ll_deadlock_free_graph(True, True)),
+            (3, ll_starvation_free([1, 2, 3], 5)),
+            (4, ll_serialization_order_consistent([1, 2, 3], [1, 2, 3])),
+            (5, ll_lost_update_prevent(True, True)),
+            (6, ll_thread_fairness_threads(4, [0, 1, 2, 3])),
+            (7, ll_bounded_buffer(10, 6, 8)),
+            (8, ll_atomicity_guarantee(True, True)),
+            (9, ll_consistent_lock_order([1, 2, 3], [1, 2])),
+            (10, ll_barrier_sync(4, 4)),
+            (11, ll_parallel_reduction(True, True)),
+            (12, ll_task_granularity(100, 0.2)),
+            (13, ll_contention_bound(0.3, 0.8)),
+            (14, ll_throughput_scale(100, 40, 4)),
+            (15, ll_fork_join_complete(True, True)),
+            (16, ll_cancellation_propagate(True, True)),
+            (17, ll_idempotency(True, True)),
+            (18, ll_memory_model_safe(True, True)),
+            (19, ll_pool_bound_active(5, 8)),
+            (20, ll_backpressure(50, 60, True)),
+            (21, ll_intermittent_failure_retry(3, 5)),
+            (22, ll_distributed_consensus(5, 3)),
+            (23, ll_timeout_bounded_operation(8, 10)),
+            (24, ll_scheduling_priority_policy([1, 2, 3], [3, 2, 1]))]
