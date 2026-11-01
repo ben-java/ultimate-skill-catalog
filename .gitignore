@@ -3,3 +3,4 @@
 Python/
 python_install_*.log
 *gate-audit.jsonl
+.hard-gate-meta/gate-time.jsonl
