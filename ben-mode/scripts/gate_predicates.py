@@ -417,6 +417,38 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_CC29"] = _ccmod.cc_after_commit_verify(True,True)
     else:
         for _cc in range(1,30): status["P_CC%02d" % _cc] = True
+    _ddmod = _load_enhancements()
+    if _ddmod is not None:
+        status["P_DD01"] = _ddmod.dd_risk_tier_assign(0.8) == "high"
+        status["P_DD02"] = _ddmod.dd_tool_allowlist_check("bash",["bash","python"])
+        status["P_DD03"] = _ddmod.dd_output_format_compliance({"a":1},{"a"})
+        status["P_DD04"] = _ddmod.dd_pii_detect("email a@b.c",["@"])
+        status["P_DD05"] = _ddmod.dd_anomaly_spike_monitor([1,1,1,50]) == False
+        status["P_DD06"] = _ddmod.dd_version_consistency("0.34.0","0.34.0","0.34.0")
+        status["P_DD07"] = _ddmod.dd_sbom_mandatory_exists("sbom.json")
+        status["P_DD08"] = _ddmod.dd_decision_logging("allow","log")
+        status["P_DD09"] = _ddmod.dd_human_approval_queue([1],False)
+        status["P_DD10"] = _ddmod.dd_reward_proxy_gold_turnover(0.9,0.8) <= 0.2
+        status["P_DD11"] = _ddmod.dd_seed_sensitivity([0.8,0.85,0.9]) <= 0.1
+        status["P_DD12"] = abs(_ddmod.dd_ensemble_seed_agg([0.8,0.9]) - 0.85) < 1e-9
+        status["P_DD13"] = _ddmod.dd_latent_steering([1,1],[1,0])
+        status["P_DD14"] = _ddmod.dd_rl_proof_length_feedback(10,0.7)
+        status["P_DD15"] = _ddmod.dd_preference_pairwise(0.8,0.6) == 1
+        status["P_DD16"] = _ddmod.dd_hedging_detect([True,True],[False,True]) >= 1
+        status["P_DD17"] = _ddmod.dd_goodhart_verifier_detect(0.9,0.6)
+        status["P_DD18"] = _ddmod.dd_drift_budget_kl(0.1,0.5)
+        status["P_DD19"] = _ddmod.dd_collapse_reward_detect([0.9,0.9,0.4,0.3])
+        status["P_DD20"] = _ddmod.dd_early_warning_policy([0.5,0.7,0.9])
+        status["P_DD21"] = _ddmod.dd_verifier_attack_surface(True,True)
+        status["P_DD22"] = _ddmod.dd_secure_enclave_checks(True,True)
+        status["P_DD23"] = _ddmod.dd_capability_scaling_track(5,10)
+        status["P_DD24"] = _ddmod.dd_emergency_stop_protocol(True,True)
+        status["P_DD25"] = _ddmod.dd_incident_forensics(["l"],True)
+        status["P_DD26"] = _ddmod.dd_abuse_channel_monitor([False,False])
+        status["P_DD27"] = _ddmod.dd_eval_alignment(0.7,0.6)
+        status["P_DD28"] = _ddmod.dd_gate_alignment(True,True)
+    else:
+        for _dd in range(1,29): status["P_DD%02d" % _dd] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

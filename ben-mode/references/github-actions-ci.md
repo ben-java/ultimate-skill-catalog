@@ -29,6 +29,18 @@ Baseline manifest pada `.hard-gate-meta/ben-mode.manifest.sha256` dihasilkan dar
 - Tegakkan canonical LF agar hash lintas-host stabil: berkas `.gitattributes` `* text=auto` + `git add --renormalize .` sekali, lalu commit; checkout CI menghasilkan LF yang cocok dengan baseline yang dihasilkan ulang.
 - Meta (`.hard-gate-meta/`) yang dibutuhkan CI (manifest, sbom, gate-time, model-hashes) harus ikut di-commit — `git add -f` bila baris `.gitignore`/`info/exclude` mengecualikannya. Jangan commit kunci privat sigstore/.
 
+## Verifikasi run CI setelah push (tanpa `gh`)
+Setelah push, buktikan workflow benar-benar berjalan (bukan sekadar "push sukses"). `gh` sering tidak terpasang di host; pakai REST dengan token dari `~/.github_token_env`.
+- **Pitfall — `head_sha` wajib SHA PENUH 40 char.** Filter `?head_sha=<short>` (mis. `3b9d14a`) mengembalikan `total_count: 0` walau run ada — REST butuh SHA penuh. Ambil dulu `git rev-parse HEAD` (atau `git rev-parse <short>`), baru query.
+- List run utk sebuah SHA:
+```bash
+curl -s -H "Authorization: Bearer $GH_TOKEN" -H "Accept: application/vnd.github+json" \
+  "https://api.github.com/repos/<owner>/<repo>/actions/runs?head_sha=$(git rev-parse HEAD)&per_page=10" | \
+  python -c "import sys,json; d=json.load(sys.stdin); [print(r['name'],r['status'],r.get('conclusion')) for r in d.get('workflow_runs',[])]"
+```
+- Baca conclusion per-job dari sebuah run: `/actions/runs/<id>/jobs` → `{jobs:[{name,conclusion}]}`. Laporkan tiap job (gate/fresh-linux/keyless-attest/publish-dashboard), jangan hanya status run.
+- **Pitfall — Python f-string vs shell `${VAR}`.** Saat membangun skrip bash dari `execute_code`, JANGAN pakai f-string yang memuat `${GH_TOKEN}` — Python menginterpolasinya sebagai variabel Python → `NameError: name 'GH_TOKEN' is not defined`. Tulis skrip sebagai raw string (`r'''...'''`) sehingga `${...}` diteruskan ke bash apa adanya; sumber token di dalam bash (`set -e; . "$HOME/.github_token_env"`).
+
 ## `git push` yang menggantung
 `git push origin main` bisa menggantung tak berujung saat credential helper (GCM) membuka prompt interaktif. Nonaktifkan helper + sematkan token pada URL, dalam satu perintah:
 ```

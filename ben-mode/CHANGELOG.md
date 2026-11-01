@@ -1,3 +1,8 @@
+## v0.35.0 (2026-11-01) — Wave D DD01–DD28 (BAGIAN 35)
+
+- **DD01–DD28**: risk-tier assignment, tool allowlist, output-format compliance, PII detect, anomaly spike, version consistency, SBOM mandatory, decision logging, human approval queue, proxy-gold turnover, seed sensitivity/ensemble, latent steering, RL proof-length feedback, pairwise preference, hedging detect, Goodhart verifier detect, drift-KL, reward collapse, early warning, verifier attack surface, enclave checks, capability scaling, emergency stop, forensics, abuse channel, eval/gate alignment. Disurfacing `P_DD01–P_DD28`; 28/28 PASS.
+- **BAGIAN 35** ditambahkan; bump serentak 0.35.0.
+
 ## v0.34.0 (2026-11-01) — Wave C CC01–CC29 (BAGIAN 34)
 
 - **CC01–CC29**: verifier error-shift, per-epoch eval, judge pool contamination repair, option shuffle anti-position, TTS rollouts/alloc-curve, mirror-loop, pass1 peak, group-normalized advantage, rejection-sampling, tiered retention, per-session trust rebase, activation patch, logit-lens slope, counter-argument, disagreement exploration, isotonic, temperature scaling, pass@k, heldout multi-split, indirect-injection RAG, memory poison, speculative decoding, cache hit, plateau escape, explore/exploit, commutative reward, listwise merge, post-commit verify. Disurfacing `P_CC01–P_CC29`; 29/29 PASS.

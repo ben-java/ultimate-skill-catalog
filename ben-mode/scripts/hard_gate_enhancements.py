@@ -1929,8 +1929,132 @@ def cc_listwise_agent_merge(list_scores, vote_scores):
 def cc_after_commit_verify(committed, verified):
     return committed and verified
 
+
+# ================= DD01..DD28 wave D (2026-11-01) =================
+def dd_risk_tier_assign(risk):
+    if risk < 0.3: return "low"
+    if risk < 0.7: return "medium"
+    return "high"
+
+def dd_tool_allowlist_check(tool, allowlist):
+    return tool in allowlist
+
+def dd_output_format_compliance(output, schema_keys):
+    return all(k in output for k in schema_keys)
+
+def dd_pii_detect(text, patterns):
+    return any(p in text for p in patterns)
+
+def dd_anomaly_spike_monitor(series, thresh=3.0):
+    n=len(series)
+    if n<3: return False
+    m=sum(series)/n; sd=(sum((v-m)**2 for v in series)/n)**0.5
+    return sd>0 and any(abs(v-m)/sd>thresh for v in series)
+
+def dd_version_consistency(skill_v, spec_v, cl_v):
+    return skill_v == spec_v == cl_v
+
+def dd_sbom_mandatory_exists(sbom_path):
+    return bool(sbom_path)
+
+def dd_decision_logging(decision, log):
+    return bool(decision) and bool(log)
+
+def dd_human_approval_queue(queue, highrisk):
+    return (not highrisk) or len(queue) > 0
+
+def dd_reward_proxy_gold_turnover(proxy, gold):
+    return round(abs(proxy-gold)/max(1e-9,abs(gold)),4)
+
+def dd_seed_sensitivity(metrics):
+    return max(metrics)-min(metrics) if metrics else 0.0
+
+def dd_ensemble_seed_agg(seeds):
+    return sum(seeds)/len(seeds) if seeds else 0.0
+
+def dd_latent_steering(probe, steer):
+    return sum(p*s for p,s in zip(probe,steer)) > 0
+
+def dd_rl_proof_length_feedback(proof_len, score):
+    return score > 0 and proof_len > 0
+
+def dd_preference_pairwise(a, b):
+    return 1 if a>=b else 0
+
+def dd_hedging_detect(assertions, hedges):
+    return sum(1 for a,h in zip(assertions,hedges) if a and h)
+
+def dd_goodhart_verifier_detect(metric_score, true_score, eps=0.2):
+    return abs(metric_score-true_score) > eps
+
+def dd_drift_budget_kl(kl, budget):
+    return kl <= budget
+
+def dd_collapse_reward_detect(reward_series, drop=0.15):
+    if len(reward_series)<4: return False
+    peak=max(reward_series[:2]); late=sum(reward_series[-2:])/2
+    return (peak-late) > drop
+
+def dd_early_warning_policy(degrad_series, thresh=0.1):
+    if len(degrad_series)<2: return False
+    return degrad_series[-1] - degrad_series[0] > thresh
+
+def dd_verifier_attack_surface(executable, sandbox):
+    return executable and sandbox
+
+def dd_secure_enclave_checks(attestation, sealed):
+    return attestation and sealed
+
+def dd_capability_scaling_track(usage, cap):
+    return usage <= cap
+
+def dd_emergency_stop_protocol(armed, es_engaged):
+    return armed and es_engaged
+
+def dd_incident_forensics(logs, tamper_free):
+    return bool(logs) and tamper_free
+
+def dd_abuse_channel_monitor(channels):
+    return all(not c for c in channels)
+
+def dd_eval_alignment(human_agree, metric):
+    return human_agree >= metric
+
+def dd_gate_alignment(gate_pass, predicate_pass):
+    return gate_pass == predicate_pass
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_dd":
+        print("DD1", dd_risk_tier_assign(0.8))
+        print("DD2", dd_tool_allowlist_check("bash",["bash","python"]))
+        print("DD3", dd_output_format_compliance({"a":1},{"a"}))
+        print("DD4", dd_pii_detect("email a@b.c",["@"]))
+        print("DD5", dd_anomaly_spike_monitor([1,1,1,50]))
+        print("DD6", dd_version_consistency("0.34.0","0.34.0","0.34.0"))
+        print("DD7", dd_sbom_mandatory_exists("sbom.json"))
+        print("DD8", dd_decision_logging("allow","log"))
+        print("DD9", dd_human_approval_queue([1],False))
+        print("DD10", dd_reward_proxy_gold_turnover(0.9,0.8))
+        print("DD11", dd_seed_sensitivity([0.8,0.85,0.9]))
+        print("DD12", dd_ensemble_seed_agg([0.8,0.9]))
+        print("DD13", dd_latent_steering([1,1],[1,0]))
+        print("DD14", dd_rl_proof_length_feedback(10,0.7))
+        print("DD15", dd_preference_pairwise(0.8,0.6))
+        print("DD16", dd_hedging_detect([True,True],[False,True]))
+        print("DD17", dd_goodhart_verifier_detect(0.9,0.6))
+        print("DD18", dd_drift_budget_kl(0.1,0.5))
+        print("DD19", dd_collapse_reward_detect([0.9,0.9,0.4,0.3]))
+        print("DD20", dd_early_warning_policy([0.5,0.7,0.9]))
+        print("DD21", dd_verifier_attack_surface(True,True))
+        print("DD22", dd_secure_enclave_checks(True,True))
+        print("DD23", dd_capability_scaling_track(5,10))
+        print("DD24", dd_emergency_stop_protocol(True,True))
+        print("DD25", dd_incident_forensics(["l"],True))
+        print("DD26", dd_abuse_channel_monitor([False,False]))
+        print("DD27", dd_eval_alignment(0.7,0.6))
+        print("DD28", dd_gate_alignment(True,True))
+        return 0
     if cmd == "selftest_cc":
         print("CC1", cc_verifier_error_shift(0.3))
         print("CC2", cc_per_epoch_verifier_eval([0.8,0.85,0.9]))

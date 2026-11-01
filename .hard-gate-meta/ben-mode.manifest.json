@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T14:49:12.466353+00:00",
+  "generated_at": "2026-11-01T14:58:16.860471+00:00",
   "file_count": 2518,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 30207,
-      "sha256": "236100c9cf758a65043db0f58b585c3a293cb476d85673b84cfc28d867d5a1d8"
+      "size": 30874,
+      "sha256": "a01ae1204217d007ec7a84d0201e283c6e1e171e88d48ee778cd89e838b12ca1"
     },
     {
       "path": "SKILL.md",
       "size": 55504,
-      "sha256": "58f89f0999b1d4ad00fad180c945081084355fb9fe016a11d5cb347fdf865f1a"
+      "sha256": "733a30bedda59f2e1bfa46abfa5ac87fd07b88e7fc21f4840a0a7ec7e87c88e1"
     },
     {
       "path": "gate.conf",
@@ -11972,13 +11972,13 @@
     },
     {
       "path": "references/github-actions-ci.md",
-      "size": 3027,
-      "sha256": "3579c4c2365727cb6ef74c9f7678668e98f9e4dd9382a5625c2d21b7d26e3a19"
+      "size": 4494,
+      "sha256": "32ee96172cdbe7dfbac0c06dc1fac9d879fb58d08ca77e1d0a85e83a5bff35db"
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 113943,
-      "sha256": "70b27692f203218e784ec54951ec63cff13aff6b5a78955f793531a71dfc2a4b"
+      "size": 115144,
+      "sha256": "60434d8bb48d1d613611a98e504cb34c12219fa9fb50815c6f12b4247e3c5a87"
     },
     {
       "path": "references/large-document-editing.md",
@@ -12102,8 +12102,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 89051,
-      "sha256": "5cf82b804bac5a5286094860137fd98f02f38ded5f9e3916095f4176428dc2f6"
+      "size": 91257,
+      "sha256": "3b3506c1aa665865ee0b673fb2b592ec389cf6487b414d95db42e9eaf1e34c04"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -12122,8 +12122,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 108727,
-      "sha256": "181c3da89a0718549dd09fe57b170ad3404af94ccf68175d7e567ab46a414e85"
+      "size": 113373,
+      "sha256": "704bfbe9d996d1d5280a753419aeae2ca62b2c4a818d193a9aaaf39ff47974a9"
     },
     {
       "path": "scripts/install-precommit-hook.sh",

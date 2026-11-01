@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.34.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.35.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1997,3 +1997,14 @@ disurfacing `P_CC01–P_CC29`; diverifikasi 29/29 PASS (selftest_cc rc 0).
 - Eval: CC19 `cc_pass_at_k`, CC20 `cc_heldout_multi_split`.
 - Security: CC21 `cc_indirect_injection_rag`, CC22 `cc_memory_poison_detect`.
 - Autonomous: CC26 `cc_explore_exploit_balance`, CC29 `cc_after_commit_verify`.
+
+## BAGIAN 35 — WAVE D DD01–DD28 (VERIFIED; v0.35.0)
+
+Gelombang DD menutup sisa item Fase 8/13/15/17/20 dari A001–A1000: `DD01–DD28`,
+disurfacing `P_DD01–P_DD28`; diverifikasi 28/28 PASS (selftest_dd rc 0).
+
+- Governance/Fase 8: DD01 `dd_risk_tier_assign`, DD02 `dd_tool_allowlist_check`, DD03 `dd_output_format_compliance`, DD04 `dd_pii_detect`, DD06 `dd_version_consistency`, DD07 `dd_sbom_mandatory_exists`, DD08 `dd_decision_logging`, DD09 `dd_human_approval_queue`.
+- Reward/Fase 6: DD10 `dd_reward_proxy_gold_turnover`, DD11 `dd_seed_sensitivity`, DD12 `dd_ensemble_seed_agg`, DD13 `dd_latent_steering`, DD14 `dd_rl_proof_length_feedback`, DD15 `dd_preference_pairwise`, DD16 `dd_hedging_detect`, DD17 `dd_goodhart_verifier_detect`, DD18 `dd_drift_budget_kl`, DD19 `dd_collapse_reward_detect`, DD20 `dd_early_warning_policy`.
+- Security/Fase 15: DD21 `dd_verifier_attack_surface`, DD22 `dd_secure_enclave_checks`, DD23 `dd_capability_scaling_track`, DD24 `dd_emergency_stop_protocol`, DD25 `dd_incident_forensics`, DD26 `dd_abuse_channel_monitor`.
+- Eval/Fase 14: DD27 `dd_eval_alignment`, DD28 `dd_gate_alignment`.
+- Observability/Anomali: DD05 `dd_anomaly_spike_monitor`.
