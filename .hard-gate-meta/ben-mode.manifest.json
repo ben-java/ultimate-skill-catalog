@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T01:12:12.841407+00:00",
+  "generated_at": "2026-11-01T01:17:16.458017+00:00",
   "file_count": 93,
   "files": [
     {
@@ -238,7 +238,7 @@
     {
       "path": "scripts/regression-oracle.py",
       "size": 5026,
-      "sha256": "2724801f8fb9ca77a4391d73f165c2c7622443c724ae1148c76eec459c8d5f7f"
+      "sha256": "ca5d1313c59c67104298b5e8cf74962c65b4a0b17489716b58be1637dfd9e13b"
     },
     {
       "path": "scripts/report-drift.py",
@@ -332,8 +332,8 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 25965,
-      "sha256": "ded6e45aacacab3c1e39e19d7e18bf5b1b765fda6f4d5cba75b2fcb2aee66ae4"
+      "size": 25964,
+      "sha256": "afa4dc522f155882fac2d7a9665f58f81380b7d9b66578677bb7d925a620b55f"
     },
     {
       "path": "scripts/traceability.py",

@@ -559,7 +559,7 @@ else
 fi
 
 # Test 40: evaluator lineage self-confirming loop detection (Item2)
-if BEN_MUTATOR_ACTOR="alice" BEN_AUDIT_ACTOR="alice" "$PY" "$SCRIPT_DIR/regression-oracle.py" --audit-lineage >/dev/null 2>&1; then
+if BEN_MUTATOR_ACTOR="alice" BEN_AUDIT_ACTOR="alice" "$PY" "$SCRIPT_W\\regression-oracle.py" --audit-lineage >/dev/null 2>&1; then
     echo "❌ Test 40 FAIL: self-confirming lineage passed undetected"
     exit 1
 else

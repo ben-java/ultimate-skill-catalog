@@ -56,7 +56,7 @@ def check_evaluator_lineage(root):
     meta = os.path.join(root, ".hard-gate-meta")
     lineage_file = os.path.join(meta, "evaluator-lineage.json")
     # record external-boundary identity if present
-    audit_actor = os.environ.get("GITHUB_ACTOR") or os.environ.get("BEN_AUDIT_ACTOR") or "local-ben"
+    audit_actor = os.environ.get("BEN_AUDIT_ACTOR") or os.environ.get("GITHUB_ACTOR") or "local-ben"
     mutator_actor = os.environ.get("BEN_MUTATOR_ACTOR") or audit_actor
     # self-confirming check: if explicitly segregated actors, warn if identical
     is_segregated = ("BEN_MUTATOR_ACTOR" in os.environ and "BEN_AUDIT_ACTOR" in os.environ)
