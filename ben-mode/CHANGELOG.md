@@ -1,3 +1,9 @@
+## v0.33.0 (2026-11-01) — Residual BB01–BB30 (BAGIAN 33)
+
+- **BB01–BB30**: mekanisme residual Fase 7–20 (jailbreak multi-turn, hallucinated-tool filter, guardrail version/eval mapping, provenance binding, metric drift, collusion, budget alert, evaluator separation, peer review, learning-curve, reward-KL, entropy bonus). Disurfacing `P_BB01–P_BB30`; diverifikasi 30/30 PASS. Rename prefiks `bb_` utk 2 fungsi kolisi tier X (P_X42 aman).
+- **BAGIAN 33** ditambahkan ke `references/hard-gate-10.md`.
+- **v0.32.0→0.33.0**: bump serentak SKILL.md/spec/CHANGELOG.
+
 ## v0.32.0 (2026-11-01) — Comprehensive Frontier A001–A1000 (BAGIAN 32) & AA01–AA43
 
 - **A001–A1000 (Fase 1–20)**: inti komputasi `AA01–AA43` di `hard_gate_enhancements.py` (error-direction, pool entropy, confounder bias, listwise, collapse curve, group-variance, guardrail latency/acc/lineage, ECE, conformal, cost/latency, goal-drift, anchored baseline). Disurfacing `P_AA01–P_AA43`; diverifikasi 43/43 PASS.

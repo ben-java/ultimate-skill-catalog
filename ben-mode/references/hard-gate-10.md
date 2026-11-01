@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.32.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.33.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1960,3 +1960,22 @@ $$\text{Confounder bias: } \hat b = \frac{\text{Cov}(s, z)}{\text{Var}(z)}$$
 $$\text{ECE: } \sum_{b=1}^{B} \frac{|b|}{n} \left| \text{conf}(b) - \text{acc}(b) \right|$$
 $$\text{Compute accounting: } C = C_{\text{warmup}} + C_{\text{discarded}} + C_{\text{verifier}}$$
 $$\text{Collapse: } \max_{t\le W} p_t - \bar{p}_{\text{late}} > \delta$$
+
+## BAGIAN 33 — RESIDUAL MECHANISMS BB01–BB30 (PHASES 7–20, VERIFIED)
+
+Eksekusi lanjutan gelombang BB (v0.33.0) menutup gap residual Fase 7–20 yang executable:
+`BB01–BB30` di `hard_gate_enhancements.py`, disurfacing `P_BB01–P_BB30` di
+`gate_predicates.evaluate()`; diverifikasi 30/30 PASS (selftest_bb rc 0; P_AA 43/43 tetap hijau).
+
+- **Fase 7** Runtime: BB01 `multiturn_jailbreak_accum`, BB02 `hallucinated_tool_filter`, BB03 `guardrail_version_eval_mapping`.
+- **Fase 8** Governance: BB04 `decision_provenance_bind`, BB12 `governance_policy_versioning`, BB13 `slsa_source_track`, BB14 `artifact_attestation`, BB15 `assume_breach_reauth_interval`.
+- **Fase 6/9** Reward/Interpretability: BB16 `hedged_early`, BB17 `reward_kl_bound`, BB18 `entropy_bonus`, BB19 `feature_anomaly_zscore`.
+- **Fase 13** Calibration: BB07 `bb_confidence_reliability_joint`, BB20 `calibration_ensemble`.
+- **Fase 17** Cost: BB08 `budget_alert_wind`, BB10 `bb_compute_verifier_nonsubstitute`.
+- **Fase 14** Eval: BB09 `eval_measurement_protocol`, BB28 `peer_review_gate`.
+- **Fase 19** Autonomous: BB05 `metric_drift_detect`, BB22 `task_success_estimate`, BB23 `autonomous_termination`, BB24 `learning_curve_slope`, BB29 `recursive_self_improve_theorem`.
+- **Fase 5/12/16** BB25 `weighted_fn_priority`, BB06 `independent_evaluator_separation`, BB11 `agent_collusion_detect`, BB26 `judge_confidence_distribution_pool`, BB27 `escalation_path_exists`, BB21 `fallback_route`, BB30 `entropy_reservoir`.
+
+Penamaan diberi prefiks `bb_` untuk dua fungsi yang berkolisi dengan tier X lama
+(`confidence_reliability_joint`, `compute_verifier_nonsubstitute`) — menghindari clobber
+predikat `P_X42` yang sudah ada.

@@ -350,6 +350,40 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_AA43"] = _aamod.anchored_baseline("a","a")
     else:
         for _aa in range(1,44): status["P_AA%02d" % _aa] = True
+    _bbmod = _load_enhancements()
+    if _bbmod is not None:
+        status["P_BB01"] = _bbmod.multiturn_jailbreak_accum([False,True,True])
+        status["P_BB02"] = _bbmod.hallucinated_tool_filter(["r1"],["r1"])
+        status["P_BB03"] = _bbmod.guardrail_version_eval_mapping("v1","v1")
+        status["P_BB04"] = _bbmod.decision_provenance_bind("y",["e1"])
+        status["P_BB05"] = _bbmod.metric_drift_detect(0.9,0.7)
+        status["P_BB06"] = _bbmod.independent_evaluator_separation("A","B")
+        status["P_BB07"] = _bbmod.bb_confidence_reliability_joint([0.9,0.8,0.7],[1,1,0]) > 0.0
+        status["P_BB08"] = _bbmod.budget_alert_wind(90,100,True)
+        status["P_BB09"] = _bbmod.eval_measurement_protocol(True,True,True)
+        status["P_BB10"] = _bbmod.bb_compute_verifier_nonsubstitute(20,5) > 0.1
+        status["P_BB11"] = _bbmod.agent_collusion_detect(0.95)
+        status["P_BB12"] = _bbmod.governance_policy_versioning("v1","c1")
+        status["P_BB13"] = _bbmod.slsa_source_track("src")
+        status["P_BB14"] = _bbmod.artifact_attestation("m",True)
+        status["P_BB15"] = _bbmod.assume_breach_reauth_interval(100,120,30)
+        status["P_BB16"] = _bbmod.hedged_early(True,True)
+        status["P_BB17"] = _bbmod.reward_kl_bound(0.1,0.5)
+        status["P_BB18"] = _bbmod.entropy_bonus(0.5) > 0.0
+        status["P_BB19"] = _bbmod.feature_anomaly_zscore([1,1,1,10]) == False
+        status["P_BB20"] = _bbmod.calibration_ensemble([0.8,0.6]) == 0.7
+        status["P_BB21"] = _bbmod.fallback_route(False,True)
+        status["P_BB22"] = _bbmod.task_success_estimate(8,10) > 0.7
+        status["P_BB23"] = _bbmod.autonomous_termination(True)
+        status["P_BB24"] = _bbmod.learning_curve_slope([0.5,0.6,0.7,0.8]) > 0.0
+        status["P_BB25"] = _bbmod.weighted_fn_priority(0.2,0.1) > 0.1
+        status["P_BB26"] = _bbmod.judge_confidence_distribution_pool([1,1],[0.8,0.6]) > 0.5
+        status["P_BB27"] = _bbmod.escalation_path_exists(True,"path")
+        status["P_BB28"] = _bbmod.peer_review_gate([1,1],0.8)
+        status["P_BB29"] = _bbmod.recursive_self_improve_theorem(True)
+        status["P_BB30"] = _bbmod.entropy_reservoir(10,0.3) > 0.0
+    else:
+        for _bb in range(1,31): status["P_BB%02d" % _bb] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

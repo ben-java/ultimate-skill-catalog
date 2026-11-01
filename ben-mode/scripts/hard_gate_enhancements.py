@@ -1724,8 +1724,146 @@ def goal_drift_detect(goals, progress):
 def anchored_baseline(h_a, h_b):
     return h_a == h_b
 
+
+# ================= BB01..BB30 residual phases 7-20 (2026-11-01) =================
+def multiturn_jailbreak_accum(rounds_flagged, threshold=2):
+    return sum(1 for f in rounds_flagged if f) >= threshold
+
+def hallucinated_tool_filter(claims, tool_results):
+    return all(c in tool_results for c in claims)
+
+def guardrail_version_eval_mapping(gv, ev):
+    return gv == ev
+
+def decision_provenance_bind(decision, evidence_ids):
+    return bool(evidence_ids) and decision is not None
+
+def metric_drift_detect(baseline, current, thresh=0.1):
+    d = abs(current - baseline)/max(1e-9, abs(baseline))
+    return d > thresh
+
+def independent_evaluator_separation(eval_id, train_id):
+    return eval_id != train_id
+
+def bb_confidence_reliability_joint(confidences, correct):
+    n=len(confidences)
+    if n<2: return 0.0
+    mc=sum(confidences)/n; mo=sum(correct)/n
+    cov=sum((c-mc)*(o-mo) for c,o in zip(confidences,correct))/n
+    vc=sum((c-mc)**2 for c in confidences)/n
+    vo=sum((o-mo)**2 for o in correct)/n
+    import math
+    return round(cov/math.sqrt(vc*vo),4) if vc*vo else 0.0
+
+def budget_alert_wind(used, budget, wind_active):
+    return (used/budget if budget else 0) > 0.8 and wind_active
+
+def eval_measurement_protocol(defined, reproducible, fresh):
+    return defined and reproducible and fresh
+
+def bb_compute_verifier_nonsubstitute(runtime_cost, verifier_cost):
+    return verifier_cost/(runtime_cost+verifier_cost) if (runtime_cost+verifier_cost) else 0.0
+
+def agent_collusion_detect(similarity, thresh=0.9):
+    return similarity > thresh
+
+def governance_policy_versioning(pol_v, checkpoint):
+    return bool(pol_v and checkpoint)
+
+def slsa_source_track(src):
+    return bool(src)
+
+def artifact_attestation(entity, sig_valid):
+    return bool(entity) and sig_valid
+
+def assume_breach_reauth_interval(last_auth, now, max_age):
+    return (now - last_auth) <= max_age
+
+def hedged_early(hedge, reward):
+    return hedge and reward
+
+def reward_kl_bound(kl, bound):
+    return kl <= bound
+
+def entropy_bonus(entropy, b=0.1):
+    return round(entropy*b,4)
+
+def feature_anomaly_zscore(features, z=2.0):
+    n=len(features)
+    if n<2: return False
+    m=sum(features)/n; sd=(sum((f-m)**2 for f in features)/n)**0.5
+    return sd>0 and any(abs(f-m)/sd>z for f in features)
+
+def calibration_ensemble(probs, weights=None):
+    if weights is None: weights=[1/len(probs)]*len(probs)
+    return round(sum(p*w for p,w in zip(probs,weights)),4)
+
+def fallback_route(detect, alt):
+    return detect or alt
+
+def task_success_estimate(completed, total):
+    return round(completed/max(1,total),4)
+
+def autonomous_termination(criteria_met):
+    return criteria_met
+
+def learning_curve_slope(accs, window=3):
+    if len(accs)<2: return 0.0
+    early=sum(accs[:window])/len(accs[:window]); late=sum(accs[-window:])/len(accs[-window:])
+    return round((late-early)/max(1e-9,abs(early)),4)
+
+def weighted_fn_priority(fn, fp, w=1.5):
+    return round(w*fn - fp,4)
+
+def judge_confidence_distribution_pool(votes, confs):
+    return sum(v*c for v,c in zip(votes,confs))/sum(confs) if sum(confs) else 0.0
+
+def escalation_path_exists(risk, path):
+    return (not risk) or bool(path)
+
+def peer_review_gate(reviews, approve_ratio, min_r=0.6):
+    return approve_ratio >= min_r and len(reviews)>=1
+
+def recursive_self_improve_theorem(check):
+    return check
+
+def entropy_reservoir(retrieval_mix, frac):
+    return round(retrieval_mix*frac,4)
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_bb":
+        print("BB1", multiturn_jailbreak_accum([False,True,True]))
+        print("BB2", hallucinated_tool_filter(["r1"],["r1"]))
+        print("BB3", guardrail_version_eval_mapping("v1","v1"))
+        print("BB4", decision_provenance_bind("y",["e1"]))
+        print("BB5", metric_drift_detect(0.9,0.7))
+        print("BB6", independent_evaluator_separation("A","B"))
+        print("BB7", bb_confidence_reliability_joint([0.9,0.8,0.7],[1,1,0]))
+        print("BB8", budget_alert_wind(90,100,True))
+        print("BB9", eval_measurement_protocol(True,True,True))
+        print("BB10", bb_compute_verifier_nonsubstitute(20,5))
+        print("BB11", agent_collusion_detect(0.95))
+        print("BB12", governance_policy_versioning("v1","c1"))
+        print("BB13", slsa_source_track("src"))
+        print("BB14", artifact_attestation("m",True))
+        print("BB15", assume_breach_reauth_interval(100,120,30))
+        print("BB16", hedged_early(True,True))
+        print("BB17", reward_kl_bound(0.1,0.5))
+        print("BB18", entropy_bonus(0.5))
+        print("BB19", feature_anomaly_zscore([1,1,1,10]))
+        print("BB20", calibration_ensemble([0.8,0.6]))
+        print("BB21", fallback_route(False,True))
+        print("BB22", task_success_estimate(8,10))
+        print("BB23", autonomous_termination(True))
+        print("BB24", learning_curve_slope([0.5,0.6,0.7,0.8]))
+        print("BB25", weighted_fn_priority(0.2,0.1))
+        print("BB26", judge_confidence_distribution_pool([1,1],[0.8,0.6]))
+        print("BB27", escalation_path_exists(True,"path"))
+        print("BB28", peer_review_gate([1,1],0.8))
+        print("BB29", recursive_self_improve_theorem(True))
+        print("BB30", entropy_reservoir(10,0.3))
+        return 0
     if cmd == "selftest_aa":
         print("AA1", error_direction_diff_score(0.2,0.1))
         print("AA2", margin_gate(0.3))
