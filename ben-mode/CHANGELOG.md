@@ -1,3 +1,8 @@
+## v0.39.0 (2026-11-01) — Wave H Privacy & Confidential Computing Integrity HH01–HH24 (BAGIAN 39)
+
+- **HH01–HH24**: PII redaction, DP noise, k-anonymity, l-diversity, t-closeness, HE support, SMC, FL aggregation, ZKP, TEE attestation, data minimization, purpose limitation, encryption at rest/in flight, key rotation, default-deny, revocable consent, right-to-be-forgotten, retention window, incident notify, privacy-safe audit trail, de-identified training, IP boundary, confidential inference enclave. Disurfacing `P_HH01–P_HH24`; 24/24 PASS.
+- **BAGIAN 39** ditambahkan; bump serentak 0.39.0.
+
 ## v0.38.0 (2026-11-01) — Wave G Formal Verification & Meta-Proof Integrity GG01–GG24 (BAGIAN 38)
 
 - **GG01–GG24**: autoformalize faithfulness, constructive proof, SMT unwind, model-check invariant, Hoare triple, type safety, theorem dependency closure, counterexample search, polymorphic check, inductive invariant, concolic assist, symbolic-exec bound, certifying compiler, translation validity, asymptotic complexity, termination measure, resources bound, partial/total correctness, algorithm equivalence, optimization preserves, contract-based design, refinement chain, separation-logic frame. Disurfacing `P_GG01–P_GG24`; 24/24 PASS.

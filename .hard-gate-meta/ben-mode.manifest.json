@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T16:50:39.426397+00:00",
+  "generated_at": "2026-11-01T22:10:27.226700+00:00",
   "file_count": 2518,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 32838,
-      "sha256": "697cad4b9185a0241160d03694dba06dc6857d2889d09ea16be7806cef656eb3"
+      "size": 33448,
+      "sha256": "8f68bc91b7f69852d5385fcff1b2241ca71680d33de723c96683eb532ca7b596"
     },
     {
       "path": "SKILL.md",
       "size": 55742,
-      "sha256": "27d6390d6750ce26fff2f3269fde1c209168769fd90f10f8df18e052ecf727d2"
+      "sha256": "8f7e6f104249d1356e31c2abe7ab5511ed3f02b80f311566111521d6a732cba8"
     },
     {
       "path": "gate.conf",
@@ -11977,8 +11977,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 118691,
-      "sha256": "e93f3777cb515542009a99bd6439c491024c946b27f444d67c8725e6392aef9e"
+      "size": 119981,
+      "sha256": "048d8dc75ef805d9fbd41b2e2f5b937fd2ea423bb5c10d4941f18c556d530257"
     },
     {
       "path": "references/large-document-editing.md",
@@ -12102,8 +12102,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 97405,
-      "sha256": "ea2acc9356e88c1754afaaeaebac45260384f35031836663d2a06e406300a2f7"
+      "size": 99454,
+      "sha256": "8df3097b0f22928b2cc41eecc4d881f184b89eba0a7483cf9cbf5c376eeeeea4"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -12122,8 +12122,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 130192,
-      "sha256": "83f6e63f888377a5d9e0b047efd088b9d571fd5efb830b8f607295ac6327c586"
+      "size": 136384,
+      "sha256": "3ded35143340b6fabafd6cfe480b84d27231d901fd9c4ec2e4899d2fd38b408f"
     },
     {
       "path": "scripts/install-precommit-hook.sh",
@@ -12467,8 +12467,8 @@
     },
     {
       "path": "scripts/__pycache__/hard_gate_enhancements.cpython-314.pyc",
-      "size": 219698,
-      "sha256": "342a8754cc8294ddad857dd16c0a7e2e04d749560d21200a3291b0df16c83ba4"
+      "size": 228054,
+      "sha256": "9059a8c472ceb25169dbcad7a910537622833a718ab799097e327617016b9587"
     },
     {
       "path": "scripts/__pycache__/keyless-check.cpython-314.pyc",

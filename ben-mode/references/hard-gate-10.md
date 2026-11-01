@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.38.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.39.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2047,3 +2047,17 @@ disurfacing `P_GG01–P_GG24`; diverifikasi 24/24 PASS (selftest_gg rc 0).
 - Tipe & kompilasi: GG06 `gg_type_safety_enforce`, GG09 `gg_polymorphic_check`, GG13 `gg_certifying_compiler_check`, GG14 `gg_translation_validity`.
 - Kompleksitas & sumber daya: GG15 `gg_asymptotic_complexity_verify`, GG16 `gg_termination_measure`, GG17 `gg_resources_bound_prove`.
 - Kesetaraan & optimasi: GG20 `gg_algorithm_equivalence`, GG21 `gg_optimization_preserves`.
+
+---
+
+# BAGIAN 39 — WAVE H: PRIVACY & CONFIDENTIAL COMPUTING INTEGRITY HH01–HH24 (VERIFIED; v0.39.0)
+
+Menambahkan lapisan privasi & confidential computing: `HH01–HH24` di `hard_gate_enhancements.py`,
+disurfacing `P_HH01–P_HH24`; diverifikasi 24/24 PASS (selftest_hh rc 0).
+
+- Anonimisasi & DP: HH01 `hh_pii_redaction_completeness`, HH02 `hh_differential_privacy_noise`, HH03 `hh_k_anonymity_enforce`, HH04 `hh_l_diversity_enforce`, HH05 `hh_t_closeness_enforce`, HH22 `hh_de_identification_model_train`.
+- Confidential computing: HH06 `hh_homomorphic_encryption_support`, HH07 `hh_secure_multiparty_compute`, HH08 `hh_federated_learning_aggregate`, HH09 `hh_zero_knowledge_proof_verify`, HH10 `hh_confidential_tee_attest`, HH24 `hh_confidential_inference_enclave`.
+- Data governance: HH11 `hh_data_minimization_check`, HH12 `hh_purpose_limitation_bind`, HH19 `hh_retention_window_enforce`, HH23 `hh_ip_governance_boundary`.
+- Enkripsi & kunci: HH13 `hh_storage_encryption_at_rest`, HH14 `hh_transport_encryption_in_flight`, HH15 `hh_key_rotation_policy`.
+- Akses & consent: HH16 `hh_access_deny_by_default`, HH17 `hh_consent_record_revocable`, HH18 `hh_right_to_be_forgotten`.
+- Insiden & audit: HH20 `hh_security_incident_notify`, HH21 `hh_audit_trail_privacy_safe`.

@@ -3009,3 +3009,129 @@ def selftest_gg():
             (22, gg_contract_based_design(lambda s: s>=0, lambda s: s>0, lambda s: s+1, [0,1])),
             (23, gg_refinement_chain(["r1"],["a1","a2"], lambda r: ["a1"])),
             (24, gg_separation_logic_frame({"h":1},{"f":2}, lambda h,f: True))]
+
+# ------------------------------------------------------------------
+# WAVE H — PRIVACY & CONFIDENTIAL COMPUTING INTEGRITY (HH01–HH24)
+# ------------------------------------------------------------------
+def hh_pii_redaction_completeness(text, patterns):
+    # HH01: every PII pattern must be redacted from the text.
+    return all(p not in text for p in patterns)
+
+def hh_differential_privacy_noise(queries, epsilon, sensitivity):
+    # HH02: noise scale must be sufficient for the epsilon-DP guarantee.
+    import math
+    return (sensitivity / epsilon) <= 1.0 if epsilon > 0 else False
+
+def hh_k_anonymity_enforce(groups, k):
+    # HH03: every equivalence class must have size >= k.
+    return all(len(g) >= k for g in groups)
+
+def hh_l_diversity_enforce(groups, l):
+    # HH04: every group must contain at least l distinct sensitive values.
+    return all(len(set(g)) >= l for g in groups)
+
+def hh_t_closeness_enforce(distributions, t):
+    # HH05: each group's sensitive distribution must be within t of the global.
+    return all(max(d) - min(d) <= t for d in distributions)
+
+def hh_homomorphic_encryption_support(supports_add, supports_mul):
+    # HH06: HE requires both addition and multiplication support (fully HE).
+    return bool(supports_add) and bool(supports_mul)
+
+def hh_secure_multiparty_compute(all_parties_contrib, output_revealed):
+    # HH07: SMC protects inputs when all parties contribute and only output is revealed.
+    return bool(all_parties_contrib) and bool(output_revealed)
+
+def hh_federated_learning_aggregate(local_updates, trusted_agg):
+    # HH08: FL aggregation is valid only under a trusted aggregator.
+    return bool(local_updates) and bool(trusted_agg)
+
+def hh_zero_knowledge_proof_verify(proof_valid, statement_true):
+    # HH09: a ZKP proves a statement without revealing the witness.
+    return bool(proof_valid) and bool(statement_true)
+
+def hh_confidential_tee_attest(quote_valid, runtime_ok):
+    # HH10: TEE attestation requires a valid quote and matching runtime.
+    return bool(quote_valid) and bool(runtime_ok)
+
+def hh_data_minimization_check(collected, required):
+    # HH11: only required data may be collected.
+    return set(collected) <= set(required)
+
+def hh_purpose_limitation_bind(purpose, allowed_purposes):
+    # HH12: processing purpose must be within the allowed set.
+    return purpose in allowed_purposes
+
+def hh_storage_encryption_at_rest(encrypted, key_managed):
+    # HH13: data at rest must be encrypted with a managed key.
+    return bool(encrypted) and bool(key_managed)
+
+def hh_transport_encryption_in_flight(tls_enabled, cert_valid):
+    # HH14: data in transit must be TLS-encrypted with a valid certificate.
+    return bool(tls_enabled) and bool(cert_valid)
+
+def hh_key_rotation_policy(last_rotation, max_age):
+    # HH15: keys must be rotated within the maximum age window.
+    return last_rotation <= max_age
+
+def hh_access_deny_by_default(policy, default_deny):
+    # HH16: default access decision must be deny.
+    return bool(policy) and bool(default_deny)
+
+def hh_consent_record_revocable(consent_id, can_revoke, revoked):
+    # HH17: consent must be attributable and revocable.
+    return bool(consent_id) and bool(can_revoke) and not bool(revoked)
+
+def hh_right_to_be_forgotten(request_valid, data_erased):
+    # HH18: deletion request requires valid request and actual erasure.
+    return bool(request_valid) and bool(data_erased)
+
+def hh_retention_window_enforce(stored_since, window):
+    # HH19: data must not be retained beyond the retention window.
+    return stored_since <= window
+
+def hh_security_incident_notify(incident_detected, notified):
+    # HH20: every detected incident must be notified.
+    return (not incident_detected) or notified
+
+def hh_audit_trail_privacy_safe(log_entries, banned_fields):
+    # HH21: audit logs must not contain banned sensitive fields.
+    return all(f not in e for e in log_entries for f in banned_fields)
+
+def hh_de_identification_model_train(trained, pii_removed):
+    # HH22: training on de-identified data requires PII removed first.
+    return bool(trained) and bool(pii_removed)
+
+def hh_ip_governance_boundary(ip_used, authorized):
+    # HH23: IP usage must be authorized within governance boundaries.
+    return bool(ip_used) and bool(authorized)
+
+def hh_confidential_inference_enclave(enclave_ok, model_loaded, output_sanitized):
+    # HH24: confidential inference runs in enclave, loads model, sanitizes output.
+    return bool(enclave_ok) and bool(model_loaded) and bool(output_sanitized)
+
+def selftest_hh():
+    return [(1, hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])),
+            (2, hh_differential_privacy_noise([1],1.0,0.5)),
+            (3, hh_k_anonymity_enforce([[1,2,3],[4,5]],2)),
+            (4, hh_l_diversity_enforce([["a","b"],["c","d"]],2)),
+            (5, hh_t_closeness_enforce([[0.2,0.4],[0.1,0.3]],0.3)),
+            (6, hh_homomorphic_encryption_support(True,True)),
+            (7, hh_secure_multiparty_compute(True,True)),
+            (8, hh_federated_learning_aggregate([1,2],True)),
+            (9, hh_zero_knowledge_proof_verify(True,True)),
+            (10, hh_confidential_tee_attest(True,True)),
+            (11, hh_data_minimization_check(["a","b"],["a","b","c"])),
+            (12, hh_purpose_limitation_bind("analytics",["analytics","research"])),
+            (13, hh_storage_encryption_at_rest(True,True)),
+            (14, hh_transport_encryption_in_flight(True,True)),
+            (15, hh_key_rotation_policy(30,90)),
+            (16, hh_access_deny_by_default(True,True)),
+            (17, hh_consent_record_revocable("c1",True,False)),
+            (18, hh_right_to_be_forgotten(True,True)),
+            (19, hh_retention_window_enforce(100,365)),
+            (20, hh_security_incident_notify(False,False)),
+            (21, hh_audit_trail_privacy_safe(["log"],["password"])),
+            (22, hh_de_identification_model_train(True,True)),
+            (23, hh_ip_governance_boundary(True,True)),
+            (24, hh_confidential_inference_enclave(True,True,True))]

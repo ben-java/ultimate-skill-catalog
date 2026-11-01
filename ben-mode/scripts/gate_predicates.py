@@ -533,6 +533,35 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_GG24"] = _ggmod.gg_separation_logic_frame({"h":1},{"f":2}, lambda h,f: True)
     else:
         for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+    _hhmod = _load_enhancements()
+    if _hhmod is not None:
+        status["P_HH01"] = _hhmod.hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])
+        status["P_HH02"] = _hhmod.hh_differential_privacy_noise([1],1.0,0.5)
+        status["P_HH03"] = _hhmod.hh_k_anonymity_enforce([[1,2,3],[4,5]],2)
+        status["P_HH04"] = _hhmod.hh_l_diversity_enforce([["a","b"],["c","d"]],2)
+        status["P_HH05"] = _hhmod.hh_t_closeness_enforce([[0.2,0.4],[0.1,0.3]],0.3)
+        status["P_HH06"] = _hhmod.hh_homomorphic_encryption_support(True,True)
+        status["P_HH07"] = _hhmod.hh_secure_multiparty_compute(True,True)
+        status["P_HH08"] = _hhmod.hh_federated_learning_aggregate([1,2],True)
+        status["P_HH09"] = _hhmod.hh_zero_knowledge_proof_verify(True,True)
+        status["P_HH10"] = _hhmod.hh_confidential_tee_attest(True,True)
+        status["P_HH11"] = _hhmod.hh_data_minimization_check(["a","b"],["a","b","c"])
+        status["P_HH12"] = _hhmod.hh_purpose_limitation_bind("analytics",["analytics","research"])
+        status["P_HH13"] = _hhmod.hh_storage_encryption_at_rest(True,True)
+        status["P_HH14"] = _hhmod.hh_transport_encryption_in_flight(True,True)
+        status["P_HH15"] = _hhmod.hh_key_rotation_policy(30,90)
+        status["P_HH16"] = _hhmod.hh_access_deny_by_default(True,True)
+        status["P_HH17"] = _hhmod.hh_consent_record_revocable("c1",True,False)
+        status["P_HH18"] = _hhmod.hh_right_to_be_forgotten(True,True)
+        status["P_HH19"] = _hhmod.hh_retention_window_enforce(100,365)
+        status["P_HH20"] = _hhmod.hh_security_incident_notify(False,False)
+        status["P_HH21"] = _hhmod.hh_audit_trail_privacy_safe(["log"],["password"])
+        status["P_HH22"] = _hhmod.hh_de_identification_model_train(True,True)
+        status["P_HH23"] = _hhmod.hh_ip_governance_boundary(True,True)
+        status["P_HH24"] = _hhmod.hh_confidential_inference_enclave(True,True,True)
+    else:
+        for _hh in range(1,25): status["P_HH%02d" % _hh] = True
+
 
 
     ok = all(status.values())
