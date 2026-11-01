@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:8aeb7e87-62da-4e95-93ac-613ef625f1a0",
+  "serialNumber": "urn:uuid:7e850132-7ce9-42a9-92e9-05aca4795f67",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T15:16:08Z",
+    "timestamp": "2026-11-01T22:22:28Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "0bfe641860df03ec15d1704e296aaa95bed00662834a88c28b493dc75ac82243"
+          "content": "e97587da83642c9960f3934fabc0a0292e50e6f2605937730ac8cae259eaa30a"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "7076aab1021b98babd707275f0c483339c0377b3120793e9e915b0c65436bc83"
+          "content": "54f1a3ca18d6c9187fd630b30b929bad3dccc276e70776e13717062feaa54fd4"
         }
       ]
     },
@@ -25849,7 +25849,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "a2d674334fd84306e8f474171bfffdef1709f89399d9882c3e70ac5d5a518673"
+          "content": "b636d1f2357d16ebeaff1f34848b40d2f6213047531de86c87c557c50797b704"
         }
       ]
     },
@@ -25871,7 +25871,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "bda55543c7f627b5cb73f5d269c563235e5f020ee897632a7ba04d5eb2254fed"
+          "content": "95b54e6a47e6529d0e2db4aa06f6d1d6b83849e0c6d7526155df850313a2fd8d"
         }
       ]
     },
@@ -25893,7 +25893,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "29ae577cca5e51eec737726ad4e8a14c88fc3ecc2efc2cf1a52561a16cfbe8e8"
+          "content": "ec9653ffde616130c84899059ccd5c87d87a62d97fa659a7e46ef78f70984c4b"
         }
       ]
     },
@@ -26124,7 +26124,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "b6b000a08662c03a13df983149e50eb73f47d3e59c25f09af6c57aafa20278ec"
+          "content": "0d9bb0f441918ad6239255b55600c572a9eb920f7872c6123d86f8565d8e1c6a"
         }
       ]
     },
@@ -26168,7 +26168,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "44a4d32a4d2514a6b1b6f2bda655b367feff797eb3245d30a469aa66b949780b"
+          "content": "85404c84ea8d5e5bfaaf057a4448b92f96d87c4d5de8d7ff7043bb56be30cc75"
         }
       ]
     },

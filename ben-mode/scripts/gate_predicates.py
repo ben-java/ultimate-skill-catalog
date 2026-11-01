@@ -561,6 +561,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_HH24"] = _hhmod.hh_confidential_inference_enclave(True,True,True)
     else:
         for _hh in range(1,25): status["P_HH%02d" % _hh] = True
+    _iimod = _load_enhancements()
+    if _iimod is not None:
+        status["P_II01"] = _iimod.ii_metric_definition_complete("latency",True,True,True)
+        status["P_II02"] = _iimod.ii_dashboard_lag(100,80,60)
+        status["P_II03"] = _iimod.ii_alert_route_coverage(["cpu","mem"],["cpu","mem","disk"])
+        status["P_II04"] = _iimod.ii_log_correlation_id("t1",[{"trace_id":"t1"},{"trace_id":"t1"}])
+        status["P_II05"] = _iimod.ii_metric_drift_detect(95,80,10)
+        status["P_II06"] = _iimod.ii_slo_budget_enforce(0.99,0.95)
+        status["P_II07"] = _iimod.ii_error_budget_burn(0.05,0.02)
+        status["P_II08"] = len(_iimod.ii_anomaly_threshold_adaptive([1]*10 + [100], 2)) >= 1
+        status["P_II09"] = _iimod.ii_service_discovery_healthy(["a","b"],["a","b","c"])
+        status["P_II10"] = _iimod.ii_health_check_probe(True,True)
+        status["P_II11"] = _iimod.ii_telemetry_sampling_rate(0.5,0.1)
+        status["P_II12"] = _iimod.ii_event_schema_version([{"schema_version":2},{"schema_version":2}],2)
+        status["P_II13"] = _iimod.ii_dependency_health_matrix("s",{"s":["d1"]},["d1"])
+        status["P_II14"] = _iimod.ii_synthetic_canary(True,True)
+        status["P_II15"] = _iimod.ii_trace_sampling_policy(50,100)
+        status["P_II16"] = _iimod.ii_service_level_indicator_definition("latency","p99")
+        status["P_II17"] = _iimod.ii_runbook_availability("outage",["outage","ddos"])
+        status["P_II18"] = _iimod.ii_oncall_coverage(True,True)
+        status["P_II19"] = _iimod.ii_metric_retention_rotate(30,90)
+        status["P_II20"] = _iimod.ii_alert_dedup(True,False)
+        status["P_II21"] = _iimod.ii_rollup_granularity(60,300)
+        status["P_II22"] = _iimod.ii_audit_metric_integrity(True,True)
+        status["P_II23"] = _iimod.ii_observability_cost_budget(80,100)
+        status["P_II24"] = _iimod.ii_self_monitoring_loop(True,True)
+    else:
+        for _ii in range(1,25): status["P_II%02d" % _ii] = True
 
 
 

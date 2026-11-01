@@ -3135,3 +3135,131 @@ def selftest_hh():
             (22, hh_de_identification_model_train(True,True)),
             (23, hh_ip_governance_boundary(True,True)),
             (24, hh_confidential_inference_enclave(True,True,True))]
+
+# ------------------------------------------------------------------
+# WAVE I — OBSERVABILITY & MONITORING INTEGRITY (II01–II24)
+# ------------------------------------------------------------------
+def ii_metric_definition_complete(metric, has_owner, has_unit, has_threshold):
+    # II01: a metric must have owner, unit and threshold.
+    return bool(metric) and bool(has_owner) and bool(has_unit) and bool(has_threshold)
+
+def ii_dashboard_lag(now, last_updated, max_lag):
+    # II02: dashboard staleness must stay within max_lag.
+    return (now - last_updated) <= max_lag
+
+def ii_alert_route_coverage(alerts, routes):
+    # II03: every alert must map to a delivery route.
+    return set(alerts) <= set(routes)
+
+def ii_log_correlation_id(trace_id, log_entries):
+    # II04: every log entry must carry the correlation trace id.
+    return all(e.get("trace_id") == trace_id for e in log_entries)
+
+def ii_metric_drift_detect(current, baseline, tol):
+    # II05: alerts when current deviates from baseline beyond tol.
+    return abs(current - baseline) > tol
+
+def ii_slo_budget_enforce(measured_sli, slo_target):
+    # II06: measured SLI must meet the SLO target.
+    return measured_sli >= slo_target
+
+def ii_error_budget_burn(error_budget, consumed):
+    # II07: burned error budget must not exceed the defined budget.
+    return consumed <= error_budget
+
+def ii_anomaly_threshold_adaptive(series, k):
+    # II08: adaptive threshold flags points beyond k*stddev from the mean.
+    import statistics
+    if len(series) < 2: return []
+    m = statistics.mean(series); sd = statistics.stdev(series) or 1.0
+    return [x for x in series if abs(x - m) > k * sd]
+
+def ii_service_discovery_healthy(services, healthy):
+    # II09: all expected services must be present and healthy.
+    return set(services) <= set(healthy)
+
+def ii_health_check_probe(probe_ok, timeout_ok):
+    # II10: a probe passes when it responds and stays within timeout.
+    return bool(probe_ok) and bool(timeout_ok)
+
+def ii_telemetry_sampling_rate(rate, min_rate):
+    # II11: sampling rate must not drop below the minimum.
+    return rate >= min_rate
+
+def ii_event_schema_version(events, expected_version):
+    # II12: every event must conform to the expected schema version.
+    return all(e.get("schema_version") == expected_version for e in events)
+
+def ii_dependency_health_matrix(service, deps, healthy_deps):
+    # II13: all dependencies of a service must be healthy.
+    return set(deps.get(service, [])) <= set(healthy_deps)
+
+def ii_synthetic_canary(canary_ok, response_time_ok):
+    # II14: a synthetic canary must respond correctly within latency budget.
+    return bool(canary_ok) and bool(response_time_ok)
+
+def ii_trace_sampling_policy(sampled, budget):
+    # II15: trace sampling must respect the budget.
+    return sampled <= budget
+
+def ii_service_level_indicator_definition(metric, definition):
+    # II16: an SLI must have a precise definition.
+    return bool(metric) and bool(definition)
+
+def ii_runbook_availability(incident, runbook):
+    # II17: every incident type must have a runbook.
+    return incident in runbook
+
+def ii_oncall_coverage(shift, covered):
+    # II18: coverage is valid only when the current shift is covered.
+    return bool(shift) and bool(covered)
+
+def ii_metric_retention_rotate(retention_days, max_days):
+    # II19: metric retention must respect the defined window.
+    return retention_days <= max_days
+
+def ii_alert_dedup(throttle, seen):
+    # II20: alerts must be throttled/deduped to avoid noise.
+    return throttle and not seen
+
+def ii_rollup_granularity(source_granularity, target_granularity):
+    # II21: rollup target granularity must be coarser than source.
+    return target_granularity >= source_granularity
+
+def ii_audit_metric_integrity(metric_log, tamper_proof):
+    # II22: metric data must be tamper-evident on retention.
+    return bool(metric_log) and bool(tamper_proof)
+
+def ii_observability_cost_budget(obs_cost, budget):
+    # II23: observability tooling cost must stay within budget.
+    return obs_cost <= budget
+
+def ii_self_monitoring_loop(monitor_healthy, loop_alive):
+    # II24: the monitoring system must monitor itself.
+    return bool(monitor_healthy) and bool(loop_alive)
+
+def selftest_ii():
+    return [(1, ii_metric_definition_complete("latency",True,True,True)),
+            (2, ii_dashboard_lag(100,80,60)),
+            (3, ii_alert_route_coverage(["cpu","mem"],["cpu","mem","disk"])),
+            (4, ii_log_correlation_id("t1",[{"trace_id":"t1"},{"trace_id":"t1"}])),
+            (5, ii_metric_drift_detect(95,80,10)),
+            (6, ii_slo_budget_enforce(0.99,0.95)),
+            (7, ii_error_budget_burn(0.05,0.02)),
+            (8, len(ii_anomaly_threshold_adaptive([1]*10 + [100], 2)) >= 1),
+            (9, ii_service_discovery_healthy(["a","b"],["a","b","c"])),
+            (10, ii_health_check_probe(True,True)),
+            (11, ii_telemetry_sampling_rate(0.5,0.1)),
+            (12, ii_event_schema_version([{"schema_version":2},{"schema_version":2}],2)),
+            (13, ii_dependency_health_matrix("s",{"s":["d1"]},["d1"])),
+            (14, ii_synthetic_canary(True,True)),
+            (15, ii_trace_sampling_policy(50,100)),
+            (16, ii_service_level_indicator_definition("latency","p99")),
+            (17, ii_runbook_availability("outage",["outage","ddos"])),
+            (18, ii_oncall_coverage(True,True)),
+            (19, ii_metric_retention_rotate(30,90)),
+            (20, ii_alert_dedup(True,False)),
+            (21, ii_rollup_granularity(60,300)),
+            (22, ii_audit_metric_integrity(True,True)),
+            (23, ii_observability_cost_budget(80,100)),
+            (24, ii_self_monitoring_loop(True,True))]

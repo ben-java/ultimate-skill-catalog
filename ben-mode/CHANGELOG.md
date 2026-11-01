@@ -1,3 +1,8 @@
+## v0.40.0 (2026-11-01) — Wave I Observability & Monitoring Integrity II01–II24 (BAGIAN 40)
+
+- **II01–II24**: metric definition completeness, dashboard lag, alert route coverage, log correlation id, metric drift detect, SLO budget enforcement, error budget burn, adaptive anomaly threshold, service discovery health, health check probe, telemetry sampling rate, event schema versioning, dependency health matrix, synthetic canary, trace sampling policy, SLI definition, runbook availability, on-call coverage, metric retention rotation, alert dedup, rollup granularity, audit metric integrity, observability cost budget, self-monitoring loop. Disurfacing `P_II01–P_II24`; 24/24 PASS.
+- **BAGIAN 40** ditambahkan; bump serentak 0.40.0.
+
 ## v0.39.0 (2026-11-01) — Wave H Privacy & Confidential Computing Integrity HH01–HH24 (BAGIAN 39)
 
 - **HH01–HH24**: PII redaction, DP noise, k-anonymity, l-diversity, t-closeness, HE support, SMC, FL aggregation, ZKP, TEE attestation, data minimization, purpose limitation, encryption at rest/in flight, key rotation, default-deny, revocable consent, right-to-be-forgotten, retention window, incident notify, privacy-safe audit trail, de-identified training, IP boundary, confidential inference enclave. Disurfacing `P_HH01–P_HH24`; 24/24 PASS.

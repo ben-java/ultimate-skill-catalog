@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.39.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.40.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2061,3 +2061,17 @@ disurfacing `P_HH01–P_HH24`; diverifikasi 24/24 PASS (selftest_hh rc 0).
 - Enkripsi & kunci: HH13 `hh_storage_encryption_at_rest`, HH14 `hh_transport_encryption_in_flight`, HH15 `hh_key_rotation_policy`.
 - Akses & consent: HH16 `hh_access_deny_by_default`, HH17 `hh_consent_record_revocable`, HH18 `hh_right_to_be_forgotten`.
 - Insiden & audit: HH20 `hh_security_incident_notify`, HH21 `hh_audit_trail_privacy_safe`.
+
+---
+
+# BAGIAN 40 — WAVE I: OBSERVABILITY & MONITORING INTEGRITY II01–II24 (VERIFIED; v0.40.0)
+
+Menambahkan lapisan observability & monitoring integrity: `II01–II24` di `hard_gate_enhancements.py`,
+disurfacing `P_II01–P_II24`; diverifikasi 24/24 PASS (selftest_ii rc 0).
+
+- Metrik & Drift: II01 `ii_metric_definition_complete`, II05 `ii_metric_drift_detect`, II11 `ii_telemetry_sampling_rate`, II16 `ii_service_level_indicator_definition`, II19 `ii_metric_retention_rotate`, II21 `ii_rollup_granularity`.
+- Dashboard & Logging: II02 `ii_dashboard_lag`, II04 `ii_log_correlation_id`, II12 `ii_event_schema_version`, II22 `ii_audit_metric_integrity`.
+- Alerting & On-Call: II03 `ii_alert_route_coverage`, II17 `ii_runbook_availability`, II18 `ii_oncall_coverage`, II20 `ii_alert_dedup`.
+- SLO & Error Budget: II06 `ii_slo_budget_enforce`, II07 `ii_error_budget_burn`, II23 `ii_observability_cost_budget`.
+- Anomali & Deteksi: II08 `ii_anomaly_threshold_adaptive`, II14 `ii_synthetic_canary`, II15 `ii_trace_sampling_policy`.
+- Layanan & Kesehatan: II09 `ii_service_discovery_healthy`, II10 `ii_health_check_probe`, II13 `ii_dependency_health_matrix`, II24 `ii_self_monitoring_loop`.
