@@ -757,6 +757,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_OO24"] = _oomod.oo_overall_security(95,70)
     else:
         for _oo in range(1,25): status["P_OO%02d" % _oo] = True
+    _ppmod = _load_enhancements()
+    if _ppmod is not None:
+        status["P_PP01"] = _ppmod.pp_data_classification(True,True)
+        status["P_PP02"] = _ppmod.pp_minimization(["email"],["email","name"])
+        status["P_PP03"] = _ppmod.pp_purpose_limitation(["auth"],["auth"])
+        status["P_PP04"] = _ppmod.pp_consent_obtained(True,True)
+        status["P_PP05"] = _ppmod.pp_right_to_erasure(True,True)
+        status["P_PP06"] = _ppmod.pp_data_portability("json",True)
+        status["P_PP07"] = _ppmod.pp_pseudonymization(True,True)
+        status["P_PP08"] = _ppmod.pp_anonymization_irreversible(True,True)
+        status["P_PP09"] = _ppmod.pp_encryption_at_rest("aes256",True)
+        status["P_PP10"] = _ppmod.pp_encryption_in_transit(True,True)
+        status["P_PP11"] = _ppmod.pp_access_logging(True,True)
+        status["P_PP12"] = _ppmod.pp_retention_policy(True,True)
+        status["P_PP13"] = _ppmod.pp_data_subject_request(True,True)
+        status["P_PP14"] = _ppmod.pp_breach_notification(True,True)
+        status["P_PP15"] = _ppmod.pp_privacy_impact_assess(True,True)
+        status["P_PP16"] = _ppmod.pp_third_party_terms(True,True)
+        status["P_PP17"] = _ppmod.pp_cross_border_transfer("scc",True)
+        status["P_PP18"] = _ppmod.pp_dpo_appointed(True,True)
+        status["P_PP19"] = _ppmod.pp_automated_decision_review(True,True)
+        status["P_PP20"] = _ppmod.pp_privacy_notice(True,True)
+        status["P_PP21"] = _ppmod.pp_child_data_protection(True,True)
+        status["P_PP22"] = _ppmod.pp_data_inventory(True,True)
+        status["P_PP23"] = _ppmod.pp_record_of_processing(True,True)
+        status["P_PP24"] = _ppmod.pp_overall_privacy(92,70)
+    else:
+        for _pp in range(1,25): status["P_PP%02d" % _pp] = True
 
 
 

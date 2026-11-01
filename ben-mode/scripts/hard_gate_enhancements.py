@@ -4030,3 +4030,128 @@ def selftest_oo():
             (22, oo_crypto_suites(True, True)),
             (23, oo_third_party_risk(True, True)),
             (24, oo_overall_security(95, 70))]
+
+# ------------------------------------------------------------------
+# WAVE P — PRIVACY & DATA PROTECTION INTEGRITY (PP01–PP24)
+# ------------------------------------------------------------------
+def pp_data_classification(classified, labels_present):
+    # PP01: data classified with labels.
+    return bool(classified) and bool(labels_present)
+
+def pp_minimization(collected, needed):
+    # PP02: collect only needed data.
+    return set(collected) <= set(needed)
+
+def pp_purpose_limitation(purposes, declared):
+    # PP03: use limited to declared purpose.
+    return set(purposes) <= set(declared)
+
+def pp_consent_obtained(consent, prior):
+    # PP04: consent obtained before processing.
+    return bool(consent) and bool(prior)
+
+def pp_right_to_erasure(supported, executed):
+    # PP05: erasure right supported+executed.
+    return bool(supported) and bool(executed)
+
+def pp_data_portability(export_format, complete):
+    # PP06: data exportable in standard format.
+    return bool(export_format) and bool(complete)
+
+def pp_pseudonymization(applied, key_separated):
+    # PP07: pseudonymization with separated key.
+    return bool(applied) and bool(key_separated)
+
+def pp_anonymization_irreversible(tech, no_reauth):
+    # PP08: anonymization irreversible.
+    return bool(tech) and bool(no_reauth)
+
+def pp_encryption_at_rest(algo, key_managed):
+    # PP09: data encrypted at rest.
+    return bool(algo) and bool(key_managed)
+
+def pp_encryption_in_transit(tls, version_ok):
+    # PP10: data encrypted in transit.
+    return bool(tls) and bool(version_ok)
+
+def pp_access_logging(logs, reviewer):
+    # PP11: access logged and reviewed.
+    return bool(logs) and bool(reviewer)
+
+def pp_retention_policy(policy, enforced):
+    # PP12: retention policy defined+enforced.
+    return bool(policy) and bool(enforced)
+
+def pp_data_subject_request(dsr, sla_met):
+    # PP13: DSR handled within SLA.
+    return bool(dsr) and bool(sla_met)
+
+def pp_breach_notification(detect, notify_timely):
+    # PP14: breach detected+notified timely.
+    return bool(detect) and bool(notify_timely)
+
+def pp_privacy_impact_assess(pia, before_processing):
+    # PP15: PIA done before processing.
+    return bool(pia) and bool(before_processing)
+
+def pp_third_party_terms(contract, dp_clauses):
+    # PP16: third-party contract w/ DP clauses.
+    return bool(contract) and bool(dp_clauses)
+
+def pp_cross_border_transfer(mechanism, lawful):
+    # PP17: cross-border transfer lawful mechanism.
+    return bool(mechanism) and bool(lawful)
+
+def pp_dpo_appointed(dpo, contactable):
+    # PP18: Data Protection Officer appointed.
+    return bool(dpo) and bool(contactable)
+
+def pp_automated_decision_review(adp, human_review):
+    # PP19: automated decisions have human review.
+    return bool(adp) and bool(human_review)
+
+def pp_privacy_notice(notice, transparent):
+    # PP20: privacy notice transparent.
+    return bool(notice) and bool(transparent)
+
+def pp_child_data_protection(age_gate, parental_consent):
+    # PP21: child data requires parental consent.
+    return bool(age_gate) and bool(parental_consent)
+
+def pp_data_inventory(inventory, updated):
+    # PP22: data inventory maintained+updated.
+    return bool(inventory) and bool(updated)
+
+def pp_record_of_processing(rop, complete):
+    # PP23: record of processing complete.
+    return bool(rop) and bool(complete)
+
+def pp_overall_privacy(score, min_score):
+    # PP24: overall privacy score meets minimum.
+    return score >= min_score
+
+def selftest_pp():
+    return [(1, pp_data_classification(True, True)),
+            (2, pp_minimization(["email"], ["email", "name"])),
+            (3, pp_purpose_limitation(["auth"], ["auth"])),
+            (4, pp_consent_obtained(True, True)),
+            (5, pp_right_to_erasure(True, True)),
+            (6, pp_data_portability("json", True)),
+            (7, pp_pseudonymization(True, True)),
+            (8, pp_anonymization_irreversible(True, True)),
+            (9, pp_encryption_at_rest("aes256", True)),
+            (10, pp_encryption_in_transit(True, True)),
+            (11, pp_access_logging(True, True)),
+            (12, pp_retention_policy(True, True)),
+            (13, pp_data_subject_request(True, True)),
+            (14, pp_breach_notification(True, True)),
+            (15, pp_privacy_impact_assess(True, True)),
+            (16, pp_third_party_terms(True, True)),
+            (17, pp_cross_border_transfer("scc", True)),
+            (18, pp_dpo_appointed(True, True)),
+            (19, pp_automated_decision_review(True, True)),
+            (20, pp_privacy_notice(True, True)),
+            (21, pp_child_data_protection(True, True)),
+            (22, pp_data_inventory(True, True)),
+            (23, pp_record_of_processing(True, True)),
+            (24, pp_overall_privacy(92, 70))]

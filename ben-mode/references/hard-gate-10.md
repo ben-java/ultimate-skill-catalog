@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.46.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.47.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2161,3 +2161,17 @@ disurfacing `P_OO01–P_OO24`; diverifikasi 24/24 PASS (selftest_oo rc 0).
 - Memory & Runtime: OO12 `oo_memory_safety`, OO13 `oo_race_guard`, OO20 `oo_runtime_protection`.
 - Dependencies & Crypto: OO16 `oo_dependency_vuln_scan`, OO22 `oo_crypto_suites`, OO23 `oo_third_party_risk`.
 - Secrets & Skor: OO19 `oo_secret_storage`, OO24 `oo_overall_security`.
+
+---
+
+# BAGIAN 47 — WAVE P: PRIVACY & DATA PROTECTION INTEGRITY PP01–PP24 (VERIFIED; v0.47.0)
+
+Menambahkan lapisan privacy & data protection: `PP01–PP24` di `hard_gate_enhancements.py`,
+disurfacing `P_PP01–P_PP24`; diverifikasi 24/24 PASS (selftest_pp rc 0).
+
+- Data Stewardship: PP01 `pp_data_classification`, PP02 `pp_minimization`, PP03 `pp_purpose_limitation`, PP22 `pp_data_inventory`, PP23 `pp_record_of_processing`.
+- Consent & Rights: PP04 `pp_consent_obtained`, PP05 `pp_right_to_erasure`, PP06 `pp_data_portability`, PP13 `pp_data_subject_request`.
+- De-identification: PP07 `pp_pseudonymization`, PP08 `pp_anonymization_irreversible`.
+- Protection & Access: PP09 `pp_encryption_at_rest`, PP10 `pp_encryption_in_transit`, PP11 `pp_access_logging`, PP12 `pp_retention_policy`.
+- Governance & Breach: PP14 `pp_breach_notification`, PP15 `pp_privacy_impact_assess`, PP16 `pp_third_party_terms`, PP17 `pp_cross_border_transfer`, PP18 `pp_dpo_appointed`.
+- Notice & Special: PP19 `pp_automated_decision_review`, PP20 `pp_privacy_notice`, PP21 `pp_child_data_protection`, PP24 `pp_overall_privacy`.

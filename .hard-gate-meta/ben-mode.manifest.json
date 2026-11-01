@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T23:31:14.055833+00:00",
+  "generated_at": "2026-11-01T23:55:25.221491+00:00",
   "file_count": 139,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 38004,
-      "sha256": "140ae2a17e709fcb7c3623d71c9ce75e1520dc89c45c712eadc592989ce4a5a8"
+      "size": 38602,
+      "sha256": "105dcb86ee41e4b83b1f57f1c9d6d4614da93fcdd41f1e94bd2c4ff4cd394d50"
     },
     {
       "path": "SKILL.md",
       "size": 60292,
-      "sha256": "48d4d635792ec85d60d82946eb650d5066ae656489c8e46bea9fb44b57417cf7"
+      "sha256": "07db277611dcb1d97d1d1cacb63deab1fb9cdea918418fac5dd66f51038c59f4"
     },
     {
       "path": "gate.conf",
@@ -27,8 +27,8 @@
     },
     {
       "path": ".hard-gate-meta/gate-time.jsonl",
-      "size": 112,
-      "sha256": "94a13e2ec186ae60a6d38b7d5d0e233fedacc04e7b46003f89697079b16dacb2"
+      "size": 35,
+      "sha256": "94f1e24251a670acfb65b341963790523a8ad80b95730781e149444ab41edb38"
     },
     {
       "path": "references/article-evidence.md",
@@ -82,8 +82,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 127919,
-      "sha256": "89f89cadab15f6a760b2420ec9eac076275fb490237f9e7dfa6a1a7eac2daf48"
+      "size": 129044,
+      "sha256": "60b1f5dcfeef6005ace9f0f9b2a0d063d3386e1622ece19dc6feb37666779856"
     },
     {
       "path": "references/large-document-editing.md",
@@ -207,8 +207,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 112321,
-      "sha256": "a52d20f0f95415b16e4d40c77fe328a9f51326ddd173fa1f4e94ba3fb8d6c5bf"
+      "size": 114116,
+      "sha256": "219d067808de48e8a41abacdb2fdb253c299092c5dd26b9f24e7341f03f10c25"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -227,8 +227,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 174285,
-      "sha256": "a2e8b6e3d9cd714480a9bab02f7a81d4d33198a6427789795a4603e44d7ee174"
+      "size": 179195,
+      "sha256": "7be93474ecd449dafeb80fc0f98d651442974e15f6b530692b5f5c1ce0cfd41a"
     },
     {
       "path": "scripts/install-precommit-hook.sh",

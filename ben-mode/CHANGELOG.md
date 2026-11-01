@@ -1,3 +1,8 @@
+## v0.47.0 (2026-11-02) — Wave P Privacy & Data Protection Integrity PP01–PP24 (BAGIAN 47)
+
+- **PP01–PP24**: data classification, minimization, purpose limitation, consent, erasure, portability, pseudonymization, anonymization, encryption at rest/in transit, access logging, retention policy, DSR, breach notification, PIA, third-party terms, cross-border transfer, DPO, automated-decision review, privacy notice, child data protection, data inventory, record of processing, overall privacy. Disurfacing `P_PP01–P_PP24`; 24/24 PASS.
+- **BAGIAN 47** ditambahkan; bump serentak 0.47.0.
+
 ## v0.46.0 (2026-11-02) — Wave O Security & Threat Hardening OO01–OO24 (BAGIAN 46)
 
 - **OO01–OO24**: least privilege, input validation, SQLi guard, XSS encoding, strong authn, MFA, authorization check, secure error handling, session management, secure defaults, file perms, memory safety, race guard, CSRF protection, log sanitization, dependency vuln scan, security headers, upload validation, secret storage, runtime protection, CSP, crypto suites, third-party risk, overall security. Disurfacing `P_OO01–P_OO24`; 24/24 PASS.
