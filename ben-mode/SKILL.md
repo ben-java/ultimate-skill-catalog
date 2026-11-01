@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.45.0
+version: 0.46.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)

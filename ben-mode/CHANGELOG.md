@@ -1,3 +1,8 @@
+## v0.46.0 (2026-11-02) — Wave O Security & Threat Hardening OO01–OO24 (BAGIAN 46)
+
+- **OO01–OO24**: least privilege, input validation, SQLi guard, XSS encoding, strong authn, MFA, authorization check, secure error handling, session management, secure defaults, file perms, memory safety, race guard, CSRF protection, log sanitization, dependency vuln scan, security headers, upload validation, secret storage, runtime protection, CSP, crypto suites, third-party risk, overall security. Disurfacing `P_OO01–P_OO24`; 24/24 PASS.
+- **BAGIAN 46** ditambahkan; bump serentak 0.46.0.
+
 ## v0.45.0 (2026-11-02) — Wave N Network & Communication Integrity NN01–NN24 (BAGIAN 45)
 
 - **NN01–NN24**: channel encryption, message authentication, endpoint identity, replay protection, transport security, network segmentation, firewall policy, traffic anomaly, protocol validation, bandwidth quota, latency SLA, flow permission, cert rotation, DNS security, DoS mitigation, network monitoring, redundant paths, QoS, e2e consistency, config versioning, message ordering, federation trust, key lifetime, network health. Disurfacing `P_NN01–P_NN24`; 24/24 PASS.

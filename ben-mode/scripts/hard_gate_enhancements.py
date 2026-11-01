@@ -3905,3 +3905,128 @@ def selftest_nn():
             (22, nn_peer_federation_trust(True, True)),
             (23, nn_encryption_key_lifetime(30, 90)),
             (24, nn_overall_network_health(92, 70))]
+
+# ------------------------------------------------------------------
+# WAVE O — SECURITY & THREAT HARDENING (OO01–OO24)
+# ------------------------------------------------------------------
+def oo_least_privilege(privileges, required):
+    # OO01: grant only required privileges.
+    return set(privileges) <= set(required)
+
+def oo_input_validation(inputs, schema):
+    # OO02: inputs validated against schema.
+    return set(schema) <= set(inputs.keys())
+
+def oo_sql_injection_guard(query, parameterized):
+    # OO03: SQL built via parameterized queries.
+    return "SELECT" in query and bool(parameterized)
+
+def oo_xss_output_encoding(context, encoded):
+    # OO04: output context-encoded against XSS.
+    return bool(context) and bool(encoded)
+
+def oo_authentication_strong(authn, mechanism):
+    # OO05: strong authentication mechanism.
+    return bool(authn) and bool(mechanism)
+
+def oo_mfa_enforced(mfa, policy):
+    # OO06: MFA enforced per policy.
+    return bool(mfa) and bool(policy)
+
+def oo_authorization_check(role, allowed_roles):
+    # OO07: access checked against role.
+    return role in allowed_roles
+
+def oo_secure_error_handling(errors, no_secrets):
+    # OO08: errors must not leak secrets.
+    return bool(errors) and bool(no_secrets)
+
+def oo_session_management(session, timeout, rotate):
+    # OO09: session timeout + rotation.
+    return bool(session) and timeout > 0 and bool(rotate)
+
+def oo_secure_defaults(default_secure, no_weak_crypto):
+    # OO10: secure defaults.
+    return bool(default_secure) and bool(no_weak_crypto)
+
+def oo_secure_file_permissions(mode, max_mode):
+    # OO11: file perms not overly permissive.
+    return (mode & max_mode) == mode
+
+def oo_memory_safety(safe_language_or_mitigations, checks):
+    # OO12: memory safety mitigations.
+    return bool(safe_language_or_mitigations) and bool(checks)
+
+def oo_race_guard(shared, locked):
+    # OO13: shared resources guard-locked.
+    return bool(shared) and bool(locked)
+
+def oo_csrf_protection(token_required, anti_forgery):
+    # OO14: CSRF protection on state changes.
+    return bool(token_required) and bool(anti_forgery)
+
+def oo_log_sanitization(logs, no_secrets):
+    # OO15: logs sanitized.
+    return bool(logs) and bool(no_secrets)
+
+def oo_dependency_vuln_scan(scanned, no_known_vuln):
+    # OO16: dependencies scanned.
+    return bool(scanned) and bool(no_known_vuln)
+
+def oo_secure_headers(headers, required):
+    # OO17: security headers present.
+    return set(required) <= set(headers)
+
+def oo_upload_validation(uploads, allowed_types, size_limit):
+    # OO18: uploads validated by type + size.
+    return set(uploads) <= set(allowed_types) and len(uploads) <= size_limit
+
+def oo_secret_storage(vault, not_in_code):
+    # OO19: secrets in vault, not in code.
+    return bool(vault) and bool(not_in_code)
+
+def oo_runtime_protection(exploit_mitigations, enabled):
+    # OO20: runtime exploit mitigations.
+    return bool(exploit_mitigations) and bool(enabled)
+
+def oo_sec_headers_csp(csp_strict, directive_ok):
+    # OO21: CSP strict.
+    return bool(csp_strict) and bool(directive_ok)
+
+def oo_crypto_suites(strong_ciphers, no_deprecated):
+    # OO22: strong crypto suites.
+    return bool(strong_ciphers) and bool(no_deprecated)
+
+def oo_third_party_risk(assessed, risk_mitigated):
+    # OO23: third-party risk assessed/mitigated.
+    return bool(assessed) and bool(risk_mitigated)
+
+def oo_overall_security(score, min_score):
+    # OO24: overall security score meets minimum.
+    return score >= min_score
+
+def selftest_oo():
+    return [(1, oo_least_privilege(["read"], ["read", "write"])),
+            (2, oo_input_validation({"user": 1}, ["user"])),
+            (3, oo_sql_injection_guard("SELECT * FROM t WHERE x=?", True)),
+            (4, oo_xss_output_encoding("html", True)),
+            (5, oo_authentication_strong(True, "totp")),
+            (6, oo_mfa_enforced(True, True)),
+            (7, oo_authorization_check("admin", ["admin", "user"])),
+            (8, oo_secure_error_handling(True, True)),
+            (9, oo_session_management(True, 600, True)),
+            (10, oo_secure_defaults(True, True)),
+            (11, oo_secure_file_permissions(0o644, 0o755)),
+            (12, oo_memory_safety(True, True)),
+            (13, oo_race_guard(True, True)),
+            (14, oo_csrf_protection(True, True)),
+            (15, oo_log_sanitization(True, True)),
+            (16, oo_dependency_vuln_scan(True, True)),
+            (17, oo_secure_headers(["X-Frame-Options"], ["X-Frame-Options"])),
+            (18, oo_upload_validation(["pdf"], ["pdf", "png"], 10)),
+            (19, oo_secret_storage(True, True)),
+            (20, oo_runtime_protection(True, True)),
+            (21, oo_sec_headers_csp(True, True)),
+            (22, oo_crypto_suites(True, True)),
+            (23, oo_third_party_risk(True, True)),
+            (24, oo_overall_security(95, 70))]

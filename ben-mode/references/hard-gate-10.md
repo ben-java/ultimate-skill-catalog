@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.45.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.46.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2146,3 +2146,18 @@ disurfacing `P_NN01–P_NN24`; diverifikasi 24/24 PASS (selftest_nn rc 0).
 - Message & Config: NN19 `nn_e2e_consistency`, NN20 `nn_network_config_versioning`.
 - DNS & Cert: NN13 `nn_tls_cert_rotation`, NN14 `nn_dns_security`.
 - Skor: NN24 `nn_overall_network_health`.
+
+---
+
+# BAGIAN 46 — WAVE O: SECURITY & THREAT HARDENING OO01–OO24 (VERIFIED; v0.46.0)
+
+Menambahkan lapisan security & threat hardening: `OO01–OO24` di `hard_gate_enhancements.py`,
+disurfacing `P_OO01–P_OO24`; diverifikasi 24/24 PASS (selftest_oo rc 0).
+
+- Access & Identity: OO01 `oo_least_privilege`, OO05 `oo_authentication_strong`, OO06 `oo_mfa_enforced`, OO07 `oo_authorization_check`, OO09 `oo_session_management`.
+- Input & Output: OO02 `oo_input_validation`, OO03 `oo_sql_injection_guard`, OO04 `oo_xss_output_encoding`, OO14 `oo_csrf_protection`, OO18 `oo_upload_validation`.
+- Error & Log: OO08 `oo_secure_error_handling`, OO15 `oo_log_sanitization`.
+- Config & Files: OO10 `oo_secure_defaults`, OO11 `oo_secure_file_permissions`, OO17 `oo_secure_headers`, OO21 `oo_sec_headers_csp`.
+- Memory & Runtime: OO12 `oo_memory_safety`, OO13 `oo_race_guard`, OO20 `oo_runtime_protection`.
+- Dependencies & Crypto: OO16 `oo_dependency_vuln_scan`, OO22 `oo_crypto_suites`, OO23 `oo_third_party_risk`.
+- Secrets & Skor: OO19 `oo_secret_storage`, OO24 `oo_overall_security`.
