@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T13:23:04.215060+00:00",
-  "file_count": 98,
+  "generated_at": "2026-11-01T13:28:12.014907+00:00",
+  "file_count": 136,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 26658,
-      "sha256": "d2dcdde5f9937550e98fb3b44dcd7d51723a867ad836bd7cc419eb4ac2c22733"
+      "size": 27114,
+      "sha256": "4cc16eb8c2d5015989953927f922a23ca4ae90fe90645ea0d405faa110c55250"
     },
     {
       "path": "SKILL.md",
       "size": 51347,
-      "sha256": "c92d86e198026f5448de0711ea5b4232c2920a913306b3b6f574b481c803d91d"
+      "sha256": "630e4efc2f97b3d7994ecef4813bbc466bb1b6091625cf997d4bf64a3a7e8d17"
     },
     {
       "path": "gate.conf",
@@ -67,8 +67,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 94012,
-      "sha256": "11b9ac7a4165a4fb2cd75cfbe11ae30b6093a86a406adbdba538fb0a9da8516a"
+      "size": 97454,
+      "sha256": "e7f2c03f1d2d21376f52be60d7e51118f67a680377e47327e38c8834ec25cdf2"
     },
     {
       "path": "references/large-document-editing.md",
@@ -77,8 +77,8 @@
     },
     {
       "path": "references/mechanism-extension-recipe.md",
-      "size": 3856,
-      "sha256": "5a0fa434e235ded78603c025c8a7f85c65e71d30639de04a8fce18f5ca6ae5c5"
+      "size": 4224,
+      "sha256": "25a5117dd52a9fa01261bdd0fc75f9df2bc668da055e60ae9921f237ae87c651"
     },
     {
       "path": "references/pdf-corpus-regeneration.md",
@@ -192,8 +192,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 74094,
-      "sha256": "b05d5b3d6a3dd5dc88acfe248f673c1d112dbe8d22680dfc3dab04a894f3443a"
+      "size": 76210,
+      "sha256": "63b1599a7d70ce4a425f243e6e7c67ff3125f256586fd612a5ddb30723c3f3d4"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -212,8 +212,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 66334,
-      "sha256": "08d74514d5272c59d1a8c7b64ab889a339863db97dd265bb25878cd91bfcf981"
+      "size": 73859,
+      "sha256": "3a75d5fa32cbd85d895f7879eebf3c19092c30b903d32cba396c2cf1bf48e75e"
     },
     {
       "path": "scripts/install-precommit-hook.sh",
@@ -494,6 +494,196 @@
       "path": "scripts/tests/__pycache__/test_toolchain.cpython-314.pyc",
       "size": 10923,
       "sha256": "b9d68c6aa2bc40f38ed23f0cf3aa45433ee99f9fe68ab6fe09955a5a6b48e005"
+    },
+    {
+      "path": "scripts/__pycache__/agentlog2trace.cpython-314.pyc",
+      "size": 4779,
+      "sha256": "2ac6484d9953a559f6f681871ee40b55aae1a6512e0751b48b949b9f2dd0f75b"
+    },
+    {
+      "path": "scripts/__pycache__/aggregate-audit.cpython-314.pyc",
+      "size": 3417,
+      "sha256": "714a0b94034714b8eb7a58d95542847e400d3793a9d8577e1b896a036a399657"
+    },
+    {
+      "path": "scripts/__pycache__/allowlist.cpython-314.pyc",
+      "size": 9786,
+      "sha256": "ba4fbcabc060e03c2e331144b94186347338d5b77ef41f1bb14749f4956982ac"
+    },
+    {
+      "path": "scripts/__pycache__/bmc_concurrency.cpython-314.pyc",
+      "size": 9995,
+      "sha256": "82f483b6cd634b35440fac49bd3ab12bd76f9f596a63899baff4ca22c2507c28"
+    },
+    {
+      "path": "scripts/__pycache__/bmc_replica_state.cpython-314.pyc",
+      "size": 5420,
+      "sha256": "926b610338ccf333bd3e710e7af63d838a20a04b54e21bc12539b57d06e2b6a0"
+    },
+    {
+      "path": "scripts/__pycache__/check-model-signed.cpython-314.pyc",
+      "size": 5995,
+      "sha256": "7626cd6a8f657c5495d951cf6843c9f49f45ee8aef9cc2b70fd909ee3ae34ec6"
+    },
+    {
+      "path": "scripts/__pycache__/check-vsa.cpython-314.pyc",
+      "size": 4810,
+      "sha256": "fe83e1df750059bbd2b2cdd165b2c68157dc8e6fbf20a556aa71a5fe8fe45578"
+    },
+    {
+      "path": "scripts/__pycache__/cost-report.cpython-314.pyc",
+      "size": 4828,
+      "sha256": "f4005575fbd4357f7140cae568bcf61282e8b85b00e2f6a918a3f02935d23bb9"
+    },
+    {
+      "path": "scripts/__pycache__/gate_predicates.cpython-314.pyc",
+      "size": 90754,
+      "sha256": "0f389e08875692eb7d1c4c78d3762a06d872aa8298167c4fc981ede75e1cf92d"
+    },
+    {
+      "path": "scripts/__pycache__/generate-dashboard.cpython-314.pyc",
+      "size": 16929,
+      "sha256": "869078f639505daae616106a71c26a9376483c0d86c16a8b6aa55d07d3cbc72e"
+    },
+    {
+      "path": "scripts/__pycache__/generate-sbom.cpython-314.pyc",
+      "size": 5476,
+      "sha256": "1f2bc4683215ec97d941b18771a6129dc15e73094921e522571316c09815529e"
+    },
+    {
+      "path": "scripts/__pycache__/generate_manifest.cpython-314.pyc",
+      "size": 5959,
+      "sha256": "1f967b86f3e5a2b075eb70bba74ceb553f054b9c3217a817a41c779296e2a706"
+    },
+    {
+      "path": "scripts/__pycache__/hard_gate_enhancements.cpython-314.pyc",
+      "size": 105932,
+      "sha256": "1453d1a6de4b8981e54c825b685b6e4dac6016397a4be2a18278388012bf461b"
+    },
+    {
+      "path": "scripts/__pycache__/keyless-check.cpython-314.pyc",
+      "size": 1128,
+      "sha256": "92a58d0afb0267ec0b1d86e99f368f16edb16b3adb3e6a0441e503dd8837f17c"
+    },
+    {
+      "path": "scripts/__pycache__/model-tier.cpython-314.pyc",
+      "size": 2562,
+      "sha256": "4c291f1192e56999c2b131ca8501e5d6e22236f8eedfd69a898ec3bd407a53a3"
+    },
+    {
+      "path": "scripts/__pycache__/opa-policy-check.cpython-314.pyc",
+      "size": 6009,
+      "sha256": "492ebb8b6f0317e9ad2e5f2f7437d177bfdcfbe376b0966dce275f8d5ca673e1"
+    },
+    {
+      "path": "scripts/__pycache__/quorum-check.cpython-314.pyc",
+      "size": 6708,
+      "sha256": "7683df659d4369e1315840e8b80e7723b962a05b2cad3463bdbd1e2a97b4184d"
+    },
+    {
+      "path": "scripts/__pycache__/regression-oracle.cpython-314.pyc",
+      "size": 8309,
+      "sha256": "fd8f5870cf7aec4a69bb751b3c6311b6e5f96c162c12352f33fbf7e993cd0e79"
+    },
+    {
+      "path": "scripts/__pycache__/report-drift.cpython-314.pyc",
+      "size": 5787,
+      "sha256": "9e73a7cb8c3269a5a8a0da4f82f300fcd96650c3803271db4e970aa4cdc4a783"
+    },
+    {
+      "path": "scripts/__pycache__/rotate-audit-logs.cpython-314.pyc",
+      "size": 2410,
+      "sha256": "2ce8c22af3d7fc4a2e8098c13d9c25a784a278fa1773a590d6598060cfb7e5b1"
+    },
+    {
+      "path": "scripts/__pycache__/routing-health.cpython-314.pyc",
+      "size": 8385,
+      "sha256": "1cee72873fb2f39d045be204522f8ddb17d55bd50611bea83613d9e1b3cc491d"
+    },
+    {
+      "path": "scripts/__pycache__/runtime-gate-watch.cpython-314.pyc",
+      "size": 6402,
+      "sha256": "8ca4e1ac08bb939323e825831e22265fdceab0d4c4fc5d84baa8bd786c7c87a5"
+    },
+    {
+      "path": "scripts/__pycache__/runtime_gate.cpython-314.pyc",
+      "size": 22172,
+      "sha256": "a8ed5a689b9dc8c8fc9b745241292f52768951c52f7e6f7b96fcc7c4679223ab"
+    },
+    {
+      "path": "scripts/__pycache__/scitt-receipt.cpython-314.pyc",
+      "size": 6520,
+      "sha256": "e74b2eb9a4fc6c71c9ecca07728b8920971b9454242e0622edcbf478741ccc79"
+    },
+    {
+      "path": "scripts/__pycache__/self-improvement-gate.cpython-314.pyc",
+      "size": 4057,
+      "sha256": "f0072eeb8a98302709f7044a93b47f9e21048bc61fd812122e51b1675d780c60"
+    },
+    {
+      "path": "scripts/__pycache__/settle-unverified.cpython-314.pyc",
+      "size": 2729,
+      "sha256": "2da0d9014a16ff73a22941da92dc1b96f3eb7101482020cb02f7041f3fc20232"
+    },
+    {
+      "path": "scripts/__pycache__/sigstore-verify.cpython-314.pyc",
+      "size": 3851,
+      "sha256": "3a18862f3171090aaa97aea9cc3db068d64d7a90ed6e0a0a1c0a422547d431ca"
+    },
+    {
+      "path": "scripts/__pycache__/span-tree.cpython-314.pyc",
+      "size": 4431,
+      "sha256": "a3cdfe7e7f94e841f45d1de7d435697213f5fb16010466265a91c4becacdbb85"
+    },
+    {
+      "path": "scripts/__pycache__/status-matrix.cpython-314.pyc",
+      "size": 18776,
+      "sha256": "70617219b828324e43753a8db086084c091be0f67ddb425e09b7f4ad7c2b1d57"
+    },
+    {
+      "path": "scripts/__pycache__/traceability.cpython-314.pyc",
+      "size": 7524,
+      "sha256": "d0a53c63383cea22407ce68b548fad91ce67414dbabdde479c494f265d5fed8b"
+    },
+    {
+      "path": "scripts/__pycache__/transparency-log.cpython-314.pyc",
+      "size": 7207,
+      "sha256": "4cdafec69637584bec61f5bf9b02781c3fc83fd827b035f9d772f23bbace652e"
+    },
+    {
+      "path": "scripts/__pycache__/vc-allowlist.cpython-314.pyc",
+      "size": 12831,
+      "sha256": "5f6dcacdfa7c2b3b3b8f2d0bee916310ba453ee289a343c5b65dc17d1b1f9c89"
+    },
+    {
+      "path": "scripts/__pycache__/verification-ledger.cpython-314.pyc",
+      "size": 4241,
+      "sha256": "c524b9947e5c4bd0f23d5249a06605769dccc12b094286b11757756da77a7aa9"
+    },
+    {
+      "path": "scripts/__pycache__/verify_skill_replicas.cpython-314.pyc",
+      "size": 13828,
+      "sha256": "3b888e2ddd835d75c26516ebc36a7ecb8855102c35750d5cdca32e0fdc048c56"
+    },
+    {
+      "path": "scripts/__pycache__/vsa-attestation.cpython-314.pyc",
+      "size": 4575,
+      "sha256": "57d70a809a9f428d9e8207df6c7f24ef52d8fa21cc319bcae2e3ae58cc7635ad"
+    },
+    {
+      "path": "scripts/__pycache__/wasi-sandbox-check.cpython-314.pyc",
+      "size": 1971,
+      "sha256": "e5a6a03e62c9861b6cf14104f89e30cbbeffd6850cb1cf669a689ff0499c73d4"
+    },
+    {
+      "path": "scripts/__pycache__/weekly-summary.cpython-314.pyc",
+      "size": 8904,
+      "sha256": "523d80c846718c738b7ab90b85f0e9dd5e2eef2bb6a5e71c3c593451c343b34a"
+    },
+    {
+      "path": "scripts/__pycache__/zero-trust-pep.cpython-314.pyc",
+      "size": 1704,
+      "sha256": "f4912b4b1299ed3cf4ebf77425c482906bba3e9adc2a5dfe15de05f895ea88a2"
     }
   ]
 }

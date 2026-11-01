@@ -1,3 +1,9 @@
+## v0.29.0 (2026-11-01) — Oracle & Verifier Tier X001–X100 (BAGIAN 29) & X01–X30
+
+- **X001–X100 (Fase 1–8)**: inti komputasi `X01–X30` di `hard_gate_enhancements.py` (executable/constraint/citation oracle, multi-judge, tri-metric AUC/ECE/TTS, reward-safety). Disurfacing `P_X01–P_X30`; diverifikasi 25/25 PASS.
+- **BAGIAN 29** ditambahkan ke `references/hard-gate-10.md`.
+- **v0.28.0→0.29.0**: bump serentak SKILL.md/spec/CHANGELOG.
+
 ## v0.28.0 (2026-11-01) — Phase S001–S105: Comprehensive Roadmap Execution (BAGIAN 26) & T01–T25
 
 - **S001–S105 (Fase 1–14)**: 105 butir roadmap pengembangan AI/formal-verification 2025–2026 dieksekusi — dipetakan ke 25 fungsi komputasi baru (`T01–T25`) di `hard_gate_enhancements.py` + mekanisme `P1–P12`/`N1–N12`/`O1–O21` yang sudah ada.

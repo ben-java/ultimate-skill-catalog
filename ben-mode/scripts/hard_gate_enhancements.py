@@ -1113,8 +1113,173 @@ def gold_curve_peak_detect(gold_hist):
     pk = max(range(len(gold_hist)), key=lambda i: gold_hist[i])
     return pk, gold_hist[pk]
 
+
+# ================= X01..X30  X001..X100 phases 1-8 oracle/verifier tier (2026-11-01) =================
+# X01: executable oracle (deterministic result check)
+def executable_oracle(actual_result, expected):
+    return actual_result == expected
+
+# X02: constraint oracle (arithmetic/constraint satisfaction, stdlib)
+def constraint_oracle(constraints, assignment):
+    for name, fn in constraints.items():
+        if not fn(assignment): return False, name
+    return True, None
+
+# X03: citation-grounding oracle
+def citation_grounding(citation_map, claim, sources):
+    return any(s in citation_map.get(claim, []) for s in sources)
+
+# X05: compact executable Python verifier
+def compact_exec_verifier(code_str, test_inputs, expected_outputs):
+    try:
+        ns = {}; exec(code_str, ns)
+        fn = ns.get("solve")
+        if fn is None: return False
+        return all(fn(i) == o for i, o in zip(test_inputs, expected_outputs))
+    except Exception:
+        return False
+
+# X08: evidence-groundness score
+def evidence_groundness(evidence_supported, evidence_total):
+    return round(evidence_supported/evidence_total, 4) if evidence_total else 0.0
+
+# X09: process vs outcome signal decomposition
+def process_outcome_decompose(process_ok, outcome_ok):
+    if process_ok and outcome_ok: return "valid_trajectory"
+    if process_ok and not outcome_ok: return "shortcut_guess"
+    if not process_ok and outcome_ok: return "lucky_outcome"
+    return "invalid"
+
+# X16: multi-LLM filter (unanimous/median)
+def multi_llm_filter(votes, mode="unanimous"):
+    if mode == "unanimous":
+        return all(votes), sum(votes)/len(votes)
+    return (sum(votes)/len(votes)) >= 0.5, sum(votes)/len(votes)
+
+# X17: human-escalation on borderline
+def human_escalation_borderline(votes, unanimous_on=1.0, borderline_if=0.5):
+    r = sum(votes)/len(votes)
+    if r == unanimous_on: return "keep"
+    if r == borderline_if: return "human_review"
+    return "discard"
+
+# X18: weak-to-strong aggregation
+def weak_to_strong_aggregate(weak_scores, strong_scores):
+    # combine imperfect verifiers; weighted by reliability
+    w = 0.4; s = 0.6
+    return [w*a + s*b for a, b in zip(weak_scores, strong_scores)]
+
+# X19: majority-vote label noise reduction
+def majority_vote_label_noise(labels, threshold=0.5):
+    return sum(labels)/len(labels) >= threshold
+
+# X22: profile-aware voting (conservative/permissive)
+def profile_aware_voting(votes, profiles, threshold=0.5):
+    # weight by inverse of permissive/conservative bias
+    wsum = 0.0; w = 0.0
+    for v, p in zip(votes, profiles):
+        weight = 1.0 if p == "balanced" else 0.8
+        wsum += weight*v; w += weight
+    return wsum/w >= threshold, round(wsum/w, 4)
+
+# X24: correlated-judge detection
+def correlated_judge_detect(pair_agreement, threshold=0.9):
+    return pair_agreement >= threshold
+
+# X26: multi-trial flip-rate + abstain
+def multitrial_abstain(votes, flip_thresh=0.2):
+    k = len(votes); maj = sum(votes)/k if k else 0
+    flip = min(maj, 1-maj)
+    return maj, flip, flip > flip_thresh
+
+# X31: AUC discriminative (rank-based, stdlib)
+def auc_discriminative(scores_pos, scores_neg):
+    pos = sorted(scores_pos); neg = sorted(scores_neg)
+    n, m = len(pos), len(neg)
+    if n == 0 or m == 0: return 0.5
+    inv = 0
+    for p in pos:
+        inv += sum(1 for q in neg if p > q)
+    return round(inv/(n*m), 4)
+
+# X33: TTS top-1 ranking
+def tts_top1(rank, n):
+    return rank == 1, round(1/n, 4) if n else 0.0
+
+# X38: trajectory-level calibration (act/reflect/escalate)
+def trajectory_calibration(confidence, act_thresh, escalate_thresh):
+    if confidence >= act_thresh: return "act"
+    if confidence >= escalate_thresh: return "reflect"
+    return "escalate"
+
+# X39: uncertainty-as-control-signal gating
+def uncertainty_control_gating(uncertainty, gate):
+    return uncertainty <= gate
+
+# X42: confidence-reliability joint
+def confidence_reliability_joint(conf, acc):
+    return round(conf,4), round(acc,4), abs(conf-acc)
+
+# X45: defense-in-depth low-false-positive
+def defense_in_depth_low_fp(checks):
+    # AND of all checks -> low FP
+    return all(checks)
+
+# X53: adversarial hacker-fixer loop
+def adversarial_hacker_fixer(hacker_success, fixer_success):
+    return (not hacker_success) or fixer_success
+
+# X56: grouped eval (false-accept/localize/rank/uncertainty)
+def grouped_eval(judgments, truths):
+    fa = sum(1 for j,t in zip(judgments,truths) if j and not t)
+    fr = sum(1 for j,t in zip(judgments,truths) if not j and t)
+    return fa, fr, round(fa/max(len(truths),1),4), round(fr/max(len(truths),1),4)
+
+# X57: verifier strictness steering
+def verifier_strictness_steer(strictness, target):
+    return strictness + 0.1 if strictness < target else strictness - 0.1
+
+# X62: PRM + ORM signal combination
+def prm_orm_combine(prm, orm, w=0.5):
+    return w*prm + (1-w)*orm
+
+# X65: PRM-as-training-reward shortcut test
+def prm_training_shortcut_test(shortcut_detected):
+    return not shortcut_detected
+
+# X66: trajectory penalty for low-confidence step
+def trajectory_penalty_lowconf(step_conf, penalty_thresh=0.3, penalty=0.2):
+    return max(0.0, sum(1 for c in step_conf if c < penalty_thresh))*penalty
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_x":
+        e1 = executable_oracle(42,42); print(f"X01 exec-oracle: {e1}")
+        c2 = constraint_oracle({"gt0": lambda a: a["x"]>0}, {"x":5}); print(f"X02 constraint: {c2}")
+        cg3 = citation_grounding({"c":["s1"]},"c",["s1"]); print(f"X03 citation: {cg3}")
+        cv5 = compact_exec_verifier("def solve(x): return x*2",[2,3],[4,6]); print(f"X05 compact-verifier: {cv5}")
+        eg8 = evidence_groundness(8,10); print(f"X08 groundness: {eg8}")
+        po9 = process_outcome_decompose(True,False); print(f"X09 decompose: {po9}")
+        mf16 = multi_llm_filter([True,True,True]); print(f"X16 multi-LLM: {mf16}")
+        he17 = human_escalation_borderline([True,False,False]); print(f"X17 escalate: {he17}")
+        ws18 = weak_to_strong_aggregate([0.6,0.7],[0.8,0.9]); print(f"X18 W2S: {ws18}")
+        mv19 = majority_vote_label_noise([1,1,0]); print(f"X19 majority: {mv19}")
+        pv22 = profile_aware_voting([1,1,0],["conservative","permissive","balanced"]); print(f"X22 profile-aware: {pv22}")
+        cj24 = correlated_judge_detect(0.95); print(f"X24 correlated: {cj24}")
+        mt26 = multitrial_abstain([1,1,1,0,0]); print(f"X26 multitrial: {mt26}")
+        auc31 = auc_discriminative([0.9,0.8],[0.3,0.2]); print(f"X31 AUC: {auc31}")
+        tts33 = tts_top1(1,5); print(f"X33 TTS: {tts33}")
+        tc38 = trajectory_calibration(0.95,0.9,0.6); print(f"X38 traj-cal: {tc38}")
+        ug39 = uncertainty_control_gating(0.2,0.5); print(f"X39 uncertainty-gate: {ug39}")
+        cr42 = confidence_reliability_joint(0.8,0.75); print(f"X42 joint: {cr42}")
+        dd45 = defense_in_depth_low_fp([True,True,True]); print(f"X45 defense-depth: {dd45}")
+        ah53 = adversarial_hacker_fixer(True,False); print(f"X53 hacker-fixer: {ah53}")
+        ge56 = grouped_eval([1,0,1],[1,1,0]); print(f"X56 grouped: {ge56}")
+        st57 = verifier_strictness_steer(0.5,0.8); print(f"X57 strictness: {st57}")
+        po62 = prm_orm_combine(0.8,0.6); print(f"X62 PRM+ORM: {po62}")
+        sc65 = prm_training_shortcut_test(False); print(f"X65 shortcut: {sc65}")
+        tp66 = trajectory_penalty_lowconf([0.9,0.2,0.8]); print(f"X66 penalty: {tp66}")
+        return 0
     if cmd == "selftest_v":
         f1 = flip_rate_report([1,1,1,0,0]); print(f"V01 flip: {f1}")
         b2 = symmetric_order_randomize({"AB":10,"BA":9}); print(f"V02 balance: {b2}")

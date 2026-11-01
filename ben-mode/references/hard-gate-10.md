@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.28.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.29.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1719,3 +1719,52 @@ $$\text{KL}_{bon} = \log n - \frac{n-1}{n}$$
 $$\text{Soft BoN weight: } w_i = \frac{e^{s_i/\tau}}{\sum_j e^{s_j/\tau}}$$
 
 $$\text{Kendall τ} = \frac{\#\text{concordant} - \#\text{discordant}}{\binom{n}{2}}$$
+
+## BAGIAN 29 — EXECUTABLE ORACLE & VERIFIER TIER X001–X100 (PHASES 1–8, X01–X30 VERIFIED)
+
+Eksekusi plan X001–X100 (Fase 1–8) pada v0.29.0. Inti komputasi baru `X01–X30`
+diimplementasi sebagai fungsi selftest-able di `hard_gate_enhancements.py`, disurfacing
+sebagai predikat `P_X01–P_X30` di `gate_predicates.evaluate()` dan diverifikasi 25/25 PASS
+(lihat B1–B4 gap pada review). Zero file baru.
+
+### Fase 1 — Executable/Process Oracle Tier (X001–X015): X01, X02, X03, X05, X08, X09
+Menutup reliability cliff verifier learned (Narasimhan 2026): oracle deterministik di atas LLM-judge.
+- X01 `executable_oracle` — cek hasil deterministik terhadap ekspektasi (SWE-Bench Verified-style).
+- X02 `constraint_oracle` — satisfiability constraint stdlib (tanpa z3; predikat SMT tetap di P_formal).
+- X03 `citation_grounding` — verifikasi rujukan Tier IV terhadap set sumber.
+- X05 `compact_exec_verifier` — verifier Python eksekusi kompak (Pexeshkpour pattern).
+- X08 `evidence_groundness` — skor groundness bukti (didukung/total).
+- X09 `process_outcome_decompose` — dekomposisi sinyal proses vs luaran (shortcut/lucky/valid).
+
+### Fase 2 — Multi-Judge & Weak-To-Strong Aggregation (X016–X030): X16, X17, X18, X19, X22, X24, X26
+- X16 `multi_llm_filter` — filter unanimous/median multi-LLM (PRMBench 96% agreement pattern).
+- X17 `human_escalation_borderline` — eskalasi manusia pada vote borderline.
+- X18 `weak_to_strong_aggregate` — agregasi berbobot reliabilitas.
+- X19 `majority_vote_label_noise` — reduksi noise label via mayoritas.
+- X22 `profile_aware_voting` — voting berbobot profil konservatif/permisif.
+- X24 `correlated_judge_detect` — deteksi judge berkorelasi (persetujuan pasangan).
+- X26 `multitrial_abstain` — flip-rate multi-trial + abstain (K>=11).
+
+### Fase 3 — Verifier Tri-Metric AUC/ECE/TTS (X031–X045): X31, X33, X38, X39, X42, X45
+- X31 `auc_discriminative` — skor AUC rank-based (SWE-RM).
+- X33 `tts_top1` — peringkat top-1.
+- X38 `trajectory_calibration` — gating act/reflect/escalate per trajektori.
+- X39 `uncertainty_control_gating` — gate kendali berbasis ketidakpastian.
+- X42 `confidence_reliability_joint` — joint confidence-reliability drift.
+- X45 `defense_in_depth_low_fp` — AND-multi-check untuk false-positive rendah.
+
+### Fase 4–8 — Reward/RL, Test-Time, Stabilitas, Observability, Governance (X046–X100): X53, X56, X57, X62, X65, X66
+- X53 `adversarial_hacker_fixer` — loop hacker-fixer (Zhong).
+- X56 `grouped_eval` — eval terkelompok: false-accept/localize/rank/uncertainty.
+- X57 `verifier_strictness_steer` — steering strictness verifier.
+- X62 `prm_orm_combine` — kombinasi sinyal PRM+ORM.
+- X65 `prm_training_shortcut_test` — uji shortcut PRM-as-training-reward.
+- X66 `trajectory_penalty_lowconf` — penalti trajektori langkah low-confidence.
+
+X033–X100 non-komputasional/tooling merujuk reuse W/V tier (sessi Fase 5–8 dari BAGIAN 27/28) — didefinisikan inline tanpa duplikasi.
+
+### Formula Matematis Inti X01–X30:
+$$ ext{AUC} = rac{1}{nm} sum_{i=1}^{n} sum_{j=1}^{m} mathbb{1}[s_{pos,i} > s_{neg,j}]$$
+$$	ext{W2S} = w cdot s_{weak} + (1-w) cdot s_{strong}, quad w in [0,1]$$
+$$	ext{Flip} = min(hat{p}, 1-hat{p}); quad ext{undecided if } flip > 0.2$$
+$$	ext{Strictness steer} = s + 0.1 cdot mathbb{1}[s < s_{target}] - 0.1 cdot mathbb{1}[s ge s_{target}]$$

@@ -4,7 +4,8 @@ Resep end-to-end untuk menambah satu mekanisme verifikasi baru ke gate ben-mode 
 
 ## 1. Fungsi mekanisme — `scripts/hard_gate_enhancements.py`
 - Tulis fungsi-fungsi modul-level **SEBELUM `def main():`**. Fungsi yang diletakkan setelah baris pemanggilan `main()` (di bawah `if __name__ == "__main__":`) belum terdefinisi saat main berjalan → NameError runtime padahal kode tampak valid.
-- Jaga fungsi berdiri sendiri, stdlib-only bila memungkinkan. Beri nama berprefiks `O<N>` / `N<n>` / `T<n>` / `W<n>` agar mudah dipetakan ke spec.
+- Jaga fungsi berdiri sendiri, stdlib-only bila memungkinkan. Beri nama berprefiks huruf batch (`P<n>` / `N<n>` / `O<n>` / `T<n>` / `W<n>` / `V<n>` ...) agar mudah dipetakan ke spec.
+- **Hanya implementasikan inti komputasi.** Item planning yang bersifat ops/provisioning/standar (mis. "integrasi MonPoly", "provision opa", "kepatuhan CRA") JANGAN dibuatkan fungsi tiruan — dokumentasikan sebagai aturan proses di spec dan verifikasi saat provisioning aktual. Membuat stub untuk item ops = klaim verified palsu.
 - **Sisipkan blok fungsi dengan TEPAT SATU metode** (append di akhir file ATAU `str.replace(anchor, block+anchor)`, bukan keduanya dalam satu langkah). Kombinasi append + replace menghasilkan blok duplikat; lalu menyelaraskan duplikat dengan slicing antara dua marker bisa menghapus `main()` (beserta seluruh branch selftest) yang berada di antaranya. Setelah insert, verifikasi `txt.count(marker)==1` DAN `ast.parse` sebelum menyimpan.
 - **Recovery file terlanjur rusak**: salin dari replika yang masih utuh (byte-identik — hasil `sync-all-roots.sh` sebelumnya) ke canonical, lalu ulangi penyisipan dengan satu metode. Jangan menulis ulang `main()` dari ingatan.
 - Tambahkan branch `selftest_<x>` di dalam `main()` yang memanggil setiap fungsi dengan fixture baik & buruk dan `print` hasilnya — ini bukti runtime sebelum di-claim verified.

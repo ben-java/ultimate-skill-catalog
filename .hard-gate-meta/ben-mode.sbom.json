@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:07c5fbb9-7197-44b6-a215-ef0ff90d5be0",
+  "serialNumber": "urn:uuid:efde8a88-1d01-4b80-bd1b-a1ec97965dce",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T13:17:03Z",
+    "timestamp": "2026-11-01T13:28:11Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "12d514295c65d8cf46e66d88aeeded09929d04e45aa9537c5e79cf4bd509613a"
+          "content": "6364fed7ac9f84d268d6e798b2aadb9bf3288d93361ed26468149109744a7ce5"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "df8b0cdcc851326520770b5ee40b3bdc9fd851e6f314542890b3119cd6e1724b"
+          "content": "af49f0224ff91e6c101a62ad5f145600d467178f2b905afe10283d152709c02b"
         }
       ]
     },
@@ -142,7 +142,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "f404c5a0292b7e10ca51eee0df693e7467d6f5d8d88ed257195f517c13726f01"
+          "content": "fb094c73b380fd75e47277a8f53ea46afc527804e6c9ca33f90a82f8e4d7b30c"
         }
       ]
     },
@@ -164,7 +164,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "91d3b263086a4946cc4bc700fcea494f222cb07584a6cd636f4fd570a3d3c8a2"
+          "content": "8b32dd892643931a9cbf0db205d2c1f5319c9e7badf91a6b47c1d02da1cdbc4b"
         }
       ]
     },
@@ -417,7 +417,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ecbf979a019f4ee0f2727e5a2051e5a1d6d9cc9fece180a1a80a777b8ed57748"
+          "content": "2cf8e438afdfa2f48aa7406ce0f1f208bafe723275262cf064168c7284af97ce"
         }
       ]
     },
@@ -461,7 +461,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ed2f0d84d49af2d7af99f5d863cdf886a86e8abca684fcc9776c0d643a4dd8f6"
+          "content": "2668854e7e757d0258930387850dfac0c004dcdb6b34ec3715e5d9b871ec570f"
         }
       ]
     },

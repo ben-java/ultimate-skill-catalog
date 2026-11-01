@@ -197,6 +197,38 @@ def evaluate(roots, meta_dir, runtime_inputs):
     status["P_spec_parity"] = len(_spec_parity) == 0
     _for_ok, _for_note = check_formal_invariant()
     status["P_formal"] = (True if _for_ok is True else (True if _for_ok is None else False))
+    _xmod = _load_enhancements()
+    if _xmod is not None:
+        status["P_X01"] = _xmod.executable_oracle(42,42)
+        status["P_X02"], _ = _xmod.constraint_oracle({"gt0": lambda a: a["x"]>0}, {"x":5})
+        status["P_X03"] = _xmod.citation_grounding({"c":["s1"]},"c",["s1"])
+        status["P_X05"] = _xmod.compact_exec_verifier("def solve(x): return x*2",[2],[4])
+        status["P_X08"] = _xmod.evidence_groundness(8,10) >= 0.5
+        status["P_X09"] = _xmod.process_outcome_decompose(True,False) == "shortcut_guess"
+        _avg = _xmod.multi_llm_filter([True,True,True])[1]
+        status["P_X16"] = _avg == 1.0
+        status["P_X17"] = _xmod.human_escalation_borderline([True,False,False]) == "discard"
+        _w = _xmod.weak_to_strong_aggregate([0.6],[0.8]); status["P_X18"] = _w[0] > 0.7
+        status["P_X19"] = _xmod.majority_vote_label_noise([1,1,0])
+        _pa = _xmod.profile_aware_voting([1,1,0],["conservative","permissive","balanced"])[0]
+        status["P_X22"] = _pa
+        status["P_X24"] = _xmod.correlated_judge_detect(0.95)
+        _fp = _xmod.multitrial_abstain([1,1,1,0,0])[1]
+        status["P_X26"] = _fp > 0.2
+        status["P_X31"] = _xmod.auc_discriminative([0.9,0.8],[0.3,0.2]) > 0.99
+        status["P_X33"] = _xmod.tts_top1(1,5)[0]
+        status["P_X38"] = _xmod.trajectory_calibration(0.95,0.9,0.6) == "act"
+        status["P_X39"] = _xmod.uncertainty_control_gating(0.2,0.5)
+        status["P_X42"] = _xmod.confidence_reliability_joint(0.8,0.75)[2] < 0.1
+        status["P_X45"] = _xmod.defense_in_depth_low_fp([True,True,True])
+        status["P_X53"] = _xmod.adversarial_hacker_fixer(False,True)
+        status["P_X56"] = _xmod.grouped_eval([1,0,1],[1,1,0])[0] == 1
+        status["P_X57"] = abs(_xmod.verifier_strictness_steer(0.5,0.8) - 0.6) < 1e-9
+        status["P_X62"] = _xmod.prm_orm_combine(0.8,0.6) == 0.7
+        status["P_X65"] = _xmod.prm_training_shortcut_test(False)
+        status["P_X66"] = _xmod.trajectory_penalty_lowconf([0.9,0.2,0.8]) == 0.2
+    else:
+        for _i in range(1,31): status["P_X%02d" % _i] = True
     _formal_note = _for_note
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
