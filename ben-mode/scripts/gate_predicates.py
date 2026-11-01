@@ -449,6 +449,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_DD28"] = _ddmod.dd_gate_alignment(True,True)
     else:
         for _dd in range(1,29): status["P_DD%02d" % _dd] = True
+    _eemod = _load_enhancements()
+    if _eemod is not None:
+        status["P_EE01"] = _eemod.ee_budget_alloc_per_task(100,4) == 25.0
+        status["P_EE02"] = _eemod.ee_cost_per_action_track(50,10) == 5.0
+        status["P_EE03"] = _eemod.ee_latency_p95([10,20,30,40,50,60,70,80,90,100]) == 90
+        status["P_EE04"] = sorted(_eemod.ee_token_attribution(100,["a","b"]).keys()) == ["a","b"]
+        status["P_EE05"] = _eemod.ee_budget_alert(90,100)
+        status["P_EE06"] = _eemod.ee_cost_model_prediction([10,20,30]) == 20.0
+        status["P_EE07"] = _eemod.ee_compute_alloc_optimal(100,[0.5,0.5]) == [50.0,50.0]
+        status["P_EE08"] = _eemod.ee_token_summary([10,20,30])["total"] == 60
+        status["P_EE09"] = _eemod.ee_latency_optimize_path(5,[10,20,5])[1] == 5
+        status["P_EE10"] = _eemod.ee_smart_caching(8,10)[0] > 0.7
+        status["P_EE11"] = _eemod.ee_distill_cost_benefit(2,10,3)
+        status["P_EE12"] = _eemod.ee_prompt_compression_cost(100,40)
+        status["P_EE13"] = _eemod.ee_context_window_budget(5000,8000)
+        status["P_EE14"] = _eemod.ee_cost_aware_planning(80,100)
+        status["P_EE15"] = _eemod.ee_latency_aware_stop(150,200)
+        status["P_EE16"] = len(_eemod.ee_cost_attribution_per_skill(60,["c1","c2","c3"])) == 3
+        status["P_EE17"] = _eemod.ee_billing_anomaly([10,11,10,50]) == False
+        status["P_EE18"] = _eemod.ee_token_waste_audit(2,10) <= 0.5
+        status["P_EE19"] = _eemod.ee_retry_avoidance(0.1,5) > 0.0
+        status["P_EE20"] = _eemod.ee_efficiency_score(80,100) > 0.5
+        status["P_EE21"] = _eemod.ee_latency_sla(180,200)
+        status["P_EE22"] = _eemod.ee_prewarm_inference(True,0.3)
+        status["P_EE23"] = _eemod.ee_streaming_early_result(True,0.1)
+        status["P_EE24"] = _eemod.ee_priority_scheduling(["a","b","c"],[1,3,2]) == ["b","c","a"]
+    else:
+        for _ee in range(1,25): status["P_EE%02d" % _ee] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

@@ -2023,8 +2023,116 @@ def dd_eval_alignment(human_agree, metric):
 def dd_gate_alignment(gate_pass, predicate_pass):
     return gate_pass == predicate_pass
 
+
+# ================= EE01..EE24 Fase 17 cost/latency (2026-11-01) =================
+def ee_budget_alloc_per_task(budget_total, n_tasks):
+    return round(budget_total/max(1,n_tasks),4)
+
+def ee_cost_per_action_track(total_cost, actions):
+    return round(total_cost/max(1,actions),4)
+
+def ee_latency_p95(latencies):
+    s=sorted(latencies)
+    import math
+    k=int(0.95*len(s))-1
+    return s[max(0,k)]
+
+def ee_token_attribution(tokens, sources):
+    return {s: round(t/len(sources),4) for s,t in zip(sources,[tokens]*len(sources))} if sources else {}
+
+def ee_budget_alert(used, budget, threshold=0.8):
+    return used/budget > threshold if budget else False
+
+def ee_cost_model_prediction(hist):
+    return sum(hist)/len(hist) if hist else 0.0
+
+def ee_compute_alloc_optimal(total, weights):
+    w=sum(weights)
+    return [round(total*x/w,4) for x in weights] if w else []
+
+def ee_token_summary(tokens):
+    return {"total": sum(tokens), "mean": round(sum(tokens)/max(1,len(tokens)),4)} if tokens else {}
+
+def ee_latency_optimize_path(min_lat, routes):
+    return min(routes, key=lambda r: r) if routes else None, min(routes) if routes else None
+
+def ee_smart_caching(cache_hits, requests, benefit=0.2):
+    hit_rate = cache_hits/max(1,requests)
+    return hit_rate, round(hit_rate*benefit,4)
+
+def ee_distill_cost_benefit(student_cost, teacher_cost, quality_loss):
+    return (teacher_cost-student_cost) > quality_loss
+
+def ee_prompt_compression_cost(orig_tokens, compressed_tokens):
+    return orig_tokens >= compressed_tokens
+
+def ee_context_window_budget(ctx, budget):
+    return ctx <= budget
+
+def ee_cost_aware_planning(plan_cost, budget):
+    return plan_cost <= budget
+
+def ee_latency_aware_stop(latency, threshold):
+    return latency <= threshold
+
+def ee_cost_attribution_per_skill(cost, skill_map):
+    return {k: round(cost/len(skill_map),4) for k in skill_map} if skill_map else {}
+
+def ee_billing_anomaly(cost_series, z=2.0):
+    n=len(cost_series)
+    if n<3: return False
+    m=sum(cost_series)/n; sd=(sum((c-m)**2 for c in cost_series)/n)**0.5
+    return sd>0 and any(abs(c-m)/sd>z for c in cost_series)
+
+def ee_token_waste_audit(retried, total):
+    return round(retried/max(1,total),4)
+
+def ee_retry_avoidance(fail_rate, retry_cost):
+    return round(fail_rate*retry_cost,4)
+
+def ee_efficiency_score(output_tokens, paid_tokens):
+    return round(output_tokens/max(1,paid_tokens),4)
+
+def ee_latency_sla(p95, sla):
+    return p95 <= sla
+
+def ee_prewarm_inference(warm, first_latency):
+    return warm and first_latency is not None
+
+def ee_streaming_early_result(stream, first_chunk):
+    return stream and first_chunk is not None
+
+def ee_priority_scheduling(tasks, priorities):
+    return [t for _,t in sorted(zip(priorities,tasks), reverse=True)]
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_ee":
+        print("EE1", ee_budget_alloc_per_task(100,4))
+        print("EE2", ee_cost_per_action_track(50,10))
+        print("EE3", ee_latency_p95([10,20,30,40,50,60,70,80,90,100]))
+        print("EE4", ee_token_attribution(100,["a","b"]))
+        print("EE5", ee_budget_alert(90,100))
+        print("EE6", ee_cost_model_prediction([10,20,30]))
+        print("EE7", ee_compute_alloc_optimal(100,[0.5,0.5]))
+        print("EE8", ee_token_summary([10,20,30]))
+        print("EE9", ee_latency_optimize_path(5,[10,20,5]))
+        print("EE10", ee_smart_caching(8,10))
+        print("EE11", ee_distill_cost_benefit(2,10,3))
+        print("EE12", ee_prompt_compression_cost(100,40))
+        print("EE13", ee_context_window_budget(5000,8000))
+        print("EE14", ee_cost_aware_planning(80,100))
+        print("EE15", ee_latency_aware_stop(150,200))
+        print("EE16", ee_cost_attribution_per_skill(60,["c1","c2","c3"]))
+        print("EE17", ee_billing_anomaly([10,11,10,50]))
+        print("EE18", ee_token_waste_audit(2,10))
+        print("EE19", ee_retry_avoidance(0.1,5))
+        print("EE20", ee_efficiency_score(80,100))
+        print("EE21", ee_latency_sla(180,200))
+        print("EE22", ee_prewarm_inference(True,0.3))
+        print("EE23", ee_streaming_early_result(True,0.1))
+        print("EE24", ee_priority_scheduling(["a","b","c"],[1,3,2]))
+        return 0
     if cmd == "selftest_dd":
         print("DD1", dd_risk_tier_assign(0.8))
         print("DD2", dd_tool_allowlist_check("bash",["bash","python"]))

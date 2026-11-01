@@ -1,3 +1,8 @@
+## v0.36.0 (2026-11-01) — Wave E Cost/Latency EE01–EE24 (BAGIAN 36)
+
+- **EE01–EE24**: budget alloc/alert/aware-planning, cost-per-action, token attribution, cost-model prediction, alloc-optimal, per-skill attribution, billing anomaly, token-waste, latency p95/optimize/aware-stop/SLA/prewarm/streaming, token summary, smart caching, distill cost-benefit, prompt compression, context budget, retry avoidance, efficiency score, priority scheduling. Disurfacing `P_EE01–P_EE24`; 24/24 PASS.
+- **BAGIAN 36** ditambahkan; bump serentak 0.36.0.
+
 ## v0.35.0 (2026-11-01) — Wave D DD01–DD28 (BAGIAN 35)
 
 - **DD01–DD28**: risk-tier assignment, tool allowlist, output-format compliance, PII detect, anomaly spike, version consistency, SBOM mandatory, decision logging, human approval queue, proxy-gold turnover, seed sensitivity/ensemble, latent steering, RL proof-length feedback, pairwise preference, hedging detect, Goodhart verifier detect, drift-KL, reward collapse, early warning, verifier attack surface, enclave checks, capability scaling, emergency stop, forensics, abuse channel, eval/gate alignment. Disurfacing `P_DD01–P_DD28`; 28/28 PASS.

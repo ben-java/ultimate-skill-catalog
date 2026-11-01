@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.35.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.36.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2008,3 +2008,13 @@ disurfacing `P_DD01–P_DD28`; diverifikasi 28/28 PASS (selftest_dd rc 0).
 - Security/Fase 15: DD21 `dd_verifier_attack_surface`, DD22 `dd_secure_enclave_checks`, DD23 `dd_capability_scaling_track`, DD24 `dd_emergency_stop_protocol`, DD25 `dd_incident_forensics`, DD26 `dd_abuse_channel_monitor`.
 - Eval/Fase 14: DD27 `dd_eval_alignment`, DD28 `dd_gate_alignment`.
 - Observability/Anomali: DD05 `dd_anomaly_spike_monitor`.
+
+## BAGIAN 36 — WAVE E: COST/LATENCY EE01–EE24 (VERIFIED; v0.36.0)
+
+Mengisi Fase 17 (Cost & Latency Efficiency): `EE01–EE24` di `hard_gate_enhancements.py`,
+disurfacing `P_EE01–P_EE24`; diverifikasi 24/24 PASS (selftest_ee rc 0).
+
+- Budget: EE01 `ee_budget_alloc_per_task`, EE05 `ee_budget_alert`, EE14 `ee_cost_aware_planning`.
+- Cost accounting: EE02 `ee_cost_per_action_track`, EE04 `ee_token_attribution`, EE06 `ee_cost_model_prediction`, EE07 `ee_compute_alloc_optimal`, EE16 `ee_cost_attribution_per_skill`, EE17 `ee_billing_anomaly`, EE18 `ee_token_waste_audit`.
+- Latency: EE03 `ee_latency_p95`, EE09 `ee_latency_optimize_path`, EE15 `ee_latency_aware_stop`, EE21 `ee_latency_sla`, EE22 `ee_prewarm_inference`, EE23 `ee_streaming_early_result`.
+- Efficiency: EE08 `ee_token_summary`, EE10 `ee_smart_caching`, EE11 `ee_distill_cost_benefit`, EE12 `ee_prompt_compression_cost`, EE13 `ee_context_window_budget`, EE19 `ee_retry_avoidance`, EE20 `ee_efficiency_score`, EE24 `ee_priority_scheduling`.
