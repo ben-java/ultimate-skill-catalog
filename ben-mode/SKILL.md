@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.40.0
+version: 0.41.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -258,8 +258,17 @@ Lihat juga: `references/browser-automation-method1.md`.
 2. Periksa bukti lingkungan secara lokal (`os.path.isfile`, `which adb`, `ls WORKSPACE-TIDY-AUDIT.json`, `python scripts/cleanup_probe.py --help`) sebelum mengklaim apa pun. Jangan menyuntikkan kredensial (aturan §4.4 tetap: akses akun/perangkat memerlukan otorisasi manual pengguna; agent hanya memverifikasi bukti yang diberikan pengguna).
 3. Bila bukti `adb shell libshizuku.so` / `shizuku_server pid` sudah diberikan oleh pengguna (seperti pid 23767, exit 0 pada sesi ini): **catat audit** (`.shizuku_verify_audit.json` dengan `honesty_flag`), akui bukti, dan **jangan jalankan `adb` sendiri** kecuali perintah eksplisit (file/folder apa, tindakan apa) diberikan.
 4. `workspace-cleanup` adalah operasi lokal (`scripts/cleanup_probe.py`, `SKILL.md` di `C:/Users/AMMAR/AppData/Local/hermes/skills/workspace-cleanup`). Sebelum menjalankan: (a) verifikasi `SKILL.md` ada, (b) jalankan `cleanup_probe.py --json --quarantine --empty-dirs --dupes --topdirs N` (read-only / karantina aman) sebagai bukti verifikasi, (c) laporkan hasil (file karantina, duplikat, folder kosong) sebelum penghapusan permanen, (d) catat bahwa sebelumnya `WORKSPACE-TIDY-AUDIT.json` (29 Okt) sudah mencatat pembersihan ~7,1 GB — jika pengguna meminta ulang, tanyakan apakah targetnya root lokal yang sama atau device storage melalui Shizuku.
-5. Ambiguitas "hp" (device vs host/workspace): **jangan asumsi**. Periksa konteks — jika `adb` bukti diberikan dan Shizuku aktif, kemungkinan device; jika `WORKSPACE-TIDY-AUDIT.json` sudah ada dan `cleanup_probe.py` bisa dijalankan, kemungkinan local. Respon singkat (caveman): akui bukti + minta satu baris eksplisit (`membersihkan /path/di-HP?` atau `membersihkan workspace lokal di Projects/?`).
+5. Ambiguitas hp: jangan asumsi. Bukti adb + Shizuku aktif berarti device; WORKSPACE-TIDY-AUDIT.json ada berarti local.
+6. Pisahkan BUKTI vs EKSEKUSI: bukti saja = catat audit honesty_flag, jangan jalankan adb. Perintah eksplisit + adb devices state device = eksekusi penuh, recipe di references/device-cleanup-adb.md. Tanpa koneksi device, jangan hapus apa pun.
+7. Samakan bahasa dengan user: instruksi Indonesia, jawab Indonesia.
 
 **Pitfall khusus:** Instruksi "cek aja" / "ini loh maksudku" dengan bukti `adb` berarti pengguna sudah melakukan langkah otorisasi, bukan meminta agent menyuntikkan kredensial. Kesalahan paling sering adalah agen mengulangi pertanyaan klarifikasi berulang kali (seperti 3x di sesi ini). Setelah bukti diberikan dan audit ditulis, langkah selanjutnya adalah **tindakan berdasarkan perintah eksplisit**, bukan lebih banyak pertanyaan.
 
-**Referensi pendukung:** `references/browser-automation-method1.md` (CDP/adb audit), `references/windows-execution.md` (§9 scheduled-task verify), `scripts/cleanup_probe.py` (read-only probe untuk workspace-cleanup).
+Referensi pendukung: references/browser-automation-method1.md (CDP/adb audit), references/device-cleanup-adb.md (recipe pembersihan HP via adb: inventory, klasifikasi, delete berfase, audit), references/windows-execution.md (scheduled-task verify), scripts/cleanup_probe.py (read-only probe untuk workspace-cleanup lokal).
+
+Pitfall device cleanup (adb):
+- Jangan pakai cleanup_probe.py untuk device — ia hanya filesystem lokal; pakai du -sm, ls -laSh, find via adb shell.
+- find /sdcard -type f (rekursif penuh) sering kembali 0 baris di adb shell — inventarisasi per top-level entry, jangan sekali jalan.
+- sort -h tidak ada di toybox Android dan bc tidak ada di MSYS bash — pakai sort -rn plus awk untuk arithmetic.
+- du cache app sering ~0 MB (cache pindah ke internal storage) — jangan tunggu hasil besar dari sana; ukur files/ dan direktori unduhan app.
+- Hapus konten bernama (film, APK terunduh, game data) hanya setelah konfirmasi user; hapus hanya sampah teknis dan cache media.

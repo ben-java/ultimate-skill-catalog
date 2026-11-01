@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.40.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.41.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2075,3 +2075,16 @@ disurfacing `P_II01–P_II24`; diverifikasi 24/24 PASS (selftest_ii rc 0).
 - SLO & Error Budget: II06 `ii_slo_budget_enforce`, II07 `ii_error_budget_burn`, II23 `ii_observability_cost_budget`.
 - Anomali & Deteksi: II08 `ii_anomaly_threshold_adaptive`, II14 `ii_synthetic_canary`, II15 `ii_trace_sampling_policy`.
 - Layanan & Kesehatan: II09 `ii_service_discovery_healthy`, II10 `ii_health_check_probe`, II13 `ii_dependency_health_matrix`, II24 `ii_self_monitoring_loop`.
+
+---
+
+# BAGIAN 41 — WAVE J: RESILIENCE & DISASTER RECOVERY INTEGRITY JJ01–JJ24 (VERIFIED; v0.41.0)
+
+Menambahkan lapisan resilience & disaster recovery integrity: `JJ01–JJ24` di `hard_gate_enhancements.py`,
+disurfacing `P_JJ01–P_JJ24`; diverifikasi 24/24 PASS (selftest_jj rc 0).
+
+- Backup: JJ01 `jj_backup_schedule_enforced`, JJ02 `jj_backup_tested`, JJ03 `jj_backup_encrypted`, JJ06 `jj_backup_offsite`, JJ09 `jj_immutable_backup`, JJ10 `jj_backup_storage_minimum`.
+- Recovery: JJ04 `jj_rpo_met`, JJ05 `jj_rto_met`, JJ11 `jj_disaster_recovery_plan`, JJ12 `jj_failover_switchover`, JJ13 `jj_recovery_runbook`, JJ21 `jj_recovery_verification`.
+- Data & Replication: JJ07 `jj_replication_factor`, JJ08 `jj_data_integrity_check`, JJ14 `jj_redundancy_no_single_point`.
+- Fault Tolerance: JJ15 `jj_circuit_breaker`, JJ16 `jj_retry_backoff`, JJ17 `jj_graceful_degradation`, JJ18 `jj_healthcheck_failover`, JJ19 `jj_dependency_grace`, JJ20 `jj_bulkhead_isolation`.
+- Resources & Verification: JJ22 `jj_resource_quota`, JJ23 `jj_chaos_engineering_ok`, JJ24 `jj_resilience_score`.

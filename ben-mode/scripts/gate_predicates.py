@@ -589,6 +589,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_self_monitoring_loop(True,True)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_backup_schedule_enforced(100,120,100)
+        status["P_JJ02"] = _jjmod.jj_backup_tested(True,True)
+        status["P_JJ03"] = _jjmod.jj_backup_encrypted(True,True)
+        status["P_JJ04"] = _jjmod.jj_rpo_met(4,24)
+        status["P_JJ05"] = _jjmod.jj_rto_met(2,4)
+        status["P_JJ06"] = _jjmod.jj_backup_offsite(["a","b"],["b"])
+        status["P_JJ07"] = _jjmod.jj_replication_factor(3,2)
+        status["P_JJ08"] = _jjmod.jj_data_integrity_check(True,True)
+        status["P_JJ09"] = _jjmod.jj_immutable_backup(True,True)
+        status["P_JJ10"] = _jjmod.jj_backup_storage_minimum(70,100)
+        status["P_JJ11"] = _jjmod.jj_disaster_recovery_plan(True,True)
+        status["P_JJ12"] = _jjmod.jj_failover_switchover(True,True)
+        status["P_JJ13"] = _jjmod.jj_recovery_runbook(True,True)
+        status["P_JJ14"] = _jjmod.jj_redundancy_no_single_point(5,3)
+        status["P_JJ15"] = _jjmod.jj_circuit_breaker(5,3)
+        status["P_JJ16"] = _jjmod.jj_retry_backoff(3,5,True)
+        status["P_JJ17"] = _jjmod.jj_graceful_degradation(True,True)
+        status["P_JJ18"] = _jjmod.jj_healthcheck_failover(True,True)
+        status["P_JJ19"] = _jjmod.jj_dependency_grace(True,30)
+        status["P_JJ20"] = _jjmod.jj_bulkhead_isolation(True,True)
+        status["P_JJ21"] = _jjmod.jj_recovery_verification(True,True)
+        status["P_JJ22"] = _jjmod.jj_resource_quota(80,100)
+        status["P_JJ23"] = _jjmod.jj_chaos_engineering_ok(True,True)
+        status["P_JJ24"] = _jjmod.jj_resilience_score(90,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
 
 
 

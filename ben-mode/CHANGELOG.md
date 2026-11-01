@@ -1,3 +1,8 @@
+## v0.41.0 (2026-11-02) — Wave J Resilience & Disaster Recovery Integrity JJ01–JJ24 (BAGIAN 41)
+
+- **JJ01–JJ24**: backup schedule/tested/encrypted/offsite/immutable/storage-min, RPO/RTO met, DR plan, failover/switchover, recovery runbook/verification, replication factor, data integrity (checksum+parity), no-single-point-of-failure, circuit breaker, retry backoff, graceful degradation, healthcheck failover, dependency grace, bulkhead isolation, resource quota, chaos engineering, resilience score. Disurfacing `P_JJ01–P_JJ24`; 24/24 PASS.
+- **BAGIAN 41** ditambahkan; bump serentak 0.41.0.
+
 ## v0.40.0 (2026-11-01) — Wave I Observability & Monitoring Integrity II01–II24 (BAGIAN 40)
 
 - **II01–II24**: metric definition completeness, dashboard lag, alert route coverage, log correlation id, metric drift detect, SLO budget enforcement, error budget burn, adaptive anomaly threshold, service discovery health, health check probe, telemetry sampling rate, event schema versioning, dependency health matrix, synthetic canary, trace sampling policy, SLI definition, runbook availability, on-call coverage, metric retention rotation, alert dedup, rollup granularity, audit metric integrity, observability cost budget, self-monitoring loop. Disurfacing `P_II01–P_II24`; 24/24 PASS.

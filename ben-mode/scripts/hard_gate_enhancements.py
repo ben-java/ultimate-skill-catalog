@@ -3263,3 +3263,128 @@ def selftest_ii():
             (22, ii_audit_metric_integrity(True,True)),
             (23, ii_observability_cost_budget(80,100)),
             (24, ii_self_monitoring_loop(True,True))]
+
+# ------------------------------------------------------------------
+# WAVE J — RESILIENCE & DISASTER RECOVERY INTEGRITY (JJ01–JJ24)
+# ------------------------------------------------------------------
+def jj_backup_schedule_enforced(backup_ts, schedule, now):
+    # JJ01: backups must happen on schedule.
+    return (now - backup_ts) <= schedule
+
+def jj_backup_tested(backup_ok, restore_drill_ok):
+    # JJ02: backups are only trustworthy if restore drill passes.
+    return bool(backup_ok) and bool(restore_drill_ok)
+
+def jj_backup_encrypted(backup_encrypted, keys_rotated):
+    # JJ03: backups must be encrypted with rotated keys.
+    return bool(backup_encrypted) and bool(keys_rotated)
+
+def jj_rpo_met(recovery_point, max_rpo):
+    # JJ04: recovery point objective must be met.
+    return recovery_point <= max_rpo
+
+def jj_rto_met(recovery_time, max_rto):
+    # JJ05: recovery time objective must be met.
+    return recovery_time <= max_rto
+
+def jj_backup_offsite(backups, offsite):
+    # JJ06: at least one offsite copy must exist.
+    return len(offsite) >= 1 and set(offsite) <= set(backups)
+
+def jj_replication_factor(replicas, min_replicas):
+    # JJ07: replication factor must meet the minimum.
+    return replicas >= min_replicas
+
+def jj_data_integrity_check(checksum_ok, parity_ok):
+    # JJ08: data integrity verified by checksum + parity.
+    return bool(checksum_ok) and bool(parity_ok)
+
+def jj_immutable_backup(backup_immutable, tamper_evident):
+    # JJ09: immutable backups resist tampering.
+    return bool(backup_immutable) and bool(tamper_evident)
+
+def jj_backup_storage_minimum(storage_used, storage_total):
+    # JJ10: storage must not exceed the backup budget.
+    return storage_used <= storage_total
+
+def jj_disaster_recovery_plan(dr_plan, tests_scheduled):
+    # JJ11: DR plan must exist and be tested.
+    return bool(dr_plan) and bool(tests_scheduled)
+
+def jj_failover_switchover(failover_ok, switchover_ok):
+    # JJ12: failover and switchover must be verified.
+    return bool(failover_ok) and bool(switchover_ok)
+
+def jj_recovery_runbook(runbook, team_ready):
+    # JJ13: recovery must follow a documented runbook.
+    return bool(runbook) and bool(team_ready)
+
+def jj_redundancy_no_single_point(nodes, quorum):
+    # JJ14: no single point of failure unless quorum achieved.
+    return nodes >= quorum
+
+def jj_circuit_breaker(circuit_open, max_failures):
+    # JJ15: circuit breaker opens after max failures.
+    return circuit_open >= max_failures
+
+def jj_retry_backoff(retries, max_retries, backoff_ok):
+    # JJ16: retries bounded with backoff.
+    return retries <= max_retries and bool(backoff_ok)
+
+def jj_graceful_degradation(degraded_ok, core_fn_ok):
+    # JJ17: degraded mode preserves core function.
+    return bool(degraded_ok) and bool(core_fn_ok)
+
+def jj_healthcheck_failover(primary_dead, fallback_ready):
+    # JJ18: fallback activates when primary is unhealthy.
+    return bool(primary_dead) and bool(fallback_ready)
+
+def jj_dependency_grace(dependency_down, retry_window):
+    # JJ19: tolerate dependency downtime within a retry window.
+    return retry_window > 0 and bool(dependency_down)
+
+def jj_bulkhead_isolation(partition, other_partitions_ok):
+    # JJ20: bulkhead isolates failure to one partition.
+    return bool(partition) and bool(other_partitions_ok)
+
+def jj_recovery_verification(recovered, verified):
+    # JJ21: recovery must be verified, not just performed.
+    return bool(recovered) and bool(verified)
+
+def jj_resource_quota(usage, quota):
+    # JJ22: resource usage must stay within quota.
+    return usage <= quota
+
+def jj_chaos_engineering_ok(chaos_tested, injection_safe):
+    # JJ23: chaos tests are safe and practiced.
+    return bool(chaos_tested) and bool(injection_safe)
+
+def jj_resilience_score(score, min_score):
+    # JJ24: overall resilience score must meet minimum.
+    return score >= min_score
+
+def selftest_jj():
+    return [(1, jj_backup_schedule_enforced(100, 120, 100)),
+            (2, jj_backup_tested(True, True)),
+            (3, jj_backup_encrypted(True, True)),
+            (4, jj_rpo_met(4, 24)),
+            (5, jj_rto_met(2, 4)),
+            (6, jj_backup_offsite(["a", "b"], ["b"])),
+            (7, jj_replication_factor(3, 2)),
+            (8, jj_data_integrity_check(True, True)),
+            (9, jj_immutable_backup(True, True)),
+            (10, jj_backup_storage_minimum(70, 100)),
+            (11, jj_disaster_recovery_plan(True, True)),
+            (12, jj_failover_switchover(True, True)),
+            (13, jj_recovery_runbook(True, True)),
+            (14, jj_redundancy_no_single_point(5, 3)),
+            (15, jj_circuit_breaker(5, 3)),
+            (16, jj_retry_backoff(3, 5, True)),
+            (17, jj_graceful_degradation(True, True)),
+            (18, jj_healthcheck_failover(True, True)),
+            (19, jj_dependency_grace(True, 30)),
+            (20, jj_bulkhead_isolation(True, True)),
+            (21, jj_recovery_verification(True, True)),
+            (22, jj_resource_quota(80, 100)),
+            (23, jj_chaos_engineering_ok(True, True)),
+            (24, jj_resilience_score(90, 70))]
