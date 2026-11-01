@@ -1545,8 +1545,232 @@ def negative_suite_total_tests(declared, present):
 def benchmark_protocol_tts(protocol_reported, budget_reported, uncertainty_reported):
     return protocol_reported and budget_reported and uncertainty_reported
 
+
+# ================= AA01..AA40  A001..A1000 phases 1-20 (2026-11-01) =================
+# F1 verifier reliability
+def error_direction_diff_score(fn_rate, fp_rate, wfn=1.5):
+    return round((wfn*fn_rate - fp_rate), 4)
+
+def margin_gate(margin, threshold=0.2):
+    return margin >= threshold
+
+# F2 judge aggregation
+def judge_pool_entropy(vote_probs):
+    import math
+    return -sum(p*math.log(p) if p>0 else 0 for p in vote_probs)
+
+def confounder_bias_estimate(judge_scores, confound):
+    n = len(judge_scores)
+    m = sum(confound)/n if n else 0
+    s = sum(judge_scores)/n if n else 0
+    cov = sum((c-m)*(j-s) for c,j in zip(confound,judge_scores))/n if n else 0
+    var = sum((c-m)**2 for c in confound)/n if n else 1
+    return round(cov/var, 4) if var else 0.0
+
+# F3 TTS
+def listwise_gain(list_score, vote_score):
+    return list_score >= vote_score
+
+def stop_alloc(score, budget, threshold=0.8):
+    return score >= threshold, budget if score >= threshold else int(budget*0.5)
+
+def compute_accounting_report(warmup, discarded, verifier_calls, selected):
+    return warmup + discarded + verifier_calls, selected
+
+# F4 formal math
+def autoformalize_faithfulness(semantic_ok, kernel_ok):
+    return semantic_ok and kernel_ok
+
+def four_stage_check(propose, informal, autoformalize, lean):
+    return all([propose, informal, autoformalize, lean])
+
+def kernel_accept(proof, kernel):
+    return kernel.check(proof)
+
+# F5 self-improvement
+def data_gating_fraction(enters_ok, enters_total):
+    return round(enters_ok/max(1, enters_total), 4)
+
+def grounding_fraction(grounded, total):
+    return round(grounded/max(1, total), 4)
+
+def collapse_curve_detect(acc_series, window=3, drop=0.15):
+    if len(acc_series) < 2*window: return False
+    peak = max(acc_series[:window]); late = sum(acc_series[-window:])/window
+    return (peak - late) > drop
+
+# F6 reward/RL
+def group_var_filter(group_rewards, eps=1e-9):
+    keep=0
+    for g in group_rewards:
+        m = sum(g)/len(g); v = sum((r-m)**2 for r in g)/len(g)
+        if v >= eps: keep += 1
+    return keep
+
+def multiturn_verdict(votes):
+    return sum(votes) >= len(votes)/2
+
+def spurious_guard(answer_ok, reasoning_ok):
+    return answer_ok and not reasoning_ok
+
+# F7 runtime guardrails
+def guardrail_latency(ms):
+    return ms < 200
+
+def guardrail_acc(correct, samples):
+    return (correct/max(1,samples)) > 0.98
+
+def intervention_lineage(rule, criterion, trace):
+    return bool(rule and criterion and trace)
+
+# F8 governance
+def allowlist_expiry(expires_at, now):
+    return now <= expires_at
+
+def signed_ledger_check(ledger_entries, sig_ok):
+    return bool(ledger_entries) and sig_ok
+
+def assume_breach_reauth(session_reauth):
+    return session_reauth
+
+# F9 interpretability
+def sae_alignment(activation, probe, thresh=0.5):
+    import math
+    num = sum(a*p for a,p in zip(activation,probe))
+    norm = math.sqrt(sum(a*a for a in activation))*math.sqrt(sum(p*p for p in probe))
+    return (num/norm) > thresh if norm else False
+
+def scratchpad_anomaly(values, z=2.0):
+    n=len(values)
+    if n<2: return False
+    m=sum(values)/n; sd=(sum((v-m)**2 for v in values)/n)**0.5
+    return sd>0 and any(abs(v-m)/sd>z for v in values)
+
+def selective_risk(risks):
+    return dict(sorted(risks.items()))
+
+# F10 ops/testing
+def neg_suite_parity(declared, present):
+    return declared == present
+
+def tts_protocol(protocol, budget, uncertainty):
+    return protocol and budget and uncertainty
+
+def lockfile_atomic(lock_acquired, released):
+    return lock_acquired and released
+
+# F11 data quality
+def data_contamination_detect(overlap_ratio, thresh=0.1):
+    return overlap_ratio > thresh
+
+def curriculum_match(difficulty, capacity):
+    return difficulty <= capacity
+
+# F12 multi-agent/debate
+def debate_aggregate(scores, weights):
+    wsum = sum(w*s for w,s in zip(weights,scores)); w = sum(weights)
+    return round(wsum/w,4) if w else 0.0
+
+def consensus_reliability(agree, total):
+    return round(agree/max(1,total),4)
+
+# F13 calibration
+def ece_compute(confidences, correct, bins=10):
+    n=len(confidences); bounds=[i/bins for i in range(bins+1)]
+    ece=0.0
+    for b in range(bins):
+        idx=[i for i,c in enumerate(confidences) if bounds[b]<=c<bounds[b+1]]
+        if not idx: continue
+        conf=sum(confidences[i] for i in idx)/len(idx)
+        acc=sum(correct[i] for i in idx)/len(idx)
+        ece+=(len(idx)/n)*abs(conf-acc)
+    return round(ece,4)
+
+def conformal_coverage(set_sizes, n, alpha=0.1):
+    covered = sum(1 for s in set_sizes if s)
+    return covered/n >= (1-alpha)
+
+# F14 eval
+def eval_protocol_check(metric_defined, split_purity, oracle_baseline):
+    return metric_defined and split_purity and oracle_baseline
+
+def oracle_baseline_hash(h1, h2):
+    return h1 == h2
+
+# F15 security
+def injection_multiturn_detect(accumulated, single=0):
+    return accumulated or single
+
+# F16 HITL
+def hitl_ticket_required(highrisk, ticket):
+    return (not highrisk) or ticket
+
+# F17 cost
+def cost_per_action(total_cost, actions):
+    return round(total_cost/max(1,actions),4)
+
+def latency_percentile(latencies, p=0.95):
+    s=sorted(latencies); k=int(p*len(s))-1; return s[max(0,k)]
+
+# F18 skills
+def skill_manifest_hash(manifest, tree_hash):
+    return manifest == tree_hash
+
+# F19 autonomous eval
+def goal_drift_detect(goals, progress):
+    return all(progress.get(g,0) >= 0 for g in goals) and bool(goals)
+
+# F20 frontier
+def anchored_baseline(h_a, h_b):
+    return h_a == h_b
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_aa":
+        print("AA1", error_direction_diff_score(0.2,0.1))
+        print("AA2", margin_gate(0.3))
+        print("AA3", round(judge_pool_entropy([0.5,0.5]),4))
+        print("AA4", confounder_bias_estimate([0.8,0.6,0.7],[0,1,1]))
+        print("AA5", listwise_gain(0.9,0.7))
+        print("AA6", stop_alloc(0.9,100))
+        print("AA7", compute_accounting_report(10,5,7,20))
+        print("AA8", autoformalize_faithfulness(True,True))
+        print("AA9", four_stage_check(True,True,True,True))
+        print("AA10", kernel_accept("proof", type("K",(),{"check":lambda s,p:p=="proof"})()))
+        print("AA11", data_gating_fraction(8,10))
+        print("AA12", grounding_fraction(7,10))
+        print("AA13", collapse_curve_detect([0.9,0.85,0.8,0.5,0.4]))
+        print("AA14", group_var_filter([[1,1,1],[0,1,0.5]]))
+        print("AA15", multiturn_verdict([True,False,True]))
+        print("AA16", spurious_guard(True,False))
+        print("AA17", guardrail_latency(150))
+        print("AA18", guardrail_acc(99,100))
+        print("AA19", intervention_lineage("r","c","t"))
+        print("AA20", allowlist_expiry(100,50))
+        print("AA21", signed_ledger_check([1,2],True))
+        print("AA22", assume_breach_reauth(True))
+        print("AA23", sae_alignment([1,1],[1,0]))
+        print("AA24", scratchpad_anomaly([1,1,1,9]))
+        print("AA25", selective_risk({0.5:0.1,1.0:0.2}))
+        print("AA26", neg_suite_parity(50,50))
+        print("AA27", tts_protocol(True,True,True))
+        print("AA28", lockfile_atomic(True,True))
+        print("AA29", data_contamination_detect(0.2))
+        print("AA30", curriculum_match(0.6,0.8))
+        print("AA31", debate_aggregate([0.8,0.6],[0.7,0.3]))
+        print("AA32", consensus_reliability(8,10))
+        print("AA33", ece_compute([0.9,0.8,0.6],[True,False,False]))
+        print("AA34", conformal_coverage([1,1,1],3))
+        print("AA35", eval_protocol_check(True,True,True))
+        print("AA36", oracle_baseline_hash("x","x"))
+        print("AA37", injection_multiturn_detect(True))
+        print("AA38", hitl_ticket_required(True,True))
+        print("AA39", cost_per_action(100,10))
+        print("AA40", latency_percentile([10,20,30,40,50]))
+        print("AA41", skill_manifest_hash("h","h"))
+        print("AA42", goal_drift_detect(["g1"],{"g1":1}))
+        print("AA43", anchored_baseline("a","a"))
+        return 0
     if cmd == "selftest_z":
         print("Z_error_src", error_source_classify_rlvr(True, False))
         print("Z_fn_priority", fn_priority_policy(2,1))

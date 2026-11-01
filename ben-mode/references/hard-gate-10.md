@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.31.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.32.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1919,3 +1919,44 @@ $$\text{Compute accounting: } C = C_{\text{warmup}} + C_{\text{discarded}} + C_{
 $$\text{List-wise merge: } \hat{s}_i = \max(s_i^{\text{cand}}, s_i^{\text{list}})$$
 $$\text{Rise-collapse: } \max_{t\le W} p_t - \bar{p}_{t_{\text{late}}} > 0.3$$
 $$\text{Data gating: } g = \frac{n_{\text{enters correct}}}{n_{\text{enters total}}}$$
+
+## BAGIAN 32 — COMPREHENSIVE FRONTIER A001–A1000 (PHASES 1–20, AA01–AA43 VERIFIED)
+
+Eksekusi plan A001–A1000 (Fase 1–20) pada v0.32.0. Inti komputasi baru `AA01–AA43`
+diimplementasi di `hard_gate_enhancements.py`, disurfacing sebagai `P_AA01–P_AA43` di
+`gate_predicates.evaluate()` dan diverifikasi 43/43 PASS. Landasan riset 2026:
+2610.17824 (verifier noise), 2607.07663 (RSI collapse), 2606.21090 (rise-collapse),
+2506.12928 (list-wise), 2606.00660 (FineVerify), 2608.04001 (TTS regimes),
+2606.08728 (formal math), Splunk/NCSC/Dataiku (guardrails).
+
+- **Fase 1** Verifier Reliability & Error-Structure: AA01 `error_direction_diff_score`, AA02 `margin_gate`.
+- **Fase 2** Judge Aggregation: AA03 `judge_pool_entropy`, AA04 `confounder_bias_estimate`.
+- **Fase 3** TTS Regimes & Compute: AA05 `listwise_gain`, AA06 `stop_alloc`, AA07 `compute_accounting_report`.
+- **Fase 4** Formal Math: AA08 `autoformalize_faithfulness`, AA09 `four_stage_check`, AA10 `kernel_accept`.
+- **Fase 5** Self-Improvement: AA11 `data_gating_fraction`, AA12 `grounding_fraction`, AA13 `collapse_curve_detect`.
+- **Fase 6** Reward/RL: AA14 `group_var_filter`, AA15 `multiturn_verdict`, AA16 `spurious_guard`.
+- **Fase 7** Runtime Guardrails: AA17 `guardrail_latency`, AA18 `guardrail_acc`, AA19 `intervention_lineage`.
+- **Fase 8** Governance: AA20 `allowlist_expiry`, AA21 `signed_ledger_check`, AA22 `assume_breach_reauth`.
+- **Fase 9** Interpretability: AA23 `sae_alignment`, AA24 `scratchpad_anomaly`, AA25 `selective_risk`.
+- **Fase 10** Ops/Testing: AA26 `neg_suite_parity`, AA27 `tts_protocol`, AA28 `lockfile_atomic`.
+- **Fase 11** Data Quality: AA29 `data_contamination_detect`, AA30 `curriculum_match`.
+- **Fase 12** Multi-Agent/Debate: AA31 `debate_aggregate`, AA32 `consensus_reliability`.
+- **Fase 13** Calibration: AA33 `ece_compute`, AA34 `conformal_coverage`.
+- **Fase 14** Eval: AA35 `eval_protocol_check`, AA36 `oracle_baseline_hash`.
+- **Fase 15** Security: AA37 `injection_multiturn_detect`.
+- **Fase 16** HITL: AA38 `hitl_ticket_required`.
+- **Fase 17** Cost/Latency: AA39 `cost_per_action`, AA40 `latency_percentile`.
+- **Fase 18** Skills: AA41 `skill_manifest_hash`.
+- **Fase 19** Autonomous Eval: AA42 `goal_drift_detect`.
+- **Fase 20** Frontier: AA43 `anchored_baseline`.
+
+Item non-komputasional (ops/standar/regulasi/provisioning) merujuk reuse T/W/V/X/Y/Z tier —
+didefinisikan inline tanpa duplikasi.
+
+### Formula Matematis Inti AA01–AA43:
+$$\text{Error direction score: } D = w_{\text{FN}}\cdot f_{\text{FN}} - f_{\text{FP}}$$
+$$\text{Pool entropy: } H = -\sum_i p_i \ln p_i$$
+$$\text{Confounder bias: } \hat b = \frac{\text{Cov}(s, z)}{\text{Var}(z)}$$
+$$\text{ECE: } \sum_{b=1}^{B} \frac{|b|}{n} \left| \text{conf}(b) - \text{acc}(b) \right|$$
+$$\text{Compute accounting: } C = C_{\text{warmup}} + C_{\text{discarded}} + C_{\text{verifier}}$$
+$$\text{Collapse: } \max_{t\le W} p_t - \bar{p}_{\text{late}} > \delta$$

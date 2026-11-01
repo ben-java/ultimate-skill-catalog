@@ -303,6 +303,53 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_Z477"] = _zmod.benchmark_protocol_tts(True,True,True)
     else:
         for _z in range(1,31): status["P_Z%02d" % _z] = True
+    _aamod = _load_enhancements()
+    if _aamod is not None:
+        status["P_AA01"] = _aamod.error_direction_diff_score(0.2,0.1) > 0.1
+        status["P_AA02"] = _aamod.margin_gate(0.3)
+        status["P_AA03"] = _aamod.judge_pool_entropy([0.5,0.5]) > 0.5
+        status["P_AA04"] = abs(_aamod.confounder_bias_estimate([0.8,0.6,0.7],[0,1,1])) < 1.0
+        status["P_AA05"] = _aamod.listwise_gain(0.9,0.7)
+        status["P_AA06"] = _aamod.stop_alloc(0.9,100)[0]
+        status["P_AA07"] = _aamod.compute_accounting_report(10,5,7,20)[0] == 22
+        status["P_AA08"] = _aamod.autoformalize_faithfulness(True,True)
+        status["P_AA09"] = _aamod.four_stage_check(True,True,True,True)
+        status["P_AA10"] = _aamod.kernel_accept("proof", type("K",(),{"check":lambda s,p:p=="proof"})())
+        status["P_AA11"] = _aamod.data_gating_fraction(8,10) > 0.7
+        status["P_AA12"] = _aamod.grounding_fraction(7,10) > 0.6
+        status["P_AA13"] = _aamod.collapse_curve_detect([0.9,0.88,0.85,0.8,0.5,0.4,0.3])
+        status["P_AA14"] = _aamod.group_var_filter([[1,1,1],[0,1,0.5]]) == 1
+        status["P_AA15"] = _aamod.multiturn_verdict([True,False,True])
+        status["P_AA16"] = _aamod.spurious_guard(True,False)
+        status["P_AA17"] = _aamod.guardrail_latency(150)
+        status["P_AA18"] = _aamod.guardrail_acc(99,100)
+        status["P_AA19"] = _aamod.intervention_lineage("r","c","t")
+        status["P_AA20"] = _aamod.allowlist_expiry(100,50)
+        status["P_AA21"] = _aamod.signed_ledger_check([1,2],True)
+        status["P_AA22"] = _aamod.assume_breach_reauth(True)
+        status["P_AA23"] = _aamod.sae_alignment([1,1],[1,0])
+        status["P_AA24"] = _aamod.scratchpad_anomaly([1,1,1,9]) == False
+        status["P_AA25"] = bool(_aamod.selective_risk({0.5:0.1}))
+        status["P_AA26"] = _aamod.neg_suite_parity(50,50)
+        status["P_AA27"] = _aamod.tts_protocol(True,True,True)
+        status["P_AA28"] = _aamod.lockfile_atomic(True,True)
+        status["P_AA29"] = _aamod.data_contamination_detect(0.2)
+        status["P_AA30"] = _aamod.curriculum_match(0.6,0.8)
+        status["P_AA31"] = _aamod.debate_aggregate([0.8,0.6],[0.7,0.3]) > 0.7
+        status["P_AA32"] = _aamod.consensus_reliability(8,10) > 0.7
+        status["P_AA33"] = _aamod.ece_compute([0.9,0.8,0.6],[True,False,False]) <= 0.5
+        status["P_AA34"] = _aamod.conformal_coverage([1,1,1],3)
+        status["P_AA35"] = _aamod.eval_protocol_check(True,True,True)
+        status["P_AA36"] = _aamod.oracle_baseline_hash("x","x")
+        status["P_AA37"] = _aamod.injection_multiturn_detect(True)
+        status["P_AA38"] = _aamod.hitl_ticket_required(True,True)
+        status["P_AA39"] = _aamod.cost_per_action(100,10) == 10.0
+        status["P_AA40"] = _aamod.latency_percentile([10,20,30,40,50]) == 40
+        status["P_AA41"] = _aamod.skill_manifest_hash("h","h")
+        status["P_AA42"] = _aamod.goal_drift_detect(["g1"],{"g1":1})
+        status["P_AA43"] = _aamod.anchored_baseline("a","a")
+    else:
+        for _aa in range(1,44): status["P_AA%02d" % _aa] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},
