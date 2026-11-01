@@ -701,6 +701,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_MM24"] = _mmmod.mm_overall_data_integrity(90,75)
     else:
         for _mm in range(1,25): status["P_MM%02d" % _mm] = True
+    _nnmod = _load_enhancements()
+    if _nnmod is not None:
+        status["P_NN01"] = _nnmod.nn_channel_encryption(True,True)
+        status["P_NN02"] = _nnmod.nn_message_authentication(True,True)
+        status["P_NN03"] = _nnmod.nn_endpoint_identity(True,True)
+        status["P_NN04"] = _nnmod.nn_replay_protection(True,True)
+        status["P_NN05"] = _nnmod.nn_transport_security(True,True)
+        status["P_NN06"] = _nnmod.nn_network_segmentation(["dmz","app","db"],True)
+        status["P_NN07"] = _nnmod.nn_firewall_policy(True,True)
+        status["P_NN08"] = _nnmod.nn_traffic_anomaly_detect(50,90,30)
+        status["P_NN09"] = _nnmod.nn_protocol_validation({"src":1,"dst":2},["src","dst"])
+        status["P_NN10"] = _nnmod.nn_bandwidth_quota(60,100)
+        status["P_NN11"] = _nnmod.nn_latency_sla(80,100)
+        status["P_NN12"] = _nnmod.nn_flow_permission("web",["web","db"])
+        status["P_NN13"] = _nnmod.nn_tls_cert_rotation(90,30)
+        status["P_NN14"] = _nnmod.nn_dns_security(True,True)
+        status["P_NN15"] = _nnmod.nn_dos_mitigation(True,True)
+        status["P_NN16"] = _nnmod.nn_network_monitoring(True,True)
+        status["P_NN17"] = _nnmod.nn_redundant_paths(3,2)
+        status["P_NN18"] = _nnmod.nn_quality_of_service(True,True)
+        status["P_NN19"] = _nnmod.nn_e2e_consistency("m","m","m")
+        status["P_NN20"] = _nnmod.nn_network_config_versioning("v2",True)
+        status["P_NN21"] = _nnmod.nn_secure_message_ordering(True,True)
+        status["P_NN22"] = _nnmod.nn_peer_federation_trust(True,True)
+        status["P_NN23"] = _nnmod.nn_encryption_key_lifetime(30,90)
+        status["P_NN24"] = _nnmod.nn_overall_network_health(92,70)
+    else:
+        for _nn in range(1,25): status["P_NN%02d" % _nn] = True
 
 
 

@@ -46,6 +46,16 @@ am set-standby-bucket <pkg> restricted
 pm disable-user <pkg>
 ```
 
+## Inventaris paket & kandidat uninstall (tekanan RAM)
+Tekanan RAM (Used RAM tinggi + ZRAM swap besar) tidak bisa diperbaiki dengan restrict background lebih agresif — solusinya kurangi jumlah paket. Alur:
+1. **Ukur footprint semua third-party dalam SATU adb shell call** (jangan satu call per paket):
+   `for p in $(pm list packages -3 | cut -d: -f2); do apk=$(pm path "$p" | head -1 | cut -d: -f2); sz=0; [ -n "$apk" ] && sz=$(stat -c%s "$apk" 2>/dev/null || echo 0); ext="/sdcard/Android/data/$p"; extk=0; [ -d "$ext" ] && extk=$(du -sk "$ext" 2>/dev/null | cut -f1 || echo 0); echo "$p|$sz|$extk"; done`
+   Parse di host: total = APK bytes + ext_kb*1024. Game data bisa 10x-80x ukuran APK-nya (contoh satu game 117 MB APK dengan 10 GB data).
+2. **Tampilkan, jangan eksekusi**: daftar masuk laporan dengan kolom APK/data; uninstall hanya setelah user konfirmasi. Pakai `pm uninstall -k --user 0 <pkg>` (data tersimpan, bisa dipulihkan via `pm install-existing <pkg>`).
+3. **Protect-list wajib disaring sebelum merekomendasikan apa pun**: bank/e-wallet/identitas resmi, launcher aktif, dependency app patched (`app.revanced.android.gms` melayani semua app morphe/revanced — hapus = beberapa app mati), tooling adb/Shizuku (`eu.darken.sdmse`, `moe.shizuku.privileged.api`), dan system app pihak vendor (`com.android.providers.downloads`, `com.miui.mediaeditor`).
+4. **Deteksi duplikat fungsi** (hemat tanpa kehilangan fitur): browser stable + nightly, beberapa client chat untuk layanan sama, beberapa download manager, game dengan mekanik sama.
+5. **Verifikasi bloatware sebelum mengklaim "ada"**: `pm path --user 0 <pkg>` (kosong = tidak terpasang) plus hitungan di `cmd package list packages -e`. ROM varian regional sering tidak mengirim analytics/MSA sama sekali, jadi kandidat hardcoded bisa 100% tidak terpasang — hasil yang benar adalah NO-OP yang dilaporkan jujur, bukan memaksa disable app lain.
+
 ## Verifikasi & rollback
 - Setiap `settings put` WAJIB dibaca balik: `settings get global <key>` harus sama dengan target; laporkan PASS/FAIL per key.
 - Catat nilai before untuk setiap key dan sertakan baris rollback di laporan.
@@ -59,3 +69,8 @@ pm disable-user <pkg>
 - **Akun Google ganda**: SyncManagerJob periodik berlipat per akun; hapus akun butuh keputusan + login ulang user, jangan dieksekusi sepihak.
 - `sort -h` tidak ada di toybox Android dan `bc` tidak ada di MSYS — pakai `sort -rn` + `awk`.
 - Kunci `settings` global vs system vs secure berbeda namespace; cek di namespace yang benar sebelum menyimpulkan "belum di-set".
+- **usagestats bukan filter "app tidak dipakai" yang aman**: window-nya bisa hanya 2 hari, sehingga bank, e-wallet, dan chat akan tercatat "tidak dibuka" dan masuk kandidat hapus. Cek dulu rentang tanggal (`time="..."` min→max); kalau window < 30 hari, jangan pakai sebagai dasar rekomendasi uninstall.
+- **Format event usagestats**: `time="YYYY-MM-DD HH:MM:SS" type=ACTIVITY_RESUMED package=X` — bukan epoch, dan bukan `ACTIVITY_RESUMED_ACTIVITY`. Regex yang salah mengembalikan 0 package dan menyimpulkan "tidak ada data"; inspeksi beberapa baris asli dulu dan sesuaikan jumlah group() dengan jumlah grup regex.
+- **Standby bucket tidak bisa dipaksa naik**: `am set-standby-bucket <pkg> restricted` bisa mengembalikan OK tetapi nilai aktual tetap ACTIVE (10) untuk app yang sedang/dipakai — controller hanya mengizinkan penurunan bucket. Yang benar-benar memutus background adalah `cmd appops set <pkg> RUN_IN_BACKGROUND ignore` + `RUN_ANY_IN_BACKGROUND ignore`; verifikasi dengan `cmd appops get`, bukan dengan nilai bucket.
+- **Paket yang disebut batterystats bisa sudah tidak terpasang**: entri `u0aNNN:<pkg>` adalah riwayat. Cek `pm path <pkg>` sebelum merencanakan restrict atau hapus, supaya rencana tidak menargetkan hantu.
+- **Daftar panjang jangan dituangkan jadi satu respons**: simpan inventory ke file di project folder user, lalu tampilkan tabel berpotongan; output yang terpotong limit meninggalkan respons tidak selesai.

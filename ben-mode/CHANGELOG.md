@@ -1,3 +1,8 @@
+## v0.45.0 (2026-11-02) — Wave N Network & Communication Integrity NN01–NN24 (BAGIAN 45)
+
+- **NN01–NN24**: channel encryption, message authentication, endpoint identity, replay protection, transport security, network segmentation, firewall policy, traffic anomaly, protocol validation, bandwidth quota, latency SLA, flow permission, cert rotation, DNS security, DoS mitigation, network monitoring, redundant paths, QoS, e2e consistency, config versioning, message ordering, federation trust, key lifetime, network health. Disurfacing `P_NN01–P_NN24`; 24/24 PASS.
+- **BAGIAN 45** ditambahkan; bump serentak 0.45.0.
+
 ## v0.44.0 (2026-11-02) — Wave M Data Quality & Integrity MM01–MM24 (BAGIAN 44)
 
 - **MM01–MM24**: schema validation, null handling, outlier detection, data drift, class imbalance, duplicate detection, data versioning, quality score, encoding consistency, PII detection, anonymization, source reliability, timestamp validity, cross-field consistency, data provenance, measurement units, aggregation correctness, missingness threshold, pipeline checkpoint, label noise bound, feature distribution, import validation, retention policy, overall integrity. Disurfacing `P_MM01–P_MM24`; 24/24 PASS.

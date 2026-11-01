@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.44.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.45.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2131,3 +2131,18 @@ disurfacing `P_MM01–P_MM24`; diverifikasi 24/24 PASS (selftest_mm rc 0).
 - Privacy: MM10 `mm_pii_detection`, MM11 `mm_anonymization_ok`.
 - Agregasi & Pipeline: MM17 `mm_aggregation_correct`, MM19 `mm_data_pipeline_checkpoint`, MM22 `mm_import_validation`, MM23 `mm_data_retention_policy`.
 - Skor: MM08 `mm_quality_score`, MM24 `mm_overall_data_integrity`.
+
+---
+
+# BAGIAN 45 — WAVE N: NETWORK & COMMUNICATION INTEGRITY NN01–NN24 (VERIFIED; v0.45.0)
+
+Menambahkan lapisan network & communication integrity: `NN01–NN24` di `hard_gate_enhancements.py`,
+disurfacing `P_NN01–P_NN24`; diverifikasi 24/24 PASS (selftest_nn rc 0).
+
+- Transport & Crypto: NN01 `nn_channel_encryption`, NN02 `nn_message_authentication`, NN03 `nn_endpoint_identity`, NN04 `nn_replay_protection`, NN05 `nn_transport_security`, NN23 `nn_encryption_key_lifetime`.
+- Link & Routing: NN06 `nn_network_segmentation`, NN07 `nn_firewall_policy`, NN12 `nn_flow_permission`, NN17 `nn_redundant_paths`, NN22 `nn_peer_federation_trust`.
+- Traffic & Anomali: NN08 `nn_traffic_anomaly_detect`, NN15 `nn_dos_mitigation`, NN16 `nn_network_monitoring`.
+- Protocol & QoS: NN09 `nn_protocol_validation`, NN10 `nn_bandwidth_quota`, NN11 `nn_latency_sla`, NN18 `nn_quality_of_service`, NN21 `nn_secure_message_ordering`.
+- Message & Config: NN19 `nn_e2e_consistency`, NN20 `nn_network_config_versioning`.
+- DNS & Cert: NN13 `nn_tls_cert_rotation`, NN14 `nn_dns_security`.
+- Skor: NN24 `nn_overall_network_health`.

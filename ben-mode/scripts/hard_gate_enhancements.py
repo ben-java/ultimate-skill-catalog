@@ -3780,3 +3780,128 @@ def selftest_mm():
             (22, mm_import_validation(100, 95, 5)),
             (23, mm_data_retention_policy(180, 365)),
             (24, mm_overall_data_integrity(90, 75))]
+
+# ------------------------------------------------------------------
+# WAVE N — NETWORK & COMMUNICATION INTEGRITY (NN01–NN24)
+# ------------------------------------------------------------------
+def nn_channel_encryption(encrypted, cipher_strong):
+    # NN01: channel must be encrypted with strong cipher.
+    return bool(encrypted) and bool(cipher_strong)
+
+def nn_message_authentication(authenticated, mac_valid):
+    # NN02: message integrity/authenticity via MAC.
+    return bool(authenticated) and bool(mac_valid)
+
+def nn_endpoint_identity(verified_identity, trusted_ca):
+    # NN03: endpoints identified via trusted CA.
+    return bool(verified_identity) and bool(trusted_ca)
+
+def nn_replay_protection(nonce_unique, window_valid):
+    # NN04: anti-replay via nonce + sliding window.
+    return bool(nonce_unique) and bool(window_valid)
+
+def nn_transport_security(tls_ok, version_ok):
+    # NN05: transport security (TLS) with safe version.
+    return bool(tls_ok) and bool(version_ok)
+
+def nn_network_segmentation(segments, sensitive_isolated):
+    # NN06: sensitive segments isolated.
+    return len(segments) >= 2 and bool(sensitive_isolated)
+
+def nn_firewall_policy(rules, default_deny):
+    # NN07: firewall default-deny with explicit rules.
+    return bool(rules) and bool(default_deny)
+
+def nn_traffic_anomaly_detect(baseline, current, threshold):
+    # NN08: anomaly flagged when traffic deviates.
+    return abs(current - baseline) > threshold
+
+def nn_protocol_validation(packet, protocol_schema):
+    # NN09: packets validated against protocol schema.
+    return set(protocol_schema) <= set(packet.keys())
+
+def nn_bandwidth_quota(used, quota):
+    # NN10: bandwidth usage within quota.
+    return used <= quota
+
+def nn_latency_sla(rtt, sla):
+    # NN11: RTT within SLA.
+    return rtt <= sla
+
+def nn_flow_permission(flow, allowed_flows):
+    # NN12: traffic flows must be authorized.
+    return flow in allowed_flows
+
+def nn_tls_cert_rotation(expiry, renewal):
+    # NN13: certs rotated before expiry.
+    return expiry > renewal
+
+def nn_dns_security(resolver_ok, dnssec_enabled):
+    # NN14: secure DNS resolution.
+    return bool(resolver_ok) and bool(dnssec_enabled)
+
+def nn_dos_mitigation(rate_limit, backlog_cap):
+    # NN15: DoS mitigated via rate limit + backlog cap.
+    return bool(rate_limit) and bool(backlog_cap)
+
+def nn_network_monitoring(probes, alerts_enabled):
+    # NN16: monitoring probes with alerting.
+    return bool(probes) and bool(alerts_enabled)
+
+def nn_redundant_paths(paths, min_paths):
+    # NN17: multiple redundant paths.
+    return paths >= min_paths
+
+def nn_quality_of_service(qos_enabled, priority_classes):
+    # NN18: QoS with priority classes.
+    return bool(qos_enabled) and bool(priority_classes)
+
+def nn_e2e_consistency(sender, receiver, expected):
+    # NN19: end-to-end message consistency.
+    return receiver == expected == sender
+
+def nn_network_config_versioning(config_version, tied_to_artifact):
+    # NN20: network config versioned + tied to artifact.
+    return bool(config_version) and bool(tied_to_artifact)
+
+def nn_secure_message_ordering(sequence_valid, no_gaps):
+    # NN21: message ordering with sequence integrity.
+    return bool(sequence_valid) and bool(no_gaps)
+
+def nn_peer_federation_trust(peer_trusted, policy_ok):
+    # NN22: federation peers trusted per policy.
+    return bool(peer_trusted) and bool(policy_ok)
+
+def nn_encryption_key_lifetime(key_age, max_age):
+    # NN23: key age within lifetime.
+    return key_age <= max_age
+
+def nn_overall_network_health(score, min_score):
+    # NN24: overall network health score meets minimum.
+    return score >= min_score
+
+def selftest_nn():
+    return [(1, nn_channel_encryption(True, True)),
+            (2, nn_message_authentication(True, True)),
+            (3, nn_endpoint_identity(True, True)),
+            (4, nn_replay_protection(True, True)),
+            (5, nn_transport_security(True, True)),
+            (6, nn_network_segmentation(["dmz", "app", "db"], True)),
+            (7, nn_firewall_policy(True, True)),
+            (8, nn_traffic_anomaly_detect(50, 90, 30)),
+            (9, nn_protocol_validation({"src": 1, "dst": 2}, ["src", "dst"])),
+            (10, nn_bandwidth_quota(60, 100)),
+            (11, nn_latency_sla(80, 100)),
+            (12, nn_flow_permission("web", ["web", "db"])),
+            (13, nn_tls_cert_rotation(90, 30)),
+            (14, nn_dns_security(True, True)),
+            (15, nn_dos_mitigation(True, True)),
+            (16, nn_network_monitoring(True, True)),
+            (17, nn_redundant_paths(3, 2)),
+            (18, nn_quality_of_service(True, True)),
+            (19, nn_e2e_consistency("m", "m", "m")),
+            (20, nn_network_config_versioning("v2", True)),
+            (21, nn_secure_message_ordering(True, True)),
+            (22, nn_peer_federation_trust(True, True)),
+            (23, nn_encryption_key_lifetime(30, 90)),
+            (24, nn_overall_network_health(92, 70))]

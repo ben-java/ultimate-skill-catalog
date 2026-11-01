@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.44.0
+version: 0.45.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -110,6 +110,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Predicate SMT z3: `solver.check()` mengembalikan objek `CheckSatResult`, BUKAN string — `s.check() != "unsat"` selalu bernilai True dan membuat hasil UNSAT terbaca sebagai violation. Bandingkan dengan sentinel: `from z3 import unsat; if s.check() != unsat:`. Diagnostik: pecahkan satu `s.check()` terpisah dan `repr` hasilnya sebelum menebak logika.
 - Rantai fallback variabel env: jangan taruh variabel yang disediakan platform (mis. `GITHUB_ACTOR` di runner CI) di depan override eksplisit pengguna dalam rangkaian `or` — nilai bawaan platform selalu menang sehingga override diam-diam mati dan percabangan berbelok (kasus nyata: Test 40 gagal hanya di CI karena actor GitHub mendahului `BEN_AUDIT_ACTOR`). Prioritaskan override eksplisit lebih dulu: `os.environ.get("BEN_AUDIT_ACTOR") or os.environ.get("GITHUB_ACTOR") or "local-ben"`.
 - Polling GitHub Actions tanpa binary `gh`: REST `/actions/jobs/{id}/logs` me-redirect ke blob AWS S3 — drop header `Authorization` pada redirect cross-domain (custom `HTTPRedirectHandler`) atau kena HTTP 401. Alur andal: poll `/actions/runs?per_page=N` sampai `status == "completed"`, lalu `/actions/runs/{id}/jobs` untuk membaca conclusion tiap job.
+- Poll loop `curl ... | grep -m1 ...` di dalam bash: `grep -m1` menutup pipe setelah match pertama → curl mati dengan exit 23 (SIGPIPE), dan di bawah `set -euo pipefail` seluruh script abort — ini bukan kegagalan API. Pertama tangkap respons ke variabel (`R="$(curl -s ...)"`), baru `printf "%s" "$R" | grep -m1`; atau pisahkan pemanggilan curl dan parsing ke dua langkah. Loop poll juga harus dijalankan di blok bash terpisah dari job-parse (yang memanggil curl lagi) supaya satu kegagalan polling tidak menyapu tahap berikutnya.
 - Menjalankan script `.sh` gate dari `execute_code`/subprocess: jangan panggil `bash` telanjang (di host ini me-resolve ke WSL tanpa /bin/bash). Panggil jalur absolut Git-Bash: `C:\Program Files\Git\bin\bash.exe`. Verifier `.py` berjalan dengan `sys.executable`.
 - Marker status "Implemented & runtime-verified" di `hard-gate-10.md` adalah klaim, bukan fakta — jalankan artefaknya sebelum mempercayainya. Jalankan dengan interpreter/env yang SAMA dengan cron gate (`run_daily_monitor.cmd`), dan buktikan dependensi importable (mis. `import z3`) / binary eksternal ada (mis. `which opa`) bila skrip mengaku runtime-verified — file yang ada tapi dependensinya tak termuat tetap gagal saat dieksekusi. Contoh ditemukan: verifier replika canonical menyimpan syntax error lama sehingga tak pernah ter-compile; baru terungkap saat benar-benar dieksekusi.
 - Jalankan gate/verifier secara **bebas-efek samping** terhadap pohon yang diperiksa: script Python membuat `__pycache__/*.pyc` (set `PYTHONDONTWRITEBYTECODE=1`) dan default jalur audit yang relatif/tak-absolut menulis JSONL ke dalam `scripts/` — keduanya memutus identitas replika pada verifikasi berikutnya sendiri. Arahkan audit log ke absolut `tempfile.gettempdir()`, jangan pernah relatif atau ke-dalam-pohon.
@@ -282,3 +283,9 @@ Pitfall device cleanup (adb):
 - Kapasitas baterai efektif ukur dari `dumpsys batterystats` (Estimated battery capacity) + cross-check charge_counter/level; sysfs charge_full_design sering N/A tanpa root.
 - Tekanan RAM dinilai dari Used RAM + ZRAM swap di `dumpsys meminfo`; solusinya kurangi package/bloatware, bukan restrict background lebih agresif.
 - Hapus akun Google cadangan hanya setelah keputusan user — sync periodik berlipat per akun dan butuh login ulang.
+- Sebelum merekomendasikan uninstall/disable paket, saring protect-list: bank/e-wallet/identitas, launcher aktif, dependency app patched (GMS revanced/morphe), tooling adb/Shizuku, dan system app vendor (download provider, media editor).
+- Paket yang muncul di batterystats/usagestats adalah riwayat — cek `pm path <pkg>` sebelum menargetkannya; paket yang sudah tidak terpasang tidak bisa di-restrict.
+- `am set-standby-bucket` tidak memaksa kenaikan bucket; pengungkap background yang benar dan terverifikasi adalah `cmd appops set ... ignore` + read-back `cmd appops get`.
+- Jangan pakai usagestats berwindow pendek sebagai bukti "app tidak dipakai" untuk rekomendasi hapus — window 2 hari menandai app penting sekalipun.
+- Bloatware hardcoded (analytics/MSA/joyose) bisa 100% tidak terpasang di ROM varian; verifikasi lewat pm path dan laporkan NO-OP jujur alih-alih memaksa disable app lain.
+- Inventory 100+ paket: satu adb shell for-loop, simpan ke file, tampilkan tabel berpotongan — jangan satu call per paket dan jangan satu respons raksasa.
