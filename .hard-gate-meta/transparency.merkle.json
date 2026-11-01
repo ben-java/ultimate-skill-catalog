@@ -434,7 +434,28 @@
         }
       },
       "ts": null
+    },
+    {
+      "hash": "dadbf41bb4a371caf26b35f2ebbcb7ed049d6c22564de0a3c4ea0e8458e49840",
+      "event": {
+        "kind": "hard-gate-audit.jsonl",
+        "data": {
+          "ts": "2026-11-01T01:00:08.628767+00:00",
+          "predicates": {
+            "P_quorum": false,
+            "P_schema": false,
+            "P_zero_links": true,
+            "P_bom": true,
+            "P_signed_manifest": true,
+            "P_runtime_static": true,
+            "P_spec_parity": false,
+            "P_formal": false
+          },
+          "status": "FAIL"
+        }
+      },
+      "ts": "2026-11-01T01:00:08.628767+00:00"
     }
   ],
-  "root": "f7b3bfb506e1e17f5161342bfe01dc0cb1f0c3ee404b9309d46b05494e7cfe89"
+  "root": "ab4d4f22df5cbbe94f1cc405cbb087bcb823705476e4d72c94616fa5fd70028e"
 }

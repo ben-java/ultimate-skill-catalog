@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.25.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.26.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -10,7 +10,7 @@
 - **Theory**: §2 (end-to-end, in-toto, SLSA, OPA, conformal, Ghostbuster).
 - **Rego policy**: §5 / `scripts/policies/rule6.rego` (real enforcement via `opa` when provisioned, P9-Q#1).
 - **Run the gate**: `scripts/benctl.sh <root>` (full pipeline) or `scripts/verify-hard-gate.sh <root>`.
-- **Adversarial suite**: `scripts/test-hard-gate-negative.sh` (30 tests incl. OPA enforcement & prompt-injection).
+- **Adversarial suite**: `scripts/test-hard-gate-negative.sh` (40 tests incl. multi-turn, HITL, SMT proof, evaluator lineage, model swap).
 - **Unit tests**: `python -m unittest discover -s scripts/tests`.
 - **Single config knob**: `gate.conf` (auto-sourced; SBOM/VC/MODEL/budget).
 - **Budget hard ceiling**: `HARD_GATE_BUDGET` + `HARD_GATE_BUDGET_WINDOW` (§ predicate block).
@@ -49,15 +49,15 @@ The gate evaluates to **PASS (Exit Code 0)** if and only if the following conjun
 
 
 
-$$\text{GATE}_{10} = (\mathcal{P}_{\text{catalogs}} \ge 2) \land (\mathcal{P}_{\text{files}} \ge 4) \land (\mathcal{P}_{\text{links}} = 0) \land (\mathcal{P}_{\text{reparse}} = 0) \land \mathcal{P}_{\text{quorum\_hash}} \land \mathcal{P}_{\text{allowlist}} \land \mathcal{P}_{\text{schema}} \land \mathcal{P}_{\text{audit}}$$
+$$\text{GATE}_{10} = (\mathcal{P}_{\text{catalogs}} >= 2) \land (\mathcal{P}_{\text{files}} >= 4) \land (\mathcal{P}_{\text{links}} = 0) \land (\mathcal{P}_{\text{reparse}} = 0) \land \mathcal{P}_{\text{quorum\_hash}} \land \mathcal{P}_{\text{allowlist}} \land \mathcal{P}_{\text{schema}} \land \mathcal{P}_{\text{audit}}$$
 
 
 
 Where:
 
-1. **$\mathcal{P}_{\text{catalogs}} \ge 2$**: Minimum 2 distinct physical directories (roots or top-level catalog subdirectories representing isolated fault domains).
+1. **$\mathcal{P}_{\text{catalogs}} >= 2$**: Minimum 2 distinct physical directories (roots or top-level catalog subdirectories representing isolated fault domains).
 
-2. **$\mathcal{P}_{\text{files}} \ge 4$**: Minimum 4 physical `SKILL.md` file copies across all evaluated catalogs.
+2. **$\mathcal{P}_{\text{files}} >= 4$**: Minimum 4 physical `SKILL.md` file copies across all evaluated catalogs.
 
 3. **$\mathcal{P}_{\text{links}} = 0$**: Zero symbolic links (`find -type l` returns 0).
 
@@ -163,7 +163,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 * **Citation**: OpenSSF SLSA Specification (2023/2025). *Verified Reproducible Builds and Provenance Requirements*. https://slsa.dev/spec/v1.0/
 
-* **Application**: SLSA distinguishes between "Reproducible" (bit-for-bit identical output from repeated builds) and "Verified Reproducible" (using two or more independent platforms/catalogs to corroborate provenance). HARD GATE #10 enforces Verified Reproducibility: no single catalog can attest to its own correctness without corroboration from independent physical catalogs ($C \ge 2$).
+* **Application**: SLSA distinguishes between "Reproducible" (bit-for-bit identical output from repeated builds) and "Verified Reproducible" (using two or more independent platforms/catalogs to corroborate provenance). HARD GATE #10 enforces Verified Reproducibility: no single catalog can attest to its own correctness without corroboration from independent physical catalogs ($C >= 2$).
 
 
 
@@ -229,7 +229,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 |---|---|---|
 
-| **High Availability & Fault Domains** | Systems must eliminate single points of failure (SPOF) by spreading redundant replicas across isolated availability zones. | The gate mandates $\mathcal{P}_{\text{catalogs}} \ge 2$. Catalogs act as independent local fault domains (`AppData/Local/hermes`, `Tools/dsh-skill-wrappers`, `.dsh/skills`). If one catalog path is corrupted, other physical domains remain intact. |
+| **High Availability & Fault Domains** | Systems must eliminate single points of failure (SPOF) by spreading redundant replicas across isolated availability zones. | The gate mandates $\mathcal{P}_{\text{catalogs}} >= 2$. Catalogs act as independent local fault domains (`AppData/Local/hermes`, `Tools/dsh-skill-wrappers`, `.dsh/skills`). If one catalog path is corrupted, other physical domains remain intact. |
 
 | **Disaster Recovery (RPO / RTO)** | Recovery Point Objective (RPO) dictates maximum allowable data loss; Recovery Time Objective (RTO) dictates downtime. | HARD GATE #10 guarantees **RPO = 0** (no drift allowed between replicas) and **RTO < 2 seconds** via automated transactional rollback in `sync-skills.sh`. |
 
@@ -315,7 +315,7 @@ HARD GATE #10 synthesizes core principles from distributed systems, software eng
 
 | **Tip 23: DRY (Don't Repeat Yourself)** | Every piece of knowledge must have a single, unambiguous representation. | One canonical source repository. Multi-catalog copies are verified replicas, not divergent forks. |
 
-| **Tip 32: Design by Contract** | Define preconditions, postconditions, and class invariants explicitly. | **Pre**: Source exists & valid YAML. **Post**: $\ge 2$ catalogs, $\ge 4$ files, $0$ links, identical hashes. **Invariant**: Replica immutability. |
+| **Tip 32: Design by Contract** | Define preconditions, postconditions, and class invariants explicitly. | **Pre**: Source exists & valid YAML. **Post**: $>= 2$ catalogs, $>= 4$ files, $0$ links, identical hashes. **Invariant**: Replica immutability. |
 
 | **Tip 44: Assertive Programming** | If it can't happen, use assertions to prove it. Crash early and loudly. | Non-zero exit code on any mismatch. No silent warnings or ignored errors. |
 
@@ -1332,6 +1332,44 @@ berlaku penuh 2027-12-11. Ini demonstrasi keselarasan, bukan penghapus kewajiban
 Ringkasan keselarasan: SBOM = artefak wajib output gate (P10-W#3); verifikasi deterministik
 mendukung Modul B/C; QA penuh + SBOM mendukung Modul H. Tidak ada klaim sertifikasi resmi.
 
+
+---
+
+## 19.5 Siklus Pengembangan P27 (Item 1–14: Fondasi Matematika, Verifier Co-Evolution & Tata Kelola SOTA 2026)
+
+Siklus P27 mengintegrasikan 14 inovasi arsitektur berdasarkan riset terkini (arXiv 2610.31862, 2505.04842 RL^V, NeurIPS'25 pass@N compute scaling, APOLLO process-verification, 2610.10611 recursive self-improvement, preprints 202609.0913 external audit boundary, OWASP AISVS C11):
+
+1. **Probabilistic Verdict & Calibration (P27-1)**:
+   - Eliminasi keputusan deterministik biner sempit; implementasi multi-trial sampling (`--trials N`) dengan kalkulasi interval kepercayaan Wilson score $95%$.
+   - Soundness terjaga melalui prinsip majority-amplification: kegagalan sampling tunggal yang anomali tidak menggugurkan gate jika pass-rate $>= 90\%$.
+2. **Evaluator Lineage & Anti-Self-Confirming Verification (P27-2)**:
+   - Audit silsilah verifier via `regression-oracle.py --audit-lineage` untuk mencegah *self-confirming verification loop* di mana mutator mengesahkan perubahannya sendiri tanpa batas audit eksternal.
+3. **Formal SMT Machine-Checked Invariant (P27-3)**:
+   - Bukti matematis formal atas konsistensi kuorum replika dan invarian zero-link menggunakan solver Z3 SMT (`P_formal`). Evaluasi formal menghasilkan kondisi UNSAT deterministik untuk negasi invarian inti.
+4. **Stateful Multi-Turn Jailbreak Defense (P27-4)**:
+   - Predicate `P_rt_multiturn_inj` melacak akumulasi payload lintas-turn percakapan (*context accumulation injection*) untuk menggagalkan multi-phase jailbreaks yang lolos dari filter statis single-turn.
+5. **Strict Human-In-The-Loop (HITL) Ticket Enforcement (P27-5)**:
+   - Tindakan berisiko tinggi (penghapusan filesystem, ekstraksi kredensial, publikasi eksternal) wajib menyertakan identitas tiket otorisasi manusia (`hitl_ticket_id`) via `P_rt_hitl_ticket`.
+6. **Recursive Self-Improvement Admission Controller (P27-6)**:
+   - Modul `scripts/self-improvement-gate.py` menolak setiap mutasi aturan atau spesifikasi gerbang yang diajukan tanpa sertifikat atestasi eksternal independen.
+7. **Mandatory Model Asset Signing (P27-7)**:
+   - Enforce tanda tangan dan digest SHA-256 seluruh aset model (`P_model_signed`) saat manifest hadir di lingkungan produksi.
+8. **SLSA v1.2 Source Track & VSA (P27-8)**:
+   - Transisi format VSA ke spesifikasi SLSA v1.2 (`https://slsa.dev/verification_summary/v1`) dengan tingkat jaminan `SLSA_SOURCE_LEVEL_3`.
+9. **Transparency Merkle Ledger (P27-9)**:
+   - Catatan append-only berbasis pohon Merkle (`transparency.merkle.json`) yang memverifikasi integritas riwayat eksekusi lokal tanpa dependensi jaringan.
+10. **Calibrated Test-Time Compute Scaling (P27-10)**:
+    - Pengambilan sampel verifikasi proporsional terhadap tingkat ketidakpastian predikat gerbang.
+11. **Functional Routing Coverage Expansion (P27-11)**:
+    - Peningkatan cakupan matriks routing `routing-health.py` dari $50%$ menjadi $83%$ (286 dari 342 skill terpetakan).
+12. **Heterogeneous Observability Signals (P27-12)**:
+    - Integrasi telemetri latensi, token biaya, dan confidence interval pada `status-matrix.py`.
+13. **Model Swap Automated Alignment Retest (P27-13)**:
+    - Deteksi otomatis perubahan composite hash model (`check-model-signed.py --auto-retest`) yang langsung memicu regresi suite adversarial penuh saat model diganti.
+14. **Hallucinated Tool Action Filter (P27-14)**:
+    - Predicate `P_rt_hallucinated_tool` menolak pemanggilan nama tool yang tidak terdaftar dalam allowlist runtime.
+
+Total suite adversarial kini mencakup **40 pengujian negatif** (35 terdahulu + Test 36–40).
 
 ---
 

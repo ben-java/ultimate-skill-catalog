@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.25.0
+version: 0.26.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -56,6 +56,7 @@ Routing tugas secara deterministik ke kluster fungsional yang tepat, cegah pembo
     - *Kimia Komputasi & Farmasi*: `rdkit`, `chemistry-rdkit`, `datamol`, `deepchem`, `diffdock`, `medchem`, `molfeat`, `pyopenms`.
     - *Kuantum & Fisika*: `qiskit`, `cirq`, `pennylane`, `qutip`, `astropy`, `cantera`, `fluidsim`.
     - *Matematika, Graf & Pemodelan Data*: `networkx`, `torch-geometric`, `transformers`, `pytorch-lightning`, `scikit-learn`, `polars`, `dask`, `vaex`, `sympy`, `pymc`, `statsmodels`.
+    - *Domain-Specific & Applied Intelligence*: `13c-metabolic-flux`, `a-evolve`, `adaptyv`, `aeon`, `alphagenome`, `analytical-method-validation`, `antislop-code`, `antislop-copywriting`, `antislop-human`, `antislop-layoutmobile`, `antislop-ui`, `apple-notes`, `apple-reminders`, `arbor`, `arboreto`, `autoskill`, `benchling-integration`, `bgpt-paper-search`, `bids`, `biology-biopython`, `bioservices`, `blocked-page-recovery`, `cellprofiler`, `cellxgene-census`, `citation-management`, `cli-anything`, `clinical-decision-support`, `clinical-reports`, `cobrapy`, `consciousness-council`, `database-lookup`, `datalad`, `deepspot-m`, `deeptools`, `defuddle`, `depmap`, `design-routing`, `dhdna-profiler`, `dnanexus-integration`, `esm`, `etetoolkit`, `exa-search`, `excalidraw-diagram`, `experimental-design`, `exploratory-data-analysis`, `fictiv`, `findmy`, `firecrawl-build`, `firecrawl-build-interact`, `firecrawl-build-onboarding`, `firecrawl-build-scrape`, `firecrawl-build-search`, `flowio`, `flowkit`, `folklore-variant-evidence`, `generate-image`, `geniml`, `genomic-coordinates`, `genomic-intelligence`, `geomaster`, `geopandas`, `get-available-resources`, `gget`, `ginkgo-cloud-lab`, `glycoengineering`, `gtars`, `histolab`, `hugging-science`, `humanizer`, `hypogenic`, `hypothesis-formulation`, `hypothesis-generation`, `imaging-data-commons`, `imessage`, `iso-standards-readiness`, `json-canvas`, `kds-scientific-visualization`, `kds-scientific-writing`, `lab-hardware-cad`, `labarchive-integration`, `lamindb`, `latchbio-integration`, `latex-posters`, `liteparse`, `mageck`, `marine-carbonate-chemistry`, `markdown-mermaid-writing`, `market-research-reports`, `markitdown`, `matchms`, `matlab`, `matplotlib`, `mermaid-visualizer`, `modal`, `molecular-dynamics`, `ncats-arax`, `neurokit2`, `neuropixels-analysis`, `nextflow`, `nmrglue`, `nwb-conversion`, `obsidian-bases`, `obsidian-cli`, `obsidian-markdown`, `obsidian-mind`, `omero-integration`, `onekgpd`, `ontology-term-resolution`, `openpiv`, `opentrons-integration`, `optimize-for-gpu`, `pacsomatic`, `parallel-web`, `pathml`, `pathogen-variant-surveillance`.
 
 ## 3. Verifikasi & Sinkronisasi (Phase C - HARD GATE #10 & TDD)
 
@@ -197,6 +198,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - scripts/cost-report.py — ringkasan `gate-cost.jsonl` + budget alert.
 - scripts/benctl.sh — P8-M#1: satu-perintah orkestrasi HARD GATE #10 (sync -> refresh -> verify -> quorum -> dashboard -> status-matrix).
 - scripts/generate-dashboard.py — P8-O#6: generator dashboard HTML observability offline tanpa dependency runtime.
+- scripts/self-improvement-gate.py — Item6: admission controller untuk mutasi aturan mandiri (anti-self-confirming).
 - gate.conf — P8-M#2: file konfigurasi terpusat auto-source oleh verify-hard-gate.sh.
 - Reference harness implementations (mendukung klaim HARD GATE #10 §§10,15,16); dikurasi dari awesome-agent-harness (Picrew), diverifikasi 2026-10-29:
   - `google/ax` (Apache-2.0) — Agent Executor: event-log snapshots, isolated actors, audit & policy → §10 audit trail & §16 execution deterministik. https://github.com/google/ax

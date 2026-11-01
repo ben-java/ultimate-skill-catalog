@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-10-31T17:53:25.980794+00:00",
-  "file_count": 92,
+  "generated_at": "2026-11-01T01:12:12.841407+00:00",
+  "file_count": 93,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 23170,
-      "sha256": "b2a66b659bbd628ca732aa787aef2c5bb5fbc96e0d5c5d1313363cff49595293"
+      "size": 24528,
+      "sha256": "cf1d41431c0564766cee3c75bdbe6c1c8196e04cee002c86c7fd1b8f1dbca007"
     },
     {
       "path": "SKILL.md",
-      "size": 40477,
-      "sha256": "0d88c9953c495b66c25398828f942f271e427eae4f959a6240dd07842c1f870a"
+      "size": 42499,
+      "sha256": "955f2ff059abe5c661f103b676c6935914095a10d43d167741081efa49091b56"
     },
     {
       "path": "gate.conf",
@@ -62,8 +62,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 64786,
-      "sha256": "a505de7dc430af0514474168b3c262b5e504e06fd1fc55ed4f3e74e83cf9cb2b"
+      "size": 68407,
+      "sha256": "0152ca7d2bf67f5f81bbc69532184dd606680ea84ff63f4ad011d81def9a3813"
     },
     {
       "path": "references/large-document-editing.md",
@@ -128,7 +128,7 @@
     {
       "path": "scripts/benctl.sh",
       "size": 7308,
-      "sha256": "4989df5e6a761528485bc3ba28cfd9c05f3dc52c7e597fed04f709979c1dca90"
+      "sha256": "ed469701cb99d63ad566c8638254537c98fbd0508ff947f9608f3213ddb99cf6"
     },
     {
       "path": "scripts/bmc_concurrency.py",
@@ -147,13 +147,13 @@
     },
     {
       "path": "scripts/check-model-signed.py",
-      "size": 1709,
-      "sha256": "7f6061d94e0b040ef07894e8c2bd70a3470a58ef6e05caf7f0766a8bedbecc7a"
+      "size": 3268,
+      "sha256": "31f998a4123cc06f9749195acd7a596e84e3daae7adc601e557f3399d4b58954"
     },
     {
       "path": "scripts/check-vsa.py",
-      "size": 2388,
-      "sha256": "80f83fc815abb2d866ff15c2262906c84173b5e99191b8b2b6e13693635307eb"
+      "size": 2509,
+      "sha256": "6123a495d3870de8aa42df232600c12ea693fa8660cb88f58b54fc0f546ef8f5"
     },
     {
       "path": "scripts/cost-report.py",
@@ -182,8 +182,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 9365,
-      "sha256": "ba1d2ef901a7821281c35fa2e1cb8ee6b16e478e50d2ab5b851aa2f275f7c724"
+      "size": 12850,
+      "sha256": "0feb2f90f66c84cb541b54e37ea3b934601fab24aea57fb382e3e432d6be2330"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -237,8 +237,8 @@
     },
     {
       "path": "scripts/regression-oracle.py",
-      "size": 3119,
-      "sha256": "ba6e69b22ba900f5cdc44e2971a5a58666cbbd1b552985669e891cfdb06082d7"
+      "size": 5026,
+      "sha256": "2724801f8fb9ca77a4391d73f165c2c7622443c724ae1148c76eec459c8d5f7f"
     },
     {
       "path": "scripts/report-drift.py",
@@ -277,13 +277,18 @@
     },
     {
       "path": "scripts/runtime_gate.py",
-      "size": 10096,
-      "sha256": "6b9f4ae75a6e577977e3dcb28cda0410ce4ac16759c43d005edbeece3efe443b"
+      "size": 11335,
+      "sha256": "2a433df1af9d6e7657bc9cfec783d3edca8f3737afb38b423f0a868841fedef0"
     },
     {
       "path": "scripts/scitt-receipt.py",
       "size": 3554,
       "sha256": "93be86c244447950148e2f9b02e385a8b2a85c9ed386548cdd7d34186bba38e1"
+    },
+    {
+      "path": "scripts/self-improvement-gate.py",
+      "size": 2618,
+      "sha256": "15684f908e8b9fd82ae25b10874f3046158a13d932202c7bc1ae76dea9e3119f"
     },
     {
       "path": "scripts/settle-unverified.py",
@@ -307,8 +312,8 @@
     },
     {
       "path": "scripts/status-matrix.py",
-      "size": 10286,
-      "sha256": "f1cb42ad26661b21695693eb783f7c1a9e5996f1b4bcc0566feaddc5d75d4240"
+      "size": 11640,
+      "sha256": "ee138c4b4f1b5f62e7badc201b9f8d0499435d57fa1575cbc8bd98cba83e826c"
     },
     {
       "path": "scripts/sync-all-roots.sh",
@@ -327,13 +332,13 @@
     },
     {
       "path": "scripts/test-hard-gate-negative.sh",
-      "size": 23069,
-      "sha256": "64d80087699b6684a57e3bcbfb7678945a70930d0371b886a92922029f8b4a65"
+      "size": 25965,
+      "sha256": "ded6e45aacacab3c1e39e19d7e18bf5b1b765fda6f4d5cba75b2fcb2aee66ae4"
     },
     {
       "path": "scripts/traceability.py",
-      "size": 5123,
-      "sha256": "b0ca5924ad51e8c2248fdcda4811d8d832fbfe67ba807dd56b1e15a09caa08c2"
+      "size": 5750,
+      "sha256": "8a8d51553d87d3ec7ea3139c924e20bddc2b9d56faa2d204abc36266372a3522"
     },
     {
       "path": "scripts/transparency-log.py",
@@ -377,8 +382,8 @@
     },
     {
       "path": "scripts/vsa-attestation.py",
-      "size": 2242,
-      "sha256": "7d3e1fbef31973c354656fecb5d3ce33a1432f7e74379585b83dcde4ba405ef0"
+      "size": 2489,
+      "sha256": "6803a73e345d1d759b73047e4f2535db228ced28b20f37975d107ff96d5878e5"
     },
     {
       "path": "scripts/wasi-sandbox-check.py",

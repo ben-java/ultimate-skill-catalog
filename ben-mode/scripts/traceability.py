@@ -63,6 +63,14 @@ MAP = {
     "P26-11 token scope": (["P_rt_secrets"], [], ["runtime_gate.py"]),
     "P26-7 span tree": ([], [], ["span-tree.py"]),
     "P26-4 SCITT COSE": ([], [], ["scitt-receipt.py"]),
+    "P27-1 probabilistic verdict": (["P_quorum", "P_schema"], [], ["gate_predicates.py"]),
+    "P27-2 evaluator lineage": ([], [], ["regression-oracle.py"]),
+    "P27-3 formal SMT": (["P_formal"], [], ["gate_predicates.py"]),
+    "P27-4 multiturn injection": (["P_rt_multiturn_inj"], [], ["runtime_gate.py"]),
+    "P27-5 HITL ticket": (["P_rt_hitl_ticket"], [], ["runtime_gate.py"]),
+    "P27-6 admission controller": ([], [], ["self-improvement-gate.py"]),
+    "P27-8 SLSA v1.2 VSA": (["P_attestation"], [], ["vsa-attestation.py"]),
+    "P27-13 model swap retest": (["P_model_signed"], [], ["check-model-signed.py"]),
 }
 
 

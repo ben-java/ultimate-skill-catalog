@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:14b99b26-671f-4607-9238-dd261a0e7b2f",
+  "serialNumber": "urn:uuid:ba0238a4-78d4-4b62-8cfb-bd38433e76d4",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-10-31T16:17:55Z",
+    "timestamp": "2026-11-01T01:12:11Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "490980a5b9cb93db95bc811d7597aeb8e59a359ff911c127637300e04385320a"
+          "content": "cf1d41431c0564766cee3c75bdbe6c1c8196e04cee002c86c7fd1b8f1dbca007"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "699c53ef86d6d4064d1e1f97b1e4ebfab02662b6b0dfa051f4cd66ea552aee0d"
+          "content": "955f2ff059abe5c661f103b676c6935914095a10d43d167741081efa49091b56"
         }
       ]
     },
@@ -76,7 +76,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "b1f925abe78fc7c7a609eb40581c99e85c426edbeab10c68061151728ba0e325"
+          "content": "1814b616d96b813bde2a5caa2a17d0696e5a5d6c4a53cd40bdb71ac253c89686"
         }
       ]
     },
@@ -93,6 +93,17 @@
     },
     {
       "type": "documentation",
+      "name": "references/cose-scitt-receipt.md",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "5ddc16f8250ec78eeff8a6b979118ead62816325bd946fe8b70a856d835658ba"
+        }
+      ]
+    },
+    {
+      "type": "documentation",
       "name": "references/gate-audit-procedure.md",
       "version": "1.0",
       "hashes": [
@@ -104,12 +115,23 @@
     },
     {
       "type": "documentation",
+      "name": "references/github-actions-ci.md",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "52775a73501f37c5ebc4f77947ffc595408116c1124de6bf1344beb5bec46e59"
+        }
+      ]
+    },
+    {
+      "type": "documentation",
       "name": "references/hard-gate-10.md",
       "version": "1.0",
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ee41494dd5da21c5afdb33b60cdfcde8a2adb594734b86dd8cdb98cfa1ef5435"
+          "content": "2c75d7ad0ef47b920164b727caab4da1299b22026f38950d97db91ec8a1e1370"
         }
       ]
     },
@@ -252,7 +274,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "14fc24afab1f9c09581e23306542851c60f5b6c5993cd0881139f2b05a36ff57"
+          "content": "38375c36379086c3b4084ce38e8db47b1e9c641df5cb9def82836a6a42689116"
         }
       ]
     },
@@ -296,7 +318,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "7f6061d94e0b040ef07894e8c2bd70a3470a58ef6e05caf7f0766a8bedbecc7a"
+          "content": "22a8bc9602ffee7757ca52a314701dafee00a60306c5f5ccce3ccf0b3107d706"
         }
       ]
     },
@@ -307,7 +329,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "80f83fc815abb2d866ff15c2262906c84173b5e99191b8b2b6e13693635307eb"
+          "content": "0e653be27479525cc75464def1b2fff09a56b0df7c0413e75fb4cc4637e05bbc"
         }
       ]
     },
@@ -373,7 +395,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "2ac17afcdac0bf8a4587c5a078154ebed38fe45447f95a813b263ad6056845af"
+          "content": "54eee9c4f787d47cfe7bc6558bc7ef93740165626d3f666d4017b765948f2b74"
         }
       ]
     },
@@ -494,7 +516,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ba6e69b22ba900f5cdc44e2971a5a58666cbbd1b552985669e891cfdb06082d7"
+          "content": "f6a2caf5ac9b44f1253449ee7e251ab59aa535efdc9cd236bb3dfbf0c44f3fbc"
         }
       ]
     },
@@ -538,7 +560,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "b1000ef06d8fff90d946a1f03b96ff243e56ff846feb0f577278105813c5a06a"
+          "content": "15cedf93d246ec7c3bc12213745ed8b32b1212c70dfa71a770a708f51f96608e"
         }
       ]
     },
@@ -582,7 +604,29 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "5dd6f1c3aa10eab023bc16bdbfcfa45218de8f81ec225cdcb5c540e0e82289c1"
+          "content": "d1b6d2799227ffccd87b04e2a2cb9381087f7f03d098296ae594e4768fdfb099"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "name": "scripts/scitt-receipt.py",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "e38ed4275b82e8d8a7b9367213c37d9a67756bb0abce7337c4282c715df24911"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "name": "scripts/self-improvement-gate.py",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "57b3e10bd2be16ddfda8fa5c301bb86993b9a2f343870ae3a50d7d7f71decf86"
         }
       ]
     },
@@ -604,7 +648,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "abfba03dbe18d44a32f3946a8d85a558b6c87bee55aa1788fc29dba01cb597da"
+          "content": "638c43e456181a5e6daa35c8fb668acd830d7856f8e44206ddb27cdcf845a2b7"
         }
       ]
     },
@@ -637,7 +681,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "49553a7ff498baf569ec9579509459fd0b210088669ae77b9bbdff10315f9c67"
+          "content": "ff26929ca4f4c1ecf9e05bda33a08c1064c1fd7044c19a267cc81ec3313c001e"
         }
       ]
     },
@@ -681,7 +725,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "855ee082ea8f950a1f35de8ff88553cf0ed07a632aba35c6c3bd2e0cc424603e"
+          "content": "e8013006c63209b88234343a401352afa7c004773e8609de785b75d03df9d6c7"
         }
       ]
     },
@@ -692,7 +736,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ae28b36fcd371e88c957b3fc2c2d6e1190a7a9ad0234b82c63b7f3dc022d19bf"
+          "content": "ee4eac840803a4ceabeb26b9a6f0906a44878ad3f0dd0e44dcbe71fc9f80e1fe"
         }
       ]
     },
@@ -725,7 +769,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "2d1543422f9c617039870bfc67eef002cf0b1007ef6e5b0adbf59ca6cd69ac9b"
+          "content": "747be76d28718591d934680d63936dea0d1b634fefd2d916e622817217bc210b"
         }
       ]
     },
@@ -780,7 +824,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "a2366bf7317764e9bf8a9ff7e55cb2367056e307507cb2f428f4e99599899c61"
+          "content": "75f58b116508ec2cfd40ca03444ed59f9aafa16e8e393b86418bbf83bb0109d4"
         }
       ]
     },
@@ -791,7 +835,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "7d3e1fbef31973c354656fecb5d3ce33a1432f7e74379585b83dcde4ba405ef0"
+          "content": "67ec601e3049c7d12cd33f14d67bc185bfcb69cfd72d0c175edd01189beb25b1"
         }
       ]
     },

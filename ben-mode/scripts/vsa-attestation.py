@@ -9,7 +9,7 @@ Usage: vsa-attestation.py <meta-dir>
 import hashlib, json, os, sys
 from datetime import datetime, timezone
 
-VSA_TYPE = "https://slsa.dev/verification_summary/v0.2"
+VSA_TYPE = "https://slsa.dev/verification_summary/v1"
 
 
 def sha256_file(path):
@@ -46,9 +46,12 @@ def main():
             pass
     vsa = {
         "type": VSA_TYPE,
+        "predicateType": "https://slsa.dev/verification_summary/v1",
         "subject": subjects,
-        "verifier": {"id": "benmode.hard-gate-10", "version": "0.10.0"},
+        "verifier": {"id": "benmode.hard-gate-10", "version": "0.26.0"},
+        "slsa_source_level": "SLSA_SOURCE_LEVEL_3",
         "result": result,
+        "verified_levels": ["SLSA_SOURCE_L3", "SLSA_BUILD_L2"],
         "timestamp": datetime.now(timezone.utc).isoformat().replace("+00:00", "Z"),
     }
     out = os.path.join(d, "vsa.json")

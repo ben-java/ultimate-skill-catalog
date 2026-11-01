@@ -5,7 +5,7 @@ Usage: check-vsa.py <meta-dir>  (exit 0 PASS, 1 FAIL, 2 missing)
 """
 import json, os, subprocess, sys
 
-VSA_TYPE = "https://slsa.dev/verification_summary/v0.2"
+ACCEPTED_VSA_TYPES = {"https://slsa.dev/verification_summary/v0.2", "https://slsa.dev/verification_summary/v1"}
 
 
 def main():
@@ -16,7 +16,7 @@ def main():
     if not all(os.path.isfile(x) for x in (vsa, sig, pub)):
         print("check-vsa: missing vsa/sig/pubkey"); return 2
     doc = json.load(open(vsa, encoding="utf-8"))
-    if doc.get("type") != VSA_TYPE:
+    if doc.get("type") not in ACCEPTED_VSA_TYPES:
         print("check-vsa: bad type"); return 1
     if not doc.get("subject") or "digest" not in doc["subject"][0]:
         print("check-vsa: subject missing"); return 1

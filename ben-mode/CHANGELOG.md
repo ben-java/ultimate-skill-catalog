@@ -1,3 +1,19 @@
+## v0.26.0 (2026-11-01) — Phase 27: Mathematical Verification, SMT, Multi-Turn & HITL
+
+- **P27-1 Probabilistic Verdict**: Multi-trial sampling (`--trials N`) dengan interval kepercayaan Wilson score 95% & majority amplification di `gate_predicates.py`.
+- **P27-2 Evaluator Lineage**: Audit batas evaluasi eksternal (`regression-oracle.py --audit-lineage`) pencegah self-confirming loop.
+- **P27-3 Formal SMT Invariant**: Pembuktian matematis konsistensi quorum & invarian zero-link via Z3 solver (`P_formal`).
+- **P27-4 Multi-Turn Jailbreak**: Deteksi context accumulation injection (`P_rt_multiturn_inj`) di `runtime_gate.py`.
+- **P27-5 Strict HITL Ticket**: Penegakan tiket otorisasi manusia pada aksi destruktif & eksfiltrasi (`P_rt_hitl_ticket`).
+- **P27-6 Self-Improvement Gate**: Admission controller mutasi aturan otonom (`self-improvement-gate.py`).
+- **P27-7 Mandatory Model Signing**: Tanda tangan & SHA-256 model diwajibkan saat manifest hadir (`P_model_signed`).
+- **P27-8 SLSA v1.2 VSA**: Upgrade VSA attestation ke spesifikasi SLSA v1.2 (`SLSA_SOURCE_LEVEL_3`).
+- **P27-11 Routing Coverage**: Peningkatan cakupan matriks routing ke 83% (286 dari 342 skill terpetakan).
+- **P27-12 Sinyal Heterogen**: Metrik latensi, biaya token, dan Wilson CI di `status-matrix.py`.
+- **P27-13 Model Swap Retest**: Pemicu otomatis regresi suite saat hash model berubah (`check-model-signed.py --auto-retest`).
+- **P27-14 Hallucinated Tool Filter**: Penolakan aksi pemanggilan tool tidak dikenal (`P_rt_hallucinated_tool`).
+- Suite adversarial ditingkatkan dari 35 menjadi 40 uji negatif (40/40 PASS).
+
 ## v0.25.0 (2026-10-31) — Phase 26 final: Span-Tree Hierarchy (P26-7)
 
 - **P26-7**: `span-tree.py` baru — validasi hierarki span (parent_span resolve, anti-siklus, hitung handoff); terintegrasi deep `benctl`.

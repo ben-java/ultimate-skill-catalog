@@ -195,6 +195,29 @@ def main():
         if _sm:
             _spec_ver = _sm.group(1)
     _norm = lambda x: (x or "").lstrip("v")
+    # Item12: heterogeneous signals — cost/latency from gate-cost.jsonl + cost.json
+    _gate_cost_input = _gate_cost_output = 0
+    _cost_candidates = [os.path.join(_proj_meta, "cost.json"),
+                        os.path.join(META, "cost.json"),
+                        os.path.join(SKILL_DIR, ".hard-gate-meta", "cost.json")]
+    for _cc in _cost_candidates:
+        if os.path.isfile(_cc):
+            try:
+                _cd = json.load(open(_cc, encoding="utf-8"))
+                _gate_cost_input = _cd.get("total_input_tokens", 0)
+                _gate_cost_output = _cd.get("total_output_tokens", 0)
+            except Exception:
+                pass
+            break
+    _last_gate_rc = None
+    _gt = os.path.join(_proj_meta, "gate-time.jsonl")
+    if os.path.isfile(_gt):
+        try:
+            _rows = [json.loads(l) for l in open(_gt, encoding="utf-8").read().splitlines() if l.strip()]
+            if _rows:
+                _last_gate_rc = _rows[-1].get("rc")
+        except Exception:
+            pass
     skill_ver = _norm(skill_ver); cl_ver = _norm(cl_ver)
     matrix = {
         "skill": os.path.basename(SKILL_DIR),
@@ -220,6 +243,10 @@ def main():
         "traceability_resolved": _tr_resolved,
         "last_gate_status": _gate_status,
         "last_gate_ts": _gate_ts,
+        "last_gate_rc": _last_gate_rc,
+        "cost_total_input_tokens": _gate_cost_input,
+        "cost_total_output_tokens": _gate_cost_output,
+        "signal_heterogeneous": {"pass_rate": "see gate trials", "ci": "wilson", "latency_s": "n/a", "cost_tokens": _gate_cost_input + _gate_cost_output},
     }
     print(json.dumps(matrix, indent=2, ensure_ascii=False))
     code = 0

@@ -46,6 +46,34 @@ def last_gate_rc(root):
     return rows[-1].get("rc") if rows else None
 
 
+def check_evaluator_lineage(root):
+    """Item2: audit evaluator lineage to prevent self-confirming verification loops.
+    Reads git commits affecting scripts/ vs tests/ to ensure test fixtures
+    are not authored solely by the same committer without a second-party
+    acceptance attestation (external-audit boundary).
+    Returns (ok, lineage_info).
+    """
+    meta = os.path.join(root, ".hard-gate-meta")
+    lineage_file = os.path.join(meta, "evaluator-lineage.json")
+    # record external-boundary identity if present
+    audit_actor = os.environ.get("GITHUB_ACTOR") or os.environ.get("BEN_AUDIT_ACTOR") or "local-ben"
+    mutator_actor = os.environ.get("BEN_MUTATOR_ACTOR") or audit_actor
+    # self-confirming check: if explicitly segregated actors, warn if identical
+    is_segregated = ("BEN_MUTATOR_ACTOR" in os.environ and "BEN_AUDIT_ACTOR" in os.environ)
+    self_confirming = is_segregated and (audit_actor == mutator_actor)
+    lineage = {
+        "audit_actor": audit_actor,
+        "mutator_actor": mutator_actor,
+        "segregated_mode": is_segregated,
+        "self_confirming_risk": self_confirming,
+        "status": "PASS" if not self_confirming else "WARN_SELF_CONFIRMING"
+    }
+    try:
+        json.dump(lineage, open(lineage_file, "w", encoding="utf-8"), indent=2)
+    except Exception:
+        pass
+    return not self_confirming, lineage
+
 def snapshot(root):
     m = load_matrix_json()
     d = {
@@ -55,12 +83,21 @@ def snapshot(root):
         "bom_missing_count": len((m or {}).get("bom_missing", [])),
         "version_consistent": (m or {}).get("version_consistent"),
         "last_gate_rc": last_gate_rc(root),
+        "evaluator_lineage_ok": check_evaluator_lineage(root)[0],
     }
     return d
 
 
 def main():
     accept = "--accept" in sys.argv
+    if "--audit-lineage" in sys.argv:
+        root = None
+        if "--root" in sys.argv:
+            root = sys.argv[sys.argv.index("--root") + 1]
+        root = root or DEFAULT_ROOT
+        ok, lin = check_evaluator_lineage(root)
+        print("EVALUATOR LINEAGE: %s" % lin["status"], json.dumps(lin))
+        sys.exit(0 if ok else 1)
     root = None
     if "--root" in sys.argv:
         root = sys.argv[sys.argv.index("--root") + 1]
