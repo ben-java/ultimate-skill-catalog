@@ -1,0 +1,5 @@
+
+# stray artifacts (not skill-owned)
+Python/
+python_install_*.log
+*gate-audit.jsonl
