@@ -3388,3 +3388,128 @@ def selftest_jj():
             (22, jj_resource_quota(80, 100)),
             (23, jj_chaos_engineering_ok(True, True)),
             (24, jj_resilience_score(90, 70))]
+
+# ------------------------------------------------------------------
+# WAVE K — SUPPLY CHAIN & PROVENANCE INTEGRITY (KK01–KK24)
+# ------------------------------------------------------------------
+def kk_source_provenance(source_registered, source_verified):
+    # KK01: source must be registered and verified.
+    return bool(source_registered) and bool(source_verified)
+
+def kk_dependency_pinning(pinned, immutable_hash):
+    # KK02: dependencies pinned to immutable hashes.
+    return bool(pinned) and bool(immutable_hash)
+
+def kk_license_compliance(license_ok, obligations_met):
+    # KK03: licenses must be compatible and obligations met.
+    return bool(license_ok) and bool(obligations_met)
+
+def kk_package_integrity(digest_ok, signature_ok):
+    # KK04: package integrity via digest + signature.
+    return bool(digest_ok) and bool(signature_ok)
+
+def kk_supplier_verified(supplier_attested, chain_of_custody):
+    # KK05: supplier must be attested with chain of custody.
+    return bool(supplier_attested) and bool(chain_of_custody)
+
+def kk_reproducible_build(build_reproducible, same_artifact):
+    # KK06: builds must be reproducible byte-for-byte.
+    return bool(build_reproducible) and bool(same_artifact)
+
+def kk_artifact_signing(signed, key_valid):
+    # KK07: artifacts must be signed with valid keys.
+    return bool(signed) and bool(key_valid)
+
+def kk_build_env_hermetic(hermetic, no_network):
+    # KK08: build environment hermetic and isolated.
+    return bool(hermetic) and bool(no_network)
+
+def kk_vulnerability_scan(scanned, no_critical):
+    # KK09: dependencies scanned with no critical vulns.
+    return bool(scanned) and bool(no_critical)
+
+def kk_dependency_license_db(db_present, queryable):
+    # KK10: license database present and queryable.
+    return bool(db_present) and bool(queryable)
+
+def kk_supply_chain_visibility(inventory, visibility):
+    # KK11: full inventory must be visible.
+    return len(inventory) >= visibility
+
+def kk_sbom_complete(sbom, required_fields):
+    # KK12: SBOM must carry all required fields.
+    return set(required_fields) <= set(sbom.keys())
+
+def kk_sbom_accurate(sbom_components, actual_components):
+    # KK13: SBOM component set must match actual.
+    return set(sbom_components) == set(actual_components)
+
+def kk_artifact_provenance(provenance, attestation):
+    # KK14: artifact provenance backed by attestation.
+    return bool(provenance) and bool(attestation)
+
+def kk_build_service_trusted(ci_trusted, self_hosted_or_attested):
+    # KK15: build service must be trusted.
+    return bool(ci_trusted) and bool(self_hosted_or_attested)
+
+def kk_release_gate(approved, signed_manifest):
+    # KK16: release gated on approval + signed manifest.
+    return bool(approved) and bool(signed_manifest)
+
+def kk_public_key_management(key_rotated, repo_secured):
+    # KK17: keys rotated and repository secured.
+    return bool(key_rotated) and bool(repo_secured)
+
+def kk_transitive_dependency_check(pinned_transitive, scanned_transitive):
+    # KK18: transitive dependencies pinned and scanned.
+    return bool(pinned_transitive) and bool(scanned_transitive)
+
+def kk_no_modified_deps(mean_author, all_authorized):
+    # KK19: no unexpected modified dependencies.
+    return set(mean_author) <= set(all_authorized)
+
+def kk_sbom_timestamped(timestamped, not_future):
+    # KK20: SBOM timestamped and not future-dated.
+    return bool(timestamped) and bool(not_future)
+
+def kk_provenance_binding(artifact_linked, source_linked):
+    # KK21: provenance binds artifact to source.
+    return bool(artifact_linked) and bool(source_linked)
+
+def kk_dependency_freeze(freeze_window, current):
+    # KK22: dependency set frozen within defined window.
+    return current <= freeze_window
+
+def kk_wrapper_checksum(checksum_ok, mirror_ok):
+    # KK23: package wrappers/registries checksummed.
+    return bool(checksum_ok) and bool(mirror_ok)
+
+def kk_supply_chain_score(score, min_score):
+    # KK24: overall supply chain score meets minimum.
+    return score >= min_score
+
+def selftest_kk():
+    return [(1, kk_source_provenance(True, True)),
+            (2, kk_dependency_pinning(True, True)),
+            (3, kk_license_compliance(True, True)),
+            (4, kk_package_integrity(True, True)),
+            (5, kk_supplier_verified(True, True)),
+            (6, kk_reproducible_build(True, True)),
+            (7, kk_artifact_signing(True, True)),
+            (8, kk_build_env_hermetic(True, True)),
+            (9, kk_vulnerability_scan(True, True)),
+            (10, kk_dependency_license_db(True, True)),
+            (11, kk_supply_chain_visibility(["a", "b", "c"], 3)),
+            (12, kk_sbom_complete({"name": 1, "ver": 2, "deps": 3}, ["name", "ver", "deps"])),
+            (13, kk_sbom_accurate(["x", "y"], ["x", "y"])),
+            (14, kk_artifact_provenance(True, True)),
+            (15, kk_build_service_trusted(True, True)),
+            (16, kk_release_gate(True, True)),
+            (17, kk_public_key_management(True, True)),
+            (18, kk_transitive_dependency_check(True, True)),
+            (19, kk_no_modified_deps(["a", "b"], ["a", "b", "c"])),
+            (20, kk_sbom_timestamped(True, True)),
+            (21, kk_provenance_binding(True, True)),
+            (22, kk_dependency_freeze(30, 10)),
+            (23, kk_wrapper_checksum(True, True)),
+            (24, kk_supply_chain_score(95, 70))]

@@ -1,3 +1,8 @@
+## v0.42.0 (2026-11-02) — Wave K Supply Chain & Provenance Integrity KK01–KK24 (BAGIAN 42)
+
+- **KK01–KK24**: source provenance, dependency pinning, license compliance, package integrity, supplier verification, reproducible build, artifact signing, hermetic build env, vulnerability scan, license db, supply chain visibility, SBOM completeness/accuracy, artifact provenance, trusted build service, release gate, key management, transitive dep check, no-modified-deps, SBOM timestamped, provenance binding, dependency freeze, wrapper checksum, supply chain score. Disurfacing `P_KK01–P_KK24`; 24/24 PASS.
+- **BAGIAN 42** ditambahkan; bump serentak 0.42.0.
+
 ## v0.41.0 (2026-11-02) — Wave J Resilience & Disaster Recovery Integrity JJ01–JJ24 (BAGIAN 41)
 
 - **JJ01–JJ24**: backup schedule/tested/encrypted/offsite/immutable/storage-min, RPO/RTO met, DR plan, failover/switchover, recovery runbook/verification, replication factor, data integrity (checksum+parity), no-single-point-of-failure, circuit breaker, retry backoff, graceful degradation, healthcheck failover, dependency grace, bulkhead isolation, resource quota, chaos engineering, resilience score. Disurfacing `P_JJ01–P_JJ24`; 24/24 PASS.

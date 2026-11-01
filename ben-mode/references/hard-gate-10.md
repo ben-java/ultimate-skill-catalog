@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.41.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.42.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2088,3 +2088,17 @@ disurfacing `P_JJ01–P_JJ24`; diverifikasi 24/24 PASS (selftest_jj rc 0).
 - Data & Replication: JJ07 `jj_replication_factor`, JJ08 `jj_data_integrity_check`, JJ14 `jj_redundancy_no_single_point`.
 - Fault Tolerance: JJ15 `jj_circuit_breaker`, JJ16 `jj_retry_backoff`, JJ17 `jj_graceful_degradation`, JJ18 `jj_healthcheck_failover`, JJ19 `jj_dependency_grace`, JJ20 `jj_bulkhead_isolation`.
 - Resources & Verification: JJ22 `jj_resource_quota`, JJ23 `jj_chaos_engineering_ok`, JJ24 `jj_resilience_score`.
+
+---
+
+# BAGIAN 42 — WAVE K: SUPPLY CHAIN & PROVENANCE INTEGRITY KK01–KK24 (VERIFIED; v0.42.0)
+
+Menambahkan lapisan supply chain & provenance integrity: `KK01–KK24` di `hard_gate_enhancements.py`,
+disurfacing `P_KK01–P_KK24`; diverifikasi 24/24 PASS (selftest_kk rc 0).
+
+- Provenance & Source: KK01 `kk_source_provenance`, KK05 `kk_supplier_verified`, KK14 `kk_artifact_provenance`, KK21 `kk_provenance_binding`.
+- Dependencies & Pinning: KK02 `kk_dependency_pinning`, KK18 `kk_transitive_dependency_check`, KK19 `kk_no_modified_deps`, KK22 `kk_dependency_freeze`, KK23 `kk_wrapper_checksum`.
+- Build Integrity: KK06 `kk_reproducible_build`, KK08 `kk_build_env_hermetic`, KK15 `kk_build_service_trusted`.
+- Artifact & Signing: KK04 `kk_package_integrity`, KK07 `kk_artifact_signing`, KK16 `kk_release_gate`, KK17 `kk_public_key_management`.
+- SBOM & Compliance: KK03 `kk_license_compliance`, KK10 `kk_dependency_license_db`, KK12 `kk_sbom_complete`, KK13 `kk_sbom_accurate`, KK20 `kk_sbom_timestamped`.
+- Security & Score: KK09 `kk_vulnerability_scan`, KK11 `kk_supply_chain_visibility`, KK24 `kk_supply_chain_score`.

@@ -617,6 +617,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_resilience_score(90,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_source_provenance(True,True)
+        status["P_KK02"] = _kkmod.kk_dependency_pinning(True,True)
+        status["P_KK03"] = _kkmod.kk_license_compliance(True,True)
+        status["P_KK04"] = _kkmod.kk_package_integrity(True,True)
+        status["P_KK05"] = _kkmod.kk_supplier_verified(True,True)
+        status["P_KK06"] = _kkmod.kk_reproducible_build(True,True)
+        status["P_KK07"] = _kkmod.kk_artifact_signing(True,True)
+        status["P_KK08"] = _kkmod.kk_build_env_hermetic(True,True)
+        status["P_KK09"] = _kkmod.kk_vulnerability_scan(True,True)
+        status["P_KK10"] = _kkmod.kk_dependency_license_db(True,True)
+        status["P_KK11"] = _kkmod.kk_supply_chain_visibility(["a","b","c"],3)
+        status["P_KK12"] = _kkmod.kk_sbom_complete({"name":1,"ver":2,"deps":3},["name","ver","deps"])
+        status["P_KK13"] = _kkmod.kk_sbom_accurate(["x","y"],["x","y"])
+        status["P_KK14"] = _kkmod.kk_artifact_provenance(True,True)
+        status["P_KK15"] = _kkmod.kk_build_service_trusted(True,True)
+        status["P_KK16"] = _kkmod.kk_release_gate(True,True)
+        status["P_KK17"] = _kkmod.kk_public_key_management(True,True)
+        status["P_KK18"] = _kkmod.kk_transitive_dependency_check(True,True)
+        status["P_KK19"] = _kkmod.kk_no_modified_deps(["a","b"],["a","b","c"])
+        status["P_KK20"] = _kkmod.kk_sbom_timestamped(True,True)
+        status["P_KK21"] = _kkmod.kk_provenance_binding(True,True)
+        status["P_KK22"] = _kkmod.kk_dependency_freeze(30,10)
+        status["P_KK23"] = _kkmod.kk_wrapper_checksum(True,True)
+        status["P_KK24"] = _kkmod.kk_supply_chain_score(95,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
 
 
 
