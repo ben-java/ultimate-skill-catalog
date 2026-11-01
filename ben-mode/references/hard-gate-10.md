@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.29.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.30.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1768,3 +1768,81 @@ $$ ext{AUC} = rac{1}{nm} sum_{i=1}^{n} sum_{j=1}^{m} mathbb{1}[s_{pos,i} > s_{ne
 $$	ext{W2S} = w cdot s_{weak} + (1-w) cdot s_{strong}, quad w in [0,1]$$
 $$	ext{Flip} = min(hat{p}, 1-hat{p}); quad ext{undecided if } flip > 0.2$$
 $$	ext{Strictness steer} = s + 0.1 cdot mathbb{1}[s < s_{target}] - 0.1 cdot mathbb{1}[s ge s_{target}]$$
+
+## BAGIAN 30 — VERIFIER RELIABILITY & ERROR-STRUCTURE Y001–Y200 (PHASES 1–8, Y01–Y36 VERIFIED)
+
+Eksekusi plan Y001–Y200 (Fase 1–8) pada v0.30.0. Inti komputasi baru `Y01–Y36`
+diimplementasi sebagai fungsi selftest-able di `hard_gate_enhancements.py`, disurfacing
+sebagai predikat `P_Y01–P_Y36` di `gate_predicates.evaluate()` dan diverifikasi 35/35 PASS.
+Landasan riset 2026: RLVR verifier-error survey (Checking-the-Checkers), 2605.25252
+(FN > FP > compute), 2610.11464 (anchor-ext required, always-pass collapse), JudgeMoE
+2610.07109, CARE 2603.00039, self-preference 2604.22891, T1 tool-integrated verifier
+(ICLR'26), PCH 2604.13602, intelligence.org reward-hack state, Scratchpad/CoT monitoring.
+
+### Fase 1 — Verifier Reliability & Error-Structure (Y001–Y025): Y01, Y03, Y05, Y09, Y11
+Menutup gap E1/E2: struktur error > rate; error shift seiring training; FN > FP.
+- Y01 `error_direction_classify` — klasifikasi arah error (false-pos/neg + sumber: ref/extraction/checker/access).
+- Y03 `fn_priority_metric` — metrik berbobot FN-first (FN penalty 1.5x).
+- Y05 `vacuous_guard` — deteksi verifier always-pass (collapse vacuous).
+- Y09 `verifier_budget_kl_track` — bounds FN-rate x KL vs budget.
+- Y11 `fp_learnable_trigger` — deteksi FP berulang yang dapat dieksploitasi policy.
+
+### Fase 2 — Distributional & Confounder-Aware Judge Aggregation (Y026–Y050): Y26, Y27, Y28, Y29, Y33, Y34, Y35
+Menutup E4/E7: distribusi skor, confounder, self-preference.
+- Y26 `judge_distribution_capture` — tangkap distribusi (n/mean/var/min/max) bukan scalar.
+- Y27 `judgemoe_aggregate` — agregasi distributional berbobot inverse-variance (JudgeMoE).
+- Y28 `care_confounder_aware` — koreksi bias confound bersama (CARE).
+- Y29 `self_preference_detect` — deteksi bias self-preference judge.
+- Y33 `judge_distribution_conformal` — set coverage conformal atas distribusi judge.
+- Y34 `weak_verifier_programmatic` — agregasi verifier programatik (DSL).
+- Y35 `weak_learning_aggregate` — aggregasi weak supervision dari label sparse.
+
+### Fase 3 — Compute–Supervision Tradeoff & Test-Time (Y051–Y075): Y51, Y53, Y54, Y55, Y63, Y64, Y67
+Menutup E2/E8: verifier quality ≠ compute; FN-reduction lever.
+- Y51 `compute_verifier_nonsubstitute` — policy: verifier gain > compute gain.
+- Y53 `compute_sublinearity_report` — ukur sublinearitas returns compute.
+- Y54 `alloc_verifier_quality_gated` — gate alokasi compute oleh kualitas verifier.
+- Y55 `t1_tool_offload` — verifikasi dua-tahap T1 (tool filter → sLM verify).
+- Y63 `difficulty_adaptive_alloc` — alokasi compute-optimal per difficulty.
+- Y64 `sequential_parallel_ratio` — rasio sequential:parallel per difficulty (mudah sequential, sulit parallel).
+- Y67 `prm_orm_hybrid` — hybrid PRM+ORM.
+
+### Fase 4 — Self-Improvement Stability & Reward-Hacking Defense (Y076–Y100): Y76, Y77, Y81, Y82, Y87
+Menutup E5: collapse self-training, drift budget, PCH.
+- Y76 `collapse_predict_early` — prediksi dini collapse (drop >0.05 di window).
+- Y77 `reward_hack_scratchpad` — marker deteksi hacking via scratchpad (non-obfuscated).
+- Y81 `drift_budget_constraint` — constraint KL-drift dari reference policy.
+- Y82 `reward_reshape_bounded` — reward bounded/centered/diminishing.
+- Y87 `diffusion_drf_localized` — sinyal gradien terlokalisasi (Diffusion-DRF).
+
+### Fase 5 — Evidence-Grounded & Programmatic Verification (Y101–Y125): Y101, Y106, Y117, Y123, Y124
+Menutup E6: programmatic verifier, anchor-consensus, evidence grounding.
+- Y101 `evidence_grounded_eval` — verdict wajib evidence.
+- Y106 `programmatic_verifier_dsl_agg` — agregasi cek programatik.
+- Y117 `near_miss_grade` — grading partial-correct/near-miss.
+- Y123 `evolved_verifier_validation` — validasi verifier evolved: anchor + consensus (bukan task score).
+- Y124 `verifier_report_standard` — protokol pelaporan verifier terstandar (source/direction/evidence).
+
+### Fase 6 — Runtime & Environment-Grounded (Y126–Y150): Y126, Y130
+- Y126 `env_grounded_sim_truth` — ground truth via simulasi ber-grounding lingkungan.
+- Y130 `scratchpad_anomaly` — deteksi anomali scratchpad (z-score).
+
+### Fase 7 — Observability & Evaluator–Policy Co-Evolution (Y151–Y175): Y151, Y152, Y159
+- Y151 `evaluator_policy_coevolve` — co-evolusi evaluator-policy dengan grounding eksternal.
+- Y152 `coevolve_regularize_ext` — regularisasi eksternal (anti shared hallucination).
+- Y159 `verifier_cost_efficiency` — efisiensi biaya verifier (acc/cost).
+
+### Fase 8 — Governance & Provisioning (Y176–Y200): Y177, Y200
+- Y177 `verifier_admission_controller` — verifier sbg admission controller (pass + allowlist).
+- Y200 `anchored_verifier_baseline` — baseline anchored verifier (hash consistent).
+
+Y037–Y050, Y068–Y075, Y078–Y080, Y083–Y086, Y088–Y100, Y102–Y105, Y107–Y116,
+Y118–Y122, Y125, Y127–Y129, Y131–Y150, Y153–Y158, Y160–Y176, Y178–Y199 bersifat
+ops/standar/regulasi/provisioning (reuse T/W/V/X tier) — didefinisikan inline tanpa duplikasi.
+
+### Formula Matematis Inti Y01–Y36:
+$$\text{Error direction: } \text{FP}: \hat y\land\neg y,\quad \text{FN}: \neg\hat y\land y$$
+$$\text{JudgMoE agg: } \hat s = \frac{\sum_i w_i \mu_i}{\sum_i w_i},\quad w_i = 1/\sigma_i^2$$
+$$\text{Sequential:parallel ratio: } r = 1 - d,\quad d = \text{difficulty}$$
+$$\text{Reward reshape: } r' = \min(1, \max(0, c + (r-c)/2))$$
+$$\text{Collapse onset: } a_t < \bar{a}_{t-3:t-1} - 0.05$$

@@ -1,3 +1,9 @@
+## v0.30.0 (2026-11-01) — Verifier Reliability & Error-Structure Y001–Y200 (BAGIAN 30) & Y01–Y36
+
+- **Y001–Y200 (Fase 1–8)**: inti komputasi `Y01–Y36` di `hard_gate_enhancements.py` (error-structure, vacuous guard, distributional/confounder judge agg, compute-supervision tradeoff, T1 tool offload, collapse prediction, scratchpad anomaly, co-evolution). Disurfacing `P_Y01–P_Y36`; diverifikasi 35/35 PASS.
+- **BAGIAN 30** ditambahkan ke `references/hard-gate-10.md`.
+- **v0.29.0→0.30.0**: bump serentak SKILL.md/spec/CHANGELOG.
+
 ## v0.29.0 (2026-11-01) — Oracle & Verifier Tier X001–X100 (BAGIAN 29) & X01–X30
 
 - **X001–X100 (Fase 1–8)**: inti komputasi `X01–X30` di `hard_gate_enhancements.py` (executable/constraint/citation oracle, multi-judge, tri-metric AUC/ECE/TTS, reward-safety). Disurfacing `P_X01–P_X30`; diverifikasi 25/25 PASS.

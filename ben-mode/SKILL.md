@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.29.0
+version: 0.30.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -138,6 +138,8 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Menambah entri versi baru di `CHANGELOG.md`: jangan sisipkan setelah newline pertama, karena bila baris pertama file sudah berupa heading `## v...`, entri baru akan mendarat DI BAWAH-nya dan `status-matrix` melaporkan VERSION MISMATCH (SKILL.md vs CHANGELOG). Anchor pada heading `## v` PERTAMA (bawa blok baru ke atasnya), bukan pada newline pertama; setelah dipindah, verifikasi `versions_consistent()` sebelum mem-bump. Guard pencarian wajib `i >= 0`, bukan `i > 0`: bila CHANGELOG diawali langsung oleh heading `## v...`, `find` mengembalikan 0 dan guard ketat gagal walau anchor benar.
 - Dokumen spesifikasi yang mengklaim selaras dengan versi kode harus punya header versi sendiri dan divalidasi silang oleh matriks status (`spec_version_consistent`) — tanpa itu, klaim "versi konsisten" di dokumen diam-diam basi saat versi kode naik.
 - Sandbox hermetic `env -i` (verify-hard-gate-sandbox.sh) hanya mewarisi PATH/TMPDIR/HARD_GATE_LOG/HOME — validator yang memanggil subprocess python (SBOM/VC) akan gagal dengan FAIL palsu (mis. "invalid CycloneDX") walau file valid, karena interpreter tidak resolvable di MIN_PATH. Resolve satu python SEBELUM `env -i` dan ekspor `PY_BIN` (plus tambah direktorinya ke PATH) di dalam pemanggilan `env -i`.
+- Skip jujur BMC (§14.1 z3) / WASI (§16.1 wasmtime) di `benctl` mencerminkan interpreter `$PY_BIN` (default `python3` = WSL tanpa z3) — jangan perbaiki dengan export `PYTHON` di `gate.conf`: env itu TIDAK menyeberang batas `env -i` sandbox, sehingga skip tetap muncul. Level yang efektif adalah `PY_BIN` di dalam pemanggilan sandbox atau meneruskan `PYTHON` saat invoke `benctl` (mis. `PYTHON=<python-dengan-z3> benctl --redgreen`). Verifikasi pola `[GREEN] BMC` / `[GREEN] WASI` muncul di output, bukan hanya `OVERALL: PASS`.
+- Jalankan `gate_predicates.py` dengan `--root` yang MENJADI root skill (memuat `SKILL.md`), bukan `scripts/` — `--root=scripts/` gagal `FileNotFoundError` pada `SKILL.md` sebelum satu predikat pun dieksekusi (P_schema collapse), sehingga tampak "gate FAIL" padahal argumen salah.
 - Saat membangun string old/new untuk patch bash via `execute_code` Python: baris yang diakhiri backslash-kontinuasi (`\` di akhir baris) harus ditulis `\\` + newline eksplisit — dalam string Python biasa, `\` diikuti newline nyata termakan sebagai line-continuation sehingga anchor kehilangan backslash dan newline (tidak pernah match, count=0). Gunakan `\\\n` atau raw string, dan verifikasi `s.count(anchor)==1` sebelum replace.
 - Panggil `verify-fresh-machine.sh` dengan canonical skill dir, bukan root proyek — jika diberi project root, ia menyalin seluruh tree sehingga muncul `ben-mode/ben-mode` bersarang dan schema FAIL (name≠folder). Buat arg-wrapper di orkestrator meneruskan `$(cd "$SCRIPT_DIR/.." && pwd)`.
 - Kapabilitas verifikasi yang di-gate per-run (`HARD_GATE_FRESH`, dsb.) harus **default ON** di `gate.conf` dan diverifikasi muncul di output deep `benctl --redgreen` — flag default-off membuat deep run diam-diam melewatkan cek dan laporan "verified" jadi tidak lengkap tanpa ada yang sadar.
@@ -247,3 +249,17 @@ Alur eksekusi saat tugas melibatkan akses browser (mis. `agentbrowser`, akses ak
 - Koneksi websocket CDP dapat di-reset browser di tengah ekstraksi panjang — reconnect fresh per pass; jangan pegang satu socket lama untuk loop multi-pass.
 
 Lihat juga: `references/browser-automation-method1.md`.
+
+---
+
+### 4.5 Ambiguous Device-Access / Workspace-Cleanup Instructions (atau "hp")
+**Rule (berlaku setiap kali ben-mode dipicu dengan instruksi seperti "cek aja", "lakukan workspace-cleanup di hp", atau bukti `adb shell` Shizuku):**
+1. Muat `hard-gate-10.md` terlebih dahulu (tidak bisa dilewati — sudah terjadi 5x di sesi ini).
+2. Periksa bukti lingkungan secara lokal (`os.path.isfile`, `which adb`, `ls WORKSPACE-TIDY-AUDIT.json`, `python scripts/cleanup_probe.py --help`) sebelum mengklaim apa pun. Jangan menyuntikkan kredensial (aturan §4.4 tetap: akses akun/perangkat memerlukan otorisasi manual pengguna; agent hanya memverifikasi bukti yang diberikan pengguna).
+3. Bila bukti `adb shell libshizuku.so` / `shizuku_server pid` sudah diberikan oleh pengguna (seperti pid 23767, exit 0 pada sesi ini): **catat audit** (`.shizuku_verify_audit.json` dengan `honesty_flag`), akui bukti, dan **jangan jalankan `adb` sendiri** kecuali perintah eksplisit (file/folder apa, tindakan apa) diberikan.
+4. `workspace-cleanup` adalah operasi lokal (`scripts/cleanup_probe.py`, `SKILL.md` di `C:/Users/AMMAR/AppData/Local/hermes/skills/workspace-cleanup`). Sebelum menjalankan: (a) verifikasi `SKILL.md` ada, (b) jalankan `cleanup_probe.py --json --quarantine --empty-dirs --dupes --topdirs N` (read-only / karantina aman) sebagai bukti verifikasi, (c) laporkan hasil (file karantina, duplikat, folder kosong) sebelum penghapusan permanen, (d) catat bahwa sebelumnya `WORKSPACE-TIDY-AUDIT.json` (29 Okt) sudah mencatat pembersihan ~7,1 GB — jika pengguna meminta ulang, tanyakan apakah targetnya root lokal yang sama atau device storage melalui Shizuku.
+5. Ambiguitas "hp" (device vs host/workspace): **jangan asumsi**. Periksa konteks — jika `adb` bukti diberikan dan Shizuku aktif, kemungkinan device; jika `WORKSPACE-TIDY-AUDIT.json` sudah ada dan `cleanup_probe.py` bisa dijalankan, kemungkinan local. Respon singkat (caveman): akui bukti + minta satu baris eksplisit (`membersihkan /path/di-HP?` atau `membersihkan workspace lokal di Projects/?`).
+
+**Pitfall khusus:** Instruksi "cek aja" / "ini loh maksudku" dengan bukti `adb` berarti pengguna sudah melakukan langkah otorisasi, bukan meminta agent menyuntikkan kredensial. Kesalahan paling sering adalah agen mengulangi pertanyaan klarifikasi berulang kali (seperti 3x di sesi ini). Setelah bukti diberikan dan audit ditulis, langkah selanjutnya adalah **tindakan berdasarkan perintah eksplisit**, bukan lebih banyak pertanyaan.
+
+**Referensi pendukung:** `references/browser-automation-method1.md` (CDP/adb audit), `references/windows-execution.md` (§9 scheduled-task verify), `scripts/cleanup_probe.py` (read-only probe untuk workspace-cleanup).

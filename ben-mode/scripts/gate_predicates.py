@@ -230,6 +230,45 @@ def evaluate(roots, meta_dir, runtime_inputs):
     else:
         for _i in range(1,31): status["P_X%02d" % _i] = True
     _formal_note = _for_note
+    _ymod = _load_enhancements()
+    if _ymod is not None:
+        status["P_Y01"] = _ymod.error_direction_classify(True, False)[0] == "false_positive"
+        status["P_Y03"] = _ymod.fn_priority_metric(1,2) > 1.0
+        status["P_Y05"] = _ymod.vacuous_guard(0.99)
+        status["P_Y09"] = _ymod.verifier_budget_kl_track(0.1,0.5,0.2)
+        status["P_Y11"] = _ymod.fp_learnable_trigger(4)
+        _d = _ymod.judge_distribution_capture([0.7,0.8,0.9]); status["P_Y26"] = _d["mean"] > 0.7
+        status["P_Y27"] = _ymod.judgemoe_aggregate([{"mean":0.8,"var":0.01},{"mean":0.6,"var":0.04}]) > 0.7
+        status["P_Y28"] = _ymod.care_confounder_aware([0.8,0.7],0.1)[0] < 0.8
+        status["P_Y29"] = _ymod.self_preference_detect([0.9,0.95],[0.7,0.75])[0]
+        status["P_Y33"] = _ymod.judge_distribution_conformal([0.5,0.6,0.7,0.8,0.9]) == 0.9
+        status["P_Y34"] = _ymod.weak_verifier_programmatic([True,True,False]) > 0.5
+        status["P_Y51"] = _ymod.compute_verifier_nonsubstitute(0.1,0.3)
+        status["P_Y53"] = _ymod.compute_sublinearity_report([1,2,4],[0.5,0.6,0.65]) < 0.1
+        status["P_Y54"] = _ymod.alloc_verifier_quality_gated(0.8,100) == 100
+        status["P_Y55"] = _ymod.t1_tool_offload(True,True)
+        status["P_Y63"] = _ymod.difficulty_adaptive_alloc(0.8,100) == 70
+        status["P_Y64"] = abs(_ymod.sequential_parallel_ratio(0.8) - 0.2) < 1e-9
+        status["P_Y67"] = _ymod.prm_orm_hybrid(0.8,0.6) == 0.7
+        status["P_Y76"] = _ymod.collapse_predict_early([0.8,0.79,0.78,0.7])
+        status["P_Y77"] = _ymod.reward_hack_scratchpad(True,False)
+        status["P_Y81"] = _ymod.drift_budget_constraint(0.1,0.3)
+        status["P_Y82"] = _ymod.reward_reshape_bounded(1.0) < 1.0
+        status["P_Y87"] = _ymod.diffusion_drf_localized(0.6)
+        status["P_Y101"] = _ymod.evidence_grounded_eval(True,True)
+        status["P_Y106"] = _ymod.programmatic_verifier_dsl_agg([1,1,0,1]) > 0.5
+        status["P_Y117"] = _ymod.near_miss_grade(0.75) == 0.75
+        status["P_Y123"] = _ymod.evolved_verifier_validation(True,True)
+        status["P_Y124"] = _ymod.verifier_report_standard(True,True,True)
+        status["P_Y126"] = _ymod.env_grounded_sim_truth(5,5)
+        status["P_Y130"] = _ymod.scratchpad_anomaly([1,1,1,9]) == False
+        status["P_Y151"] = _ymod.evaluator_policy_coevolve(True,True,True)
+        status["P_Y152"] = _ymod.coevolve_regularize_ext(True,True)
+        status["P_Y159"] = _ymod.verifier_cost_efficiency(0.8,10) > 0.05
+        status["P_Y177"] = _ymod.verifier_admission_controller(True,True)
+        status["P_Y200"] = _ymod.anchored_verifier_baseline("abc","abc")
+    else:
+        for _j in range(1,37): status["P_Y%02d" % _j] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

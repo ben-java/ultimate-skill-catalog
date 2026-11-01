@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:f7ca2265-b9e6-42c3-aae1-44cb54d36a3e",
+  "serialNumber": "urn:uuid:60285628-e03c-481b-bef9-466a5330367c",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T13:43:08Z",
+    "timestamp": "2026-11-01T14:07:49Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "6364fed7ac9f84d268d6e798b2aadb9bf3288d93361ed26468149109744a7ce5"
+          "content": "6e9b0bc295f943ee42d72fd7de63485d5a34d4a6c4643d5e1f65e5e1db1dc85a"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "276acd6b2aeafcb586961daaff7facf121f59bf4fca9d55926b906802e67bd24"
+          "content": "f45ab96e3e99559e82c6719e1eea68b99a9b05530197d62458ad68c467a3828b"
         }
       ]
     },
@@ -43,7 +43,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "4c84b0dd6f5d573f49f14ee6782367bc3b5899b19390cf26916c701bf5201f71"
+          "content": "17d3f3535724482dc06a5d7a79cf9d1961b47b81072cc7b62ecae5513e77a419"
         }
       ]
     },
@@ -25849,7 +25849,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "fb094c73b380fd75e47277a8f53ea46afc527804e6c9ca33f90a82f8e4d7b30c"
+          "content": "9bb53dd96a7c9d8d525d6f0728c1b139e3f5ddccb0e0152012aa81fdb54eec1b"
         }
       ]
     },
@@ -26124,7 +26124,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "2cf8e438afdfa2f48aa7406ce0f1f208bafe723275262cf064168c7284af97ce"
+          "content": "0883dc0ee056c29c478331396a129e9d1f4a7f0a54bb5fb1ffac60abd7ca531b"
         }
       ]
     },
@@ -26168,7 +26168,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "2668854e7e757d0258930387850dfac0c004dcdb6b34ec3715e5d9b871ec570f"
+          "content": "8b2b09e1675b3c974996c1be5ce2bf0325b5f108785a684ba919f72889c6445f"
         }
       ]
     },
