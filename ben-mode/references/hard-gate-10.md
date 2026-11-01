@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.37.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.38.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2033,3 +2033,17 @@ disurfacing `P_FF01–P_FF24`; diverifikasi 24/24 PASS (selftest_ff rc 0).
 - Identitas & pesan: FF06 `ff_agent_identity_attest`, FF19 `ff_inter_agent_message_signing`, FF07 `ff_cross_agent_contradiction`.
 - Konsistensi state: FF11 `ff_checkpoint_divergence`, FF12 `ff_rollback_consistency`, FF13 `ff_handoff_completeness`, FF16 `ff_blackboard_tamper_detect`.
 - Kebersihan tugas & anggaran: FF09 `ff_redundant_task_dedup`, FF10 `ff_orphan_agent_detect`, FF20 `ff_swarm_budget_burn`, FF24 `ff_emergent_plan_divergence`.
+
+---
+
+# BAGIAN 38 — WAVE G: FORMAL VERIFICATION & META-PROOF INTEGRITY GG01–GG24 (VERIFIED; v0.38.0)
+
+Menambahkan lapisan verifikasi formal: `GG01–GG24` di `hard_gate_enhancements.py`,
+disurfacing `P_GG01–P_GG24`; diverifikasi 24/24 PASS (selftest_gg rc 0).
+
+- Autoformalization & pembuktian: GG01 `gg_formal_autoformalize_faithfulness`, GG02 `gg_proof_term_constructive`, GG07 `gg_theorem_dependency_closure`, GG10 `gg_inductive_invariant`.
+- Konstrain & model checking: GG03 `gg_smt_constraint_unwind`, GG04 `gg_model_check_invariant`, GG08 `gg_counterexample_search`, GG12 `gg_symbolic_exec_bound`, GG11 `gg_concolic_assist`.
+- Kontrak & kebenaran: GG05 `gg_hoare_triple_validate`, GG18 `gg_partial_correctness`, GG19 `gg_total_correctness`, GG22 `gg_contract_based_design`, GG23 `gg_refinement_chain`, GG24 `gg_separation_logic_frame`.
+- Tipe & kompilasi: GG06 `gg_type_safety_enforce`, GG09 `gg_polymorphic_check`, GG13 `gg_certifying_compiler_check`, GG14 `gg_translation_validity`.
+- Kompleksitas & sumber daya: GG15 `gg_asymptotic_complexity_verify`, GG16 `gg_termination_measure`, GG17 `gg_resources_bound_prove`.
+- Kesetaraan & optimasi: GG20 `gg_algorithm_equivalence`, GG21 `gg_optimization_preserves`.

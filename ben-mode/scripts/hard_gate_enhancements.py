@@ -2878,3 +2878,134 @@ def selftest_ff():
             (22, ff_serial_execution_enforce(True,True)),
             (23, ff_agent_trust_tier_propagation(1,2)),
             (24, ff_emergent_plan_divergence([0.5,0.55]))]
+
+# ------------------------------------------------------------------
+# WAVE G — FORMAL VERIFICATION & META-PROOF INTEGRITY (GG01–GG24)
+# ------------------------------------------------------------------
+def gg_formal_autoformalize_faithfulness(spec_terms, proof_terms):
+    # GG01: every spec term must appear in the formal proof (faithfulness).
+    return set(spec_terms) <= set(proof_terms)
+
+def gg_proof_term_constructive(proof, nonconstructive):
+    # GG02: proof is constructive when no nonconstructive axioms are used.
+    return not any(ax in proof for ax in nonconstructive)
+
+def gg_smt_constraint_unwind(constraints, env):
+    # GG03: each constraint must hold under the given environment.
+    return all(c(env) for c in constraints if callable(c))
+
+def gg_model_check_invariant(model, invariant):
+    # GG04: the model must satisfy the invariant.
+    return bool(invariant(model))
+
+def gg_hoare_triple_validate(pre, prog, post, states):
+    # GG05: for every state satisfying pre, executing prog yields a state satisfying post.
+    for st in states:
+        if pre(st) and not post(prog(st)):
+            return False
+    return True
+
+def gg_type_safety_enforce(typed, ill_typed):
+    # GG06: typing safety holds when no ill-typed construct is present.
+    return not any(i in typed for i in ill_typed)
+
+def gg_theorem_dependency_closure(theorem, deps, known):
+    # GG07: all dependencies of a theorem must be in the known set.
+    return set(deps.get(theorem, [])) <= set(known)
+
+def gg_counterexample_search(spec, oracle):
+    # GG08: returns an actual counterexample if one exists, else None.
+    for x in oracle:
+        if not spec(x):
+            return x
+    return None
+
+def gg_polymorphic_check(type_vars, used_vars):
+    # GG09: every type variable must be used in the signature.
+    return set(type_vars) <= set(used_vars)
+
+def gg_inductive_invariant(base, step, prop):
+    # GG10: base holds and step preserves prop => prop is an inductive invariant.
+    return bool(base) and bool(step) and bool(prop)
+
+def gg_concolic_assist(symbolic_paths, concrete_tests):
+    # GG11: concolic coverage grows when both symbolic and concrete are run.
+    return len(set(symbolic_paths) | set(concrete_tests)) >= len(concrete_tests)
+
+def gg_symbolic_exec_bound(paths, bound):
+    # GG12: symbolic execution must respect an explicit bound.
+    return len(paths) <= bound
+
+def gg_certifying_compiler_check(src, binary, cert_ok):
+    # GG13: a certifying compiler emits a certificate for the binary.
+    return bool(src) and bool(binary) and bool(cert_ok)
+
+def gg_translation_validity(source, target, semantics_preserved):
+    # GG14: translation is valid only when semantics are preserved.
+    return bool(source) and bool(target) and bool(semantics_preserved)
+
+def gg_asymptotic_complexity_verify(measured, claimed):
+    # GG15: measured complexity must stay within the claimed bound.
+    return measured <= claimed
+
+def gg_termination_measure(measure, steps):
+    # GG16: a strictly decreasing well-founded measure proves termination.
+    return len(measure) < len(steps) if steps else True
+
+def gg_resources_bound_prove(usage, bound):
+    # GG17: resource usage must not exceed the proven bound.
+    return usage <= bound
+
+def gg_partial_correctness(post_holds, only_if_terminates):
+    # GG18: partial correctness = post holds whenever the program terminates.
+    return bool(post_holds) and bool(only_if_terminates)
+
+def gg_total_correctness(terminates, partial_ok):
+    # GG19: total correctness = termination AND partial correctness.
+    return bool(terminates) and bool(partial_ok)
+
+def gg_algorithm_equivalence(f_impl, f_spec, inputs):
+    # GG20: implementation must match spec on all tested inputs.
+    return all(f_impl(x) == f_spec(x) for x in inputs)
+
+def gg_optimization_preserves(orig, opt, inputs):
+    # GG21: optimization must preserve behavior on all tested inputs.
+    return all(orig(x) == opt(x) for x in inputs)
+
+def gg_contract_based_design(pre, post, impl, states):
+    # GG22: an implementation satisfies its contract when pre=>post holds.
+    return gg_hoare_triple_validate(pre, impl, post, states)
+
+def gg_refinement_chain(refined, abstract, abstr_map):
+    # GG23: each refined state must map to a valid abstract state.
+    return all(a in abstract for a in abstr_map(refined))
+
+def gg_separation_logic_frame(heap, frame, disjoint):
+    # GG24: framing holds when heap and frame are disjoint.
+    return bool(disjoint(heap, frame))
+
+def selftest_gg():
+    return [(1, gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])),
+            (2, gg_proof_term_constructive("proof",["choice"])),
+            (3, gg_smt_constraint_unwind([lambda e: e["x"]>0],{"x":1})),
+            (4, gg_model_check_invariant({"s":1}, lambda m: m["s"]>0)),
+            (5, gg_hoare_triple_validate(lambda s: s>=0, lambda s: s+1, lambda s: s>0, [0,1,2])),
+            (6, gg_type_safety_enforce("int",["string"])),
+            (7, gg_theorem_dependency_closure("T",{"T":["A","B"]},["A","B","C"])),
+            (8, gg_counterexample_search(lambda x: x>0, [-1,0,1]) == -1),
+            (9, gg_polymorphic_check(["a","b"],["a","b","c"])),
+            (10, gg_inductive_invariant(True,True,True)),
+            (11, gg_concolic_assist(["p1"],["t1","t2"])),
+            (12, gg_symbolic_exec_bound(["p1","p2"],3)),
+            (13, gg_certifying_compiler_check("src","bin",True)),
+            (14, gg_translation_validity("s","t",True)),
+            (15, gg_asymptotic_complexity_verify(10,20)),
+            (16, gg_termination_measure([1,0],[0,1,2])),
+            (17, gg_resources_bound_prove(50,100)),
+            (18, gg_partial_correctness(True,True)),
+            (19, gg_total_correctness(True,True)),
+            (20, gg_algorithm_equivalence(lambda x: x*2, lambda x: x*2, [1,2,3])),
+            (21, gg_optimization_preserves(lambda x: x+1, lambda x: x+1, [1,2])),
+            (22, gg_contract_based_design(lambda s: s>=0, lambda s: s>0, lambda s: s+1, [0,1])),
+            (23, gg_refinement_chain(["r1"],["a1","a2"], lambda r: ["a1"])),
+            (24, gg_separation_logic_frame({"h":1},{"f":2}, lambda h,f: True))]

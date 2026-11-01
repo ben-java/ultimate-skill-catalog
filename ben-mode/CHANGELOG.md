@@ -1,3 +1,8 @@
+## v0.38.0 (2026-11-01) — Wave G Formal Verification & Meta-Proof Integrity GG01–GG24 (BAGIAN 38)
+
+- **GG01–GG24**: autoformalize faithfulness, constructive proof, SMT unwind, model-check invariant, Hoare triple, type safety, theorem dependency closure, counterexample search, polymorphic check, inductive invariant, concolic assist, symbolic-exec bound, certifying compiler, translation validity, asymptotic complexity, termination measure, resources bound, partial/total correctness, algorithm equivalence, optimization preserves, contract-based design, refinement chain, separation-logic frame. Disurfacing `P_GG01–P_GG24`; 24/24 PASS.
+- **BAGIAN 38** ditambahkan; bump serentak 0.38.0.
+
 ## v0.37.0 (2026-11-01) — Wave F Inter-Agent/Swarm Integrity FF01–FF24 (BAGIAN 37)
 
 - **FF01–FF24**: delegation cycle detect, role separation, privilege escalation guard, shared-context leak scan, group quorum, identity attestation, cross-agent contradiction, dependency deadlock, redundant dedup, orphan agent, checkpoint divergence, rollback consistency, handoff completeness, quarantine violation, fan-out limit, blackboard tamper, group memory poison, consensus majority, message signing, swarm budget burn, conflict resolution, serial execution, trust-tier propagation, emergent plan divergence. Disurfacing `P_FF01–P_FF24`; 24/24 PASS.

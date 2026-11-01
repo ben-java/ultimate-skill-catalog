@@ -48,8 +48,19 @@ bash "$HERMES_SKILL/scripts/test-hard-gate-negative.sh"   # all N/N
 Check: `version_consistent=true`, `negative_test_count == negative_declared`,
 `negative_pass_consistent=true`, sbom/opa listed present.
 
-## 6. Dashboard publish
+## 6. Dashboard regenerate + publish
 ```bash
+# generate-dashboard.py takes POSITIONAL args: <target_dir> <out_file>.
+# It has no --meta-dir flag — passing one lands in the out-file slot and the
+# file open fails (or the arg is treated as the output path), so never invoke it
+# with a flag-style call.
+"$PY" "$HERMES_SKILL/scripts/generate-dashboard.py" "$ROOT/.hard-gate-meta" "$ROOT/.hard-gate-meta/dashboard.html"
+cp "$ROOT/.hard-gate-meta/dashboard.html" "$ROOT/docs/dashboard.html"
+# The dashboard display is driven by the oracle snapshot. On a version bump the
+# snapshot drifts (old version shown); accept it, then regenerate the dashboard
+# again so the card reflects the new version before commit.
+"$PY" "$HERMES_SKILL/scripts/regression-oracle.py" --accept --root "$ROOT"
+"$PY" "$HERMES_SKILL/scripts/generate-dashboard.py" "$ROOT/.hard-gate-meta" "$ROOT/.hard-gate-meta/dashboard.html"
 cp "$ROOT/.hard-gate-meta/dashboard.html" "$ROOT/docs/dashboard.html"
 ```
 

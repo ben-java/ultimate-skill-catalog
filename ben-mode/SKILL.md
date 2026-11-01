@@ -1,6 +1,6 @@
 ---
 name: ben-mode
-version: 0.37.0
+version: 0.38.0
 description: "Ben-mode integrity and routing workflow; trigger: ben or ben-mode. WAJIB muat references/hard-gate-10.md via skill_view setiap kali skill terpicu."
 ---
 # Ben Mode (Token-First & Integrity Spine)
@@ -139,7 +139,7 @@ Setiap sinkronisasi skill **wajib** lolos verifikasi otomatis:
 - Dokumen spesifikasi yang mengklaim selaras dengan versi kode harus punya header versi sendiri dan divalidasi silang oleh matriks status (`spec_version_consistent`) — tanpa itu, klaim "versi konsisten" di dokumen diam-diam basi saat versi kode naik.
 - Sandbox hermetic `env -i` (verify-hard-gate-sandbox.sh) hanya mewarisi PATH/TMPDIR/HARD_GATE_LOG/HOME — validator yang memanggil subprocess python (SBOM/VC) akan gagal dengan FAIL palsu (mis. "invalid CycloneDX") walau file valid, karena interpreter tidak resolvable di MIN_PATH. Resolve satu python SEBELUM `env -i` dan ekspor `PY_BIN` (plus tambah direktorinya ke PATH) di dalam pemanggilan `env -i`.
 - Skip jujur BMC (§14.1 z3) / WASI (§16.1 wasmtime) di `benctl` mencerminkan interpreter `$PY_BIN` (default `python3` = WSL tanpa z3) — jangan perbaiki dengan export `PYTHON` di `gate.conf`: env itu TIDAK menyeberang batas `env -i` sandbox, sehingga skip tetap muncul. Level yang efektif adalah `PY_BIN` di dalam pemanggilan sandbox atau meneruskan `PYTHON` saat invoke `benctl` (mis. `PYTHON=<python-dengan-z3> benctl --redgreen`). Verifikasi pola `[GREEN] BMC` / `[GREEN] WASI` muncul di output, bukan hanya `OVERALL: PASS`.
-- Jalankan `gate_predicates.py` dengan `--root` yang MENJADI root skill (memuat `SKILL.md`), bukan `scripts/` — `--root=scripts/` gagal `FileNotFoundError` pada `SKILL.md` sebelum satu predikat pun dieksekusi (P_schema collapse), sehingga tampak "gate FAIL" padahal argumen salah.
+- Jalankan `gate_predicates.py` dengan `--root` yang MENJADI root skill (memuat `SKILL.md`), bukan `scripts/` — `--root=scripts/` gagal `FileNotFoundError` pada `SKILL.md` sebelum satu predikat pun dieksekusi (P_schema collapse). Wajib SERTAI `--meta-dir <project>/.hard-gate-meta`: default `""` membuat `os.makedirs(meta_dir)` melempar `FileNotFoundError` pada path kosong sebelum predikat pertama dievaluasi — tanpa kedua flag itu, laporan "gate FAIL" menyesatkan karena argumen salah, bukan karena kegagalan gate.
 - Saat membangun string old/new untuk patch bash via `execute_code` Python: baris yang diakhiri backslash-kontinuasi (`\` di akhir baris) harus ditulis `\\` + newline eksplisit — dalam string Python biasa, `\` diikuti newline nyata termakan sebagai line-continuation sehingga anchor kehilangan backslash dan newline (tidak pernah match, count=0). Gunakan `\\\n` atau raw string, dan verifikasi `s.count(anchor)==1` sebelum replace.
 - Panggil `verify-fresh-machine.sh` dengan canonical skill dir, bukan root proyek — jika diberi project root, ia menyalin seluruh tree sehingga muncul `ben-mode/ben-mode` bersarang dan schema FAIL (name≠folder). Buat arg-wrapper di orkestrator meneruskan `$(cd "$SCRIPT_DIR/.." && pwd)`.
 - Kapabilitas verifikasi yang di-gate per-run (`HARD_GATE_FRESH`, dsb.) harus **default ON** di `gate.conf` dan diverifikasi muncul di output deep `benctl --redgreen` — flag default-off membuat deep run diam-diam melewatkan cek dan laporan "verified" jadi tidak lengkap tanpa ada yang sadar.

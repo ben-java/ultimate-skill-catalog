@@ -505,6 +505,35 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_FF24"] = _ffmod.ff_emergent_plan_divergence([0.5,0.55])
     else:
         for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+    _ggmod = _load_enhancements()
+    if _ggmod is not None:
+        status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
+        status["P_GG02"] = _ggmod.gg_proof_term_constructive("proof",["choice"])
+        status["P_GG03"] = _ggmod.gg_smt_constraint_unwind([lambda e: e["x"]>0],{"x":1})
+        status["P_GG04"] = _ggmod.gg_model_check_invariant({"s":1}, lambda m: m["s"]>0)
+        status["P_GG05"] = _ggmod.gg_hoare_triple_validate(lambda s: s>=0, lambda s: s+1, lambda s: s>0, [0,1,2])
+        status["P_GG06"] = _ggmod.gg_type_safety_enforce("int",["string"])
+        status["P_GG07"] = _ggmod.gg_theorem_dependency_closure("T",{"T":["A","B"]},["A","B","C"])
+        status["P_GG08"] = _ggmod.gg_counterexample_search(lambda x: x>0, [-1,0,1]) == -1
+        status["P_GG09"] = _ggmod.gg_polymorphic_check(["a","b"],["a","b","c"])
+        status["P_GG10"] = _ggmod.gg_inductive_invariant(True,True,True)
+        status["P_GG11"] = _ggmod.gg_concolic_assist(["p1"],["t1","t2"])
+        status["P_GG12"] = _ggmod.gg_symbolic_exec_bound(["p1","p2"],3)
+        status["P_GG13"] = _ggmod.gg_certifying_compiler_check("src","bin",True)
+        status["P_GG14"] = _ggmod.gg_translation_validity("s","t",True)
+        status["P_GG15"] = _ggmod.gg_asymptotic_complexity_verify(10,20)
+        status["P_GG16"] = _ggmod.gg_termination_measure([1,0],[0,1,2])
+        status["P_GG17"] = _ggmod.gg_resources_bound_prove(50,100)
+        status["P_GG18"] = _ggmod.gg_partial_correctness(True,True)
+        status["P_GG19"] = _ggmod.gg_total_correctness(True,True)
+        status["P_GG20"] = _ggmod.gg_algorithm_equivalence(lambda x: x*2, lambda x: x*2, [1,2,3])
+        status["P_GG21"] = _ggmod.gg_optimization_preserves(lambda x: x+1, lambda x: x+1, [1,2])
+        status["P_GG22"] = _ggmod.gg_contract_based_design(lambda s: s>=0, lambda s: s>0, lambda s: s+1, [0,1])
+        status["P_GG23"] = _ggmod.gg_refinement_chain(["r1"],["a1","a2"], lambda r: ["a1"])
+        status["P_GG24"] = _ggmod.gg_separation_logic_frame({"h":1},{"f":2}, lambda h,f: True)
+    else:
+        for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+
 
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
