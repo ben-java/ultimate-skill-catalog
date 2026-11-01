@@ -2,7 +2,7 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T13:14:45.008094+00:00",
+  "generated_at": "2026-11-01T13:17:04.144496+00:00",
   "file_count": 98,
   "files": [
     {
@@ -77,8 +77,8 @@
     },
     {
       "path": "references/mechanism-extension-recipe.md",
-      "size": 3173,
-      "sha256": "54595a41af914f189e0b789b5a714152ff1164e0d1653f3ce17737fa328d3ad8"
+      "size": 3856,
+      "sha256": "5a0fa434e235ded78603c025c8a7f85c65e71d30639de04a8fce18f5ca6ae5c5"
     },
     {
       "path": "references/pdf-corpus-regeneration.md",
