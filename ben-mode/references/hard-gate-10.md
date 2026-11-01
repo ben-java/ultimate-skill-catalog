@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.33.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.34.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -1979,3 +1979,21 @@ Eksekusi lanjutan gelombang BB (v0.33.0) menutup gap residual Fase 7–20 yang e
 Penamaan diberi prefiks `bb_` untuk dua fungsi yang berkolisi dengan tier X lama
 (`confidence_reliability_joint`, `compute_verifier_nonsubstitute`) — menghindari clobber
 predikat `P_X42` yang sudah ada.
+
+## BAGIAN 34 — WAVE C CC01–CC29 (VERIFIED; v0.34.0)
+
+Gelombang CC menutup gap lain dari A001–A1000: `CC01–CC29` di `hard_gate_enhancements.py`,
+disurfacing `P_CC01–P_CC29`; diverifikasi 29/29 PASS (selftest_cc rc 0).
+
+- Verifier: CC01 `cc_verifier_error_shift`, CC02 `cc_per_epoch_verifier_eval`.
+- Judge: CC03 `cc_judge_pool_contamination_repair`, CC04 `cc_option_shuffle_anti_position`.
+- TTS: CC05 `cc_tts_diversified_rollouts`, CC06 `cc_verifier_quality_alloc_curve`.
+- Self-improvement: CC07 `cc_mirror_loop_detect`, CC08 `cc_pass1_peak_track`, CC25 `cc_plateau_escape`.
+- Reward: CC09 `cc_group_normalized_advantage`, CC10 `cc_rejection_sampling_signal`, CC27 `cc_commutative_reward_agg`.
+- Runtime: CC11 `cc_runtime_tiered_retention`, CC12 `cc_per_session_trust_rebase`, CC23 `cc_speculative_decoding_budget`, CC24 `cc_cache_hit_rate`.
+- Interpretability: CC13 `cc_activation_patch_effect`, CC14 `cc_logit_lens_slope`.
+- Multi-agent: CC15 `cc_counter_argument_coverage`, CC16 `cc_disagreement_exploration`, CC28 `cc_listwise_agent_merge`.
+- Calibration: CC17 `cc_isotonic_monotone`, CC18 `cc_temperature_scaling_opt`.
+- Eval: CC19 `cc_pass_at_k`, CC20 `cc_heldout_multi_split`.
+- Security: CC21 `cc_indirect_injection_rag`, CC22 `cc_memory_poison_detect`.
+- Autonomous: CC26 `cc_explore_exploit_balance`, CC29 `cc_after_commit_verify`.

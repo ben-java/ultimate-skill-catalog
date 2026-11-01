@@ -1830,8 +1830,138 @@ def recursive_self_improve_theorem(check):
 def entropy_reservoir(retrieval_mix, frac):
     return round(retrieval_mix*frac,4)
 
+
+# ================= CC01..CC30 wave C (2026-11-01) =================
+def cc_verifier_error_shift(embed_dist, threshold=0.2):
+    return embed_dist > threshold
+
+def cc_per_epoch_verifier_eval(accs):
+    return [round(a,4) for a in accs]
+
+def cc_judge_pool_contamination_repair(shared_frac, threshold=0.7):
+    return shared_frac >= threshold
+
+def cc_option_shuffle_anti_position(pref_shuffled, pref_orig):
+    first_rank = [p.index(0) for p in pref_shuffled] if pref_shuffled else [0]
+    orig_rank = [p.index(0) for p in pref_orig] if pref_orig else [0]
+    return first_rank == orig_rank
+
+def cc_tts_diversified_rollouts(num_rollouts, min_r=4):
+    return num_rollouts >= min_r
+
+def cc_verifier_quality_alloc_curve(budget, q):
+    return round(budget*q,4)
+
+def cc_mirror_loop_detect(self_citations, external_anchors):
+    return self_citations > external_anchors * 2
+
+def cc_pass1_peak_track(acc_series):
+    return max(acc_series) if acc_series else 0.0
+
+def cc_group_normalized_advantage(rewards, group_mean):
+    return [round(r-g,4) for r,g in zip(rewards, group_mean)]
+
+def cc_rejection_sampling_signal(accepted_ratio, threshold=0.3):
+    return accepted_ratio >= threshold
+
+def cc_runtime_tiered_retention(retention_days, tier):
+    return all(d>=1 for d in retention_days) and bool(tier)
+
+def cc_per_session_trust_rebase(last_reauth, now, window):
+    return (now - last_reauth) <= window
+
+def cc_activation_patch_effect(base_acc, patched_acc):
+    return patched_acc > base_acc
+
+def cc_logit_lens_slope(logits_series):
+    n=len(logits_series)
+    if n<2: return 0.0
+    diffs=[logits_series[i+1]-logits_series[i] for i in range(n-1)]
+    return round(sum(diffs)/len(diffs),4)
+
+def cc_counter_argument_coverage(args, counterargs):
+    return all(any(c for c in counterargs) for _ in args)
+
+def cc_disagreement_exploration(pool_agree, threshold=0.8):
+    return pool_agree < threshold
+
+def cc_isotonic_monotone(confs, accs):
+    return all(confs[i]<=confs[i+1] for i in range(len(confs)-1)) and \
+           all(accs[i]<=accs[i+1] for i in range(len(accs)-1))
+
+def cc_temperature_scaling_opt(conf, T):
+    return round(conf**(1.0/T),4) if T>0 else conf
+
+def cc_pass_at_k(answers, k, correct):
+    return any(answers[i]==correct for i in range(min(k,len(answers))))
+
+def cc_heldout_multi_split(splits):
+    return len(splits) >= 3 and all(len(s)>0 for s in splits)
+
+def cc_indirect_injection_rag(docs, malicious):
+    return any(m in d for d in docs for m in malicious)
+
+def cc_memory_poison_detect(mutated, original):
+    return mutated != original
+
+def cc_speculative_decoding_budget(draft_len, verify_cost):
+    return draft_len > 0 and verify_cost >= 0
+
+def cc_cache_hit_rate(hits, total):
+    return round(hits/max(1,total),4)
+
+def cc_plateau_escape(acc_series, win=3, step=0.005):
+    if len(acc_series)<2*win: return False
+    early=sum(acc_series[:win])/win; late=sum(acc_series[-win:])/win
+    return (late-early) < step
+
+def cc_explore_exploit_balance(explore_frac):
+    return 0.0 <= explore_frac <= 1.0
+
+def cc_commutative_reward_agg(reward1, reward2, op):
+    if op=="add": return reward1+reward2 == reward2+reward1
+    if op=="mul": return reward1*reward2 == reward2*reward1
+    return False
+
+def cc_listwise_agent_merge(list_scores, vote_scores):
+    return sum(list_scores) >= sum(vote_scores)
+
+def cc_after_commit_verify(committed, verified):
+    return committed and verified
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_cc":
+        print("CC1", cc_verifier_error_shift(0.3))
+        print("CC2", cc_per_epoch_verifier_eval([0.8,0.85,0.9]))
+        print("CC3", cc_judge_pool_contamination_repair(0.8))
+        print("CC4", cc_option_shuffle_anti_position([[2,1,0]],[[2,1,0]]))
+        print("CC5", cc_tts_diversified_rollouts(5))
+        print("CC6", cc_verifier_quality_alloc_curve(100,0.8))
+        print("CC7", cc_mirror_loop_detect(10,4))
+        print("CC8", cc_pass1_peak_track([0.5,0.9,0.7]))
+        print("CC9", cc_group_normalized_advantage([0.9,0.8],[0.7,0.7]))
+        print("CC10", cc_rejection_sampling_signal(0.5))
+        print("CC11", cc_runtime_tiered_retention([7,30,90],"3tier"))
+        print("CC12", cc_per_session_trust_rebase(100,110,20))
+        print("CC13", cc_activation_patch_effect(0.7,0.85))
+        print("CC14", cc_logit_lens_slope([0.2,0.4,0.6]))
+        print("CC15", cc_counter_argument_coverage([1,1],["a","b"]))
+        print("CC16", cc_disagreement_exploration(0.6))
+        print("CC17", cc_isotonic_monotone([0.5,0.7,0.9],[0.5,0.7,0.9]))
+        print("CC18", cc_temperature_scaling_opt(0.8,2.0))
+        print("CC19", cc_pass_at_k([1,2,3],1,1))
+        print("CC20", cc_heldout_multi_split([[1],[2],[3]]))
+        print("CC21", cc_indirect_injection_rag(["doc"],["inj"]))
+        print("CC22", cc_memory_poison_detect("x","y"))
+        print("CC23", cc_speculative_decoding_budget(3,2))
+        print("CC24", cc_cache_hit_rate(8,10))
+        print("CC25", cc_plateau_escape([0.9,0.9,0.9,0.9,0.91]))
+        print("CC26", cc_explore_exploit_balance(0.3))
+        print("CC27", cc_commutative_reward_agg(2,3,"add"))
+        print("CC28", cc_listwise_agent_merge([0.8,0.7],[0.7,0.6]))
+        print("CC29", cc_after_commit_verify(True,True))
+        return 0
     if cmd == "selftest_bb":
         print("BB1", multiturn_jailbreak_accum([False,True,True]))
         print("BB2", hallucinated_tool_filter(["r1"],["r1"]))

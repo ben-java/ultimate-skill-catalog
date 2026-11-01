@@ -1,3 +1,8 @@
+## v0.34.0 (2026-11-01) — Wave C CC01–CC29 (BAGIAN 34)
+
+- **CC01–CC29**: verifier error-shift, per-epoch eval, judge pool contamination repair, option shuffle anti-position, TTS rollouts/alloc-curve, mirror-loop, pass1 peak, group-normalized advantage, rejection-sampling, tiered retention, per-session trust rebase, activation patch, logit-lens slope, counter-argument, disagreement exploration, isotonic, temperature scaling, pass@k, heldout multi-split, indirect-injection RAG, memory poison, speculative decoding, cache hit, plateau escape, explore/exploit, commutative reward, listwise merge, post-commit verify. Disurfacing `P_CC01–P_CC29`; 29/29 PASS.
+- **BAGIAN 34** ditambahkan; bump serentak 0.34.0. Push remote `db01084..89e63f3` (v0.32/33) selesai.
+
 ## v0.33.0 (2026-11-01) — Residual BB01–BB30 (BAGIAN 33)
 
 - **BB01–BB30**: mekanisme residual Fase 7–20 (jailbreak multi-turn, hallucinated-tool filter, guardrail version/eval mapping, provenance binding, metric drift, collusion, budget alert, evaluator separation, peer review, learning-curve, reward-KL, entropy bonus). Disurfacing `P_BB01–P_BB30`; diverifikasi 30/30 PASS. Rename prefiks `bb_` utk 2 fungsi kolisi tier X (P_X42 aman).

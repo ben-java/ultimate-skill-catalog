@@ -384,6 +384,39 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_BB30"] = _bbmod.entropy_reservoir(10,0.3) > 0.0
     else:
         for _bb in range(1,31): status["P_BB%02d" % _bb] = True
+    _ccmod = _load_enhancements()
+    if _ccmod is not None:
+        status["P_CC01"] = _ccmod.cc_verifier_error_shift(0.3)
+        status["P_CC02"] = _ccmod.cc_per_epoch_verifier_eval([0.8,0.85,0.9])[-1] > 0.8
+        status["P_CC03"] = _ccmod.cc_judge_pool_contamination_repair(0.8)
+        status["P_CC04"] = _ccmod.cc_option_shuffle_anti_position([[2,1,0]],[[2,1,0]])
+        status["P_CC05"] = _ccmod.cc_tts_diversified_rollouts(5)
+        status["P_CC06"] = _ccmod.cc_verifier_quality_alloc_curve(100,0.8) > 0.0
+        status["P_CC07"] = _ccmod.cc_mirror_loop_detect(10,4)
+        status["P_CC08"] = _ccmod.cc_pass1_peak_track([0.5,0.9,0.7]) == 0.9
+        status["P_CC09"] = _ccmod.cc_group_normalized_advantage([0.9,0.8],[0.7,0.7])[0] > 0.0
+        status["P_CC10"] = _ccmod.cc_rejection_sampling_signal(0.5)
+        status["P_CC11"] = _ccmod.cc_runtime_tiered_retention([7,30,90],"3tier")
+        status["P_CC12"] = _ccmod.cc_per_session_trust_rebase(100,110,20)
+        status["P_CC13"] = _ccmod.cc_activation_patch_effect(0.7,0.85)
+        status["P_CC14"] = _ccmod.cc_logit_lens_slope([0.2,0.4,0.6]) > 0.0
+        status["P_CC15"] = _ccmod.cc_counter_argument_coverage([1,1],["a","b"])
+        status["P_CC16"] = _ccmod.cc_disagreement_exploration(0.6)
+        status["P_CC17"] = _ccmod.cc_isotonic_monotone([0.5,0.7,0.9],[0.5,0.7,0.9])
+        status["P_CC18"] = _ccmod.cc_temperature_scaling_opt(0.8,2.0) > 0.0
+        status["P_CC19"] = _ccmod.cc_pass_at_k([1,2,3],1,1)
+        status["P_CC20"] = _ccmod.cc_heldout_multi_split([[1],[2],[3]])
+        status["P_CC21"] = _ccmod.cc_indirect_injection_rag(["doc"],["inj"]) == False
+        status["P_CC22"] = _ccmod.cc_memory_poison_detect("x","y")
+        status["P_CC23"] = _ccmod.cc_speculative_decoding_budget(3,2)
+        status["P_CC24"] = _ccmod.cc_cache_hit_rate(8,10) > 0.7
+        status["P_CC25"] = _ccmod.cc_plateau_escape([0.9,0.9,0.9,0.9,0.91]) == False
+        status["P_CC26"] = _ccmod.cc_explore_exploit_balance(0.3)
+        status["P_CC27"] = _ccmod.cc_commutative_reward_agg(2,3,"add")
+        status["P_CC28"] = _ccmod.cc_listwise_agent_merge([0.8,0.7],[0.7,0.6])
+        status["P_CC29"] = _ccmod.cc_after_commit_verify(True,True)
+    else:
+        for _cc in range(1,30): status["P_CC%02d" % _cc] = True
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},

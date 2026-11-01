@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:d0ce38d2-d0c1-436f-bf3b-0fc3eb488702",
+  "serialNumber": "urn:uuid:668e4d7c-9c8e-40fc-a1d1-af2887f05a24",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T14:43:45Z",
+    "timestamp": "2026-11-01T14:49:09Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "fe4c4dfdbe0047b1e1e98a9fe5a3dadbb4621f8a449eee369c2a5040f89acf0d"
+          "content": "c8189b2a8724878869a5a31d52aabdaf3dad485b7a83de7dd9a0e66f3cf76e9a"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "079a116281b8c71d05678659aaa92a2f438e87ccbcc15c30ccf54360f025ef04"
+          "content": "dcc7af70316aa6095dbc7b92f93c28d766858cd0484f32ae7a3eb242208095dd"
         }
       ]
     },
@@ -25849,7 +25849,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "3e3722250c376d3937db2f7afded2ffc3658a4bf6b6ad1bc58fbdb998b3bdfd5"
+          "content": "6cc05f267e0b1d3e467fee960e675a945007fe0ab90e859ce163af74971aadac"
         }
       ]
     },
@@ -25871,7 +25871,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "7bad213385f65a4e18eddf9d77d1bb12b02789cf291f4c05a03dd756f9aef461"
+          "content": "bda55543c7f627b5cb73f5d269c563235e5f020ee897632a7ba04d5eb2254fed"
         }
       ]
     },
@@ -26124,7 +26124,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "c85145912030751a1a915eece3909b62ae2fa3a5b6f8b05ad0deb41512304d1c"
+          "content": "8da469b571cd67fe1c0e823507f3fd5d7da3600e0953b9324d8f9118c27bca1f"
         }
       ]
     },
@@ -26168,7 +26168,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "6e53fcc45773c99ea0a3de66a1bc62bf52e98fd459b5cf2a8bf5747d9070d2ed"
+          "content": "ca09a9300ac71e0ff718974e80238b6d219263507b6fe679b11cf578497ba225"
         }
       ]
     },
