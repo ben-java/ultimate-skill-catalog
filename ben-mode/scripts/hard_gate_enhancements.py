@@ -916,8 +916,235 @@ def assume_breach_reauth(sessions, breach_now):
 # W103: separation of duties live
 def separation_of_duties_live(verifier, mutator): return verifier != mutator
 
+
+# ================= V01..V30  V001..V100 phases 1-8 quality refinement (2026-11-01) =================
+# V01: flip-rate / undecided report (Coin Flip Judge 2026)
+def flip_rate_report(votes, threshold=0.2):
+    k = len(votes); maj = sum(votes)/k if k else 0
+    flip = min(maj, 1-maj) if k else 0
+    undecided = flip > threshold
+    return round(maj,4), round(flip,4), undecided
+
+# V02: symmetric order randomization check (pairwise)
+def symmetric_order_randomize(order_counts):
+    # order_counts: {order_label: n}; balance required
+    if not order_counts: return True,0.0
+    vals = list(order_counts.values()); lo = min(vals); hi = max(vals)
+    bal = 1.0 - (hi-lo)/max(hi,1)
+    return bal >= 0.8, round(bal,4)
+
+# V03: bootstrap CI for mean score
+def bootstrap_ci(scores, B=1000, seed=1, z=1.96):
+    import random
+    rng = random.Random(seed); n = len(scores)
+    if n == 0: return (0.0,0.0)
+    means = [sum(rng.choice(scores) for _ in range(n))/n for _ in range(B)]
+    means.sort()
+    cl = max(0,int(0.025*B)-1); cu = min(B-1,int(0.975*B)-1)
+    return round(means[cl],4), round(means[cu],4)
+
+# V04: reject ranking when CIs overlap
+def ci_overlap_reject(ci_a, ci_b):
+    return ci_a[1] < ci_b[0] or ci_b[1] < ci_a[0]
+
+# V05: position-bias detector
+def position_bias_detect(score_orderAB, score_orderBA):
+    return abs(score_orderAB - score_orderBA) > 0.10, round(abs(score_orderAB - score_orderBA),4)
+
+# V06: consistency-bias decomposition
+def consistency_bias_decompose(test_retest, bias):
+    # stable but consistent-wrong: test_retest high && bias high
+    return test_retest > 0.9 and bias > 0.10
+
+# V07: backbone operating profile (conservative/permissive)
+def backbone_operating_profile(fp, fn):
+    # fp high -> permissive; fn high -> conservative
+    mag = fp + fn
+    if mag == 0: return "balanced"
+    if fp/mag > 0.6: return "permissive"
+    if fn/mag > 0.6: return "conservative"
+    return "balanced"
+
+# V08: claim-level decomposition (CLAIM-CAL)
+def claim_decompose(answer, claim_splits):
+    # simplistic atomic claim split; return claims
+    return claim_splits if claim_splits else answer.split(". ")
+
+# V09: multi-probe per-claim verification
+def multi_probe_verify(claim, probe_results):
+    return sum(probe_results)/len(probe_results) if probe_results else 0.0
+
+# V10: claim risk-score aggregation
+def claim_risk_aggregate(claim_verdicts, w=None):
+    if not claim_verdicts: return 1.0
+    if w is None: w = [1.0/len(claim_verdicts)]*len(claim_verdicts)
+    return sum(v*wi for v,wi in zip(claim_verdicts,w))
+
+# V11: isotonic calibration (pool-adjacent-violators) -> ECE
+def isotonic_calibrate(conf, accs):
+    # simple PAV monotone regression of accs on conf
+    n = len(conf); idx = sorted(range(n), key=lambda i: conf[i])
+    y = [accs[i] for i in idx]
+    # PAV
+    blocks = [[v] for v in y]
+    while True:
+        merged = False
+        for i in range(len(blocks)-1):
+            if sum(blocks[i])/len(blocks[i]) > sum(blocks[i+1])/len(blocks[i+1]):
+                blocks[i] = blocks[i] + blocks[i+1]; del blocks[i+1]; merged = True; break
+        if not merged: break
+    cal = []
+    for b in blocks:
+        cal.extend([sum(b)/len(b)]*len(b))
+    # reorder back
+    cal = [cal[i] for i in sorted(range(n), key=lambda i: idx[i])]
+    return cal
+
+# V12: learned abstain selector (coverage vs selective risk)
+def learned_abstain_selector(conf_list, correct_list, threshold):
+    sel = [i for i,c in enumerate(conf_list) if c >= threshold]
+    if not sel: return 0.0, 0.0
+    coverage = len(sel)/len(conf_list)
+    selective_risk = sum(1 for i in sel if not correct_list[i])/len(sel)
+    return round(coverage,4), round(selective_risk,4)
+
+# V13: chi2 divergence regularization
+def chi2_divergence(p, q):
+    # D_chi2(p||q) = sum (q_i - p_i)^2 / q_i
+    return round(sum((pi-qi)**2/qi for pi,qi in zip(p,q) if qi>0),6)
+
+# V14: HedgeTune optimal inference-time param (grid search)
+def hedgetune_optimal(param_grid, proxy, gold):
+    best=None; best_d=1e18
+    for a in param_grid:
+        d = sum((x - a*y)**2 for x,y in zip(proxy,gold))/len(proxy)
+        if d < best_d: best_d=d; best=a
+    return best, round(best_d,6)
+
+# V15: ensemble worst-case optimization
+def ensemble_worst_case(rm_scores):
+    # worst-case over RM set -> min per item
+    return [min(s) for s in zip(*rm_scores)] if rm_scores else []
+
+# V16: uncertainty-weighted ensemble
+def ensemble_uncertainty_weighted(rm_scores, variances):
+    idx = list(range(len(rm_scores[0]))) if rm_scores else []
+    out=[]
+    for i in idx:
+        wsum = sum(1/v for v in variances) if all(v>0 for v in variances) else 1
+        out.append(sum(s[i]/v for s,v in zip(rm_scores,variances))/wsum)
+    return out
+
+# V17: soft Best-of-N (SBoN) smoothing
+def soft_bon(scores, tau=1.0):
+    import math
+    exps = [math.exp(s/tau) for s in scores]
+    t = sum(exps)
+    return [e/t for e in exps]
+
+# V18: KL bound tracking
+def kl_bound_track(n):
+    import math
+    return round(math.log(n) - (n-1)/n, 6)
+
+# V19: proxy-gold gap curve (turnover detect)
+def proxy_gold_gap(proxy_hist, gold_hist):
+    turn = None
+    for i in range(1, len(gold_hist)):
+        if gold_hist[i] < gold_hist[i-1] and proxy_hist[i] > proxy_hist[i-1]:
+            turn = i; break
+    return turn
+
+# V20: regret analysis BoN
+def bon_regret(opt_reward, sb_graph_reward):
+    return opt_reward - sb_graph_reward
+
+# V21: prompt diversity (distinct n-grams)
+def prompt_diversity(prompts, n=2):
+    seen=set(); tot=0
+    for p in prompts:
+        toks=p.split()
+        for i in range(len(toks)-n+1):
+            g=' '.join(toks[i:i+n]); seen.add(g); tot+=1
+    return round(len(seen)/tot,4) if tot else 0.0
+
+# V22: balanced scoring across positions
+def position_balanced_scoring(score_AB, score_BA):
+    return (score_AB + score_BA)/2
+
+# V24: ECE computation
+def ece_compute(conf, acc, n_bins=10):
+    b = [0.0]*n_bins; cnt=[0]*n_bins
+    for c,a in zip(conf,acc):
+        bi = min(n_bins-1, int(c*n_bins))
+        b[bi] += abs(c-a); cnt[bi]+=1
+    tot = sum(cnt)
+    return round(sum(b[i]/cnt[i]*(cnt[i]/tot) for i in range(n_bins) if cnt[i]),4)
+
+# V25: selective risk curve
+def selective_risk_curve(conf, correct, buckets):
+    out=[]
+    for th in buckets:
+        c, cr = learned_abstain_selector(conf, correct, th)
+        out.append((th, c, cr))
+    return out
+
+# V26: Kendall tau rank preservation
+def kendall_tau(judge_rank, human_rank):
+    n = len(judge_rank); pairs = 0; concord=0
+    for i in range(n):
+        for j in range(i+1,n):
+            pairs += 1
+            a = (judge_rank[i]-judge_rank[j])*(human_rank[i]-human_rank[j])
+            if a > 0: concord += 1
+    return round(concord/pairs,4) if pairs else 1.0
+
+# V27: metric/config sensitivity
+def metric_config_sensitivity(outputs_by_cfg):
+    import statistics as st
+    return {k: round(st.stdev(v),4) if len(v)>1 else 0.0 for k,v in outputs_by_cfg.items()}
+
+# V29: reward decomposition
+def reward_decomposition(reward, factors, weights):
+    return sum(f*w for f,w in zip(factors,weights)) - reward
+
+# V30: gold curve peak detect
+def gold_curve_peak_detect(gold_hist):
+    pk = max(range(len(gold_hist)), key=lambda i: gold_hist[i])
+    return pk, gold_hist[pk]
+
 def main():
     cmd = sys.argv[1] if len(sys.argv) > 1 else "selftest"
+    if cmd == "selftest_v":
+        f1 = flip_rate_report([1,1,1,0,0]); print(f"V01 flip: {f1}")
+        b2 = symmetric_order_randomize({"AB":10,"BA":9}); print(f"V02 balance: {b2}")
+        ci3 = bootstrap_ci([0.7,0.8,0.75,0.9]); print(f"V03 bootstrap: {ci3}")
+        o4 = ci_overlap_reject((0.7,0.8),(0.85,0.95)); print(f"V04 overlap: {o4}")
+        pb5 = position_bias_detect(0.85,0.7); print(f"V05 pos-bias: {pb5}")
+        cb6 = consistency_bias_decompose(0.95,0.12); print(f"V06 consistency-bias: {cb6}")
+        op7 = backbone_operating_profile(0.7,0.2); print(f"V07 profile: {op7}")
+        cl8 = claim_decompose("A. B. C.", ["A","B","C"]); print(f"V08 claims: {cl8}")
+        mp9 = multi_probe_verify("c",[1,1,0]); print(f"V09 probe: {mp9}")
+        ra10 = claim_risk_aggregate([1.0,0.5,0.0]); print(f"V10 risk: {ra10}")
+        iso11 = isotonic_calibrate([0.2,0.5,0.8],[0.1,0.6,0.9]); print(f"V11 isotonic: {iso11}")
+        ab12 = learned_abstain_selector([0.6,0.9,0.95],[1,0,1],0.8); print(f"V12 selector: {ab12}")
+        chi13 = chi2_divergence([0.5,0.5],[0.4,0.6]); print(f"V13 chi2: {chi13}")
+        ht14 = hedgetune_optimal([0.5,1.0,2.0],[0.8,0.7],[0.7,0.6]); print(f"V14 hedgetune: {ht14}")
+        wc15 = ensemble_worst_case([[0.7,0.5],[0.6,0.9]]); print(f"V15 worst-case: {wc15}")
+        uw16 = ensemble_uncertainty_weighted([[0.7,0.5],[0.6,0.9]],[0.1,0.2]); print(f"V16 unct-weighted: {uw16}")
+        sb17 = soft_bon([2.0,1.0,0.5]); print(f"V17 SBoN: {sb17}")
+        kl18 = kl_bound_track(4); print(f"V18 KL: {kl18}")
+        pg19 = proxy_gold_gap([0.5,0.7,0.9],[0.8,0.75,0.6]); print(f"V19 turnover: {pg19}")
+        rg20 = bon_regret(0.9,0.8); print(f"V20 regret: {rg20}")
+        pd21 = prompt_diversity(["hello world foo","hello world bar"]); print(f"V21 diversity: {pd21}")
+        pbs22 = position_balanced_scoring(0.85,0.7); print(f"V22 balanced: {pbs22}")
+        e24 = ece_compute([0.6,0.9,0.95],[1,0,1]); print(f"V24 ECE: {e24}")
+        sc25 = selective_risk_curve([0.6,0.9,0.95],[1,0,1],[0.7,0.9]); print(f"V25 risk-curve: {sc25}")
+        k26 = kendall_tau([1,2,3],[1,3,2]); print(f"V26 kendall: {k26}")
+        ms27 = metric_config_sensitivity({"a":[0.7,0.8,0.75]}); print(f"V27 sensitivity: {ms27}")
+        rd29 = reward_decomposition(0.7,[0.5,0.3],[0.5,0.5]); print(f"V29 reward-decomp: {rd29}")
+        pk30 = gold_curve_peak_detect([0.5,0.8,0.9,0.7]); print(f"V30 peak: {pk30}")
+        return 0
     if cmd == "selftest_w":
         v1,_ = meta_eval_stratified({"reasoning":(10,2,1),"tool":(8,4,1)}); print(f"W01 strat-meta: min={v1}")
         c2 = wilson_ci_config(90,100); print(f"W02 wilson: {c2}")

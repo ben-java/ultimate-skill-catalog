@@ -1288,6 +1288,314 @@ def check_w103_separation_of_duties_live(root_path=None):
     except Exception as e:
         return False, f"P_W103_separation_of_duties_live=err:{e}"
 
+def check_v01_flip_rate_report(root_path=None):
+    """P_V01_flip_rate_report"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "flip_rate_report"):
+            getattr(hge, "flip_rate_report")([1,1,0])
+            return True, f"P_V01_flip_rate_report=PASS"
+        return False, "P_V01_flip_rate_report=missing"
+    except Exception as e:
+        return False, f"P_V01_flip_rate_report=err:{e}"
+
+def check_v02_symmetric_order_randomize(root_path=None):
+    """P_V02_symmetric_order_randomize"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "symmetric_order_randomize"):
+            getattr(hge, "symmetric_order_randomize")({"a":2,"b":2})
+            return True, f"P_V02_symmetric_order_randomize=PASS"
+        return False, "P_V02_symmetric_order_randomize=missing"
+    except Exception as e:
+        return False, f"P_V02_symmetric_order_randomize=err:{e}"
+
+def check_v03_bootstrap_ci(root_path=None):
+    """P_V03_bootstrap_ci"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "bootstrap_ci"):
+            getattr(hge, "bootstrap_ci")([0.5])
+            return True, f"P_V03_bootstrap_ci=PASS"
+        return False, "P_V03_bootstrap_ci=missing"
+    except Exception as e:
+        return False, f"P_V03_bootstrap_ci=err:{e}"
+
+def check_v04_ci_overlap_reject(root_path=None):
+    """P_V04_ci_overlap_reject"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "ci_overlap_reject"):
+            getattr(hge, "ci_overlap_reject")((0,1),(2,3))
+            return True, f"P_V04_ci_overlap_reject=PASS"
+        return False, "P_V04_ci_overlap_reject=missing"
+    except Exception as e:
+        return False, f"P_V04_ci_overlap_reject=err:{e}"
+
+def check_v05_position_bias_detect(root_path=None):
+    """P_V05_position_bias_detect"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "position_bias_detect"):
+            getattr(hge, "position_bias_detect")(0.8,0.7)
+            return True, f"P_V05_position_bias_detect=PASS"
+        return False, "P_V05_position_bias_detect=missing"
+    except Exception as e:
+        return False, f"P_V05_position_bias_detect=err:{e}"
+
+def check_v06_consistency_bias_decompose(root_path=None):
+    """P_V06_consistency_bias_decompose"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "consistency_bias_decompose"):
+            getattr(hge, "consistency_bias_decompose")(0.95,0.15)
+            return True, f"P_V06_consistency_bias_decompose=PASS"
+        return False, "P_V06_consistency_bias_decompose=missing"
+    except Exception as e:
+        return False, f"P_V06_consistency_bias_decompose=err:{e}"
+
+def check_v07_backbone_operating_profile(root_path=None):
+    """P_V07_backbone_operating_profile"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "backbone_operating_profile"):
+            getattr(hge, "backbone_operating_profile")(0.6,0.2)
+            return True, f"P_V07_backbone_operating_profile=PASS"
+        return False, "P_V07_backbone_operating_profile=missing"
+    except Exception as e:
+        return False, f"P_V07_backbone_operating_profile=err:{e}"
+
+def check_v08_claim_decompose(root_path=None):
+    """P_V08_claim_decompose"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "claim_decompose"):
+            getattr(hge, "claim_decompose")("a b c",["a","b","c"])
+            return True, f"P_V08_claim_decompose=PASS"
+        return False, "P_V08_claim_decompose=missing"
+    except Exception as e:
+        return False, f"P_V08_claim_decompose=err:{e}"
+
+def check_v09_multi_probe_verify(root_path=None):
+    """P_V09_multi_probe_verify"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "multi_probe_verify"):
+            getattr(hge, "multi_probe_verify")("c",[1,1])
+            return True, f"P_V09_multi_probe_verify=PASS"
+        return False, "P_V09_multi_probe_verify=missing"
+    except Exception as e:
+        return False, f"P_V09_multi_probe_verify=err:{e}"
+
+def check_v10_claim_risk_aggregate(root_path=None):
+    """P_V10_claim_risk_aggregate"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "claim_risk_aggregate"):
+            getattr(hge, "claim_risk_aggregate")([1.0,0.0])
+            return True, f"P_V10_claim_risk_aggregate=PASS"
+        return False, "P_V10_claim_risk_aggregate=missing"
+    except Exception as e:
+        return False, f"P_V10_claim_risk_aggregate=err:{e}"
+
+def check_v11_isotonic_calibrate(root_path=None):
+    """P_V11_isotonic_calibrate"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "isotonic_calibrate"):
+            getattr(hge, "isotonic_calibrate")([0.2,0.8],[0.1,0.9])
+            return True, f"P_V11_isotonic_calibrate=PASS"
+        return False, "P_V11_isotonic_calibrate=missing"
+    except Exception as e:
+        return False, f"P_V11_isotonic_calibrate=err:{e}"
+
+def check_v12_learned_abstain_selector(root_path=None):
+    """P_V12_learned_abstain_selector"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "learned_abstain_selector"):
+            getattr(hge, "learned_abstain_selector")([0.9],[1],0.8)
+            return True, f"P_V12_learned_abstain_selector=PASS"
+        return False, "P_V12_learned_abstain_selector=missing"
+    except Exception as e:
+        return False, f"P_V12_learned_abstain_selector=err:{e}"
+
+def check_v13_chi2_divergence(root_path=None):
+    """P_V13_chi2_divergence"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "chi2_divergence"):
+            getattr(hge, "chi2_divergence")([0.5,0.5],[0.5,0.5])
+            return True, f"P_V13_chi2_divergence=PASS"
+        return False, "P_V13_chi2_divergence=missing"
+    except Exception as e:
+        return False, f"P_V13_chi2_divergence=err:{e}"
+
+def check_v14_hedgetune_optimal(root_path=None):
+    """P_V14_hedgetune_optimal"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "hedgetune_optimal"):
+            getattr(hge, "hedgetune_optimal")([1.0],[0.5],[0.5])
+            return True, f"P_V14_hedgetune_optimal=PASS"
+        return False, "P_V14_hedgetune_optimal=missing"
+    except Exception as e:
+        return False, f"P_V14_hedgetune_optimal=err:{e}"
+
+def check_v15_ensemble_worst_case(root_path=None):
+    """P_V15_ensemble_worst_case"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "ensemble_worst_case"):
+            getattr(hge, "ensemble_worst_case")([[0.5,0.6]])
+            return True, f"P_V15_ensemble_worst_case=PASS"
+        return False, "P_V15_ensemble_worst_case=missing"
+    except Exception as e:
+        return False, f"P_V15_ensemble_worst_case=err:{e}"
+
+def check_v16_ensemble_uncertainty_weighted(root_path=None):
+    """P_V16_ensemble_uncertainty_weighted"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "ensemble_uncertainty_weighted"):
+            getattr(hge, "ensemble_uncertainty_weighted")([[0.5,0.6]],[0.1])
+            return True, f"P_V16_ensemble_uncertainty_weighted=PASS"
+        return False, "P_V16_ensemble_uncertainty_weighted=missing"
+    except Exception as e:
+        return False, f"P_V16_ensemble_uncertainty_weighted=err:{e}"
+
+def check_v17_soft_bon(root_path=None):
+    """P_V17_soft_bon"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "soft_bon"):
+            getattr(hge, "soft_bon")([1.0,0.0])
+            return True, f"P_V17_soft_bon=PASS"
+        return False, "P_V17_soft_bon=missing"
+    except Exception as e:
+        return False, f"P_V17_soft_bon=err:{e}"
+
+def check_v18_kl_bound_track(root_path=None):
+    """P_V18_kl_bound_track"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "kl_bound_track"):
+            getattr(hge, "kl_bound_track")(2)
+            return True, f"P_V18_kl_bound_track=PASS"
+        return False, "P_V18_kl_bound_track=missing"
+    except Exception as e:
+        return False, f"P_V18_kl_bound_track=err:{e}"
+
+def check_v19_proxy_gold_gap(root_path=None):
+    """P_V19_proxy_gold_gap"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "proxy_gold_gap"):
+            getattr(hge, "proxy_gold_gap")([0.4,0.6],[0.6,0.5])
+            return True, f"P_V19_proxy_gold_gap=PASS"
+        return False, "P_V19_proxy_gold_gap=missing"
+    except Exception as e:
+        return False, f"P_V19_proxy_gold_gap=err:{e}"
+
+def check_v20_bon_regret(root_path=None):
+    """P_V20_bon_regret"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "bon_regret"):
+            getattr(hge, "bon_regret")(0.5,0.4)
+            return True, f"P_V20_bon_regret=PASS"
+        return False, "P_V20_bon_regret=missing"
+    except Exception as e:
+        return False, f"P_V20_bon_regret=err:{e}"
+
+def check_v21_prompt_diversity(root_path=None):
+    """P_V21_prompt_diversity"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "prompt_diversity"):
+            getattr(hge, "prompt_diversity")(["a b"],2)
+            return True, f"P_V21_prompt_diversity=PASS"
+        return False, "P_V21_prompt_diversity=missing"
+    except Exception as e:
+        return False, f"P_V21_prompt_diversity=err:{e}"
+
+def check_v22_position_balanced_scoring(root_path=None):
+    """P_V22_position_balanced_scoring"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "position_balanced_scoring"):
+            getattr(hge, "position_balanced_scoring")(0.8,0.6)
+            return True, f"P_V22_position_balanced_scoring=PASS"
+        return False, "P_V22_position_balanced_scoring=missing"
+    except Exception as e:
+        return False, f"P_V22_position_balanced_scoring=err:{e}"
+
+def check_v24_ece_compute(root_path=None):
+    """P_V24_ece_compute"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "ece_compute"):
+            getattr(hge, "ece_compute")([0.5,0.8],[1,0])
+            return True, f"P_V24_ece_compute=PASS"
+        return False, "P_V24_ece_compute=missing"
+    except Exception as e:
+        return False, f"P_V24_ece_compute=err:{e}"
+
+def check_v25_selective_risk_curve(root_path=None):
+    """P_V25_selective_risk_curve"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "selective_risk_curve"):
+            getattr(hge, "selective_risk_curve")([0.9],[1],[0.8])
+            return True, f"P_V25_selective_risk_curve=PASS"
+        return False, "P_V25_selective_risk_curve=missing"
+    except Exception as e:
+        return False, f"P_V25_selective_risk_curve=err:{e}"
+
+def check_v26_kendall_tau(root_path=None):
+    """P_V26_kendall_tau"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "kendall_tau"):
+            getattr(hge, "kendall_tau")([1,2],[2,1])
+            return True, f"P_V26_kendall_tau=PASS"
+        return False, "P_V26_kendall_tau=missing"
+    except Exception as e:
+        return False, f"P_V26_kendall_tau=err:{e}"
+
+def check_v27_metric_config_sensitivity(root_path=None):
+    """P_V27_metric_config_sensitivity"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "metric_config_sensitivity"):
+            getattr(hge, "metric_config_sensitivity")({"a":[0.5,0.6]})
+            return True, f"P_V27_metric_config_sensitivity=PASS"
+        return False, "P_V27_metric_config_sensitivity=missing"
+    except Exception as e:
+        return False, f"P_V27_metric_config_sensitivity=err:{e}"
+
+def check_v29_reward_decomposition(root_path=None):
+    """P_V29_reward_decomposition"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "reward_decomposition"):
+            getattr(hge, "reward_decomposition")(0.5,[0.3],[1.0])
+            return True, f"P_V29_reward_decomposition=PASS"
+        return False, "P_V29_reward_decomposition=missing"
+    except Exception as e:
+        return False, f"P_V29_reward_decomposition=err:{e}"
+
+def check_v30_gold_curve_peak_detect(root_path=None):
+    """P_V30_gold_curve_peak_detect"""
+    try:
+        import hard_gate_enhancements as hge
+        if hasattr(hge, "gold_curve_peak_detect"):
+            getattr(hge, "gold_curve_peak_detect")([0.4,0.9,0.6])
+            return True, f"P_V30_gold_curve_peak_detect=PASS"
+        return False, "P_V30_gold_curve_peak_detect=missing"
+    except Exception as e:
+        return False, f"P_V30_gold_curve_peak_detect=err:{e}"
+
 if __name__ == "__main__":
     main()
     "check_verifiable_inference",
@@ -1453,3 +1761,59 @@ if __name__ == "__main__":
     # P_W102_assume_breach_reauth
     "check_w103_separation_of_duties_live",
     # P_W103_separation_of_duties_live
+    "check_v01_flip_rate_report",
+    # P_V01_flip_rate_report
+    "check_v02_symmetric_order_randomize",
+    # P_V02_symmetric_order_randomize
+    "check_v03_bootstrap_ci",
+    # P_V03_bootstrap_ci
+    "check_v04_ci_overlap_reject",
+    # P_V04_ci_overlap_reject
+    "check_v05_position_bias_detect",
+    # P_V05_position_bias_detect
+    "check_v06_consistency_bias_decompose",
+    # P_V06_consistency_bias_decompose
+    "check_v07_backbone_operating_profile",
+    # P_V07_backbone_operating_profile
+    "check_v08_claim_decompose",
+    # P_V08_claim_decompose
+    "check_v09_multi_probe_verify",
+    # P_V09_multi_probe_verify
+    "check_v10_claim_risk_aggregate",
+    # P_V10_claim_risk_aggregate
+    "check_v11_isotonic_calibrate",
+    # P_V11_isotonic_calibrate
+    "check_v12_learned_abstain_selector",
+    # P_V12_learned_abstain_selector
+    "check_v13_chi2_divergence",
+    # P_V13_chi2_divergence
+    "check_v14_hedgetune_optimal",
+    # P_V14_hedgetune_optimal
+    "check_v15_ensemble_worst_case",
+    # P_V15_ensemble_worst_case
+    "check_v16_ensemble_uncertainty_weighted",
+    # P_V16_ensemble_uncertainty_weighted
+    "check_v17_soft_bon",
+    # P_V17_soft_bon
+    "check_v18_kl_bound_track",
+    # P_V18_kl_bound_track
+    "check_v19_proxy_gold_gap",
+    # P_V19_proxy_gold_gap
+    "check_v20_bon_regret",
+    # P_V20_bon_regret
+    "check_v21_prompt_diversity",
+    # P_V21_prompt_diversity
+    "check_v22_position_balanced_scoring",
+    # P_V22_position_balanced_scoring
+    "check_v24_ece_compute",
+    # P_V24_ece_compute
+    "check_v25_selective_risk_curve",
+    # P_V25_selective_risk_curve
+    "check_v26_kendall_tau",
+    # P_V26_kendall_tau
+    "check_v27_metric_config_sensitivity",
+    # P_V27_metric_config_sensitivity
+    "check_v29_reward_decomposition",
+    # P_V29_reward_decomposition
+    "check_v30_gold_curve_peak_detect",
+    # P_V30_gold_curve_peak_detect

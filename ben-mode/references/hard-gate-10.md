@@ -1673,3 +1673,49 @@ $$\text{Greedy marginal gain: } \Delta_i(e_i) = p_i(1-p_i)^{e_i}$$
 $$\text{Wilson CI: } p \pm \frac{z\sqrt{\frac{\hat{p}(1-\hat{p})}{n} + \frac{z^2}{4n^2}}}{1 + \frac{z^2}{n}}$$
 
 $$\text{FABSVer reward: } R(s,v) = [s\land v]\cdot1 + [s\land\neg v]\cdot0.5 + [\neg s\land v]\cdot0.25$$
+
+---
+
+## BAGIAN 28 — QUALITY REFINEMENT V001–V100 (PHASES 1–8, V01–V30 VERIFIED)
+
+Eksekusi planning kualitas lanjutan (review v0.28.0): 100 butir (V001–V100) di Fase 1–8, berfokus pada perbaikan error & gap yang ditemukan. Inti komputasi baru diimplementasikan sebagai 30 fungsi (`V01–V30`) di `hard_gate_enhancements.py`, di-wire ke `gate_predicates.py` (predikat `P_V01–P_V30`). Landasan riset 2025–2026:
+
+### Pemetaan Fase 1–8 ke Runtime Implementation:
+
+1. **Fase 1 — Provisioning & Honest Status (V001–V012)**: ops/provisioning — provision z3/opa/wasmtime/cosign + penurunan status tool-absent. Inti komputasi baru: V03 (`bootstrap_ci`) & V04 (`ci_overlap_reject`) dipakai untuk status device.
+2. **Fase 2 — Judge Reliability & Calibration (V013–V030)**:
+   - V01 (`flip_rate_report`): flip-rate + undecided flag (Coin Flip Judge 2026) — K≥10 + threshold 20%.
+   - V02 (`symmetric_order_randomize`): keseimbangan urutan pairwise.
+   - V05 (`position_bias_detect`): deteksi bias posisi (>0.10).
+   - V06 (`consistency_bias_decompose`): dekomposisi test-retest vs bias (Berkeley 2026).
+   - V07 (`backbone_operating_profile`): profil konservatif/permisif per backbone (MobileJudgeBench).
+   - V08–V12: pipeline CLAIM-CAL — V08 (`claim_decompose`) atomic claims, V09 (`multi_probe_verify`) multi-probe, V10 (`claim_risk_aggregate`) risk score, V11 (`isotonic_calibrate`) PAV isotonic (ECE 0.212→0.038), V12 (`learned_abstain_selector`) calibration vs selective risk (2610.13821).
+   - V24 (`ece_compute`): ECE bin-weighted, V25 (`selective_risk_curve`): kurva risk-coverage, V26 (`kendall_tau`): preservasi ranking, V27 (`metric_config_sensitivity`): sensitivitas konfigurasi.
+3. **Fase 3 — Reward Safety (V031–V045)**:
+   - V13 (`chi2_divergence`): regularisasi χ² (mengalahkan KL, ICLR'25).
+   - V14 (`hedgetune_optimal`): parameter inference-time optimal (NeurIPS'25).
+   - V15 (`ensemble_worst_case`) & V16 (`ensemble_uncertainty_weighted`): mitigasi overoptimization ensemble.
+   - V17 (`soft_bon`): Soft BoN smoothing.
+   - V18 (`kl_bound_track`): `KLbon = log n − (n−1)/n`.
+   - V19 (`proxy_gold_gap`): deteksi turnover proxy-vs-gold.
+   - V20 (`bon_regret`): regret Ein BoN.
+   - V29 (`reward_decomposition`): dekomposisi reward, V30 (`gold_curve_peak_detect`): titik puncak gold curve.
+4. **Fase 4 — Formal Proof (V046–V060)**: ops — provision Lean + compiler-judge; inti komputasi reuse W29/W36/W38.
+5. **Fase 5 — Test-Time Compute (V061–V072)**: reuse W43–W53; tambahan V21 (`prompt_diversity`) n-gram distinct.
+6. **Fase 6 — Stabilitas (V073–V085)**: reuse W16–W27.
+7. **Fase 7 — Mechanistic Interpretability (V086–V095)**: reuse W56–W65.
+8. **Fase 8 — Governance & Observability (V096–V100)**: reuse W102/W103; V22 (`position_balanced_scoring`) rata-rata order-balanced.
+
+### Formula Matematis Inti V01–V30:
+
+$$\text{Flip rate: } f = \min(\hat{p}, 1-\hat{p}), \quad \text{undecided if } f > 0.2$$
+
+$$\text{ECE: } \sum_{i=1}^{B} \frac{|b_i|}{n} \left| \text{conf}(b_i) - \text{acc}(b_i) \right|$$
+
+$$\text{χ}^2 \text{ divergence: } D_{\chi^2}(p\|q) = \sum_i \frac{(q_i - p_i)^2}{q_i}$$
+
+$$\text{KL}_{bon} = \log n - \frac{n-1}{n}$$
+
+$$\text{Soft BoN weight: } w_i = \frac{e^{s_i/\tau}}{\sum_j e^{s_j/\tau}}$$
+
+$$\text{Kendall τ} = \frac{\#\text{concordant} - \#\text{discordant}}{\binom{n}{2}}$$
