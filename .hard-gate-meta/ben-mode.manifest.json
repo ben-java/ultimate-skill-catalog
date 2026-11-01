@@ -2,8 +2,8 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-01T13:07:38.541158+00:00",
-  "file_count": 99,
+  "generated_at": "2026-11-01T13:08:17.137538+00:00",
+  "file_count": 98,
   "files": [
     {
       "path": "CHANGELOG.md",
@@ -19,11 +19,6 @@
       "path": "gate.conf",
       "size": 1298,
       "sha256": "275932b76c85992227df5bcc677e60144e431b5dade86c85e0540f994e0b7f45"
-    },
-    {
-      "path": "python_install_20261101181758_8444.log",
-      "size": 8903,
-      "sha256": "d1cc54f67a1a09da7f016fdb41138d85639a7b64d0736e3e7eaef6b5e2d27f95"
     },
     {
       "path": ".hard-gate-meta/gate-time.jsonl",
