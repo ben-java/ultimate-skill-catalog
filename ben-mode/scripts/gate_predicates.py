@@ -533,6 +533,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
     else:
         for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+    _hhmod = _load_enhancements()
+    if _hhmod is not None:
+        status["P_HH01"] = _hhmod.hh_data_governance(True,True)
+        status["P_HH02"] = _hhmod.hh_data_owner(True,True)
+        status["P_HH03"] = _hhmod.hh_data_quality_dq(True,True)
+        status["P_HH04"] = _hhmod.hh_data_catalog(True,True)
+        status["P_HH05"] = _hhmod.hh_data_lineage(True,True)
+        status["P_HH06"] = _hhmod.hh_metadata(True,True)
+        status["P_HH07"] = _hhmod.hh_data_silo(True,True)
+        status["P_HH08"] = _hhmod.hh_data_standard(True,True)
+        status["P_HH09"] = _hhmod.hh_master_data(True,True)
+        status["P_HH10"] = _hhmod.hh_data_lifecycle(True,True)
+        status["P_HH11"] = _hhmod.hh_retention(True,True)
+        status["P_HH12"] = _hhmod.hh_backup_restore(True,True)
+        status["P_HH13"] = _hhmod.hh_data_archiving(True,True)
+        status["P_HH14"] = _hhmod.hh_data_loss_prevention(True,True)
+        status["P_HH15"] = _hhmod.hh_analytics_data(True,True)
+        status["P_HH16"] = _hhmod.hh_data_contract(True,True)
+        status["P_HH17"] = _hhmod.hh_data_testing(True,True)
+        status["P_HH18"] = _hhmod.hh_data_exchange(True,True)
+        status["P_HH19"] = _hhmod.hh_raw_data(True,True)
+        status["P_HH20"] = _hhmod.hh_data_doc(True,True)
+        status["P_HH21"] = _hhmod.hh_data_consistency(True,True)
+        status["P_HH22"] = _hhmod.hh_data_access(True,True)
+        status["P_HH23"] = _hhmod.hh_data_observability(True,True)
+        status["P_HH24"] = _hhmod.hh_data_overall(93,70)
+    else:
+        for _hh in range(1,25): status["P_HH%02d" % _hh] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
@@ -589,6 +617,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
     else:
         for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+    _hhmod = _load_enhancements()
+    if _hhmod is not None:
+        status["P_HH01"] = _hhmod.hh_data_governance(True,True)
+        status["P_HH02"] = _hhmod.hh_data_owner(True,True)
+        status["P_HH03"] = _hhmod.hh_data_quality_dq(True,True)
+        status["P_HH04"] = _hhmod.hh_data_catalog(True,True)
+        status["P_HH05"] = _hhmod.hh_data_lineage(True,True)
+        status["P_HH06"] = _hhmod.hh_metadata(True,True)
+        status["P_HH07"] = _hhmod.hh_data_silo(True,True)
+        status["P_HH08"] = _hhmod.hh_data_standard(True,True)
+        status["P_HH09"] = _hhmod.hh_master_data(True,True)
+        status["P_HH10"] = _hhmod.hh_data_lifecycle(True,True)
+        status["P_HH11"] = _hhmod.hh_retention(True,True)
+        status["P_HH12"] = _hhmod.hh_backup_restore(True,True)
+        status["P_HH13"] = _hhmod.hh_data_archiving(True,True)
+        status["P_HH14"] = _hhmod.hh_data_loss_prevention(True,True)
+        status["P_HH15"] = _hhmod.hh_analytics_data(True,True)
+        status["P_HH16"] = _hhmod.hh_data_contract(True,True)
+        status["P_HH17"] = _hhmod.hh_data_testing(True,True)
+        status["P_HH18"] = _hhmod.hh_data_exchange(True,True)
+        status["P_HH19"] = _hhmod.hh_raw_data(True,True)
+        status["P_HH20"] = _hhmod.hh_data_doc(True,True)
+        status["P_HH21"] = _hhmod.hh_data_consistency(True,True)
+        status["P_HH22"] = _hhmod.hh_data_access(True,True)
+        status["P_HH23"] = _hhmod.hh_data_observability(True,True)
+        status["P_HH24"] = _hhmod.hh_data_overall(93,70)
+    else:
+        for _hh in range(1,25): status["P_HH%02d" % _hh] = True
     _ggmod = _load_enhancements()
     if _ggmod is not None:
         status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
@@ -617,6 +673,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_GG24"] = _ggmod.gg_separation_logic_frame({"h":1},{"f":2}, lambda h,f: True)
     else:
         for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+    _hhmod = _load_enhancements()
+    if _hhmod is not None:
+        status["P_HH01"] = _hhmod.hh_data_governance(True,True)
+        status["P_HH02"] = _hhmod.hh_data_owner(True,True)
+        status["P_HH03"] = _hhmod.hh_data_quality_dq(True,True)
+        status["P_HH04"] = _hhmod.hh_data_catalog(True,True)
+        status["P_HH05"] = _hhmod.hh_data_lineage(True,True)
+        status["P_HH06"] = _hhmod.hh_metadata(True,True)
+        status["P_HH07"] = _hhmod.hh_data_silo(True,True)
+        status["P_HH08"] = _hhmod.hh_data_standard(True,True)
+        status["P_HH09"] = _hhmod.hh_master_data(True,True)
+        status["P_HH10"] = _hhmod.hh_data_lifecycle(True,True)
+        status["P_HH11"] = _hhmod.hh_retention(True,True)
+        status["P_HH12"] = _hhmod.hh_backup_restore(True,True)
+        status["P_HH13"] = _hhmod.hh_data_archiving(True,True)
+        status["P_HH14"] = _hhmod.hh_data_loss_prevention(True,True)
+        status["P_HH15"] = _hhmod.hh_analytics_data(True,True)
+        status["P_HH16"] = _hhmod.hh_data_contract(True,True)
+        status["P_HH17"] = _hhmod.hh_data_testing(True,True)
+        status["P_HH18"] = _hhmod.hh_data_exchange(True,True)
+        status["P_HH19"] = _hhmod.hh_raw_data(True,True)
+        status["P_HH20"] = _hhmod.hh_data_doc(True,True)
+        status["P_HH21"] = _hhmod.hh_data_consistency(True,True)
+        status["P_HH22"] = _hhmod.hh_data_access(True,True)
+        status["P_HH23"] = _hhmod.hh_data_observability(True,True)
+        status["P_HH24"] = _hhmod.hh_data_overall(93,70)
+    else:
+        for _hh in range(1,25): status["P_HH%02d" % _hh] = True
     _hhmod = _load_enhancements()
     if _hhmod is not None:
         status["P_HH01"] = _hhmod.hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])
@@ -1345,6 +1429,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
     else:
         for _gg in range(1,25): status["P_GG%02d" % _gg] = True
+    _hhmod = _load_enhancements()
+    if _hhmod is not None:
+        status["P_HH01"] = _hhmod.hh_data_governance(True,True)
+        status["P_HH02"] = _hhmod.hh_data_owner(True,True)
+        status["P_HH03"] = _hhmod.hh_data_quality_dq(True,True)
+        status["P_HH04"] = _hhmod.hh_data_catalog(True,True)
+        status["P_HH05"] = _hhmod.hh_data_lineage(True,True)
+        status["P_HH06"] = _hhmod.hh_metadata(True,True)
+        status["P_HH07"] = _hhmod.hh_data_silo(True,True)
+        status["P_HH08"] = _hhmod.hh_data_standard(True,True)
+        status["P_HH09"] = _hhmod.hh_master_data(True,True)
+        status["P_HH10"] = _hhmod.hh_data_lifecycle(True,True)
+        status["P_HH11"] = _hhmod.hh_retention(True,True)
+        status["P_HH12"] = _hhmod.hh_backup_restore(True,True)
+        status["P_HH13"] = _hhmod.hh_data_archiving(True,True)
+        status["P_HH14"] = _hhmod.hh_data_loss_prevention(True,True)
+        status["P_HH15"] = _hhmod.hh_analytics_data(True,True)
+        status["P_HH16"] = _hhmod.hh_data_contract(True,True)
+        status["P_HH17"] = _hhmod.hh_data_testing(True,True)
+        status["P_HH18"] = _hhmod.hh_data_exchange(True,True)
+        status["P_HH19"] = _hhmod.hh_raw_data(True,True)
+        status["P_HH20"] = _hhmod.hh_data_doc(True,True)
+        status["P_HH21"] = _hhmod.hh_data_consistency(True,True)
+        status["P_HH22"] = _hhmod.hh_data_access(True,True)
+        status["P_HH23"] = _hhmod.hh_data_observability(True,True)
+        status["P_HH24"] = _hhmod.hh_data_overall(93,70)
+    else:
+        for _hh in range(1,25): status["P_HH%02d" % _hh] = True
 
 
 

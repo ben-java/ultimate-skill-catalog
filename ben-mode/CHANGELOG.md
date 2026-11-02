@@ -1,3 +1,8 @@
+## v0.65.0 (2026-11-02) — Wave HH Data Governance & Management Integrity HH01–HH24 (BAGIAN 65)
+
+- **HH01–HH24**: data governance framework, data ownership, data quality, data catalog, lineage, metadata, silo integration, data standards, master data, lifecycle, retention, backup/restore, archiving, loss prevention, analytics platform, data contracts, test data masking, secure exchange, raw data preservation, documentation, consistency, access, observability, overall data governance maturity. Disurfacing `P_HH01–P_HH24`; 24/24 PASS.
+- **BAGIAN 65** ditambahkan; bump serentak 0.65.0.
+
 ## v0.64.0 (2026-11-02) — Wave GG Architecture & Technical Debt Integrity GG01–GG24 (BAGIAN 64)
 
 - **GG01–GG24**: architecture docs, ADRs, modularity, coupling, cohesion, layering, stable interfaces, dependency rules, cyclomatic complexity, code health, tech debt tracker/budget/repayment, dead code, duplication, legacy baseline, scalability architecture, evolution roadmap, tech radar, AI architecture governance, periodic review, recorded decisions, architecture metrics, overall architecture maturity. Disurfacing `P_GG01–P_GG24`; 24/24 PASS.

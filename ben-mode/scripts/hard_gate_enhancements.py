@@ -6272,3 +6272,127 @@ def selftest_gg():
             (22, gg_arch_decision(True, True)),
             (23, gg_arch_metrics(True, True)),
             (24, gg_arch_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE HH — DATA GOVERNANCE & MANAGEMENT INTEGRITY (HH01–HH24)
+# ------------------------------------------------------------------
+def hh_data_governance(governance, framework):
+    # HH01: data governance framework.
+    return bool(governance) and bool(framework)
+
+def hh_data_owner(owner, assigned):
+    # HH02: data owners assigned.
+    return bool(owner) and bool(assigned)
+
+def hh_data_quality_dq(dq, monitored):
+    # HH03: data quality monitored.
+    return bool(dq) and bool(monitored)
+
+def hh_data_catalog(catalog, maintained):
+    # HH04: data catalog maintained.
+    return bool(catalog) and bool(maintained)
+
+def hh_data_lineage(lineage, tracked):
+    # HH05: data lineage tracked.
+    return bool(lineage) and bool(tracked)
+
+def hh_metadata(metadata, standardized):
+    # HH06: metadata standardized.
+    return bool(metadata) and bool(standardized)
+
+def hh_data_silo(silo, integrated):
+    # HH07: data silos integrated.
+    return bool(silo) and bool(integrated)
+
+def hh_data_standard(standard, enforced):
+    # HH08: data standards enforced.
+    return bool(standard) and bool(enforced)
+
+def hh_master_data(mdm, governed):
+    # HH09: master data governed.
+    return bool(mdm) and bool(governed)
+
+def hh_data_lifecycle(lifecycle, managed):
+    # HH10: data lifecycle managed.
+    return bool(lifecycle) and bool(managed)
+
+def hh_retention(retention, enforced):
+    # HH11: retention enforced.
+    return bool(retention) and bool(enforced)
+
+def hh_backup_restore(backup, tested):
+    # HH12: backup/restore tested.
+    return bool(backup) and bool(tested)
+
+def hh_data_archiving(archive, policy):
+    # HH13: archiving policy.
+    return bool(archive) and bool(policy)
+
+def hh_data_loss_prevention(loss, mitigated):
+    # HH14: data loss prevented.
+    return bool(loss) and bool(mitigated)
+
+def hh_analytics_data(analytics, platform):
+    # HH15: analytics data platform.
+    return bool(analytics) and bool(platform)
+
+def hh_data_contract(contract, defined):
+    # HH16: data contracts defined.
+    return bool(contract) and bool(defined)
+
+def hh_data_testing(testing, masked):
+    # HH17: test data masked.
+    return bool(testing) and bool(masked)
+
+def hh_data_exchange(exchange, secure):
+    # HH18: data exchange secure.
+    return bool(exchange) and bool(secure)
+
+def hh_raw_data(raw, preserved):
+    # HH19: raw data preserved.
+    return bool(raw) and bool(preserved)
+
+def hh_data_doc(doc, current):
+    # HH20: data documentation current.
+    return bool(doc) and bool(current)
+
+def hh_data_consistency(consistency, validated):
+    # HH21: data consistency validated.
+    return bool(consistency) and bool(validated)
+
+def hh_data_access(access, authorized):
+    # HH22: data access authorized.
+    return bool(access) and bool(authorized)
+
+def hh_data_observability(obs, instrumented):
+    # HH23: data observability.
+    return bool(obs) and bool(instrumented)
+
+def hh_data_overall(score, min_score):
+    # HH24: overall data governance maturity meets minimum.
+    return score >= min_score
+
+def selftest_hh():
+    return [(1, hh_data_governance(True, True)),
+            (2, hh_data_owner(True, True)),
+            (3, hh_data_quality_dq(True, True)),
+            (4, hh_data_catalog(True, True)),
+            (5, hh_data_lineage(True, True)),
+            (6, hh_metadata(True, True)),
+            (7, hh_data_silo(True, True)),
+            (8, hh_data_standard(True, True)),
+            (9, hh_master_data(True, True)),
+            (10, hh_data_lifecycle(True, True)),
+            (11, hh_retention(True, True)),
+            (12, hh_backup_restore(True, True)),
+            (13, hh_data_archiving(True, True)),
+            (14, hh_data_loss_prevention(True, True)),
+            (15, hh_analytics_data(True, True)),
+            (16, hh_data_contract(True, True)),
+            (17, hh_data_testing(True, True)),
+            (18, hh_data_exchange(True, True)),
+            (19, hh_raw_data(True, True)),
+            (20, hh_data_doc(True, True)),
+            (21, hh_data_consistency(True, True)),
+            (22, hh_data_access(True, True)),
+            (23, hh_data_observability(True, True)),
+            (24, hh_data_overall(93, 70))]

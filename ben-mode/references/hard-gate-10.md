@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.64.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.65.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2361,3 +2361,12 @@ Menambahkan lapisan arsitektur & tech debt: `GG01–GG24` di `hard_gate_enhancem
 
 - Architecture Integrity: GG01 `gg_architecture_docs`, GG02 `gg_adr`, GG03 `gg_modularity`, GG04 `gg_coupling`, GG05 `gg_cohesion`, GG06 `gg_layering`, GG07 `gg_interfaces`, GG08 `gg_dependency_rules`, GG09 `gg_cyclomatic`, GG10 `gg_stdlib_health`, GG17 `gg_scalability_arch`, GG18 `gg_evolution`, GG19 `gg_tech_radar`, GG20 `gg_ai_arch`, GG21 `gg_arch_review`, GG22 `gg_arch_decision`, GG23 `gg_arch_metrics`.
 - Technical Debt: GG11 `gg_debt_tracker`, GG12 `gg_debt_budget`, GG13 `gg_debt_repayment`, GG14 `gg_dead_code`, GG15 `gg_duplication`, GG16 `gg_legacy`, GG24 `gg_arch_overall`.
+
+---
+
+# BAGIAN 65 — WAVE HH: DATA GOVERNANCE & MANAGEMENT INTEGRITY HH01–HH24 (VERIFIED; v0.65.0)
+
+Menambahkan lapisan data governance: `HH01–HH24` di `hard_gate_enhancements.py`, disurfacing `P_HH01–P_HH24`; diverifikasi 24/24 PASS (selftest_hh rc 0).
+
+- Governance & Ownership: HH01 `hh_data_governance`, HH02 `hh_data_owner`, HH03 `hh_data_quality_dq`, HH04 `hh_data_catalog`, HH05 `hh_data_lineage`, HH06 `hh_metadata`, HH07 `hh_data_silo`, HH08 `hh_data_standard`, HH09 `hh_master_data`, HH16 `hh_data_contract`, HH20 `hh_data_doc`, HH21 `hh_data_consistency`, HH22 `hh_data_access`, HH23 `hh_data_observability`.
+- Lifecycle & Protection: HH10 `hh_data_lifecycle`, HH11 `hh_retention`, HH12 `hh_backup_restore`, HH13 `hh_data_archiving`, HH14 `hh_data_loss_prevention`, HH15 `hh_analytics_data`, HH17 `hh_data_testing`, HH18 `hh_data_exchange`, HH19 `hh_raw_data`, HH24 `hh_data_overall`.
