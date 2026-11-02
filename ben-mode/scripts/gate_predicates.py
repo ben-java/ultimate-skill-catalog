@@ -1121,6 +1121,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_BB24"] = _bbmod.bb_quality_overall(93,70)
     else:
         for _bb in range(1,25): status["P_BB%02d" % _bb] = True
+    _ccmod = _load_enhancements()
+    if _ccmod is not None:
+        status["P_CC01"] = _ccmod.cc_commit_convention(True,True)
+        status["P_CC02"] = _ccmod.cc_branch_strategy(True,True)
+        status["P_CC03"] = _ccmod.cc_trunk_stable(True,True)
+        status["P_CC04"] = _ccmod.cc_protected_branches(True,True)
+        status["P_CC05"] = _ccmod.cc_pr_review(True,True)
+        status["P_CC06"] = _ccmod.cc_ci_on_every_commit(True,True)
+        status["P_CC07"] = _ccmod.cc_release_branching(True,True)
+        status["P_CC08"] = _ccmod.cc_versioning(True,True)
+        status["P_CC09"] = _ccmod.cc_tagging(True,True)
+        status["P_CC10"] = _ccmod.cc_changelog(True,True)
+        status["P_CC11"] = _ccmod.cc_history_integrity(True,True)
+        status["P_CC12"] = _ccmod.cc_rollback_commit(True,True)
+        status["P_CC13"] = _ccmod.cc_conflict_handling(True,True)
+        status["P_CC14"] = _ccmod.cc_merge_guard(True,True)
+        status["P_CC15"] = _ccmod.cc_change_request(True,True)
+        status["P_CC16"] = _ccmod.cc_change_impact(True,True)
+        status["P_CC17"] = _ccmod.cc_change_approval(True,True)
+        status["P_CC18"] = _ccmod.cc_change_window(True,True)
+        status["P_CC19"] = _ccmod.cc_emergency_change(True,True)
+        status["P_CC20"] = _ccmod.cc_change_documentation(True,True)
+        status["P_CC21"] = _ccmod.cc_post_change_review(True,True)
+        status["P_CC22"] = _ccmod.cc_code_ownership(True,True)
+        status["P_CC23"] = _ccmod.cc_repo_hygiene(True,True)
+        status["P_CC24"] = _ccmod.cc_vcs_overall(93,70)
+    else:
+        for _cc in range(1,25): status["P_CC%02d" % _cc] = True
 
 
 

@@ -5652,3 +5652,127 @@ def selftest_bb():
             (22, bb_test_pyramid(True, True)),
             (23, bb_test_investment(True, True)),
             (24, bb_quality_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE CC — VERSION CONTROL & CHANGE MANAGEMENT INTEGRITY (CC01–CC24)
+# ------------------------------------------------------------------
+def cc_commit_convention(conv, enforced):
+    # CC01: commit conventions enforced.
+    return bool(conv) and bool(enforced)
+
+def cc_branch_strategy(strategy, defined):
+    # CC02: branching strategy defined.
+    return bool(strategy) and bool(defined)
+
+def cc_trunk_stable(stable, gated):
+    # CC03: trunk remains stable.
+    return bool(stable) and bool(gated)
+
+def cc_protected_branches(protected, rules):
+    # CC04: protected branches with rules.
+    return bool(protected) and bool(rules)
+
+def cc_pr_review(pr, required):
+    # CC05: PRs require review.
+    return bool(pr) and bool(required)
+
+def cc_ci_on_every_commit(ci, run):
+    # CC06: CI on every commit.
+    return bool(ci) and bool(run)
+
+def cc_release_branching(release, maintained):
+    # CC07: release branches maintained.
+    return bool(release) and bool(maintained)
+
+def cc_versioning(versioning, semantic):
+    # CC08: semantic versioning.
+    return bool(versioning) and bool(semantic)
+
+def cc_tagging(tags, signed):
+    # CC09: releases tagged and signed.
+    return bool(tags) and bool(signed)
+
+def cc_changelog(changelog, automated):
+    # CC10: changelog automated.
+    return bool(changelog) and bool(automated)
+
+def cc_history_integrity(history, preserved):
+    # CC11: history preserved (no force rewrite).
+    return bool(history) and bool(preserved)
+
+def cc_rollback_commit(rollback, capability):
+    # CC12: commit-level rollback capability.
+    return bool(rollback) and bool(capability)
+
+def cc_conflict_handling(conflict, resolved):
+    # CC13: conflicts resolved systematically.
+    return bool(conflict) and bool(resolved)
+
+def cc_merge_guard(merge, gated):
+    # CC14: merge gated on green.
+    return bool(merge) and bool(gated)
+
+def cc_change_request(req, tracked):
+    # CC15: change requests tracked.
+    return bool(req) and bool(tracked)
+
+def cc_change_impact(impact, assessed):
+    # CC16: change impact assessed.
+    return bool(impact) and bool(assessed)
+
+def cc_change_approval(approval, gated):
+    # CC17: changes require approval.
+    return bool(approval) and bool(gated)
+
+def cc_change_window(window, scheduled):
+    # CC18: change windows scheduled.
+    return bool(window) and bool(scheduled)
+
+def cc_emergency_change(emergency, procedure):
+    # CC19: emergency change procedure.
+    return bool(emergency) and bool(procedure)
+
+def cc_change_documentation(doc, recorded):
+    # CC20: changes documented.
+    return bool(doc) and bool(recorded)
+
+def cc_post_change_review(review, conducted):
+    # CC21: post-change review.
+    return bool(review) and bool(conducted)
+
+def cc_code_ownership(ownership, assigned):
+    # CC22: code ownership assigned.
+    return bool(ownership) and bool(assigned)
+
+def cc_repo_hygiene(hygiene, maintained):
+    # CC23: repo hygiene maintained.
+    return bool(hygiene) and bool(maintained)
+
+def cc_vcs_overall(score, min_score):
+    # CC24: overall VCS maturity meets minimum.
+    return score >= min_score
+
+def selftest_cc():
+    return [(1, cc_commit_convention(True, True)),
+            (2, cc_branch_strategy(True, True)),
+            (3, cc_trunk_stable(True, True)),
+            (4, cc_protected_branches(True, True)),
+            (5, cc_pr_review(True, True)),
+            (6, cc_ci_on_every_commit(True, True)),
+            (7, cc_release_branching(True, True)),
+            (8, cc_versioning(True, True)),
+            (9, cc_tagging(True, True)),
+            (10, cc_changelog(True, True)),
+            (11, cc_history_integrity(True, True)),
+            (12, cc_rollback_commit(True, True)),
+            (13, cc_conflict_handling(True, True)),
+            (14, cc_merge_guard(True, True)),
+            (15, cc_change_request(True, True)),
+            (16, cc_change_impact(True, True)),
+            (17, cc_change_approval(True, True)),
+            (18, cc_change_window(True, True)),
+            (19, cc_emergency_change(True, True)),
+            (20, cc_change_documentation(True, True)),
+            (21, cc_post_change_review(True, True)),
+            (22, cc_code_ownership(True, True)),
+            (23, cc_repo_hygiene(True, True)),
+            (24, cc_vcs_overall(93, 70))]

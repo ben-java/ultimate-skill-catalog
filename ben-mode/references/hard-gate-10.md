@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.59.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.60.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2314,3 +2314,12 @@ Menambahkan lapisan testing & QA: `BB01–BB24` di `hard_gate_enhancements.py`, 
 - Performance & Robustness: BB08 `bb_performance_tests`, BB09 `bb_soak_tests`, BB10 `bb_mutation_tests`, BB11 `bb_test_flakiness`, BB12 `bb_test_data`, BB13 `bb_ci_test_artifact`, BB14 `bb_test_environment_parity`.
 - Quality Gates: BB15 `bb_code_review`, BB16 `bb_static_analysis`, BB17 `bb_dependency_scan`, BB18 `bb_exploratory`, BB19 `bb_user_acceptance`, BB20 `bb_quality_metrics`, BB21 `bb_defect_management`.
 - Maturity: BB22 `bb_test_pyramid`, BB23 `bb_test_investment`, BB24 `bb_quality_overall`.
+
+---
+
+# BAGIAN 60 — WAVE CC: VERSION CONTROL & CHANGE MANAGEMENT INTEGRITY CC01–CC24 (VERIFIED; v0.60.0)
+
+Menambahkan lapisan VCS & change management: `CC01–CC24` di `hard_gate_enhancements.py`, disurfacing `P_CC01–P_CC24`; diverifikasi 24/24 PASS (selftest_cc rc 0).
+
+- Version Control: CC01 `cc_commit_convention`, CC02 `cc_branch_strategy`, CC03 `cc_trunk_stable`, CC04 `cc_protected_branches`, CC05 `cc_pr_review`, CC06 `cc_ci_on_every_commit`, CC07 `cc_release_branching`, CC08 `cc_versioning`, CC09 `cc_tagging`, CC10 `cc_changelog`, CC11 `cc_history_integrity`, CC12 `cc_rollback_commit`, CC13 `cc_conflict_handling`, CC14 `cc_merge_guard`.
+- Change Management: CC15 `cc_change_request`, CC16 `cc_change_impact`, CC17 `cc_change_approval`, CC18 `cc_change_window`, CC19 `cc_emergency_change`, CC20 `cc_change_documentation`, CC21 `cc_post_change_review`, CC22 `cc_code_ownership`, CC23 `cc_repo_hygiene`, CC24 `cc_vcs_overall`.

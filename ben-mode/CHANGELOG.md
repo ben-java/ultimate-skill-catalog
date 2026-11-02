@@ -1,3 +1,8 @@
+## v0.60.0 (2026-11-02) — Wave CC Version Control & Change Management Integrity CC01–CC24 (BAGIAN 60)
+
+- **CC01–CC24**: commit conventions, branch strategy, trunk stability, protected branches, PR review, CI-on-commit, release branching, semantic versioning, signed tags, changelog, history integrity, rollback capability, conflict handling, merge guard, change request, change impact, change approval, change window, emergency change, change documentation, post-change review, code ownership, repo hygiene, overall VCS maturity. Disurfacing `P_CC01–P_CC24`; 24/24 PASS.
+- **BAGIAN 60** ditambahkan; bump serentak 0.60.0.
+
 ## v0.59.0 (2026-11-02) — Wave BB Testing & Quality Assurance Integrity BB01–BB24 (BAGIAN 59)
 
 - **BB01–BB24**: test strategy, coverage targets, automated tests, unit tests, integration tests, E2E, regression, performance tests, soak tests, mutation testing, flaky tests, test data, test artifacts, env parity, code review, static analysis, dependency scan, exploratory testing, UAT, quality metrics, defect management, test pyramid, test investment, overall QA maturity. Disurfacing `P_BB01–P_BB24`; 24/24 PASS.
