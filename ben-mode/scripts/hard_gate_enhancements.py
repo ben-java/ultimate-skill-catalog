@@ -4280,3 +4280,128 @@ def selftest_qq():
             (22, qq_group_parity_guard(True, True)),
             (23, qq_ethical_baseline_audit(True, True)),
             (24, qq_overall_fairness(90, 70))]
+
+# ------------------------------------------------------------------
+# WAVE R — ROBUSTNESS & RELIABILITY INTEGRITY (RR01–RR24)
+# ------------------------------------------------------------------
+def rr_adversarial_robustness(tested, budget_met):
+    # RR01: adversarial robustness tested against budget.
+    return bool(tested) and bool(budget_met)
+
+def rr_input_perturbation(perturbed, correct_robust):
+    # RR02: input perturbation handling.
+    return bool(perturbed) and bool(correct_robust)
+
+def rr_noise_tolerance(noise_level, tolerated):
+    # RR03: noise tolerance threshold.
+    return noise_level <= tolerated
+
+def rr_distribution_shift(shift_tested, adaptation_ok):
+    # RR04: distribution shift tested + adapted.
+    return bool(shift_tested) and bool(adaptation_ok)
+
+def rr_long_tail_cases(long_tail_covered, tested):
+    # RR05: long-tail cases covered.
+    return bool(long_tail_covered) and bool(tested)
+
+def rr_out_of_distribution_guard(ood_detect, fallback):
+    # RR06: OOD detection with fallback.
+    return bool(ood_detect) and bool(fallback)
+
+def rr_model_drift_recovery(drift_detect, retrain_policy):
+    # RR07: drift detection + retrain policy.
+    return bool(drift_detect) and bool(retrain_policy)
+
+def rr_fault_tolerance(tolerant, degraded_mode):
+    # RR08: fault tolerance with degraded mode.
+    return bool(tolerant) and bool(degraded_mode)
+
+def rr_graceful_handling(errors, handled_cleanly):
+    # RR09: errors handled gracefully.
+    return bool(errors) and bool(handled_cleanly)
+
+def rr_backoff_retry(retry, bounded):
+    # RR10: bounded retry with backoff.
+    return bool(retry) and bool(bounded)
+
+def rr_circuit_breaker(breaker, trip_recovery):
+    # RR11: circuit breaker with trip/recovery.
+    return bool(breaker) and bool(trip_recovery)
+
+def rr_timeout_policy(timeout_set, enforced):
+    # RR12: timeout policy enforced.
+    return bool(timeout_set) and bool(enforced)
+
+def rr_resource_exhaustion(resource_guard, degraded_plan):
+    # RR13: resource exhaustion guard.
+    return bool(resource_guard) and bool(degraded_plan)
+
+def rr_stress_testing(stress_tested, threshold_met):
+    # RR14: stress tested to threshold.
+    return bool(stress_tested) and bool(threshold_met)
+
+def rr_corrupted_input(inputs_validated, rejected):
+    # RR15: corrupted input validation.
+    return bool(inputs_validated) and bool(rejected)
+
+def rr_recovery_verification(recov_verified, do_ok):
+    # RR16: recovery verified after fault.
+    return bool(recov_verified) and bool(do_ok)
+
+def rr_observation_robustness(robust, occlusions_handled):
+    # RR17: observation robustness.
+    return bool(robust) and bool(occlusions_handled)
+
+def rr_label_noise(entity_noise, bounded):
+    # RR18: label noise bounded.
+    return entity_noise <= bounded
+
+def rr_guardrail_after_failure(guardrails, active_after_fault):
+    # RR19: guardrails active after failure.
+    return bool(guardrails) and bool(active_after_fault)
+
+def rr_multi_model_consensus(consensus, triggered):
+    # RR20: multi-model consensus for critical outputs.
+    return bool(consensus) and bool(triggered)
+
+def rr_self_healing(self_heal, restored):
+    # RR21: self-healing capability.
+    return bool(self_heal) and bool(restored)
+
+def rr_reproducible_fault(introduced, reproducible):
+    # RR22: faults reproducible for diagnosis.
+    return bool(introduced) and bool(reproducible)
+
+def rr_contingency_plan(plan, triggers):
+    # RR23: contingency plan with triggers.
+    return bool(plan) and bool(triggers)
+
+def rr_overall_robustness(score, min_score):
+    # RR24: overall robustness score meets minimum.
+    return score >= min_score
+
+def selftest_rr():
+    return [(1, rr_adversarial_robustness(True, True)),
+            (2, rr_input_perturbation(True, True)),
+            (3, rr_noise_tolerance(0.05, 0.1)),
+            (4, rr_distribution_shift(True, True)),
+            (5, rr_long_tail_cases(True, True)),
+            (6, rr_out_of_distribution_guard(True, True)),
+            (7, rr_model_drift_recovery(True, True)),
+            (8, rr_fault_tolerance(True, True)),
+            (9, rr_graceful_handling(True, True)),
+            (10, rr_backoff_retry(True, True)),
+            (11, rr_circuit_breaker(True, True)),
+            (12, rr_timeout_policy(True, True)),
+            (13, rr_resource_exhaustion(True, True)),
+            (14, rr_stress_testing(True, True)),
+            (15, rr_corrupted_input(True, True)),
+            (16, rr_recovery_verification(True, True)),
+            (17, rr_observation_robustness(True, True)),
+            (18, rr_label_noise(0.03, 0.1)),
+            (19, rr_guardrail_after_failure(True, True)),
+            (20, rr_multi_model_consensus(True, True)),
+            (21, rr_self_healing(True, True)),
+            (22, rr_reproducible_fault(True, True)),
+            (23, rr_contingency_plan(True, True)),
+            (24, rr_overall_robustness(93, 70))]

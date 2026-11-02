@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.48.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.49.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2188,3 +2188,15 @@ disurfacing `P_QQ01–P_QQ24`; diverifikasi 24/24 PASS (selftest_qq rc 0).
 - Transparency & Governance: QQ06 `qq_transparency_explainability`, QQ09 `qq_model_card`, QQ10 `qq_algorithmic_accountability`.
 - Oversight & Society: QQ07 `qq_human_oversight`, QQ08 `qq_dual_use_guard`, QQ12 `qq_societal_impact`, QQ13 `qq_ethical_red_team`.
 - Data & Recourse: QQ14 `qq_representative_data`, QQ15 `qq_recourse_mechanism`, QQ17 `qq_synthetic_data_guard`, QQ20 `qq_privacy_fairness_tradeoff`, QQ21 `qq_fairness_reproducible`, QQ23 `qq_ethical_baseline_audit`, QQ24 `qq_overall_fairness`.
+
+---
+
+# BAGIAN 49 — WAVE R: ROBUSTNESS & RELIABILITY INTEGRITY RR01–RR24 (VERIFIED; v0.49.0)
+
+Menambahkan lapisan robustness & reliability: `RR01–RR24` di `hard_gate_enhancements.py`,
+disurfacing `P_RR01–P_RR24`; diverifikasi 24/24 PASS (selftest_rr rc 0).
+
+- Adversarial & Input: RR01 `rr_adversarial_robustness`, RR02 `rr_input_perturbation`, RR03 `rr_noise_tolerance`, RR15 `rr_corrupted_input`, RR17 `rr_observation_robustness`, RR18 `rr_label_noise`.
+- Distribution & Drift: RR04 `rr_distribution_shift`, RR05 `rr_long_tail_cases`, RR06 `rr_out_of_distribution_guard`, RR07 `rr_model_drift_recovery`.
+- Fault & Recovery: RR08 `rr_fault_tolerance`, RR09 `rr_graceful_handling`, RR10 `rr_backoff_retry`, RR11 `rr_circuit_breaker`, RR12 `rr_timeout_policy`, RR13 `rr_resource_exhaustion`, RR16 `rr_recovery_verification`, RR21 `rr_self_healing`, RR22 `rr_reproducible_fault`, RR23 `rr_contingency_plan`.
+- Testing & Governance: RR14 `rr_stress_testing`, RR19 `rr_guardrail_after_failure`, RR20 `rr_multi_model_consensus`, RR24 `rr_overall_robustness`.

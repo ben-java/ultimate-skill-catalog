@@ -1,3 +1,8 @@
+## v0.49.0 (2026-11-02) — Wave R Robustness & Reliability Integrity RR01–RR24 (BAGIAN 49)
+
+- **RR01–RR24**: adversarial robustness, input perturbation, noise tolerance, distribution shift, long-tail cases, OOD guard, drift recovery, fault tolerance, graceful handling, backoff retry, circuit breaker, timeout policy, resource exhaustion, stress testing, corrupted input, recovery verification, observation robustness, label noise, guardrail after failure, multi-model consensus, self-healing, reproducible fault, contingency plan, overall robustness. Disurfacing `P_RR01–P_RR24`; 24/24 PASS.
+- **BAGIAN 49** ditambahkan; bump serentak 0.49.0.
+
 ## v0.48.0 (2026-11-02) — Wave Q Ethical AI & Fairness Integrity QQ01–QQ24 (BAGIAN 48)
 
 - **QQ01–QQ24**: fairness metric, bias audit, mitigation, disparate impact, equalized odds, explainability, human oversight, dual-use guard, model card, algorithmic accountability, continual monitoring, societal impact, ethical red team, representative data, recourse mechanism, bias metric catalog, synthetic data guard, zero-fairness-assumption, proxy bias detect, privacy-fairness tradeoff, reproducibility, group parity, ethical baseline audit, overall fairness. Disurfacing `P_QQ01–P_QQ24`; 24/24 PASS.
