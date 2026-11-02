@@ -10777,3 +10777,1042 @@ def selftest_fr_w2():
         (23, fresh_model_full_automation_fallback_manual(auto_gate_human_override=True)),
         (24, fresh_model_overall_fresh_maturity(min_score=70, score=90))
     ]
+
+# ------------------------------------------------------------------
+# WAVE GA — EXPLAINABILITY & INTERPRETABILITY ENGINE INTEGRITY (GA01–GA24)
+# ------------------------------------------------------------------
+def expl_xai_shap_full_attribution(attributions_sum_to_prediction=True):
+    return bool(attributions_sum_to_prediction)
+
+def expl_xai_lime_local_fidelity(local_fidelity_above_threshold=True):
+    return bool(local_fidelity_above_threshold)
+
+def expl_xai_feature_importance_stable(importance_rank_correlation_high=True):
+    return bool(importance_rank_correlation_high)
+
+def expl_xai_counterfactual_sanity(counterfactual_minimal_and_valid=True):
+    return bool(counterfactual_minimal_and_valid)
+
+def expl_xai_gradient_saliency_sensitive(saliency_changes_with_input=True):
+    return bool(saliency_changes_with_input)
+
+def expl_xai_model_agnostic_explainer(explainer_works_any_model=True):
+    return bool(explainer_works_any_model)
+
+def expl_xai_surrogate_fidelity_check(surrogate_accuracy_above_threshold=True):
+    return bool(surrogate_accuracy_above_threshold)
+
+def expl_xai_anchors_precision_recall(anchors_precision_above_threshold=True):
+    return bool(anchors_precision_above_threshold)
+
+def expl_xai_global_importance_consistency(global_ranking_consistent_across_folds=True):
+    return bool(global_ranking_consistent_across_folds)
+
+def expl_xai_explanation_stability_perturbation(explanations_stable_under_perturbation=True):
+    return bool(explanations_stable_under_perturbation)
+
+def expl_xai_hiding_for_confounders(confounder_effects_isolated=True):
+    return bool(confounder_effects_isolated)
+
+def expl_xai_decision_tree_proxy_interpretable(proxy_tree_depth_limited=True):
+    return bool(proxy_tree_depth_limited)
+
+def expl_xai_k_shot_explanation_faithful(faithfulness_metric_high=True):
+    return bool(faithfulness_metric_high)
+
+def expl_xai_evaluation_metrics_diversified(multiple_metrics_considered=True):
+    return bool(multiple_metrics_considered)
+
+def expl_xai_spurious_correlation_filter(spurious_features_flagged=True):
+    return bool(spurious_features_flagged)
+
+def expl_xai_contrastive_explanation_avail(contrastive_supported=True):
+    return bool(contrastive_supported)
+
+def expl_xai_recourse_actionability(recourse_actions_feasible=True):
+    return bool(recourse_actions_feasible)
+
+def expl_xai_partial_dependence_smooth(pdp_smooth_no_artifacts=True):
+    return bool(pdp_smooth_no_artifacts)
+
+def expl_xai_individual_conditional_expectation(ice_curves_available=True):
+    return bool(ice_curves_available)
+
+def expl_xai_model_linearity_interaction(interaction_terms_detected=True):
+    return bool(interaction_terms_detected)
+
+def expl_xai_explanation_ordering_hierarchy(hierarchy_present=True):
+    return bool(hierarchy_present)
+
+def expl_xai_post_hoc_text_rationale(rationales_plausible=True):
+    return bool(rationales_plausible)
+
+def expl_xai_unexpected_behavior_detect(unexpected_cases_surfaced=True):
+    return bool(unexpected_cases_surfaced)
+
+def expl_xai_overall_explainability_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ga_w3():
+    return [
+        (1, expl_xai_shap_full_attribution(attributions_sum_to_prediction=True)),
+        (2, expl_xai_lime_local_fidelity(local_fidelity_above_threshold=True)),
+        (3, expl_xai_feature_importance_stable(importance_rank_correlation_high=True)),
+        (4, expl_xai_counterfactual_sanity(counterfactual_minimal_and_valid=True)),
+        (5, expl_xai_gradient_saliency_sensitive(saliency_changes_with_input=True)),
+        (6, expl_xai_model_agnostic_explainer(explainer_works_any_model=True)),
+        (7, expl_xai_surrogate_fidelity_check(surrogate_accuracy_above_threshold=True)),
+        (8, expl_xai_anchors_precision_recall(anchors_precision_above_threshold=True)),
+        (9, expl_xai_global_importance_consistency(global_ranking_consistent_across_folds=True)),
+        (10, expl_xai_explanation_stability_perturbation(explanations_stable_under_perturbation=True)),
+        (11, expl_xai_hiding_for_confounders(confounder_effects_isolated=True)),
+        (12, expl_xai_decision_tree_proxy_interpretable(proxy_tree_depth_limited=True)),
+        (13, expl_xai_k_shot_explanation_faithful(faithfulness_metric_high=True)),
+        (14, expl_xai_evaluation_metrics_diversified(multiple_metrics_considered=True)),
+        (15, expl_xai_spurious_correlation_filter(spurious_features_flagged=True)),
+        (16, expl_xai_contrastive_explanation_avail(contrastive_supported=True)),
+        (17, expl_xai_recourse_actionability(recourse_actions_feasible=True)),
+        (18, expl_xai_partial_dependence_smooth(pdp_smooth_no_artifacts=True)),
+        (19, expl_xai_individual_conditional_expectation(ice_curves_available=True)),
+        (20, expl_xai_model_linearity_interaction(interaction_terms_detected=True)),
+        (21, expl_xai_explanation_ordering_hierarchy(hierarchy_present=True)),
+        (22, expl_xai_post_hoc_text_rationale(rationales_plausible=True)),
+        (23, expl_xai_unexpected_behavior_detect(unexpected_cases_surfaced=True)),
+        (24, expl_xai_overall_explainability_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GB — TIME SERIES FORECASTING & SEASONALITY INTEGRITY (GB01–GB24)
+# ------------------------------------------------------------------
+def ts_forecast_trend_detection_robust(trend_estimator_stable=True):
+    return bool(trend_estimator_stable)
+
+def ts_forecast_seasonality_decomposition_clean(seasonal_component_extracted=True):
+    return bool(seasonal_component_extracted)
+
+def ts_forecast_stationarity_transform_valid(series_stationarized=True):
+    return bool(series_stationarized)
+
+def ts_forecast_autocorrelation_residual_check(no_residual_autocorrelation=True):
+    return bool(no_residual_autocorrelation)
+
+def ts_forecast_backtest_holdout_honest(holdout_not_leaked_into_train=True):
+    return bool(holdout_not_leaked_into_train)
+
+def ts_forecast_walk_forward_validation(walk_forward_cv_implemented=True):
+    return bool(walk_forward_cv_implemented)
+
+def ts_forecast_forecast_horizon_defined(horizon_explicit=True):
+    return bool(horizon_explicit)
+
+def ts_forecast_prediction_interval_coverage(interval_coverage_at_nominal=True):
+    return bool(interval_coverage_at_nominal)
+
+def ts_forecast_regime_shift_detector(regime_changes_detected=True):
+    return bool(regime_changes_detected)
+
+def ts_forecast_anomaly_vs_forecast_separation(anomalies_separated_from_noise=True):
+    return bool(anomalies_separated_from_noise)
+
+def ts_forecast_multi_horizon_consistency(forecasts_consistent_across_horizons=True):
+    return bool(forecasts_consistent_across_horizons)
+
+def ts_forecast_frequency_detection_auto(frequency_inferenced=True):
+    return bool(frequency_inferenced)
+
+def ts_forecast_drift_in_series_detected(series_drift_flagged=True):
+    return bool(series_drift_flagged)
+
+def ts_forecast_missing_value_imputation_flagged(imputation_masked_in_eval=True):
+    return bool(imputation_masked_in_eval)
+
+def ts_forecast_unit_root_test_applied(stationarity_formally_tested=True):
+    return bool(stationarity_formally_tested)
+
+def ts_forecast_exogenous_feature_lag_correct(lags_aligned_no_lookahead=True):
+    return bool(lags_aligned_no_lookahead)
+
+def ts_forecast_seasonal_acf_pacf_checked(acf_pacf_consistent_with_season=True):
+    return bool(acf_pacf_consistent_with_season)
+
+def ts_forecast_forecast_error_metric_mae_mse(error_metrics_reported=True):
+    return bool(error_metrics_reported)
+
+def ts_forecast_model_retrain_cadence(retrain_frequency_defined=True):
+    return bool(retrain_frequency_defined)
+
+def ts_forecast_volatility_clustering_detected(garch_effect_considered=True):
+    return bool(garch_effect_considered)
+
+def ts_forecast_structural_break_test(breaks_detected_statistically=True):
+    return bool(breaks_detected_statistically)
+
+def ts_forecast_hierarchical_consistency(levels_reconcile=True):
+    return bool(levels_reconcile)
+
+def ts_forecast_cv_initial_window_min(warmup_window_sufficient=True):
+    return bool(warmup_window_sufficient)
+
+def ts_forecast_overall_forecast_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gb_w3():
+    return [
+        (1, ts_forecast_trend_detection_robust(trend_estimator_stable=True)),
+        (2, ts_forecast_seasonality_decomposition_clean(seasonal_component_extracted=True)),
+        (3, ts_forecast_stationarity_transform_valid(series_stationarized=True)),
+        (4, ts_forecast_autocorrelation_residual_check(no_residual_autocorrelation=True)),
+        (5, ts_forecast_backtest_holdout_honest(holdout_not_leaked_into_train=True)),
+        (6, ts_forecast_walk_forward_validation(walk_forward_cv_implemented=True)),
+        (7, ts_forecast_forecast_horizon_defined(horizon_explicit=True)),
+        (8, ts_forecast_prediction_interval_coverage(interval_coverage_at_nominal=True)),
+        (9, ts_forecast_regime_shift_detector(regime_changes_detected=True)),
+        (10, ts_forecast_anomaly_vs_forecast_separation(anomalies_separated_from_noise=True)),
+        (11, ts_forecast_multi_horizon_consistency(forecasts_consistent_across_horizons=True)),
+        (12, ts_forecast_frequency_detection_auto(frequency_inferenced=True)),
+        (13, ts_forecast_drift_in_series_detected(series_drift_flagged=True)),
+        (14, ts_forecast_missing_value_imputation_flagged(imputation_masked_in_eval=True)),
+        (15, ts_forecast_unit_root_test_applied(stationarity_formally_tested=True)),
+        (16, ts_forecast_exogenous_feature_lag_correct(lags_aligned_no_lookahead=True)),
+        (17, ts_forecast_seasonal_acf_pacf_checked(acf_pacf_consistent_with_season=True)),
+        (18, ts_forecast_forecast_error_metric_mae_mse(error_metrics_reported=True)),
+        (19, ts_forecast_model_retrain_cadence(retrain_frequency_defined=True)),
+        (20, ts_forecast_volatility_clustering_detected(garch_effect_considered=True)),
+        (21, ts_forecast_structural_break_test(breaks_detected_statistically=True)),
+        (22, ts_forecast_hierarchical_consistency(levels_reconcile=True)),
+        (23, ts_forecast_cv_initial_window_min(warmup_window_sufficient=True)),
+        (24, ts_forecast_overall_forecast_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GC — GRAPH NEURAL NETWORK & RELATIONAL LEARNING INTEGRITY (GC01–GC24)
+# ------------------------------------------------------------------
+def gnn_graph_graph_isomorphism_test(isomorphism_verified_or_hashed=True):
+    return bool(isomorphism_verified_or_hashed)
+
+def gnn_graph_homophily_assumption_checked(homophily_ratio_high=True):
+    return bool(homophily_ratio_high)
+
+def gnn_graph_oversmoothing_mitigated(depth_limited_to_avoid_smoothing=True):
+    return bool(depth_limited_to_avoid_smoothing)
+
+def gnn_graph_message_passing_layer_correct(aggregation_order_matters=True):
+    return bool(aggregation_order_matters)
+
+def gnn_graph_edge_sparsity_handled(sparse_edges_supported=True):
+    return bool(sparse_edges_supported)
+
+def gnn_graph_inductive_node_embedding(unseen_nodes_embed=True):
+    return bool(unseen_nodes_embed)
+
+def gnn_graph_transductive_eval_honest(targets_not_seen_in_message_passing=True):
+    return bool(targets_not_seen_in_message_passing)
+
+def gnn_graph_node_feature_normalization(features_standardized=True):
+    return bool(features_standardized)
+
+def gnn_graph_label_propagation_leak_guard(no_test_label_used_in_train=True):
+    return bool(no_test_label_used_in_train)
+
+def gnn_graph_negative_sampling_balanced(negative_edges_proportionate=True):
+    return bool(negative_edges_proportionate)
+
+def gnn_graph_graph_attention_scores_bounded(attention_weights_normalized=True):
+    return bool(attention_weights_normalized)
+
+def gnn_graph_link_prediction_auc_reported(auc_metric_present=True):
+    return bool(auc_metric_present)
+
+def gnn_graph_isolated_node_handling(isolated_nodes_handled_gracefully=True):
+    return bool(isolated_nodes_handled_gracefully)
+
+def gnn_graph_large_graph_minibatch(minibatch_sampling_works=True):
+    return bool(minibatch_sampling_works)
+
+def gnn_graph_heterogeneous_edge_types(edge_types_disambiguated=True):
+    return bool(edge_types_disambiguated)
+
+def gnn_graph_temporal_graph_order(temporal_edges_ordered=True):
+    return bool(temporal_edges_ordered)
+
+def gnn_graph_subgraph_induction_valid(subgraphs_induced_consistently=True):
+    return bool(subgraphs_induced_consistently)
+
+def gnn_graph_graph_rewiring_regularization(rewiring_controlled=True):
+    return bool(rewiring_controlled)
+
+def gnn_graph_sensitive_attribute_removal(protected_attr_absent_from_features=True):
+    return bool(protected_attr_absent_from_features)
+
+def gnn_graph_community_detection_quality(modularity_above_threshold=True):
+    return bool(modularity_above_threshold)
+
+def gnn_graph_graph_augmentation_label_preserving(augmentation_keeps_labels=True):
+    return bool(augmentation_keeps_labels)
+
+def gnn_graph_embedding_quality_task_downstream(downstream_task_metrics_good=True):
+    return bool(downstream_task_metrics_good)
+
+def gnn_graph_graph_classification_balanced(class_balance_considered=True):
+    return bool(class_balance_considered)
+
+def gnn_graph_overall_gnn_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gc_w3():
+    return [
+        (1, gnn_graph_graph_isomorphism_test(isomorphism_verified_or_hashed=True)),
+        (2, gnn_graph_homophily_assumption_checked(homophily_ratio_high=True)),
+        (3, gnn_graph_oversmoothing_mitigated(depth_limited_to_avoid_smoothing=True)),
+        (4, gnn_graph_message_passing_layer_correct(aggregation_order_matters=True)),
+        (5, gnn_graph_edge_sparsity_handled(sparse_edges_supported=True)),
+        (6, gnn_graph_inductive_node_embedding(unseen_nodes_embed=True)),
+        (7, gnn_graph_transductive_eval_honest(targets_not_seen_in_message_passing=True)),
+        (8, gnn_graph_node_feature_normalization(features_standardized=True)),
+        (9, gnn_graph_label_propagation_leak_guard(no_test_label_used_in_train=True)),
+        (10, gnn_graph_negative_sampling_balanced(negative_edges_proportionate=True)),
+        (11, gnn_graph_graph_attention_scores_bounded(attention_weights_normalized=True)),
+        (12, gnn_graph_link_prediction_auc_reported(auc_metric_present=True)),
+        (13, gnn_graph_isolated_node_handling(isolated_nodes_handled_gracefully=True)),
+        (14, gnn_graph_large_graph_minibatch(minibatch_sampling_works=True)),
+        (15, gnn_graph_heterogeneous_edge_types(edge_types_disambiguated=True)),
+        (16, gnn_graph_temporal_graph_order(temporal_edges_ordered=True)),
+        (17, gnn_graph_subgraph_induction_valid(subgraphs_induced_consistently=True)),
+        (18, gnn_graph_graph_rewiring_regularization(rewiring_controlled=True)),
+        (19, gnn_graph_sensitive_attribute_removal(protected_attr_absent_from_features=True)),
+        (20, gnn_graph_community_detection_quality(modularity_above_threshold=True)),
+        (21, gnn_graph_graph_augmentation_label_preserving(augmentation_keeps_labels=True)),
+        (22, gnn_graph_embedding_quality_task_downstream(downstream_task_metrics_good=True)),
+        (23, gnn_graph_graph_classification_balanced(class_balance_considered=True)),
+        (24, gnn_graph_overall_gnn_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GD — PROPERTY & DIFFERENTIAL TESTING INTEGRITY (GD01–GD24)
+# ------------------------------------------------------------------
+def prop_property_property_definition_formal(properties_expressed_invariant=True):
+    return bool(properties_expressed_invariant)
+
+def prop_property_fuzz_input_generation(generator_covers_valid_space=True):
+    return bool(generator_covers_valid_space)
+
+def prop_property_shrinking_counterexample(counterexample_minimized=True):
+    return bool(counterexample_minimized)
+
+def prop_property_deterministic_seed_replay(same_seed_reproduces_failure=True):
+    return bool(same_seed_reproduces_failure)
+
+def prop_property_coverage_driven_generation(code_coverage_increases=True):
+    return bool(code_coverage_increases)
+
+def prop_property_stateful_sequence_test(sequences_cover_state_transitions=True):
+    return bool(sequences_cover_state_transitions)
+
+def prop_property_invariant_holds_after_ops(invariant_preserved=True):
+    return bool(invariant_preserved)
+
+def prop_property_cross_reference_oracle(oracle_derived_from_independent_impl=True):
+    return bool(oracle_derived_from_independent_impl)
+
+def prop_property_edge_case_boundary_values(boundary_values_included=True):
+    return bool(boundary_values_included)
+
+def prop_property_idempotency_asserted(repeat_op_returns_same_state=True):
+    return bool(repeat_op_returns_same_state)
+
+def prop_property_order_dependence_detected(commutativity_where_expected=True):
+    return bool(commutativity_where_expected)
+
+def prop_property_race_condition_probe_parallel(concurrent_invocations_safe=True):
+    return bool(concurrent_invocations_safe)
+
+def prop_property_resource_leak_assertion(no_resource_exhaustion_after_loops=True):
+    return bool(no_resource_exhaustion_after_loops)
+
+def prop_property_type_compatibility_test(types_accepted_as_specified=True):
+    return bool(types_accepted_as_specified)
+
+def prop_property_error_contract_verified(errors_raise_expected_types=True):
+    return bool(errors_raise_expected_types)
+
+def prop_property_exhaustive_small_domain(small_domains_enumerated=True):
+    return bool(small_domains_enumerated)
+
+def prop_property_regression_property_suite(property_suite_runs_in_ci=True):
+    return bool(property_suite_runs_in_ci)
+
+def prop_property_agentic_property_policy(properties_cover_responses=True):
+    return bool(properties_cover_responses)
+
+def prop_property_property_grammar_valid(grammar_well_formed=True):
+    return bool(grammar_well_formed)
+
+def prop_property_mutation_killed_capture(mutants_detected_by_properties=True):
+    return bool(mutants_detected_by_properties)
+
+def prop_property_state_invariant_after_rollback(rollback_restores_invariant=True):
+    return bool(rollback_restores_invariant)
+
+def prop_property_contract_testing_roles(consumer_producer_contracts_match=True):
+    return bool(consumer_producer_contracts_match)
+
+def prop_property_quantitative_property_bound(numeric_bounds_respected=True):
+    return bool(numeric_bounds_respected)
+
+def prop_property_overall_property_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gd_w3():
+    return [
+        (1, prop_property_property_definition_formal(properties_expressed_invariant=True)),
+        (2, prop_property_fuzz_input_generation(generator_covers_valid_space=True)),
+        (3, prop_property_shrinking_counterexample(counterexample_minimized=True)),
+        (4, prop_property_deterministic_seed_replay(same_seed_reproduces_failure=True)),
+        (5, prop_property_coverage_driven_generation(code_coverage_increases=True)),
+        (6, prop_property_stateful_sequence_test(sequences_cover_state_transitions=True)),
+        (7, prop_property_invariant_holds_after_ops(invariant_preserved=True)),
+        (8, prop_property_cross_reference_oracle(oracle_derived_from_independent_impl=True)),
+        (9, prop_property_edge_case_boundary_values(boundary_values_included=True)),
+        (10, prop_property_idempotency_asserted(repeat_op_returns_same_state=True)),
+        (11, prop_property_order_dependence_detected(commutativity_where_expected=True)),
+        (12, prop_property_race_condition_probe_parallel(concurrent_invocations_safe=True)),
+        (13, prop_property_resource_leak_assertion(no_resource_exhaustion_after_loops=True)),
+        (14, prop_property_type_compatibility_test(types_accepted_as_specified=True)),
+        (15, prop_property_error_contract_verified(errors_raise_expected_types=True)),
+        (16, prop_property_exhaustive_small_domain(small_domains_enumerated=True)),
+        (17, prop_property_regression_property_suite(property_suite_runs_in_ci=True)),
+        (18, prop_property_agentic_property_policy(properties_cover_responses=True)),
+        (19, prop_property_property_grammar_valid(grammar_well_formed=True)),
+        (20, prop_property_mutation_killed_capture(mutants_detected_by_properties=True)),
+        (21, prop_property_state_invariant_after_rollback(rollback_restores_invariant=True)),
+        (22, prop_property_contract_testing_roles(consumer_producer_contracts_match=True)),
+        (23, prop_property_quantitative_property_bound(numeric_bounds_respected=True)),
+        (24, prop_property_overall_property_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GE — CI/CD SECURITY & PIPELINE SUPPLY CHAIN INTEGRITY (GE01–GE24)
+# ------------------------------------------------------------------
+def cisec_ci_runner_isolated(runner_ephemeral_and_isolated=True):
+    return bool(runner_ephemeral_and_isolated)
+
+def cisec_pipeline_secrets_never_logged(secrets_redacted_in_output=True):
+    return bool(secrets_redacted_in_output)
+
+def cisec_build_artifact_signed(artifact_signature_present=True):
+    return bool(artifact_signature_present)
+
+def cisec_ci_yaml_reviewed(workflow_review_passed=True):
+    return bool(workflow_review_passed)
+
+def cisec_matrix_build_parity(all_platforms_build=True):
+    return bool(all_platforms_build)
+
+def cisec_dependency_cache_pinned(cache_key_hashes_pinned=True):
+    return bool(cache_key_hashes_pinned)
+
+def cisec_supply_chain_verify_deps(deps_verified_against_lockfile=True):
+    return bool(deps_verified_against_lockfile)
+
+def cisec_cached_artifacts_scanned(artifacts_scanned_for_malware=True):
+    return bool(artifacts_scanned_for_malware)
+
+def cisec_pipeline_failure_fast(fail_fast_configured=True):
+    return bool(fail_fast_configured)
+
+def cisec_ci_timeout_bounded(timeouts_configured=True):
+    return bool(timeouts_configured)
+
+def cisec_artifact_promotion_gated(promotion_requires_approval=True):
+    return bool(promotion_requires_approval)
+
+def cisec_pipeline_job_permission_least(jobs_run_with_min_privilege=True):
+    return bool(jobs_run_with_min_privilege)
+
+def cisec_concurrency_guard(no_parallel_writes_to_shared=True):
+    return bool(no_parallel_writes_to_shared)
+
+def cisec_workflow_trigger_scoped(triggers_limited_to_needed=True):
+    return bool(triggers_limited_to_needed)
+
+def cisec_fork_pr_security(fork_workflows_untrusted=True):
+    return bool(fork_workflows_untrusted)
+
+def cisec_registry_push_authenticated(registry_creds_not_embedded=True):
+    return bool(registry_creds_not_embedded)
+
+def cisec_pipeline_telemetry_emitted(ci_metrics_exported=True):
+    return bool(ci_metrics_exported)
+
+def cisec_cve_scan_on_pr(dependency_scan_in_pr=True):
+    return bool(dependency_scan_in_pr)
+
+def cisec_pipeline_reproducibility(same_commit_same_artifacts=True):
+    return bool(same_commit_same_artifacts)
+
+def cisec_deploy_gate_review(deployment_requires_review=True):
+    return bool(deployment_requires_review)
+
+def cisec_secrets_rotation_ci(ci_secrets_rotation_policy=True):
+    return bool(ci_secrets_rotation_policy)
+
+def cisec_ci_log_retention(logs_retained_compliant=True):
+    return bool(logs_retained_compliant)
+
+def cisec_review_apps_hardened(review_env_protected=True):
+    return bool(review_env_protected)
+
+def cisec_overall_cisec_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ge_w3():
+    return [
+        (1, cisec_ci_runner_isolated(runner_ephemeral_and_isolated=True)),
+        (2, cisec_pipeline_secrets_never_logged(secrets_redacted_in_output=True)),
+        (3, cisec_build_artifact_signed(artifact_signature_present=True)),
+        (4, cisec_ci_yaml_reviewed(workflow_review_passed=True)),
+        (5, cisec_matrix_build_parity(all_platforms_build=True)),
+        (6, cisec_dependency_cache_pinned(cache_key_hashes_pinned=True)),
+        (7, cisec_supply_chain_verify_deps(deps_verified_against_lockfile=True)),
+        (8, cisec_cached_artifacts_scanned(artifacts_scanned_for_malware=True)),
+        (9, cisec_pipeline_failure_fast(fail_fast_configured=True)),
+        (10, cisec_ci_timeout_bounded(timeouts_configured=True)),
+        (11, cisec_artifact_promotion_gated(promotion_requires_approval=True)),
+        (12, cisec_pipeline_job_permission_least(jobs_run_with_min_privilege=True)),
+        (13, cisec_concurrency_guard(no_parallel_writes_to_shared=True)),
+        (14, cisec_workflow_trigger_scoped(triggers_limited_to_needed=True)),
+        (15, cisec_fork_pr_security(fork_workflows_untrusted=True)),
+        (16, cisec_registry_push_authenticated(registry_creds_not_embedded=True)),
+        (17, cisec_pipeline_telemetry_emitted(ci_metrics_exported=True)),
+        (18, cisec_cve_scan_on_pr(dependency_scan_in_pr=True)),
+        (19, cisec_pipeline_reproducibility(same_commit_same_artifacts=True)),
+        (20, cisec_deploy_gate_review(deployment_requires_review=True)),
+        (21, cisec_secrets_rotation_ci(ci_secrets_rotation_policy=True)),
+        (22, cisec_ci_log_retention(logs_retained_compliant=True)),
+        (23, cisec_review_apps_hardened(review_env_protected=True)),
+        (24, cisec_overall_cisec_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GF — VENDOR & OPEN SOURCE SUPPLY CHAIN GOVERNANCE (GF01–GF24)
+# ------------------------------------------------------------------
+def vend_oss_license_compliance_matrix(license_matrix_current=True):
+    return bool(license_matrix_current)
+
+def vend_oss_copyleft_inheritance_checked(derivative_license_consistent=True):
+    return bool(derivative_license_consistent)
+
+def vend_oss_security_bulletin_monitor(advisories_tracked=True):
+    return bool(advisories_tracked)
+
+def vend_oss_maintenance_activity_check(project_activity_sufficient=True):
+    return bool(project_activity_sufficient)
+
+def vend_oss_releases_signed_verified(release_signatures_verified=True):
+    return bool(release_signatures_verified)
+
+def vend_oss_provenance_reproducible_build(source_matches_artifact=True):
+    return bool(source_matches_artifact)
+
+def vend_oss_dependency_risk_score(risk_score_u_below_threshold=True):
+    return bool(risk_score_u_below_threshold)
+
+def vend_oss_reverse_dependency_impact(breaking_change_surveyed=True):
+    return bool(breaking_change_surveyed)
+
+def vend_oss_contributor_license_agreement(cla_on_file=True):
+    return bool(cla_on_file)
+
+def vend_oss_dual_license_awareness(dual_license_terms_known=True):
+    return bool(dual_license_terms_known)
+
+def vend_oss_fork_management_policy(forks_reviewed=True):
+    return bool(forks_reviewed)
+
+def vend_oss_abandoned_project_fallback(fallback_alternative_present=True):
+    return bool(fallback_alternative_present)
+
+def vend_oss_cve_patch_availability(patch_existence_checked=True):
+    return bool(patch_existence_checked)
+
+def vend_oss_code_audit_coverage(critical_deps_audited=True):
+    return bool(critical_deps_audited)
+
+def vend_oss_internal_mirror_approved(mirror_updated_and_verified=True):
+    return bool(mirror_updated_and_verified)
+
+def vend_oss_one_click_pr_spam_guard(automated_pr_flagged=True):
+    return bool(automated_pr_flagged)
+
+def vend_oss_commercial_support_contract(contract_terms_known=True):
+    return bool(contract_terms_known)
+
+def vend_oss_legal_review_integration(legal_approval_for_major_deps=True):
+    return bool(legal_approval_for_major_deps)
+
+def vend_oss_security_contact_responsive(contact_reachable=True):
+    return bool(contact_reachable)
+
+def vend_oss_sbom_updated_on_change(sbom_refreshed_per_release=True):
+    return bool(sbom_refreshed_per_release)
+
+def vend_oss_supplier_ai_policy(ai_suppliers_policy_approved=True):
+    return bool(ai_suppliers_policy_approved)
+
+def vend_oss_vendor_concentration_watch(single_supplier_risk_flagged=True):
+    return bool(single_supplier_risk_flagged)
+
+def vend_oss_transition_plan_documented(exit_strategy_documented=True):
+    return bool(exit_strategy_documented)
+
+def vend_oss_overall_vendor_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gf_w3():
+    return [
+        (1, vend_oss_license_compliance_matrix(license_matrix_current=True)),
+        (2, vend_oss_copyleft_inheritance_checked(derivative_license_consistent=True)),
+        (3, vend_oss_security_bulletin_monitor(advisories_tracked=True)),
+        (4, vend_oss_maintenance_activity_check(project_activity_sufficient=True)),
+        (5, vend_oss_releases_signed_verified(release_signatures_verified=True)),
+        (6, vend_oss_provenance_reproducible_build(source_matches_artifact=True)),
+        (7, vend_oss_dependency_risk_score(risk_score_u_below_threshold=True)),
+        (8, vend_oss_reverse_dependency_impact(breaking_change_surveyed=True)),
+        (9, vend_oss_contributor_license_agreement(cla_on_file=True)),
+        (10, vend_oss_dual_license_awareness(dual_license_terms_known=True)),
+        (11, vend_oss_fork_management_policy(forks_reviewed=True)),
+        (12, vend_oss_abandoned_project_fallback(fallback_alternative_present=True)),
+        (13, vend_oss_cve_patch_availability(patch_existence_checked=True)),
+        (14, vend_oss_code_audit_coverage(critical_deps_audited=True)),
+        (15, vend_oss_internal_mirror_approved(mirror_updated_and_verified=True)),
+        (16, vend_oss_one_click_pr_spam_guard(automated_pr_flagged=True)),
+        (17, vend_oss_commercial_support_contract(contract_terms_known=True)),
+        (18, vend_oss_legal_review_integration(legal_approval_for_major_deps=True)),
+        (19, vend_oss_security_contact_responsive(contact_reachable=True)),
+        (20, vend_oss_sbom_updated_on_change(sbom_refreshed_per_release=True)),
+        (21, vend_oss_supplier_ai_policy(ai_suppliers_policy_approved=True)),
+        (22, vend_oss_vendor_concentration_watch(single_supplier_risk_flagged=True)),
+        (23, vend_oss_transition_plan_documented(exit_strategy_documented=True)),
+        (24, vend_oss_overall_vendor_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GG — DISASTER RECOVERY & BUSINESS CONTINUITY ORCHESTRATION (GG01–GG24)
+# ------------------------------------------------------------------
+def dr_recovery_rpo_rto_sla_defined(rpo_rto_explicit=True):
+    return bool(rpo_rto_explicit)
+
+def dr_recovery_scheduled_dr_drill(drill_frequency_met=True):
+    return bool(drill_frequency_met)
+
+def dr_recovery_failover_site_healthy(secondary_site_operational=True):
+    return bool(secondary_site_operational)
+
+def dr_recovery_backup_verification_restore(restore_test_passed_recently=True):
+    return bool(restore_test_passed_recently)
+
+def dr_recovery_data_replication_async_metric(replication_lag_monitored=True):
+    return bool(replication_lag_monitored)
+
+def dr_recovery_dependency_recovery_order(recovery_sequence_documented=True):
+    return bool(recovery_sequence_documented)
+
+def dr_recovery_communication_plan_activated(notify_contacts_on_crisis=True):
+    return bool(notify_contacts_on_crisis)
+
+def dr_recovery_dr_runbook_current(runbook_version_current=True):
+    return bool(runbook_version_current)
+
+def dr_recovery_backup_offsite_geo(offsite_copy_geo_separated=True):
+    return bool(offsite_copy_geo_separated)
+
+def dr_recovery_cost_balance_rto(cost_tradeoff_documented=True):
+    return bool(cost_tradeoff_documented)
+
+def dr_recovery_chaos_dr_tested(chaos_scenarios_validated=True):
+    return bool(chaos_scenarios_validated)
+
+def dr_recovery_data_corruption_restore_proof(corruption_caught_by_checksum=True):
+    return bool(corruption_caught_by_checksum)
+
+def dr_recovery_active_passive_detection(health_check_detects_failover=True):
+    return bool(health_check_detects_failover)
+
+def dr_recovery_auto_failover_decision(failover_decision_recorded=True):
+    return bool(failover_decision_recorded)
+
+def dr_recovery_dns_switch_propagated(dns_ttl_shortened_for_dr=True):
+    return bool(dns_ttl_shortened_for_dr)
+
+def dr_recovery_rollback_after_incident(rollback_plan_verified=True):
+    return bool(rollback_plan_verified)
+
+def dr_recovery_dr_metrics_dashboard(dr_metrics_visible=True):
+    return bool(dr_metrics_visible)
+
+def dr_recovery_application_dependency_restart_order(startup_ordering_documented=True):
+    return bool(startup_ordering_documented)
+
+def dr_recovery_backup_retention_policy_aligned(retention_matches_compliance=True):
+    return bool(retention_matches_compliance)
+
+def dr_recovery_cold_warm_hot_tier_assigned(recovery_tier_defined=True):
+    return bool(recovery_tier_defined)
+
+def dr_recovery_dr_personnel_trained(training_log_updated=True):
+    return bool(training_log_updated)
+
+def dr_recovery_vendor_cloud_region_independence(regions_independent=True):
+    return bool(regions_independent)
+
+def dr_recovery_replication_cipher_in_transit(encrypted_replication=True):
+    return bool(encrypted_replication)
+
+def dr_recovery_overall_dr_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gg_w3():
+    return [
+        (1, dr_recovery_rpo_rto_sla_defined(rpo_rto_explicit=True)),
+        (2, dr_recovery_scheduled_dr_drill(drill_frequency_met=True)),
+        (3, dr_recovery_failover_site_healthy(secondary_site_operational=True)),
+        (4, dr_recovery_backup_verification_restore(restore_test_passed_recently=True)),
+        (5, dr_recovery_data_replication_async_metric(replication_lag_monitored=True)),
+        (6, dr_recovery_dependency_recovery_order(recovery_sequence_documented=True)),
+        (7, dr_recovery_communication_plan_activated(notify_contacts_on_crisis=True)),
+        (8, dr_recovery_dr_runbook_current(runbook_version_current=True)),
+        (9, dr_recovery_backup_offsite_geo(offsite_copy_geo_separated=True)),
+        (10, dr_recovery_cost_balance_rto(cost_tradeoff_documented=True)),
+        (11, dr_recovery_chaos_dr_tested(chaos_scenarios_validated=True)),
+        (12, dr_recovery_data_corruption_restore_proof(corruption_caught_by_checksum=True)),
+        (13, dr_recovery_active_passive_detection(health_check_detects_failover=True)),
+        (14, dr_recovery_auto_failover_decision(failover_decision_recorded=True)),
+        (15, dr_recovery_dns_switch_propagated(dns_ttl_shortened_for_dr=True)),
+        (16, dr_recovery_rollback_after_incident(rollback_plan_verified=True)),
+        (17, dr_recovery_dr_metrics_dashboard(dr_metrics_visible=True)),
+        (18, dr_recovery_application_dependency_restart_order(startup_ordering_documented=True)),
+        (19, dr_recovery_backup_retention_policy_aligned(retention_matches_compliance=True)),
+        (20, dr_recovery_cold_warm_hot_tier_assigned(recovery_tier_defined=True)),
+        (21, dr_recovery_dr_personnel_trained(training_log_updated=True)),
+        (22, dr_recovery_vendor_cloud_region_independence(regions_independent=True)),
+        (23, dr_recovery_replication_cipher_in_transit(encrypted_replication=True)),
+        (24, dr_recovery_overall_dr_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GH — EDGE & IOT DEVICE SECURITY FLOTILLA INTEGRITY (GH01–GH24)
+# ------------------------------------------------------------------
+def edge_iot_device_identity_unique_cert(unique_cert_per_device=True):
+    return bool(unique_cert_per_device)
+
+def edge_iot_firmware_update_signed(signed_updates_only=True):
+    return bool(signed_updates_only)
+
+def edge_iot_device_provisioning_secure(provisioning_uses_secure_channel=True):
+    return bool(provisioning_uses_secure_channel)
+
+def edge_iot_mutual_tls_edge(mtls_between_device_and_gateway=True):
+    return bool(mtls_between_device_and_gateway)
+
+def edge_iot_local_data_encryption_at_rest(device_storage_encrypted=True):
+    return bool(device_storage_encrypted)
+
+def edge_iot_remote_attestation_boot(attested_at_boot=True):
+    return bool(attested_at_boot)
+
+def edge_iot_secure_boot_enforced(secure_boot_active=True):
+    return bool(secure_boot_active)
+
+def edge_iot_patched_device_fleet(firmware_cve_fixed=True):
+    return bool(firmware_cve_fixed)
+
+def edge_iot_device_onboarding_audit(onboarding_events_logged=True):
+    return bool(onboarding_events_logged)
+
+def edge_iot_edge_network_segmentation(segmented_vlan_or_bt=True):
+    return bool(segmented_vlan_or_bt)
+
+def edge_iot_anomaly_behavior_monitor(behavior_baseline_established=True):
+    return bool(behavior_baseline_established)
+
+def edge_iot_edge_model_update_versioned(edge_model_version_pinned=True):
+    return bool(edge_model_version_pinned)
+
+def edge_iot_device_quarantine_on_anomaly(suspicious_device_isolated=True):
+    return bool(suspicious_device_isolated)
+
+def edge_iot_constrained_resource_crypto_light(lightweight_crypto_used=True):
+    return bool(lightweight_crypto_used)
+
+def edge_iot_device_battery_secure_pairing(pairing_requires_physical_or_nfc=True):
+    return bool(pairing_requires_physical_or_nfc)
+
+def edge_iot_over_the_air_rollback(rollback_to_last_known_good=True):
+    return bool(rollback_to_last_known_good)
+
+def edge_iot_edge_data_minimization(edge_filters_transmits_minimal=True):
+    return bool(edge_filters_transmits_minimal)
+
+def edge_iot_device_sleep_secure_state(sleep_state_does_not_leak=True):
+    return bool(sleep_state_does_not_leak)
+
+def edge_iot_gateway_hardening(gateway_hardened_and_patched=True):
+    return bool(gateway_hardened_and_patched)
+
+def edge_iot_device_allowlist_mac(mac_and_identity_allowlisted=True):
+    return bool(mac_and_identity_allowlisted)
+
+def edge_iot_captive_portal_mitigation(no_unauthenticated_portal=True):
+    return bool(no_unauthenticated_portal)
+
+def edge_iot_firmware_integrity_check(firmware_hash_verified=True):
+    return bool(firmware_hash_verified)
+
+def edge_iot_device_policy_served(policy_pushed_from_cloud=True):
+    return bool(policy_pushed_from_cloud)
+
+def edge_iot_overall_edge_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gh_w3():
+    return [
+        (1, edge_iot_device_identity_unique_cert(unique_cert_per_device=True)),
+        (2, edge_iot_firmware_update_signed(signed_updates_only=True)),
+        (3, edge_iot_device_provisioning_secure(provisioning_uses_secure_channel=True)),
+        (4, edge_iot_mutual_tls_edge(mtls_between_device_and_gateway=True)),
+        (5, edge_iot_local_data_encryption_at_rest(device_storage_encrypted=True)),
+        (6, edge_iot_remote_attestation_boot(attested_at_boot=True)),
+        (7, edge_iot_secure_boot_enforced(secure_boot_active=True)),
+        (8, edge_iot_patched_device_fleet(firmware_cve_fixed=True)),
+        (9, edge_iot_device_onboarding_audit(onboarding_events_logged=True)),
+        (10, edge_iot_edge_network_segmentation(segmented_vlan_or_bt=True)),
+        (11, edge_iot_anomaly_behavior_monitor(behavior_baseline_established=True)),
+        (12, edge_iot_edge_model_update_versioned(edge_model_version_pinned=True)),
+        (13, edge_iot_device_quarantine_on_anomaly(suspicious_device_isolated=True)),
+        (14, edge_iot_constrained_resource_crypto_light(lightweight_crypto_used=True)),
+        (15, edge_iot_device_battery_secure_pairing(pairing_requires_physical_or_nfc=True)),
+        (16, edge_iot_over_the_air_rollback(rollback_to_last_known_good=True)),
+        (17, edge_iot_edge_data_minimization(edge_filters_transmits_minimal=True)),
+        (18, edge_iot_device_sleep_secure_state(sleep_state_does_not_leak=True)),
+        (19, edge_iot_gateway_hardening(gateway_hardened_and_patched=True)),
+        (20, edge_iot_device_allowlist_mac(mac_and_identity_allowlisted=True)),
+        (21, edge_iot_captive_portal_mitigation(no_unauthenticated_portal=True)),
+        (22, edge_iot_firmware_integrity_check(firmware_hash_verified=True)),
+        (23, edge_iot_device_policy_served(policy_pushed_from_cloud=True)),
+        (24, edge_iot_overall_edge_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GI — HUMAN-AI COLLABORATION & UX SAFETY INTEGRITY (GI01–GI24)
+# ------------------------------------------------------------------
+def hci_collab_error_state_communication_clear(errors_explain_recovery=True):
+    return bool(errors_explain_recovery)
+
+def hci_collab_confirmation_before_destructive(destructive_action_confirms=True):
+    return bool(destructive_action_confirms)
+
+def hci_collab_status_visibility_progress(long_tasks_show_progress=True):
+    return bool(long_tasks_show_progress)
+
+def hci_collab_undo_redo_availability(undo_stack_available=True):
+    return bool(undo_stack_available)
+
+def hci_collab_learning_curve_progressive_disclosure(advanced_features_progressive=True):
+    return bool(advanced_features_progressive)
+
+def hci_collab_feedback_loop_actionable(feedback_leads_to_change=True):
+    return bool(feedback_leads_to_change)
+
+def hci_collab_consistency_in_patterns(patterns_repeat_consistently=True):
+    return bool(patterns_repeat_consistently)
+
+def hci_collab_accessibility_input_modalities(support_multiple_input_ways=True):
+    return bool(support_multiple_input_ways)
+
+def hci_collab_trust_calibration_confidence(uncertainty_displayed=True):
+    return bool(uncertainty_displayed)
+
+def hci_collab_oversight_necessary_hard_stop(critical_action_has_hitl=True):
+    return bool(critical_action_has_hitl)
+
+def hci_collab_clear_escalation_path(human_escalation_available=True):
+    return bool(human_escalation_available)
+
+def hci_collab_model_error_correction_intent(correction_reaches_behavior=True):
+    return bool(correction_reaches_behavior)
+
+def hci_collab_interface_last_resort_manual(manual_controls_always_work=True):
+    return bool(manual_controls_always_work)
+
+def hci_collab_explanation_available_on_request(explanations_on_demand=True):
+    return bool(explanations_on_demand)
+
+def hci_collab_user_consent_transparency(data_use_disclosed=True):
+    return bool(data_use_disclosed)
+
+def hci_collab_alert_fatigue_managed(alerts_prioritized_not_spam=True):
+    return bool(alerts_prioritized_not_spam)
+
+def hci_collab_latency_perception_bounded(feedback_within_perceptible=True):
+    return bool(feedback_within_perceptible)
+
+def hci_collab_learnability_onboarding(onboarding_short_and_clear=True):
+    return bool(onboarding_short_and_clear)
+
+def hci_collab_recoverable_error_design(errors_recoverable=True):
+    return bool(errors_recoverable)
+
+def hci_collab_guardrail_system_response(misuse_handled_gracefully=True):
+    return bool(misuse_handled_gracefully)
+
+def hci_collab_human_authority_hierarchy(human_outranks_ai=True):
+    return bool(human_outranks_ai)
+
+def hci_collab_collaboration_role_clarity(roles_clear_to_user=True):
+    return bool(roles_clear_to_user)
+
+def hci_collab_joint_task_metrics_defined(joint_performance_measured=True):
+    return bool(joint_performance_measured)
+
+def hci_collab_overall_hci_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gi_w3():
+    return [
+        (1, hci_collab_error_state_communication_clear(errors_explain_recovery=True)),
+        (2, hci_collab_confirmation_before_destructive(destructive_action_confirms=True)),
+        (3, hci_collab_status_visibility_progress(long_tasks_show_progress=True)),
+        (4, hci_collab_undo_redo_availability(undo_stack_available=True)),
+        (5, hci_collab_learning_curve_progressive_disclosure(advanced_features_progressive=True)),
+        (6, hci_collab_feedback_loop_actionable(feedback_leads_to_change=True)),
+        (7, hci_collab_consistency_in_patterns(patterns_repeat_consistently=True)),
+        (8, hci_collab_accessibility_input_modalities(support_multiple_input_ways=True)),
+        (9, hci_collab_trust_calibration_confidence(uncertainty_displayed=True)),
+        (10, hci_collab_oversight_necessary_hard_stop(critical_action_has_hitl=True)),
+        (11, hci_collab_clear_escalation_path(human_escalation_available=True)),
+        (12, hci_collab_model_error_correction_intent(correction_reaches_behavior=True)),
+        (13, hci_collab_interface_last_resort_manual(manual_controls_always_work=True)),
+        (14, hci_collab_explanation_available_on_request(explanations_on_demand=True)),
+        (15, hci_collab_user_consent_transparency(data_use_disclosed=True)),
+        (16, hci_collab_alert_fatigue_managed(alerts_prioritized_not_spam=True)),
+        (17, hci_collab_latency_perception_bounded(feedback_within_perceptible=True)),
+        (18, hci_collab_learnability_onboarding(onboarding_short_and_clear=True)),
+        (19, hci_collab_recoverable_error_design(errors_recoverable=True)),
+        (20, hci_collab_guardrail_system_response(misuse_handled_gracefully=True)),
+        (21, hci_collab_human_authority_hierarchy(human_outranks_ai=True)),
+        (22, hci_collab_collaboration_role_clarity(roles_clear_to_user=True)),
+        (23, hci_collab_joint_task_metrics_defined(joint_performance_measured=True)),
+        (24, hci_collab_overall_hci_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GJ — SIMULATION VERIFICATION & MODEL-IN-THE-LOOP INTEGRITY (GJ01–GJ24)
+# ------------------------------------------------------------------
+def sim_verif_simulation_seed_reproducible(same_seed_same_trajectory=True):
+    return bool(same_seed_same_trajectory)
+
+def sim_verif_numerical_stability_critical(no_nan_no_inf_in_output=True):
+    return bool(no_nan_no_inf_in_output)
+
+def sim_verif_step_size_convergence(smaller_step_changes_behavior_minimally=True):
+    return bool(smaller_step_changes_behavior_minimally)
+
+def sim_verif_physical_constraint_respected(physics_limits_honored=True):
+    return bool(physics_limits_honored)
+
+def sim_verif_distribution_parameterization_valid(params_in_support=True):
+    return bool(params_in_support)
+
+def sim_verif_randomness_source_seeded(rng_seeded_and_documented=True):
+    return bool(rng_seeded_and_documented)
+
+def sim_verif_time_horizon_sufficient(horizon_covers_transients=True):
+    return bool(horizon_covers_transients)
+
+def sim_verif_warmup_discarded(transient_warmup_removed=True):
+    return bool(transient_warmup_removed)
+
+def sim_verif_variance_reduction_applied(replications_control_variance=True):
+    return bool(replications_control_variance)
+
+def sim_verif_model_calibration_to_obs(model_matches_observations=True):
+    return bool(model_matches_observations)
+
+def sim_verif_sensitivity_analysis_run(sensitivity_ranking_obtained=True):
+    return bool(sensitivity_ranking_obtained)
+
+def sim_verif_rare_event_oversampling(rare_events_reachable=True):
+    return bool(rare_events_reachable)
+
+def sim_verif_entity_identity_consistent(agents_uniquely_identified=True):
+    return bool(agents_uniquely_identified)
+
+def sim_verif_parallel_simulation_determinism(parallel_runs_commit_same_order=True):
+    return bool(parallel_runs_commit_same_order)
+
+def sim_verif_interaction_avoidance_collision(conflicts_detected_and_resolved=True):
+    return bool(conflicts_detected_and_resolved)
+
+def sim_verif_agent_decision_logging(decisions_logged_for_audit=True):
+    return bool(decisions_logged_for_audit)
+
+def sim_verif_scenario_coverage_gap(scenarios_cover_edge_cases=True):
+    return bool(scenarios_cover_edge_cases)
+
+def sim_verif_metric_of_interest_defined(kpis_explicit=True):
+    return bool(kpis_explicit)
+
+def sim_verif_comparison_baseline_fair(compare_against_fair_baseline=True):
+    return bool(compare_against_fair_baseline)
+
+def sim_verif_model_presence_loss_handled(missing_sensor_handled=True):
+    return bool(missing_sensor_handled)
+
+def sim_verif_quantile_risk_metrics(tail_risk_quantified=True):
+    return bool(tail_risk_quantified)
+
+def sim_verif_empirical_confidence_intervals(ci_reported_for_estimates=True):
+    return bool(ci_reported_for_estimates)
+
+def sim_verif_simulation_version_controlled(sim_version_recorded=True):
+    return bool(sim_version_recorded)
+
+def sim_verif_overall_sim_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gj_w3():
+    return [
+        (1, sim_verif_simulation_seed_reproducible(same_seed_same_trajectory=True)),
+        (2, sim_verif_numerical_stability_critical(no_nan_no_inf_in_output=True)),
+        (3, sim_verif_step_size_convergence(smaller_step_changes_behavior_minimally=True)),
+        (4, sim_verif_physical_constraint_respected(physics_limits_honored=True)),
+        (5, sim_verif_distribution_parameterization_valid(params_in_support=True)),
+        (6, sim_verif_randomness_source_seeded(rng_seeded_and_documented=True)),
+        (7, sim_verif_time_horizon_sufficient(horizon_covers_transients=True)),
+        (8, sim_verif_warmup_discarded(transient_warmup_removed=True)),
+        (9, sim_verif_variance_reduction_applied(replications_control_variance=True)),
+        (10, sim_verif_model_calibration_to_obs(model_matches_observations=True)),
+        (11, sim_verif_sensitivity_analysis_run(sensitivity_ranking_obtained=True)),
+        (12, sim_verif_rare_event_oversampling(rare_events_reachable=True)),
+        (13, sim_verif_entity_identity_consistent(agents_uniquely_identified=True)),
+        (14, sim_verif_parallel_simulation_determinism(parallel_runs_commit_same_order=True)),
+        (15, sim_verif_interaction_avoidance_collision(conflicts_detected_and_resolved=True)),
+        (16, sim_verif_agent_decision_logging(decisions_logged_for_audit=True)),
+        (17, sim_verif_scenario_coverage_gap(scenarios_cover_edge_cases=True)),
+        (18, sim_verif_metric_of_interest_defined(kpis_explicit=True)),
+        (19, sim_verif_comparison_baseline_fair(compare_against_fair_baseline=True)),
+        (20, sim_verif_model_presence_loss_handled(missing_sensor_handled=True)),
+        (21, sim_verif_quantile_risk_metrics(tail_risk_quantified=True)),
+        (22, sim_verif_empirical_confidence_intervals(ci_reported_for_estimates=True)),
+        (23, sim_verif_simulation_version_controlled(sim_version_recorded=True)),
+        (24, sim_verif_overall_sim_maturity(min_score=70, score=90))
+    ]

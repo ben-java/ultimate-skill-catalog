@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.93.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.03.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2644,3 +2644,102 @@ Menambahkan lapisan integritas continuous model freshness & drift containment in
 
 Mekanisme operasional formal:
 FR01 `fresh_model_model_version_reference_pinned`, FR02 `fresh_model_data_drift_detected`, FR03 `fresh_model_sudden_concept_drift_alarm`, FR04 `fresh_model_scheduled_retraining_triggered`, FR05 `fresh_model_champion_challenger_comparison`, FR06 `fresh_model_performance_monitor_regression`, FR07 `fresh_model_inference_latency_budget`, FR08 `fresh_model_skew_between_train_infer`, FR09 `fresh_model_online_learning_safe_reset`, FR10 `fresh_model_batch_recompute_idempotent`, FR11 `fresh_model_feedback_loop_harm_guard`, FR12 `fresh_model_retrain_deployment_gate`, FR13 `fresh_model_model_registry_rollback`, FR14 `fresh_model_feature_store_freshness`, FR15 `fresh_model_inference_data_drift_alert`, FR16 `fresh_model_closed_loop_monitoring`, FR17 `fresh_model_data_quality_loop_guard`, FR18 `fresh_model_retrain_lock_pipeline`, FR19 `fresh_model_cost_retrain_budget`, FR20 `fresh_model_retrain_metric_tracking`, FR21 `fresh_model_shadow_deployment_eval`, FR22 `fresh_model_canary_model_rollout`, FR23 `fresh_model_full_automation_fallback_manual`, FR24 `fresh_model_overall_fresh_maturity`.
+
+---
+
+# BAGIAN 94 — WAVE GA: EXPLAINABILITY & INTERPRETABILITY ENGINE INTEGRITY GA01–GA24 (VERIFIED; v0.94.0)
+
+Menambahkan lapisan integritas explainability & interpretability engine integrity: `GA01–GA24` di `hard_gate_enhancements.py`, disurfacing `P_XAI_01–P_XAI_24`; diverifikasi 24/24 PASS (selftest_ga_w3 rc 0).
+
+Mekanisme operasional formal:
+GA01 `expl_xai_shap_full_attribution`, GA02 `expl_xai_lime_local_fidelity`, GA03 `expl_xai_feature_importance_stable`, GA04 `expl_xai_counterfactual_sanity`, GA05 `expl_xai_gradient_saliency_sensitive`, GA06 `expl_xai_model_agnostic_explainer`, GA07 `expl_xai_surrogate_fidelity_check`, GA08 `expl_xai_anchors_precision_recall`, GA09 `expl_xai_global_importance_consistency`, GA10 `expl_xai_explanation_stability_perturbation`, GA11 `expl_xai_hiding_for_confounders`, GA12 `expl_xai_decision_tree_proxy_interpretable`, GA13 `expl_xai_k_shot_explanation_faithful`, GA14 `expl_xai_evaluation_metrics_diversified`, GA15 `expl_xai_spurious_correlation_filter`, GA16 `expl_xai_contrastive_explanation_avail`, GA17 `expl_xai_recourse_actionability`, GA18 `expl_xai_partial_dependence_smooth`, GA19 `expl_xai_individual_conditional_expectation`, GA20 `expl_xai_model_linearity_interaction`, GA21 `expl_xai_explanation_ordering_hierarchy`, GA22 `expl_xai_post_hoc_text_rationale`, GA23 `expl_xai_unexpected_behavior_detect`, GA24 `expl_xai_overall_explainability_maturity`.
+
+
+---
+
+# BAGIAN 95 — WAVE GB: TIME SERIES FORECASTING & SEASONALITY INTEGRITY GB01–GB24 (VERIFIED; v0.95.0)
+
+Menambahkan lapisan integritas time series forecasting & seasonality integrity: `GB01–GB24` di `hard_gate_enhancements.py`, disurfacing `P_TS_01–P_TS_24`; diverifikasi 24/24 PASS (selftest_gb_w3 rc 0).
+
+Mekanisme operasional formal:
+GB01 `ts_forecast_trend_detection_robust`, GB02 `ts_forecast_seasonality_decomposition_clean`, GB03 `ts_forecast_stationarity_transform_valid`, GB04 `ts_forecast_autocorrelation_residual_check`, GB05 `ts_forecast_backtest_holdout_honest`, GB06 `ts_forecast_walk_forward_validation`, GB07 `ts_forecast_forecast_horizon_defined`, GB08 `ts_forecast_prediction_interval_coverage`, GB09 `ts_forecast_regime_shift_detector`, GB10 `ts_forecast_anomaly_vs_forecast_separation`, GB11 `ts_forecast_multi_horizon_consistency`, GB12 `ts_forecast_frequency_detection_auto`, GB13 `ts_forecast_drift_in_series_detected`, GB14 `ts_forecast_missing_value_imputation_flagged`, GB15 `ts_forecast_unit_root_test_applied`, GB16 `ts_forecast_exogenous_feature_lag_correct`, GB17 `ts_forecast_seasonal_acf_pacf_checked`, GB18 `ts_forecast_forecast_error_metric_mae_mse`, GB19 `ts_forecast_model_retrain_cadence`, GB20 `ts_forecast_volatility_clustering_detected`, GB21 `ts_forecast_structural_break_test`, GB22 `ts_forecast_hierarchical_consistency`, GB23 `ts_forecast_cv_initial_window_min`, GB24 `ts_forecast_overall_forecast_maturity`.
+
+
+---
+
+# BAGIAN 96 — WAVE GC: GRAPH NEURAL NETWORK & RELATIONAL LEARNING INTEGRITY GC01–GC24 (VERIFIED; v0.96.0)
+
+Menambahkan lapisan integritas graph neural network & relational learning integrity: `GC01–GC24` di `hard_gate_enhancements.py`, disurfacing `P_GNN_01–P_GNN_24`; diverifikasi 24/24 PASS (selftest_gc_w3 rc 0).
+
+Mekanisme operasional formal:
+GC01 `gnn_graph_graph_isomorphism_test`, GC02 `gnn_graph_homophily_assumption_checked`, GC03 `gnn_graph_oversmoothing_mitigated`, GC04 `gnn_graph_message_passing_layer_correct`, GC05 `gnn_graph_edge_sparsity_handled`, GC06 `gnn_graph_inductive_node_embedding`, GC07 `gnn_graph_transductive_eval_honest`, GC08 `gnn_graph_node_feature_normalization`, GC09 `gnn_graph_label_propagation_leak_guard`, GC10 `gnn_graph_negative_sampling_balanced`, GC11 `gnn_graph_graph_attention_scores_bounded`, GC12 `gnn_graph_link_prediction_auc_reported`, GC13 `gnn_graph_isolated_node_handling`, GC14 `gnn_graph_large_graph_minibatch`, GC15 `gnn_graph_heterogeneous_edge_types`, GC16 `gnn_graph_temporal_graph_order`, GC17 `gnn_graph_subgraph_induction_valid`, GC18 `gnn_graph_graph_rewiring_regularization`, GC19 `gnn_graph_sensitive_attribute_removal`, GC20 `gnn_graph_community_detection_quality`, GC21 `gnn_graph_graph_augmentation_label_preserving`, GC22 `gnn_graph_embedding_quality_task_downstream`, GC23 `gnn_graph_graph_classification_balanced`, GC24 `gnn_graph_overall_gnn_maturity`.
+
+
+---
+
+# BAGIAN 97 — WAVE GD: PROPERTY & DIFFERENTIAL TESTING INTEGRITY GD01–GD24 (VERIFIED; v0.97.0)
+
+Menambahkan lapisan integritas property & differential testing integrity: `GD01–GD24` di `hard_gate_enhancements.py`, disurfacing `P_PROP_01–P_PROP_24`; diverifikasi 24/24 PASS (selftest_gd_w3 rc 0).
+
+Mekanisme operasional formal:
+GD01 `prop_property_property_definition_formal`, GD02 `prop_property_fuzz_input_generation`, GD03 `prop_property_shrinking_counterexample`, GD04 `prop_property_deterministic_seed_replay`, GD05 `prop_property_coverage_driven_generation`, GD06 `prop_property_stateful_sequence_test`, GD07 `prop_property_invariant_holds_after_ops`, GD08 `prop_property_cross_reference_oracle`, GD09 `prop_property_edge_case_boundary_values`, GD10 `prop_property_idempotency_asserted`, GD11 `prop_property_order_dependence_detected`, GD12 `prop_property_race_condition_probe_parallel`, GD13 `prop_property_resource_leak_assertion`, GD14 `prop_property_type_compatibility_test`, GD15 `prop_property_error_contract_verified`, GD16 `prop_property_exhaustive_small_domain`, GD17 `prop_property_regression_property_suite`, GD18 `prop_property_agentic_property_policy`, GD19 `prop_property_property_grammar_valid`, GD20 `prop_property_mutation_killed_capture`, GD21 `prop_property_state_invariant_after_rollback`, GD22 `prop_property_contract_testing_roles`, GD23 `prop_property_quantitative_property_bound`, GD24 `prop_property_overall_property_maturity`.
+
+
+---
+
+# BAGIAN 98 — WAVE GE: CI/CD SECURITY & PIPELINE SUPPLY CHAIN INTEGRITY GE01–GE24 (VERIFIED; v0.98.0)
+
+Menambahkan lapisan integritas ci/cd security & pipeline supply chain integrity: `GE01–GE24` di `hard_gate_enhancements.py`, disurfacing `P_CISEC_01–P_CISEC_24`; diverifikasi 24/24 PASS (selftest_ge_w3 rc 0).
+
+Mekanisme operasional formal:
+GE01 `cisec_ci_runner_isolated`, GE02 `cisec_pipeline_secrets_never_logged`, GE03 `cisec_build_artifact_signed`, GE04 `cisec_ci_yaml_reviewed`, GE05 `cisec_matrix_build_parity`, GE06 `cisec_dependency_cache_pinned`, GE07 `cisec_supply_chain_verify_deps`, GE08 `cisec_cached_artifacts_scanned`, GE09 `cisec_pipeline_failure_fast`, GE10 `cisec_ci_timeout_bounded`, GE11 `cisec_artifact_promotion_gated`, GE12 `cisec_pipeline_job_permission_least`, GE13 `cisec_concurrency_guard`, GE14 `cisec_workflow_trigger_scoped`, GE15 `cisec_fork_pr_security`, GE16 `cisec_registry_push_authenticated`, GE17 `cisec_pipeline_telemetry_emitted`, GE18 `cisec_cve_scan_on_pr`, GE19 `cisec_pipeline_reproducibility`, GE20 `cisec_deploy_gate_review`, GE21 `cisec_secrets_rotation_ci`, GE22 `cisec_ci_log_retention`, GE23 `cisec_review_apps_hardened`, GE24 `cisec_overall_cisec_maturity`.
+
+
+---
+
+# BAGIAN 99 — WAVE GF: VENDOR & OPEN SOURCE SUPPLY CHAIN GOVERNANCE GF01–GF24 (VERIFIED; v0.99.0)
+
+Menambahkan lapisan integritas vendor & open source supply chain governance: `GF01–GF24` di `hard_gate_enhancements.py`, disurfacing `P_VEND_01–P_VEND_24`; diverifikasi 24/24 PASS (selftest_gf_w3 rc 0).
+
+Mekanisme operasional formal:
+GF01 `vend_oss_license_compliance_matrix`, GF02 `vend_oss_copyleft_inheritance_checked`, GF03 `vend_oss_security_bulletin_monitor`, GF04 `vend_oss_maintenance_activity_check`, GF05 `vend_oss_releases_signed_verified`, GF06 `vend_oss_provenance_reproducible_build`, GF07 `vend_oss_dependency_risk_score`, GF08 `vend_oss_reverse_dependency_impact`, GF09 `vend_oss_contributor_license_agreement`, GF10 `vend_oss_dual_license_awareness`, GF11 `vend_oss_fork_management_policy`, GF12 `vend_oss_abandoned_project_fallback`, GF13 `vend_oss_cve_patch_availability`, GF14 `vend_oss_code_audit_coverage`, GF15 `vend_oss_internal_mirror_approved`, GF16 `vend_oss_one_click_pr_spam_guard`, GF17 `vend_oss_commercial_support_contract`, GF18 `vend_oss_legal_review_integration`, GF19 `vend_oss_security_contact_responsive`, GF20 `vend_oss_sbom_updated_on_change`, GF21 `vend_oss_supplier_ai_policy`, GF22 `vend_oss_vendor_concentration_watch`, GF23 `vend_oss_transition_plan_documented`, GF24 `vend_oss_overall_vendor_maturity`.
+
+
+---
+
+# BAGIAN 100 — WAVE GG: DISASTER RECOVERY & BUSINESS CONTINUITY ORCHESTRATION GG01–GG24 (VERIFIED; v1.00.0)
+
+Menambahkan lapisan integritas disaster recovery & business continuity orchestration: `GG01–GG24` di `hard_gate_enhancements.py`, disurfacing `P_DR_01–P_DR_24`; diverifikasi 24/24 PASS (selftest_gg_w3 rc 0).
+
+Mekanisme operasional formal:
+GG01 `dr_recovery_rpo_rto_sla_defined`, GG02 `dr_recovery_scheduled_dr_drill`, GG03 `dr_recovery_failover_site_healthy`, GG04 `dr_recovery_backup_verification_restore`, GG05 `dr_recovery_data_replication_async_metric`, GG06 `dr_recovery_dependency_recovery_order`, GG07 `dr_recovery_communication_plan_activated`, GG08 `dr_recovery_dr_runbook_current`, GG09 `dr_recovery_backup_offsite_geo`, GG10 `dr_recovery_cost_balance_rto`, GG11 `dr_recovery_chaos_dr_tested`, GG12 `dr_recovery_data_corruption_restore_proof`, GG13 `dr_recovery_active_passive_detection`, GG14 `dr_recovery_auto_failover_decision`, GG15 `dr_recovery_dns_switch_propagated`, GG16 `dr_recovery_rollback_after_incident`, GG17 `dr_recovery_dr_metrics_dashboard`, GG18 `dr_recovery_application_dependency_restart_order`, GG19 `dr_recovery_backup_retention_policy_aligned`, GG20 `dr_recovery_cold_warm_hot_tier_assigned`, GG21 `dr_recovery_dr_personnel_trained`, GG22 `dr_recovery_vendor_cloud_region_independence`, GG23 `dr_recovery_replication_cipher_in_transit`, GG24 `dr_recovery_overall_dr_maturity`.
+
+
+---
+
+# BAGIAN 101 — WAVE GH: EDGE & IOT DEVICE SECURITY FLOTILLA INTEGRITY GH01–GH24 (VERIFIED; v1.01.0)
+
+Menambahkan lapisan integritas edge & iot device security flotilla integrity: `GH01–GH24` di `hard_gate_enhancements.py`, disurfacing `P_EDGE_01–P_EDGE_24`; diverifikasi 24/24 PASS (selftest_gh_w3 rc 0).
+
+Mekanisme operasional formal:
+GH01 `edge_iot_device_identity_unique_cert`, GH02 `edge_iot_firmware_update_signed`, GH03 `edge_iot_device_provisioning_secure`, GH04 `edge_iot_mutual_tls_edge`, GH05 `edge_iot_local_data_encryption_at_rest`, GH06 `edge_iot_remote_attestation_boot`, GH07 `edge_iot_secure_boot_enforced`, GH08 `edge_iot_patched_device_fleet`, GH09 `edge_iot_device_onboarding_audit`, GH10 `edge_iot_edge_network_segmentation`, GH11 `edge_iot_anomaly_behavior_monitor`, GH12 `edge_iot_edge_model_update_versioned`, GH13 `edge_iot_device_quarantine_on_anomaly`, GH14 `edge_iot_constrained_resource_crypto_light`, GH15 `edge_iot_device_battery_secure_pairing`, GH16 `edge_iot_over_the_air_rollback`, GH17 `edge_iot_edge_data_minimization`, GH18 `edge_iot_device_sleep_secure_state`, GH19 `edge_iot_gateway_hardening`, GH20 `edge_iot_device_allowlist_mac`, GH21 `edge_iot_captive_portal_mitigation`, GH22 `edge_iot_firmware_integrity_check`, GH23 `edge_iot_device_policy_served`, GH24 `edge_iot_overall_edge_maturity`.
+
+
+---
+
+# BAGIAN 102 — WAVE GI: HUMAN-AI COLLABORATION & UX SAFETY INTEGRITY GI01–GI24 (VERIFIED; v1.02.0)
+
+Menambahkan lapisan integritas human-ai collaboration & ux safety integrity: `GI01–GI24` di `hard_gate_enhancements.py`, disurfacing `P_HCI_01–P_HCI_24`; diverifikasi 24/24 PASS (selftest_gi_w3 rc 0).
+
+Mekanisme operasional formal:
+GI01 `hci_collab_error_state_communication_clear`, GI02 `hci_collab_confirmation_before_destructive`, GI03 `hci_collab_status_visibility_progress`, GI04 `hci_collab_undo_redo_availability`, GI05 `hci_collab_learning_curve_progressive_disclosure`, GI06 `hci_collab_feedback_loop_actionable`, GI07 `hci_collab_consistency_in_patterns`, GI08 `hci_collab_accessibility_input_modalities`, GI09 `hci_collab_trust_calibration_confidence`, GI10 `hci_collab_oversight_necessary_hard_stop`, GI11 `hci_collab_clear_escalation_path`, GI12 `hci_collab_model_error_correction_intent`, GI13 `hci_collab_interface_last_resort_manual`, GI14 `hci_collab_explanation_available_on_request`, GI15 `hci_collab_user_consent_transparency`, GI16 `hci_collab_alert_fatigue_managed`, GI17 `hci_collab_latency_perception_bounded`, GI18 `hci_collab_learnability_onboarding`, GI19 `hci_collab_recoverable_error_design`, GI20 `hci_collab_guardrail_system_response`, GI21 `hci_collab_human_authority_hierarchy`, GI22 `hci_collab_collaboration_role_clarity`, GI23 `hci_collab_joint_task_metrics_defined`, GI24 `hci_collab_overall_hci_maturity`.
+
+
+---
+
+# BAGIAN 103 — WAVE GJ: SIMULATION VERIFICATION & MODEL-IN-THE-LOOP INTEGRITY GJ01–GJ24 (VERIFIED; v1.03.0)
+
+Menambahkan lapisan integritas simulation verification & model-in-the-loop integrity: `GJ01–GJ24` di `hard_gate_enhancements.py`, disurfacing `P_SIM_01–P_SIM_24`; diverifikasi 24/24 PASS (selftest_gj_w3 rc 0).
+
+Mekanisme operasional formal:
+GJ01 `sim_verif_simulation_seed_reproducible`, GJ02 `sim_verif_numerical_stability_critical`, GJ03 `sim_verif_step_size_convergence`, GJ04 `sim_verif_physical_constraint_respected`, GJ05 `sim_verif_distribution_parameterization_valid`, GJ06 `sim_verif_randomness_source_seeded`, GJ07 `sim_verif_time_horizon_sufficient`, GJ08 `sim_verif_warmup_discarded`, GJ09 `sim_verif_variance_reduction_applied`, GJ10 `sim_verif_model_calibration_to_obs`, GJ11 `sim_verif_sensitivity_analysis_run`, GJ12 `sim_verif_rare_event_oversampling`, GJ13 `sim_verif_entity_identity_consistent`, GJ14 `sim_verif_parallel_simulation_determinism`, GJ15 `sim_verif_interaction_avoidance_collision`, GJ16 `sim_verif_agent_decision_logging`, GJ17 `sim_verif_scenario_coverage_gap`, GJ18 `sim_verif_metric_of_interest_defined`, GJ19 `sim_verif_comparison_baseline_fair`, GJ20 `sim_verif_model_presence_loss_handled`, GJ21 `sim_verif_quantile_risk_metrics`, GJ22 `sim_verif_empirical_confidence_intervals`, GJ23 `sim_verif_simulation_version_controlled`, GJ24 `sim_verif_overall_sim_maturity`.

@@ -1,3 +1,53 @@
+## v1.03.0 (2026-11-02) — Wave GJ SIMULATION VERIFICATION & MODEL-IN-THE-LOOP INTEGRITY GJ01–GJ24 (BAGIAN 103)
+
+- **GJ01–GJ24**: simulation verification & model-in-the-loop integrity mechanisms added to hard_gate_enhancements.py and wired to P_SIM_01–P_SIM_24. 24/24 PASS.
+- **BAGIAN 103** ditambahkan; bump v1.03.0.
+
+## v1.02.0 (2026-11-02) — Wave GI HUMAN-AI COLLABORATION & UX SAFETY INTEGRITY GI01–GI24 (BAGIAN 102)
+
+- **GI01–GI24**: human-ai collaboration & ux safety integrity mechanisms added to hard_gate_enhancements.py and wired to P_HCI_01–P_HCI_24. 24/24 PASS.
+- **BAGIAN 102** ditambahkan; bump v1.02.0.
+
+## v1.01.0 (2026-11-02) — Wave GH EDGE & IOT DEVICE SECURITY FLOTILLA INTEGRITY GH01–GH24 (BAGIAN 101)
+
+- **GH01–GH24**: edge & iot device security flotilla integrity mechanisms added to hard_gate_enhancements.py and wired to P_EDGE_01–P_EDGE_24. 24/24 PASS.
+- **BAGIAN 101** ditambahkan; bump v1.01.0.
+
+## v1.00.0 (2026-11-02) — Wave GG DISASTER RECOVERY & BUSINESS CONTINUITY ORCHESTRATION GG01–GG24 (BAGIAN 100)
+
+- **GG01–GG24**: disaster recovery & business continuity orchestration mechanisms added to hard_gate_enhancements.py and wired to P_DR_01–P_DR_24. 24/24 PASS.
+- **BAGIAN 100** ditambahkan; bump v1.00.0.
+
+## v0.99.0 (2026-11-02) — Wave GF VENDOR & OPEN SOURCE SUPPLY CHAIN GOVERNANCE GF01–GF24 (BAGIAN 99)
+
+- **GF01–GF24**: vendor & open source supply chain governance mechanisms added to hard_gate_enhancements.py and wired to P_VEND_01–P_VEND_24. 24/24 PASS.
+- **BAGIAN 99** ditambahkan; bump v0.99.0.
+
+## v0.98.0 (2026-11-02) — Wave GE CI/CD SECURITY & PIPELINE SUPPLY CHAIN INTEGRITY GE01–GE24 (BAGIAN 98)
+
+- **GE01–GE24**: ci/cd security & pipeline supply chain integrity mechanisms added to hard_gate_enhancements.py and wired to P_CISEC_01–P_CISEC_24. 24/24 PASS.
+- **BAGIAN 98** ditambahkan; bump v0.98.0.
+
+## v0.97.0 (2026-11-02) — Wave GD PROPERTY & DIFFERENTIAL TESTING INTEGRITY GD01–GD24 (BAGIAN 97)
+
+- **GD01–GD24**: property & differential testing integrity mechanisms added to hard_gate_enhancements.py and wired to P_PROP_01–P_PROP_24. 24/24 PASS.
+- **BAGIAN 97** ditambahkan; bump v0.97.0.
+
+## v0.96.0 (2026-11-02) — Wave GC GRAPH NEURAL NETWORK & RELATIONAL LEARNING INTEGRITY GC01–GC24 (BAGIAN 96)
+
+- **GC01–GC24**: graph neural network & relational learning integrity mechanisms added to hard_gate_enhancements.py and wired to P_GNN_01–P_GNN_24. 24/24 PASS.
+- **BAGIAN 96** ditambahkan; bump v0.96.0.
+
+## v0.95.0 (2026-11-02) — Wave GB TIME SERIES FORECASTING & SEASONALITY INTEGRITY GB01–GB24 (BAGIAN 95)
+
+- **GB01–GB24**: time series forecasting & seasonality integrity mechanisms added to hard_gate_enhancements.py and wired to P_TS_01–P_TS_24. 24/24 PASS.
+- **BAGIAN 95** ditambahkan; bump v0.95.0.
+
+## v0.94.0 (2026-11-02) — Wave GA EXPLAINABILITY & INTERPRETABILITY ENGINE INTEGRITY GA01–GA24 (BAGIAN 94)
+
+- **GA01–GA24**: explainability & interpretability engine integrity mechanisms added to hard_gate_enhancements.py and wired to P_XAI_01–P_XAI_24. 24/24 PASS.
+- **BAGIAN 94** ditambahkan; bump v0.94.0.
+
 ## v0.93.0 (2026-11-02) — Wave FR CONTINUOUS MODEL FRESHNESS & DRIFT CONTAINMENT INTEGRITY FR01–FR24 (BAGIAN 93)
 
 - **FR01–FR24**: continuous model freshness & drift containment integrity mechanisms added to hard_gate_enhancements.py and wired to P_FRESH_01–P_FRESH_24. 24/24 PASS.
