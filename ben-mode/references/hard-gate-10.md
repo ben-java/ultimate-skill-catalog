@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.49.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.50.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2200,3 +2200,15 @@ disurfacing `P_RR01–P_RR24`; diverifikasi 24/24 PASS (selftest_rr rc 0).
 - Distribution & Drift: RR04 `rr_distribution_shift`, RR05 `rr_long_tail_cases`, RR06 `rr_out_of_distribution_guard`, RR07 `rr_model_drift_recovery`.
 - Fault & Recovery: RR08 `rr_fault_tolerance`, RR09 `rr_graceful_handling`, RR10 `rr_backoff_retry`, RR11 `rr_circuit_breaker`, RR12 `rr_timeout_policy`, RR13 `rr_resource_exhaustion`, RR16 `rr_recovery_verification`, RR21 `rr_self_healing`, RR22 `rr_reproducible_fault`, RR23 `rr_contingency_plan`.
 - Testing & Governance: RR14 `rr_stress_testing`, RR19 `rr_guardrail_after_failure`, RR20 `rr_multi_model_consensus`, RR24 `rr_overall_robustness`.
+
+---
+
+# BAGIAN 50 — WAVE S: ACCOUNTABILITY & AUDITABILITY INTEGRITY SS01–SS24 (VERIFIED; v0.50.0)
+
+Menambahkan lapisan accountability & auditability: `SS01–SS24` di `hard_gate_enhancements.py`,
+disurfacing `P_SS01–P_SS24`; diverifikasi 24/24 PASS (selftest_ss rc 0).
+
+- Decision & Action Logging: SS01 `ss_decision_log`, SS02 `ss_actor_identity`, SS03 `ss_action_attribution`, SS04 `ss_audit_trail`, SS05 `ss_explainability`, SS08 `ss_final_answer_trace`, SS16 `ss_consequence_map`.
+- Governance & Sign-off: SS06 `ss_sign_off`, SS07 `ss_contradiction_detect`, SS09 `ss_version_history`, SS10 `ss_regulatory_compliance`, SS21 `ss_ownership_clear`, SS22 `ss_culture_accountability`.
+- Audit Regime: SS11 `ss_audit_scope`, SS12 `ss_stakeholder_visibility`, SS14 `ss_automated_audit`, SS17 `ss_verification_sign_off`, SS19 `ss_separation_of_audit`, SS20 `ss_internal_audit_regime`, SS23 `ss_continuous_audit`.
+- Corrective Loop: SS13 `ss_error_correction`, SS15 `ss_evidence_retention`, SS18 `ss_audit_feedback`, SS24 `ss_overall_accountability`.

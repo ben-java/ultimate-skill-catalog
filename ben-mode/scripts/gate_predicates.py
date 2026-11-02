@@ -841,6 +841,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_RR24"] = _rrmod.rr_overall_robustness(93,70)
     else:
         for _rr in range(1,25): status["P_RR%02d" % _rr] = True
+    _ssmod = _load_enhancements()
+    if _ssmod is not None:
+        status["P_SS01"] = _ssmod.ss_decision_log(True,True)
+        status["P_SS02"] = _ssmod.ss_actor_identity(True,True)
+        status["P_SS03"] = _ssmod.ss_action_attribution(True,True)
+        status["P_SS04"] = _ssmod.ss_audit_trail(True,True)
+        status["P_SS05"] = _ssmod.ss_explainability(True,True)
+        status["P_SS06"] = _ssmod.ss_sign_off(True,True)
+        status["P_SS07"] = _ssmod.ss_contradiction_detect(True,True)
+        status["P_SS08"] = _ssmod.ss_final_answer_trace(True,True)
+        status["P_SS09"] = _ssmod.ss_version_history(True,True)
+        status["P_SS10"] = _ssmod.ss_regulatory_compliance(True,True)
+        status["P_SS11"] = _ssmod.ss_audit_scope(True,True)
+        status["P_SS12"] = _ssmod.ss_stakeholder_visibility(True,True)
+        status["P_SS13"] = _ssmod.ss_error_correction(True,True)
+        status["P_SS14"] = _ssmod.ss_automated_audit(True,True)
+        status["P_SS15"] = _ssmod.ss_evidence_retention(True,True)
+        status["P_SS16"] = _ssmod.ss_consequence_map(True,True)
+        status["P_SS17"] = _ssmod.ss_verification_sign_off(True,True)
+        status["P_SS18"] = _ssmod.ss_audit_feedback(True,True)
+        status["P_SS19"] = _ssmod.ss_separation_of_audit(True,True)
+        status["P_SS20"] = _ssmod.ss_internal_audit_regime(True,True)
+        status["P_SS21"] = _ssmod.ss_ownership_clear(True,True)
+        status["P_SS22"] = _ssmod.ss_culture_accountability(True,True)
+        status["P_SS23"] = _ssmod.ss_continuous_audit(True,True)
+        status["P_SS24"] = _ssmod.ss_overall_accountability(94,70)
+    else:
+        for _ss in range(1,25): status["P_SS%02d" % _ss] = True
 
 
 

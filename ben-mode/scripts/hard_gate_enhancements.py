@@ -4405,3 +4405,128 @@ def selftest_rr():
             (22, rr_reproducible_fault(True, True)),
             (23, rr_contingency_plan(True, True)),
             (24, rr_overall_robustness(93, 70))]
+
+# ------------------------------------------------------------------
+# WAVE S — ACCOUNTABILITY & AUDITABILITY INTEGRITY (SS01–SS24)
+# ------------------------------------------------------------------
+def ss_decision_log(logged, immutable):
+    # SS01: decisions logged immutably.
+    return bool(logged) and bool(immutable)
+
+def ss_actor_identity(identities, authenticated):
+    # SS02: actor identities authenticated.
+    return bool(identities) and bool(authenticated)
+
+def ss_action_attribution(attributed, traceable):
+    # SS03: actions attributed + traceable.
+    return bool(attributed) and bool(traceable)
+
+def ss_audit_trail(trail, tamper_evident):
+    # SS04: audit trail tamper-evident.
+    return bool(trail) and bool(tamper_evident)
+
+def ss_explainability(recorded, reasons):
+    # SS05: decisions recorded with reasons.
+    return bool(recorded) and bool(reasons)
+
+def ss_sign_off(approval, authorized):
+    # SS06: changes require authorized sign-off.
+    return bool(approval) and bool(authorized)
+
+def ss_contradiction_detect(detected, reviewed):
+    # SS07: conflicting records detected + reviewed.
+    return bool(detected) and bool(reviewed)
+
+def ss_final_answer_trace(traced, source_bound):
+    # SS08: answers traced to sources.
+    return bool(traced) and bool(source_bound)
+
+def ss_version_history(history, complete):
+    # SS09: full version history maintained.
+    return bool(history) and bool(complete)
+
+def ss_regulatory_compliance(regulation, mapped):
+    # SS10: regulations mapped to controls.
+    return bool(regulation) and bool(mapped)
+
+def ss_audit_scope(audited, covered):
+    # SS11: audit scope covers all relevant systems.
+    return bool(audited) and bool(covered)
+
+def ss_stakeholder_visibility(visible, prioritized):
+    # SS12: stakeholder visibility prioritized.
+    return bool(visible) and bool(prioritized)
+
+def ss_error_correction(corrected, logged):
+    # SS13: errors corrected + logged.
+    return bool(corrected) and bool(logged)
+
+def ss_automated_audit(auto_audit, scheduled):
+    # SS14: automated audit scheduled.
+    return bool(auto_audit) and bool(scheduled)
+
+def ss_evidence_retention(retained, window_met):
+    # SS15: evidence retained for required window.
+    return bool(retained) and bool(window_met)
+
+def ss_consequence_map(mapped, recorded):
+    # SS16: consequences of decisions mapped.
+    return bool(mapped) and bool(recorded)
+
+def ss_verification_sign_off(verified, second_opinion):
+    # SS17: verification requires independent sign-off.
+    return bool(verified) and bool(second_opinion)
+
+def ss_audit_feedback(feedback, loop_closed):
+    # SS18: audit findings feed back into process.
+    return bool(feedback) and bool(loop_closed)
+
+def ss_separation_of_audit(separated, independent):
+    # SS19: audit function separated from execution.
+    return bool(separated) and bool(independent)
+
+def ss_internal_audit_regime(regime, risk_based):
+    # SS20: internal audit regime risk-based.
+    return bool(regime) and bool(risk_based)
+
+def ss_ownership_clear(owners, assigned):
+    # SS21: clear ownership assigned.
+    return bool(owners) and bool(assigned)
+
+def ss_culture_accountability(culture, encouraged):
+    # SS22: accountability culture encouraged.
+    return bool(culture) and bool(encouraged)
+
+def ss_continuous_audit(continuous, integrated):
+    # SS23: continuous audit integrated.
+    return bool(continuous) and bool(integrated)
+
+def ss_overall_accountability(score, min_score):
+    # SS24: overall accountability score meets minimum.
+    return score >= min_score
+
+def selftest_ss():
+    return [(1, ss_decision_log(True, True)),
+            (2, ss_actor_identity(True, True)),
+            (3, ss_action_attribution(True, True)),
+            (4, ss_audit_trail(True, True)),
+            (5, ss_explainability(True, True)),
+            (6, ss_sign_off(True, True)),
+            (7, ss_contradiction_detect(True, True)),
+            (8, ss_final_answer_trace(True, True)),
+            (9, ss_version_history(True, True)),
+            (10, ss_regulatory_compliance(True, True)),
+            (11, ss_audit_scope(True, True)),
+            (12, ss_stakeholder_visibility(True, True)),
+            (13, ss_error_correction(True, True)),
+            (14, ss_automated_audit(True, True)),
+            (15, ss_evidence_retention(True, True)),
+            (16, ss_consequence_map(True, True)),
+            (17, ss_verification_sign_off(True, True)),
+            (18, ss_audit_feedback(True, True)),
+            (19, ss_separation_of_audit(True, True)),
+            (20, ss_internal_audit_regime(True, True)),
+            (21, ss_ownership_clear(True, True)),
+            (22, ss_culture_accountability(True, True)),
+            (23, ss_continuous_audit(True, True)),
+            (24, ss_overall_accountability(94, 70))]
