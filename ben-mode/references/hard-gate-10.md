@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.51.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.52.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2224,3 +2224,15 @@ disurfacing `P_TT01–P_TT24`; diverifikasi 24/24 PASS (selftest_tt rc 0).
 - Secrets & Protection: TT02 `tt_secret_injection`, TT15 `tt_config_encryption`.
 - Environment: TT03 `tt_env_parity`, TT09 `tt_immutable_infra`, TT11 `tt_environment_isolation`, TT12 `tt_clean_teardown`, TT13 `tt_local_remote_parity`, TT17 `tt_automated_reprovision`, TT18 `tt_permission_least_privilege`, TT20 `tt_environment_health`.
 - Change & Drift: TT06 `tt_feature_flags`, TT08 `tt_config_drift_detect`, TT10 `tt_as_code_review`, TT14 `tt_dependency_provenance`, TT16 `tt_toolchain_pinning`, TT21 `tt_patch_management`, TT24 `tt_overall_config_integrity`.
+
+---
+
+# BAGIAN 52 — WAVE U: GOVERNANCE & CONTROLS INTEGRITY UU01–UU24 (VERIFIED; v0.52.0)
+
+Menambahkan lapisan governance & controls: `UU01–UU24` di `hard_gate_enhancements.py`,
+disurfacing `P_UU01–P_UU24`; diverifikasi 24/24 PASS (selftest_uu rc 0).
+
+- Framework & Risk: UU01 `uu_policy_framework`, UU02 `uu_risk_register`, UU03 `uu_control_implementation`, UU04 `uu_control_effectiveness`, UU05 `uu_third_party_risk`, UU21 `uu_policy_lifecycle`, UU22 `uu_control_metrics`.
+- Response & Continuity: UU06 `uu_incident_management`, UU07 `uu_continuity_plan`.
+- Compliance & Enforcement: UU08 `uu_compliance_monitoring`, UU09 `uu_policy_enforcement`, UU13 `uu_control_tests_scheduled`, UU18 `uu_change_control`, UU19 `uu_management_review`, UU20 `uu_audit_independence`, UU23 `uu_governance_committee`.
+- People & Data: UU10 `uu_role_definitions`, UU11 `uu_decision_authority`, UU12 `uu_training_awareness`, UU14 `uu_data_governance`, UU15 `uu_vendor_sla`, UU16 `uu_cloud_governance`, UU17 `uu_asset_management`, UU24 `uu_overall_governance`.

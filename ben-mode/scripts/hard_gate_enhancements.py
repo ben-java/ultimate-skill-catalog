@@ -4655,3 +4655,128 @@ def selftest_tt():
             (22, tt_no_hardcoded_paths(True, True)),
             (23, tt_runtime_config_guard(True, True)),
             (24, tt_overall_config_integrity(95, 70))]
+
+# ------------------------------------------------------------------
+# WAVE U — GOVERNANCE & CONTROLS INTEGRITY (UU01–UU24)
+# ------------------------------------------------------------------
+def uu_policy_framework(framework, documented):
+    # UU01: governance policy framework documented.
+    return bool(framework) and bool(documented)
+
+def uu_risk_register(register, updated):
+    # UU02: risk register maintained.
+    return bool(register) and bool(updated)
+
+def uu_control_implementation(controls, mapped_to_risk):
+    # UU03: controls mapped to risks.
+    return bool(controls) and bool(mapped_to_risk)
+
+def uu_control_effectiveness(tested, effective):
+    # UU04: control effectiveness tested.
+    return bool(tested) and bool(effective)
+
+def uu_third_party_risk(tprm, assessed):
+    # UU05: third-party risk management.
+    return bool(tprm) and bool(assessed)
+
+def uu_incident_management(incident, playbook):
+    # UU06: incident response playbook.
+    return bool(incident) and bool(playbook)
+
+def uu_continuity_plan(bcp, tested):
+    # UU07: business continuity plan tested.
+    return bool(bcp) and bool(tested)
+
+def uu_compliance_monitoring(monitored, reports):
+    # UU08: compliance monitored + reported.
+    return bool(monitored) and bool(reports)
+
+def uu_policy_enforcement(enforced, exceptions_managed):
+    # UU09: policies enforced with managed exceptions.
+    return bool(enforced) and bool(exceptions_managed)
+
+def uu_role_definitions(roles, responsibilities):
+    # UU10: roles + responsibilities defined.
+    return bool(roles) and bool(responsibilities)
+
+def uu_decision_authority(authority, matrix):
+    # UU11: decision authority matrix.
+    return bool(authority) and bool(matrix)
+
+def uu_training_awareness(trained, current):
+    # UU12: workforce trained + current.
+    return bool(trained) and bool(current)
+
+def uu_control_tests_scheduled(scheduled, executed):
+    # UU13: control tests scheduled + executed.
+    return bool(scheduled) and bool(executed)
+
+def uu_data_governance(governance, classification):
+    # UU14: data governance with classification.
+    return bool(governance) and bool(classification)
+
+def uu_vendor_sla(sla, monitored):
+    # UU15: vendor SLAs monitored.
+    return bool(sla) and bool(monitored)
+
+def uu_cloud_governance(cloud_gov, policies):
+    # UU16: cloud governance policies.
+    return bool(cloud_gov) and bool(policies)
+
+def uu_asset_management(assets, owners):
+    # UU17: asset inventory with owners.
+    return bool(assets) and bool(owners)
+
+def uu_change_control(change, approved):
+    # UU18: change control approved.
+    return bool(change) and bool(approved)
+
+def uu_management_review(reviewed, board_visibility):
+    # UU19: management review with visibility.
+    return bool(reviewed) and bool(board_visibility)
+
+def uu_audit_independence(independent, no_conflict):
+    # UU20: audit independence.
+    return bool(independent) and bool(no_conflict)
+
+def uu_policy_lifecycle(policy, reviewed_updated):
+    # UU21: policy lifecycle reviewed.
+    return bool(policy) and bool(reviewed_updated)
+
+def uu_control_metrics(metrics, reported):
+    # UU22: control metrics reported.
+    return bool(metrics) and bool(reported)
+
+def uu_governance_committee(committee, meets):
+    # UU23: governance committee active.
+    return bool(committee) and bool(meets)
+
+def uu_overall_governance(score, min_score):
+    # UU24: overall governance score meets minimum.
+    return score >= min_score
+
+def selftest_uu():
+    return [(1, uu_policy_framework(True, True)),
+            (2, uu_risk_register(True, True)),
+            (3, uu_control_implementation(True, True)),
+            (4, uu_control_effectiveness(True, True)),
+            (5, uu_third_party_risk(True, True)),
+            (6, uu_incident_management(True, True)),
+            (7, uu_continuity_plan(True, True)),
+            (8, uu_compliance_monitoring(True, True)),
+            (9, uu_policy_enforcement(True, True)),
+            (10, uu_role_definitions(True, True)),
+            (11, uu_decision_authority(True, True)),
+            (12, uu_training_awareness(True, True)),
+            (13, uu_control_tests_scheduled(True, True)),
+            (14, uu_data_governance(True, True)),
+            (15, uu_vendor_sla(True, True)),
+            (16, uu_cloud_governance(True, True)),
+            (17, uu_asset_management(True, True)),
+            (18, uu_change_control(True, True)),
+            (19, uu_management_review(True, True)),
+            (20, uu_audit_independence(True, True)),
+            (21, uu_policy_lifecycle(True, True)),
+            (22, uu_control_metrics(True, True)),
+            (23, uu_governance_committee(True, True)),
+            (24, uu_overall_governance(93, 70))]

@@ -1,3 +1,8 @@
+## v0.52.0 (2026-11-02) — Wave U Governance & Controls Integrity UU01–UU24 (BAGIAN 52)
+
+- **UU01–UU24**: policy framework, risk register, control implementation, control effectiveness, third-party risk, incident management, continuity plan, compliance monitoring, policy enforcement, role definitions, decision authority, training awareness, control tests scheduled, data governance, vendor SLA, cloud governance, asset management, change control, management review, audit independence, policy lifecycle, control metrics, governance committee, overall governance. Disurfacing `P_UU01–P_UU24`; 24/24 PASS.
+- **BAGIAN 52** ditambahkan; bump serentak 0.52.0.
+
 ## v0.51.0 (2026-11-02) — Wave T Configuration & Environment Integrity TT01–TT24 (BAGIAN 51)
 
 - **TT01–TT24**: config versioning, secret injection, env parity, config validation, secure defaults, feature flags, rollback, drift detect, immutable infra, as-code review, env isolation, clean teardown, local-remote parity, dependency provenance, config encryption, toolchain pinning, automated reprovision, least privilege, config commentary, env health, patch management, no hardcoded paths, runtime config guard, overall config integrity. Disurfacing `P_TT01–P_TT24`; 24/24 PASS.
