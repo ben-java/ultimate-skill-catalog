@@ -4780,3 +4780,128 @@ def selftest_uu():
             (22, uu_control_metrics(True, True)),
             (23, uu_governance_committee(True, True)),
             (24, uu_overall_governance(93, 70))]
+
+# ------------------------------------------------------------------
+# WAVE V — SCALABILITY & PERFORMANCE INTEGRITY (VV01–VV24)
+# ------------------------------------------------------------------
+def vv_load_testing(load_tested, target_met):
+    # VV01: load tested to target.
+    return bool(load_tested) and bool(target_met)
+
+def vv_latency_budget(latency, budget_met):
+    # VV02: latency within budget.
+    return latency <= budget_met
+
+def vv_throughput_target(throughput, target_met):
+    # VV03: throughput meets target.
+    return throughput >= target_met
+
+def vv_resource_efficiency(efficient, waste_bounded):
+    # VV04: resource efficiency bounded.
+    return bool(efficient) and bool(waste_bounded)
+
+def vv_autoscaling(autoscale, policy_defined):
+    # VV05: autoscaling with defined policy.
+    return bool(autoscale) and bool(policy_defined)
+
+def vv_scale_out_isolation(isolated, shock_absorbed):
+    # VV06: scale-out isolation.
+    return bool(isolated) and bool(shock_absorbed)
+
+def vv_capacity_planning(planned, growth_modeled):
+    # VV07: capacity planning with growth model.
+    return bool(planned) and bool(growth_modeled)
+
+def vv_backpressure(backpressure, throttled):
+    # VV08: backpressure throttling.
+    return bool(backpressure) and bool(throttled)
+
+def vv_caching_strategy(cache, coherence_ok):
+    # VV09: caching with coherence.
+    return bool(cache) and bool(coherence_ok)
+
+def vv_connection_pooling(pooled, bounds):
+    # VV10: connection pooling bounded.
+    return bool(pooled) and bool(bounds)
+
+def vv_async_processing(async_p, non_blocking):
+    # VV11: async processing non-blocking.
+    return bool(async_p) and bool(non_blocking)
+
+def vv_performance_regression(regression_guard, failing_build_gated):
+    # VV12: performance regression guard.
+    return bool(regression_guard) and bool(failing_build_gated)
+
+def vv_profiling(profiled, hotspots_addressed):
+    # VV13: profiling + hotspot remediation.
+    return bool(profiled) and bool(hotspots_addressed)
+
+def vv_bottleneck_detect(detected, resolved):
+    # VV14: bottleneck detection resolved.
+    return bool(detected) and bool(resolved)
+
+def vv_concurrency_scaling(scales, linearish):
+    # VV15: concurrency scales near-linearly.
+    return bool(scales) and bool(linearish)
+
+def vv_degradation_graceful(degrades, gracefully):
+    # VV16: graceful degradation under load.
+    return bool(degrades) and bool(gracefully)
+
+def vv_batch_optimization(batched, amortized):
+    # VV17: batch ops amortized.
+    return bool(batched) and bool(amortized)
+
+def vv_data_locality(local, cache_hit):
+    # VV18: data locality optimized.
+    return bool(local) and bool(cache_hit)
+
+def vv_compute_bound_aware(bound_aware, planned):
+    # VV19: compute-bound awareness.
+    return bool(bound_aware) and bool(planned)
+
+def vv_perf_budgeting(budget, enforced):
+    # VV20: performance budget enforced.
+    return bool(budget) and bool(enforced)
+
+def vv_cold_start_opt(optimized, warm_instances):
+    # VV21: cold start optimized.
+    return bool(optimized) and bool(warm_instances)
+
+def vv_peak_handling(peaks, absorbed):
+    # VV22: peak load absorbed.
+    return bool(peaks) and bool(absorbed)
+
+def vv_e2e_perf_measure(measured, per_stage):
+    # VV23: end-to-end performance measured per-stage.
+    return bool(measured) and bool(per_stage)
+
+def vv_overall_performance(score, min_score):
+    # VV24: overall performance score meets minimum.
+    return score >= min_score
+
+def selftest_vv():
+    return [(1, vv_load_testing(True, True)),
+            (2, vv_latency_budget(200, 500)),
+            (3, vv_throughput_target(1000, 800)),
+            (4, vv_resource_efficiency(True, True)),
+            (5, vv_autoscaling(True, True)),
+            (6, vv_scale_out_isolation(True, True)),
+            (7, vv_capacity_planning(True, True)),
+            (8, vv_backpressure(True, True)),
+            (9, vv_caching_strategy(True, True)),
+            (10, vv_connection_pooling(True, True)),
+            (11, vv_async_processing(True, True)),
+            (12, vv_performance_regression(True, True)),
+            (13, vv_profiling(True, True)),
+            (14, vv_bottleneck_detect(True, True)),
+            (15, vv_concurrency_scaling(True, True)),
+            (16, vv_degradation_graceful(True, True)),
+            (17, vv_batch_optimization(True, True)),
+            (18, vv_data_locality(True, True)),
+            (19, vv_compute_bound_aware(True, True)),
+            (20, vv_perf_budgeting(True, True)),
+            (21, vv_cold_start_opt(True, True)),
+            (22, vv_peak_handling(True, True)),
+            (23, vv_e2e_perf_measure(True, True)),
+            (24, vv_overall_performance(92, 70))]
