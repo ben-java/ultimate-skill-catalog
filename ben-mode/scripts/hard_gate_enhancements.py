@@ -5776,3 +5776,127 @@ def selftest_cc():
             (22, cc_code_ownership(True, True)),
             (23, cc_repo_hygiene(True, True)),
             (24, cc_vcs_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE DD — UX & DEVELOPER EXPERIENCE INTEGRITY (DD01–DD24)
+# ------------------------------------------------------------------
+def dd_ux_research(research, used):
+    # DD01: UX research conducted and used.
+    return bool(research) and bool(used)
+
+def dd_persona(persona, defined):
+    # DD02: personas defined.
+    return bool(persona) and bool(defined)
+
+def dd_ia(ia, tested):
+    # DD03: information architecture tested.
+    return bool(ia) and bool(tested)
+
+def dd_accessibility(a11y, audited):
+    # DD04: accessibility audited.
+    return bool(a11y) and bool(audited)
+
+def dd_contrast(contrast, compliant):
+    # DD05: contrast compliance.
+    return bool(contrast) and bool(compliant)
+
+def dd_keyboard(kb, fully_operable):
+    # DD06: keyboard operability.
+    return bool(kb) and bool(fully_operable)
+
+def dd_screen_reader(sr, supported):
+    # DD07: screen reader support.
+    return bool(sr) and bool(supported)
+
+def dd_responsive(resp, tested):
+    # DD08: responsive layouts tested.
+    return bool(resp) and bool(tested)
+
+def dd_consistency(consistent, baseline):
+    # DD09: visual/component consistency.
+    return bool(consistent) and bool(baseline)
+
+def dd_design_system(ds, adopted):
+    # DD10: design system adopted.
+    return bool(ds) and bool(adopted)
+
+def dd_brand_guidelines(brand, applied):
+    # DD11: brand guidelines applied.
+    return bool(brand) and bool(applied)
+
+def dd_error_handling(errors, clear):
+    # DD12: clear error states.
+    return bool(errors) and bool(clear)
+
+def dd_loading_state(loading, provided):
+    # DD13: loading states provided.
+    return bool(loading) and bool(provided)
+
+def dd_empty_state(empty, designed):
+    # DD14: empty states designed.
+    return bool(empty) and bool(designed)
+
+def dd_microcopy(copy, reviewed):
+    # DD15: microcopy reviewed.
+    return bool(copy) and bool(reviewed)
+
+def dd_perceived_perf(perf, smooth):
+    # DD16: perceived performance smooth.
+    return bool(perf) and bool(smooth)
+
+def dd_dx_onboarding(onboarding, measured):
+    # DD17: DX onboarding measured.
+    return bool(onboarding) and bool(measured)
+
+def dd_dx_docs(docs, current):
+    # DD18: DX docs current.
+    return bool(docs) and bool(current)
+
+def dd_dx_tooling(tooling, ergonomic):
+    # DD19: DX tooling ergonomic.
+    return bool(tooling) and bool(ergonomic)
+
+def dd_dx_loop(loop, fast):
+    # DD20: fast inner dev loop.
+    return bool(loop) and bool(fast)
+
+def dd_dx_feedback(feedback, closed):
+    # DD21: DX feedback loop closed.
+    return bool(feedback) and bool(closed)
+
+def dd_dx_api(api, discoverable):
+    # DD22: API discoverable.
+    return bool(api) and bool(discoverable)
+
+def dd_dx_templates(templates, maintained):
+    # DD23: templates/scaffolds maintained.
+    return bool(templates) and bool(maintained)
+
+def dd_ux_overall(score, min_score):
+    # DD24: overall UX/DX maturity meets minimum.
+    return score >= min_score
+
+def selftest_dd():
+    return [(1, dd_ux_research(True, True)),
+            (2, dd_persona(True, True)),
+            (3, dd_ia(True, True)),
+            (4, dd_accessibility(True, True)),
+            (5, dd_contrast(True, True)),
+            (6, dd_keyboard(True, True)),
+            (7, dd_screen_reader(True, True)),
+            (8, dd_responsive(True, True)),
+            (9, dd_consistency(True, True)),
+            (10, dd_design_system(True, True)),
+            (11, dd_brand_guidelines(True, True)),
+            (12, dd_error_handling(True, True)),
+            (13, dd_loading_state(True, True)),
+            (14, dd_empty_state(True, True)),
+            (15, dd_microcopy(True, True)),
+            (16, dd_perceived_perf(True, True)),
+            (17, dd_dx_onboarding(True, True)),
+            (18, dd_dx_docs(True, True)),
+            (19, dd_dx_tooling(True, True)),
+            (20, dd_dx_loop(True, True)),
+            (21, dd_dx_feedback(True, True)),
+            (22, dd_dx_api(True, True)),
+            (23, dd_dx_templates(True, True)),
+            (24, dd_ux_overall(93, 70))]

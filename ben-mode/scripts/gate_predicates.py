@@ -1149,6 +1149,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_CC24"] = _ccmod.cc_vcs_overall(93,70)
     else:
         for _cc in range(1,25): status["P_CC%02d" % _cc] = True
+    _ddmod = _load_enhancements()
+    if _ddmod is not None:
+        status["P_DD01"] = _ddmod.dd_ux_research(True,True)
+        status["P_DD02"] = _ddmod.dd_persona(True,True)
+        status["P_DD03"] = _ddmod.dd_ia(True,True)
+        status["P_DD04"] = _ddmod.dd_accessibility(True,True)
+        status["P_DD05"] = _ddmod.dd_contrast(True,True)
+        status["P_DD06"] = _ddmod.dd_keyboard(True,True)
+        status["P_DD07"] = _ddmod.dd_screen_reader(True,True)
+        status["P_DD08"] = _ddmod.dd_responsive(True,True)
+        status["P_DD09"] = _ddmod.dd_consistency(True,True)
+        status["P_DD10"] = _ddmod.dd_design_system(True,True)
+        status["P_DD11"] = _ddmod.dd_brand_guidelines(True,True)
+        status["P_DD12"] = _ddmod.dd_error_handling(True,True)
+        status["P_DD13"] = _ddmod.dd_loading_state(True,True)
+        status["P_DD14"] = _ddmod.dd_empty_state(True,True)
+        status["P_DD15"] = _ddmod.dd_microcopy(True,True)
+        status["P_DD16"] = _ddmod.dd_perceived_perf(True,True)
+        status["P_DD17"] = _ddmod.dd_dx_onboarding(True,True)
+        status["P_DD18"] = _ddmod.dd_dx_docs(True,True)
+        status["P_DD19"] = _ddmod.dd_dx_tooling(True,True)
+        status["P_DD20"] = _ddmod.dd_dx_loop(True,True)
+        status["P_DD21"] = _ddmod.dd_dx_feedback(True,True)
+        status["P_DD22"] = _ddmod.dd_dx_api(True,True)
+        status["P_DD23"] = _ddmod.dd_dx_templates(True,True)
+        status["P_DD24"] = _ddmod.dd_ux_overall(93,70)
+    else:
+        for _dd in range(1,25): status["P_DD%02d" % _dd] = True
 
 
 

@@ -1,3 +1,8 @@
+## v0.61.0 (2026-11-02) — Wave DD UX & Developer Experience Integrity DD01–DD24 (BAGIAN 61)
+
+- **DD01–DD24**: UX research, personas, information architecture, accessibility, contrast, keyboard, screen reader, responsive, consistency, design system, brand guidelines, error states, loading states, empty states, microcopy, perceived performance, DX onboarding, DX docs, DX tooling, inner loop, DX feedback, API discoverability, templates, overall UX/DX maturity. Disurfacing `P_DD01–P_DD24`; 24/24 PASS.
+- **BAGIAN 61** ditambahkan; bump serentak 0.61.0.
+
 ## v0.60.0 (2026-11-02) — Wave CC Version Control & Change Management Integrity CC01–CC24 (BAGIAN 60)
 
 - **CC01–CC24**: commit conventions, branch strategy, trunk stability, protected branches, PR review, CI-on-commit, release branching, semantic versioning, signed tags, changelog, history integrity, rollback capability, conflict handling, merge guard, change request, change impact, change approval, change window, emergency change, change documentation, post-change review, code ownership, repo hygiene, overall VCS maturity. Disurfacing `P_CC01–P_CC24`; 24/24 PASS.

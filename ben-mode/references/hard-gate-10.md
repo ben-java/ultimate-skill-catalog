@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.60.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.61.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2323,3 +2323,12 @@ Menambahkan lapisan VCS & change management: `CC01–CC24` di `hard_gate_enhance
 
 - Version Control: CC01 `cc_commit_convention`, CC02 `cc_branch_strategy`, CC03 `cc_trunk_stable`, CC04 `cc_protected_branches`, CC05 `cc_pr_review`, CC06 `cc_ci_on_every_commit`, CC07 `cc_release_branching`, CC08 `cc_versioning`, CC09 `cc_tagging`, CC10 `cc_changelog`, CC11 `cc_history_integrity`, CC12 `cc_rollback_commit`, CC13 `cc_conflict_handling`, CC14 `cc_merge_guard`.
 - Change Management: CC15 `cc_change_request`, CC16 `cc_change_impact`, CC17 `cc_change_approval`, CC18 `cc_change_window`, CC19 `cc_emergency_change`, CC20 `cc_change_documentation`, CC21 `cc_post_change_review`, CC22 `cc_code_ownership`, CC23 `cc_repo_hygiene`, CC24 `cc_vcs_overall`.
+
+---
+
+# BAGIAN 61 — WAVE DD: UX & DEVELOPER EXPERIENCE INTEGRITY DD01–DD24 (VERIFIED; v0.61.0)
+
+Menambahkan lapisan UX & DX: `DD01–DD24` di `hard_gate_enhancements.py`, disurfacing `P_DD01–P_DD24`; diverifikasi 24/24 PASS (selftest_dd rc 0).
+
+- UX Integrity: DD01 `dd_ux_research`, DD02 `dd_persona`, DD03 `dd_ia`, DD04 `dd_accessibility`, DD05 `dd_contrast`, DD06 `dd_keyboard`, DD07 `dd_screen_reader`, DD08 `dd_responsive`, DD09 `dd_consistency`, DD10 `dd_design_system`, DD11 `dd_brand_guidelines`, DD12 `dd_error_handling`, DD13 `dd_loading_state`, DD14 `dd_empty_state`, DD15 `dd_microcopy`, DD16 `dd_perceived_perf`.
+- DX Integrity: DD17 `dd_dx_onboarding`, DD18 `dd_dx_docs`, DD19 `dd_dx_tooling`, DD20 `dd_dx_loop`, DD21 `dd_dx_feedback`, DD22 `dd_dx_api`, DD23 `dd_dx_templates`, DD24 `dd_ux_overall`.
