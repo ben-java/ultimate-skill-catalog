@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.63.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.64.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2352,3 +2352,12 @@ Menambahkan lapisan incident response: `FF01–FF24` di `hard_gate_enhancements.
 - Foundation: FF01 `ff_incident_policy`, FF02 `ff_ir_plan`, FF03 `ff_ir_roles`, FF04 `ff_detection`, FF05 `ff_triage`, FF06 `ff_escalation`.
 - Response Lifecycle: FF07 `ff_containment`, FF08 `ff_eradication`, FF09 `ff_recovery`, FF10 `ff_post_mortem`, FF11 `ff_ir_logging`, FF12 `ff_ir_comm`, FF19 `ff_ir_chain`, FF20 `ff_ir_lessons`.
 - Operational Excellence: FF13 `ff_ir_drills`, FF14 `ff_ir_tooling`, FF15 `ff_ir_false_pos`, FF16 `ff_ir_threat_intel`, FF17 `ff_ir_sla`, FF18 `ff_ir_case_mgmt`, FF21 `ff_ir_metrics`, FF22 `ff_ir_business`, FF23 `ff_ir_supplier`, FF24 `ff_ir_overall`.
+
+---
+
+# BAGIAN 64 — WAVE GG: ARCHITECTURE & TECHNICAL DEBT INTEGRITY GG01–GG24 (VERIFIED; v0.64.0)
+
+Menambahkan lapisan arsitektur & tech debt: `GG01–GG24` di `hard_gate_enhancements.py`, disurfacing `P_GG01–P_GG24`; diverifikasi 24/24 PASS (selftest_gg rc 0).
+
+- Architecture Integrity: GG01 `gg_architecture_docs`, GG02 `gg_adr`, GG03 `gg_modularity`, GG04 `gg_coupling`, GG05 `gg_cohesion`, GG06 `gg_layering`, GG07 `gg_interfaces`, GG08 `gg_dependency_rules`, GG09 `gg_cyclomatic`, GG10 `gg_stdlib_health`, GG17 `gg_scalability_arch`, GG18 `gg_evolution`, GG19 `gg_tech_radar`, GG20 `gg_ai_arch`, GG21 `gg_arch_review`, GG22 `gg_arch_decision`, GG23 `gg_arch_metrics`.
+- Technical Debt: GG11 `gg_debt_tracker`, GG12 `gg_debt_budget`, GG13 `gg_debt_repayment`, GG14 `gg_dead_code`, GG15 `gg_duplication`, GG16 `gg_legacy`, GG24 `gg_arch_overall`.

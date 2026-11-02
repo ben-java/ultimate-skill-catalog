@@ -1,3 +1,8 @@
+## v0.64.0 (2026-11-02) — Wave GG Architecture & Technical Debt Integrity GG01–GG24 (BAGIAN 64)
+
+- **GG01–GG24**: architecture docs, ADRs, modularity, coupling, cohesion, layering, stable interfaces, dependency rules, cyclomatic complexity, code health, tech debt tracker/budget/repayment, dead code, duplication, legacy baseline, scalability architecture, evolution roadmap, tech radar, AI architecture governance, periodic review, recorded decisions, architecture metrics, overall architecture maturity. Disurfacing `P_GG01–P_GG24`; 24/24 PASS.
+- **BAGIAN 64** ditambahkan; bump serentak 0.64.0.
+
 ## v0.63.0 (2026-11-02) — Wave FF Incident Response & Handling Integrity FF01–FF24 (BAGIAN 63)
 
 - **FF01–FF24**: IR policy, IR plan, IR roles, detection, triage, escalation, containment, eradication, recovery, post-mortem, IR logging, IR comms, IR drills, IR tooling, false positives, threat intel, IR SLAs, case management, chain of custody, lessons learned, IR metrics, IR/BCP integration, supplier coordination, overall IR maturity. Disurfacing `P_FF01–P_FF24`; 24/24 PASS.

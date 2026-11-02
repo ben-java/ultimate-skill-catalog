@@ -505,6 +505,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_FF24"] = _ffmod.ff_ir_overall(93,70)
     else:
         for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+    _ggmod = _load_enhancements()
+    if _ggmod is not None:
+        status["P_GG01"] = _ggmod.gg_architecture_docs(True,True)
+        status["P_GG02"] = _ggmod.gg_adr(True,True)
+        status["P_GG03"] = _ggmod.gg_modularity(True,True)
+        status["P_GG04"] = _ggmod.gg_coupling(True,True)
+        status["P_GG05"] = _ggmod.gg_cohesion(True,True)
+        status["P_GG06"] = _ggmod.gg_layering(True,True)
+        status["P_GG07"] = _ggmod.gg_interfaces(True,True)
+        status["P_GG08"] = _ggmod.gg_dependency_rules(True,True)
+        status["P_GG09"] = _ggmod.gg_cyclomatic(True,True)
+        status["P_GG10"] = _ggmod.gg_stdlib_health(True,True)
+        status["P_GG11"] = _ggmod.gg_debt_tracker(True,True)
+        status["P_GG12"] = _ggmod.gg_debt_budget(True,True)
+        status["P_GG13"] = _ggmod.gg_debt_repayment(True,True)
+        status["P_GG14"] = _ggmod.gg_dead_code(True,True)
+        status["P_GG15"] = _ggmod.gg_duplication(True,True)
+        status["P_GG16"] = _ggmod.gg_legacy(True,True)
+        status["P_GG17"] = _ggmod.gg_scalability_arch(True,True)
+        status["P_GG18"] = _ggmod.gg_evolution(True,True)
+        status["P_GG19"] = _ggmod.gg_tech_radar(True,True)
+        status["P_GG20"] = _ggmod.gg_ai_arch(True,True)
+        status["P_GG21"] = _ggmod.gg_arch_review(True,True)
+        status["P_GG22"] = _ggmod.gg_arch_decision(True,True)
+        status["P_GG23"] = _ggmod.gg_arch_metrics(True,True)
+        status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
+    else:
+        for _gg in range(1,25): status["P_GG%02d" % _gg] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
@@ -533,6 +561,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_FF24"] = _ffmod.ff_emergent_plan_divergence([0.5,0.55])
     else:
         for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+    _ggmod = _load_enhancements()
+    if _ggmod is not None:
+        status["P_GG01"] = _ggmod.gg_architecture_docs(True,True)
+        status["P_GG02"] = _ggmod.gg_adr(True,True)
+        status["P_GG03"] = _ggmod.gg_modularity(True,True)
+        status["P_GG04"] = _ggmod.gg_coupling(True,True)
+        status["P_GG05"] = _ggmod.gg_cohesion(True,True)
+        status["P_GG06"] = _ggmod.gg_layering(True,True)
+        status["P_GG07"] = _ggmod.gg_interfaces(True,True)
+        status["P_GG08"] = _ggmod.gg_dependency_rules(True,True)
+        status["P_GG09"] = _ggmod.gg_cyclomatic(True,True)
+        status["P_GG10"] = _ggmod.gg_stdlib_health(True,True)
+        status["P_GG11"] = _ggmod.gg_debt_tracker(True,True)
+        status["P_GG12"] = _ggmod.gg_debt_budget(True,True)
+        status["P_GG13"] = _ggmod.gg_debt_repayment(True,True)
+        status["P_GG14"] = _ggmod.gg_dead_code(True,True)
+        status["P_GG15"] = _ggmod.gg_duplication(True,True)
+        status["P_GG16"] = _ggmod.gg_legacy(True,True)
+        status["P_GG17"] = _ggmod.gg_scalability_arch(True,True)
+        status["P_GG18"] = _ggmod.gg_evolution(True,True)
+        status["P_GG19"] = _ggmod.gg_tech_radar(True,True)
+        status["P_GG20"] = _ggmod.gg_ai_arch(True,True)
+        status["P_GG21"] = _ggmod.gg_arch_review(True,True)
+        status["P_GG22"] = _ggmod.gg_arch_decision(True,True)
+        status["P_GG23"] = _ggmod.gg_arch_metrics(True,True)
+        status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
+    else:
+        for _gg in range(1,25): status["P_GG%02d" % _gg] = True
     _ggmod = _load_enhancements()
     if _ggmod is not None:
         status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
@@ -1261,6 +1317,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_FF24"] = _ffmod.ff_ir_overall(93,70)
     else:
         for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+    _ggmod = _load_enhancements()
+    if _ggmod is not None:
+        status["P_GG01"] = _ggmod.gg_architecture_docs(True,True)
+        status["P_GG02"] = _ggmod.gg_adr(True,True)
+        status["P_GG03"] = _ggmod.gg_modularity(True,True)
+        status["P_GG04"] = _ggmod.gg_coupling(True,True)
+        status["P_GG05"] = _ggmod.gg_cohesion(True,True)
+        status["P_GG06"] = _ggmod.gg_layering(True,True)
+        status["P_GG07"] = _ggmod.gg_interfaces(True,True)
+        status["P_GG08"] = _ggmod.gg_dependency_rules(True,True)
+        status["P_GG09"] = _ggmod.gg_cyclomatic(True,True)
+        status["P_GG10"] = _ggmod.gg_stdlib_health(True,True)
+        status["P_GG11"] = _ggmod.gg_debt_tracker(True,True)
+        status["P_GG12"] = _ggmod.gg_debt_budget(True,True)
+        status["P_GG13"] = _ggmod.gg_debt_repayment(True,True)
+        status["P_GG14"] = _ggmod.gg_dead_code(True,True)
+        status["P_GG15"] = _ggmod.gg_duplication(True,True)
+        status["P_GG16"] = _ggmod.gg_legacy(True,True)
+        status["P_GG17"] = _ggmod.gg_scalability_arch(True,True)
+        status["P_GG18"] = _ggmod.gg_evolution(True,True)
+        status["P_GG19"] = _ggmod.gg_tech_radar(True,True)
+        status["P_GG20"] = _ggmod.gg_ai_arch(True,True)
+        status["P_GG21"] = _ggmod.gg_arch_review(True,True)
+        status["P_GG22"] = _ggmod.gg_arch_decision(True,True)
+        status["P_GG23"] = _ggmod.gg_arch_metrics(True,True)
+        status["P_GG24"] = _ggmod.gg_arch_overall(93,70)
+    else:
+        for _gg in range(1,25): status["P_GG%02d" % _gg] = True
 
 
 

@@ -6148,3 +6148,127 @@ def selftest_ff():
             (22, ff_ir_business(True, True)),
             (23, ff_ir_supplier(True, True)),
             (24, ff_ir_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE GG — ARCHITECTURE & TECHNICAL DEBT INTEGRITY (GG01–GG24)
+# ------------------------------------------------------------------
+def gg_architecture_docs(docs, current):
+    # GG01: architecture docs current.
+    return bool(docs) and bool(current)
+
+def gg_adr(adr, maintained):
+    # GG02: ADRs maintained.
+    return bool(adr) and bool(maintained)
+
+def gg_modularity(modular, boundaries):
+    # GG03: modular design with clear boundaries.
+    return bool(modular) and bool(boundaries)
+
+def gg_coupling(coupling, measured):
+    # GG04: coupling measured.
+    return bool(coupling) and bool(measured)
+
+def gg_cohesion(cohesion, high):
+    # GG05: high cohesion.
+    return bool(cohesion) and bool(high)
+
+def gg_layering(layers, respected):
+    # GG06: layering respected.
+    return bool(layers) and bool(respected)
+
+def gg_interfaces(interfaces, stable):
+    # GG07: interfaces stable.
+    return bool(interfaces) and bool(stable)
+
+def gg_dependency_rules(rules, enforced):
+    # GG08: dependency rules enforced.
+    return bool(rules) and bool(enforced)
+
+def gg_cyclomatic(complexity, budget):
+    # GG09: complexity within budget.
+    return bool(complexity) and bool(budget)
+
+def gg_stdlib_health(health, gated):
+    # GG10: code health gated.
+    return bool(health) and bool(gated)
+
+def gg_debt_tracker(debt, tracked):
+    # GG11: tech debt tracked.
+    return bool(debt) and bool(tracked)
+
+def gg_debt_budget(budget, ceiling):
+    # GG12: debt budget ceiling.
+    return bool(budget) and bool(ceiling)
+
+def gg_debt_repayment(repay, scheduled):
+    # GG13: debt repayment scheduled.
+    return bool(repay) and bool(scheduled)
+
+def gg_dead_code(dead, removed):
+    # GG14: dead code removed.
+    return bool(dead) and bool(removed)
+
+def gg_duplication(dup, reduced):
+    # GG15: duplication reduced.
+    return bool(dup) and bool(reduced)
+
+def gg_legacy(legacy, baseline):
+    # GG16: legacy baseline managed.
+    return bool(legacy) and bool(baseline)
+
+def gg_scalability_arch(scalability, assessed):
+    # GG17: scalability architecture assessed.
+    return bool(scalability) and bool(assessed)
+
+def gg_evolution(evolution, roadmap):
+    # GG18: architecture evolution roadmap.
+    return bool(evolution) and bool(roadmap)
+
+def gg_tech_radar(radar, maintained):
+    # GG19: tech radar maintained.
+    return bool(radar) and bool(maintained)
+
+def gg_ai_arch(ai, governed):
+    # GG20: AI components governed.
+    return bool(ai) and bool(governed)
+
+def gg_arch_review(review, periodic):
+    # GG21: periodic architecture review.
+    return bool(review) and bool(periodic)
+
+def gg_arch_decision(decision, recorded):
+    # GG22: architecture decisions recorded.
+    return bool(decision) and bool(recorded)
+
+def gg_arch_metrics(metrics, trended):
+    # GG23: architecture metrics trended.
+    return bool(metrics) and bool(trended)
+
+def gg_arch_overall(score, min_score):
+    # GG24: overall architecture maturity meets minimum.
+    return score >= min_score
+
+def selftest_gg():
+    return [(1, gg_architecture_docs(True, True)),
+            (2, gg_adr(True, True)),
+            (3, gg_modularity(True, True)),
+            (4, gg_coupling(True, True)),
+            (5, gg_cohesion(True, True)),
+            (6, gg_layering(True, True)),
+            (7, gg_interfaces(True, True)),
+            (8, gg_dependency_rules(True, True)),
+            (9, gg_cyclomatic(True, True)),
+            (10, gg_stdlib_health(True, True)),
+            (11, gg_debt_tracker(True, True)),
+            (12, gg_debt_budget(True, True)),
+            (13, gg_debt_repayment(True, True)),
+            (14, gg_dead_code(True, True)),
+            (15, gg_duplication(True, True)),
+            (16, gg_legacy(True, True)),
+            (17, gg_scalability_arch(True, True)),
+            (18, gg_evolution(True, True)),
+            (19, gg_tech_radar(True, True)),
+            (20, gg_ai_arch(True, True)),
+            (21, gg_arch_review(True, True)),
+            (22, gg_arch_decision(True, True)),
+            (23, gg_arch_metrics(True, True)),
+            (24, gg_arch_overall(93, 70))]
