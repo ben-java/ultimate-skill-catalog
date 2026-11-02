@@ -1,3 +1,9 @@
+## v1.50.0 (2026-11-02) — Weekly-Summary Predicate Surfacing (BAGIAN 150)
+
+- **weekly-summary.py**: surfacing verdict 8 predikat inti dari audit log (ALL PASS / FAIL). Melengkapi permukaan observability terakhir.
+- **Verifikasi P_model_signed**: RED hash rusak→exit1, missing→exit1; GREEN restorasi→exit0.
+- **BAGIAN 150** ditambahkan; bump v1.50.0.
+
 ## v1.49.0 (2026-11-02) — Observability Surfacing for Integrity Predicates (BAGIAN 149)
 
 - **traceability.py**: +5 anchor MAP untuk BAGIAN 144–148 (P_substantiation, P_spec_code_binding, P_sbom_hash_valid, P_spec_version_consistent). 61→66 spec anchors, semua resolve.

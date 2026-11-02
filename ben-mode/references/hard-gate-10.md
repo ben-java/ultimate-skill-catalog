@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.49.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.50.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -3268,3 +3268,23 @@ di semua permukaan observability. Sebelumnya predikat `P_substantiation`, `P_spe
    `P_quorum`, `P_schema`, `P_attestation`, `P_signed_manifest`). Hijau `True` / merah `False`.
 3. Verifikasi: setelah sinkronisasi 4 replika, gate PASS; dashboard (4.381 bytes) memuat kartu
    predikat dengan nilai `True`; quorum 4/4. Bump v1.49.0.
+
+# BAGIAN 150 — WEEKLY-SUMMARY PREDICATE SURFACING (VERIFIED; v1.50.0)
+
+Melengkapi aturan surfacing wajib: setelah v1.49.0 menyurfacing predikat inti di
+`traceability.py` dan `generate-dashboard.py`, permukaan terakhir `weekly-summary.py`
+belum menampilkan verdict predikat. BAGIAN ini menutup celah tersebut.
+
+- **`scripts/weekly-summary.py`**: menambahkan blok surfacing yang membaca entri
+  gate terakhir (`hard-gate-audit.jsonl` → `predicates`) dan melaporkan verdict
+  8 predikat inti (`P_spec_version_consistent`, `P_sbom_hash_valid`,
+  `P_spec_code_binding`, `P_substantiation`, `P_quorum`, `P_schema`,
+  `P_attestation`, `P_signed_manifest`). Output: `integrity predicates: ALL PASS (7 surfaced)`
+  atau `FAIL: ...`; bila audit log kosong (mis. pasca-rotasi), cetak
+  `n/a (audit log empty — run gate first)`.
+- Verifikasi nyata: `weekly-summary.py .hard-gate-meta` mencetak
+  `integrity predicates: ALL PASS (7 surfaced)` setelah gate dijalankan.
+- Pemantauan `P_model_signed` (opsional) juga diverifikasi RED/GREEN:
+  hash rusak → exit 1 `HASH MISMATCH`; file hilang → exit 1 `MISSING`;
+  restorasi → exit 0 PASS.
+- Bump v1.50.0.

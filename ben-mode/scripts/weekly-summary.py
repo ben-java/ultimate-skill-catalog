@@ -108,6 +108,28 @@ def main():
     else:
         print("drift events: none in alerts log (clean)")
 
+    # Observability surfacing: expose verdicts of core integrity predicates from
+    # the last gate audit entry (same source the dashboard reads).
+    import tempfile as _tf2
+    _pred = {}
+    _au = os.path.join(args.meta, "hard-gate-audit.jsonl")
+    if os.path.isfile(_au):
+        try:
+            _rows = [l for l in open(_au, encoding="utf-8").read().splitlines() if l.strip()]
+            if _rows:
+                _pred = json.loads(_rows[-1]).get("predicates", {})
+        except Exception:
+            pass
+    _focus = ["P_spec_version_consistent", "P_sbom_hash_valid", "P_spec_code_binding",
+              "P_substantiation", "P_quorum", "P_schema", "P_attestation", "P_signed_manifest"]
+    _present = [p for p in _focus if p in _pred]
+    if _present:
+        _bad = [p for p in _present if not _pred[p]]
+        _verdict = "ALL PASS" if not _bad else "FAIL: %s" % ",".join(_bad)
+        print("integrity predicates: %s (%d surfaced)" % (_verdict, len(_present)))
+    else:
+        print("integrity predicates: n/a (audit log empty — run gate first)")
+
 
 if __name__ == "__main__":
     main()
