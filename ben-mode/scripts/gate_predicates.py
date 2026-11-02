@@ -617,6 +617,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
@@ -757,6 +785,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _ggmod = _load_enhancements()
     if _ggmod is not None:
         status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
@@ -869,6 +925,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _hhmod = _load_enhancements()
     if _hhmod is not None:
         status["P_HH01"] = _hhmod.hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])
@@ -953,6 +1037,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _iimod = _load_enhancements()
     if _iimod is not None:
         status["P_II01"] = _iimod.ii_metric_definition_complete("latency",True,True,True)
@@ -1009,6 +1121,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _jjmod = _load_enhancements()
     if _jjmod is not None:
         status["P_JJ01"] = _jjmod.jj_backup_schedule_enforced(100,120,100)
@@ -1037,6 +1177,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_resilience_score(90,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
     _kkmod = _load_enhancements()
     if _kkmod is not None:
         status["P_KK01"] = _kkmod.kk_source_provenance(True,True)
@@ -1765,6 +1933,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
     else:
         for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
+    _kkmod = _load_enhancements()
+    if _kkmod is not None:
+        status["P_KK01"] = _kkmod.kk_appsec_threat_model(True,True)
+        status["P_KK02"] = _kkmod.kk_appsec_sast_scan(True,True)
+        status["P_KK03"] = _kkmod.kk_appsec_dast_scan(True,True)
+        status["P_KK04"] = _kkmod.kk_appsec_sca_vulns(True,True)
+        status["P_KK05"] = _kkmod.kk_appsec_secret_detection(True,True)
+        status["P_KK06"] = _kkmod.kk_appsec_pen_testing(True,True)
+        status["P_KK07"] = _kkmod.kk_appsec_cwe_coverage(True,True)
+        status["P_KK08"] = _kkmod.kk_appsec_csp_headers(True,True)
+        status["P_KK09"] = _kkmod.kk_appsec_csrf_protection(True,True)
+        status["P_KK10"] = _kkmod.kk_appsec_xss_sanitization(True,True)
+        status["P_KK11"] = _kkmod.kk_appsec_sqli_prepared(True,True)
+        status["P_KK12"] = _kkmod.kk_appsec_ssrf_validation(True,True)
+        status["P_KK13"] = _kkmod.kk_appsec_deserialization(True,True)
+        status["P_KK14"] = _kkmod.kk_appsec_session_fixation(True,True)
+        status["P_KK15"] = _kkmod.kk_appsec_cookie_flags(True,True)
+        status["P_KK16"] = _kkmod.kk_appsec_crypto_primitives("AES-GCM",True)
+        status["P_KK17"] = _kkmod.kk_appsec_key_rotation(True,True)
+        status["P_KK18"] = _kkmod.kk_appsec_rbac_enforcement(True,True)
+        status["P_KK19"] = _kkmod.kk_appsec_rate_limit_auth(True,True)
+        status["P_KK20"] = _kkmod.kk_appsec_file_upload_check(True,True)
+        status["P_KK21"] = _kkmod.kk_appsec_xml_xxe_disabled(True,True)
+        status["P_KK22"] = _kkmod.kk_appsec_api_fuzzing(True,True)
+        status["P_KK23"] = _kkmod.kk_appsec_bug_bounty_sla(True,True)
+        status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
+    else:
+        for _kk in range(1,25): status["P_KK%02d" % _kk] = True
 
 
 

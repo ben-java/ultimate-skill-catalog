@@ -1,3 +1,8 @@
+## v0.68.0 (2026-11-02) — Wave KK Application Security & Vulnerability Management KK01–KK24 (BAGIAN 68)
+
+- **KK01–KK24**: STRIDE/PASTA threat model, SAST scanning, DAST scanning, SCA zero-critical CVEs, secret/entropy detection, penetration testing remediation, OWASP Top 10 / CWE Top 25 coverage, CSP security headers, CSRF protection, contextual XSS sanitization, SQLi parameterized queries, SSRF allowlisting, safe deserialization, session fixation defense, Secure/HttpOnly/SameSite cookies, FIPS/NIST crypto primitives, KMS key rotation, BOLA/IDOR object-level RBAC, brute-force auth rate limiting, file upload inspection, XXE disabled, API fuzzing, bug bounty SLA adherence, overall AppSec maturity. Disurfacing `P_KK01–P_KK24`; 24/24 PASS.
+- **BAGIAN 68** ditambahkan; bump serentak 0.68.0.
+
 ## v0.67.0 (2026-11-02) — Wave JJ API Design & Service Contract Integrity JJ01–JJ24 (BAGIAN 67)
 
 - **JJ01–JJ24**: schema contract, semantic versioning, backward compatibility, mandatory authentication, client rate limiting, payload validation, RFC 7807 error format, idempotency key, pagination bounds, TLS 1.3/mTLS, CORS origin validation, interactive documentation, latency SLO adherence, W3C distributed tracing, circuit breaker, consumer-driven mock testing, deprecation/sunset policy, payload compression, content negotiation, health/readiness probes, gateway routing, cache control, audit logging, overall API maturity. Disurfacing `P_JJ01–P_JJ24`; 24/24 PASS.

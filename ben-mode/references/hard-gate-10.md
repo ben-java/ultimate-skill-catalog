@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.67.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.68.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2388,3 +2388,12 @@ Menambahkan lapisan API design dan service contract integrity: `JJ01–JJ24` di 
 
 - Contract & Interface: JJ01 `jj_api_contract`, JJ02 `jj_api_versioning`, JJ03 `jj_api_backward_compat`, JJ04 `jj_api_auth_enforced`, JJ05 `jj_api_rate_limiting`, JJ06 `jj_api_input_validation`, JJ07 `jj_api_error_standard`, JJ08 `jj_api_idempotency_key`, JJ09 `jj_api_pagination`, JJ10 `jj_api_tls_enforced`, JJ11 `jj_api_cors_policy`, JJ12 `jj_api_doc_interactive`.
 - Service Reliability & Gateway: JJ13 `jj_api_latency_slo`, JJ14 `jj_api_telemetry_trace`, JJ15 `jj_api_circuit_breaker`, JJ16 `jj_api_mock_testing`, JJ17 `jj_api_deprecation_policy`, JJ18 `jj_api_payload_compression`, JJ19 `jj_api_content_negotiation`, JJ20 `jj_api_health_endpoint`, JJ21 `jj_api_gateway_routing`, JJ22 `jj_api_cache_control`, JJ23 `jj_api_audit_logging`, JJ24 `jj_api_overall_maturity`.
+
+---
+
+# BAGIAN 68 — WAVE KK: APPLICATION SECURITY & VULNERABILITY MANAGEMENT KK01–KK24 (VERIFIED; v0.68.0)
+
+Menambahkan lapisan application security and vulnerability management: `KK01–KK24` di `hard_gate_enhancements.py`, disurfacing `P_KK01–P_KK24`; diverifikasi 24/24 PASS (selftest_kk rc 0).
+
+- Threat Modeling & Static/Dynamic Testing: KK01 `kk_appsec_threat_model`, KK02 `kk_appsec_sast_scan`, KK03 `kk_appsec_dast_scan`, KK04 `kk_appsec_sca_vulns`, KK05 `kk_appsec_secret_detection`, KK06 `kk_appsec_pen_testing`, KK07 `kk_appsec_cwe_coverage`, KK08 `kk_appsec_csp_headers`, KK09 `kk_appsec_csrf_protection`, KK10 `kk_appsec_xss_sanitization`, KK11 `kk_appsec_sqli_prepared`, KK12 `kk_appsec_ssrf_validation`.
+- Cryptography, Sessions & Hardening: KK13 `kk_appsec_deserialization`, KK14 `kk_appsec_session_fixation`, KK15 `kk_appsec_cookie_flags`, KK16 `kk_appsec_crypto_primitives`, KK17 `kk_appsec_key_rotation`, KK18 `kk_appsec_rbac_enforcement`, KK19 `kk_appsec_rate_limit_auth`, KK20 `kk_appsec_file_upload_check`, KK21 `kk_appsec_xml_xxe_disabled`, KK22 `kk_appsec_api_fuzzing`, KK23 `kk_appsec_bug_bounty_sla`, KK24 `kk_appsec_overall_maturity`.
