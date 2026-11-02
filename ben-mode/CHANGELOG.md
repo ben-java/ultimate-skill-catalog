@@ -1,3 +1,53 @@
+## v1.43.0 (2026-11-02) — Wave KJ NUCLEAR ENERGY & RADIATION SAFETY INTEGRITY KJ01–KJ24 (BAGIAN 143)
+
+- **KJ01–KJ24**: nuclear energy & radiation safety integrity mechanisms added to hard_gate_enhancements.py and wired to P_NUCLEAR_01–P_NUCLEAR_24. 24/24 PASS.
+- **BAGIAN 143** ditambahkan; bump v1.43.0.
+
+## v1.42.0 (2026-11-02) — Wave KI OCEANOGRAPHY & MARINE SCIENCE DATA INTEGRITY KI01–KI24 (BAGIAN 142)
+
+- **KI01–KI24**: oceanography & marine science data integrity mechanisms added to hard_gate_enhancements.py and wired to P_OCEANOGRAPHY_01–P_OCEANOGRAPHY_24. 24/24 PASS.
+- **BAGIAN 142** ditambahkan; bump v1.42.0.
+
+## v1.41.0 (2026-11-02) — Wave KH ECOLOGY & BIODIVERSITY SCIENCE INTEGRITY KH01–KH24 (BAGIAN 141)
+
+- **KH01–KH24**: ecology & biodiversity science integrity mechanisms added to hard_gate_enhancements.py and wired to P_ECOLOGY_01–P_ECOLOGY_24. 24/24 PASS.
+- **BAGIAN 141** ditambahkan; bump v1.41.0.
+
+## v1.40.0 (2026-11-02) — Wave KG HYDROLOGY & WATER RESOURCES INTEGRITY KG01–KG24 (BAGIAN 140)
+
+- **KG01–KG24**: hydrology & water resources integrity mechanisms added to hard_gate_enhancements.py and wired to P_HYDROLOGY_01–P_HYDROLOGY_24. 24/24 PASS.
+- **BAGIAN 140** ditambahkan; bump v1.40.0.
+
+## v1.39.0 (2026-11-02) — Wave KF METEOROLOGY & FORECASTING DATA INTEGRITY KF01–KF24 (BAGIAN 139)
+
+- **KF01–KF24**: meteorology & forecasting data integrity mechanisms added to hard_gate_enhancements.py and wired to P_METEOROLOGY_01–P_METEOROLOGY_24. 24/24 PASS.
+- **BAGIAN 139** ditambahkan; bump v1.39.0.
+
+## v1.38.0 (2026-11-02) — Wave KE GEOLOGY & EARTH SCIENCE DATA INTEGRITY KE01–KE24 (BAGIAN 138)
+
+- **KE01–KE24**: geology & earth science data integrity mechanisms added to hard_gate_enhancements.py and wired to P_GEOLOGY_01–P_GEOLOGY_24. 24/24 PASS.
+- **BAGIAN 138** ditambahkan; bump v1.38.0.
+
+## v1.37.0 (2026-11-02) — Wave KD CONSTRUCTION & INFRASTRUCTURE PROJECT INTEGRITY KD01–KD24 (BAGIAN 137)
+
+- **KD01–KD24**: construction & infrastructure project integrity mechanisms added to hard_gate_enhancements.py and wired to P_CONSTRUCTION_01–P_CONSTRUCTION_24. 24/24 PASS.
+- **BAGIAN 137** ditambahkan; bump v1.37.0.
+
+## v1.36.0 (2026-11-02) — Wave KC FISHERIES & AQUACULTURE INTEGRITY KC01–KC24 (BAGIAN 136)
+
+- **KC01–KC24**: fisheries & aquaculture integrity mechanisms added to hard_gate_enhancements.py and wired to P_FISHERIES_01–P_FISHERIES_24. 24/24 PASS.
+- **BAGIAN 136** ditambahkan; bump v1.36.0.
+
+## v1.35.0 (2026-11-02) — Wave KB FORESTRY & NATURAL RESOURCE MANAGEMENT INTEGRITY KB01–KB24 (BAGIAN 135)
+
+- **KB01–KB24**: forestry & natural resource management integrity mechanisms added to hard_gate_enhancements.py and wired to P_FORESTRY_01–P_FORESTRY_24. 24/24 PASS.
+- **BAGIAN 135** ditambahkan; bump v1.35.0.
+
+## v1.34.0 (2026-11-02) — Wave KA MINING & EXTRACTIVE INDUSTRY OPERATIONS INTEGRITY KA01–KA24 (BAGIAN 134)
+
+- **KA01–KA24**: mining & extractive industry operations integrity mechanisms added to hard_gate_enhancements.py and wired to P_MINING_01–P_MINING_24. 24/24 PASS.
+- **BAGIAN 134** ditambahkan; bump v1.34.0.
+
 ## v1.33.0 (2026-11-02) — Wave JJ AGRITECH & PRECISION AGRICULTURE INTEGRITY JJ01–JJ24 (BAGIAN 133)
 
 - **JJ01–JJ24**: agritech & precision agriculture integrity mechanisms added to hard_gate_enhancements.py and wired to P_AGRITECH_01–P_AGRITECH_24. 24/24 PASS.

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.33.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.43.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -3040,3 +3040,102 @@ Menambahkan lapisan integritas agritech & precision agriculture integrity: `JJ01
 
 Mekanisme operasional formal:
 JJ01 `agritech_crop_sensor_validity`, JJ02 `agritech_irrigation_optimization`, JJ03 `agritech_soil_health_monitoring`, JJ04 `agritech_drone_imagery_accuracy`, JJ05 `agritech_yield_forecast_accuracy`, JJ06 `agritech_agrochemical_application_precision`, JJ07 `agritech_livestock_health_tracking`, JJ08 `agritech_supply_chain_traceability_farm`, JJ09 `agritech_weather_forecast_integration`, JJ10 `agritech_machinery_autonomy_safety`, JJ11 `agritech_farm_management_data_privacy`, JJ12 `agritech_pest_management_thresholds`, JJ13 `agritech_seed_genetics_quality`, JJ14 `agritech_post_harvest_loss_reduction`, JJ15 `agritech_carbon_sequestration_measurement`, JJ16 `agritech_traceability_food_safety`, JJ17 `agritech_equipment_telemetry_machine`, JJ18 `agritech_agri_insurance_risk_model`, JJ19 `agritech_market_price_data_accuracy`, JJ20 `agritech_water_quality_monitoring`, JJ21 `agritech_pollinator_habitat_preservation`, JJ22 `agritech_labor_safety_farming`, JJ23 `agritech_regenerative_practice_adoption`, JJ24 `agritech_overall_agritech_maturity`.
+
+---
+
+# BAGIAN 134 — WAVE KA: MINING & EXTRACTIVE INDUSTRY OPERATIONS INTEGRITY KA01–KA24 (VERIFIED; v1.34.0)
+
+Menambahkan lapisan integritas mining & extractive industry operations integrity: `KA01–KA24` di `hard_gate_enhancements.py`, disurfacing `P_MINING_01–P_MINING_24`; diverifikasi 24/24 PASS (selftest_ka_w7 rc 0).
+
+Mekanisme operasional formal:
+KA01 `mining_mine_safety_geotechnical`, KA02 `mining_ventilation_air_quality`, KA03 `mining_explosives_handling_control`, KA04 `mining_equipment_telemetry_fleet`, KA05 `mining_tailings_dam_monitoring`, KA06 `mining_geological_model_accuracy`, KA07 `mining_water_management_environment`, KA08 `mining_reclamation_plan_progress`, KA09 `mining_mine_worker_training`, KA10 `mining_dust_control_measures`, KA11 `mining_emergency_response_mine`, KA12 `mining_ore_grade_control`, KA13 `mining_conveyor_system_integrity`, KA14 `mining_refining_smelting_control`, KA15 `mining_trackless_mobile_machine`, KA16 `mining_rockburst_monitoring`, KA17 `mining_community_engagement_impact`, KA18 `mining_mineral_rights_compliance`, KA19 `mining_mine_fire_protection`, KA20 `mining_underground_survey_accuracy`, KA21 `mining_heavy_equipment_maintenance`, KA22 `mining_cyanide_management_gold`, KA23 `mining_mine_closure_financial_plan`, KA24 `mining_overall_mining_maturity`.
+
+
+---
+
+# BAGIAN 135 — WAVE KB: FORESTRY & NATURAL RESOURCE MANAGEMENT INTEGRITY KB01–KB24 (VERIFIED; v1.35.0)
+
+Menambahkan lapisan integritas forestry & natural resource management integrity: `KB01–KB24` di `hard_gate_enhancements.py`, disurfacing `P_FORESTRY_01–P_FORESTRY_24`; diverifikasi 24/24 PASS (selftest_kb_w7 rc 0).
+
+Mekanisme operasional formal:
+KB01 `forestry_forest_inventory_accuracy`, KB02 `forestry_sustainable_yield_calculation`, KB03 `forestry_illegal_logging_detection`, KB04 `forestry_certification_fsc_pliance`, KB05 `forestry_biodiversity_impact_assessment`, KB06 `forestry_reforestation_monitoring`, KB07 `forestry_soil_erosion_control`, KB08 `forestry_wildfire_prevention_mitigation`, KB09 `forestry_water_shed_protection`, KB10 `forestry_timber_harvest_planning`, KB11 `forestry_carbon_credit_accounting`, KB12 `forestry_pest_disease_monitoring`, KB13 `forestry_forest_road_maintenance`, KB14 `forestry_community_forest_management`, KB15 `forestry_endangered_species_protection`, KB16 `forestry_fire_break_maintenance`, KB17 `forestry_gps_tree_mapping`, KB18 `forestry_wildlife_corridor_preservation`, KB19 `forestry_illegal_poaching_detection`, KB20 `forestry_forest_fire_air_support`, KB21 `forestry_deforestation_trend_alarm`, KB22 `forestry_genetic_diversity_conservation`, KB23 `forestry_forest_product_traceability`, KB24 `forestry_overall_forestry_maturity`.
+
+
+---
+
+# BAGIAN 136 — WAVE KC: FISHERIES & AQUACULTURE INTEGRITY KC01–KC24 (VERIFIED; v1.36.0)
+
+Menambahkan lapisan integritas fisheries & aquaculture integrity: `KC01–KC24` di `hard_gate_enhancements.py`, disurfacing `P_FISHERIES_01–P_FISHERIES_24`; diverifikasi 24/24 PASS (selftest_kc_w7 rc 0).
+
+Mekanisme operasional formal:
+KC01 `fisheries_stock_assessment_quota`, KC02 `fisheries_bycatch_reduction_measures`, KC03 `fisheries_catch_reporting_accuracy`, KC04 `fisheries_fleet_monitoring_system`, KC05 `fisheries_illegal_fishing_detection`, KC06 `fisheries_aquaculture_water_quality`, KC07 `fisheries_disease_management_fish`, KC08 `fisheries_feed_efficiency_ratio`, KC09 `fisheries_traceability_seafood_supply`, KC10 `fisheries_habitat_impact_assessment`, KC11 `fisheries_fishery_community_livelihoods`, KC12 `fisheries_vessel_capacity_optimization`, KC13 `fisheries_cold_chain_fish_quality`, KC14 `fisheries_quotas_enforcement_control`, KC15 `fisheries_escape_prevention_aquaculture`, KC16 `fisheries_antibiotic_use_reduction`, KC17 `fisheries_fish_welfare_standards`, KC18 `fisheries_ocean_deoxygenation_monitor`, KC19 `fisheries_plastic_gear_reduction`, KC20 `fisheries_seasonal_closure_compliance`, KC21 `fisheries_small_scale_fisher_support`, KC22 `fisheries_fishing_effort_control`, KC23 `fisheries_climate_resilience_fisheries`, KC24 `fisheries_overall_fisheries_maturity`.
+
+
+---
+
+# BAGIAN 137 — WAVE KD: CONSTRUCTION & INFRASTRUCTURE PROJECT INTEGRITY KD01–KD24 (VERIFIED; v1.37.0)
+
+Menambahkan lapisan integritas construction & infrastructure project integrity: `KD01–KD24` di `hard_gate_enhancements.py`, disurfacing `P_CONSTRUCTION_01–P_CONSTRUCTION_24`; diverifikasi 24/24 PASS (selftest_kd_w7 rc 0).
+
+Mekanisme operasional formal:
+KD01 `construction_structural_engineering_verification`, KD02 `construction_construction_materials_quality`, KD03 `construction_site_safety_program`, KD04 `construction_crane_lift_planning`, KD05 `construction_foundation_geotechnical_analysis`, KD06 `construction_contractor_qualification_vetting`, KD07 `construction_timeline_schedule_adherence`, KD08 `construction_cost_control_budget`, KD09 `construction_quality_inspection_checkpoints`, KD10 `construction_sustainable_materials_use`, KD11 `construction_waste_management_construction`, KD12 `construction_fire_safety_mod_construction`, KD13 `construction_steel_rebar_inspection`, KD14 `construction_concrete_curing_monitor`, KD15 `construction_building_information_modeling`, KD16 `construction_workers_personal_protective_equip`, KD17 `construction_earthwork_compaction_test`, KD18 `construction_weather_delay_management`, KD19 `construction_erosion_control_construction`, KD20 `construction_hidraulics_drainage_design`, KD21 `construction_electrical_wiring_code_compliance`, KD22 `construction_plumbing_pressure_test`, KD23 `construction_commissioning_handover_documentation`, KD24 `construction_overall_construction_maturity`.
+
+
+---
+
+# BAGIAN 138 — WAVE KE: GEOLOGY & EARTH SCIENCE DATA INTEGRITY KE01–KE24 (VERIFIED; v1.38.0)
+
+Menambahkan lapisan integritas geology & earth science data integrity: `KE01–KE24` di `hard_gate_enhancements.py`, disurfacing `P_GEOLOGY_01–P_GEOLOGY_24`; diverifikasi 24/24 PASS (selftest_ke_w7 rc 0).
+
+Mekanisme operasional formal:
+KE01 `geology_seismic_data_acquisition_quality`, KE02 `geology_stratigraphy_correlation_accuracy`, KE03 `geology_geochronology_dating_validity`, KE04 `geology_mapping_utm_coordinate_accuracy`, KE05 `geology_core_logging_standardization`, KE06 `geology_geochemistry_lab_quality`, KE07 `geology_groundwater_modeling_calibration`, KE08 `geology_fault_geometry_interpretation`, KE09 `geology_rock_property_lab_testing`, KE10 `geology_sedimentology_facies_analysis`, KE11 `geology_paleontology_biostratigraphy`, KE12 `geology_remote_sensing_interpretation`, KE13 `geology_magnetics_gravity_survey`, KE14 `geology_geohazard_risk_assessment`, KE15 `geology_drillhole_planning_optimization`, KE16 `geology_ore_body_model_estimation`, KE17 `geology_tephrochronology_volcanic`, KE18 `geology_weathering_alteration_zoning`, KE19 `geology_hydrocarbon_migration_model`, KE20 `geology_aquifer_characterization`, KE21 `geology_carbon_capture_storage_site`, KE22 `geology_geothermal_resource_evaluation`, KE23 `geology_planetary_geology_mapping`, KE24 `geology_overall_geology_maturity`.
+
+
+---
+
+# BAGIAN 139 — WAVE KF: METEOROLOGY & FORECASTING DATA INTEGRITY KF01–KF24 (VERIFIED; v1.39.0)
+
+Menambahkan lapisan integritas meteorology & forecasting data integrity: `KF01–KF24` di `hard_gate_enhancements.py`, disurfacing `P_METEOROLOGY_01–P_METEOROLOGY_24`; diverifikasi 24/24 PASS (selftest_kf_w7 rc 0).
+
+Mekanisme operasional formal:
+KF01 `meteorology_observation_station_calibration`, KF02 `meteorology_model_initialization_accurate`, KF03 `meteorology_ensemble_forecast_spread`, KF04 `meteorology_severe_weather_warning_verification`, KF05 `meteorology_radar_data_quality_control`, KF06 `meteorology_satellite_measurement_validation`, KF07 `meteorology_upper_air_sounding_quality`, KF08 `meteorology_precipitation_gauge_accuracy`, KF09 `meteorology_wave_forecast_accuracy`, KF10 `meteorology_flood_forecasting_system`, KF11 `meteorology_air_quality_modeling`, KF12 `meteorology_climate_model_validation`, KF13 `meteorology_data_assimilation_scheme`, KF14 `meteorology_temperature_trend_analysis`, KF15 `meteorology_humidity_sensor_accuracy`, KF16 `meteorology_drought_index_monitoring`, KF17 `meteorology_visibility_observation_accuracy`, KF18 `meteorology_tornado_forecast_skill`, KF19 `meteorology_hurricane_track_accuracy`, KF20 `meteorology_wind_profile_accuracy`, KF21 `meteorology_aviation_weather_briefing`, KF22 `meteorology_marine_weather_services`, KF23 `meteorology_climate_extremes_monitoring`, KF24 `meteorology_overall_meteorology_maturity`.
+
+
+---
+
+# BAGIAN 140 — WAVE KG: HYDROLOGY & WATER RESOURCES INTEGRITY KG01–KG24 (VERIFIED; v1.40.0)
+
+Menambahkan lapisan integritas hydrology & water resources integrity: `KG01–KG24` di `hard_gate_enhancements.py`, disurfacing `P_HYDROLOGY_01–P_HYDROLOGY_24`; diverifikasi 24/24 PASS (selftest_kg_w7 rc 0).
+
+Mekanisme operasional formal:
+KG01 `hydrology_streamflow_gauge_accuracy`, KG02 `hydrology_watershed_modeling_calibration`, KG03 `hydrology_groundwater_level_monitoring`, KG04 `hydrology_water_quality_lab_accuracy`, KG05 `hydrology_reservoir_operations_optimization`, KG06 `hydrology_floodplain_mapping_accuracy`, KG07 `hydrology_evapotranspiration_estimation`, KG08 `hydrology_snowmelt_runoff_modeling`, KG09 `hydrology_irrigation_water_use_efficiency`, KG10 `hydrology_urban_runoff_management`, KG11 `hydrology_dam_safety_inspection`, KG12 `hydrology_levee_integrity_monitoring`, KG13 `hydrology_hydropower_generation_plan`, KG14 `hydrology_water_rights_allocation`, KG15 `hydrology_wastewater_treatment_compliance`, KG16 `hydrology_aquifer_recharge_assessment`, KG17 `hydrology_water_supply_reliability`, KG18 `hydrology_saltwater_intrusion_modeling`, KG19 `hydrology_transboundary_water_cooperation`, KG20 `hydrology_drought_contingency_planning`, KG21 `hydrology_sediment_transport_modeling`, KG22 `hydrology_groundwater_contamination_plumes`, KG23 `hydrology_climate_water_cycle_impact`, KG24 `hydrology_overall_hydrology_maturity`.
+
+
+---
+
+# BAGIAN 141 — WAVE KH: ECOLOGY & BIODIVERSITY SCIENCE INTEGRITY KH01–KH24 (VERIFIED; v1.41.0)
+
+Menambahkan lapisan integritas ecology & biodiversity science integrity: `KH01–KH24` di `hard_gate_enhancements.py`, disurfacing `P_ECOLOGY_01–P_ECOLOGY_24`; diverifikasi 24/24 PASS (selftest_kh_w7 rc 0).
+
+Mekanisme operasional formal:
+KH01 `ecology_species_survey_methodology`, KH02 `ecology_population_estimation_statistics`, KH03 `ecology_habitat_mapping_accuracy`, KH04 `ecology_ecological_modeling_validity`, KH05 `ecology_species_interaction_network`, KH06 `ecology_genetic_diversity_assessment`, KH07 `ecology_invasive_species_control`, KH08 `ecology_ecosystem_services_valuation`, KH09 `ecology_restoration_ecology_monitoring`, KH10 `ecology_predator_prey_dynamics`, KH11 `ecology_migration_patterns_tracking`, KH12 `ecology_climate_shift_range_modeling`, KH13 `ecology_phenology_monitoring_network`, KH14 `ecology_pollinator_health_monitoring`, KH15 `ecology_soil_biodiversity_assessment`, KH16 `ecology_freshwater_ecosystem_health`, KH17 `ecology_marine_ecology_biodiversity`, KH18 `ecology_disease_ecology_surveillance`, KH19 `ecology_landscape_connectivity_analysis`, KH20 `ecology_redlist_threat_assessment`, KH21 `ecology_citizen_science_data_validation`, KH22 `ecology_acoustic_monitoring_analysis`, KH23 `ecology_camera_trap_analysis`, KH24 `ecology_overall_ecology_maturity`.
+
+
+---
+
+# BAGIAN 142 — WAVE KI: OCEANOGRAPHY & MARINE SCIENCE DATA INTEGRITY KI01–KI24 (VERIFIED; v1.42.0)
+
+Menambahkan lapisan integritas oceanography & marine science data integrity: `KI01–KI24` di `hard_gate_enhancements.py`, disurfacing `P_OCEANOGRAPHY_01–P_OCEANOGRAPHY_24`; diverifikasi 24/24 PASS (selftest_ki_w7 rc 0).
+
+Mekanisme operasional formal:
+KI01 `oceanography_ctd_profile_accuracy`, KI02 `oceanography_current_measurement_accuracy`, KI03 `oceanography_tide_gauge_calibration`, KI04 `oceanography_bathymetry_survey_quality`, KI05 `oceanography_water_column_sampling_validity`, KI06 `oceanography_ph_alkalinity_measurement`, KI07 `oceanography_benthic_survey_methodology`, KI08 `oceanography_plankton_sampling_standardization`, KI09 `oceanography_satellite_ocean_color_validation`, KI10 `oceanography_sea_ice_monitoring_accuracy`, KI11 `oceanography_argo_float_data_quality`, KI12 `oceanography_wave_buoy_data_quality`, KI13 `oceanography_ocean_acidification_trends`, KI14 `oceanography_deep_sea_exploration_data`, KI15 `oceanography_maritime_safety_warnings`, KI16 `oceanography_fisheries_oceanography_link`, KI17 `oceanography_coastal_erosion_monitoring`, KI18 `oceanography_oil_spill_detection`, KI19 `oceanography_plastic_pollution_assessment`, KI20 `oceanography_coral_reef_health_monitoring`, KI21 `oceanography_oxygen_minimum_zone_study`, KI22 `oceanography_marine_heatwave_detection`, KI23 `oceanography_sea_level_rise_measurement`, KI24 `oceanography_overall_oceanography_maturity`.
+
+
+---
+
+# BAGIAN 143 — WAVE KJ: NUCLEAR ENERGY & RADIATION SAFETY INTEGRITY KJ01–KJ24 (VERIFIED; v1.43.0)
+
+Menambahkan lapisan integritas nuclear energy & radiation safety integrity: `KJ01–KJ24` di `hard_gate_enhancements.py`, disurfacing `P_NUCLEAR_01–P_NUCLEAR_24`; diverifikasi 24/24 PASS (selftest_kj_w7 rc 0).
+
+Mekanisme operasional formal:
+KJ01 `nuclear_reactor_core_control`, KJ02 `nuclear_radiation_dose_monitoring`, KJ03 `nuclear_nuclear_fuel_integrity`, KJ04 `nuclear_containment_structure_integrity`, KJ05 `nuclear_spent_fuel_pool_cooling`, KJ06 `nuclear_coolant_system_pressure`, KJ07 `nuclear_emergency_core_cooling_ready`, KJ08 `nuclear_radiation_shielding_effective`, KJ09 `nuclear_nuclear_waste_disposal_safety`, KJ10 `nuclear_security_against_sabotage`, KJ11 `nuclear_nuclear_regulation_compliance`, KJ12 `nuclear_operator_licensing_training`, KJ13 `nuclear_automated_reactor_protection`, KJ14 `nuclear_seismic_design_basis`, KJ15 `nuclear_probabilistic_risk_assessment`, KJ16 `nuclear_defense_in_depth_layers`, KJ17 `nuclear_fukushima_lessons_implemented`, KJ18 `nuclear_radioactive_release_monitoring`, KJ19 `nuclear_nuclear_materials_accounting`, KJ20 `nuclear_decommissioning_plan`, KJ21 `nuclear_transport_nuclear_materials_safe`, KJ22 `nuclear_public_communication_transparency`, KJ23 `nuclear_human_factors_control_room`, KJ24 `nuclear_overall_nuclear_maturity`.

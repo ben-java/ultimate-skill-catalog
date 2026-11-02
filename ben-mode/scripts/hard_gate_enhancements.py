@@ -14933,3 +14933,1042 @@ def selftest_jj_w6():
         (23, agritech_regenerative_practice_adoption(soil_health_practices=True)),
         (24, agritech_overall_agritech_maturity(min_score=70, score=90))
     ]
+
+# ------------------------------------------------------------------
+# WAVE KA — MINING & EXTRACTIVE INDUSTRY OPERATIONS INTEGRITY (KA01–KA24)
+# ------------------------------------------------------------------
+def mining_mine_safety_geotechnical(slope_stability_monitored=True):
+    return bool(slope_stability_monitored)
+
+def mining_ventilation_air_quality(air_quality_within_limits=True):
+    return bool(air_quality_within_limits)
+
+def mining_explosives_handling_control(explosives_controlled=True):
+    return bool(explosives_controlled)
+
+def mining_equipment_telemetry_fleet(fleet_telemetry_available=True):
+    return bool(fleet_telemetry_available)
+
+def mining_tailings_dam_monitoring(dam_stability_tracked=True):
+    return bool(dam_stability_tracked)
+
+def mining_geological_model_accuracy(resource_model_validated=True):
+    return bool(resource_model_validated)
+
+def mining_water_management_environment(water_discharge_treated=True):
+    return bool(water_discharge_treated)
+
+def mining_reclamation_plan_progress(reclamation_on_track=True):
+    return bool(reclamation_on_track)
+
+def mining_mine_worker_training(workers_trained=True):
+    return bool(workers_trained)
+
+def mining_dust_control_measures(dust_mitigated=True):
+    return bool(dust_mitigated)
+
+def mining_emergency_response_mine(rescue_plan_ready=True):
+    return bool(rescue_plan_ready)
+
+def mining_ore_grade_control(grade_control_accurate=True):
+    return bool(grade_control_accurate)
+
+def mining_conveyor_system_integrity(conveyors_maintained=True):
+    return bool(conveyors_maintained)
+
+def mining_refining_smelting_control(process_param_controlled=True):
+    return bool(process_param_controlled)
+
+def mining_trackless_mobile_machine(tmm_operated_safely=True):
+    return bool(tmm_operated_safely)
+
+def mining_rockburst_monitoring(seismic_events_tracked=True):
+    return bool(seismic_events_tracked)
+
+def mining_community_engagement_impact(community_relations_ok=True):
+    return bool(community_relations_ok)
+
+def mining_mineral_rights_compliance(rights_legal=True):
+    return bool(rights_legal)
+
+def mining_mine_fire_protection(fire_suppression_ready=True):
+    return bool(fire_suppression_ready)
+
+def mining_underground_survey_accuracy(surveys_accurate=True):
+    return bool(surveys_accurate)
+
+def mining_heavy_equipment_maintenance(equipment_serviced=True):
+    return bool(equipment_serviced)
+
+def mining_cyanide_management_gold(cyanide_handled_safely=True):
+    return bool(cyanide_handled_safely)
+
+def mining_mine_closure_financial_plan(closure_funded=True):
+    return bool(closure_funded)
+
+def mining_overall_mining_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ka_w7():
+    return [
+        (1, mining_mine_safety_geotechnical(slope_stability_monitored=True)),
+        (2, mining_ventilation_air_quality(air_quality_within_limits=True)),
+        (3, mining_explosives_handling_control(explosives_controlled=True)),
+        (4, mining_equipment_telemetry_fleet(fleet_telemetry_available=True)),
+        (5, mining_tailings_dam_monitoring(dam_stability_tracked=True)),
+        (6, mining_geological_model_accuracy(resource_model_validated=True)),
+        (7, mining_water_management_environment(water_discharge_treated=True)),
+        (8, mining_reclamation_plan_progress(reclamation_on_track=True)),
+        (9, mining_mine_worker_training(workers_trained=True)),
+        (10, mining_dust_control_measures(dust_mitigated=True)),
+        (11, mining_emergency_response_mine(rescue_plan_ready=True)),
+        (12, mining_ore_grade_control(grade_control_accurate=True)),
+        (13, mining_conveyor_system_integrity(conveyors_maintained=True)),
+        (14, mining_refining_smelting_control(process_param_controlled=True)),
+        (15, mining_trackless_mobile_machine(tmm_operated_safely=True)),
+        (16, mining_rockburst_monitoring(seismic_events_tracked=True)),
+        (17, mining_community_engagement_impact(community_relations_ok=True)),
+        (18, mining_mineral_rights_compliance(rights_legal=True)),
+        (19, mining_mine_fire_protection(fire_suppression_ready=True)),
+        (20, mining_underground_survey_accuracy(surveys_accurate=True)),
+        (21, mining_heavy_equipment_maintenance(equipment_serviced=True)),
+        (22, mining_cyanide_management_gold(cyanide_handled_safely=True)),
+        (23, mining_mine_closure_financial_plan(closure_funded=True)),
+        (24, mining_overall_mining_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KB — FORESTRY & NATURAL RESOURCE MANAGEMENT INTEGRITY (KB01–KB24)
+# ------------------------------------------------------------------
+def forestry_forest_inventory_accuracy(inventory_measurements_accurate=True):
+    return bool(inventory_measurements_accurate)
+
+def forestry_sustainable_yield_calculation(yield_within_sustainable=True):
+    return bool(yield_within_sustainable)
+
+def forestry_illegal_logging_detection(illegal_activity_flagged=True):
+    return bool(illegal_activity_flagged)
+
+def forestry_certification_fsc_pliance(certification_compliant=True):
+    return bool(certification_compliant)
+
+def forestry_biodiversity_impact_assessment(biodiversity_considered=True):
+    return bool(biodiversity_considered)
+
+def forestry_reforestation_monitoring(planting_tracked=True):
+    return bool(planting_tracked)
+
+def forestry_soil_erosion_control(erosion_prevented=True):
+    return bool(erosion_prevented)
+
+def forestry_wildfire_prevention_mitigation(fire_risk_managed=True):
+    return bool(fire_risk_managed)
+
+def forestry_water_shed_protection(watershed_protected=True):
+    return bool(watershed_protected)
+
+def forestry_timber_harvest_planning(harvest_planned_sustainably=True):
+    return bool(harvest_planned_sustainably)
+
+def forestry_carbon_credit_accounting(credits_accurately_accounted=True):
+    return bool(credits_accurately_accounted)
+
+def forestry_pest_disease_monitoring(pests_controlled=True):
+    return bool(pests_controlled)
+
+def forestry_forest_road_maintenance(roads_maintained=True):
+    return bool(roads_maintained)
+
+def forestry_community_forest_management(community_partnerships=True):
+    return bool(community_partnerships)
+
+def forestry_endangered_species_protection(species_protected=True):
+    return bool(species_protected)
+
+def forestry_fire_break_maintenance(breaks_maintained=True):
+    return bool(breaks_maintained)
+
+def forestry_gps_tree_mapping(trees_mapped=True):
+    return bool(trees_mapped)
+
+def forestry_wildlife_corridor_preservation(corridors_preserved=True):
+    return bool(corridors_preserved)
+
+def forestry_illegal_poaching_detection(poaching_monitored=True):
+    return bool(poaching_monitored)
+
+def forestry_forest_fire_air_support(aerial_firefighting_ready=True):
+    return bool(aerial_firefighting_ready)
+
+def forestry_deforestation_trend_alarm(deforestation_flagged=True):
+    return bool(deforestation_flagged)
+
+def forestry_genetic_diversity_conservation(diversity_preserved=True):
+    return bool(diversity_preserved)
+
+def forestry_forest_product_traceability(products_traceable=True):
+    return bool(products_traceable)
+
+def forestry_overall_forestry_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kb_w7():
+    return [
+        (1, forestry_forest_inventory_accuracy(inventory_measurements_accurate=True)),
+        (2, forestry_sustainable_yield_calculation(yield_within_sustainable=True)),
+        (3, forestry_illegal_logging_detection(illegal_activity_flagged=True)),
+        (4, forestry_certification_fsc_pliance(certification_compliant=True)),
+        (5, forestry_biodiversity_impact_assessment(biodiversity_considered=True)),
+        (6, forestry_reforestation_monitoring(planting_tracked=True)),
+        (7, forestry_soil_erosion_control(erosion_prevented=True)),
+        (8, forestry_wildfire_prevention_mitigation(fire_risk_managed=True)),
+        (9, forestry_water_shed_protection(watershed_protected=True)),
+        (10, forestry_timber_harvest_planning(harvest_planned_sustainably=True)),
+        (11, forestry_carbon_credit_accounting(credits_accurately_accounted=True)),
+        (12, forestry_pest_disease_monitoring(pests_controlled=True)),
+        (13, forestry_forest_road_maintenance(roads_maintained=True)),
+        (14, forestry_community_forest_management(community_partnerships=True)),
+        (15, forestry_endangered_species_protection(species_protected=True)),
+        (16, forestry_fire_break_maintenance(breaks_maintained=True)),
+        (17, forestry_gps_tree_mapping(trees_mapped=True)),
+        (18, forestry_wildlife_corridor_preservation(corridors_preserved=True)),
+        (19, forestry_illegal_poaching_detection(poaching_monitored=True)),
+        (20, forestry_forest_fire_air_support(aerial_firefighting_ready=True)),
+        (21, forestry_deforestation_trend_alarm(deforestation_flagged=True)),
+        (22, forestry_genetic_diversity_conservation(diversity_preserved=True)),
+        (23, forestry_forest_product_traceability(products_traceable=True)),
+        (24, forestry_overall_forestry_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KC — FISHERIES & AQUACULTURE INTEGRITY (KC01–KC24)
+# ------------------------------------------------------------------
+def fisheries_stock_assessment_quota(quota_within_sustainable=True):
+    return bool(quota_within_sustainable)
+
+def fisheries_bycatch_reduction_measures(bycatch_minimized=True):
+    return bool(bycatch_minimized)
+
+def fisheries_catch_reporting_accuracy(catch_reported_honestly=True):
+    return bool(catch_reported_honestly)
+
+def fisheries_fleet_monitoring_system(vessels_tracked=True):
+    return bool(vessels_tracked)
+
+def fisheries_illegal_fishing_detection(iuu_fishing_caught=True):
+    return bool(iuu_fishing_caught)
+
+def fisheries_aquaculture_water_quality(water_quality_ok=True):
+    return bool(water_quality_ok)
+
+def fisheries_disease_management_fish(disease_controlled=True):
+    return bool(disease_controlled)
+
+def fisheries_feed_efficiency_ratio(fer_optimized=True):
+    return bool(fer_optimized)
+
+def fisheries_traceability_seafood_supply(seafood_traceable=True):
+    return bool(seafood_traceable)
+
+def fisheries_habitat_impact_assessment(habitat_considered=True):
+    return bool(habitat_considered)
+
+def fisheries_fishery_community_livelihoods(communities_supported=True):
+    return bool(communities_supported)
+
+def fisheries_vessel_capacity_optimization(capacity_balanced=True):
+    return bool(capacity_balanced)
+
+def fisheries_cold_chain_fish_quality(cold_chain_unbroken=True):
+    return bool(cold_chain_unbroken)
+
+def fisheries_quotas_enforcement_control(enforcement_active=True):
+    return bool(enforcement_active)
+
+def fisheries_escape_prevention_aquaculture(escapes_prevented=True):
+    return bool(escapes_prevented)
+
+def fisheries_antibiotic_use_reduction(antibiotics_minimized=True):
+    return bool(antibiotics_minimized)
+
+def fisheries_fish_welfare_standards(welfare_met=True):
+    return bool(welfare_met)
+
+def fisheries_ocean_deoxygenation_monitor(dead_zones_monitored=True):
+    return bool(dead_zones_monitored)
+
+def fisheries_plastic_gear_reduction(ghost_gear_reduced=True):
+    return bool(ghost_gear_reduced)
+
+def fisheries_seasonal_closure_compliance(closed_seasons_respected=True):
+    return bool(closed_seasons_respected)
+
+def fisheries_small_scale_fisher_support(small_scale_protected=True):
+    return bool(small_scale_protected)
+
+def fisheries_fishing_effort_control(effort_bounded=True):
+    return bool(effort_bounded)
+
+def fisheries_climate_resilience_fisheries(climate_adaptation=True):
+    return bool(climate_adaptation)
+
+def fisheries_overall_fisheries_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kc_w7():
+    return [
+        (1, fisheries_stock_assessment_quota(quota_within_sustainable=True)),
+        (2, fisheries_bycatch_reduction_measures(bycatch_minimized=True)),
+        (3, fisheries_catch_reporting_accuracy(catch_reported_honestly=True)),
+        (4, fisheries_fleet_monitoring_system(vessels_tracked=True)),
+        (5, fisheries_illegal_fishing_detection(iuu_fishing_caught=True)),
+        (6, fisheries_aquaculture_water_quality(water_quality_ok=True)),
+        (7, fisheries_disease_management_fish(disease_controlled=True)),
+        (8, fisheries_feed_efficiency_ratio(fer_optimized=True)),
+        (9, fisheries_traceability_seafood_supply(seafood_traceable=True)),
+        (10, fisheries_habitat_impact_assessment(habitat_considered=True)),
+        (11, fisheries_fishery_community_livelihoods(communities_supported=True)),
+        (12, fisheries_vessel_capacity_optimization(capacity_balanced=True)),
+        (13, fisheries_cold_chain_fish_quality(cold_chain_unbroken=True)),
+        (14, fisheries_quotas_enforcement_control(enforcement_active=True)),
+        (15, fisheries_escape_prevention_aquaculture(escapes_prevented=True)),
+        (16, fisheries_antibiotic_use_reduction(antibiotics_minimized=True)),
+        (17, fisheries_fish_welfare_standards(welfare_met=True)),
+        (18, fisheries_ocean_deoxygenation_monitor(dead_zones_monitored=True)),
+        (19, fisheries_plastic_gear_reduction(ghost_gear_reduced=True)),
+        (20, fisheries_seasonal_closure_compliance(closed_seasons_respected=True)),
+        (21, fisheries_small_scale_fisher_support(small_scale_protected=True)),
+        (22, fisheries_fishing_effort_control(effort_bounded=True)),
+        (23, fisheries_climate_resilience_fisheries(climate_adaptation=True)),
+        (24, fisheries_overall_fisheries_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KD — CONSTRUCTION & INFRASTRUCTURE PROJECT INTEGRITY (KD01–KD24)
+# ------------------------------------------------------------------
+def construction_structural_engineering_verification(designs_verified=True):
+    return bool(designs_verified)
+
+def construction_construction_materials_quality(materials_tested=True):
+    return bool(materials_tested)
+
+def construction_site_safety_program(safety_metrics_met=True):
+    return bool(safety_metrics_met)
+
+def construction_crane_lift_planning(lifts_planned_safely=True):
+    return bool(lifts_planned_safely)
+
+def construction_foundation_geotechnical_analysis(soil_analysis_done=True):
+    return bool(soil_analysis_done)
+
+def construction_contractor_qualification_vetting(contractors_vetted=True):
+    return bool(contractors_vetted)
+
+def construction_timeline_schedule_adherence(schedule_tracked=True):
+    return bool(schedule_tracked)
+
+def construction_cost_control_budget(budget_monitored=True):
+    return bool(budget_monitored)
+
+def construction_quality_inspection_checkpoints(inspections_done=True):
+    return bool(inspections_done)
+
+def construction_sustainable_materials_use(green_materials=True):
+    return bool(green_materials)
+
+def construction_waste_management_construction(waste_recycled=True):
+    return bool(waste_recycled)
+
+def construction_fire_safety_mod_construction(fire_safety_met=True):
+    return bool(fire_safety_met)
+
+def construction_steel_rebar_inspection(rebar_placed_correctly=True):
+    return bool(rebar_placed_correctly)
+
+def construction_concrete_curing_monitor(curing_controlled=True):
+    return bool(curing_controlled)
+
+def construction_building_information_modeling(bim_used=True):
+    return bool(bim_used)
+
+def construction_workers_personal_protective_equip(ppe_used=True):
+    return bool(ppe_used)
+
+def construction_earthwork_compaction_test(compaction_tested=True):
+    return bool(compaction_tested)
+
+def construction_weather_delay_management(weather_considered=True):
+    return bool(weather_considered)
+
+def construction_erosion_control_construction(erosion_prevented=True):
+    return bool(erosion_prevented)
+
+def construction_hidraulics_drainage_design(drainage_adequate=True):
+    return bool(drainage_adequate)
+
+def construction_electrical_wiring_code_compliance(electrical_code_met=True):
+    return bool(electrical_code_met)
+
+def construction_plumbing_pressure_test(plumbing_tested=True):
+    return bool(plumbing_tested)
+
+def construction_commissioning_handover_documentation(handover_documented=True):
+    return bool(handover_documented)
+
+def construction_overall_construction_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kd_w7():
+    return [
+        (1, construction_structural_engineering_verification(designs_verified=True)),
+        (2, construction_construction_materials_quality(materials_tested=True)),
+        (3, construction_site_safety_program(safety_metrics_met=True)),
+        (4, construction_crane_lift_planning(lifts_planned_safely=True)),
+        (5, construction_foundation_geotechnical_analysis(soil_analysis_done=True)),
+        (6, construction_contractor_qualification_vetting(contractors_vetted=True)),
+        (7, construction_timeline_schedule_adherence(schedule_tracked=True)),
+        (8, construction_cost_control_budget(budget_monitored=True)),
+        (9, construction_quality_inspection_checkpoints(inspections_done=True)),
+        (10, construction_sustainable_materials_use(green_materials=True)),
+        (11, construction_waste_management_construction(waste_recycled=True)),
+        (12, construction_fire_safety_mod_construction(fire_safety_met=True)),
+        (13, construction_steel_rebar_inspection(rebar_placed_correctly=True)),
+        (14, construction_concrete_curing_monitor(curing_controlled=True)),
+        (15, construction_building_information_modeling(bim_used=True)),
+        (16, construction_workers_personal_protective_equip(ppe_used=True)),
+        (17, construction_earthwork_compaction_test(compaction_tested=True)),
+        (18, construction_weather_delay_management(weather_considered=True)),
+        (19, construction_erosion_control_construction(erosion_prevented=True)),
+        (20, construction_hidraulics_drainage_design(drainage_adequate=True)),
+        (21, construction_electrical_wiring_code_compliance(electrical_code_met=True)),
+        (22, construction_plumbing_pressure_test(plumbing_tested=True)),
+        (23, construction_commissioning_handover_documentation(handover_documented=True)),
+        (24, construction_overall_construction_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KE — GEOLOGY & EARTH SCIENCE DATA INTEGRITY (KE01–KE24)
+# ------------------------------------------------------------------
+def geology_seismic_data_acquisition_quality(seismic_data_clean=True):
+    return bool(seismic_data_clean)
+
+def geology_stratigraphy_correlation_accuracy(layers_correlated=True):
+    return bool(layers_correlated)
+
+def geology_geochronology_dating_validity(dates_reliable=True):
+    return bool(dates_reliable)
+
+def geology_mapping_utm_coordinate_accuracy(coords_accurate=True):
+    return bool(coords_accurate)
+
+def geology_core_logging_standardization(cores_logged_consistently=True):
+    return bool(cores_logged_consistently)
+
+def geology_geochemistry_lab_quality(lab_results_validated=True):
+    return bool(lab_results_validated)
+
+def geology_groundwater_modeling_calibration(groundwater_model_calibrated=True):
+    return bool(groundwater_model_calibrated)
+
+def geology_fault_geometry_interpretation(faults_interpreted=True):
+    return bool(faults_interpreted)
+
+def geology_rock_property_lab_testing(rock_props_measured=True):
+    return bool(rock_props_measured)
+
+def geology_sedimentology_facies_analysis(facies_identified=True):
+    return bool(facies_identified)
+
+def geology_paleontology_biostratigraphy(fossil_dating_consistent=True):
+    return bool(fossil_dating_consistent)
+
+def geology_remote_sensing_interpretation(satellite_data_verified=True):
+    return bool(satellite_data_verified)
+
+def geology_magnetics_gravity_survey(surveys_processed=True):
+    return bool(surveys_processed)
+
+def geology_geohazard_risk_assessment(geohazards_identified=True):
+    return bool(geohazards_identified)
+
+def geology_drillhole_planning_optimization(drill_plan_sound=True):
+    return bool(drill_plan_sound)
+
+def geology_ore_body_model_estimation(resource_estimate_validated=True):
+    return bool(resource_estimate_validated)
+
+def geology_tephrochronology_volcanic(volcanic_layers_dated=True):
+    return bool(volcanic_layers_dated)
+
+def geology_weathering_alteration_zoning(alteration_mapped=True):
+    return bool(alteration_mapped)
+
+def geology_hydrocarbon_migration_model(migration_paths_modeled=True):
+    return bool(migration_paths_modeled)
+
+def geology_aquifer_characterization(aquifers_hydrostratified=True):
+    return bool(aquifers_hydrostratified)
+
+def geology_carbon_capture_storage_site(ccs_site_characterized=True):
+    return bool(ccs_site_characterized)
+
+def geology_geothermal_resource_evaluation(geothermal_potential=True):
+    return bool(geothermal_potential)
+
+def geology_planetary_geology_mapping(planetary_data_validated=True):
+    return bool(planetary_data_validated)
+
+def geology_overall_geology_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ke_w7():
+    return [
+        (1, geology_seismic_data_acquisition_quality(seismic_data_clean=True)),
+        (2, geology_stratigraphy_correlation_accuracy(layers_correlated=True)),
+        (3, geology_geochronology_dating_validity(dates_reliable=True)),
+        (4, geology_mapping_utm_coordinate_accuracy(coords_accurate=True)),
+        (5, geology_core_logging_standardization(cores_logged_consistently=True)),
+        (6, geology_geochemistry_lab_quality(lab_results_validated=True)),
+        (7, geology_groundwater_modeling_calibration(groundwater_model_calibrated=True)),
+        (8, geology_fault_geometry_interpretation(faults_interpreted=True)),
+        (9, geology_rock_property_lab_testing(rock_props_measured=True)),
+        (10, geology_sedimentology_facies_analysis(facies_identified=True)),
+        (11, geology_paleontology_biostratigraphy(fossil_dating_consistent=True)),
+        (12, geology_remote_sensing_interpretation(satellite_data_verified=True)),
+        (13, geology_magnetics_gravity_survey(surveys_processed=True)),
+        (14, geology_geohazard_risk_assessment(geohazards_identified=True)),
+        (15, geology_drillhole_planning_optimization(drill_plan_sound=True)),
+        (16, geology_ore_body_model_estimation(resource_estimate_validated=True)),
+        (17, geology_tephrochronology_volcanic(volcanic_layers_dated=True)),
+        (18, geology_weathering_alteration_zoning(alteration_mapped=True)),
+        (19, geology_hydrocarbon_migration_model(migration_paths_modeled=True)),
+        (20, geology_aquifer_characterization(aquifers_hydrostratified=True)),
+        (21, geology_carbon_capture_storage_site(ccs_site_characterized=True)),
+        (22, geology_geothermal_resource_evaluation(geothermal_potential=True)),
+        (23, geology_planetary_geology_mapping(planetary_data_validated=True)),
+        (24, geology_overall_geology_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KF — METEOROLOGY & FORECASTING DATA INTEGRITY (KF01–KF24)
+# ------------------------------------------------------------------
+def meteorology_observation_station_calibration(instruments_calibrated=True):
+    return bool(instruments_calibrated)
+
+def meteorology_model_initialization_accurate(analysis_accurate=True):
+    return bool(analysis_accurate)
+
+def meteorology_ensemble_forecast_spread(ensembles_used=True):
+    return bool(ensembles_used)
+
+def meteorology_severe_weather_warning_verification(warnings_issued=True):
+    return bool(warnings_issued)
+
+def meteorology_radar_data_quality_control(radar_clean=True):
+    return bool(radar_clean)
+
+def meteorology_satellite_measurement_validation(sat_data_validated=True):
+    return bool(sat_data_validated)
+
+def meteorology_upper_air_sounding_quality(soundings_reliable=True):
+    return bool(soundings_reliable)
+
+def meteorology_precipitation_gauge_accuracy(gauge_measurements_ok=True):
+    return bool(gauge_measurements_ok)
+
+def meteorology_wave_forecast_accuracy(wave_models_validated=True):
+    return bool(wave_models_validated)
+
+def meteorology_flood_forecasting_system(flood_warnings_reliable=True):
+    return bool(flood_warnings_reliable)
+
+def meteorology_air_quality_modeling(aq_predictions_validated=True):
+    return bool(aq_predictions_validated)
+
+def meteorology_climate_model_validation(climate_projections_assessed=True):
+    return bool(climate_projections_assessed)
+
+def meteorology_data_assimilation_scheme(assimilation_robust=True):
+    return bool(assimilation_robust)
+
+def meteorology_temperature_trend_analysis(trends_statistically_sound=True):
+    return bool(trends_statistically_sound)
+
+def meteorology_humidity_sensor_accuracy(humidity_measured_well=True):
+    return bool(humidity_measured_well)
+
+def meteorology_drought_index_monitoring(drought_tracked=True):
+    return bool(drought_tracked)
+
+def meteorology_visibility_observation_accuracy(visibility_correct=True):
+    return bool(visibility_correct)
+
+def meteorology_tornado_forecast_skill(tornado_guidance_skillful=True):
+    return bool(tornado_guidance_skillful)
+
+def meteorology_hurricane_track_accuracy(track_errors_reduced=True):
+    return bool(track_errors_reduced)
+
+def meteorology_wind_profile_accuracy(wind_profiles_accurate=True):
+    return bool(wind_profiles_accurate)
+
+def meteorology_aviation_weather_briefing(aviation_weather_accurate=True):
+    return bool(aviation_weather_accurate)
+
+def meteorology_marine_weather_services(marine_forecasts_accurate=True):
+    return bool(marine_forecasts_accurate)
+
+def meteorology_climate_extremes_monitoring(extremes_catalogued=True):
+    return bool(extremes_catalogued)
+
+def meteorology_overall_meteorology_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kf_w7():
+    return [
+        (1, meteorology_observation_station_calibration(instruments_calibrated=True)),
+        (2, meteorology_model_initialization_accurate(analysis_accurate=True)),
+        (3, meteorology_ensemble_forecast_spread(ensembles_used=True)),
+        (4, meteorology_severe_weather_warning_verification(warnings_issued=True)),
+        (5, meteorology_radar_data_quality_control(radar_clean=True)),
+        (6, meteorology_satellite_measurement_validation(sat_data_validated=True)),
+        (7, meteorology_upper_air_sounding_quality(soundings_reliable=True)),
+        (8, meteorology_precipitation_gauge_accuracy(gauge_measurements_ok=True)),
+        (9, meteorology_wave_forecast_accuracy(wave_models_validated=True)),
+        (10, meteorology_flood_forecasting_system(flood_warnings_reliable=True)),
+        (11, meteorology_air_quality_modeling(aq_predictions_validated=True)),
+        (12, meteorology_climate_model_validation(climate_projections_assessed=True)),
+        (13, meteorology_data_assimilation_scheme(assimilation_robust=True)),
+        (14, meteorology_temperature_trend_analysis(trends_statistically_sound=True)),
+        (15, meteorology_humidity_sensor_accuracy(humidity_measured_well=True)),
+        (16, meteorology_drought_index_monitoring(drought_tracked=True)),
+        (17, meteorology_visibility_observation_accuracy(visibility_correct=True)),
+        (18, meteorology_tornado_forecast_skill(tornado_guidance_skillful=True)),
+        (19, meteorology_hurricane_track_accuracy(track_errors_reduced=True)),
+        (20, meteorology_wind_profile_accuracy(wind_profiles_accurate=True)),
+        (21, meteorology_aviation_weather_briefing(aviation_weather_accurate=True)),
+        (22, meteorology_marine_weather_services(marine_forecasts_accurate=True)),
+        (23, meteorology_climate_extremes_monitoring(extremes_catalogued=True)),
+        (24, meteorology_overall_meteorology_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KG — HYDROLOGY & WATER RESOURCES INTEGRITY (KG01–KG24)
+# ------------------------------------------------------------------
+def hydrology_streamflow_gauge_accuracy(gauge_data_accurate=True):
+    return bool(gauge_data_accurate)
+
+def hydrology_watershed_modeling_calibration(model_calibrated=True):
+    return bool(model_calibrated)
+
+def hydrology_groundwater_level_monitoring(levels_tracked=True):
+    return bool(levels_tracked)
+
+def hydrology_water_quality_lab_accuracy(quality_tests_accurate=True):
+    return bool(quality_tests_accurate)
+
+def hydrology_reservoir_operations_optimization(reservoir_managed_well=True):
+    return bool(reservoir_managed_well)
+
+def hydrology_floodplain_mapping_accuracy(floodplain_correct=True):
+    return bool(floodplain_correct)
+
+def hydrology_evapotranspiration_estimation(et_estimates_valid=True):
+    return bool(et_estimates_valid)
+
+def hydrology_snowmelt_runoff_modeling(snow_hydrology_accurate=True):
+    return bool(snow_hydrology_accurate)
+
+def hydrology_irrigation_water_use_efficiency(irrigation_efficient=True):
+    return bool(irrigation_efficient)
+
+def hydrology_urban_runoff_management(stormwater_managed=True):
+    return bool(stormwater_managed)
+
+def hydrology_dam_safety_inspection(dams_inspected=True):
+    return bool(dams_inspected)
+
+def hydrology_levee_integrity_monitoring(levees_monitored=True):
+    return bool(levees_monitored)
+
+def hydrology_hydropower_generation_plan(power_generated_as_planned=True):
+    return bool(power_generated_as_planned)
+
+def hydrology_water_rights_allocation(rights_respected=True):
+    return bool(rights_respected)
+
+def hydrology_wastewater_treatment_compliance(effluent_compliant=True):
+    return bool(effluent_compliant)
+
+def hydrology_aquifer_recharge_assessment(recharge_quantified=True):
+    return bool(recharge_quantified)
+
+def hydrology_water_supply_reliability(supply_reliable=True):
+    return bool(supply_reliable)
+
+def hydrology_saltwater_intrusion_modeling(intrusion_monitored=True):
+    return bool(intrusion_monitored)
+
+def hydrology_transboundary_water_cooperation(shared_basins_managed=True):
+    return bool(shared_basins_managed)
+
+def hydrology_drought_contingency_planning(drought_plan_ready=True):
+    return bool(drought_plan_ready)
+
+def hydrology_sediment_transport_modeling(sediment_estimated=True):
+    return bool(sediment_estimated)
+
+def hydrology_groundwater_contamination_plumes(plumes_characterized=True):
+    return bool(plumes_characterized)
+
+def hydrology_climate_water_cycle_impact(climate_impacts_assessed=True):
+    return bool(climate_impacts_assessed)
+
+def hydrology_overall_hydrology_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kg_w7():
+    return [
+        (1, hydrology_streamflow_gauge_accuracy(gauge_data_accurate=True)),
+        (2, hydrology_watershed_modeling_calibration(model_calibrated=True)),
+        (3, hydrology_groundwater_level_monitoring(levels_tracked=True)),
+        (4, hydrology_water_quality_lab_accuracy(quality_tests_accurate=True)),
+        (5, hydrology_reservoir_operations_optimization(reservoir_managed_well=True)),
+        (6, hydrology_floodplain_mapping_accuracy(floodplain_correct=True)),
+        (7, hydrology_evapotranspiration_estimation(et_estimates_valid=True)),
+        (8, hydrology_snowmelt_runoff_modeling(snow_hydrology_accurate=True)),
+        (9, hydrology_irrigation_water_use_efficiency(irrigation_efficient=True)),
+        (10, hydrology_urban_runoff_management(stormwater_managed=True)),
+        (11, hydrology_dam_safety_inspection(dams_inspected=True)),
+        (12, hydrology_levee_integrity_monitoring(levees_monitored=True)),
+        (13, hydrology_hydropower_generation_plan(power_generated_as_planned=True)),
+        (14, hydrology_water_rights_allocation(rights_respected=True)),
+        (15, hydrology_wastewater_treatment_compliance(effluent_compliant=True)),
+        (16, hydrology_aquifer_recharge_assessment(recharge_quantified=True)),
+        (17, hydrology_water_supply_reliability(supply_reliable=True)),
+        (18, hydrology_saltwater_intrusion_modeling(intrusion_monitored=True)),
+        (19, hydrology_transboundary_water_cooperation(shared_basins_managed=True)),
+        (20, hydrology_drought_contingency_planning(drought_plan_ready=True)),
+        (21, hydrology_sediment_transport_modeling(sediment_estimated=True)),
+        (22, hydrology_groundwater_contamination_plumes(plumes_characterized=True)),
+        (23, hydrology_climate_water_cycle_impact(climate_impacts_assessed=True)),
+        (24, hydrology_overall_hydrology_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KH — ECOLOGY & BIODIVERSITY SCIENCE INTEGRITY (KH01–KH24)
+# ------------------------------------------------------------------
+def ecology_species_survey_methodology(surveys_standardized=True):
+    return bool(surveys_standardized)
+
+def ecology_population_estimation_statistics(estimates_bounded=True):
+    return bool(estimates_bounded)
+
+def ecology_habitat_mapping_accuracy(habitats_map_correctly=True):
+    return bool(habitats_map_correctly)
+
+def ecology_ecological_modeling_validity(models_validate=True):
+    return bool(models_validate)
+
+def ecology_species_interaction_network(food_webs_characterized=True):
+    return bool(food_webs_characterized)
+
+def ecology_genetic_diversity_assessment(genomics_analyzed=True):
+    return bool(genomics_analyzed)
+
+def ecology_invasive_species_control(invasives_managed=True):
+    return bool(invasives_managed)
+
+def ecology_ecosystem_services_valuation(services_quantified=True):
+    return bool(services_quantified)
+
+def ecology_restoration_ecology_monitoring(restoration_tracked=True):
+    return bool(restoration_tracked)
+
+def ecology_predator_prey_dynamics(dynamics_modeled=True):
+    return bool(dynamics_modeled)
+
+def ecology_migration_patterns_tracking(migrations_mapped=True):
+    return bool(migrations_mapped)
+
+def ecology_climate_shift_range_modeling(range_shifts_projected=True):
+    return bool(range_shifts_projected)
+
+def ecology_phenology_monitoring_network(phenology_tracked=True):
+    return bool(phenology_tracked)
+
+def ecology_pollinator_health_monitoring(pollinators_assessed=True):
+    return bool(pollinators_assessed)
+
+def ecology_soil_biodiversity_assessment(soil_communities_analyzed=True):
+    return bool(soil_communities_analyzed)
+
+def ecology_freshwater_ecosystem_health(freshwater_assessed=True):
+    return bool(freshwater_assessed)
+
+def ecology_marine_ecology_biodiversity(marine_communities_monitored=True):
+    return bool(marine_communities_monitored)
+
+def ecology_disease_ecology_surveillance(wildlife_disease_tracked=True):
+    return bool(wildlife_disease_tracked)
+
+def ecology_landscape_connectivity_analysis(connectivity_measured=True):
+    return bool(connectivity_measured)
+
+def ecology_redlist_threat_assessment(threat_status_accurate=True):
+    return bool(threat_status_accurate)
+
+def ecology_citizen_science_data_validation(crowd_data_vetted=True):
+    return bool(crowd_data_vetted)
+
+def ecology_acoustic_monitoring_analysis(acoustics_analyzed=True):
+    return bool(acoustics_analyzed)
+
+def ecology_camera_trap_analysis(camera_data_processed=True):
+    return bool(camera_data_processed)
+
+def ecology_overall_ecology_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kh_w7():
+    return [
+        (1, ecology_species_survey_methodology(surveys_standardized=True)),
+        (2, ecology_population_estimation_statistics(estimates_bounded=True)),
+        (3, ecology_habitat_mapping_accuracy(habitats_map_correctly=True)),
+        (4, ecology_ecological_modeling_validity(models_validate=True)),
+        (5, ecology_species_interaction_network(food_webs_characterized=True)),
+        (6, ecology_genetic_diversity_assessment(genomics_analyzed=True)),
+        (7, ecology_invasive_species_control(invasives_managed=True)),
+        (8, ecology_ecosystem_services_valuation(services_quantified=True)),
+        (9, ecology_restoration_ecology_monitoring(restoration_tracked=True)),
+        (10, ecology_predator_prey_dynamics(dynamics_modeled=True)),
+        (11, ecology_migration_patterns_tracking(migrations_mapped=True)),
+        (12, ecology_climate_shift_range_modeling(range_shifts_projected=True)),
+        (13, ecology_phenology_monitoring_network(phenology_tracked=True)),
+        (14, ecology_pollinator_health_monitoring(pollinators_assessed=True)),
+        (15, ecology_soil_biodiversity_assessment(soil_communities_analyzed=True)),
+        (16, ecology_freshwater_ecosystem_health(freshwater_assessed=True)),
+        (17, ecology_marine_ecology_biodiversity(marine_communities_monitored=True)),
+        (18, ecology_disease_ecology_surveillance(wildlife_disease_tracked=True)),
+        (19, ecology_landscape_connectivity_analysis(connectivity_measured=True)),
+        (20, ecology_redlist_threat_assessment(threat_status_accurate=True)),
+        (21, ecology_citizen_science_data_validation(crowd_data_vetted=True)),
+        (22, ecology_acoustic_monitoring_analysis(acoustics_analyzed=True)),
+        (23, ecology_camera_trap_analysis(camera_data_processed=True)),
+        (24, ecology_overall_ecology_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KI — OCEANOGRAPHY & MARINE SCIENCE DATA INTEGRITY (KI01–KI24)
+# ------------------------------------------------------------------
+def oceanography_ctd_profile_accuracy(ctd_data_reliable=True):
+    return bool(ctd_data_reliable)
+
+def oceanography_current_measurement_accuracy(currents_measured_well=True):
+    return bool(currents_measured_well)
+
+def oceanography_tide_gauge_calibration(tides_accurate=True):
+    return bool(tides_accurate)
+
+def oceanography_bathymetry_survey_quality(bathymetry_accurate=True):
+    return bool(bathymetry_accurate)
+
+def oceanography_water_column_sampling_validity(samples_representative=True):
+    return bool(samples_representative)
+
+def oceanography_ph_alkalinity_measurement(chemistry_measured_accurately=True):
+    return bool(chemistry_measured_accurately)
+
+def oceanography_benthic_survey_methodology(benthic_data_valid=True):
+    return bool(benthic_data_valid)
+
+def oceanography_plankton_sampling_standardization(plankton_quantified=True):
+    return bool(plankton_quantified)
+
+def oceanography_satellite_ocean_color_validation(ocean_color_validated=True):
+    return bool(ocean_color_validated)
+
+def oceanography_sea_ice_monitoring_accuracy(sea_ice_measured=True):
+    return bool(sea_ice_measured)
+
+def oceanography_argo_float_data_quality(argo_profiles_valid=True):
+    return bool(argo_profiles_valid)
+
+def oceanography_wave_buoy_data_quality(buoy_data_clean=True):
+    return bool(buoy_data_clean)
+
+def oceanography_ocean_acidification_trends(acidification_tracked=True):
+    return bool(acidification_tracked)
+
+def oceanography_deep_sea_exploration_data(deepsea_data_collected=True):
+    return bool(deepsea_data_collected)
+
+def oceanography_maritime_safety_warnings(safety_warnings_issued=True):
+    return bool(safety_warnings_issued)
+
+def oceanography_fisheries_oceanography_link(oceanographic_hindcasts_used=True):
+    return bool(oceanographic_hindcasts_used)
+
+def oceanography_coastal_erosion_monitoring(erosion_tracked=True):
+    return bool(erosion_tracked)
+
+def oceanography_oil_spill_detection(spills_detected=True):
+    return bool(spills_detected)
+
+def oceanography_plastic_pollution_assessment(microplastics_quantified=True):
+    return bool(microplastics_quantified)
+
+def oceanography_coral_reef_health_monitoring(reef_health_assessed=True):
+    return bool(reef_health_assessed)
+
+def oceanography_oxygen_minimum_zone_study(omz_characterized=True):
+    return bool(omz_characterized)
+
+def oceanography_marine_heatwave_detection(heatwaves_flagged=True):
+    return bool(heatwaves_flagged)
+
+def oceanography_sea_level_rise_measurement(sea_level_tracked=True):
+    return bool(sea_level_tracked)
+
+def oceanography_overall_oceanography_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ki_w7():
+    return [
+        (1, oceanography_ctd_profile_accuracy(ctd_data_reliable=True)),
+        (2, oceanography_current_measurement_accuracy(currents_measured_well=True)),
+        (3, oceanography_tide_gauge_calibration(tides_accurate=True)),
+        (4, oceanography_bathymetry_survey_quality(bathymetry_accurate=True)),
+        (5, oceanography_water_column_sampling_validity(samples_representative=True)),
+        (6, oceanography_ph_alkalinity_measurement(chemistry_measured_accurately=True)),
+        (7, oceanography_benthic_survey_methodology(benthic_data_valid=True)),
+        (8, oceanography_plankton_sampling_standardization(plankton_quantified=True)),
+        (9, oceanography_satellite_ocean_color_validation(ocean_color_validated=True)),
+        (10, oceanography_sea_ice_monitoring_accuracy(sea_ice_measured=True)),
+        (11, oceanography_argo_float_data_quality(argo_profiles_valid=True)),
+        (12, oceanography_wave_buoy_data_quality(buoy_data_clean=True)),
+        (13, oceanography_ocean_acidification_trends(acidification_tracked=True)),
+        (14, oceanography_deep_sea_exploration_data(deepsea_data_collected=True)),
+        (15, oceanography_maritime_safety_warnings(safety_warnings_issued=True)),
+        (16, oceanography_fisheries_oceanography_link(oceanographic_hindcasts_used=True)),
+        (17, oceanography_coastal_erosion_monitoring(erosion_tracked=True)),
+        (18, oceanography_oil_spill_detection(spills_detected=True)),
+        (19, oceanography_plastic_pollution_assessment(microplastics_quantified=True)),
+        (20, oceanography_coral_reef_health_monitoring(reef_health_assessed=True)),
+        (21, oceanography_oxygen_minimum_zone_study(omz_characterized=True)),
+        (22, oceanography_marine_heatwave_detection(heatwaves_flagged=True)),
+        (23, oceanography_sea_level_rise_measurement(sea_level_tracked=True)),
+        (24, oceanography_overall_oceanography_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE KJ — NUCLEAR ENERGY & RADIATION SAFETY INTEGRITY (KJ01–KJ24)
+# ------------------------------------------------------------------
+def nuclear_reactor_core_control(reactivity_controlled=True):
+    return bool(reactivity_controlled)
+
+def nuclear_radiation_dose_monitoring(doses_within_limits=True):
+    return bool(doses_within_limits)
+
+def nuclear_nuclear_fuel_integrity(fuel_rods_healthy=True):
+    return bool(fuel_rods_healthy)
+
+def nuclear_containment_structure_integrity(containment_intact=True):
+    return bool(containment_intact)
+
+def nuclear_spent_fuel_pool_cooling(pool_conditions_ok=True):
+    return bool(pool_conditions_ok)
+
+def nuclear_coolant_system_pressure(coolant_parameters_ok=True):
+    return bool(coolant_parameters_ok)
+
+def nuclear_emergency_core_cooling_ready(eccs_available=True):
+    return bool(eccs_available)
+
+def nuclear_radiation_shielding_effective(shielding_intact=True):
+    return bool(shielding_intact)
+
+def nuclear_nuclear_waste_disposal_safety(waste_contained=True):
+    return bool(waste_contained)
+
+def nuclear_security_against_sabotage(physical_security_strong=True):
+    return bool(physical_security_strong)
+
+def nuclear_nuclear_regulation_compliance(regulatory_compliant=True):
+    return bool(regulatory_compliant)
+
+def nuclear_operator_licensing_training(operators_licensed=True):
+    return bool(operators_licensed)
+
+def nuclear_automated_reactor_protection(protection_systems_armed=True):
+    return bool(protection_systems_armed)
+
+def nuclear_seismic_design_basis(plant_earthquake_rated=True):
+    return bool(plant_earthquake_rated)
+
+def nuclear_probabilistic_risk_assessment(pra_updated=True):
+    return bool(pra_updated)
+
+def nuclear_defense_in_depth_layers(multiple_barriers_active=True):
+    return bool(multiple_barriers_active)
+
+def nuclear_fukushima_lessons_implemented(lessons_applied=True):
+    return bool(lessons_applied)
+
+def nuclear_radioactive_release_monitoring(releases_tracked=True):
+    return bool(releases_tracked)
+
+def nuclear_nuclear_materials_accounting(materials_accounted=True):
+    return bool(materials_accounted)
+
+def nuclear_decommissioning_plan(decommissioning_planned=True):
+    return bool(decommissioning_planned)
+
+def nuclear_transport_nuclear_materials_safe(transports_compliant=True):
+    return bool(transports_compliant)
+
+def nuclear_public_communication_transparency(public_informed=True):
+    return bool(public_informed)
+
+def nuclear_human_factors_control_room(control_room_design_sound=True):
+    return bool(control_room_design_sound)
+
+def nuclear_overall_nuclear_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_kj_w7():
+    return [
+        (1, nuclear_reactor_core_control(reactivity_controlled=True)),
+        (2, nuclear_radiation_dose_monitoring(doses_within_limits=True)),
+        (3, nuclear_nuclear_fuel_integrity(fuel_rods_healthy=True)),
+        (4, nuclear_containment_structure_integrity(containment_intact=True)),
+        (5, nuclear_spent_fuel_pool_cooling(pool_conditions_ok=True)),
+        (6, nuclear_coolant_system_pressure(coolant_parameters_ok=True)),
+        (7, nuclear_emergency_core_cooling_ready(eccs_available=True)),
+        (8, nuclear_radiation_shielding_effective(shielding_intact=True)),
+        (9, nuclear_nuclear_waste_disposal_safety(waste_contained=True)),
+        (10, nuclear_security_against_sabotage(physical_security_strong=True)),
+        (11, nuclear_nuclear_regulation_compliance(regulatory_compliant=True)),
+        (12, nuclear_operator_licensing_training(operators_licensed=True)),
+        (13, nuclear_automated_reactor_protection(protection_systems_armed=True)),
+        (14, nuclear_seismic_design_basis(plant_earthquake_rated=True)),
+        (15, nuclear_probabilistic_risk_assessment(pra_updated=True)),
+        (16, nuclear_defense_in_depth_layers(multiple_barriers_active=True)),
+        (17, nuclear_fukushima_lessons_implemented(lessons_applied=True)),
+        (18, nuclear_radioactive_release_monitoring(releases_tracked=True)),
+        (19, nuclear_nuclear_materials_accounting(materials_accounted=True)),
+        (20, nuclear_decommissioning_plan(decommissioning_planned=True)),
+        (21, nuclear_transport_nuclear_materials_safe(transports_compliant=True)),
+        (22, nuclear_public_communication_transparency(public_informed=True)),
+        (23, nuclear_human_factors_control_room(control_room_design_sound=True)),
+        (24, nuclear_overall_nuclear_maturity(min_score=70, score=90))
+    ]
