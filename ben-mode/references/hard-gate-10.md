@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.62.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.63.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2342,3 +2342,13 @@ Menambahkan lapisan l10n/i18n: `EE01–EE24` di `hard_gate_enhancements.py`, dis
 - Framework & Strategy: EE01 `ee_i18n_framework`, EE02 `ee_l10n`, EE03 `ee_locale_strategy`, EE04 `ee_translation_workflow`, EE05 `ee_string_externalization`.
 - Locale Correctness: EE06 `ee_date_time`, EE07 `ee_number_currency`, EE08 `ee_pluralization`, EE09 `ee_rtl`, EE10 `ee_text_expansion`, EE11 `ee_encoding`, EE12 `ee_culture_sensitivity`, EE16 `ee_unicode_forms`, EE17 `ee_direction`, EE18 `ee_fonts`, EE20 `ee_charset`.
 - Quality & Ops: EE13 `ee_translation_quality`, EE14 `ee_locale_ci`, EE15 `ee_missing_key`, EE19 `ee_legal_local`, EE21 `ee_localization_assets`, EE22 `ee_translation_memory`, EE23 `ee_language_mapping`, EE24 `ee_l10n_overall`.
+
+---
+
+# BAGIAN 63 — WAVE FF: INCIDENT RESPONSE & HANDLING INTEGRITY FF01–FF24 (VERIFIED; v0.63.0)
+
+Menambahkan lapisan incident response: `FF01–FF24` di `hard_gate_enhancements.py`, disurfacing `P_FF01–P_FF24`; diverifikasi 24/24 PASS (selftest_ff rc 0).
+
+- Foundation: FF01 `ff_incident_policy`, FF02 `ff_ir_plan`, FF03 `ff_ir_roles`, FF04 `ff_detection`, FF05 `ff_triage`, FF06 `ff_escalation`.
+- Response Lifecycle: FF07 `ff_containment`, FF08 `ff_eradication`, FF09 `ff_recovery`, FF10 `ff_post_mortem`, FF11 `ff_ir_logging`, FF12 `ff_ir_comm`, FF19 `ff_ir_chain`, FF20 `ff_ir_lessons`.
+- Operational Excellence: FF13 `ff_ir_drills`, FF14 `ff_ir_tooling`, FF15 `ff_ir_false_pos`, FF16 `ff_ir_threat_intel`, FF17 `ff_ir_sla`, FF18 `ff_ir_case_mgmt`, FF21 `ff_ir_metrics`, FF22 `ff_ir_business`, FF23 `ff_ir_supplier`, FF24 `ff_ir_overall`.

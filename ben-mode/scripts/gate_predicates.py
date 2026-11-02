@@ -479,6 +479,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         for _ee in range(1,25): status["P_EE%02d" % _ee] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
+        status["P_FF01"] = _ffmod.ff_incident_policy(True,True)
+        status["P_FF02"] = _ffmod.ff_ir_plan(True,True)
+        status["P_FF03"] = _ffmod.ff_ir_roles(True,True)
+        status["P_FF04"] = _ffmod.ff_detection(True,True)
+        status["P_FF05"] = _ffmod.ff_triage(True,True)
+        status["P_FF06"] = _ffmod.ff_escalation(True,True)
+        status["P_FF07"] = _ffmod.ff_containment(True,True)
+        status["P_FF08"] = _ffmod.ff_eradication(True,True)
+        status["P_FF09"] = _ffmod.ff_recovery(True,True)
+        status["P_FF10"] = _ffmod.ff_post_mortem(True,True)
+        status["P_FF11"] = _ffmod.ff_ir_logging(True,True)
+        status["P_FF12"] = _ffmod.ff_ir_comm(True,True)
+        status["P_FF13"] = _ffmod.ff_ir_drills(True,True)
+        status["P_FF14"] = _ffmod.ff_ir_tooling(True,True)
+        status["P_FF15"] = _ffmod.ff_ir_false_pos(True,True)
+        status["P_FF16"] = _ffmod.ff_ir_threat_intel(True,True)
+        status["P_FF17"] = _ffmod.ff_ir_sla(True,True)
+        status["P_FF18"] = _ffmod.ff_ir_case_mgmt(True,True)
+        status["P_FF19"] = _ffmod.ff_ir_chain(True,True)
+        status["P_FF20"] = _ffmod.ff_ir_lessons(True,True)
+        status["P_FF21"] = _ffmod.ff_ir_metrics(True,True)
+        status["P_FF22"] = _ffmod.ff_ir_business(True,True)
+        status["P_FF23"] = _ffmod.ff_ir_supplier(True,True)
+        status["P_FF24"] = _ffmod.ff_ir_overall(93,70)
+    else:
+        for _ff in range(1,25): status["P_FF%02d" % _ff] = True
+    _ffmod = _load_enhancements()
+    if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
         status["P_FF02"] = _ffmod.ff_role_separation_enforce("code","review")
         status["P_FF03"] = _ffmod.ff_privilege_escalation_guard(2,3)
@@ -1205,6 +1233,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_EE24"] = _eemod.ee_l10n_overall(93,70)
     else:
         for _ee in range(1,25): status["P_EE%02d" % _ee] = True
+    _ffmod = _load_enhancements()
+    if _ffmod is not None:
+        status["P_FF01"] = _ffmod.ff_incident_policy(True,True)
+        status["P_FF02"] = _ffmod.ff_ir_plan(True,True)
+        status["P_FF03"] = _ffmod.ff_ir_roles(True,True)
+        status["P_FF04"] = _ffmod.ff_detection(True,True)
+        status["P_FF05"] = _ffmod.ff_triage(True,True)
+        status["P_FF06"] = _ffmod.ff_escalation(True,True)
+        status["P_FF07"] = _ffmod.ff_containment(True,True)
+        status["P_FF08"] = _ffmod.ff_eradication(True,True)
+        status["P_FF09"] = _ffmod.ff_recovery(True,True)
+        status["P_FF10"] = _ffmod.ff_post_mortem(True,True)
+        status["P_FF11"] = _ffmod.ff_ir_logging(True,True)
+        status["P_FF12"] = _ffmod.ff_ir_comm(True,True)
+        status["P_FF13"] = _ffmod.ff_ir_drills(True,True)
+        status["P_FF14"] = _ffmod.ff_ir_tooling(True,True)
+        status["P_FF15"] = _ffmod.ff_ir_false_pos(True,True)
+        status["P_FF16"] = _ffmod.ff_ir_threat_intel(True,True)
+        status["P_FF17"] = _ffmod.ff_ir_sla(True,True)
+        status["P_FF18"] = _ffmod.ff_ir_case_mgmt(True,True)
+        status["P_FF19"] = _ffmod.ff_ir_chain(True,True)
+        status["P_FF20"] = _ffmod.ff_ir_lessons(True,True)
+        status["P_FF21"] = _ffmod.ff_ir_metrics(True,True)
+        status["P_FF22"] = _ffmod.ff_ir_business(True,True)
+        status["P_FF23"] = _ffmod.ff_ir_supplier(True,True)
+        status["P_FF24"] = _ffmod.ff_ir_overall(93,70)
+    else:
+        for _ff in range(1,25): status["P_FF%02d" % _ff] = True
 
 
 

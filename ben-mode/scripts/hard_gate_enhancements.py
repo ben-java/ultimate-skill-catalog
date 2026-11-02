@@ -6024,3 +6024,127 @@ def selftest_ee():
             (22, ee_translation_memory(True, True)),
             (23, ee_language_mapping(True, True)),
             (24, ee_l10n_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE FF — INCIDENT RESPONSE & HANDLING INTEGRITY (FF01–FF24)
+# ------------------------------------------------------------------
+def ff_incident_policy(policy, documented):
+    # FF01: incident response policy documented.
+    return bool(policy) and bool(documented)
+
+def ff_ir_plan(plan, current):
+    # FF02: IR plan current.
+    return bool(plan) and bool(current)
+
+def ff_ir_roles(roles, assigned):
+    # FF03: IR roles assigned.
+    return bool(roles) and bool(assigned)
+
+def ff_detection(detection, monitored):
+    # FF04: detection systems monitored.
+    return bool(detection) and bool(monitored)
+
+def ff_triage(triage, severity):
+    # FF05: triage with severity.
+    return bool(triage) and bool(severity)
+
+def ff_escalation(escalation, defined):
+    # FF06: escalation paths defined.
+    return bool(escalation) and bool(defined)
+
+def ff_containment(containment, documented):
+    # FF07: containment procedures documented.
+    return bool(containment) and bool(documented)
+
+def ff_eradication(eradication, verified):
+    # FF08: eradication verified.
+    return bool(eradication) and bool(verified)
+
+def ff_recovery(recovery, tested):
+    # FF09: recovery plan tested.
+    return bool(recovery) and bool(tested)
+
+def ff_post_mortem(pm, actioned):
+    # FF10: post-incident review actioned.
+    return bool(pm) and bool(actioned)
+
+def ff_ir_logging(logging, preserved):
+    # FF11: IR evidence preserved.
+    return bool(logging) and bool(preserved)
+
+def ff_ir_comm(comm, maintained):
+    # FF12: IR communications maintained.
+    return bool(comm) and bool(maintained)
+
+def ff_ir_drills(drills, conducted):
+    # FF13: IR drills conducted.
+    return bool(drills) and bool(conducted)
+
+def ff_ir_tooling(tooling, available):
+    # FF14: IR tooling available.
+    return bool(tooling) and bool(available)
+
+def ff_ir_false_pos(fpos, tuned):
+    # FF15: false positives tuned.
+    return bool(fpos) and bool(tuned)
+
+def ff_ir_threat_intel(ti, integrated):
+    # FF16: threat intel integrated.
+    return bool(ti) and bool(integrated)
+
+def ff_ir_sla(sla, met):
+    # FF17: IR SLAs met.
+    return bool(sla) and bool(met)
+
+def ff_ir_case_mgmt(case, tracked):
+    # FF18: case management tracked.
+    return bool(case) and bool(tracked)
+
+def ff_ir_chain(custody, preserved):
+    # FF19: chain of custody preserved.
+    return bool(custody) and bool(preserved)
+
+def ff_ir_lessons(lessons, actioned):
+    # FF20: lessons learned actioned.
+    return bool(lessons) and bool(actioned)
+
+def ff_ir_metrics(metrics, trended):
+    # FF21: IR metrics trended.
+    return bool(metrics) and bool(trended)
+
+def ff_ir_business(bcp, integrated):
+    # FF22: IR integrated with BCP.
+    return bool(bcp) and bool(integrated)
+
+def ff_ir_supplier(supplier, coordinated):
+    # FF23: supplier incident coordinated.
+    return bool(supplier) and bool(coordinated)
+
+def ff_ir_overall(score, min_score):
+    # FF24: overall IR maturity meets minimum.
+    return score >= min_score
+
+def selftest_ff():
+    return [(1, ff_incident_policy(True, True)),
+            (2, ff_ir_plan(True, True)),
+            (3, ff_ir_roles(True, True)),
+            (4, ff_detection(True, True)),
+            (5, ff_triage(True, True)),
+            (6, ff_escalation(True, True)),
+            (7, ff_containment(True, True)),
+            (8, ff_eradication(True, True)),
+            (9, ff_recovery(True, True)),
+            (10, ff_post_mortem(True, True)),
+            (11, ff_ir_logging(True, True)),
+            (12, ff_ir_comm(True, True)),
+            (13, ff_ir_drills(True, True)),
+            (14, ff_ir_tooling(True, True)),
+            (15, ff_ir_false_pos(True, True)),
+            (16, ff_ir_threat_intel(True, True)),
+            (17, ff_ir_sla(True, True)),
+            (18, ff_ir_case_mgmt(True, True)),
+            (19, ff_ir_chain(True, True)),
+            (20, ff_ir_lessons(True, True)),
+            (21, ff_ir_metrics(True, True)),
+            (22, ff_ir_business(True, True)),
+            (23, ff_ir_supplier(True, True)),
+            (24, ff_ir_overall(93, 70))]

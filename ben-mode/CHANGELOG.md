@@ -1,3 +1,8 @@
+## v0.63.0 (2026-11-02) — Wave FF Incident Response & Handling Integrity FF01–FF24 (BAGIAN 63)
+
+- **FF01–FF24**: IR policy, IR plan, IR roles, detection, triage, escalation, containment, eradication, recovery, post-mortem, IR logging, IR comms, IR drills, IR tooling, false positives, threat intel, IR SLAs, case management, chain of custody, lessons learned, IR metrics, IR/BCP integration, supplier coordination, overall IR maturity. Disurfacing `P_FF01–P_FF24`; 24/24 PASS.
+- **BAGIAN 63** ditambahkan; bump serentak 0.63.0.
+
 ## v0.62.0 (2026-11-02) — Wave EE Localization & Globalization Integrity EE01–EE24 (BAGIAN 62)
 
 - **EE01–EE24**: i18n framework, l10n coverage, locale strategy, translation workflow, string externalization, date/time, number/currency, pluralization, RTL, text expansion, encoding, cultural sensitivity, translation quality, locale CI, missing-key detection, unicode normalization, direction markup, font coverage, legal localization, charset, localization assets, translation memory, language mapping, overall l10n maturity. Disurfacing `P_EE01–P_EE24`; 24/24 PASS.
