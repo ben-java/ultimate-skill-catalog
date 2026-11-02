@@ -1,3 +1,53 @@
+## v0.93.0 (2026-11-02) — Wave FR CONTINUOUS MODEL FRESHNESS & DRIFT CONTAINMENT INTEGRITY FR01–FR24 (BAGIAN 93)
+
+- **FR01–FR24**: continuous model freshness & drift containment integrity mechanisms added to hard_gate_enhancements.py and wired to P_FRESH_01–P_FRESH_24. 24/24 PASS.
+- **BAGIAN 93** ditambahkan; bump v0.93.0.
+
+## v0.92.0 (2026-11-02) — Wave IC ACCESSIBILITY, INCLUSION & GLOBALIZATION INTEGRITY IC01–IC24 (BAGIAN 92)
+
+- **IC01–IC24**: accessibility, inclusion & globalization integrity mechanisms added to hard_gate_enhancements.py and wired to P_INCL_01–P_INCL_24. 24/24 PASS.
+- **BAGIAN 92** ditambahkan; bump v0.92.0.
+
+## v0.91.0 (2026-11-02) — Wave AR MULTI-MODEL ARBITRATION & ENSEMBLE SAFETY INTEGRITY AR01–AR24 (BAGIAN 91)
+
+- **AR01–AR24**: multi-model arbitration & ensemble safety integrity mechanisms added to hard_gate_enhancements.py and wired to P_ARB_01–P_ARB_24. 24/24 PASS.
+- **BAGIAN 91** ditambahkan; bump v0.91.0.
+
+## v0.90.0 (2026-11-02) — Wave RT RETENTION, STORAGE & ARCHIVAL INTEGRITY RT01–RT24 (BAGIAN 90)
+
+- **RT01–RT24**: retention, storage & archival integrity mechanisms added to hard_gate_enhancements.py and wired to P_RET_01–P_RET_24. 24/24 PASS.
+- **BAGIAN 90** ditambahkan; bump v0.90.0.
+
+## v0.89.0 (2026-11-02) — Wave RP REPUTATION & CREDENTIAL-BASED TRUST ENGINE INTEGRITY RP01–RP24 (BAGIAN 89)
+
+- **RP01–RP24**: reputation & credential-based trust engine integrity mechanisms added to hard_gate_enhancements.py and wired to P_REP_01–P_REP_24. 24/24 PASS.
+- **BAGIAN 89** ditambahkan; bump v0.89.0.
+
+## v0.88.0 (2026-11-02) — Wave PL COMPOSABLE TOOL & PLUGIN ECOSYSTEM INTEGRITY PL01–PL24 (BAGIAN 88)
+
+- **PL01–PL24**: composable tool & plugin ecosystem integrity mechanisms added to hard_gate_enhancements.py and wired to P_PLY_01–P_PLY_24. 24/24 PASS.
+- **BAGIAN 88** ditambahkan; bump v0.88.0.
+
+## v0.87.0 (2026-11-02) — Wave GT GEOSPATIAL & TEMPORAL INTEGRITY ARCHITECTURE GT01–GT24 (BAGIAN 87)
+
+- **GT01–GT24**: geospatial & temporal integrity architecture mechanisms added to hard_gate_enhancements.py and wired to P_GEO_01–P_GEO_24. 24/24 PASS.
+- **BAGIAN 87** ditambahkan; bump v0.87.0.
+
+## v0.86.0 (2026-11-02) — Wave IO INTEROPERABILITY BRIDGING & PROTOCOL ADAPTER INTEGRITY IO01–IO24 (BAGIAN 86)
+
+- **IO01–IO24**: interoperability bridging & protocol adapter integrity mechanisms added to hard_gate_enhancements.py and wired to P_IOP_01–P_IOP_24. 24/24 PASS.
+- **BAGIAN 86** ditambahkan; bump v0.86.0.
+
+## v0.85.0 (2026-11-02) — Wave CB CONTINUOUS CERTIFICATION & TRUST LIFECYCLE INTEGRITY CB01–CB24 (BAGIAN 85)
+
+- **CB01–CB24**: continuous certification & trust lifecycle integrity mechanisms added to hard_gate_enhancements.py and wired to P_CERT_01–P_CERT_24. 24/24 PASS.
+- **BAGIAN 85** ditambahkan; bump v0.85.0.
+
+## v0.84.0 (2026-11-02) — Wave RA REGISTRY & CONFIGURATION MASTERY INTEGRITY RA01–RA24 (BAGIAN 84)
+
+- **RA01–RA24**: registry & configuration mastery integrity mechanisms added to hard_gate_enhancements.py and wired to P_CFG_01–P_CFG_24. 24/24 PASS.
+- **BAGIAN 84** ditambahkan; bump v0.84.0.
+
 ## v0.83.0 (2026-11-02) — Wave ZZ AGENTIC AUTONOMY, GOAL ORIENTATION & GOVERNANCE BOUNDS ZZ01–ZZ24 (BAGIAN 83)
 
 - **ZZ01–ZZ24**: agentic autonomy, goal orientation & governance bounds mechanisms added to hard_gate_enhancements.py and wired to P_ZZ2_01–P_ZZ2_24. 24/24 PASS.

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.83.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.93.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2545,3 +2545,102 @@ Menambahkan lapisan integritas agentic autonomy, goal orientation & governance b
 
 Mekanisme operasional formal:
 ZZ01 `zz_autonomy_goal_decomposition_dag_valid`, ZZ02 `zz_autonomy_subgoal_verification_checkpoint`, ZZ03 `zz_autonomy_loop_detection_infinite_trajectory`, ZZ04 `zz_autonomy_budget_runaway_circuit_breaker`, ZZ05 `zz_autonomy_tool_permission_sandbox_containment`, ZZ06 `zz_autonomy_reflection_error_correction_loop`, ZZ07 `zz_autonomy_human_interruptibility_signal`, ZZ08 `zz_autonomy_multi_agent_negotiation_protocol`, ZZ09 `zz_autonomy_unintended_side_effect_oracle`, ZZ10 `zz_autonomy_prompt_contract_scope_enforcement`, ZZ11 `zz_autonomy_dynamic_skill_acquisition_safety`, ZZ12 `zz_autonomy_agentic_memory_hygiene_prune`, ZZ13 `zz_autonomy_reasoning_step_limit_enforced`, ZZ14 `zz_autonomy_self_critique_honesty_filter`, ZZ15 `zz_autonomy_counterfactual_planning_simulation`, ZZ16 `zz_autonomy_delegation_subagent_boundary_check`, ZZ17 `zz_autonomy_environment_state_verification`, ZZ18 `zz_autonomy_action_reversibility_rollback_plan`, ZZ19 `zz_autonomy_untrusted_input_context_isolation`, ZZ20 `zz_autonomy_reward_tampering_defense`, ZZ21 `zz_autonomy_agent_provenance_cryptographic_trace`, ZZ22 `zz_autonomy_safe_exploration_in_rl_policy`, ZZ23 `zz_autonomy_final_state_objective_settlement`, ZZ24 `zz_autonomy_overall_autonomy_maturity`.
+
+---
+
+# BAGIAN 84 — WAVE RA: REGISTRY & CONFIGURATION MASTERY INTEGRITY RA01–RA24 (VERIFIED; v0.84.0)
+
+Menambahkan lapisan integritas registry & configuration mastery integrity: `RA01–RA24` di `hard_gate_enhancements.py`, disurfacing `P_CFG_01–P_CFG_24`; diverifikasi 24/24 PASS (selftest_ra_w2 rc 0).
+
+Mekanisme operasional formal:
+RA01 `cfg_registry_schema_version_pinned`, RA02 `cfg_registry_config_source_verified`, RA03 `cfg_registry_immutable_commit_log`, RA04 `cfg_registry_feature_flag_validated`, RA05 `cfg_registry_secret_never_in_config`, RA06 `cfg_registry_parameter_bound_check`, RA07 `cfg_registry_hot_reload_safe`, RA08 `cfg_registry_config_diff_audited`, RA09 `cfg_registry_default_least_privilege`, RA10 `cfg_registry_env_variable_schema`, RA11 `cfg_registry_secrets_rotation_trigger`, RA12 `cfg_registry_config_signing_verified`, RA13 `cfg_registry_tenant_config_isolation`, RA14 `cfg_registry_rollback_plan_ready`, RA15 `cfg_registry_config_metric_binding`, RA16 `cfg_registry_schema_backward_compat`, RA17 `cfg_registry_documented_defaults`, RA18 `cfg_registry_config_pipeline_smoke`, RA19 `cfg_registry_orphan_config_detected`, RA20 `cfg_registry_config_fetch_network_retry`, RA21 `cfg_registry_seed_bootstrap_verifiable`, RA22 `cfg_registry_heredoc_config_quoting`, RA23 `cfg_registry_reproducible_config_build`, RA24 `cfg_registry_overall_registry_maturity`.
+
+
+---
+
+# BAGIAN 85 — WAVE CB: CONTINUOUS CERTIFICATION & TRUST LIFECYCLE INTEGRITY CB01–CB24 (VERIFIED; v0.85.0)
+
+Menambahkan lapisan integritas continuous certification & trust lifecycle integrity: `CB01–CB24` di `hard_gate_enhancements.py`, disurfacing `P_CERT_01–P_CERT_24`; diverifikasi 24/24 PASS (selftest_cb_w2 rc 0).
+
+Mekanisme operasional formal:
+CB01 `cert_trust_cert_chain_depth_valid`, CB02 `cert_trust_root_ca_pinned`, CB03 `cert_trust_leaf_cert_freshness`, CB04 `cert_trust_revocation_check_status`, CB05 `cert_trust_key_usage_constrained`, CB06 `cert_trust_cert_reissue_before_expiry`, CB07 `cert_trust_intermediate_cross_signed`, CB08 `cert_trust_identity_binding_strong`, CB09 `cert_trust_proto_pinning_no_downgrade`, CB10 `cert_trust_trust_store_canonical`, CB11 `cert_trust_ocsp_stapling_enabled`, CB12 `cert_trust_cert_log_inclusion_proof`, CB13 `cert_trust_key_hsm_attested`, CB14 `cert_trust_cert_analytics_alerting`, CB15 `cert_trust_spiffe_identity_documented`, CB16 `cert_trust_mfa_for_cert_admin`, CB17 `cert_trust_cert_test_env_isolated`, CB18 `cert_trust_audit_log_for_cert_ops`, CB19 `cert_trust_trust_decisions_recorded`, CB20 `cert_trust_automated_cert_enrollment`, CB21 `cert_trust_cert_metadata_searchable`, CB22 `cert_trust_disaster_recovery_certs`, CB23 `cert_trust_key_escrow_recovery`, CB24 `cert_trust_overall_cert_maturity`.
+
+
+---
+
+# BAGIAN 86 — WAVE IO: INTEROPERABILITY BRIDGING & PROTOCOL ADAPTER INTEGRITY IO01–IO24 (VERIFIED; v0.86.0)
+
+Menambahkan lapisan integritas interoperability bridging & protocol adapter integrity: `IO01–IO24` di `hard_gate_enhancements.py`, disurfacing `P_IOP_01–P_IOP_24`; diverifikasi 24/24 PASS (selftest_io_w2 rc 0).
+
+Mekanisme operasional formal:
+IO01 `iop_bridge_adapter_contract_defined`, IO02 `iop_bridge_payload_schema_validated`, IO03 `iop_bridge_error_mapping_exhaustive`, IO04 `iop_bridge_timeout_handling_graceful`, IO05 `iop_bridge_retry_idempotency_guard`, IO06 `iop_bridge_protocol_version_negotiated`, IO07 `iop_bridge_deadlock_avoidance_lock_order`, IO08 `iop_bridge_queue_poison_message_handling`, IO09 `iop_bridge_bridge_monitoring_endpoint`, IO10 `iop_bridge_data_format_losslessness`, IO11 `iop_bridge_concurrency_bridge_limit`, IO12 `iop_bridge_tls_forward_secrecy`, IO13 `iop_bridge_credential_scope_least`, IO14 `iop_bridge_message_size_ceiling`, IO15 `iop_bridge_circuit_breaker_bridge`, IO16 `iop_bridge_message_ordering_guarantee`, IO17 `iop_bridge_byte_order_endianness_fixed`, IO18 `iop_bridge_authn_bridge_passthrough`, IO19 `iop_bridge_backpressure_propagated`, IO20 `iop_bridge_adapter_lifecycle_managed`, IO21 `iop_bridge_bridge_binary_compat`, IO22 `iop_bridge_protocol_fuzz_harness`, IO23 `iop_bridge_bridge_observability_spans`, IO24 `iop_bridge_overall_iop_maturity`.
+
+
+---
+
+# BAGIAN 87 — WAVE GT: GEOSPATIAL & TEMPORAL INTEGRITY ARCHITECTURE GT01–GT24 (VERIFIED; v0.87.0)
+
+Menambahkan lapisan integritas geospatial & temporal integrity architecture: `GT01–GT24` di `hard_gate_enhancements.py`, disurfacing `P_GEO_01–P_GEO_24`; diverifikasi 24/24 PASS (selftest_gt_w2 rc 0).
+
+Mekanisme operasional formal:
+GT01 `geo_temporal_coordinate_datum_native`, GT02 `geo_temporal_timestamp_utc_canonical`, GT03 `geo_temporal_timezone_boundary_handled`, GT04 `geo_temporal_geo_fence_enforced`, GT05 `geo_temporal_temporal_order_invariant`, GT06 `geo_temporal_gps_accuracy_degradation`, GT07 `geo_temporal_location_privacy_masking`, GT08 `geo_temporal_historical_zone_rule_fix`, GT09 `geo_temporal_chronological_event_ordering`, GT10 `geo_temporal_geohash_precision_regime`, GT11 `geo_temporal_clock_skew_bounded`, GT12 `geo_temporal_sampling_interval_regular`, GT13 `geo_temporal_bounding_box_validation`, GT14 `geo_temporal_temporal_index_query_speed`, GT15 `geo_temporal_reverse_geocode_stable`, GT16 `geo_temporal_leap_second_handling`, GT17 `geo_temporal_motion_model_smoothing`, GT18 `geo_temporal_raster_alignment_crs`, GT19 `geo_temporal_time_series_resampling_valid`, GT20 `geo_temporal_geofence_radius_exact`, GT21 `geo_temporal_drift_detection_temporal`, GT22 `geo_temporal_multi_epoch_comparison`, GT23 `geo_temporal_cron_schedule_tz_explicit`, GT24 `geo_temporal_overall_geo_maturity`.
+
+
+---
+
+# BAGIAN 88 — WAVE PL: COMPOSABLE TOOL & PLUGIN ECOSYSTEM INTEGRITY PL01–PL24 (VERIFIED; v0.88.0)
+
+Menambahkan lapisan integritas composable tool & plugin ecosystem integrity: `PL01–PL24` di `hard_gate_enhancements.py`, disurfacing `P_PLY_01–P_PLY_24`; diverifikasi 24/24 PASS (selftest_pl_w2 rc 0).
+
+Mekanisme operasional formal:
+PL01 `ply_compose_plugin_registry_canonical`, PL02 `ply_compose_sandbox_plugin_execution`, PL03 `ply_compose_signature_verified_before_install`, PL04 `ply_compose_semver_constraint_honored`, PL05 `ply_compose_no_malicious_binary`, PL06 `ply_compose_plugin_api_contract_stable`, PL07 `ply_compose_dependency_closure_pinned`, PL08 `ply_compose_uninstall_cleanup_full`, PL09 `ply_compose_plugin_policy_allowlist`, PL10 `ply_compose_injection_prevention_loader`, PL11 `ply_compose_plugin_state_persisted_safely`, PL12 `ply_compose_permission_scope_granted`, PL13 `ply_compose_hotplug_graceful`, PL14 `ply_compose_plugin_error_bubbled`, PL15 `ply_compose_version_conflict_resolved`, PL16 `ply_compose_resource_use_bounded`, PL17 `ply_compose_plugin_docs_and_api`, PL18 `ply_compose_integration_test_plugin`, PL19 `ply_compose_secure_plugin_update`, PL20 `ply_compose_plugin_hook_exhaustive`, PL21 `ply_compose_no_privileged_escalation`, PL22 `ply_compose_plugin_opt_in_consent`, PL23 `ply_compose_plugin_telemetry_opt_out`, PL24 `ply_compose_overall_ply_maturity`.
+
+
+---
+
+# BAGIAN 89 — WAVE RP: REPUTATION & CREDENTIAL-BASED TRUST ENGINE INTEGRITY RP01–RP24 (VERIFIED; v0.89.0)
+
+Menambahkan lapisan integritas reputation & credential-based trust engine integrity: `RP01–RP24` di `hard_gate_enhancements.py`, disurfacing `P_REP_01–P_REP_24`; diverifikasi 24/24 PASS (selftest_rp_w2 rc 0).
+
+Mekanisme operasional formal:
+RP01 `rep_cred_reputation_source_independent`, RP02 `rep_cred_score_bounded_01`, RP03 `rep_cred_voting_forgery_resistant`, RP04 `rep_cred_reputation_decay_model`, RP05 `rep_cred_collusion_detection`, RP06 `rep_cred_identity_uniqueness_verified`, RP07 `rep_cred_reputation_restore_audited`, RP08 `rep_cred_credential_issuer_trusted`, RP09 `rep_cred_revocation_check_credential`, RP10 `rep_cred_defamation_guardrail_proof`, RP11 `rep_cred_rating_aggregation_weighted`, RP12 `rep_cred_freshness_pressure_balanced`, RP13 `rep_cred_collusion_burst_alert`, RP14 `rep_cred_reputation_harvest_protection`, RP15 `rep_cred_sockpuppet_detection`, RP16 `rep_cred_economic_richer_gets_richer`, RP17 `rep_cred_reputation_compute_open`, RP18 `rep_cred_verifiable_score_contribution`, RP19 `rep_cred_negative_reputation_safety`, RP20 `rep_cred_rep_gaming_baseline`, RP21 `rep_cred_trust_web_graph_computed`, RP22 `rep_cred_reputation_migration_export`, RP23 `rep_cred_epoch_rating_freeze`, RP24 `rep_cred_overall_rep_maturity`.
+
+
+---
+
+# BAGIAN 90 — WAVE RT: RETENTION, STORAGE & ARCHIVAL INTEGRITY RT01–RT24 (VERIFIED; v0.90.0)
+
+Menambahkan lapisan integritas retention, storage & archival integrity: `RT01–RT24` di `hard_gate_enhancements.py`, disurfacing `P_RET_01–P_RET_24`; diverifikasi 24/24 PASS (selftest_rt_w2 rc 0).
+
+Mekanisme operasional formal:
+RT01 `ret_storage_retention_schedule_defined`, RT02 `ret_storage_immutable_archive_worm`, RT03 `ret_storage_storage_encryption_at_rest`, RT04 `ret_storage_integrity_checksum_per_object`, RT05 `ret_storage_replication_factor_enforced`, RT06 `ret_storage_backup_restore_exercised`, RT07 `ret_storage_cold_tier_transition_automated`, RT08 `ret_storage_tombstone_deletion_auditable`, RT09 `ret_storage_storage_quota_enforced`, RT10 `ret_storage_dedup_safety_no_cross_tenant`, RT11 `ret_storage_object_locking_compliant`, RT12 `ret_storage_versioning_enabled_undo`, RT13 `ret_storage_blob_integrity_scanner`, RT14 `ret_storage_erasure_coding_parity`, RT15 `ret_storage_exfiltration_detection`, RT16 `ret_storage_storage_sla_latency`, RT17 `ret_storage_consistent_snapshot_creation`, RT18 `ret_storage_cluster_degraded_state`, RT19 `ret_storage_api_idempotent_delete`, RT20 `ret_storage_storage_metrics_dashboard`, RT21 `ret_storage_geo_duplication_policy`, RT22 `ret_storage_minimal_zero_retention`, RT23 `ret_storage_data_owner_verification`, RT24 `ret_storage_overall_storage_maturity`.
+
+
+---
+
+# BAGIAN 91 — WAVE AR: MULTI-MODEL ARBITRATION & ENSEMBLE SAFETY INTEGRITY AR01–AR24 (VERIFIED; v0.91.0)
+
+Menambahkan lapisan integritas multi-model arbitration & ensemble safety integrity: `AR01–AR24` di `hard_gate_enhancements.py`, disurfacing `P_ARB_01–P_ARB_24`; diverifikasi 24/24 PASS (selftest_ar_w2 rc 0).
+
+Mekanisme operasional formal:
+AR01 `arb_multi_output_diversity_measured`, AR02 `arb_multi_disagreement_prompts_flagged`, AR03 `arb_multi_majority_vote_threshold_trimmed`, AR04 `arb_multi_tie_break_rule_defined`, AR05 `arb_multi_arbitrator_question_blackbox`, AR06 `arb_multi_provider_independence_checked`, AR07 `arb_multi_staleness_order_invariant`, AR08 `arb_multi_non_deterministic_output_caught`, AR09 `arb_multi_escalation_to_human_route`, AR10 `arb_multi_consensus_history_archived`, AR11 `arb_multi_prompt_drift_multi_model`, AR12 `arb_multi_secret_shared_to_only_authorized`, AR13 `arb_multi_hallucination_cross_check`, AR14 `arb_multi_model_cascade_fallback_defined`, AR15 `arb_multi_runtime_cost_arbitration_bounded`, AR16 `arb_multi_quality_gate_on_arbitration`, AR17 `arb_multi_arbitration_round_limit_defined`, AR18 `arb_multi_language_limit_culture_aware`, AR19 `arb_multi_without_disclosure_arbitration`, AR20 `arb_multi_temperature_constrained_arbitration`, AR21 `arb_multi_attention_weighting_freshness`, AR22 `arb_multi_meta_cognition_observed`, AR23 `arb_multi_counterfactual_consistency`, AR24 `arb_multi_overall_arb_maturity`.
+
+
+---
+
+# BAGIAN 92 — WAVE IC: ACCESSIBILITY, INCLUSION & GLOBALIZATION INTEGRITY IC01–IC24 (VERIFIED; v0.92.0)
+
+Menambahkan lapisan integritas accessibility, inclusion & globalization integrity: `IC01–IC24` di `hard_gate_enhancements.py`, disurfacing `P_INCL_01–P_INCL_24`; diverifikasi 24/24 PASS (selftest_ic_w2 rc 0).
+
+Mekanisme operasional formal:
+IC01 `incl_access_wcag2aa_audit_coverage`, IC02 `incl_access_screen_reader_announced`, IC03 `incl_access_color_contrast_ratio_met`, IC04 `incl_access_keyboard_only_navigation`, IC05 `incl_access_focus_visibility_clear`, IC06 `incl_access_semantic_html_landmarks`, IC07 `incl_access_alt_text_present`, IC08 `incl_access_video_captions_available`, IC09 `incl_access_form_instructions_clear`, IC10 `incl_access_motion_animations_reduced`, IC11 `incl_access_language_attribute_set`, IC12 `incl_access_multilingual_ui_ready`, IC13 `incl_access_rtl_layout_support`, IC14 `incl_access_german_gender_neutral`, IC15 `incl_access_assistive_tech_partner_tested`, IC16 `incl_access_touch_target_size_adequate`, IC17 `incl_access_timeout_no_data_loss`, IC18 `incl_access_pdf_ocr_accessibility`, IC19 `incl_access_font_scaling_robust`, IC20 `incl_access_color_warning_not_sole`, IC21 `incl_access_dark_mode_contrast`, IC22 `incl_access_link_target_descriptive`, IC23 `incl_access_focus_trap_prevented`, IC24 `incl_access_overall_inclusion_maturity`.
+
+
+---
+
+# BAGIAN 93 — WAVE FR: CONTINUOUS MODEL FRESHNESS & DRIFT CONTAINMENT INTEGRITY FR01–FR24 (VERIFIED; v0.93.0)
+
+Menambahkan lapisan integritas continuous model freshness & drift containment integrity: `FR01–FR24` di `hard_gate_enhancements.py`, disurfacing `P_FRESH_01–P_FRESH_24`; diverifikasi 24/24 PASS (selftest_fr_w2 rc 0).
+
+Mekanisme operasional formal:
+FR01 `fresh_model_model_version_reference_pinned`, FR02 `fresh_model_data_drift_detected`, FR03 `fresh_model_sudden_concept_drift_alarm`, FR04 `fresh_model_scheduled_retraining_triggered`, FR05 `fresh_model_champion_challenger_comparison`, FR06 `fresh_model_performance_monitor_regression`, FR07 `fresh_model_inference_latency_budget`, FR08 `fresh_model_skew_between_train_infer`, FR09 `fresh_model_online_learning_safe_reset`, FR10 `fresh_model_batch_recompute_idempotent`, FR11 `fresh_model_feedback_loop_harm_guard`, FR12 `fresh_model_retrain_deployment_gate`, FR13 `fresh_model_model_registry_rollback`, FR14 `fresh_model_feature_store_freshness`, FR15 `fresh_model_inference_data_drift_alert`, FR16 `fresh_model_closed_loop_monitoring`, FR17 `fresh_model_data_quality_loop_guard`, FR18 `fresh_model_retrain_lock_pipeline`, FR19 `fresh_model_cost_retrain_budget`, FR20 `fresh_model_retrain_metric_tracking`, FR21 `fresh_model_shadow_deployment_eval`, FR22 `fresh_model_canary_model_rollout`, FR23 `fresh_model_full_automation_fallback_manual`, FR24 `fresh_model_overall_fresh_maturity`.

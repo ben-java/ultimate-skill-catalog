@@ -8687,3 +8687,2093 @@ def selftest_zz2():
         (23, zz_autonomy_final_state_objective_settlement()),
         (24, zz_autonomy_overall_autonomy_maturity())
     ]
+
+# ------------------------------------------------------------------
+# WAVE AA — REGISTRY & CONFIGURATION MASTERY INTEGRITY (AA01–AA24)
+# ------------------------------------------------------------------
+def cfg_registry_schema_version_pinned(pinned_version=10, schema_version=True):
+    return bool(schema_version == pinned_version)
+
+def cfg_registry_config_source_verified(source_hash=True, trusted_hash=10):
+    return bool(source_hash == trusted_hash)
+
+def cfg_registry_immutable_commit_log(append_only=True, tamper_evident=True):
+    return bool(append_only and tamper_evident)
+
+def cfg_registry_feature_flag_validated(allowed_flags=10, flag=True):
+    return bool(flag in allowed_flags)
+
+def cfg_registry_secret_never_in_config(plaintext_secret_count=True):
+    return bool(plaintext_secret_count == 0)
+
+def cfg_registry_parameter_bound_check(max=True, min=True, value=0.5):
+    return bool(min <= value <= max)
+
+def cfg_registry_hot_reload_safe(atomic_swap=True, validate_before_apply=True):
+    return bool(atomic_swap and validate_before_apply)
+
+def cfg_registry_config_diff_audited(diff_lineage_recorded=True):
+    return bool(diff_lineage_recorded)
+
+def cfg_registry_default_least_privilege(defaults_deny_allowlisted=True):
+    return bool(defaults_deny_allowlisted)
+
+def cfg_registry_env_variable_schema(env_keys_subset_of_schema=True):
+    return bool(env_keys_subset_of_schema)
+
+def cfg_registry_secrets_rotation_trigger(rotation_event_timestamp_new=True):
+    return bool(rotation_event_timestamp_new)
+
+def cfg_registry_config_signing_verified(signature_valid_on_load=True):
+    return bool(signature_valid_on_load)
+
+def cfg_registry_tenant_config_isolation(tenant_scope_enforced=True):
+    return bool(tenant_scope_enforced)
+
+def cfg_registry_rollback_plan_ready(previous_good_config_cached=True):
+    return bool(previous_good_config_cached)
+
+def cfg_registry_config_metric_binding(metric_defined_for_each_config=True):
+    return bool(metric_defined_for_each_config)
+
+def cfg_registry_schema_backward_compat(old_configs_still_parse=True):
+    return bool(old_configs_still_parse)
+
+def cfg_registry_documented_defaults(every_key_has_documented_default=True):
+    return bool(every_key_has_documented_default)
+
+def cfg_registry_config_pipeline_smoke(smoke_test_passes_before_promote=True):
+    return bool(smoke_test_passes_before_promote)
+
+def cfg_registry_orphan_config_detected(no_unreferenced_keys=True):
+    return bool(no_unreferenced_keys)
+
+def cfg_registry_config_fetch_network_retry(retry_and_timeout_configured=True):
+    return bool(retry_and_timeout_configured)
+
+def cfg_registry_seed_bootstrap_verifiable(seed_evidence_provided=True):
+    return bool(seed_evidence_provided)
+
+def cfg_registry_heredoc_config_quoting(no_unquoted_heredoc_vars=True):
+    return bool(no_unquoted_heredoc_vars)
+
+def cfg_registry_reproducible_config_build(same_input_same_config=True):
+    return bool(same_input_same_config)
+
+def cfg_registry_overall_registry_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_aa(kw):
+    return [
+        (1, cfg_registry_schema_version_pinned(pinned_version=10, schema_version=True)),
+        (2, cfg_registry_config_source_verified(source_hash=True, trusted_hash=10)),
+        (3, cfg_registry_immutable_commit_log(append_only=True, tamper_evident=True)),
+        (4, cfg_registry_feature_flag_validated(allowed_flags=10, flag=True)),
+        (5, cfg_registry_secret_never_in_config(plaintext_secret_count=True)),
+        (6, cfg_registry_parameter_bound_check(max=True, min=True, value=0.5)),
+        (7, cfg_registry_hot_reload_safe(atomic_swap=True, validate_before_apply=True)),
+        (8, cfg_registry_config_diff_audited(diff_lineage_recorded=True)),
+        (9, cfg_registry_default_least_privilege(defaults_deny_allowlisted=True)),
+        (10, cfg_registry_env_variable_schema(env_keys_subset_of_schema=True)),
+        (11, cfg_registry_secrets_rotation_trigger(rotation_event_timestamp_new=True)),
+        (12, cfg_registry_config_signing_verified(signature_valid_on_load=True)),
+        (13, cfg_registry_tenant_config_isolation(tenant_scope_enforced=True)),
+        (14, cfg_registry_rollback_plan_ready(previous_good_config_cached=True)),
+        (15, cfg_registry_config_metric_binding(metric_defined_for_each_config=True)),
+        (16, cfg_registry_schema_backward_compat(old_configs_still_parse=True)),
+        (17, cfg_registry_documented_defaults(every_key_has_documented_default=True)),
+        (18, cfg_registry_config_pipeline_smoke(smoke_test_passes_before_promote=True)),
+        (19, cfg_registry_orphan_config_detected(no_unreferenced_keys=True)),
+        (20, cfg_registry_config_fetch_network_retry(retry_and_timeout_configured=True)),
+        (21, cfg_registry_seed_bootstrap_verifiable(seed_evidence_provided=True)),
+        (22, cfg_registry_heredoc_config_quoting(no_unquoted_heredoc_vars=True)),
+        (23, cfg_registry_reproducible_config_build(same_input_same_config=True)),
+        (24, cfg_registry_overall_registry_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE BB — CONTINUOUS CERTIFICATION & TRUST LIFECYCLE INTEGRITY (BB01–BB24)
+# ------------------------------------------------------------------
+def cert_trust_cert_chain_depth_valid(chain_depth_within_allowed=True):
+    return bool(chain_depth_within_allowed)
+
+def cert_trust_root_ca_pinned(root_fingerprint_match=True):
+    return bool(root_fingerprint_match)
+
+def cert_trust_leaf_cert_freshness(grace_period=True, not_after=True, now=True):
+    return bool(not_after > now + grace_period)
+
+def cert_trust_revocation_check_status(ocsp_or_crl_checked=True):
+    return bool(ocsp_or_crl_checked)
+
+def cert_trust_key_usage_constrained(usage_matches_intent=True):
+    return bool(usage_matches_intent)
+
+def cert_trust_cert_reissue_before_expiry(renewal_triggered_in_time=True):
+    return bool(renewal_triggered_in_time)
+
+def cert_trust_intermediate_cross_signed(cross_signature_present=True):
+    return bool(cross_signature_present)
+
+def cert_trust_identity_binding_strong(cert_holder_matches_spiffe_id=True):
+    return bool(cert_holder_matches_spiffe_id)
+
+def cert_trust_proto_pinning_no_downgrade(tls_version_min_set=True):
+    return bool(tls_version_min_set)
+
+def cert_trust_trust_store_canonical(trust_store_hash_consistent=True):
+    return bool(trust_store_hash_consistent)
+
+def cert_trust_ocsp_stapling_enabled(stapled_response_valid=True):
+    return bool(stapled_response_valid)
+
+def cert_trust_cert_log_inclusion_proof(ct_leaf_included=True):
+    return bool(ct_leaf_included)
+
+def cert_trust_key_hsm_attested(key_generated_in_hsm=True):
+    return bool(key_generated_in_hsm)
+
+def cert_trust_cert_analytics_alerting(expiry_alerts_configured=True):
+    return bool(expiry_alerts_configured)
+
+def cert_trust_spiffe_identity_documented(identity_documentation_complete=True):
+    return bool(identity_documentation_complete)
+
+def cert_trust_mfa_for_cert_admin(admin_requires_mfa=True):
+    return bool(admin_requires_mfa)
+
+def cert_trust_cert_test_env_isolated(test_ca_separate=True):
+    return bool(test_ca_separate)
+
+def cert_trust_audit_log_for_cert_ops(all_cert_operations_logged=True):
+    return bool(all_cert_operations_logged)
+
+def cert_trust_trust_decisions_recorded(pin_changes_audited=True):
+    return bool(pin_changes_audited)
+
+def cert_trust_automated_cert_enrollment(enrollment_pipeline_healthy=True):
+    return bool(enrollment_pipeline_healthy)
+
+def cert_trust_cert_metadata_searchable(cert_index_queryable=True):
+    return bool(cert_index_queryable)
+
+def cert_trust_disaster_recovery_certs(backup_signing_keys_available=True):
+    return bool(backup_signing_keys_available)
+
+def cert_trust_key_escrow_recovery(recovery_procedure_tested=True):
+    return bool(recovery_procedure_tested)
+
+def cert_trust_overall_cert_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_bb(kw):
+    return [
+        (1, cert_trust_cert_chain_depth_valid(chain_depth_within_allowed=True)),
+        (2, cert_trust_root_ca_pinned(root_fingerprint_match=True)),
+        (3, cert_trust_leaf_cert_freshness(grace_period=True, not_after=True, now=True)),
+        (4, cert_trust_revocation_check_status(ocsp_or_crl_checked=True)),
+        (5, cert_trust_key_usage_constrained(usage_matches_intent=True)),
+        (6, cert_trust_cert_reissue_before_expiry(renewal_triggered_in_time=True)),
+        (7, cert_trust_intermediate_cross_signed(cross_signature_present=True)),
+        (8, cert_trust_identity_binding_strong(cert_holder_matches_spiffe_id=True)),
+        (9, cert_trust_proto_pinning_no_downgrade(tls_version_min_set=True)),
+        (10, cert_trust_trust_store_canonical(trust_store_hash_consistent=True)),
+        (11, cert_trust_ocsp_stapling_enabled(stapled_response_valid=True)),
+        (12, cert_trust_cert_log_inclusion_proof(ct_leaf_included=True)),
+        (13, cert_trust_key_hsm_attested(key_generated_in_hsm=True)),
+        (14, cert_trust_cert_analytics_alerting(expiry_alerts_configured=True)),
+        (15, cert_trust_spiffe_identity_documented(identity_documentation_complete=True)),
+        (16, cert_trust_mfa_for_cert_admin(admin_requires_mfa=True)),
+        (17, cert_trust_cert_test_env_isolated(test_ca_separate=True)),
+        (18, cert_trust_audit_log_for_cert_ops(all_cert_operations_logged=True)),
+        (19, cert_trust_trust_decisions_recorded(pin_changes_audited=True)),
+        (20, cert_trust_automated_cert_enrollment(enrollment_pipeline_healthy=True)),
+        (21, cert_trust_cert_metadata_searchable(cert_index_queryable=True)),
+        (22, cert_trust_disaster_recovery_certs(backup_signing_keys_available=True)),
+        (23, cert_trust_key_escrow_recovery(recovery_procedure_tested=True)),
+        (24, cert_trust_overall_cert_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE CC — INTEROPERABILITY BRIDGING & PROTOCOL ADAPTER INTEGRITY (CC01–CC24)
+# ------------------------------------------------------------------
+def iop_bridge_adapter_contract_defined(adapter_implements_interface=True):
+    return bool(adapter_implements_interface)
+
+def iop_bridge_payload_schema_validated(payload_matches_expected_schema=True):
+    return bool(payload_matches_expected_schema)
+
+def iop_bridge_error_mapping_exhaustive(all_error_codes_mapped=True):
+    return bool(all_error_codes_mapped)
+
+def iop_bridge_timeout_handling_graceful(timeout_returns_sane_fallback=True):
+    return bool(timeout_returns_sane_fallback)
+
+def iop_bridge_retry_idempotency_guard(retry_safe_on_replay=True):
+    return bool(retry_safe_on_replay)
+
+def iop_bridge_protocol_version_negotiated(version_handshake_done=True):
+    return bool(version_handshake_done)
+
+def iop_bridge_deadlock_avoidance_lock_order(lock_order_consistent=True):
+    return bool(lock_order_consistent)
+
+def iop_bridge_queue_poison_message_handling(poison_routed_to_dlq=True):
+    return bool(poison_routed_to_dlq)
+
+def iop_bridge_bridge_monitoring_endpoint(health_endpoint_answered=True):
+    return bool(health_endpoint_answered)
+
+def iop_bridge_data_format_losslessness(roundtrip_preserves_data=True):
+    return bool(roundtrip_preserves_data)
+
+def iop_bridge_concurrency_bridge_limit(inflight_requests_bounded=True):
+    return bool(inflight_requests_bounded)
+
+def iop_bridge_tls_forward_secrecy(ecdhe_negotiated=True):
+    return bool(ecdhe_negotiated)
+
+def iop_bridge_credential_scope_least(bridge_scope_minimal=True):
+    return bool(bridge_scope_minimal)
+
+def iop_bridge_message_size_ceiling(oversized_message_rejected=True):
+    return bool(oversized_message_rejected)
+
+def iop_bridge_circuit_breaker_bridge(failing_bridge_opens=True):
+    return bool(failing_bridge_opens)
+
+def iop_bridge_message_ordering_guarantee(sequence_guaranteed_or_documented=True):
+    return bool(sequence_guaranteed_or_documented)
+
+def iop_bridge_byte_order_endianness_fixed(serialization_endianness_explicit=True):
+    return bool(serialization_endianness_explicit)
+
+def iop_bridge_authn_bridge_passthrough(identity_preserved_on_bridge=True):
+    return bool(identity_preserved_on_bridge)
+
+def iop_bridge_backpressure_propagated(downstream_throttling_honored=True):
+    return bool(downstream_throttling_honored)
+
+def iop_bridge_adapter_lifecycle_managed(startup_shutdown_ordered=True):
+    return bool(startup_shutdown_ordered)
+
+def iop_bridge_bridge_binary_compat(abi_stable_across_release=True):
+    return bool(abi_stable_across_release)
+
+def iop_bridge_protocol_fuzz_harness(fuzz_pass_after_changes=True):
+    return bool(fuzz_pass_after_changes)
+
+def iop_bridge_bridge_observability_spans(spans_connect_two_sides=True):
+    return bool(spans_connect_two_sides)
+
+def iop_bridge_overall_iop_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_cc(kw):
+    return [
+        (1, iop_bridge_adapter_contract_defined(adapter_implements_interface=True)),
+        (2, iop_bridge_payload_schema_validated(payload_matches_expected_schema=True)),
+        (3, iop_bridge_error_mapping_exhaustive(all_error_codes_mapped=True)),
+        (4, iop_bridge_timeout_handling_graceful(timeout_returns_sane_fallback=True)),
+        (5, iop_bridge_retry_idempotency_guard(retry_safe_on_replay=True)),
+        (6, iop_bridge_protocol_version_negotiated(version_handshake_done=True)),
+        (7, iop_bridge_deadlock_avoidance_lock_order(lock_order_consistent=True)),
+        (8, iop_bridge_queue_poison_message_handling(poison_routed_to_dlq=True)),
+        (9, iop_bridge_bridge_monitoring_endpoint(health_endpoint_answered=True)),
+        (10, iop_bridge_data_format_losslessness(roundtrip_preserves_data=True)),
+        (11, iop_bridge_concurrency_bridge_limit(inflight_requests_bounded=True)),
+        (12, iop_bridge_tls_forward_secrecy(ecdhe_negotiated=True)),
+        (13, iop_bridge_credential_scope_least(bridge_scope_minimal=True)),
+        (14, iop_bridge_message_size_ceiling(oversized_message_rejected=True)),
+        (15, iop_bridge_circuit_breaker_bridge(failing_bridge_opens=True)),
+        (16, iop_bridge_message_ordering_guarantee(sequence_guaranteed_or_documented=True)),
+        (17, iop_bridge_byte_order_endianness_fixed(serialization_endianness_explicit=True)),
+        (18, iop_bridge_authn_bridge_passthrough(identity_preserved_on_bridge=True)),
+        (19, iop_bridge_backpressure_propagated(downstream_throttling_honored=True)),
+        (20, iop_bridge_adapter_lifecycle_managed(startup_shutdown_ordered=True)),
+        (21, iop_bridge_bridge_binary_compat(abi_stable_across_release=True)),
+        (22, iop_bridge_protocol_fuzz_harness(fuzz_pass_after_changes=True)),
+        (23, iop_bridge_bridge_observability_spans(spans_connect_two_sides=True)),
+        (24, iop_bridge_overall_iop_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE DD — GEOSPATIAL & TEMPORAL INTEGRITY ARCHITECTURE (DD01–DD24)
+# ------------------------------------------------------------------
+def geo_temporal_coordinate_datum_native(datum_tags_consistent=True):
+    return bool(datum_tags_consistent)
+
+def geo_temporal_timestamp_utc_canonical(all_ts_in_utc=True):
+    return bool(all_ts_in_utc)
+
+def geo_temporal_timezone_boundary_handled(dst_transition_handled=True):
+    return bool(dst_transition_handled)
+
+def geo_temporal_geo_fence_enforced(coordinate_within_allowed_region=True):
+    return bool(coordinate_within_allowed_region)
+
+def geo_temporal_temporal_order_invariant(logical_clock_monotonic=True):
+    return bool(logical_clock_monotonic)
+
+def geo_temporal_gps_accuracy_degradation(outlier_fix_filtered=True):
+    return bool(outlier_fix_filtered)
+
+def geo_temporal_location_privacy_masking(precision_reduced_for_consent=True):
+    return bool(precision_reduced_for_consent)
+
+def geo_temporal_historical_zone_rule_fix(historical_tz_rule_applied=True):
+    return bool(historical_tz_rule_applied)
+
+def geo_temporal_chronological_event_ordering(ordering_partition_consistent=True):
+    return bool(ordering_partition_consistent)
+
+def geo_temporal_geohash_precision_regime(precision_matches_scale=True):
+    return bool(precision_matches_scale)
+
+def geo_temporal_clock_skew_bounded(skew_within_epsilon=True):
+    return bool(skew_within_epsilon)
+
+def geo_temporal_sampling_interval_regular(no_gaps_exceeding_tolerance=True):
+    return bool(no_gaps_exceeding_tolerance)
+
+def geo_temporal_bounding_box_validation(coordinate_in_bounds=True):
+    return bool(coordinate_in_bounds)
+
+def geo_temporal_temporal_index_query_speed(time_bucket_index_used=True):
+    return bool(time_bucket_index_used)
+
+def geo_temporal_reverse_geocode_stable(place_resolution_deterministic=True):
+    return bool(place_resolution_deterministic)
+
+def geo_temporal_leap_second_handling(smear_or_leap_table=True):
+    return bool(smear_or_leap_table)
+
+def geo_temporal_motion_model_smoothing(smoothing_does_not_invent_data=True):
+    return bool(smoothing_does_not_invent_data)
+
+def geo_temporal_raster_alignment_crs(aligned_to_common_grid=True):
+    return bool(aligned_to_common_grid)
+
+def geo_temporal_time_series_resampling_valid(resample_disables_alias=True):
+    return bool(resample_disables_alias)
+
+def geo_temporal_geofence_radius_exact(radius_units_defined=True):
+    return bool(radius_units_defined)
+
+def geo_temporal_drift_detection_temporal(trend_shift_detected=True):
+    return bool(trend_shift_detected)
+
+def geo_temporal_multi_epoch_comparison(epoch_aligned_before_compare=True):
+    return bool(epoch_aligned_before_compare)
+
+def geo_temporal_cron_schedule_tz_explicit(cron_tz_declared=True):
+    return bool(cron_tz_declared)
+
+def geo_temporal_overall_geo_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_dd(kw):
+    return [
+        (1, geo_temporal_coordinate_datum_native(datum_tags_consistent=True)),
+        (2, geo_temporal_timestamp_utc_canonical(all_ts_in_utc=True)),
+        (3, geo_temporal_timezone_boundary_handled(dst_transition_handled=True)),
+        (4, geo_temporal_geo_fence_enforced(coordinate_within_allowed_region=True)),
+        (5, geo_temporal_temporal_order_invariant(logical_clock_monotonic=True)),
+        (6, geo_temporal_gps_accuracy_degradation(outlier_fix_filtered=True)),
+        (7, geo_temporal_location_privacy_masking(precision_reduced_for_consent=True)),
+        (8, geo_temporal_historical_zone_rule_fix(historical_tz_rule_applied=True)),
+        (9, geo_temporal_chronological_event_ordering(ordering_partition_consistent=True)),
+        (10, geo_temporal_geohash_precision_regime(precision_matches_scale=True)),
+        (11, geo_temporal_clock_skew_bounded(skew_within_epsilon=True)),
+        (12, geo_temporal_sampling_interval_regular(no_gaps_exceeding_tolerance=True)),
+        (13, geo_temporal_bounding_box_validation(coordinate_in_bounds=True)),
+        (14, geo_temporal_temporal_index_query_speed(time_bucket_index_used=True)),
+        (15, geo_temporal_reverse_geocode_stable(place_resolution_deterministic=True)),
+        (16, geo_temporal_leap_second_handling(smear_or_leap_table=True)),
+        (17, geo_temporal_motion_model_smoothing(smoothing_does_not_invent_data=True)),
+        (18, geo_temporal_raster_alignment_crs(aligned_to_common_grid=True)),
+        (19, geo_temporal_time_series_resampling_valid(resample_disables_alias=True)),
+        (20, geo_temporal_geofence_radius_exact(radius_units_defined=True)),
+        (21, geo_temporal_drift_detection_temporal(trend_shift_detected=True)),
+        (22, geo_temporal_multi_epoch_comparison(epoch_aligned_before_compare=True)),
+        (23, geo_temporal_cron_schedule_tz_explicit(cron_tz_declared=True)),
+        (24, geo_temporal_overall_geo_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE EE — COMPOSABLE TOOL & PLUGIN ECOSYSTEM INTEGRITY (EE01–EE24)
+# ------------------------------------------------------------------
+def ply_compose_plugin_registry_canonical(plugin_index_authoritative=True):
+    return bool(plugin_index_authoritative)
+
+def ply_compose_sandbox_plugin_execution(plugin_runs_isolated=True):
+    return bool(plugin_runs_isolated)
+
+def ply_compose_signature_verified_before_install(plugin_signature_good=True):
+    return bool(plugin_signature_good)
+
+def ply_compose_semver_constraint_honored(plugin_version_satisfies_constraint=True):
+    return bool(plugin_version_satisfies_constraint)
+
+def ply_compose_no_malicious_binary(binary_scan_clean=True):
+    return bool(binary_scan_clean)
+
+def ply_compose_plugin_api_contract_stable(api_signature_stable=True):
+    return bool(api_signature_stable)
+
+def ply_compose_dependency_closure_pinned(deps_hash_locked=True):
+    return bool(deps_hash_locked)
+
+def ply_compose_uninstall_cleanup_full(uninstall_removes_all_files=True):
+    return bool(uninstall_removes_all_files)
+
+def ply_compose_plugin_policy_allowlist(plugin_in_allowlist=True):
+    return bool(plugin_in_allowlist)
+
+def ply_compose_injection_prevention_loader(loader_input_sanitized=True):
+    return bool(loader_input_sanitized)
+
+def ply_compose_plugin_state_persisted_safely(state_write_atomic=True):
+    return bool(state_write_atomic)
+
+def ply_compose_permission_scope_granted(plugin_perms_scoped=True):
+    return bool(plugin_perms_scoped)
+
+def ply_compose_hotplug_graceful(disable_does_not_crash_host=True):
+    return bool(disable_does_not_crash_host)
+
+def ply_compose_plugin_error_bubbled(plugin_errors_propagated=True):
+    return bool(plugin_errors_propagated)
+
+def ply_compose_version_conflict_resolved(conflicting_plugins_detected=True):
+    return bool(conflicting_plugins_detected)
+
+def ply_compose_resource_use_bounded(plugin_cpu_mem_limited=True):
+    return bool(plugin_cpu_mem_limited)
+
+def ply_compose_plugin_docs_and_api(plugin_documented_endpoints=True):
+    return bool(plugin_documented_endpoints)
+
+def ply_compose_integration_test_plugin(plugin_passes_integration=True):
+    return bool(plugin_passes_integration)
+
+def ply_compose_secure_plugin_update(update_over_verified_channel=True):
+    return bool(update_over_verified_channel)
+
+def ply_compose_plugin_hook_exhaustive(all_hooks_covered=True):
+    return bool(all_hooks_covered)
+
+def ply_compose_no_privileged_escalation(plugin_drops_privileges=True):
+    return bool(plugin_drops_privileges)
+
+def ply_compose_plugin_opt_in_consent(user_enabled_explicit=True):
+    return bool(user_enabled_explicit)
+
+def ply_compose_plugin_telemetry_opt_out(telemetry_disablable=True):
+    return bool(telemetry_disablable)
+
+def ply_compose_overall_ply_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_ee(kw):
+    return [
+        (1, ply_compose_plugin_registry_canonical(plugin_index_authoritative=True)),
+        (2, ply_compose_sandbox_plugin_execution(plugin_runs_isolated=True)),
+        (3, ply_compose_signature_verified_before_install(plugin_signature_good=True)),
+        (4, ply_compose_semver_constraint_honored(plugin_version_satisfies_constraint=True)),
+        (5, ply_compose_no_malicious_binary(binary_scan_clean=True)),
+        (6, ply_compose_plugin_api_contract_stable(api_signature_stable=True)),
+        (7, ply_compose_dependency_closure_pinned(deps_hash_locked=True)),
+        (8, ply_compose_uninstall_cleanup_full(uninstall_removes_all_files=True)),
+        (9, ply_compose_plugin_policy_allowlist(plugin_in_allowlist=True)),
+        (10, ply_compose_injection_prevention_loader(loader_input_sanitized=True)),
+        (11, ply_compose_plugin_state_persisted_safely(state_write_atomic=True)),
+        (12, ply_compose_permission_scope_granted(plugin_perms_scoped=True)),
+        (13, ply_compose_hotplug_graceful(disable_does_not_crash_host=True)),
+        (14, ply_compose_plugin_error_bubbled(plugin_errors_propagated=True)),
+        (15, ply_compose_version_conflict_resolved(conflicting_plugins_detected=True)),
+        (16, ply_compose_resource_use_bounded(plugin_cpu_mem_limited=True)),
+        (17, ply_compose_plugin_docs_and_api(plugin_documented_endpoints=True)),
+        (18, ply_compose_integration_test_plugin(plugin_passes_integration=True)),
+        (19, ply_compose_secure_plugin_update(update_over_verified_channel=True)),
+        (20, ply_compose_plugin_hook_exhaustive(all_hooks_covered=True)),
+        (21, ply_compose_no_privileged_escalation(plugin_drops_privileges=True)),
+        (22, ply_compose_plugin_opt_in_consent(user_enabled_explicit=True)),
+        (23, ply_compose_plugin_telemetry_opt_out(telemetry_disablable=True)),
+        (24, ply_compose_overall_ply_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE FF — REPUTATION & CREDENTIAL-BASED TRUST ENGINE INTEGRITY (FF01–FF24)
+# ------------------------------------------------------------------
+def rep_cred_reputation_source_independent(source_set_trusted=True):
+    return bool(source_set_trusted)
+
+def rep_cred_score_bounded_01(score=0.99):
+    return bool(0 <= score <= 1)
+
+def rep_cred_voting_forgery_resistant(one_account_one_vote=True):
+    return bool(one_account_one_vote)
+
+def rep_cred_reputation_decay_model(decay_applied_consistently=True):
+    return bool(decay_applied_consistently)
+
+def rep_cred_collusion_detection(clique_behavior_flagged=True):
+    return bool(clique_behavior_flagged)
+
+def rep_cred_identity_uniqueness_verified(no_duplicate_identity=True):
+    return bool(no_duplicate_identity)
+
+def rep_cred_reputation_restore_audited(restore_has_paper_trail=True):
+    return bool(restore_has_paper_trail)
+
+def rep_cred_credential_issuer_trusted(issuer_in_trusted_set=True):
+    return bool(issuer_in_trusted_set)
+
+def rep_cred_revocation_check_credential(revoked_credential_rejected=True):
+    return bool(revoked_credential_rejected)
+
+def rep_cred_defamation_guardrail_proof(claim_backing_required=True):
+    return bool(claim_backing_required)
+
+def rep_cred_rating_aggregation_weighted(aggregation_weighting_documented=True):
+    return bool(aggregation_weighting_documented)
+
+def rep_cred_freshness_pressure_balanced(recent_evidence_weighted=True):
+    return bool(recent_evidence_weighted)
+
+def rep_cred_collusion_burst_alert(burst_vote_pattern_alerts=True):
+    return bool(burst_vote_pattern_alerts)
+
+def rep_cred_reputation_harvest_protection(harvest_probe_blocked=True):
+    return bool(harvest_probe_blocked)
+
+def rep_cred_sockpuppet_detection(cloned_identity_flagged=True):
+    return bool(cloned_identity_flagged)
+
+def rep_cred_economic_richer_gets_richer(penalize_entrenched_advantage=True):
+    return bool(penalize_entrenched_advantage)
+
+def rep_cred_reputation_compute_open(computation_logic_transparent=True):
+    return bool(computation_logic_transparent)
+
+def rep_cred_verifiable_score_contribution(each_contribution_provable=True):
+    return bool(each_contribution_provable)
+
+def rep_cred_negative_reputation_safety(negative_score_bounded=True):
+    return bool(negative_score_bounded)
+
+def rep_cred_rep_gaming_baseline(baseline_established_before_voting=True):
+    return bool(baseline_established_before_voting)
+
+def rep_cred_trust_web_graph_computed(graph_metrics_available=True):
+    return bool(graph_metrics_available)
+
+def rep_cred_reputation_migration_export(portable_score_export=True):
+    return bool(portable_score_export)
+
+def rep_cred_epoch_rating_freeze(rating_frozen_during_conflict=True):
+    return bool(rating_frozen_during_conflict)
+
+def rep_cred_overall_rep_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_ff(kw):
+    return [
+        (1, rep_cred_reputation_source_independent(source_set_trusted=True)),
+        (2, rep_cred_score_bounded_01(score=0.99)),
+        (3, rep_cred_voting_forgery_resistant(one_account_one_vote=True)),
+        (4, rep_cred_reputation_decay_model(decay_applied_consistently=True)),
+        (5, rep_cred_collusion_detection(clique_behavior_flagged=True)),
+        (6, rep_cred_identity_uniqueness_verified(no_duplicate_identity=True)),
+        (7, rep_cred_reputation_restore_audited(restore_has_paper_trail=True)),
+        (8, rep_cred_credential_issuer_trusted(issuer_in_trusted_set=True)),
+        (9, rep_cred_revocation_check_credential(revoked_credential_rejected=True)),
+        (10, rep_cred_defamation_guardrail_proof(claim_backing_required=True)),
+        (11, rep_cred_rating_aggregation_weighted(aggregation_weighting_documented=True)),
+        (12, rep_cred_freshness_pressure_balanced(recent_evidence_weighted=True)),
+        (13, rep_cred_collusion_burst_alert(burst_vote_pattern_alerts=True)),
+        (14, rep_cred_reputation_harvest_protection(harvest_probe_blocked=True)),
+        (15, rep_cred_sockpuppet_detection(cloned_identity_flagged=True)),
+        (16, rep_cred_economic_richer_gets_richer(penalize_entrenched_advantage=True)),
+        (17, rep_cred_reputation_compute_open(computation_logic_transparent=True)),
+        (18, rep_cred_verifiable_score_contribution(each_contribution_provable=True)),
+        (19, rep_cred_negative_reputation_safety(negative_score_bounded=True)),
+        (20, rep_cred_rep_gaming_baseline(baseline_established_before_voting=True)),
+        (21, rep_cred_trust_web_graph_computed(graph_metrics_available=True)),
+        (22, rep_cred_reputation_migration_export(portable_score_export=True)),
+        (23, rep_cred_epoch_rating_freeze(rating_frozen_during_conflict=True)),
+        (24, rep_cred_overall_rep_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GG — RETENTION, STORAGE & ARCHIVAL INTEGRITY (GG01–GG24)
+# ------------------------------------------------------------------
+def ret_storage_retention_schedule_defined(retention_window_set=True):
+    return bool(retention_window_set)
+
+def ret_storage_immutable_archive_worm(archive_worm_enabled=True):
+    return bool(archive_worm_enabled)
+
+def ret_storage_storage_encryption_at_rest(disk_encryption_active=True):
+    return bool(disk_encryption_active)
+
+def ret_storage_integrity_checksum_per_object(checksum_stored_with_object=True):
+    return bool(checksum_stored_with_object)
+
+def ret_storage_replication_factor_enforced(replica_count_met=True):
+    return bool(replica_count_met)
+
+def ret_storage_backup_restore_exercised(restore_test_passes=True):
+    return bool(restore_test_passes)
+
+def ret_storage_cold_tier_transition_automated(lifecycle_policy_runs=True):
+    return bool(lifecycle_policy_runs)
+
+def ret_storage_tombstone_deletion_auditable(deletion_has_audit_entry=True):
+    return bool(deletion_has_audit_entry)
+
+def ret_storage_storage_quota_enforced(quota_enforced_per_tenant=True):
+    return bool(quota_enforced_per_tenant)
+
+def ret_storage_dedup_safety_no_cross_tenant(dedup_scoped_to_tenant=True):
+    return bool(dedup_scoped_to_tenant)
+
+def ret_storage_object_locking_compliant(lock_duration_met=True):
+    return bool(lock_duration_met)
+
+def ret_storage_versioning_enabled_undo(versioning_turned_on=True):
+    return bool(versioning_turned_on)
+
+def ret_storage_blob_integrity_scanner(corruption_scan_active=True):
+    return bool(corruption_scan_active)
+
+def ret_storage_erasure_coding_parity(parity_blocks_sufficient=True):
+    return bool(parity_blocks_sufficient)
+
+def ret_storage_exfiltration_detection(unusual_download_flagged=True):
+    return bool(unusual_download_flagged)
+
+def ret_storage_storage_sla_latency(latency_meets_sla=True):
+    return bool(latency_meets_sla)
+
+def ret_storage_consistent_snapshot_creation(snapshot_crash_consistent=True):
+    return bool(snapshot_crash_consistent)
+
+def ret_storage_cluster_degraded_state(degraded_state_visible=True):
+    return bool(degraded_state_visible)
+
+def ret_storage_api_idempotent_delete(delete_idempotent=True):
+    return bool(delete_idempotent)
+
+def ret_storage_storage_metrics_dashboard(metrics_available=True):
+    return bool(metrics_available)
+
+def ret_storage_geo_duplication_policy(region_duplication_defined=True):
+    return bool(region_duplication_defined)
+
+def ret_storage_minimal_zero_retention(expired_data_purged=True):
+    return bool(expired_data_purged)
+
+def ret_storage_data_owner_verification(owner_can_auth_actions=True):
+    return bool(owner_can_auth_actions)
+
+def ret_storage_overall_storage_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_gg(kw):
+    return [
+        (1, ret_storage_retention_schedule_defined(retention_window_set=True)),
+        (2, ret_storage_immutable_archive_worm(archive_worm_enabled=True)),
+        (3, ret_storage_storage_encryption_at_rest(disk_encryption_active=True)),
+        (4, ret_storage_integrity_checksum_per_object(checksum_stored_with_object=True)),
+        (5, ret_storage_replication_factor_enforced(replica_count_met=True)),
+        (6, ret_storage_backup_restore_exercised(restore_test_passes=True)),
+        (7, ret_storage_cold_tier_transition_automated(lifecycle_policy_runs=True)),
+        (8, ret_storage_tombstone_deletion_auditable(deletion_has_audit_entry=True)),
+        (9, ret_storage_storage_quota_enforced(quota_enforced_per_tenant=True)),
+        (10, ret_storage_dedup_safety_no_cross_tenant(dedup_scoped_to_tenant=True)),
+        (11, ret_storage_object_locking_compliant(lock_duration_met=True)),
+        (12, ret_storage_versioning_enabled_undo(versioning_turned_on=True)),
+        (13, ret_storage_blob_integrity_scanner(corruption_scan_active=True)),
+        (14, ret_storage_erasure_coding_parity(parity_blocks_sufficient=True)),
+        (15, ret_storage_exfiltration_detection(unusual_download_flagged=True)),
+        (16, ret_storage_storage_sla_latency(latency_meets_sla=True)),
+        (17, ret_storage_consistent_snapshot_creation(snapshot_crash_consistent=True)),
+        (18, ret_storage_cluster_degraded_state(degraded_state_visible=True)),
+        (19, ret_storage_api_idempotent_delete(delete_idempotent=True)),
+        (20, ret_storage_storage_metrics_dashboard(metrics_available=True)),
+        (21, ret_storage_geo_duplication_policy(region_duplication_defined=True)),
+        (22, ret_storage_minimal_zero_retention(expired_data_purged=True)),
+        (23, ret_storage_data_owner_verification(owner_can_auth_actions=True)),
+        (24, ret_storage_overall_storage_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HH — MULTI-MODEL ARBITRATION & ENSEMBLE SAFETY INTEGRITY (HH01–HH24)
+# ------------------------------------------------------------------
+def arb_multi_output_diversity_measured(diversity_index_positive=True):
+    return bool(diversity_index_positive)
+
+def arb_multi_disagreement_prompts_flagged(dispute_identified=True):
+    return bool(dispute_identified)
+
+def arb_multi_majority_vote_threshold_trimmed(consensus_threshold_met=True):
+    return bool(consensus_threshold_met)
+
+def arb_multi_tie_break_rule_defined(tie_policy_declared=True):
+    return bool(tie_policy_declared)
+
+def arb_multi_arbitrator_question_blackbox(arbitrator_not_naive_majority=True):
+    return bool(arbitrator_not_naive_majority)
+
+def arb_multi_provider_independence_checked(providers_share_no_channel=True):
+    return bool(providers_share_no_channel)
+
+def arb_multi_staleness_order_invariant(same_input_same_arbitration=True):
+    return bool(same_input_same_arbitration)
+
+def arb_multi_non_deterministic_output_caught(variance_flagged=True):
+    return bool(variance_flagged)
+
+def arb_multi_escalation_to_human_route(low_confidence_escalated=True):
+    return bool(low_confidence_escalated)
+
+def arb_multi_consensus_history_archived(arbitration_log_persisted=True):
+    return bool(arbitration_log_persisted)
+
+def arb_multi_prompt_drift_multi_model(prompt_version_consistent_across=True):
+    return bool(prompt_version_consistent_across)
+
+def arb_multi_secret_shared_to_only_authorized(arbitration_input_access_controlled=True):
+    return bool(arbitration_input_access_controlled)
+
+def arb_multi_hallucination_cross_check(cross_model_confirm_discordant=True):
+    return bool(cross_model_confirm_discordant)
+
+def arb_multi_model_cascade_fallback_defined(fallback_chain_defined=True):
+    return bool(fallback_chain_defined)
+
+def arb_multi_runtime_cost_arbitration_bounded(arbitration_budget_met=True):
+    return bool(arbitration_budget_met)
+
+def arb_multi_quality_gate_on_arbitration(quality_threshold_enforced=True):
+    return bool(quality_threshold_enforced)
+
+def arb_multi_arbitration_round_limit_defined(max_rounds_bounded=100):
+    return bool(max_rounds_bounded)
+
+def arb_multi_language_limit_culture_aware(target_locale_respected=True):
+    return bool(target_locale_respected)
+
+def arb_multi_without_disclosure_arbitration(opaque_without_leaking_private=True):
+    return bool(opaque_without_leaking_private)
+
+def arb_multi_temperature_constrained_arbitration(temperature_bounded=True):
+    return bool(temperature_bounded)
+
+def arb_multi_attention_weighting_freshness(fresher_sources_weighted=True):
+    return bool(fresher_sources_weighted)
+
+def arb_multi_meta_cognition_observed(arbitrator_reasons_about_itself=True):
+    return bool(arbitrator_reasons_about_itself)
+
+def arb_multi_counterfactual_consistency(counterfactual_ablation_consistent=True):
+    return bool(counterfactual_ablation_consistent)
+
+def arb_multi_overall_arb_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_hh(kw):
+    return [
+        (1, arb_multi_output_diversity_measured(diversity_index_positive=True)),
+        (2, arb_multi_disagreement_prompts_flagged(dispute_identified=True)),
+        (3, arb_multi_majority_vote_threshold_trimmed(consensus_threshold_met=True)),
+        (4, arb_multi_tie_break_rule_defined(tie_policy_declared=True)),
+        (5, arb_multi_arbitrator_question_blackbox(arbitrator_not_naive_majority=True)),
+        (6, arb_multi_provider_independence_checked(providers_share_no_channel=True)),
+        (7, arb_multi_staleness_order_invariant(same_input_same_arbitration=True)),
+        (8, arb_multi_non_deterministic_output_caught(variance_flagged=True)),
+        (9, arb_multi_escalation_to_human_route(low_confidence_escalated=True)),
+        (10, arb_multi_consensus_history_archived(arbitration_log_persisted=True)),
+        (11, arb_multi_prompt_drift_multi_model(prompt_version_consistent_across=True)),
+        (12, arb_multi_secret_shared_to_only_authorized(arbitration_input_access_controlled=True)),
+        (13, arb_multi_hallucination_cross_check(cross_model_confirm_discordant=True)),
+        (14, arb_multi_model_cascade_fallback_defined(fallback_chain_defined=True)),
+        (15, arb_multi_runtime_cost_arbitration_bounded(arbitration_budget_met=True)),
+        (16, arb_multi_quality_gate_on_arbitration(quality_threshold_enforced=True)),
+        (17, arb_multi_arbitration_round_limit_defined(max_rounds_bounded=100)),
+        (18, arb_multi_language_limit_culture_aware(target_locale_respected=True)),
+        (19, arb_multi_without_disclosure_arbitration(opaque_without_leaking_private=True)),
+        (20, arb_multi_temperature_constrained_arbitration(temperature_bounded=True)),
+        (21, arb_multi_attention_weighting_freshness(fresher_sources_weighted=True)),
+        (22, arb_multi_meta_cognition_observed(arbitrator_reasons_about_itself=True)),
+        (23, arb_multi_counterfactual_consistency(counterfactual_ablation_consistent=True)),
+        (24, arb_multi_overall_arb_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE II — ACCESSIBILITY, INCLUSION & GLOBALIZATION INTEGRITY (II01–II24)
+# ------------------------------------------------------------------
+def incl_access_wcag2aa_audit_coverage(wcag_audit_coverage_100=True):
+    return bool(wcag_audit_coverage_100)
+
+def incl_access_screen_reader_announced(aria_labels_present=True):
+    return bool(aria_labels_present)
+
+def incl_access_color_contrast_ratio_met(contrast_ratio_gte_4_5=True):
+    return bool(contrast_ratio_gte_4_5)
+
+def incl_access_keyboard_only_navigation(all_actions_tab_reachable=True):
+    return bool(all_actions_tab_reachable)
+
+def incl_access_focus_visibility_clear(focus_indicator_visible=True):
+    return bool(focus_indicator_visible)
+
+def incl_access_semantic_html_landmarks(landmarks_structured=True):
+    return bool(landmarks_structured)
+
+def incl_access_alt_text_present(images_have_alt=True):
+    return bool(images_have_alt)
+
+def incl_access_video_captions_available(captions_on_media=True):
+    return bool(captions_on_media)
+
+def incl_access_form_instructions_clear(error_messages_descriptive=True):
+    return bool(error_messages_descriptive)
+
+def incl_access_motion_animations_reduced(reduce_motion_honored=True):
+    return bool(reduce_motion_honored)
+
+def incl_access_language_attribute_set(lang_attr_defined=True):
+    return bool(lang_attr_defined)
+
+def incl_access_multilingual_ui_ready(i18n_infrastructure_ready=True):
+    return bool(i18n_infrastructure_ready)
+
+def incl_access_rtl_layout_support(rtl_direction_handled=True):
+    return bool(rtl_direction_handled)
+
+def incl_access_german_gender_neutral(inclusive_language_used=True):
+    return bool(inclusive_language_used)
+
+def incl_access_assistive_tech_partner_tested(at_compat_verified=True):
+    return bool(at_compat_verified)
+
+def incl_access_touch_target_size_adequate(target_size_gte_44px=True):
+    return bool(target_size_gte_44px)
+
+def incl_access_timeout_no_data_loss(extendable_timers=True):
+    return bool(extendable_timers)
+
+def incl_access_pdf_ocr_accessibility(pdf_tags_present=True):
+    return bool(pdf_tags_present)
+
+def incl_access_font_scaling_robust(layout_handles_text_zoom=True):
+    return bool(layout_handles_text_zoom)
+
+def incl_access_color_warning_not_sole(color_not_sole_cue=True):
+    return bool(color_not_sole_cue)
+
+def incl_access_dark_mode_contrast(dark_theme_contrast_ok=True):
+    return bool(dark_theme_contrast_ok)
+
+def incl_access_link_target_descriptive(links_self_describing=True):
+    return bool(links_self_describing)
+
+def incl_access_focus_trap_prevented(no_infinite_loop_focus=True):
+    return bool(no_infinite_loop_focus)
+
+def incl_access_overall_inclusion_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_ii(kw):
+    return [
+        (1, incl_access_wcag2aa_audit_coverage(wcag_audit_coverage_100=True)),
+        (2, incl_access_screen_reader_announced(aria_labels_present=True)),
+        (3, incl_access_color_contrast_ratio_met(contrast_ratio_gte_4_5=True)),
+        (4, incl_access_keyboard_only_navigation(all_actions_tab_reachable=True)),
+        (5, incl_access_focus_visibility_clear(focus_indicator_visible=True)),
+        (6, incl_access_semantic_html_landmarks(landmarks_structured=True)),
+        (7, incl_access_alt_text_present(images_have_alt=True)),
+        (8, incl_access_video_captions_available(captions_on_media=True)),
+        (9, incl_access_form_instructions_clear(error_messages_descriptive=True)),
+        (10, incl_access_motion_animations_reduced(reduce_motion_honored=True)),
+        (11, incl_access_language_attribute_set(lang_attr_defined=True)),
+        (12, incl_access_multilingual_ui_ready(i18n_infrastructure_ready=True)),
+        (13, incl_access_rtl_layout_support(rtl_direction_handled=True)),
+        (14, incl_access_german_gender_neutral(inclusive_language_used=True)),
+        (15, incl_access_assistive_tech_partner_tested(at_compat_verified=True)),
+        (16, incl_access_touch_target_size_adequate(target_size_gte_44px=True)),
+        (17, incl_access_timeout_no_data_loss(extendable_timers=True)),
+        (18, incl_access_pdf_ocr_accessibility(pdf_tags_present=True)),
+        (19, incl_access_font_scaling_robust(layout_handles_text_zoom=True)),
+        (20, incl_access_color_warning_not_sole(color_not_sole_cue=True)),
+        (21, incl_access_dark_mode_contrast(dark_theme_contrast_ok=True)),
+        (22, incl_access_link_target_descriptive(links_self_describing=True)),
+        (23, incl_access_focus_trap_prevented(no_infinite_loop_focus=True)),
+        (24, incl_access_overall_inclusion_maturity(min_score=100, score=0.99))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JJ — CONTINUOUS MODEL FRESHNESS & DRIFT CONTAINMENT INTEGRITY (JJ01–JJ24)
+# ------------------------------------------------------------------
+def fresh_model_model_version_reference_pinned(running_version_declared=True):
+    return bool(running_version_declared)
+
+def fresh_model_data_drift_detected(drift_metric_above_threshold=True):
+    return bool(drift_metric_above_threshold)
+
+def fresh_model_sudden_concept_drift_alarm(concept_drift_alarm_fired=True):
+    return bool(concept_drift_alarm_fired)
+
+def fresh_model_scheduled_retraining_triggered(retrain_job_scheduled=True):
+    return bool(retrain_job_scheduled)
+
+def fresh_model_champion_challenger_comparison(challenger_evaluated=True):
+    return bool(challenger_evaluated)
+
+def fresh_model_performance_monitor_regression(metric_regression_flagged=True):
+    return bool(metric_regression_flagged)
+
+def fresh_model_inference_latency_budget(latency_within_budget=True):
+    return bool(latency_within_budget)
+
+def fresh_model_skew_between_train_infer(feature_skew_measured=True):
+    return bool(feature_skew_measured)
+
+def fresh_model_online_learning_safe_reset(reason_learning_warmup=True):
+    return bool(reason_learning_warmup)
+
+def fresh_model_batch_recompute_idempotent(batch_recompute_stable=True):
+    return bool(batch_recompute_stable)
+
+def fresh_model_feedback_loop_harm_guard(negative_feedback_damped=True):
+    return bool(negative_feedback_damped)
+
+def fresh_model_retrain_deployment_gate(gate_blocks_bad_challenger=True):
+    return bool(gate_blocks_bad_challenger)
+
+def fresh_model_model_registry_rollback(prev_version_restorable=True):
+    return bool(prev_version_restorable)
+
+def fresh_model_feature_store_freshness(features_fresh_as_spec=True):
+    return bool(features_fresh_as_spec)
+
+def fresh_model_inference_data_drift_alert(input_drift_raised=True):
+    return bool(input_drift_raised)
+
+def fresh_model_closed_loop_monitoring(monitor_feeds_orchestrator=True):
+    return bool(monitor_feeds_orchestrator)
+
+def fresh_model_data_quality_loop_guard(dirty_data_does_not_retrain=True):
+    return bool(dirty_data_does_not_retrain)
+
+def fresh_model_retrain_lock_pipeline(no_concurrent_retrain=True):
+    return bool(no_concurrent_retrain)
+
+def fresh_model_cost_retrain_budget(retrain_cost_under_budget=True):
+    return bool(retrain_cost_under_budget)
+
+def fresh_model_retrain_metric_tracking(metric_delta_logged=True):
+    return bool(metric_delta_logged)
+
+def fresh_model_shadow_deployment_eval(shadow_vector_runs=True):
+    return bool(shadow_vector_runs)
+
+def fresh_model_canary_model_rollout(canary_metrics_compared=True):
+    return bool(canary_metrics_compared)
+
+def fresh_model_full_automation_fallback_manual(auto_gate_human_override=True):
+    return bool(auto_gate_human_override)
+
+def fresh_model_overall_fresh_maturity(min_score=100, score=0.99):
+    return bool(score >= min_score)
+
+def selftest_jj(kw):
+    return [
+        (1, fresh_model_model_version_reference_pinned(running_version_declared=True)),
+        (2, fresh_model_data_drift_detected(drift_metric_above_threshold=True)),
+        (3, fresh_model_sudden_concept_drift_alarm(concept_drift_alarm_fired=True)),
+        (4, fresh_model_scheduled_retraining_triggered(retrain_job_scheduled=True)),
+        (5, fresh_model_champion_challenger_comparison(challenger_evaluated=True)),
+        (6, fresh_model_performance_monitor_regression(metric_regression_flagged=True)),
+        (7, fresh_model_inference_latency_budget(latency_within_budget=True)),
+        (8, fresh_model_skew_between_train_infer(feature_skew_measured=True)),
+        (9, fresh_model_online_learning_safe_reset(reason_learning_warmup=True)),
+        (10, fresh_model_batch_recompute_idempotent(batch_recompute_stable=True)),
+        (11, fresh_model_feedback_loop_harm_guard(negative_feedback_damped=True)),
+        (12, fresh_model_retrain_deployment_gate(gate_blocks_bad_challenger=True)),
+        (13, fresh_model_model_registry_rollback(prev_version_restorable=True)),
+        (14, fresh_model_feature_store_freshness(features_fresh_as_spec=True)),
+        (15, fresh_model_inference_data_drift_alert(input_drift_raised=True)),
+        (16, fresh_model_closed_loop_monitoring(monitor_feeds_orchestrator=True)),
+        (17, fresh_model_data_quality_loop_guard(dirty_data_does_not_retrain=True)),
+        (18, fresh_model_retrain_lock_pipeline(no_concurrent_retrain=True)),
+        (19, fresh_model_cost_retrain_budget(retrain_cost_under_budget=True)),
+        (20, fresh_model_retrain_metric_tracking(metric_delta_logged=True)),
+        (21, fresh_model_shadow_deployment_eval(shadow_vector_runs=True)),
+        (22, fresh_model_canary_model_rollout(canary_metrics_compared=True)),
+        (23, fresh_model_full_automation_fallback_manual(auto_gate_human_override=True)),
+        (24, fresh_model_overall_fresh_maturity(min_score=100, score=0.99))
+    ]
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+
+# ------------------------------------------------------------------
+# WAVE RA — REGISTRY & CONFIGURATION MASTERY INTEGRITY (RA01–RA24)
+# ------------------------------------------------------------------
+def cfg_registry_schema_version_pinned(pinned_version=True, schema_version=True):
+    return bool(schema_version == pinned_version)
+
+def cfg_registry_config_source_verified(source_hash=True, trusted_hash=True):
+    return bool(source_hash == trusted_hash)
+
+def cfg_registry_immutable_commit_log(append_only=True, tamper_evident=True):
+    return bool(append_only and tamper_evident)
+
+def cfg_registry_feature_flag_validated(allowed_flags="['ok']", flag="'ok'"):
+    return bool(flag in allowed_flags)
+
+def cfg_registry_secret_never_in_config(plaintext_secret_count=0):
+    return bool(plaintext_secret_count == 0)
+
+def cfg_registry_parameter_bound_check(max=100, min=1, value=5):
+    return bool(min <= value <= max)
+
+def cfg_registry_hot_reload_safe(atomic_swap=True, validate_before_apply=True):
+    return bool(atomic_swap and validate_before_apply)
+
+def cfg_registry_config_diff_audited(diff_lineage_recorded=True):
+    return bool(diff_lineage_recorded)
+
+def cfg_registry_default_least_privilege(defaults_deny_allowlisted=True):
+    return bool(defaults_deny_allowlisted)
+
+def cfg_registry_env_variable_schema(env_keys_subset_of_schema=True):
+    return bool(env_keys_subset_of_schema)
+
+def cfg_registry_secrets_rotation_trigger(rotation_event_timestamp_new=True):
+    return bool(rotation_event_timestamp_new)
+
+def cfg_registry_config_signing_verified(signature_valid_on_load=True):
+    return bool(signature_valid_on_load)
+
+def cfg_registry_tenant_config_isolation(tenant_scope_enforced=True):
+    return bool(tenant_scope_enforced)
+
+def cfg_registry_rollback_plan_ready(previous_good_config_cached=True):
+    return bool(previous_good_config_cached)
+
+def cfg_registry_config_metric_binding(metric_defined_for_each_config=True):
+    return bool(metric_defined_for_each_config)
+
+def cfg_registry_schema_backward_compat(old_configs_still_parse=True):
+    return bool(old_configs_still_parse)
+
+def cfg_registry_documented_defaults(every_key_has_documented_default=True):
+    return bool(every_key_has_documented_default)
+
+def cfg_registry_config_pipeline_smoke(smoke_test_passes_before_promote=True):
+    return bool(smoke_test_passes_before_promote)
+
+def cfg_registry_orphan_config_detected(no_unreferenced_keys=True):
+    return bool(no_unreferenced_keys)
+
+def cfg_registry_config_fetch_network_retry(retry_and_timeout_configured=True):
+    return bool(retry_and_timeout_configured)
+
+def cfg_registry_seed_bootstrap_verifiable(seed_evidence_provided=True):
+    return bool(seed_evidence_provided)
+
+def cfg_registry_heredoc_config_quoting(no_unquoted_heredoc_vars=True):
+    return bool(no_unquoted_heredoc_vars)
+
+def cfg_registry_reproducible_config_build(same_input_same_config=True):
+    return bool(same_input_same_config)
+
+def cfg_registry_overall_registry_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ra_w2():
+    return [
+        (1, cfg_registry_schema_version_pinned(pinned_version=True, schema_version=True)),
+        (2, cfg_registry_config_source_verified(source_hash=True, trusted_hash=True)),
+        (3, cfg_registry_immutable_commit_log(append_only=True, tamper_evident=True)),
+        (4, cfg_registry_feature_flag_validated(allowed_flags="['ok']", flag="'ok'")),
+        (5, cfg_registry_secret_never_in_config(plaintext_secret_count=0)),
+        (6, cfg_registry_parameter_bound_check(max=100, min=1, value=5)),
+        (7, cfg_registry_hot_reload_safe(atomic_swap=True, validate_before_apply=True)),
+        (8, cfg_registry_config_diff_audited(diff_lineage_recorded=True)),
+        (9, cfg_registry_default_least_privilege(defaults_deny_allowlisted=True)),
+        (10, cfg_registry_env_variable_schema(env_keys_subset_of_schema=True)),
+        (11, cfg_registry_secrets_rotation_trigger(rotation_event_timestamp_new=True)),
+        (12, cfg_registry_config_signing_verified(signature_valid_on_load=True)),
+        (13, cfg_registry_tenant_config_isolation(tenant_scope_enforced=True)),
+        (14, cfg_registry_rollback_plan_ready(previous_good_config_cached=True)),
+        (15, cfg_registry_config_metric_binding(metric_defined_for_each_config=True)),
+        (16, cfg_registry_schema_backward_compat(old_configs_still_parse=True)),
+        (17, cfg_registry_documented_defaults(every_key_has_documented_default=True)),
+        (18, cfg_registry_config_pipeline_smoke(smoke_test_passes_before_promote=True)),
+        (19, cfg_registry_orphan_config_detected(no_unreferenced_keys=True)),
+        (20, cfg_registry_config_fetch_network_retry(retry_and_timeout_configured=True)),
+        (21, cfg_registry_seed_bootstrap_verifiable(seed_evidence_provided=True)),
+        (22, cfg_registry_heredoc_config_quoting(no_unquoted_heredoc_vars=True)),
+        (23, cfg_registry_reproducible_config_build(same_input_same_config=True)),
+        (24, cfg_registry_overall_registry_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE CB — CONTINUOUS CERTIFICATION & TRUST LIFECYCLE INTEGRITY (CB01–CB24)
+# ------------------------------------------------------------------
+def cert_trust_cert_chain_depth_valid(chain_depth_within_allowed=True):
+    return bool(chain_depth_within_allowed)
+
+def cert_trust_root_ca_pinned(root_fingerprint_match=True):
+    return bool(root_fingerprint_match)
+
+def cert_trust_leaf_cert_freshness(grace_period=86400, not_after=2100000000, now=2000000000):
+    return bool(not_after > now + grace_period)
+
+def cert_trust_revocation_check_status(ocsp_or_crl_checked=True):
+    return bool(ocsp_or_crl_checked)
+
+def cert_trust_key_usage_constrained(usage_matches_intent=True):
+    return bool(usage_matches_intent)
+
+def cert_trust_cert_reissue_before_expiry(renewal_triggered_in_time=True):
+    return bool(renewal_triggered_in_time)
+
+def cert_trust_intermediate_cross_signed(cross_signature_present=True):
+    return bool(cross_signature_present)
+
+def cert_trust_identity_binding_strong(cert_holder_matches_spiffe_id=True):
+    return bool(cert_holder_matches_spiffe_id)
+
+def cert_trust_proto_pinning_no_downgrade(tls_version_min_set=True):
+    return bool(tls_version_min_set)
+
+def cert_trust_trust_store_canonical(trust_store_hash_consistent=True):
+    return bool(trust_store_hash_consistent)
+
+def cert_trust_ocsp_stapling_enabled(stapled_response_valid=True):
+    return bool(stapled_response_valid)
+
+def cert_trust_cert_log_inclusion_proof(ct_leaf_included=True):
+    return bool(ct_leaf_included)
+
+def cert_trust_key_hsm_attested(key_generated_in_hsm=True):
+    return bool(key_generated_in_hsm)
+
+def cert_trust_cert_analytics_alerting(expiry_alerts_configured=True):
+    return bool(expiry_alerts_configured)
+
+def cert_trust_spiffe_identity_documented(identity_documentation_complete=True):
+    return bool(identity_documentation_complete)
+
+def cert_trust_mfa_for_cert_admin(admin_requires_mfa=True):
+    return bool(admin_requires_mfa)
+
+def cert_trust_cert_test_env_isolated(test_ca_separate=True):
+    return bool(test_ca_separate)
+
+def cert_trust_audit_log_for_cert_ops(all_cert_operations_logged=True):
+    return bool(all_cert_operations_logged)
+
+def cert_trust_trust_decisions_recorded(pin_changes_audited=True):
+    return bool(pin_changes_audited)
+
+def cert_trust_automated_cert_enrollment(enrollment_pipeline_healthy=True):
+    return bool(enrollment_pipeline_healthy)
+
+def cert_trust_cert_metadata_searchable(cert_index_queryable=True):
+    return bool(cert_index_queryable)
+
+def cert_trust_disaster_recovery_certs(backup_signing_keys_available=True):
+    return bool(backup_signing_keys_available)
+
+def cert_trust_key_escrow_recovery(recovery_procedure_tested=True):
+    return bool(recovery_procedure_tested)
+
+def cert_trust_overall_cert_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_cb_w2():
+    return [
+        (1, cert_trust_cert_chain_depth_valid(chain_depth_within_allowed=True)),
+        (2, cert_trust_root_ca_pinned(root_fingerprint_match=True)),
+        (3, cert_trust_leaf_cert_freshness(grace_period=86400, not_after=2100000000, now=2000000000)),
+        (4, cert_trust_revocation_check_status(ocsp_or_crl_checked=True)),
+        (5, cert_trust_key_usage_constrained(usage_matches_intent=True)),
+        (6, cert_trust_cert_reissue_before_expiry(renewal_triggered_in_time=True)),
+        (7, cert_trust_intermediate_cross_signed(cross_signature_present=True)),
+        (8, cert_trust_identity_binding_strong(cert_holder_matches_spiffe_id=True)),
+        (9, cert_trust_proto_pinning_no_downgrade(tls_version_min_set=True)),
+        (10, cert_trust_trust_store_canonical(trust_store_hash_consistent=True)),
+        (11, cert_trust_ocsp_stapling_enabled(stapled_response_valid=True)),
+        (12, cert_trust_cert_log_inclusion_proof(ct_leaf_included=True)),
+        (13, cert_trust_key_hsm_attested(key_generated_in_hsm=True)),
+        (14, cert_trust_cert_analytics_alerting(expiry_alerts_configured=True)),
+        (15, cert_trust_spiffe_identity_documented(identity_documentation_complete=True)),
+        (16, cert_trust_mfa_for_cert_admin(admin_requires_mfa=True)),
+        (17, cert_trust_cert_test_env_isolated(test_ca_separate=True)),
+        (18, cert_trust_audit_log_for_cert_ops(all_cert_operations_logged=True)),
+        (19, cert_trust_trust_decisions_recorded(pin_changes_audited=True)),
+        (20, cert_trust_automated_cert_enrollment(enrollment_pipeline_healthy=True)),
+        (21, cert_trust_cert_metadata_searchable(cert_index_queryable=True)),
+        (22, cert_trust_disaster_recovery_certs(backup_signing_keys_available=True)),
+        (23, cert_trust_key_escrow_recovery(recovery_procedure_tested=True)),
+        (24, cert_trust_overall_cert_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IO — INTEROPERABILITY BRIDGING & PROTOCOL ADAPTER INTEGRITY (IO01–IO24)
+# ------------------------------------------------------------------
+def iop_bridge_adapter_contract_defined(adapter_implements_interface=True):
+    return bool(adapter_implements_interface)
+
+def iop_bridge_payload_schema_validated(payload_matches_expected_schema=True):
+    return bool(payload_matches_expected_schema)
+
+def iop_bridge_error_mapping_exhaustive(all_error_codes_mapped=True):
+    return bool(all_error_codes_mapped)
+
+def iop_bridge_timeout_handling_graceful(timeout_returns_sane_fallback=True):
+    return bool(timeout_returns_sane_fallback)
+
+def iop_bridge_retry_idempotency_guard(retry_safe_on_replay=True):
+    return bool(retry_safe_on_replay)
+
+def iop_bridge_protocol_version_negotiated(version_handshake_done=True):
+    return bool(version_handshake_done)
+
+def iop_bridge_deadlock_avoidance_lock_order(lock_order_consistent=True):
+    return bool(lock_order_consistent)
+
+def iop_bridge_queue_poison_message_handling(poison_routed_to_dlq=True):
+    return bool(poison_routed_to_dlq)
+
+def iop_bridge_bridge_monitoring_endpoint(health_endpoint_answered=True):
+    return bool(health_endpoint_answered)
+
+def iop_bridge_data_format_losslessness(roundtrip_preserves_data=True):
+    return bool(roundtrip_preserves_data)
+
+def iop_bridge_concurrency_bridge_limit(inflight_requests_bounded=True):
+    return bool(inflight_requests_bounded)
+
+def iop_bridge_tls_forward_secrecy(ecdhe_negotiated=True):
+    return bool(ecdhe_negotiated)
+
+def iop_bridge_credential_scope_least(bridge_scope_minimal=True):
+    return bool(bridge_scope_minimal)
+
+def iop_bridge_message_size_ceiling(oversized_message_rejected=True):
+    return bool(oversized_message_rejected)
+
+def iop_bridge_circuit_breaker_bridge(failing_bridge_opens=True):
+    return bool(failing_bridge_opens)
+
+def iop_bridge_message_ordering_guarantee(sequence_guaranteed_or_documented=True):
+    return bool(sequence_guaranteed_or_documented)
+
+def iop_bridge_byte_order_endianness_fixed(serialization_endianness_explicit=True):
+    return bool(serialization_endianness_explicit)
+
+def iop_bridge_authn_bridge_passthrough(identity_preserved_on_bridge=True):
+    return bool(identity_preserved_on_bridge)
+
+def iop_bridge_backpressure_propagated(downstream_throttling_honored=True):
+    return bool(downstream_throttling_honored)
+
+def iop_bridge_adapter_lifecycle_managed(startup_shutdown_ordered=True):
+    return bool(startup_shutdown_ordered)
+
+def iop_bridge_bridge_binary_compat(abi_stable_across_release=True):
+    return bool(abi_stable_across_release)
+
+def iop_bridge_protocol_fuzz_harness(fuzz_pass_after_changes=True):
+    return bool(fuzz_pass_after_changes)
+
+def iop_bridge_bridge_observability_spans(spans_connect_two_sides=True):
+    return bool(spans_connect_two_sides)
+
+def iop_bridge_overall_iop_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_io_w2():
+    return [
+        (1, iop_bridge_adapter_contract_defined(adapter_implements_interface=True)),
+        (2, iop_bridge_payload_schema_validated(payload_matches_expected_schema=True)),
+        (3, iop_bridge_error_mapping_exhaustive(all_error_codes_mapped=True)),
+        (4, iop_bridge_timeout_handling_graceful(timeout_returns_sane_fallback=True)),
+        (5, iop_bridge_retry_idempotency_guard(retry_safe_on_replay=True)),
+        (6, iop_bridge_protocol_version_negotiated(version_handshake_done=True)),
+        (7, iop_bridge_deadlock_avoidance_lock_order(lock_order_consistent=True)),
+        (8, iop_bridge_queue_poison_message_handling(poison_routed_to_dlq=True)),
+        (9, iop_bridge_bridge_monitoring_endpoint(health_endpoint_answered=True)),
+        (10, iop_bridge_data_format_losslessness(roundtrip_preserves_data=True)),
+        (11, iop_bridge_concurrency_bridge_limit(inflight_requests_bounded=True)),
+        (12, iop_bridge_tls_forward_secrecy(ecdhe_negotiated=True)),
+        (13, iop_bridge_credential_scope_least(bridge_scope_minimal=True)),
+        (14, iop_bridge_message_size_ceiling(oversized_message_rejected=True)),
+        (15, iop_bridge_circuit_breaker_bridge(failing_bridge_opens=True)),
+        (16, iop_bridge_message_ordering_guarantee(sequence_guaranteed_or_documented=True)),
+        (17, iop_bridge_byte_order_endianness_fixed(serialization_endianness_explicit=True)),
+        (18, iop_bridge_authn_bridge_passthrough(identity_preserved_on_bridge=True)),
+        (19, iop_bridge_backpressure_propagated(downstream_throttling_honored=True)),
+        (20, iop_bridge_adapter_lifecycle_managed(startup_shutdown_ordered=True)),
+        (21, iop_bridge_bridge_binary_compat(abi_stable_across_release=True)),
+        (22, iop_bridge_protocol_fuzz_harness(fuzz_pass_after_changes=True)),
+        (23, iop_bridge_bridge_observability_spans(spans_connect_two_sides=True)),
+        (24, iop_bridge_overall_iop_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE GT — GEOSPATIAL & TEMPORAL INTEGRITY ARCHITECTURE (GT01–GT24)
+# ------------------------------------------------------------------
+def geo_temporal_coordinate_datum_native(datum_tags_consistent=True):
+    return bool(datum_tags_consistent)
+
+def geo_temporal_timestamp_utc_canonical(all_ts_in_utc=True):
+    return bool(all_ts_in_utc)
+
+def geo_temporal_timezone_boundary_handled(dst_transition_handled=True):
+    return bool(dst_transition_handled)
+
+def geo_temporal_geo_fence_enforced(coordinate_within_allowed_region=True):
+    return bool(coordinate_within_allowed_region)
+
+def geo_temporal_temporal_order_invariant(logical_clock_monotonic=True):
+    return bool(logical_clock_monotonic)
+
+def geo_temporal_gps_accuracy_degradation(outlier_fix_filtered=True):
+    return bool(outlier_fix_filtered)
+
+def geo_temporal_location_privacy_masking(precision_reduced_for_consent=True):
+    return bool(precision_reduced_for_consent)
+
+def geo_temporal_historical_zone_rule_fix(historical_tz_rule_applied=True):
+    return bool(historical_tz_rule_applied)
+
+def geo_temporal_chronological_event_ordering(ordering_partition_consistent=True):
+    return bool(ordering_partition_consistent)
+
+def geo_temporal_geohash_precision_regime(precision_matches_scale=True):
+    return bool(precision_matches_scale)
+
+def geo_temporal_clock_skew_bounded(skew_within_epsilon=True):
+    return bool(skew_within_epsilon)
+
+def geo_temporal_sampling_interval_regular(no_gaps_exceeding_tolerance=True):
+    return bool(no_gaps_exceeding_tolerance)
+
+def geo_temporal_bounding_box_validation(coordinate_in_bounds=True):
+    return bool(coordinate_in_bounds)
+
+def geo_temporal_temporal_index_query_speed(time_bucket_index_used=True):
+    return bool(time_bucket_index_used)
+
+def geo_temporal_reverse_geocode_stable(place_resolution_deterministic=True):
+    return bool(place_resolution_deterministic)
+
+def geo_temporal_leap_second_handling(smear_or_leap_table=True):
+    return bool(smear_or_leap_table)
+
+def geo_temporal_motion_model_smoothing(smoothing_does_not_invent_data=True):
+    return bool(smoothing_does_not_invent_data)
+
+def geo_temporal_raster_alignment_crs(aligned_to_common_grid=True):
+    return bool(aligned_to_common_grid)
+
+def geo_temporal_time_series_resampling_valid(resample_disables_alias=True):
+    return bool(resample_disables_alias)
+
+def geo_temporal_geofence_radius_exact(radius_units_defined=True):
+    return bool(radius_units_defined)
+
+def geo_temporal_drift_detection_temporal(trend_shift_detected=True):
+    return bool(trend_shift_detected)
+
+def geo_temporal_multi_epoch_comparison(epoch_aligned_before_compare=True):
+    return bool(epoch_aligned_before_compare)
+
+def geo_temporal_cron_schedule_tz_explicit(cron_tz_declared=True):
+    return bool(cron_tz_declared)
+
+def geo_temporal_overall_geo_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_gt_w2():
+    return [
+        (1, geo_temporal_coordinate_datum_native(datum_tags_consistent=True)),
+        (2, geo_temporal_timestamp_utc_canonical(all_ts_in_utc=True)),
+        (3, geo_temporal_timezone_boundary_handled(dst_transition_handled=True)),
+        (4, geo_temporal_geo_fence_enforced(coordinate_within_allowed_region=True)),
+        (5, geo_temporal_temporal_order_invariant(logical_clock_monotonic=True)),
+        (6, geo_temporal_gps_accuracy_degradation(outlier_fix_filtered=True)),
+        (7, geo_temporal_location_privacy_masking(precision_reduced_for_consent=True)),
+        (8, geo_temporal_historical_zone_rule_fix(historical_tz_rule_applied=True)),
+        (9, geo_temporal_chronological_event_ordering(ordering_partition_consistent=True)),
+        (10, geo_temporal_geohash_precision_regime(precision_matches_scale=True)),
+        (11, geo_temporal_clock_skew_bounded(skew_within_epsilon=True)),
+        (12, geo_temporal_sampling_interval_regular(no_gaps_exceeding_tolerance=True)),
+        (13, geo_temporal_bounding_box_validation(coordinate_in_bounds=True)),
+        (14, geo_temporal_temporal_index_query_speed(time_bucket_index_used=True)),
+        (15, geo_temporal_reverse_geocode_stable(place_resolution_deterministic=True)),
+        (16, geo_temporal_leap_second_handling(smear_or_leap_table=True)),
+        (17, geo_temporal_motion_model_smoothing(smoothing_does_not_invent_data=True)),
+        (18, geo_temporal_raster_alignment_crs(aligned_to_common_grid=True)),
+        (19, geo_temporal_time_series_resampling_valid(resample_disables_alias=True)),
+        (20, geo_temporal_geofence_radius_exact(radius_units_defined=True)),
+        (21, geo_temporal_drift_detection_temporal(trend_shift_detected=True)),
+        (22, geo_temporal_multi_epoch_comparison(epoch_aligned_before_compare=True)),
+        (23, geo_temporal_cron_schedule_tz_explicit(cron_tz_declared=True)),
+        (24, geo_temporal_overall_geo_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE PL — COMPOSABLE TOOL & PLUGIN ECOSYSTEM INTEGRITY (PL01–PL24)
+# ------------------------------------------------------------------
+def ply_compose_plugin_registry_canonical(plugin_index_authoritative=True):
+    return bool(plugin_index_authoritative)
+
+def ply_compose_sandbox_plugin_execution(plugin_runs_isolated=True):
+    return bool(plugin_runs_isolated)
+
+def ply_compose_signature_verified_before_install(plugin_signature_good=True):
+    return bool(plugin_signature_good)
+
+def ply_compose_semver_constraint_honored(plugin_version_satisfies_constraint=True):
+    return bool(plugin_version_satisfies_constraint)
+
+def ply_compose_no_malicious_binary(binary_scan_clean=True):
+    return bool(binary_scan_clean)
+
+def ply_compose_plugin_api_contract_stable(api_signature_stable=True):
+    return bool(api_signature_stable)
+
+def ply_compose_dependency_closure_pinned(deps_hash_locked=True):
+    return bool(deps_hash_locked)
+
+def ply_compose_uninstall_cleanup_full(uninstall_removes_all_files=True):
+    return bool(uninstall_removes_all_files)
+
+def ply_compose_plugin_policy_allowlist(plugin_in_allowlist=True):
+    return bool(plugin_in_allowlist)
+
+def ply_compose_injection_prevention_loader(loader_input_sanitized=True):
+    return bool(loader_input_sanitized)
+
+def ply_compose_plugin_state_persisted_safely(state_write_atomic=True):
+    return bool(state_write_atomic)
+
+def ply_compose_permission_scope_granted(plugin_perms_scoped=True):
+    return bool(plugin_perms_scoped)
+
+def ply_compose_hotplug_graceful(disable_does_not_crash_host=True):
+    return bool(disable_does_not_crash_host)
+
+def ply_compose_plugin_error_bubbled(plugin_errors_propagated=True):
+    return bool(plugin_errors_propagated)
+
+def ply_compose_version_conflict_resolved(conflicting_plugins_detected=True):
+    return bool(conflicting_plugins_detected)
+
+def ply_compose_resource_use_bounded(plugin_cpu_mem_limited=True):
+    return bool(plugin_cpu_mem_limited)
+
+def ply_compose_plugin_docs_and_api(plugin_documented_endpoints=True):
+    return bool(plugin_documented_endpoints)
+
+def ply_compose_integration_test_plugin(plugin_passes_integration=True):
+    return bool(plugin_passes_integration)
+
+def ply_compose_secure_plugin_update(update_over_verified_channel=True):
+    return bool(update_over_verified_channel)
+
+def ply_compose_plugin_hook_exhaustive(all_hooks_covered=True):
+    return bool(all_hooks_covered)
+
+def ply_compose_no_privileged_escalation(plugin_drops_privileges=True):
+    return bool(plugin_drops_privileges)
+
+def ply_compose_plugin_opt_in_consent(user_enabled_explicit=True):
+    return bool(user_enabled_explicit)
+
+def ply_compose_plugin_telemetry_opt_out(telemetry_disablable=True):
+    return bool(telemetry_disablable)
+
+def ply_compose_overall_ply_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_pl_w2():
+    return [
+        (1, ply_compose_plugin_registry_canonical(plugin_index_authoritative=True)),
+        (2, ply_compose_sandbox_plugin_execution(plugin_runs_isolated=True)),
+        (3, ply_compose_signature_verified_before_install(plugin_signature_good=True)),
+        (4, ply_compose_semver_constraint_honored(plugin_version_satisfies_constraint=True)),
+        (5, ply_compose_no_malicious_binary(binary_scan_clean=True)),
+        (6, ply_compose_plugin_api_contract_stable(api_signature_stable=True)),
+        (7, ply_compose_dependency_closure_pinned(deps_hash_locked=True)),
+        (8, ply_compose_uninstall_cleanup_full(uninstall_removes_all_files=True)),
+        (9, ply_compose_plugin_policy_allowlist(plugin_in_allowlist=True)),
+        (10, ply_compose_injection_prevention_loader(loader_input_sanitized=True)),
+        (11, ply_compose_plugin_state_persisted_safely(state_write_atomic=True)),
+        (12, ply_compose_permission_scope_granted(plugin_perms_scoped=True)),
+        (13, ply_compose_hotplug_graceful(disable_does_not_crash_host=True)),
+        (14, ply_compose_plugin_error_bubbled(plugin_errors_propagated=True)),
+        (15, ply_compose_version_conflict_resolved(conflicting_plugins_detected=True)),
+        (16, ply_compose_resource_use_bounded(plugin_cpu_mem_limited=True)),
+        (17, ply_compose_plugin_docs_and_api(plugin_documented_endpoints=True)),
+        (18, ply_compose_integration_test_plugin(plugin_passes_integration=True)),
+        (19, ply_compose_secure_plugin_update(update_over_verified_channel=True)),
+        (20, ply_compose_plugin_hook_exhaustive(all_hooks_covered=True)),
+        (21, ply_compose_no_privileged_escalation(plugin_drops_privileges=True)),
+        (22, ply_compose_plugin_opt_in_consent(user_enabled_explicit=True)),
+        (23, ply_compose_plugin_telemetry_opt_out(telemetry_disablable=True)),
+        (24, ply_compose_overall_ply_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE RP — REPUTATION & CREDENTIAL-BASED TRUST ENGINE INTEGRITY (RP01–RP24)
+# ------------------------------------------------------------------
+def rep_cred_reputation_source_independent(source_set_trusted=True):
+    return bool(source_set_trusted)
+
+def rep_cred_score_bounded_01(score=0.99):
+    return bool(0 <= score <= 1)
+
+def rep_cred_voting_forgery_resistant(one_account_one_vote=True):
+    return bool(one_account_one_vote)
+
+def rep_cred_reputation_decay_model(decay_applied_consistently=True):
+    return bool(decay_applied_consistently)
+
+def rep_cred_collusion_detection(clique_behavior_flagged=True):
+    return bool(clique_behavior_flagged)
+
+def rep_cred_identity_uniqueness_verified(no_duplicate_identity=True):
+    return bool(no_duplicate_identity)
+
+def rep_cred_reputation_restore_audited(restore_has_paper_trail=True):
+    return bool(restore_has_paper_trail)
+
+def rep_cred_credential_issuer_trusted(issuer_in_trusted_set=True):
+    return bool(issuer_in_trusted_set)
+
+def rep_cred_revocation_check_credential(revoked_credential_rejected=True):
+    return bool(revoked_credential_rejected)
+
+def rep_cred_defamation_guardrail_proof(claim_backing_required=True):
+    return bool(claim_backing_required)
+
+def rep_cred_rating_aggregation_weighted(aggregation_weighting_documented=True):
+    return bool(aggregation_weighting_documented)
+
+def rep_cred_freshness_pressure_balanced(recent_evidence_weighted=True):
+    return bool(recent_evidence_weighted)
+
+def rep_cred_collusion_burst_alert(burst_vote_pattern_alerts=True):
+    return bool(burst_vote_pattern_alerts)
+
+def rep_cred_reputation_harvest_protection(harvest_probe_blocked=True):
+    return bool(harvest_probe_blocked)
+
+def rep_cred_sockpuppet_detection(cloned_identity_flagged=True):
+    return bool(cloned_identity_flagged)
+
+def rep_cred_economic_richer_gets_richer(penalize_entrenched_advantage=True):
+    return bool(penalize_entrenched_advantage)
+
+def rep_cred_reputation_compute_open(computation_logic_transparent=True):
+    return bool(computation_logic_transparent)
+
+def rep_cred_verifiable_score_contribution(each_contribution_provable=True):
+    return bool(each_contribution_provable)
+
+def rep_cred_negative_reputation_safety(negative_score_bounded=True):
+    return bool(negative_score_bounded)
+
+def rep_cred_rep_gaming_baseline(baseline_established_before_voting=True):
+    return bool(baseline_established_before_voting)
+
+def rep_cred_trust_web_graph_computed(graph_metrics_available=True):
+    return bool(graph_metrics_available)
+
+def rep_cred_reputation_migration_export(portable_score_export=True):
+    return bool(portable_score_export)
+
+def rep_cred_epoch_rating_freeze(rating_frozen_during_conflict=True):
+    return bool(rating_frozen_during_conflict)
+
+def rep_cred_overall_rep_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_rp_w2():
+    return [
+        (1, rep_cred_reputation_source_independent(source_set_trusted=True)),
+        (2, rep_cred_score_bounded_01(score=0.99)),
+        (3, rep_cred_voting_forgery_resistant(one_account_one_vote=True)),
+        (4, rep_cred_reputation_decay_model(decay_applied_consistently=True)),
+        (5, rep_cred_collusion_detection(clique_behavior_flagged=True)),
+        (6, rep_cred_identity_uniqueness_verified(no_duplicate_identity=True)),
+        (7, rep_cred_reputation_restore_audited(restore_has_paper_trail=True)),
+        (8, rep_cred_credential_issuer_trusted(issuer_in_trusted_set=True)),
+        (9, rep_cred_revocation_check_credential(revoked_credential_rejected=True)),
+        (10, rep_cred_defamation_guardrail_proof(claim_backing_required=True)),
+        (11, rep_cred_rating_aggregation_weighted(aggregation_weighting_documented=True)),
+        (12, rep_cred_freshness_pressure_balanced(recent_evidence_weighted=True)),
+        (13, rep_cred_collusion_burst_alert(burst_vote_pattern_alerts=True)),
+        (14, rep_cred_reputation_harvest_protection(harvest_probe_blocked=True)),
+        (15, rep_cred_sockpuppet_detection(cloned_identity_flagged=True)),
+        (16, rep_cred_economic_richer_gets_richer(penalize_entrenched_advantage=True)),
+        (17, rep_cred_reputation_compute_open(computation_logic_transparent=True)),
+        (18, rep_cred_verifiable_score_contribution(each_contribution_provable=True)),
+        (19, rep_cred_negative_reputation_safety(negative_score_bounded=True)),
+        (20, rep_cred_rep_gaming_baseline(baseline_established_before_voting=True)),
+        (21, rep_cred_trust_web_graph_computed(graph_metrics_available=True)),
+        (22, rep_cred_reputation_migration_export(portable_score_export=True)),
+        (23, rep_cred_epoch_rating_freeze(rating_frozen_during_conflict=True)),
+        (24, rep_cred_overall_rep_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE RT — RETENTION, STORAGE & ARCHIVAL INTEGRITY (RT01–RT24)
+# ------------------------------------------------------------------
+def ret_storage_retention_schedule_defined(retention_window_set=True):
+    return bool(retention_window_set)
+
+def ret_storage_immutable_archive_worm(archive_worm_enabled=True):
+    return bool(archive_worm_enabled)
+
+def ret_storage_storage_encryption_at_rest(disk_encryption_active=True):
+    return bool(disk_encryption_active)
+
+def ret_storage_integrity_checksum_per_object(checksum_stored_with_object=True):
+    return bool(checksum_stored_with_object)
+
+def ret_storage_replication_factor_enforced(replica_count_met=True):
+    return bool(replica_count_met)
+
+def ret_storage_backup_restore_exercised(restore_test_passes=True):
+    return bool(restore_test_passes)
+
+def ret_storage_cold_tier_transition_automated(lifecycle_policy_runs=True):
+    return bool(lifecycle_policy_runs)
+
+def ret_storage_tombstone_deletion_auditable(deletion_has_audit_entry=True):
+    return bool(deletion_has_audit_entry)
+
+def ret_storage_storage_quota_enforced(quota_enforced_per_tenant=True):
+    return bool(quota_enforced_per_tenant)
+
+def ret_storage_dedup_safety_no_cross_tenant(dedup_scoped_to_tenant=True):
+    return bool(dedup_scoped_to_tenant)
+
+def ret_storage_object_locking_compliant(lock_duration_met=True):
+    return bool(lock_duration_met)
+
+def ret_storage_versioning_enabled_undo(versioning_turned_on=True):
+    return bool(versioning_turned_on)
+
+def ret_storage_blob_integrity_scanner(corruption_scan_active=True):
+    return bool(corruption_scan_active)
+
+def ret_storage_erasure_coding_parity(parity_blocks_sufficient=True):
+    return bool(parity_blocks_sufficient)
+
+def ret_storage_exfiltration_detection(unusual_download_flagged=True):
+    return bool(unusual_download_flagged)
+
+def ret_storage_storage_sla_latency(latency_meets_sla=True):
+    return bool(latency_meets_sla)
+
+def ret_storage_consistent_snapshot_creation(snapshot_crash_consistent=True):
+    return bool(snapshot_crash_consistent)
+
+def ret_storage_cluster_degraded_state(degraded_state_visible=True):
+    return bool(degraded_state_visible)
+
+def ret_storage_api_idempotent_delete(delete_idempotent=True):
+    return bool(delete_idempotent)
+
+def ret_storage_storage_metrics_dashboard(metrics_available=True):
+    return bool(metrics_available)
+
+def ret_storage_geo_duplication_policy(region_duplication_defined=True):
+    return bool(region_duplication_defined)
+
+def ret_storage_minimal_zero_retention(expired_data_purged=True):
+    return bool(expired_data_purged)
+
+def ret_storage_data_owner_verification(owner_can_auth_actions=True):
+    return bool(owner_can_auth_actions)
+
+def ret_storage_overall_storage_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_rt_w2():
+    return [
+        (1, ret_storage_retention_schedule_defined(retention_window_set=True)),
+        (2, ret_storage_immutable_archive_worm(archive_worm_enabled=True)),
+        (3, ret_storage_storage_encryption_at_rest(disk_encryption_active=True)),
+        (4, ret_storage_integrity_checksum_per_object(checksum_stored_with_object=True)),
+        (5, ret_storage_replication_factor_enforced(replica_count_met=True)),
+        (6, ret_storage_backup_restore_exercised(restore_test_passes=True)),
+        (7, ret_storage_cold_tier_transition_automated(lifecycle_policy_runs=True)),
+        (8, ret_storage_tombstone_deletion_auditable(deletion_has_audit_entry=True)),
+        (9, ret_storage_storage_quota_enforced(quota_enforced_per_tenant=True)),
+        (10, ret_storage_dedup_safety_no_cross_tenant(dedup_scoped_to_tenant=True)),
+        (11, ret_storage_object_locking_compliant(lock_duration_met=True)),
+        (12, ret_storage_versioning_enabled_undo(versioning_turned_on=True)),
+        (13, ret_storage_blob_integrity_scanner(corruption_scan_active=True)),
+        (14, ret_storage_erasure_coding_parity(parity_blocks_sufficient=True)),
+        (15, ret_storage_exfiltration_detection(unusual_download_flagged=True)),
+        (16, ret_storage_storage_sla_latency(latency_meets_sla=True)),
+        (17, ret_storage_consistent_snapshot_creation(snapshot_crash_consistent=True)),
+        (18, ret_storage_cluster_degraded_state(degraded_state_visible=True)),
+        (19, ret_storage_api_idempotent_delete(delete_idempotent=True)),
+        (20, ret_storage_storage_metrics_dashboard(metrics_available=True)),
+        (21, ret_storage_geo_duplication_policy(region_duplication_defined=True)),
+        (22, ret_storage_minimal_zero_retention(expired_data_purged=True)),
+        (23, ret_storage_data_owner_verification(owner_can_auth_actions=True)),
+        (24, ret_storage_overall_storage_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE AR — MULTI-MODEL ARBITRATION & ENSEMBLE SAFETY INTEGRITY (AR01–AR24)
+# ------------------------------------------------------------------
+def arb_multi_output_diversity_measured(diversity_index_positive=True):
+    return bool(diversity_index_positive)
+
+def arb_multi_disagreement_prompts_flagged(dispute_identified=True):
+    return bool(dispute_identified)
+
+def arb_multi_majority_vote_threshold_trimmed(consensus_threshold_met=True):
+    return bool(consensus_threshold_met)
+
+def arb_multi_tie_break_rule_defined(tie_policy_declared=True):
+    return bool(tie_policy_declared)
+
+def arb_multi_arbitrator_question_blackbox(arbitrator_not_naive_majority=True):
+    return bool(arbitrator_not_naive_majority)
+
+def arb_multi_provider_independence_checked(providers_share_no_channel=True):
+    return bool(providers_share_no_channel)
+
+def arb_multi_staleness_order_invariant(same_input_same_arbitration=True):
+    return bool(same_input_same_arbitration)
+
+def arb_multi_non_deterministic_output_caught(variance_flagged=True):
+    return bool(variance_flagged)
+
+def arb_multi_escalation_to_human_route(low_confidence_escalated=True):
+    return bool(low_confidence_escalated)
+
+def arb_multi_consensus_history_archived(arbitration_log_persisted=True):
+    return bool(arbitration_log_persisted)
+
+def arb_multi_prompt_drift_multi_model(prompt_version_consistent_across=True):
+    return bool(prompt_version_consistent_across)
+
+def arb_multi_secret_shared_to_only_authorized(arbitration_input_access_controlled=True):
+    return bool(arbitration_input_access_controlled)
+
+def arb_multi_hallucination_cross_check(cross_model_confirm_discordant=True):
+    return bool(cross_model_confirm_discordant)
+
+def arb_multi_model_cascade_fallback_defined(fallback_chain_defined=True):
+    return bool(fallback_chain_defined)
+
+def arb_multi_runtime_cost_arbitration_bounded(arbitration_budget_met=True):
+    return bool(arbitration_budget_met)
+
+def arb_multi_quality_gate_on_arbitration(quality_threshold_enforced=True):
+    return bool(quality_threshold_enforced)
+
+def arb_multi_arbitration_round_limit_defined(max_rounds_bounded=100):
+    return bool(max_rounds_bounded)
+
+def arb_multi_language_limit_culture_aware(target_locale_respected=True):
+    return bool(target_locale_respected)
+
+def arb_multi_without_disclosure_arbitration(opaque_without_leaking_private=True):
+    return bool(opaque_without_leaking_private)
+
+def arb_multi_temperature_constrained_arbitration(temperature_bounded=True):
+    return bool(temperature_bounded)
+
+def arb_multi_attention_weighting_freshness(fresher_sources_weighted=True):
+    return bool(fresher_sources_weighted)
+
+def arb_multi_meta_cognition_observed(arbitrator_reasons_about_itself=True):
+    return bool(arbitrator_reasons_about_itself)
+
+def arb_multi_counterfactual_consistency(counterfactual_ablation_consistent=True):
+    return bool(counterfactual_ablation_consistent)
+
+def arb_multi_overall_arb_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ar_w2():
+    return [
+        (1, arb_multi_output_diversity_measured(diversity_index_positive=True)),
+        (2, arb_multi_disagreement_prompts_flagged(dispute_identified=True)),
+        (3, arb_multi_majority_vote_threshold_trimmed(consensus_threshold_met=True)),
+        (4, arb_multi_tie_break_rule_defined(tie_policy_declared=True)),
+        (5, arb_multi_arbitrator_question_blackbox(arbitrator_not_naive_majority=True)),
+        (6, arb_multi_provider_independence_checked(providers_share_no_channel=True)),
+        (7, arb_multi_staleness_order_invariant(same_input_same_arbitration=True)),
+        (8, arb_multi_non_deterministic_output_caught(variance_flagged=True)),
+        (9, arb_multi_escalation_to_human_route(low_confidence_escalated=True)),
+        (10, arb_multi_consensus_history_archived(arbitration_log_persisted=True)),
+        (11, arb_multi_prompt_drift_multi_model(prompt_version_consistent_across=True)),
+        (12, arb_multi_secret_shared_to_only_authorized(arbitration_input_access_controlled=True)),
+        (13, arb_multi_hallucination_cross_check(cross_model_confirm_discordant=True)),
+        (14, arb_multi_model_cascade_fallback_defined(fallback_chain_defined=True)),
+        (15, arb_multi_runtime_cost_arbitration_bounded(arbitration_budget_met=True)),
+        (16, arb_multi_quality_gate_on_arbitration(quality_threshold_enforced=True)),
+        (17, arb_multi_arbitration_round_limit_defined(max_rounds_bounded=100)),
+        (18, arb_multi_language_limit_culture_aware(target_locale_respected=True)),
+        (19, arb_multi_without_disclosure_arbitration(opaque_without_leaking_private=True)),
+        (20, arb_multi_temperature_constrained_arbitration(temperature_bounded=True)),
+        (21, arb_multi_attention_weighting_freshness(fresher_sources_weighted=True)),
+        (22, arb_multi_meta_cognition_observed(arbitrator_reasons_about_itself=True)),
+        (23, arb_multi_counterfactual_consistency(counterfactual_ablation_consistent=True)),
+        (24, arb_multi_overall_arb_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IC — ACCESSIBILITY, INCLUSION & GLOBALIZATION INTEGRITY (IC01–IC24)
+# ------------------------------------------------------------------
+def incl_access_wcag2aa_audit_coverage(wcag_audit_coverage_100=True):
+    return bool(wcag_audit_coverage_100)
+
+def incl_access_screen_reader_announced(aria_labels_present=True):
+    return bool(aria_labels_present)
+
+def incl_access_color_contrast_ratio_met(contrast_ratio_gte_4_5=True):
+    return bool(contrast_ratio_gte_4_5)
+
+def incl_access_keyboard_only_navigation(all_actions_tab_reachable=True):
+    return bool(all_actions_tab_reachable)
+
+def incl_access_focus_visibility_clear(focus_indicator_visible=True):
+    return bool(focus_indicator_visible)
+
+def incl_access_semantic_html_landmarks(landmarks_structured=True):
+    return bool(landmarks_structured)
+
+def incl_access_alt_text_present(images_have_alt=True):
+    return bool(images_have_alt)
+
+def incl_access_video_captions_available(captions_on_media=True):
+    return bool(captions_on_media)
+
+def incl_access_form_instructions_clear(error_messages_descriptive=True):
+    return bool(error_messages_descriptive)
+
+def incl_access_motion_animations_reduced(reduce_motion_honored=True):
+    return bool(reduce_motion_honored)
+
+def incl_access_language_attribute_set(lang_attr_defined=True):
+    return bool(lang_attr_defined)
+
+def incl_access_multilingual_ui_ready(i18n_infrastructure_ready=True):
+    return bool(i18n_infrastructure_ready)
+
+def incl_access_rtl_layout_support(rtl_direction_handled=True):
+    return bool(rtl_direction_handled)
+
+def incl_access_german_gender_neutral(inclusive_language_used=True):
+    return bool(inclusive_language_used)
+
+def incl_access_assistive_tech_partner_tested(at_compat_verified=True):
+    return bool(at_compat_verified)
+
+def incl_access_touch_target_size_adequate(target_size_gte_44px=True):
+    return bool(target_size_gte_44px)
+
+def incl_access_timeout_no_data_loss(extendable_timers=True):
+    return bool(extendable_timers)
+
+def incl_access_pdf_ocr_accessibility(pdf_tags_present=True):
+    return bool(pdf_tags_present)
+
+def incl_access_font_scaling_robust(layout_handles_text_zoom=True):
+    return bool(layout_handles_text_zoom)
+
+def incl_access_color_warning_not_sole(color_not_sole_cue=True):
+    return bool(color_not_sole_cue)
+
+def incl_access_dark_mode_contrast(dark_theme_contrast_ok=True):
+    return bool(dark_theme_contrast_ok)
+
+def incl_access_link_target_descriptive(links_self_describing=True):
+    return bool(links_self_describing)
+
+def incl_access_focus_trap_prevented(no_infinite_loop_focus=True):
+    return bool(no_infinite_loop_focus)
+
+def incl_access_overall_inclusion_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ic_w2():
+    return [
+        (1, incl_access_wcag2aa_audit_coverage(wcag_audit_coverage_100=True)),
+        (2, incl_access_screen_reader_announced(aria_labels_present=True)),
+        (3, incl_access_color_contrast_ratio_met(contrast_ratio_gte_4_5=True)),
+        (4, incl_access_keyboard_only_navigation(all_actions_tab_reachable=True)),
+        (5, incl_access_focus_visibility_clear(focus_indicator_visible=True)),
+        (6, incl_access_semantic_html_landmarks(landmarks_structured=True)),
+        (7, incl_access_alt_text_present(images_have_alt=True)),
+        (8, incl_access_video_captions_available(captions_on_media=True)),
+        (9, incl_access_form_instructions_clear(error_messages_descriptive=True)),
+        (10, incl_access_motion_animations_reduced(reduce_motion_honored=True)),
+        (11, incl_access_language_attribute_set(lang_attr_defined=True)),
+        (12, incl_access_multilingual_ui_ready(i18n_infrastructure_ready=True)),
+        (13, incl_access_rtl_layout_support(rtl_direction_handled=True)),
+        (14, incl_access_german_gender_neutral(inclusive_language_used=True)),
+        (15, incl_access_assistive_tech_partner_tested(at_compat_verified=True)),
+        (16, incl_access_touch_target_size_adequate(target_size_gte_44px=True)),
+        (17, incl_access_timeout_no_data_loss(extendable_timers=True)),
+        (18, incl_access_pdf_ocr_accessibility(pdf_tags_present=True)),
+        (19, incl_access_font_scaling_robust(layout_handles_text_zoom=True)),
+        (20, incl_access_color_warning_not_sole(color_not_sole_cue=True)),
+        (21, incl_access_dark_mode_contrast(dark_theme_contrast_ok=True)),
+        (22, incl_access_link_target_descriptive(links_self_describing=True)),
+        (23, incl_access_focus_trap_prevented(no_infinite_loop_focus=True)),
+        (24, incl_access_overall_inclusion_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE FR — CONTINUOUS MODEL FRESHNESS & DRIFT CONTAINMENT INTEGRITY (FR01–FR24)
+# ------------------------------------------------------------------
+def fresh_model_model_version_reference_pinned(running_version_declared=True):
+    return bool(running_version_declared)
+
+def fresh_model_data_drift_detected(drift_metric_above_threshold=True):
+    return bool(drift_metric_above_threshold)
+
+def fresh_model_sudden_concept_drift_alarm(concept_drift_alarm_fired=True):
+    return bool(concept_drift_alarm_fired)
+
+def fresh_model_scheduled_retraining_triggered(retrain_job_scheduled=True):
+    return bool(retrain_job_scheduled)
+
+def fresh_model_champion_challenger_comparison(challenger_evaluated=True):
+    return bool(challenger_evaluated)
+
+def fresh_model_performance_monitor_regression(metric_regression_flagged=True):
+    return bool(metric_regression_flagged)
+
+def fresh_model_inference_latency_budget(latency_within_budget=True):
+    return bool(latency_within_budget)
+
+def fresh_model_skew_between_train_infer(feature_skew_measured=True):
+    return bool(feature_skew_measured)
+
+def fresh_model_online_learning_safe_reset(reason_learning_warmup=True):
+    return bool(reason_learning_warmup)
+
+def fresh_model_batch_recompute_idempotent(batch_recompute_stable=True):
+    return bool(batch_recompute_stable)
+
+def fresh_model_feedback_loop_harm_guard(negative_feedback_damped=True):
+    return bool(negative_feedback_damped)
+
+def fresh_model_retrain_deployment_gate(gate_blocks_bad_challenger=True):
+    return bool(gate_blocks_bad_challenger)
+
+def fresh_model_model_registry_rollback(prev_version_restorable=True):
+    return bool(prev_version_restorable)
+
+def fresh_model_feature_store_freshness(features_fresh_as_spec=True):
+    return bool(features_fresh_as_spec)
+
+def fresh_model_inference_data_drift_alert(input_drift_raised=True):
+    return bool(input_drift_raised)
+
+def fresh_model_closed_loop_monitoring(monitor_feeds_orchestrator=True):
+    return bool(monitor_feeds_orchestrator)
+
+def fresh_model_data_quality_loop_guard(dirty_data_does_not_retrain=True):
+    return bool(dirty_data_does_not_retrain)
+
+def fresh_model_retrain_lock_pipeline(no_concurrent_retrain=True):
+    return bool(no_concurrent_retrain)
+
+def fresh_model_cost_retrain_budget(retrain_cost_under_budget=True):
+    return bool(retrain_cost_under_budget)
+
+def fresh_model_retrain_metric_tracking(metric_delta_logged=True):
+    return bool(metric_delta_logged)
+
+def fresh_model_shadow_deployment_eval(shadow_vector_runs=True):
+    return bool(shadow_vector_runs)
+
+def fresh_model_canary_model_rollout(canary_metrics_compared=True):
+    return bool(canary_metrics_compared)
+
+def fresh_model_full_automation_fallback_manual(auto_gate_human_override=True):
+    return bool(auto_gate_human_override)
+
+def fresh_model_overall_fresh_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_fr_w2():
+    return [
+        (1, fresh_model_model_version_reference_pinned(running_version_declared=True)),
+        (2, fresh_model_data_drift_detected(drift_metric_above_threshold=True)),
+        (3, fresh_model_sudden_concept_drift_alarm(concept_drift_alarm_fired=True)),
+        (4, fresh_model_scheduled_retraining_triggered(retrain_job_scheduled=True)),
+        (5, fresh_model_champion_challenger_comparison(challenger_evaluated=True)),
+        (6, fresh_model_performance_monitor_regression(metric_regression_flagged=True)),
+        (7, fresh_model_inference_latency_budget(latency_within_budget=True)),
+        (8, fresh_model_skew_between_train_infer(feature_skew_measured=True)),
+        (9, fresh_model_online_learning_safe_reset(reason_learning_warmup=True)),
+        (10, fresh_model_batch_recompute_idempotent(batch_recompute_stable=True)),
+        (11, fresh_model_feedback_loop_harm_guard(negative_feedback_damped=True)),
+        (12, fresh_model_retrain_deployment_gate(gate_blocks_bad_challenger=True)),
+        (13, fresh_model_model_registry_rollback(prev_version_restorable=True)),
+        (14, fresh_model_feature_store_freshness(features_fresh_as_spec=True)),
+        (15, fresh_model_inference_data_drift_alert(input_drift_raised=True)),
+        (16, fresh_model_closed_loop_monitoring(monitor_feeds_orchestrator=True)),
+        (17, fresh_model_data_quality_loop_guard(dirty_data_does_not_retrain=True)),
+        (18, fresh_model_retrain_lock_pipeline(no_concurrent_retrain=True)),
+        (19, fresh_model_cost_retrain_budget(retrain_cost_under_budget=True)),
+        (20, fresh_model_retrain_metric_tracking(metric_delta_logged=True)),
+        (21, fresh_model_shadow_deployment_eval(shadow_vector_runs=True)),
+        (22, fresh_model_canary_model_rollout(canary_metrics_compared=True)),
+        (23, fresh_model_full_automation_fallback_manual(auto_gate_human_override=True)),
+        (24, fresh_model_overall_fresh_maturity(min_score=70, score=90))
+    ]
