@@ -1,3 +1,9 @@
+## v1.49.0 (2026-11-02) — Observability Surfacing for Integrity Predicates (BAGIAN 149)
+
+- **traceability.py**: +5 anchor MAP untuk BAGIAN 144–148 (P_substantiation, P_spec_code_binding, P_sbom_hash_valid, P_spec_version_consistent). 61→66 spec anchors, semua resolve.
+- **generate-dashboard.py**: dashboard kini merender kartu status 8 predikat inti dari entri audit terakhir (hijau True / merah False).
+- **BAGIAN 149** ditambahkan; bump v1.49.0.
+
 ## v1.48.0 (2026-11-02) — Spec Version Triple-Consistency Predicate & Audit Rotation (BAGIAN 148)
 
 - **P_spec_version_consistent**: predikat baru yang memverifikasi SKILL.md (version), CHANGELOG.md (first release), dan hard-gate-10.md (Spec version) bit-identik. Menutup silent spec drift.

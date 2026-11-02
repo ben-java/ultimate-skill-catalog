@@ -77,6 +77,11 @@ MAP = {
     "P28-D tool spec": (["P_rt_tool_spec"], [], ["runtime_gate.py"]),
     "P28-E attribution": ([], [], ["cost-report.py"]),
     "P28-F ledger": ([], [], ["verification-ledger.py"]),
+    "BAGIAN 144 substantiation": (["P_substantiation"], [], ["gate_predicates.py", "substantiation_audit.py"]),
+    "BAGIAN 145 stub-to-substantive": ([], [], ["hard_gate_enhancements.py", "gate_predicates.py"]),
+    "BAGIAN 146 doc->code binding": (["P_spec_code_binding"], [], ["gate_predicates.py"]),
+    "BAGIAN 147 SBOM hash validity": (["P_sbom_hash_valid"], [], ["generate-sbom.py", "gate_predicates.py", "refresh-baseline.sh"]),
+    "BAGIAN 148 spec version triple-consistency": (["P_spec_version_consistent"], [], ["status-matrix.py", "gate_predicates.py"]),
 }
 
 

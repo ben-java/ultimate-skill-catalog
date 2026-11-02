@@ -71,6 +71,24 @@ def main():
     model_hashes = "absent"
     if os.path.isfile(os.path.join(target, "model-hashes.json")):
         model_hashes = "present"
+
+    # Surfacing rule: expose core integrity predicates from last gate audit entry.
+    _predicate = {}
+    _auditp = os.path.join(target, "hard-gate-audit.jsonl")
+    if os.path.isfile(_auditp):
+        try:
+            _rows = [l for l in open(_auditp, encoding="utf-8").read().splitlines() if l.strip()]
+            if _rows:
+                _predicate = json.loads(_rows[-1]).get("predicates", {})
+        except Exception:
+            pass
+    _focus_preds = ["P_spec_version_consistent", "P_sbom_hash_valid", "P_spec_code_binding",
+                     "P_substantiation", "P_quorum", "P_schema", "P_attestation", "P_signed_manifest"]
+    _pred_cards = "".join(
+        '<div class="card"><div>%s</div><div class="val" style="color:%s">%s</div></div>\n'
+        % (p, ("#3fb950" if _predicate.get(p) else "#f85149"), str(_predicate.get(p)))
+        for p in _focus_preds if p in _predicate
+    )
     _opa = shutil.which("opa") or os.path.expanduser("~/bin/opa.exe")
     _opa_env = os.environ.get("OPA_BIN")
     if _opa_env and os.path.isfile(_opa_env):
@@ -186,6 +204,7 @@ th {{ color: #8b949e; background: #161b22; }}
   <div class="card"><div>Routing cov</div><div class="val">{_rout["coverage_pct"]}%</div></div>
   <div class="card"><div>Budget usage</div><div class="val">{_budget_pct}%</div></div>
   <div class="card"><div>Gate Verdict</div><div class="val">{_gate_verdict}</div></div>
+  {_pred_cards}
 </div>
 <h2>Recent Gate Executions (Cost)</h2>
 <table>

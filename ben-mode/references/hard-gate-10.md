@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.48.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.49.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -3247,3 +3247,24 @@ penegakan integritas pada `status-matrix.py` serta perbaikan rotasi audit log:
    - GREEN: restorasi versi -> PASS, `status-matrix.py` exit 0.
    - Rotasi: `rotate-audit-logs.py` merotasi `hard-gate-audit.jsonl` (1.913.248 bytes -> 0 bytes live, terarsip aman).
    - Bump versi v1.48.0.
+
+# BAGIAN 149 — OBSERVABILITY SURFACING FOR INTEGRITY PREDICATES (VERIFIED; v1.49.0)
+
+Menutup celah kepatuhan aturan surfacing: setiap kapabilitas gate baru wajib tampil **serentak**
+di semua permukaan observability. Sebelumnya predikat `P_substantiation`, `P_spec_code_binding`,
+`P_sbom_hash_valid`, `P_spec_version_consistent` (BAGIAN 144–148) hanya tersurfacing di
+`status-matrix.py` (scanner regex `P_...`); tidak muncul di `traceability.py` maupun dashboard.
+
+1. **`scripts/traceability.py`**: menambahkan 5 anchor MAP baru:
+   - `BAGIAN 144 substantiation` → `P_substantiation`, `gate_predicates.py`, `substantiation_audit.py`
+   - `BAGIAN 145 stub-to-substantive` → `hard_gate_enhancements.py`, `gate_predicates.py`
+   - `BAGIAN 146 doc->code binding` → `P_spec_code_binding`, `gate_predicates.py`
+   - `BAGIAN 147 SBOM hash validity` → `P_sbom_hash_valid`, `generate-sbom.py`, `gate_predicates.py`, `refresh-baseline.sh`
+   - `BAGIAN 148 spec version triple-consistency` → `P_spec_version_consistent`, `status-matrix.py`, `gate_predicates.py`
+   Hasil: `traceability: 66 spec anchors mapped` (naik dari 61), semua resolve (exit 0).
+2. **`scripts/generate-dashboard.py`**: membaca entri audit terakhir (`hard-gate-audit.jsonl`),
+   mengekstrak `predicates`, dan merender kartu status untuk 8 predikat inti
+   (`P_spec_version_consistent`, `P_sbom_hash_valid`, `P_spec_code_binding`, `P_substantiation`,
+   `P_quorum`, `P_schema`, `P_attestation`, `P_signed_manifest`). Hijau `True` / merah `False`.
+3. Verifikasi: setelah sinkronisasi 4 replika, gate PASS; dashboard (4.381 bytes) memuat kartu
+   predikat dengan nilai `True`; quorum 4/4. Bump v1.49.0.
