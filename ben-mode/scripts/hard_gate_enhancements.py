@@ -4905,3 +4905,128 @@ def selftest_vv():
             (22, vv_peak_handling(True, True)),
             (23, vv_e2e_perf_measure(True, True)),
             (24, vv_overall_performance(92, 70))]
+
+# ------------------------------------------------------------------
+# WAVE W — INTEGRATION & INTEROPERABILITY INTEGRITY (WW01–WW24)
+# ------------------------------------------------------------------
+def ww_contract_testing(contracts, tested):
+    # WW01: integration contracts tested.
+    return bool(contracts) and bool(tested)
+
+def ww_interface_compat(compatible, versions_pinned):
+    # WW02: interfaces compatible + version-pinned.
+    return bool(compatible) and bool(versions_pinned)
+
+def ww_data_format_standard(standard, validated):
+    # WW03: standard data formats validated.
+    return bool(standard) and bool(validated)
+
+def ww_schema_alignment(aligned, versioned):
+    # WW04: schemas aligned + versioned.
+    return bool(aligned) and bool(versioned)
+
+def ww_api_versioning(versioned, backward_compatible):
+    # WW05: API versioned backward-compatible.
+    return bool(versioned) and bool(backward_compatible)
+
+def ww_async_integration(async_p, idempotent):
+    # WW06: async integration idempotent.
+    return bool(async_p) and bool(idempotent)
+
+def ww_error_propagation(propagated, handled):
+    # WW07: errors propagated + handled.
+    return bool(propagated) and bool(handled)
+
+def ww_retry_consistency(retry, at_least_once):
+    # WW08: retry semantics consistent.
+    return bool(retry) and bool(at_least_once)
+
+def ww_transactional_integrity(transactional, atomic):
+    # WW09: transactional integrity atomic.
+    return bool(transactional) and bool(atomic)
+
+def ww_event_driven_safe(event_driven, out_of_order_ok):
+    # WW10: event-driven safe under reordering.
+    return bool(event_driven) and bool(out_of_order_ok)
+
+def ww_anti_corruption_layer(acl, boundaries):
+    # WW11: anti-corruption layer boundaries.
+    return bool(acl) and bool(boundaries)
+
+def ww_legacy_integration(legacy, adapter_tested):
+    # WW12: legacy integration via tested adapter.
+    return bool(legacy) and bool(adapter_tested)
+
+def ww_security_handshake(handshake, authenticated):
+    # WW13: integration handshake authenticated.
+    return bool(handshake) and bool(authenticated)
+
+def ww_config_propagation(propagated, consistent):
+    # WW14: config propagation consistent.
+    return bool(propagated) and bool(consistent)
+
+def ww_metrics_integration(metrics, aggregated):
+    # WW15: metrics integrated + aggregated.
+    return bool(metrics) and bool(aggregated)
+
+def ww_observability_integration(observability, correlated):
+    # WW16: observability correlated across systems.
+    return bool(observability) and bool(correlated)
+
+def ww_dependency_contracts(deps, contracts):
+    # WW17: dependency contracts defined.
+    return bool(deps) and bool(contracts)
+
+def ww_env_matrix_tested(matrix, all_envs):
+    # WW18: integration tested across env matrix.
+    return bool(matrix) and bool(all_envs)
+
+def ww_shadow_traffic(shadow, compared):
+    # WW19: shadow traffic compared.
+    return bool(shadow) and bool(compared)
+
+def ww_feature_parity(parity, maintained):
+    # WW20: feature parity maintained.
+    return bool(parity) and bool(maintained)
+
+def ww_data_integrity_across(data_integrity, verified):
+    # WW21: data integrity across systems verified.
+    return bool(data_integrity) and bool(verified)
+
+def ww_connection_lifecycle(lifecycle, managed):
+    # WW22: connection lifecycle managed.
+    return bool(lifecycle) and bool(managed)
+
+def ww_batch_stream_dual(dual_mode, supported):
+    # WW23: batch + stream dual mode.
+    return bool(dual_mode) and bool(supported)
+
+def ww_overall_integration(score, min_score):
+    # WW24: overall integration score meets minimum.
+    return score >= min_score
+
+def selftest_ww():
+    return [(1, ww_contract_testing(True, True)),
+            (2, ww_interface_compat(True, True)),
+            (3, ww_data_format_standard(True, True)),
+            (4, ww_schema_alignment(True, True)),
+            (5, ww_api_versioning(True, True)),
+            (6, ww_async_integration(True, True)),
+            (7, ww_error_propagation(True, True)),
+            (8, ww_retry_consistency(True, True)),
+            (9, ww_transactional_integrity(True, True)),
+            (10, ww_event_driven_safe(True, True)),
+            (11, ww_anti_corruption_layer(True, True)),
+            (12, ww_legacy_integration(True, True)),
+            (13, ww_security_handshake(True, True)),
+            (14, ww_config_propagation(True, True)),
+            (15, ww_metrics_integration(True, True)),
+            (16, ww_observability_integration(True, True)),
+            (17, ww_dependency_contracts(True, True)),
+            (18, ww_env_matrix_tested(True, True)),
+            (19, ww_shadow_traffic(True, True)),
+            (20, ww_feature_parity(True, True)),
+            (21, ww_data_integrity_across(True, True)),
+            (22, ww_connection_lifecycle(True, True)),
+            (23, ww_batch_stream_dual(True, True)),
+            (24, ww_overall_integration(91, 70))]
