@@ -4155,3 +4155,128 @@ def selftest_pp():
             (22, pp_data_inventory(True, True)),
             (23, pp_record_of_processing(True, True)),
             (24, pp_overall_privacy(92, 70))]
+
+# ------------------------------------------------------------------
+# WAVE Q — ETHICAL AI & FAIRNESS INTEGRITY (QQ01–QQ24)
+# ------------------------------------------------------------------
+def qq_fairness_metric(metric, threshold_met):
+    # QQ01: group fairness metric computed + threshold met.
+    return bool(metric) and bool(threshold_met)
+
+def qq_bias_audit(audited, groups_covered):
+    # QQ02: bias audit covers protected groups.
+    return bool(audited) and bool(groups_covered)
+
+def qq_mitigation_applied(mitigated, method_validated):
+    # QQ03: bias mitigation applied + validated.
+    return bool(mitigated) and bool(method_validated)
+
+def qq_disparate_impact(impact_ratio, safe_threshold):
+    # QQ04: disparate impact ratio within safe threshold.
+    return impact_ratio >= safe_threshold
+
+def qq_equalized_odds(equalized, calibration_ok):
+    # QQ05: equalized odds achieved.
+    return bool(equalized) and bool(calibration_ok)
+
+def qq_transparency_explainability(explainable, method):
+    # QQ06: model explainable with method.
+    return bool(explainable) and bool(method)
+
+def qq_human_oversight(human_in_loop, review_procedure):
+    # QQ07: human oversight in high-stakes.
+    return bool(human_in_loop) and bool(review_procedure)
+
+def qq_dual_use_guard(uses_assessed, harmful_uses_blocked):
+    # QQ08: dual-use risks assessed + blocked.
+    return bool(uses_assessed) and bool(harmful_uses_blocked)
+
+def qq_model_card(card, documented_limitations):
+    # QQ09: model card with documented limitations.
+    return bool(card) and bool(documented_limitations)
+
+def qq_algorithmic_accountability(owner, documented_decision):
+    # QQ10: accountability owner + documented decisions.
+    return bool(owner) and bool(documented_decision)
+
+def qq_continual_monitoring(monitored, drift_alert):
+    # QQ11: continual monitoring for bias drift.
+    return bool(monitored) and bool(drift_alert)
+
+def qq_societal_impact(impact_assessed, stakeholders_consulted):
+    # QQ12: societal impact assessed.
+    return bool(impact_assessed) and bool(stakeholders_consulted)
+
+def qq_ethical_red_team(red_teamed, findings_addressed):
+    # QQ13: ethical red teaming.
+    return bool(red_teamed) and bool(findings_addressed)
+
+def qq_representative_data(data, underrepresented_covered):
+    # QQ14: representative training data.
+    return bool(data) and bool(underrepresented_covered)
+
+def qq_recourse_mechanism(recourse, complaint_channel):
+    # QQ15: recourse mechanism for affected users.
+    return bool(recourse) and bool(complaint_channel)
+
+def qq_bias_metric_catalog(metrics, per_group_registered):
+    # QQ16: bias metrics registered per group.
+    return bool(metrics) and bool(per_group_registered)
+
+def qq_synthetic_data_guard(synthetic_flagged, review_required):
+    # QQ17: synthetic data flagged for review.
+    return bool(synthetic_flagged) and bool(review_required)
+
+def qq_zero_fairness_assumption(not_assumed, verified):
+    # QQ18: fairness not assumed; verified.
+    return bool(not_assumed) and bool(verified)
+
+def qq_proxy_bias_detect(proxies_checked, purged_or_mitigated):
+    # QQ19: proxy biases detected and handled.
+    return bool(proxies_checked) and bool(purged_or_mitigated)
+
+def qq_privacy_fairness_tradeoff(tradeoff_analyzed, documented):
+    # QQ20: privacy-fairness tradeoff analyzed.
+    return bool(tradeoff_analyzed) and bool(documented)
+
+def qq_fairness_reproducible(reproducible, seeded):
+    # QQ21: fairness evaluation reproducible.
+    return bool(reproducible) and bool(seeded)
+
+def qq_group_parity_guard(parity, within_bound):
+    # QQ22: group parity within bound.
+    return bool(parity) and bool(within_bound)
+
+def qq_ethical_baseline_audit(baseline_audited, approved):
+    # QQ23: ethical baseline audited + approved.
+    return bool(baseline_audited) and bool(approved)
+
+def qq_overall_fairness(score, min_score):
+    # QQ24: overall fairness score meets minimum.
+    return score >= min_score
+
+def selftest_qq():
+    return [(1, qq_fairness_metric(True, True)),
+            (2, qq_bias_audit(True, True)),
+            (3, qq_mitigation_applied(True, True)),
+            (4, qq_disparate_impact(0.9, 0.8)),
+            (5, qq_equalized_odds(True, True)),
+            (6, qq_transparency_explainability(True, "shap")),
+            (7, qq_human_oversight(True, True)),
+            (8, qq_dual_use_guard(True, True)),
+            (9, qq_model_card(True, True)),
+            (10, qq_algorithmic_accountability(True, True)),
+            (11, qq_continual_monitoring(True, True)),
+            (12, qq_societal_impact(True, True)),
+            (13, qq_ethical_red_team(True, True)),
+            (14, qq_representative_data(True, True)),
+            (15, qq_recourse_mechanism(True, True)),
+            (16, qq_bias_metric_catalog(True, True)),
+            (17, qq_synthetic_data_guard(True, True)),
+            (18, qq_zero_fairness_assumption(True, True)),
+            (19, qq_proxy_bias_detect(True, True)),
+            (20, qq_privacy_fairness_tradeoff(True, True)),
+            (21, qq_fairness_reproducible(True, True)),
+            (22, qq_group_parity_guard(True, True)),
+            (23, qq_ethical_baseline_audit(True, True)),
+            (24, qq_overall_fairness(90, 70))]

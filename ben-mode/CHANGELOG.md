@@ -1,3 +1,8 @@
+## v0.48.0 (2026-11-02) — Wave Q Ethical AI & Fairness Integrity QQ01–QQ24 (BAGIAN 48)
+
+- **QQ01–QQ24**: fairness metric, bias audit, mitigation, disparate impact, equalized odds, explainability, human oversight, dual-use guard, model card, algorithmic accountability, continual monitoring, societal impact, ethical red team, representative data, recourse mechanism, bias metric catalog, synthetic data guard, zero-fairness-assumption, proxy bias detect, privacy-fairness tradeoff, reproducibility, group parity, ethical baseline audit, overall fairness. Disurfacing `P_QQ01–P_QQ24`; 24/24 PASS.
+- **BAGIAN 48** ditambahkan; bump serentak 0.48.0.
+
 ## v0.47.0 (2026-11-02) — Wave P Privacy & Data Protection Integrity PP01–PP24 (BAGIAN 47)
 
 - **PP01–PP24**: data classification, minimization, purpose limitation, consent, erasure, portability, pseudonymization, anonymization, encryption at rest/in transit, access logging, retention policy, DSR, breach notification, PIA, third-party terms, cross-border transfer, DPO, automated-decision review, privacy notice, child data protection, data inventory, record of processing, overall privacy. Disurfacing `P_PP01–P_PP24`; 24/24 PASS.

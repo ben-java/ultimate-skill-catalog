@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.47.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.48.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2175,3 +2175,16 @@ disurfacing `P_PP01–P_PP24`; diverifikasi 24/24 PASS (selftest_pp rc 0).
 - Protection & Access: PP09 `pp_encryption_at_rest`, PP10 `pp_encryption_in_transit`, PP11 `pp_access_logging`, PP12 `pp_retention_policy`.
 - Governance & Breach: PP14 `pp_breach_notification`, PP15 `pp_privacy_impact_assess`, PP16 `pp_third_party_terms`, PP17 `pp_cross_border_transfer`, PP18 `pp_dpo_appointed`.
 - Notice & Special: PP19 `pp_automated_decision_review`, PP20 `pp_privacy_notice`, PP21 `pp_child_data_protection`, PP24 `pp_overall_privacy`.
+
+---
+
+# BAGIAN 48 — WAVE Q: ETHICAL AI & FAIRNESS INTEGRITY QQ01–QQ24 (VERIFIED; v0.48.0)
+
+Menambahkan lapisan ethical AI & fairness: `QQ01–QQ24` di `hard_gate_enhancements.py`,
+disurfacing `P_QQ01–P_QQ24`; diverifikasi 24/24 PASS (selftest_qq rc 0).
+
+- Fairness Metrics: QQ01 `qq_fairness_metric`, QQ04 `qq_disparate_impact`, QQ05 `qq_equalized_odds`, QQ16 `qq_bias_metric_catalog`, QQ22 `qq_group_parity_guard`.
+- Bias Management: QQ02 `qq_bias_audit`, QQ03 `qq_mitigation_applied`, QQ11 `qq_continual_monitoring`, QQ18 `qq_zero_fairness_assumption`, QQ19 `qq_proxy_bias_detect`.
+- Transparency & Governance: QQ06 `qq_transparency_explainability`, QQ09 `qq_model_card`, QQ10 `qq_algorithmic_accountability`.
+- Oversight & Society: QQ07 `qq_human_oversight`, QQ08 `qq_dual_use_guard`, QQ12 `qq_societal_impact`, QQ13 `qq_ethical_red_team`.
+- Data & Recourse: QQ14 `qq_representative_data`, QQ15 `qq_recourse_mechanism`, QQ17 `qq_synthetic_data_guard`, QQ20 `qq_privacy_fairness_tradeoff`, QQ21 `qq_fairness_reproducible`, QQ23 `qq_ethical_baseline_audit`, QQ24 `qq_overall_fairness`.

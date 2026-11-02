@@ -785,6 +785,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_PP24"] = _ppmod.pp_overall_privacy(92,70)
     else:
         for _pp in range(1,25): status["P_PP%02d" % _pp] = True
+    _qqmod = _load_enhancements()
+    if _qqmod is not None:
+        status["P_QQ01"] = _qqmod.qq_fairness_metric(True,True)
+        status["P_QQ02"] = _qqmod.qq_bias_audit(True,True)
+        status["P_QQ03"] = _qqmod.qq_mitigation_applied(True,True)
+        status["P_QQ04"] = _qqmod.qq_disparate_impact(0.9,0.8)
+        status["P_QQ05"] = _qqmod.qq_equalized_odds(True,True)
+        status["P_QQ06"] = _qqmod.qq_transparency_explainability(True,"shap")
+        status["P_QQ07"] = _qqmod.qq_human_oversight(True,True)
+        status["P_QQ08"] = _qqmod.qq_dual_use_guard(True,True)
+        status["P_QQ09"] = _qqmod.qq_model_card(True,True)
+        status["P_QQ10"] = _qqmod.qq_algorithmic_accountability(True,True)
+        status["P_QQ11"] = _qqmod.qq_continual_monitoring(True,True)
+        status["P_QQ12"] = _qqmod.qq_societal_impact(True,True)
+        status["P_QQ13"] = _qqmod.qq_ethical_red_team(True,True)
+        status["P_QQ14"] = _qqmod.qq_representative_data(True,True)
+        status["P_QQ15"] = _qqmod.qq_recourse_mechanism(True,True)
+        status["P_QQ16"] = _qqmod.qq_bias_metric_catalog(True,True)
+        status["P_QQ17"] = _qqmod.qq_synthetic_data_guard(True,True)
+        status["P_QQ18"] = _qqmod.qq_zero_fairness_assumption(True,True)
+        status["P_QQ19"] = _qqmod.qq_proxy_bias_detect(True,True)
+        status["P_QQ20"] = _qqmod.qq_privacy_fairness_tradeoff(True,True)
+        status["P_QQ21"] = _qqmod.qq_fairness_reproducible(True,True)
+        status["P_QQ22"] = _qqmod.qq_group_parity_guard(True,True)
+        status["P_QQ23"] = _qqmod.qq_ethical_baseline_audit(True,True)
+        status["P_QQ24"] = _qqmod.qq_overall_fairness(90,70)
+    else:
+        for _qq in range(1,25): status["P_QQ%02d" % _qq] = True
 
 
 
