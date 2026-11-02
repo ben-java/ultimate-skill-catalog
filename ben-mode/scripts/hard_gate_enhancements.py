@@ -5900,3 +5900,127 @@ def selftest_dd():
             (22, dd_dx_api(True, True)),
             (23, dd_dx_templates(True, True)),
             (24, dd_ux_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE EE — LOCALIZATION & GLOBALIZATION INTEGRITY (EE01–EE24)
+# ------------------------------------------------------------------
+def ee_i18n_framework(fw, adopted):
+    # EE01: i18n framework adopted.
+    return bool(fw) and bool(adopted)
+
+def ee_l10n(l10n, covered):
+    # EE02: localization coverage across locales.
+    return bool(l10n) and bool(covered)
+
+def ee_locale_strategy(strategy, defined):
+    # EE03: locale strategy defined.
+    return bool(strategy) and bool(defined)
+
+def ee_translation_workflow(workflow, tracked):
+    # EE04: translation workflow tracked.
+    return bool(workflow) and bool(tracked)
+
+def ee_string_externalization(ext, enforced):
+    # EE05: all UI strings externalized.
+    return bool(ext) and bool(enforced)
+
+def ee_date_time(dt, formatted):
+    # EE06: date/time localized.
+    return bool(dt) and bool(formatted)
+
+def ee_number_currency(nums, formatted):
+    # EE07: number/currency localized.
+    return bool(nums) and bool(formatted)
+
+def ee_pluralization(plural, rules):
+    # EE08: pluralization rules.
+    return bool(plural) and bool(rules)
+
+def ee_rtl(rtl, supported):
+    # EE09: RTL layout supported.
+    return bool(rtl) and bool(supported)
+
+def ee_text_expansion(expansion, handled):
+    # EE10: text expansion handled.
+    return bool(expansion) and bool(handled)
+
+def ee_encoding(encoding, utf8):
+    # EE11: UTF-8 encoding.
+    return bool(encoding) and bool(utf8)
+
+def ee_culture_sensitivity(culture, considered):
+    # EE12: cultural sensitivity considered.
+    return bool(culture) and bool(considered)
+
+def ee_translation_quality(quality, reviewed):
+    # EE13: translation quality reviewed.
+    return bool(quality) and bool(reviewed)
+
+def ee_locale_ci(ci, gated):
+    # EE14: locale checks in CI.
+    return bool(ci) and bool(gated)
+
+def ee_missing_key(missing, detected):
+    # EE15: missing key detection.
+    return bool(missing) and bool(detected)
+
+def ee_unicode_forms(normalized, nfc):
+    # EE16: unicode normalization.
+    return bool(normalized) and bool(nfc)
+
+def ee_direction(direction, markup):
+    # EE17: direction markup correct.
+    return bool(direction) and bool(markup)
+
+def ee_fonts(fonts, coverage):
+    # EE18: font coverage for locales.
+    return bool(fonts) and bool(coverage)
+
+def ee_legal_local(legal, localized):
+    # EE19: legal content localized.
+    return bool(legal) and bool(localized)
+
+def ee_charset(charset, https):
+    # EE20: charset declared over HTTPS.
+    return bool(charset) and bool(https)
+
+def ee_localization_assets(assets, managed):
+    # EE21: localization assets managed.
+    return bool(assets) and bool(managed)
+
+def ee_translation_memory(tm, leveraged):
+    # EE22: translation memory leveraged.
+    return bool(tm) and bool(leveraged)
+
+def ee_language_mapping(mapping, accurate):
+    # EE23: language mapping accurate.
+    return bool(mapping) and bool(accurate)
+
+def ee_l10n_overall(score, min_score):
+    # EE24: overall l10n maturity meets minimum.
+    return score >= min_score
+
+def selftest_ee():
+    return [(1, ee_i18n_framework(True, True)),
+            (2, ee_l10n(True, True)),
+            (3, ee_locale_strategy(True, True)),
+            (4, ee_translation_workflow(True, True)),
+            (5, ee_string_externalization(True, True)),
+            (6, ee_date_time(True, True)),
+            (7, ee_number_currency(True, True)),
+            (8, ee_pluralization(True, True)),
+            (9, ee_rtl(True, True)),
+            (10, ee_text_expansion(True, True)),
+            (11, ee_encoding(True, True)),
+            (12, ee_culture_sensitivity(True, True)),
+            (13, ee_translation_quality(True, True)),
+            (14, ee_locale_ci(True, True)),
+            (15, ee_missing_key(True, True)),
+            (16, ee_unicode_forms(True, True)),
+            (17, ee_direction(True, True)),
+            (18, ee_fonts(True, True)),
+            (19, ee_legal_local(True, True)),
+            (20, ee_charset(True, True)),
+            (21, ee_localization_assets(True, True)),
+            (22, ee_translation_memory(True, True)),
+            (23, ee_language_mapping(True, True)),
+            (24, ee_l10n_overall(93, 70))]

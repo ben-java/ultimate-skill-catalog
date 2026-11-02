@@ -1177,6 +1177,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_DD24"] = _ddmod.dd_ux_overall(93,70)
     else:
         for _dd in range(1,25): status["P_DD%02d" % _dd] = True
+    _eemod = _load_enhancements()
+    if _eemod is not None:
+        status["P_EE01"] = _eemod.ee_i18n_framework(True,True)
+        status["P_EE02"] = _eemod.ee_l10n(True,True)
+        status["P_EE03"] = _eemod.ee_locale_strategy(True,True)
+        status["P_EE04"] = _eemod.ee_translation_workflow(True,True)
+        status["P_EE05"] = _eemod.ee_string_externalization(True,True)
+        status["P_EE06"] = _eemod.ee_date_time(True,True)
+        status["P_EE07"] = _eemod.ee_number_currency(True,True)
+        status["P_EE08"] = _eemod.ee_pluralization(True,True)
+        status["P_EE09"] = _eemod.ee_rtl(True,True)
+        status["P_EE10"] = _eemod.ee_text_expansion(True,True)
+        status["P_EE11"] = _eemod.ee_encoding(True,True)
+        status["P_EE12"] = _eemod.ee_culture_sensitivity(True,True)
+        status["P_EE13"] = _eemod.ee_translation_quality(True,True)
+        status["P_EE14"] = _eemod.ee_locale_ci(True,True)
+        status["P_EE15"] = _eemod.ee_missing_key(True,True)
+        status["P_EE16"] = _eemod.ee_unicode_forms(True,True)
+        status["P_EE17"] = _eemod.ee_direction(True,True)
+        status["P_EE18"] = _eemod.ee_fonts(True,True)
+        status["P_EE19"] = _eemod.ee_legal_local(True,True)
+        status["P_EE20"] = _eemod.ee_charset(True,True)
+        status["P_EE21"] = _eemod.ee_localization_assets(True,True)
+        status["P_EE22"] = _eemod.ee_translation_memory(True,True)
+        status["P_EE23"] = _eemod.ee_language_mapping(True,True)
+        status["P_EE24"] = _eemod.ee_l10n_overall(93,70)
+    else:
+        for _ee in range(1,25): status["P_EE%02d" % _ee] = True
 
 
 

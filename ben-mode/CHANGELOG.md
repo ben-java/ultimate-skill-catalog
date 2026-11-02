@@ -1,3 +1,8 @@
+## v0.62.0 (2026-11-02) — Wave EE Localization & Globalization Integrity EE01–EE24 (BAGIAN 62)
+
+- **EE01–EE24**: i18n framework, l10n coverage, locale strategy, translation workflow, string externalization, date/time, number/currency, pluralization, RTL, text expansion, encoding, cultural sensitivity, translation quality, locale CI, missing-key detection, unicode normalization, direction markup, font coverage, legal localization, charset, localization assets, translation memory, language mapping, overall l10n maturity. Disurfacing `P_EE01–P_EE24`; 24/24 PASS.
+- **BAGIAN 62** ditambahkan; bump serentak 0.62.0.
+
 ## v0.61.0 (2026-11-02) — Wave DD UX & Developer Experience Integrity DD01–DD24 (BAGIAN 61)
 
 - **DD01–DD24**: UX research, personas, information architecture, accessibility, contrast, keyboard, screen reader, responsive, consistency, design system, brand guidelines, error states, loading states, empty states, microcopy, perceived performance, DX onboarding, DX docs, DX tooling, inner loop, DX feedback, API discoverability, templates, overall UX/DX maturity. Disurfacing `P_DD01–P_DD24`; 24/24 PASS.

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.61.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.62.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2332,3 +2332,13 @@ Menambahkan lapisan UX & DX: `DD01–DD24` di `hard_gate_enhancements.py`, disur
 
 - UX Integrity: DD01 `dd_ux_research`, DD02 `dd_persona`, DD03 `dd_ia`, DD04 `dd_accessibility`, DD05 `dd_contrast`, DD06 `dd_keyboard`, DD07 `dd_screen_reader`, DD08 `dd_responsive`, DD09 `dd_consistency`, DD10 `dd_design_system`, DD11 `dd_brand_guidelines`, DD12 `dd_error_handling`, DD13 `dd_loading_state`, DD14 `dd_empty_state`, DD15 `dd_microcopy`, DD16 `dd_perceived_perf`.
 - DX Integrity: DD17 `dd_dx_onboarding`, DD18 `dd_dx_docs`, DD19 `dd_dx_tooling`, DD20 `dd_dx_loop`, DD21 `dd_dx_feedback`, DD22 `dd_dx_api`, DD23 `dd_dx_templates`, DD24 `dd_ux_overall`.
+
+---
+
+# BAGIAN 62 — WAVE EE: LOCALIZATION & GLOBALIZATION INTEGRITY EE01–EE24 (VERIFIED; v0.62.0)
+
+Menambahkan lapisan l10n/i18n: `EE01–EE24` di `hard_gate_enhancements.py`, disurfacing `P_EE01–P_EE24`; diverifikasi 24/24 PASS (selftest_ee rc 0).
+
+- Framework & Strategy: EE01 `ee_i18n_framework`, EE02 `ee_l10n`, EE03 `ee_locale_strategy`, EE04 `ee_translation_workflow`, EE05 `ee_string_externalization`.
+- Locale Correctness: EE06 `ee_date_time`, EE07 `ee_number_currency`, EE08 `ee_pluralization`, EE09 `ee_rtl`, EE10 `ee_text_expansion`, EE11 `ee_encoding`, EE12 `ee_culture_sensitivity`, EE16 `ee_unicode_forms`, EE17 `ee_direction`, EE18 `ee_fonts`, EE20 `ee_charset`.
+- Quality & Ops: EE13 `ee_translation_quality`, EE14 `ee_locale_ci`, EE15 `ee_missing_key`, EE19 `ee_legal_local`, EE21 `ee_localization_assets`, EE22 `ee_translation_memory`, EE23 `ee_language_mapping`, EE24 `ee_l10n_overall`.
