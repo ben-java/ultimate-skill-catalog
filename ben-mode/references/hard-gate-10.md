@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.65.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.66.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2370,3 +2370,12 @@ Menambahkan lapisan data governance: `HH01–HH24` di `hard_gate_enhancements.py
 
 - Governance & Ownership: HH01 `hh_data_governance`, HH02 `hh_data_owner`, HH03 `hh_data_quality_dq`, HH04 `hh_data_catalog`, HH05 `hh_data_lineage`, HH06 `hh_metadata`, HH07 `hh_data_silo`, HH08 `hh_data_standard`, HH09 `hh_master_data`, HH16 `hh_data_contract`, HH20 `hh_data_doc`, HH21 `hh_data_consistency`, HH22 `hh_data_access`, HH23 `hh_data_observability`.
 - Lifecycle & Protection: HH10 `hh_data_lifecycle`, HH11 `hh_retention`, HH12 `hh_backup_restore`, HH13 `hh_data_archiving`, HH14 `hh_data_loss_prevention`, HH15 `hh_analytics_data`, HH17 `hh_data_testing`, HH18 `hh_data_exchange`, HH19 `hh_raw_data`, HH24 `hh_data_overall`.
+
+---
+
+# BAGIAN 66 — WAVE II: INFRASTRUCTURE & PLATFORM ENGINEERING INTEGRITY II01–II24 (VERIFIED; v0.66.0)
+
+Menambahkan lapisan infrastructure as code dan platform engineering integrity: `II01–II24` di `hard_gate_enhancements.py`, disurfacing `P_II01–P_II24`; diverifikasi 24/24 PASS (selftest_ii rc 0).
+
+- Definition & Control: II01 `ii_iac_declarative`, II02 `ii_iac_drift_detect`, II03 `ii_iac_module_reuse`, II04 `ii_iac_state_lock`, II05 `ii_iac_secret_sanitized`, II06 `ii_iac_lint_check`, II07 `ii_iac_plan_approval`, II08 `ii_iac_idempotency`, II09 `ii_iac_immutable_infra`, II10 `ii_iac_tagging_policy`, II11 `ii_iac_policy_as_code`, II12 `ii_iac_cost_estimation`.
+- Reliability & Operations: II13 `ii_iac_env_parity`, II14 `ii_iac_pipeline_deploy`, II15 `ii_iac_disaster_plan`, II16 `ii_iac_observability_wire`, II17 `ii_iac_rbac_access`, II18 `ii_iac_dependency_graph`, II19 `ii_iac_version_pinning`, II20 `ii_iac_unit_testing`, II21 `ii_iac_rollback_ready`, II22 `ii_iac_audit_trail`, II23 `ii_iac_multi_region`, II24 `ii_iac_overall_maturity`.

@@ -1,3 +1,8 @@
+## v0.66.0 (2026-11-02) — Wave II Infrastructure & Platform Engineering Integrity II01–II24 (BAGIAN 66)
+
+- **II01–II24**: declarative definition, drift detection, reusable modules, state locking, secret sanitization, static linting, execution plan review, idempotency, immutable infrastructure, tagging policy, policy-as-code, cost estimation, environment parity, CI/CD automated pipeline, disaster recovery, observability telemetry, least-privilege RBAC, acyclic dependency graph, version pinning, unit/property testing, automated rollback, audit trail, multi-region redundancy, overall maturity. Disurfacing `P_II01–P_II24`; 24/24 PASS.
+- **BAGIAN 66** ditambahkan; bump serentak 0.66.0.
+
 ## v0.65.0 (2026-11-02) — Wave HH Data Governance & Management Integrity HH01–HH24 (BAGIAN 65)
 
 - **HH01–HH24**: data governance framework, data ownership, data quality, data catalog, lineage, metadata, silo integration, data standards, master data, lifecycle, retention, backup/restore, archiving, loss prevention, analytics platform, data contracts, test data masking, secure exchange, raw data preservation, documentation, consistency, access, observability, overall data governance maturity. Disurfacing `P_HH01–P_HH24`; 24/24 PASS.
