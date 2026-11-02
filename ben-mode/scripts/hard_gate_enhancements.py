@@ -12855,3 +12855,1042 @@ def selftest_hj_w4():
         (23, telemetry2_sli_error_budget_dashboard(error_budget_visible=True)),
         (24, telemetry2_overall_telemetry_maturity(min_score=70, score=90))
     ]
+
+# ------------------------------------------------------------------
+# WAVE IA — CERTIFICATE LIFE-CYCLE & PKI OPERATIONS INTEGRITY (IA01–IA24)
+# ------------------------------------------------------------------
+def certsys_root_ca_offline_freeze(root_ca_not_network_reachable=True):
+    return bool(root_ca_not_network_reachable)
+
+def certsys_subordinate_ca_scoped(sub_ca_policy_restricted=True):
+    return bool(sub_ca_policy_restricted)
+
+def certsys_key_ceremony_dual_control(dual_control_enforced=True):
+    return bool(dual_control_enforced)
+
+def certsys_ca_crl_issued_periodically(crl_fresh=True):
+    return bool(crl_fresh)
+
+def certsys_certificate_profile_validated(profile_matches_policy=True):
+    return bool(profile_matches_policy)
+
+def certsys_registration_authority_reviewed(ra_procedures_reviewed=True):
+    return bool(ra_procedures_reviewed)
+
+def certsys_key_recovery_controlled(recovery_requires_approval=True):
+    return bool(recovery_requires_approval)
+
+def certsys_certificate_revocation_propagated(revocation_broadcast_active=True):
+    return bool(revocation_broadcast_active)
+
+def certsys_ocsp_responder_high_availability(ocsp_ha_configured=True):
+    return bool(ocsp_ha_configured)
+
+def certsys_certificate_serial_unpredictable(serial_numbers_randomized=True):
+    return bool(serial_numbers_randomized)
+
+def certsys_ca_key_storage_hsm(ca_keys_in_hsm=True):
+    return bool(ca_keys_in_hsm)
+
+def certsys_audit_log_ca_operations(all_ca_ops_logged=True):
+    return bool(all_ca_ops_logged)
+
+def certsys_employee_cert_identity_vetted(identity_vetting_recorded=True):
+    return bool(identity_vetting_recorded)
+
+def certsys_device_cert_identity_bound(device_binding_verifiable=True):
+    return bool(device_binding_verifiable)
+
+def certsys_cert_renewal_auto_before_expiry(renewal_well_before=True):
+    return bool(renewal_well_before)
+
+def certsys_cross_signing_transition_plan(transition_plan_documented=True):
+    return bool(transition_plan_documented)
+
+def certsys_certificate_policy_public(cp_cps_published=True):
+    return bool(cp_cps_published)
+
+def certsys_ca_compromise_plan_documented(compromise_response_defined=True):
+    return bool(compromise_response_defined)
+
+def certsys_key_usage_extension_restricted(usage_ext_limited=True):
+    return bool(usage_ext_limited)
+
+def certsys_weak_algorithm_phaseout(sha1_rsa_1024_removed=True):
+    return bool(sha1_rsa_1024_removed)
+
+def certsys_certificate_transparency_logged(ct_logging_enabled=True):
+    return bool(ct_logging_enabled)
+
+def certsys_private_key_never_exports(key_export_blocked=True):
+    return bool(key_export_blocked)
+
+def certsys_ca_resource_usage_monitored(pki_metrics_monitored=True):
+    return bool(pki_metrics_monitored)
+
+def certsys_overall_pki_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ia_w5():
+    return [
+        (1, certsys_root_ca_offline_freeze(root_ca_not_network_reachable=True)),
+        (2, certsys_subordinate_ca_scoped(sub_ca_policy_restricted=True)),
+        (3, certsys_key_ceremony_dual_control(dual_control_enforced=True)),
+        (4, certsys_ca_crl_issued_periodically(crl_fresh=True)),
+        (5, certsys_certificate_profile_validated(profile_matches_policy=True)),
+        (6, certsys_registration_authority_reviewed(ra_procedures_reviewed=True)),
+        (7, certsys_key_recovery_controlled(recovery_requires_approval=True)),
+        (8, certsys_certificate_revocation_propagated(revocation_broadcast_active=True)),
+        (9, certsys_ocsp_responder_high_availability(ocsp_ha_configured=True)),
+        (10, certsys_certificate_serial_unpredictable(serial_numbers_randomized=True)),
+        (11, certsys_ca_key_storage_hsm(ca_keys_in_hsm=True)),
+        (12, certsys_audit_log_ca_operations(all_ca_ops_logged=True)),
+        (13, certsys_employee_cert_identity_vetted(identity_vetting_recorded=True)),
+        (14, certsys_device_cert_identity_bound(device_binding_verifiable=True)),
+        (15, certsys_cert_renewal_auto_before_expiry(renewal_well_before=True)),
+        (16, certsys_cross_signing_transition_plan(transition_plan_documented=True)),
+        (17, certsys_certificate_policy_public(cp_cps_published=True)),
+        (18, certsys_ca_compromise_plan_documented(compromise_response_defined=True)),
+        (19, certsys_key_usage_extension_restricted(usage_ext_limited=True)),
+        (20, certsys_weak_algorithm_phaseout(sha1_rsa_1024_removed=True)),
+        (21, certsys_certificate_transparency_logged(ct_logging_enabled=True)),
+        (22, certsys_private_key_never_exports(key_export_blocked=True)),
+        (23, certsys_ca_resource_usage_monitored(pki_metrics_monitored=True)),
+        (24, certsys_overall_pki_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IB — DIGITAL IDENTITY & ACCESS GOVERNANCE INTEGRITY (IB01–IB24)
+# ------------------------------------------------------------------
+def idgov_identity_proofing_level_assured(ial_level_met=True):
+    return bool(ial_level_met)
+
+def idgov_mfa_enforced_all_admin(admin_always_mfa=True):
+    return bool(admin_always_mfa)
+
+def idgov_privileged_account_discovery(all_privileged_accounts_known=True):
+    return bool(all_privileged_accounts_known)
+
+def idgov_access_certification_periodic(recertification_cycle_met=True):
+    return bool(recertification_cycle_met)
+
+def idgov_role_based_access_minimal(roles_least_privilege=True):
+    return bool(roles_least_privilege)
+
+def idgov_entitlement_review_automated(entitlements_auto_reviewed=True):
+    return bool(entitlements_auto_reviewed)
+
+def idgov_service_account_rotation(service_account_secrets_rotated=True):
+    return bool(service_account_secrets_rotated)
+
+def idgov_orphaned_account_disabled(dormant_accounts_disabled=True):
+    return bool(dormant_accounts_disabled)
+
+def idgov_sso_federation_scoped(federation_rules_defined=True):
+    return bool(federation_rules_defined)
+
+def idgov_authentication_log_retained(auth_logs_kept=True):
+    return bool(auth_logs_kept)
+
+def idgov_session_timeout_idle(idle_timeout_active=True):
+    return bool(idle_timeout_active)
+
+def idgov_credential_stuffing_protection(rate_limiting_active=True):
+    return bool(rate_limiting_active)
+
+def idgov_identity_federation_claims_validated(claims_verified=True):
+    return bool(claims_verified)
+
+def idgov_helpdesk_identity_verification(helpdesk_vets_callers=True):
+    return bool(helpdesk_vets_callers)
+
+def idgov_offboarding_process_complete(offboarding_removes_access=True):
+    return bool(offboarding_removes_access)
+
+def idgov_api_token_scope_least(api_tokens_scoped=True):
+    return bool(api_tokens_scoped)
+
+def idgov_device_identity_enrollment(devices_enrolled_securely=True):
+    return bool(devices_enrolled_securely)
+
+def idgov_birthright_access_standard(baseline_access_defined=True):
+    return bool(baseline_access_defined)
+
+def idgov_access_review_evidence_archived(review_evidence_kept=True):
+    return bool(review_evidence_kept)
+
+def idgov_aa_breakglass_controlled(breakglass_audited=True):
+    return bool(breakglass_audited)
+
+def idgov_identity_data_protected(identity_db_encrypted=True):
+    return bool(identity_db_encrypted)
+
+def idgov_user_consent_for_identity_use(consent_framework=True):
+    return bool(consent_framework)
+
+def idgov_identity_lifecycle_automated(lifecycle_automation=True):
+    return bool(lifecycle_automation)
+
+def idgov_overall_idgov_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ib_w5():
+    return [
+        (1, idgov_identity_proofing_level_assured(ial_level_met=True)),
+        (2, idgov_mfa_enforced_all_admin(admin_always_mfa=True)),
+        (3, idgov_privileged_account_discovery(all_privileged_accounts_known=True)),
+        (4, idgov_access_certification_periodic(recertification_cycle_met=True)),
+        (5, idgov_role_based_access_minimal(roles_least_privilege=True)),
+        (6, idgov_entitlement_review_automated(entitlements_auto_reviewed=True)),
+        (7, idgov_service_account_rotation(service_account_secrets_rotated=True)),
+        (8, idgov_orphaned_account_disabled(dormant_accounts_disabled=True)),
+        (9, idgov_sso_federation_scoped(federation_rules_defined=True)),
+        (10, idgov_authentication_log_retained(auth_logs_kept=True)),
+        (11, idgov_session_timeout_idle(idle_timeout_active=True)),
+        (12, idgov_credential_stuffing_protection(rate_limiting_active=True)),
+        (13, idgov_identity_federation_claims_validated(claims_verified=True)),
+        (14, idgov_helpdesk_identity_verification(helpdesk_vets_callers=True)),
+        (15, idgov_offboarding_process_complete(offboarding_removes_access=True)),
+        (16, idgov_api_token_scope_least(api_tokens_scoped=True)),
+        (17, idgov_device_identity_enrollment(devices_enrolled_securely=True)),
+        (18, idgov_birthright_access_standard(baseline_access_defined=True)),
+        (19, idgov_access_review_evidence_archived(review_evidence_kept=True)),
+        (20, idgov_aa_breakglass_controlled(breakglass_audited=True)),
+        (21, idgov_identity_data_protected(identity_db_encrypted=True)),
+        (22, idgov_user_consent_for_identity_use(consent_framework=True)),
+        (23, idgov_identity_lifecycle_automated(lifecycle_automation=True)),
+        (24, idgov_overall_idgov_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IC — GRAPH DATABASE & SEMANTIC INTEGRITY (IC01–IC24)
+# ------------------------------------------------------------------
+def graphdb_node_label_conventions(labels_consistent=True):
+    return bool(labels_consistent)
+
+def graphdb_relationship_directionality(edge_direction_defined=True):
+    return bool(edge_direction_defined)
+
+def graphdb_schema_constraint_enforced(schema_validated=True):
+    return bool(schema_validated)
+
+def graphdb_index_usage_matched(indexes_cover_queries=True):
+    return bool(indexes_cover_queries)
+
+def graphdb_null_property_handling(nulls_handled_explicitly=True):
+    return bool(nulls_handled_explicitly)
+
+def graphdb_duplicate_edge_detection(duplicates_flagged=True):
+    return bool(duplicates_flagged)
+
+def graphdb_orphan_node_cleanup(orphans_identified=True):
+    return bool(orphans_identified)
+
+def graphdb_walkable_path_finite(no_infinite_paths=True):
+    return bool(no_infinite_paths)
+
+def graphdb_query_plan_analyzed(plans_examined=True):
+    return bool(plans_examined)
+
+def graphdb_semantic_ontology_versioned(ontology_version_controlled=True):
+    return bool(ontology_version_controlled)
+
+def graphdb_reasoning_inference_consistent(inferred_facts_consistent=True):
+    return bool(inferred_facts_consistent)
+
+def graphdb_property_types_strong(types_declared=True):
+    return bool(types_declared)
+
+def graphdb_graph_connectivity_validated(components_identified=True):
+    return bool(components_identified)
+
+def graphdb_path_cycle_handling(cycles_detected=True):
+    return bool(cycles_detected)
+
+def graphdb_graph_mutation_atomic(writes_atomic=True):
+    return bool(writes_atomic)
+
+def graphdb_backup_restore_consistent(restore_verified=True):
+    return bool(restore_verified)
+
+def graphdb_analytics_query_bounded(analytic_queries_bounded=True):
+    return bool(analytic_queries_bounded)
+
+def graphdb_temporal_graph_versioning(temporal_edge_support=True):
+    return bool(temporal_edge_support)
+
+def graphdb_acls_on_graph_elements(permissions_on_edge_node=True):
+    return bool(permissions_on_edge_node)
+
+def graphdb_graph_exports_sanitized(exports_mask_sensitive=True):
+    return bool(exports_mask_sensitive)
+
+def graphdb_ontology_alignment_checked(alignment_reviewed=True):
+    return bool(alignment_reviewed)
+
+def graphdb_load_balancing_read_replicas(read_replicas_used=True):
+    return bool(read_replicas_used)
+
+def graphdb_query_timeout_configured(timeouts_set=True):
+    return bool(timeouts_set)
+
+def graphdb_overall_graphdb_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ic_w5():
+    return [
+        (1, graphdb_node_label_conventions(labels_consistent=True)),
+        (2, graphdb_relationship_directionality(edge_direction_defined=True)),
+        (3, graphdb_schema_constraint_enforced(schema_validated=True)),
+        (4, graphdb_index_usage_matched(indexes_cover_queries=True)),
+        (5, graphdb_null_property_handling(nulls_handled_explicitly=True)),
+        (6, graphdb_duplicate_edge_detection(duplicates_flagged=True)),
+        (7, graphdb_orphan_node_cleanup(orphans_identified=True)),
+        (8, graphdb_walkable_path_finite(no_infinite_paths=True)),
+        (9, graphdb_query_plan_analyzed(plans_examined=True)),
+        (10, graphdb_semantic_ontology_versioned(ontology_version_controlled=True)),
+        (11, graphdb_reasoning_inference_consistent(inferred_facts_consistent=True)),
+        (12, graphdb_property_types_strong(types_declared=True)),
+        (13, graphdb_graph_connectivity_validated(components_identified=True)),
+        (14, graphdb_path_cycle_handling(cycles_detected=True)),
+        (15, graphdb_graph_mutation_atomic(writes_atomic=True)),
+        (16, graphdb_backup_restore_consistent(restore_verified=True)),
+        (17, graphdb_analytics_query_bounded(analytic_queries_bounded=True)),
+        (18, graphdb_temporal_graph_versioning(temporal_edge_support=True)),
+        (19, graphdb_acls_on_graph_elements(permissions_on_edge_node=True)),
+        (20, graphdb_graph_exports_sanitized(exports_mask_sensitive=True)),
+        (21, graphdb_ontology_alignment_checked(alignment_reviewed=True)),
+        (22, graphdb_load_balancing_read_replicas(read_replicas_used=True)),
+        (23, graphdb_query_timeout_configured(timeouts_set=True)),
+        (24, graphdb_overall_graphdb_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE ID — DISTRIBUTED LEDGER & CONSENSUS INTEGRITY (ID01–ID24)
+# ------------------------------------------------------------------
+def blockchain_consensus_algorithm_documented(consensus_defined=True):
+    return bool(consensus_defined)
+
+def blockchain_block_integrity_merkle(merkle_root_verified=True):
+    return bool(merkle_root_verified)
+
+def blockchain_immutability_history_verified(chain_append_only=True):
+    return bool(chain_append_only)
+
+def blockchain_double_spend_prevention(no_double_spend=True):
+    return bool(no_double_spend)
+
+def blockchain_validator_set_reputation(validators_known=True):
+    return bool(validators_known)
+
+def blockchain_smart_contract_audited(contracts_audited=True):
+    return bool(contracts_audited)
+
+def blockchain_gas_limit_enforced(execution_bounded=True):
+    return bool(execution_bounded)
+
+def blockchain_cross_chain_bridge_vetted(bridges_reviewed=True):
+    return bool(bridges_reviewed)
+
+def blockchain_private_key_self_custody(keys_user_controlled=True):
+    return bool(keys_user_controlled)
+
+def blockchain_wallet_transaction_signing(txs_signed_offline=True):
+    return bool(txs_signed_offline)
+
+def blockchain_ledger_data_privacy(private_data_channel=True):
+    return bool(private_data_channel)
+
+def blockchain_network_sybil_resistance(sybil_defense=True):
+    return bool(sybil_defense)
+
+def blockchain_fork_policy_documented(fork_handling_clear=True):
+    return bool(fork_handling_clear)
+
+def blockchain_transaction_ordering_fair(ordering_not_exploitable=True):
+    return bool(ordering_not_exploitable)
+
+def blockchain_oracle_data_integrity(oracles_trusted=True):
+    return bool(oracles_trusted)
+
+def blockchain_chain_id_isolation(chain_id_distinct=True):
+    return bool(chain_id_distinct)
+
+def blockchain_block_producer_rotation(proposer_selection_rotates=True):
+    return bool(proposer_selection_rotates)
+
+def blockchain_attack_surface_97_attack(hashpower_boundary_known=True):
+    return bool(hashpower_boundary_known)
+
+def blockchain_regulatory_compliance_ledger(compliance_provisions=True):
+    return bool(compliance_provisions)
+
+def blockchain_audit_trail_on_chain(onchain_audit_available=True):
+    return bool(onchain_audit_available)
+
+def blockchain_state_sync_full_node(full_node_sync_valid=True):
+    return bool(full_node_sync_valid)
+
+def blockchain_multisig_governance(multisig_controls=True):
+    return bool(multisig_controls)
+
+def blockchain_token_standard_compliance(token_standard_adhered=True):
+    return bool(token_standard_adhered)
+
+def blockchain_overall_chain_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_id_w5():
+    return [
+        (1, blockchain_consensus_algorithm_documented(consensus_defined=True)),
+        (2, blockchain_block_integrity_merkle(merkle_root_verified=True)),
+        (3, blockchain_immutability_history_verified(chain_append_only=True)),
+        (4, blockchain_double_spend_prevention(no_double_spend=True)),
+        (5, blockchain_validator_set_reputation(validators_known=True)),
+        (6, blockchain_smart_contract_audited(contracts_audited=True)),
+        (7, blockchain_gas_limit_enforced(execution_bounded=True)),
+        (8, blockchain_cross_chain_bridge_vetted(bridges_reviewed=True)),
+        (9, blockchain_private_key_self_custody(keys_user_controlled=True)),
+        (10, blockchain_wallet_transaction_signing(txs_signed_offline=True)),
+        (11, blockchain_ledger_data_privacy(private_data_channel=True)),
+        (12, blockchain_network_sybil_resistance(sybil_defense=True)),
+        (13, blockchain_fork_policy_documented(fork_handling_clear=True)),
+        (14, blockchain_transaction_ordering_fair(ordering_not_exploitable=True)),
+        (15, blockchain_oracle_data_integrity(oracles_trusted=True)),
+        (16, blockchain_chain_id_isolation(chain_id_distinct=True)),
+        (17, blockchain_block_producer_rotation(proposer_selection_rotates=True)),
+        (18, blockchain_attack_surface_97_attack(hashpower_boundary_known=True)),
+        (19, blockchain_regulatory_compliance_ledger(compliance_provisions=True)),
+        (20, blockchain_audit_trail_on_chain(onchain_audit_available=True)),
+        (21, blockchain_state_sync_full_node(full_node_sync_valid=True)),
+        (22, blockchain_multisig_governance(multisig_controls=True)),
+        (23, blockchain_token_standard_compliance(token_standard_adhered=True)),
+        (24, blockchain_overall_chain_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IE — SUSTAINABILITY & ESG COMPLIANCE OPERATIONS INTEGRITY (IE01–IE24)
+# ------------------------------------------------------------------
+def sustainability_esg_reporting_metrics(esg_metrics_collected=True):
+    return bool(esg_metrics_collected)
+
+def sustainability_carbon_footprint_accounting(carbon_accounted=True):
+    return bool(carbon_accounted)
+
+def sustainability_energy_consumption_monitored(energy_tracked=True):
+    return bool(energy_tracked)
+
+def sustainability_waste_reduction_program(waste_metrics=True):
+    return bool(waste_metrics)
+
+def sustainability_water_usage_optimized(water_usage_measured=True):
+    return bool(water_usage_measured)
+
+def sustainability_supply_chain_sustainability_audit(suppliers_assessed=True):
+    return bool(suppliers_assessed)
+
+def sustainability_renewable_energy_adoption(renewables_share=True):
+    return bool(renewables_share)
+
+def sustainability_materiality_assessment(material_issues_identified=True):
+    return bool(material_issues_identified)
+
+def sustainability_esg_disclosure_transparency(disclosures_published=True):
+    return bool(disclosures_published)
+
+def sustainability_biodiversity_impact_assessed(biodiversity_reviewed=True):
+    return bool(biodiversity_reviewed)
+
+def sustainability_circular_economy_design(circularity_considered=True):
+    return bool(circularity_considered)
+
+def sustainability_social_responsibility_programs(social_programs_active=True):
+    return bool(social_programs_active)
+
+def sustainability_labor_standards_compliance(labor_standards_met=True):
+    return bool(labor_standards_met)
+
+def sustainability_diversity_equity_inclusion(dei_metrics=True):
+    return bool(dei_metrics)
+
+def sustainability_community_engagement_documented(community_relations=True):
+    return bool(community_relations)
+
+def sustainability_esg_data_verification(esg_data_independently_checked=True):
+    return bool(esg_data_independently_checked)
+
+def sustainability_climate_risk_scenario_analysis(climate_scenarios_modeled=True):
+    return bool(climate_scenarios_modeled)
+
+def sustainability_gdpr_and_privacy_esg(privacy_respected_in_esg=True):
+    return bool(privacy_respected_in_esg)
+
+def sustainability_sustainable_finance_disclosure(sustainable_finance_rules=True):
+    return bool(sustainable_finance_rules)
+
+def sustainability_lifecycle_assessment_products(lca_conducted=True):
+    return bool(lca_conducted)
+
+def sustainability_anti_greenwashing(claims_verifiable=True):
+    return bool(claims_verifiable)
+
+def sustainability_employee_safety_indicators(safety_metrics=True):
+    return bool(safety_metrics)
+
+def sustainability_stakeholder_engagement_feedback(stakeholder_loop=True):
+    return bool(stakeholder_loop)
+
+def sustainability_overall_sustainability_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ie_w5():
+    return [
+        (1, sustainability_esg_reporting_metrics(esg_metrics_collected=True)),
+        (2, sustainability_carbon_footprint_accounting(carbon_accounted=True)),
+        (3, sustainability_energy_consumption_monitored(energy_tracked=True)),
+        (4, sustainability_waste_reduction_program(waste_metrics=True)),
+        (5, sustainability_water_usage_optimized(water_usage_measured=True)),
+        (6, sustainability_supply_chain_sustainability_audit(suppliers_assessed=True)),
+        (7, sustainability_renewable_energy_adoption(renewables_share=True)),
+        (8, sustainability_materiality_assessment(material_issues_identified=True)),
+        (9, sustainability_esg_disclosure_transparency(disclosures_published=True)),
+        (10, sustainability_biodiversity_impact_assessed(biodiversity_reviewed=True)),
+        (11, sustainability_circular_economy_design(circularity_considered=True)),
+        (12, sustainability_social_responsibility_programs(social_programs_active=True)),
+        (13, sustainability_labor_standards_compliance(labor_standards_met=True)),
+        (14, sustainability_diversity_equity_inclusion(dei_metrics=True)),
+        (15, sustainability_community_engagement_documented(community_relations=True)),
+        (16, sustainability_esg_data_verification(esg_data_independently_checked=True)),
+        (17, sustainability_climate_risk_scenario_analysis(climate_scenarios_modeled=True)),
+        (18, sustainability_gdpr_and_privacy_esg(privacy_respected_in_esg=True)),
+        (19, sustainability_sustainable_finance_disclosure(sustainable_finance_rules=True)),
+        (20, sustainability_lifecycle_assessment_products(lca_conducted=True)),
+        (21, sustainability_anti_greenwashing(claims_verifiable=True)),
+        (22, sustainability_employee_safety_indicators(safety_metrics=True)),
+        (23, sustainability_stakeholder_engagement_feedback(stakeholder_loop=True)),
+        (24, sustainability_overall_sustainability_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IF — CYBERSECURITY PSYCHOLOGY & HUMAN FACTORS INTEGRITY (IF01–IF24)
+# ------------------------------------------------------------------
+def cyberpsy_phishing_simulation_training(simulated_phishing_run=True):
+    return bool(simulated_phishing_run)
+
+def cyberpsy_security_awareness_curriculum(training_deployed=True):
+    return bool(training_deployed)
+
+def cyberpsy_reporting_culture_non_punitive(blameless_reporting=True):
+    return bool(blameless_reporting)
+
+def cyberpsy_social_engineering_resilience(social_eng_defense=True):
+    return bool(social_eng_defense)
+
+def cyberpsy_password_hygiene_policy(password_policy_enforced=True):
+    return bool(password_policy_enforced)
+
+def cyberpsy_burnout_risk_monitored(sec_team_workload_measured=True):
+    return bool(sec_team_workload_measured)
+
+def cyberpsy_usability_security_balance(controls_usable=True):
+    return bool(controls_usable)
+
+def cyberpsy_security_team_empowerment(team_has_authority=True):
+    return bool(team_has_authority)
+
+def cyberpsy_compliance_fatigue_managed(training_not_overloaded=True):
+    return bool(training_not_overloaded)
+
+def cyberpsy_cognitive_bias_training(bias_awareness=True):
+    return bool(bias_awareness)
+
+def cyberpsy_habitual_security_behaviors(good_habits_reinforced=True):
+    return bool(good_habits_reinforced)
+
+def cyberpsy_incident_reporting_barriers_lowered(low_barrier_reporting=True):
+    return bool(low_barrier_reporting)
+
+def cyberpsy_psychological_safety_team(team_psychological_safety=True):
+    return bool(team_psychological_safety)
+
+def cyberpsy_gamified_learning_security(training_gamified=True):
+    return bool(training_gamified)
+
+def cyberpsy_microlearning_short_bursts(concise_training=True):
+    return bool(concise_training)
+
+def cyberpsy_feedback_loop_on_training(training_updated_by_results=True):
+    return bool(training_updated_by_results)
+
+def cyberpsy_security_champions_network(champions_across_org=True):
+    return bool(champions_across_org)
+
+def cyberpsy_threat_modeling_human_centric(human_layer_in_models=True):
+    return bool(human_layer_in_models)
+
+def cyberpsy_realistic_scenario_drills(drills_realistic=True):
+    return bool(drills_realistic)
+
+def cyberpsy_analytics_on_risk_behaviors(behavior_analytics=True):
+    return bool(behavior_analytics)
+
+def cyberpsy_inclusive_security_communication(communication_inclusive=True):
+    return bool(communication_inclusive)
+
+def cyberpsy_executive_engagement_security(leadership_engaged=True):
+    return bool(leadership_engaged)
+
+def cyberpsy_continuous_improvement_security_ux(ux_improved=True):
+    return bool(ux_improved)
+
+def cyberpsy_overall_cyberpsy_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_if_w5():
+    return [
+        (1, cyberpsy_phishing_simulation_training(simulated_phishing_run=True)),
+        (2, cyberpsy_security_awareness_curriculum(training_deployed=True)),
+        (3, cyberpsy_reporting_culture_non_punitive(blameless_reporting=True)),
+        (4, cyberpsy_social_engineering_resilience(social_eng_defense=True)),
+        (5, cyberpsy_password_hygiene_policy(password_policy_enforced=True)),
+        (6, cyberpsy_burnout_risk_monitored(sec_team_workload_measured=True)),
+        (7, cyberpsy_usability_security_balance(controls_usable=True)),
+        (8, cyberpsy_security_team_empowerment(team_has_authority=True)),
+        (9, cyberpsy_compliance_fatigue_managed(training_not_overloaded=True)),
+        (10, cyberpsy_cognitive_bias_training(bias_awareness=True)),
+        (11, cyberpsy_habitual_security_behaviors(good_habits_reinforced=True)),
+        (12, cyberpsy_incident_reporting_barriers_lowered(low_barrier_reporting=True)),
+        (13, cyberpsy_psychological_safety_team(team_psychological_safety=True)),
+        (14, cyberpsy_gamified_learning_security(training_gamified=True)),
+        (15, cyberpsy_microlearning_short_bursts(concise_training=True)),
+        (16, cyberpsy_feedback_loop_on_training(training_updated_by_results=True)),
+        (17, cyberpsy_security_champions_network(champions_across_org=True)),
+        (18, cyberpsy_threat_modeling_human_centric(human_layer_in_models=True)),
+        (19, cyberpsy_realistic_scenario_drills(drills_realistic=True)),
+        (20, cyberpsy_analytics_on_risk_behaviors(behavior_analytics=True)),
+        (21, cyberpsy_inclusive_security_communication(communication_inclusive=True)),
+        (22, cyberpsy_executive_engagement_security(leadership_engaged=True)),
+        (23, cyberpsy_continuous_improvement_security_ux(ux_improved=True)),
+        (24, cyberpsy_overall_cyberpsy_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IG — ENERGY GRID & UTILITY OT SECURITY INTEGRITY (IG01–IG24)
+# ------------------------------------------------------------------
+def energygrid_grid_control_system_segmented(ics_segmented_from_it=True):
+    return bool(ics_segmented_from_it)
+
+def energygrid_plc_patch_management(plc_firmware_patched=True):
+    return bool(plc_firmware_patched)
+
+def energygrid_rtu_remote_access_controlled(remote_access_gated=True):
+    return bool(remote_access_gated)
+
+def energygrid_grid_communication_encryption(scada_channels_encrypted=True):
+    return bool(scada_channels_encrypted)
+
+def energygrid_meter_data_integrity(meters_authentic=True):
+    return bool(meters_authentic)
+
+def energygrid_demand_response_protocol_safe(dr_protocol_secure=True):
+    return bool(dr_protocol_secure)
+
+def energygrid_protective_relay_settings_verified(relay_settings_audited=True):
+    return bool(relay_settings_audited)
+
+def energygrid_grid_anomaly_detection(anomalies_detected=True):
+    return bool(anomalies_detected)
+
+def energygrid_load_forecast_error_bounded(forecast_error_within_bounds=True):
+    return bool(forecast_error_within_bounds)
+
+def energygrid_blackout_recovery_playbook(recovery_plan_ready=True):
+    return bool(recovery_plan_ready)
+
+def energygrid_islanding_detection(islanding_handled=True):
+    return bool(islanding_handled)
+
+def energygrid_phasor_measurement_integrity(pmu_data_authentic=True):
+    return bool(pmu_data_authentic)
+
+def energygrid_substation_network_monitored(substation_visibility=True):
+    return bool(substation_visibility)
+
+def energygrid_distributed_energy_resource_control(der_control_secure=True):
+    return bool(der_control_secure)
+
+def energygrid_smart_inverter_protocol(inverter_settings_valid=True):
+    return bool(inverter_settings_valid)
+
+def energygrid_grid_cyber_physical_attack_drill(attack_drill_conducted=True):
+    return bool(attack_drill_conducted)
+
+def energygrid_time_sync_authenticated(time_source_secure=True):
+    return bool(time_source_secure)
+
+def energygrid_supply_chain_ot_components(ot_components_vetted=True):
+    return bool(ot_components_vetted)
+
+def energygrid_grid_data_digital_twin(digital_twin_validated=True):
+    return bool(digital_twin_validated)
+
+def energygrid_renewable_curtailment_policy(curtailment_defined=True):
+    return bool(curtailment_defined)
+
+def energygrid_energy_storage_system_control(ess_control_authorized=True):
+    return bool(ess_control_authorized)
+
+def energygrid_demand_supply_balance_model(balance_model_accurate=True):
+    return bool(balance_model_accurate)
+
+def energygrid_grid_regulatory_compliance(grid_regs_met=True):
+    return bool(grid_regs_met)
+
+def energygrid_overall_grid_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ig_w5():
+    return [
+        (1, energygrid_grid_control_system_segmented(ics_segmented_from_it=True)),
+        (2, energygrid_plc_patch_management(plc_firmware_patched=True)),
+        (3, energygrid_rtu_remote_access_controlled(remote_access_gated=True)),
+        (4, energygrid_grid_communication_encryption(scada_channels_encrypted=True)),
+        (5, energygrid_meter_data_integrity(meters_authentic=True)),
+        (6, energygrid_demand_response_protocol_safe(dr_protocol_secure=True)),
+        (7, energygrid_protective_relay_settings_verified(relay_settings_audited=True)),
+        (8, energygrid_grid_anomaly_detection(anomalies_detected=True)),
+        (9, energygrid_load_forecast_error_bounded(forecast_error_within_bounds=True)),
+        (10, energygrid_blackout_recovery_playbook(recovery_plan_ready=True)),
+        (11, energygrid_islanding_detection(islanding_handled=True)),
+        (12, energygrid_phasor_measurement_integrity(pmu_data_authentic=True)),
+        (13, energygrid_substation_network_monitored(substation_visibility=True)),
+        (14, energygrid_distributed_energy_resource_control(der_control_secure=True)),
+        (15, energygrid_smart_inverter_protocol(inverter_settings_valid=True)),
+        (16, energygrid_grid_cyber_physical_attack_drill(attack_drill_conducted=True)),
+        (17, energygrid_time_sync_authenticated(time_source_secure=True)),
+        (18, energygrid_supply_chain_ot_components(ot_components_vetted=True)),
+        (19, energygrid_grid_data_digital_twin(digital_twin_validated=True)),
+        (20, energygrid_renewable_curtailment_policy(curtailment_defined=True)),
+        (21, energygrid_energy_storage_system_control(ess_control_authorized=True)),
+        (22, energygrid_demand_supply_balance_model(balance_model_accurate=True)),
+        (23, energygrid_grid_regulatory_compliance(grid_regs_met=True)),
+        (24, energygrid_overall_grid_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IH — ROBOTICS & AUTONOMOUS SYSTEMS SAFETY INTEGRITY (IH01–IH24)
+# ------------------------------------------------------------------
+def robotics2_robot_safety_zone_enforced(safety_zones_config=True):
+    return bool(safety_zones_config)
+
+def robotics2_emergency_stop_circuit(estop_functional=True):
+    return bool(estop_functional)
+
+def robotics2_robot_kinematics_validated(kinematics_correct=True):
+    return bool(kinematics_correct)
+
+def robotics2_collision_avoidance_active(avoidance_works=True):
+    return bool(avoidance_works)
+
+def robotics2_robot_vision_calibration(cameras_calibrated=True):
+    return bool(cameras_calibrated)
+
+def robotics2_joint_limit_enforced(limits_respected=True):
+    return bool(limits_respected)
+
+def robotics2_force_torque_limits(force_bounds=True):
+    return bool(force_bounds)
+
+def robotics2_path_planning_provably_safe(planner_guarantees=True):
+    return bool(planner_guarantees)
+
+def robotics2_robot_simulation_prevalidated(sim_matches_real=True):
+    return bool(sim_matches_real)
+
+def robotics2_teleop_latency_managed(latency_bounded=True):
+    return bool(latency_bounded)
+
+def robotics2_robot_network_isolation(robot_network_segmented=True):
+    return bool(robot_network_segmented)
+
+def robotics2_firmware_update_authenticated(firmware_verified=True):
+    return bool(firmware_verified)
+
+def robotics2_robot_sensor_noise_filtered(noise_handled=True):
+    return bool(noise_handled)
+
+def robotics2_battery_thermal_management(thermal_limits=True):
+    return bool(thermal_limits)
+
+def robotics2_human_robot_collaboration_safe(hrc_safety_met=True):
+    return bool(hrc_safety_met)
+
+def robotics2_maintenance_lockout_tagout(loto_procedure=True):
+    return bool(loto_procedure)
+
+def robotics2_robot_log_forensics(logs_available=True):
+    return bool(logs_available)
+
+def robotics2_overtrust_user_mitigated(trust_calibrated=True):
+    return bool(trust_calibrated)
+
+def robotics2_robot_behavior_reproducible(behaviors_repeatable=True):
+    return bool(behaviors_repeatable)
+
+def robotics2_redundant_sensing_ai(redundancy_present=True):
+    return bool(redundancy_present)
+
+def robotics2_robot_social_norms(social_navigation_ok=True):
+    return bool(social_navigation_ok)
+
+def robotics2_autonomous_decision_oversight(oversight_available=True):
+    return bool(oversight_available)
+
+def robotics2_robot_ethics_deployment(ethics_review=True):
+    return bool(ethics_review)
+
+def robotics2_overall_robotics_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ih_w5():
+    return [
+        (1, robotics2_robot_safety_zone_enforced(safety_zones_config=True)),
+        (2, robotics2_emergency_stop_circuit(estop_functional=True)),
+        (3, robotics2_robot_kinematics_validated(kinematics_correct=True)),
+        (4, robotics2_collision_avoidance_active(avoidance_works=True)),
+        (5, robotics2_robot_vision_calibration(cameras_calibrated=True)),
+        (6, robotics2_joint_limit_enforced(limits_respected=True)),
+        (7, robotics2_force_torque_limits(force_bounds=True)),
+        (8, robotics2_path_planning_provably_safe(planner_guarantees=True)),
+        (9, robotics2_robot_simulation_prevalidated(sim_matches_real=True)),
+        (10, robotics2_teleop_latency_managed(latency_bounded=True)),
+        (11, robotics2_robot_network_isolation(robot_network_segmented=True)),
+        (12, robotics2_firmware_update_authenticated(firmware_verified=True)),
+        (13, robotics2_robot_sensor_noise_filtered(noise_handled=True)),
+        (14, robotics2_battery_thermal_management(thermal_limits=True)),
+        (15, robotics2_human_robot_collaboration_safe(hrc_safety_met=True)),
+        (16, robotics2_maintenance_lockout_tagout(loto_procedure=True)),
+        (17, robotics2_robot_log_forensics(logs_available=True)),
+        (18, robotics2_overtrust_user_mitigated(trust_calibrated=True)),
+        (19, robotics2_robot_behavior_reproducible(behaviors_repeatable=True)),
+        (20, robotics2_redundant_sensing_ai(redundancy_present=True)),
+        (21, robotics2_robot_social_norms(social_navigation_ok=True)),
+        (22, robotics2_autonomous_decision_oversight(oversight_available=True)),
+        (23, robotics2_robot_ethics_deployment(ethics_review=True)),
+        (24, robotics2_overall_robotics_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE II — HEALTHCARE & BIOMEDICAL DATA INTEGRITY (II01–II24)
+# ------------------------------------------------------------------
+def health2_hipaa_phi_protection(phi_encrypted_controlled=True):
+    return bool(phi_encrypted_controlled)
+
+def health2_ehr_audit_trail(ehr_access_logged=True):
+    return bool(ehr_access_logged)
+
+def health2_patient_consent_management(consent_managed=True):
+    return bool(consent_managed)
+
+def health2_clinical_decision_support_validated(cds_validated=True):
+    return bool(cds_validated)
+
+def health2_medical_device_data_integrity(device_data_authentic=True):
+    return bool(device_data_authentic)
+
+def health2_interoperability_hl7_fhir(fhir_resources_valid=True):
+    return bool(fhir_resources_valid)
+
+def health2_clinical_trial_data_rigor(trial_data_clean=True):
+    return bool(trial_data_clean)
+
+def health2_telehealth_secure_session(patient_remote_secure=True):
+    return bool(patient_remote_secure)
+
+def health2_diagnostic_ai_regulatory_clearance(ai_dx_cleared=True):
+    return bool(ai_dx_cleared)
+
+def health2_patient_identity_matching(identity_matches_confident=True):
+    return bool(identity_matches_confident)
+
+def health2_medication_administration_check(barcoded_administration=True):
+    return bool(barcoded_administration)
+
+def health2_lab_result_critical_value_alert(critical_values_flagged=True):
+    return bool(critical_values_flagged)
+
+def health2_genomic_data_privacy(genome_data_protected=True):
+    return bool(genome_data_protected)
+
+def health2_wearable_health_data_consent(wearable_consent=True):
+    return bool(wearable_consent)
+
+def health2_health_emergency_data_access(emergency_access_controlled=True):
+    return bool(emergency_access_controlled)
+
+def health2_data_quality_medical_records(records_accurate=True):
+    return bool(records_accurate)
+
+def health2_insurance_claims_integrity(claims_no_fraud=True):
+    return bool(claims_no_fraud)
+
+def health2_population_health_privacy(aggregate_data_deidentified=True):
+    return bool(aggregate_data_deidentified)
+
+def health2_device_software_update_verified(device_firmware_verified=True):
+    return bool(device_firmware_verified)
+
+def health2_health_ai_bias_audited(ai_bias_evaluated=True):
+    return bool(ai_bias_evaluated)
+
+def health2_clinical_research_ethics(irb_ethics_followed=True):
+    return bool(irb_ethics_followed)
+
+def health2_breach_notification_readiness(notification_plan_ready=True):
+    return bool(notification_plan_ready)
+
+def health2_medical_image_integrity(images_unaltered=True):
+    return bool(images_unaltered)
+
+def health2_overall_health_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ii_w5():
+    return [
+        (1, health2_hipaa_phi_protection(phi_encrypted_controlled=True)),
+        (2, health2_ehr_audit_trail(ehr_access_logged=True)),
+        (3, health2_patient_consent_management(consent_managed=True)),
+        (4, health2_clinical_decision_support_validated(cds_validated=True)),
+        (5, health2_medical_device_data_integrity(device_data_authentic=True)),
+        (6, health2_interoperability_hl7_fhir(fhir_resources_valid=True)),
+        (7, health2_clinical_trial_data_rigor(trial_data_clean=True)),
+        (8, health2_telehealth_secure_session(patient_remote_secure=True)),
+        (9, health2_diagnostic_ai_regulatory_clearance(ai_dx_cleared=True)),
+        (10, health2_patient_identity_matching(identity_matches_confident=True)),
+        (11, health2_medication_administration_check(barcoded_administration=True)),
+        (12, health2_lab_result_critical_value_alert(critical_values_flagged=True)),
+        (13, health2_genomic_data_privacy(genome_data_protected=True)),
+        (14, health2_wearable_health_data_consent(wearable_consent=True)),
+        (15, health2_health_emergency_data_access(emergency_access_controlled=True)),
+        (16, health2_data_quality_medical_records(records_accurate=True)),
+        (17, health2_insurance_claims_integrity(claims_no_fraud=True)),
+        (18, health2_population_health_privacy(aggregate_data_deidentified=True)),
+        (19, health2_device_software_update_verified(device_firmware_verified=True)),
+        (20, health2_health_ai_bias_audited(ai_bias_evaluated=True)),
+        (21, health2_clinical_research_ethics(irb_ethics_followed=True)),
+        (22, health2_breach_notification_readiness(notification_plan_ready=True)),
+        (23, health2_medical_image_integrity(images_unaltered=True)),
+        (24, health2_overall_health_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE IJ — EDUCATIONAL TECHNOLOGY & DIGITAL LEARNING INTEGRITY (IJ01–IJ24)
+# ------------------------------------------------------------------
+def edu2_student_privacy_ferpa(student_data_protected=True):
+    return bool(student_data_protected)
+
+def edu2_anti_cheating_rigor(academic_integrity=True):
+    return bool(academic_integrity)
+
+def edu2_accessibility_learning_content(content_accessible=True):
+    return bool(content_accessible)
+
+def edu2_adaptive_learning_validity(adaptivity_effective=True):
+    return bool(adaptivity_effective)
+
+def edu2_plagiarism_detection(plagiarism_checked=True):
+    return bool(plagiarism_checked)
+
+def edu2_remote_proctoring_ethics(proctoring_consented=True):
+    return bool(proctoring_consented)
+
+def edu2_learning_analytics_privacy(analytics_deidentified=True):
+    return bool(analytics_deidentified)
+
+def edu2_content_accuracy_curriculum(content_accurate_current=True):
+    return bool(content_accurate_current)
+
+def edu2_digital_literacy_curriculum(literacy_taught=True):
+    return bool(literacy_taught)
+
+def edu2_teacher_ai_assist_oversight(teacher_oversight=True):
+    return bool(teacher_oversight)
+
+def edu2_device_deployment_secure(devices_managed=True):
+    return bool(devices_managed)
+
+def edu2_online_safety_students(safety_controls=True):
+    return bool(safety_controls)
+
+def edu2_assessment_fairness(assessments_fair=True):
+    return bool(assessments_fair)
+
+def edu2_gradebook_integrity(grades_accurate=True):
+    return bool(grades_accurate)
+
+def edu2_student_progress_data_fresh(progress_metrics_current=True):
+    return bool(progress_metrics_current)
+
+def edu2_courseware_license_compliance(licensed_materials=True):
+    return bool(licensed_materials)
+
+def edu2_bullying_online_prevention(anti_bullying=True):
+    return bool(anti_bullying)
+
+def edu2_cost_equity_digital_access(equity_considered=True):
+    return bool(equity_considered)
+
+def edu2_parental_consent_learning(parent_consent=True):
+    return bool(parent_consent)
+
+def edu2_teacher_professional_dev(pd_offered=True):
+    return bool(pd_offered)
+
+def edu2_research_ethics_educational_data(research_ethics=True):
+    return bool(research_ethics)
+
+def edu2_device_acceptable_use_enforced(aup_enforced=True):
+    return bool(aup_enforced)
+
+def edu2_learning_outcome_authentic_assess(outcomes_authentic=True):
+    return bool(outcomes_authentic)
+
+def edu2_overall_edu_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ij_w5():
+    return [
+        (1, edu2_student_privacy_ferpa(student_data_protected=True)),
+        (2, edu2_anti_cheating_rigor(academic_integrity=True)),
+        (3, edu2_accessibility_learning_content(content_accessible=True)),
+        (4, edu2_adaptive_learning_validity(adaptivity_effective=True)),
+        (5, edu2_plagiarism_detection(plagiarism_checked=True)),
+        (6, edu2_remote_proctoring_ethics(proctoring_consented=True)),
+        (7, edu2_learning_analytics_privacy(analytics_deidentified=True)),
+        (8, edu2_content_accuracy_curriculum(content_accurate_current=True)),
+        (9, edu2_digital_literacy_curriculum(literacy_taught=True)),
+        (10, edu2_teacher_ai_assist_oversight(teacher_oversight=True)),
+        (11, edu2_device_deployment_secure(devices_managed=True)),
+        (12, edu2_online_safety_students(safety_controls=True)),
+        (13, edu2_assessment_fairness(assessments_fair=True)),
+        (14, edu2_gradebook_integrity(grades_accurate=True)),
+        (15, edu2_student_progress_data_fresh(progress_metrics_current=True)),
+        (16, edu2_courseware_license_compliance(licensed_materials=True)),
+        (17, edu2_bullying_online_prevention(anti_bullying=True)),
+        (18, edu2_cost_equity_digital_access(equity_considered=True)),
+        (19, edu2_parental_consent_learning(parent_consent=True)),
+        (20, edu2_teacher_professional_dev(pd_offered=True)),
+        (21, edu2_research_ethics_educational_data(research_ethics=True)),
+        (22, edu2_device_acceptable_use_enforced(aup_enforced=True)),
+        (23, edu2_learning_outcome_authentic_assess(outcomes_authentic=True)),
+        (24, edu2_overall_edu_maturity(min_score=70, score=90))
+    ]

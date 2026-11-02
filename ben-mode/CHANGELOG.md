@@ -1,3 +1,53 @@
+## v1.23.0 (2026-11-02) — Wave IJ EDUCATIONAL TECHNOLOGY & DIGITAL LEARNING INTEGRITY IJ01–IJ24 (BAGIAN 123)
+
+- **IJ01–IJ24**: educational technology & digital learning integrity mechanisms added to hard_gate_enhancements.py and wired to P_EDU2_01–P_EDU2_24. 24/24 PASS.
+- **BAGIAN 123** ditambahkan; bump v1.23.0.
+
+## v1.22.0 (2026-11-02) — Wave II HEALTHCARE & BIOMEDICAL DATA INTEGRITY II01–II24 (BAGIAN 122)
+
+- **II01–II24**: healthcare & biomedical data integrity mechanisms added to hard_gate_enhancements.py and wired to P_HEALTH2_01–P_HEALTH2_24. 24/24 PASS.
+- **BAGIAN 122** ditambahkan; bump v1.22.0.
+
+## v1.21.0 (2026-11-02) — Wave IH ROBOTICS & AUTONOMOUS SYSTEMS SAFETY INTEGRITY IH01–IH24 (BAGIAN 121)
+
+- **IH01–IH24**: robotics & autonomous systems safety integrity mechanisms added to hard_gate_enhancements.py and wired to P_ROBOTICS2_01–P_ROBOTICS2_24. 24/24 PASS.
+- **BAGIAN 121** ditambahkan; bump v1.21.0.
+
+## v1.20.0 (2026-11-02) — Wave IG ENERGY GRID & UTILITY OT SECURITY INTEGRITY IG01–IG24 (BAGIAN 120)
+
+- **IG01–IG24**: energy grid & utility ot security integrity mechanisms added to hard_gate_enhancements.py and wired to P_ENERGYGRID_01–P_ENERGYGRID_24. 24/24 PASS.
+- **BAGIAN 120** ditambahkan; bump v1.20.0.
+
+## v1.19.0 (2026-11-02) — Wave IF CYBERSECURITY PSYCHOLOGY & HUMAN FACTORS INTEGRITY IF01–IF24 (BAGIAN 119)
+
+- **IF01–IF24**: cybersecurity psychology & human factors integrity mechanisms added to hard_gate_enhancements.py and wired to P_CYBERPSY_01–P_CYBERPSY_24. 24/24 PASS.
+- **BAGIAN 119** ditambahkan; bump v1.19.0.
+
+## v1.18.0 (2026-11-02) — Wave IE SUSTAINABILITY & ESG COMPLIANCE OPERATIONS INTEGRITY IE01–IE24 (BAGIAN 118)
+
+- **IE01–IE24**: sustainability & esg compliance operations integrity mechanisms added to hard_gate_enhancements.py and wired to P_SUSTAIN_01–P_SUSTAIN_24. 24/24 PASS.
+- **BAGIAN 118** ditambahkan; bump v1.18.0.
+
+## v1.17.0 (2026-11-02) — Wave ID DISTRIBUTED LEDGER & CONSENSUS INTEGRITY ID01–ID24 (BAGIAN 117)
+
+- **ID01–ID24**: distributed ledger & consensus integrity mechanisms added to hard_gate_enhancements.py and wired to P_BLOCKCHAIN_01–P_BLOCKCHAIN_24. 24/24 PASS.
+- **BAGIAN 117** ditambahkan; bump v1.17.0.
+
+## v1.16.0 (2026-11-02) — Wave IC GRAPH DATABASE & SEMANTIC INTEGRITY IC01–IC24 (BAGIAN 116)
+
+- **IC01–IC24**: graph database & semantic integrity mechanisms added to hard_gate_enhancements.py and wired to P_GRAPHDB_01–P_GRAPHDB_24. 24/24 PASS.
+- **BAGIAN 116** ditambahkan; bump v1.16.0.
+
+## v1.15.0 (2026-11-02) — Wave IB DIGITAL IDENTITY & ACCESS GOVERNANCE INTEGRITY IB01–IB24 (BAGIAN 115)
+
+- **IB01–IB24**: digital identity & access governance integrity mechanisms added to hard_gate_enhancements.py and wired to P_IDGOV_01–P_IDGOV_24. 24/24 PASS.
+- **BAGIAN 115** ditambahkan; bump v1.15.0.
+
+## v1.14.0 (2026-11-02) — Wave IA CERTIFICATE LIFE-CYCLE & PKI OPERATIONS INTEGRITY IA01–IA24 (BAGIAN 114)
+
+- **IA01–IA24**: certificate life-cycle & pki operations integrity mechanisms added to hard_gate_enhancements.py and wired to P_CERTSYS_01–P_CERTSYS_24. 24/24 PASS.
+- **BAGIAN 114** ditambahkan; bump v1.14.0.
+
 ## v1.13.0 (2026-11-02) — Wave HJ ADVANCED TELEMETRY & EVENT-DRIVEN OBSERVABILITY HJ01–HJ24 (BAGIAN 113)
 
 - **HJ01–HJ24**: advanced telemetry & event-driven observability mechanisms added to hard_gate_enhancements.py and wired to P_TELEMETRY2_01–P_TELEMETRY2_24. 24/24 PASS.

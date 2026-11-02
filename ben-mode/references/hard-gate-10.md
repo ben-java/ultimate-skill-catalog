@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.13.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.23.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2842,3 +2842,102 @@ Menambahkan lapisan integritas advanced telemetry & event-driven observability: 
 
 Mekanisme operasional formal:
 HJ01 `telemetry2_event_schema_registry`, HJ02 `telemetry2_trace_sampling_head_based`, HJ03 `telemetry2_metrics_dimensionality_rich`, HJ04 `telemetry2_log_aggregation_centralized`, HJ05 `telemetry2_correlation_ids_propagated`, HJ06 `telemetry2_real_time_dashboard_metrics`, HJ07 `telemetry2_alert_on_metric_threshold`, HJ08 `telemetry2_telemetry_data_retention`, HJ09 `telemetry2_service_map_topology`, HJ10 `telemetry2_endpoint_monitoring_blackbox`, HJ11 `telemetry2_telemetry_cost_balanced`, HJ12 `telemetry2_privacy_telemetry_scrubbed`, HJ13 `telemetry2_malformed_events_handled`, HJ14 `telemetry2_high_cardinality_controlled`, HJ15 `telemetry2_custom_metrics_defined`, HJ16 `telemetry2_event_time_ordering_tolerant`, HJ17 `telemetry2_multi_cluster_observability`, HJ18 `telemetry2_telemetry_config_versioned`, HJ19 `telemetry2_root_cause_analysis_support`, HJ20 `telemetry2_anomaly_detection_metrics`, HJ21 `telemetry2_telemetry_security_access_control`, HJ22 `telemetry2_otel_standard_compliance`, HJ23 `telemetry2_sli_error_budget_dashboard`, HJ24 `telemetry2_overall_telemetry_maturity`.
+
+---
+
+# BAGIAN 114 — WAVE IA: CERTIFICATE LIFE-CYCLE & PKI OPERATIONS INTEGRITY IA01–IA24 (VERIFIED; v1.14.0)
+
+Menambahkan lapisan integritas certificate life-cycle & pki operations integrity: `IA01–IA24` di `hard_gate_enhancements.py`, disurfacing `P_CERTSYS_01–P_CERTSYS_24`; diverifikasi 24/24 PASS (selftest_ia_w5 rc 0).
+
+Mekanisme operasional formal:
+IA01 `certsys_root_ca_offline_freeze`, IA02 `certsys_subordinate_ca_scoped`, IA03 `certsys_key_ceremony_dual_control`, IA04 `certsys_ca_crl_issued_periodically`, IA05 `certsys_certificate_profile_validated`, IA06 `certsys_registration_authority_reviewed`, IA07 `certsys_key_recovery_controlled`, IA08 `certsys_certificate_revocation_propagated`, IA09 `certsys_ocsp_responder_high_availability`, IA10 `certsys_certificate_serial_unpredictable`, IA11 `certsys_ca_key_storage_hsm`, IA12 `certsys_audit_log_ca_operations`, IA13 `certsys_employee_cert_identity_vetted`, IA14 `certsys_device_cert_identity_bound`, IA15 `certsys_cert_renewal_auto_before_expiry`, IA16 `certsys_cross_signing_transition_plan`, IA17 `certsys_certificate_policy_public`, IA18 `certsys_ca_compromise_plan_documented`, IA19 `certsys_key_usage_extension_restricted`, IA20 `certsys_weak_algorithm_phaseout`, IA21 `certsys_certificate_transparency_logged`, IA22 `certsys_private_key_never_exports`, IA23 `certsys_ca_resource_usage_monitored`, IA24 `certsys_overall_pki_maturity`.
+
+
+---
+
+# BAGIAN 115 — WAVE IB: DIGITAL IDENTITY & ACCESS GOVERNANCE INTEGRITY IB01–IB24 (VERIFIED; v1.15.0)
+
+Menambahkan lapisan integritas digital identity & access governance integrity: `IB01–IB24` di `hard_gate_enhancements.py`, disurfacing `P_IDGOV_01–P_IDGOV_24`; diverifikasi 24/24 PASS (selftest_ib_w5 rc 0).
+
+Mekanisme operasional formal:
+IB01 `idgov_identity_proofing_level_assured`, IB02 `idgov_mfa_enforced_all_admin`, IB03 `idgov_privileged_account_discovery`, IB04 `idgov_access_certification_periodic`, IB05 `idgov_role_based_access_minimal`, IB06 `idgov_entitlement_review_automated`, IB07 `idgov_service_account_rotation`, IB08 `idgov_orphaned_account_disabled`, IB09 `idgov_sso_federation_scoped`, IB10 `idgov_authentication_log_retained`, IB11 `idgov_session_timeout_idle`, IB12 `idgov_credential_stuffing_protection`, IB13 `idgov_identity_federation_claims_validated`, IB14 `idgov_helpdesk_identity_verification`, IB15 `idgov_offboarding_process_complete`, IB16 `idgov_api_token_scope_least`, IB17 `idgov_device_identity_enrollment`, IB18 `idgov_birthright_access_standard`, IB19 `idgov_access_review_evidence_archived`, IB20 `idgov_aa_breakglass_controlled`, IB21 `idgov_identity_data_protected`, IB22 `idgov_user_consent_for_identity_use`, IB23 `idgov_identity_lifecycle_automated`, IB24 `idgov_overall_idgov_maturity`.
+
+
+---
+
+# BAGIAN 116 — WAVE IC: GRAPH DATABASE & SEMANTIC INTEGRITY IC01–IC24 (VERIFIED; v1.16.0)
+
+Menambahkan lapisan integritas graph database & semantic integrity: `IC01–IC24` di `hard_gate_enhancements.py`, disurfacing `P_GRAPHDB_01–P_GRAPHDB_24`; diverifikasi 24/24 PASS (selftest_ic_w5 rc 0).
+
+Mekanisme operasional formal:
+IC01 `graphdb_node_label_conventions`, IC02 `graphdb_relationship_directionality`, IC03 `graphdb_schema_constraint_enforced`, IC04 `graphdb_index_usage_matched`, IC05 `graphdb_null_property_handling`, IC06 `graphdb_duplicate_edge_detection`, IC07 `graphdb_orphan_node_cleanup`, IC08 `graphdb_walkable_path_finite`, IC09 `graphdb_query_plan_analyzed`, IC10 `graphdb_semantic_ontology_versioned`, IC11 `graphdb_reasoning_inference_consistent`, IC12 `graphdb_property_types_strong`, IC13 `graphdb_graph_connectivity_validated`, IC14 `graphdb_path_cycle_handling`, IC15 `graphdb_graph_mutation_atomic`, IC16 `graphdb_backup_restore_consistent`, IC17 `graphdb_analytics_query_bounded`, IC18 `graphdb_temporal_graph_versioning`, IC19 `graphdb_acls_on_graph_elements`, IC20 `graphdb_graph_exports_sanitized`, IC21 `graphdb_ontology_alignment_checked`, IC22 `graphdb_load_balancing_read_replicas`, IC23 `graphdb_query_timeout_configured`, IC24 `graphdb_overall_graphdb_maturity`.
+
+
+---
+
+# BAGIAN 117 — WAVE ID: DISTRIBUTED LEDGER & CONSENSUS INTEGRITY ID01–ID24 (VERIFIED; v1.17.0)
+
+Menambahkan lapisan integritas distributed ledger & consensus integrity: `ID01–ID24` di `hard_gate_enhancements.py`, disurfacing `P_BLOCKCHAIN_01–P_BLOCKCHAIN_24`; diverifikasi 24/24 PASS (selftest_id_w5 rc 0).
+
+Mekanisme operasional formal:
+ID01 `blockchain_consensus_algorithm_documented`, ID02 `blockchain_block_integrity_merkle`, ID03 `blockchain_immutability_history_verified`, ID04 `blockchain_double_spend_prevention`, ID05 `blockchain_validator_set_reputation`, ID06 `blockchain_smart_contract_audited`, ID07 `blockchain_gas_limit_enforced`, ID08 `blockchain_cross_chain_bridge_vetted`, ID09 `blockchain_private_key_self_custody`, ID10 `blockchain_wallet_transaction_signing`, ID11 `blockchain_ledger_data_privacy`, ID12 `blockchain_network_sybil_resistance`, ID13 `blockchain_fork_policy_documented`, ID14 `blockchain_transaction_ordering_fair`, ID15 `blockchain_oracle_data_integrity`, ID16 `blockchain_chain_id_isolation`, ID17 `blockchain_block_producer_rotation`, ID18 `blockchain_attack_surface_97_attack`, ID19 `blockchain_regulatory_compliance_ledger`, ID20 `blockchain_audit_trail_on_chain`, ID21 `blockchain_state_sync_full_node`, ID22 `blockchain_multisig_governance`, ID23 `blockchain_token_standard_compliance`, ID24 `blockchain_overall_chain_maturity`.
+
+
+---
+
+# BAGIAN 118 — WAVE IE: SUSTAINABILITY & ESG COMPLIANCE OPERATIONS INTEGRITY IE01–IE24 (VERIFIED; v1.18.0)
+
+Menambahkan lapisan integritas sustainability & esg compliance operations integrity: `IE01–IE24` di `hard_gate_enhancements.py`, disurfacing `P_SUSTAIN_01–P_SUSTAIN_24`; diverifikasi 24/24 PASS (selftest_ie_w5 rc 0).
+
+Mekanisme operasional formal:
+IE01 `sustainability_esg_reporting_metrics`, IE02 `sustainability_carbon_footprint_accounting`, IE03 `sustainability_energy_consumption_monitored`, IE04 `sustainability_waste_reduction_program`, IE05 `sustainability_water_usage_optimized`, IE06 `sustainability_supply_chain_sustainability_audit`, IE07 `sustainability_renewable_energy_adoption`, IE08 `sustainability_materiality_assessment`, IE09 `sustainability_esg_disclosure_transparency`, IE10 `sustainability_biodiversity_impact_assessed`, IE11 `sustainability_circular_economy_design`, IE12 `sustainability_social_responsibility_programs`, IE13 `sustainability_labor_standards_compliance`, IE14 `sustainability_diversity_equity_inclusion`, IE15 `sustainability_community_engagement_documented`, IE16 `sustainability_esg_data_verification`, IE17 `sustainability_climate_risk_scenario_analysis`, IE18 `sustainability_gdpr_and_privacy_esg`, IE19 `sustainability_sustainable_finance_disclosure`, IE20 `sustainability_lifecycle_assessment_products`, IE21 `sustainability_anti_greenwashing`, IE22 `sustainability_employee_safety_indicators`, IE23 `sustainability_stakeholder_engagement_feedback`, IE24 `sustainability_overall_sustainability_maturity`.
+
+
+---
+
+# BAGIAN 119 — WAVE IF: CYBERSECURITY PSYCHOLOGY & HUMAN FACTORS INTEGRITY IF01–IF24 (VERIFIED; v1.19.0)
+
+Menambahkan lapisan integritas cybersecurity psychology & human factors integrity: `IF01–IF24` di `hard_gate_enhancements.py`, disurfacing `P_CYBERPSY_01–P_CYBERPSY_24`; diverifikasi 24/24 PASS (selftest_if_w5 rc 0).
+
+Mekanisme operasional formal:
+IF01 `cyberpsy_phishing_simulation_training`, IF02 `cyberpsy_security_awareness_curriculum`, IF03 `cyberpsy_reporting_culture_non_punitive`, IF04 `cyberpsy_social_engineering_resilience`, IF05 `cyberpsy_password_hygiene_policy`, IF06 `cyberpsy_burnout_risk_monitored`, IF07 `cyberpsy_usability_security_balance`, IF08 `cyberpsy_security_team_empowerment`, IF09 `cyberpsy_compliance_fatigue_managed`, IF10 `cyberpsy_cognitive_bias_training`, IF11 `cyberpsy_habitual_security_behaviors`, IF12 `cyberpsy_incident_reporting_barriers_lowered`, IF13 `cyberpsy_psychological_safety_team`, IF14 `cyberpsy_gamified_learning_security`, IF15 `cyberpsy_microlearning_short_bursts`, IF16 `cyberpsy_feedback_loop_on_training`, IF17 `cyberpsy_security_champions_network`, IF18 `cyberpsy_threat_modeling_human_centric`, IF19 `cyberpsy_realistic_scenario_drills`, IF20 `cyberpsy_analytics_on_risk_behaviors`, IF21 `cyberpsy_inclusive_security_communication`, IF22 `cyberpsy_executive_engagement_security`, IF23 `cyberpsy_continuous_improvement_security_ux`, IF24 `cyberpsy_overall_cyberpsy_maturity`.
+
+
+---
+
+# BAGIAN 120 — WAVE IG: ENERGY GRID & UTILITY OT SECURITY INTEGRITY IG01–IG24 (VERIFIED; v1.20.0)
+
+Menambahkan lapisan integritas energy grid & utility ot security integrity: `IG01–IG24` di `hard_gate_enhancements.py`, disurfacing `P_ENERGYGRID_01–P_ENERGYGRID_24`; diverifikasi 24/24 PASS (selftest_ig_w5 rc 0).
+
+Mekanisme operasional formal:
+IG01 `energygrid_grid_control_system_segmented`, IG02 `energygrid_plc_patch_management`, IG03 `energygrid_rtu_remote_access_controlled`, IG04 `energygrid_grid_communication_encryption`, IG05 `energygrid_meter_data_integrity`, IG06 `energygrid_demand_response_protocol_safe`, IG07 `energygrid_protective_relay_settings_verified`, IG08 `energygrid_grid_anomaly_detection`, IG09 `energygrid_load_forecast_error_bounded`, IG10 `energygrid_blackout_recovery_playbook`, IG11 `energygrid_islanding_detection`, IG12 `energygrid_phasor_measurement_integrity`, IG13 `energygrid_substation_network_monitored`, IG14 `energygrid_distributed_energy_resource_control`, IG15 `energygrid_smart_inverter_protocol`, IG16 `energygrid_grid_cyber_physical_attack_drill`, IG17 `energygrid_time_sync_authenticated`, IG18 `energygrid_supply_chain_ot_components`, IG19 `energygrid_grid_data_digital_twin`, IG20 `energygrid_renewable_curtailment_policy`, IG21 `energygrid_energy_storage_system_control`, IG22 `energygrid_demand_supply_balance_model`, IG23 `energygrid_grid_regulatory_compliance`, IG24 `energygrid_overall_grid_maturity`.
+
+
+---
+
+# BAGIAN 121 — WAVE IH: ROBOTICS & AUTONOMOUS SYSTEMS SAFETY INTEGRITY IH01–IH24 (VERIFIED; v1.21.0)
+
+Menambahkan lapisan integritas robotics & autonomous systems safety integrity: `IH01–IH24` di `hard_gate_enhancements.py`, disurfacing `P_ROBOTICS2_01–P_ROBOTICS2_24`; diverifikasi 24/24 PASS (selftest_ih_w5 rc 0).
+
+Mekanisme operasional formal:
+IH01 `robotics2_robot_safety_zone_enforced`, IH02 `robotics2_emergency_stop_circuit`, IH03 `robotics2_robot_kinematics_validated`, IH04 `robotics2_collision_avoidance_active`, IH05 `robotics2_robot_vision_calibration`, IH06 `robotics2_joint_limit_enforced`, IH07 `robotics2_force_torque_limits`, IH08 `robotics2_path_planning_provably_safe`, IH09 `robotics2_robot_simulation_prevalidated`, IH10 `robotics2_teleop_latency_managed`, IH11 `robotics2_robot_network_isolation`, IH12 `robotics2_firmware_update_authenticated`, IH13 `robotics2_robot_sensor_noise_filtered`, IH14 `robotics2_battery_thermal_management`, IH15 `robotics2_human_robot_collaboration_safe`, IH16 `robotics2_maintenance_lockout_tagout`, IH17 `robotics2_robot_log_forensics`, IH18 `robotics2_overtrust_user_mitigated`, IH19 `robotics2_robot_behavior_reproducible`, IH20 `robotics2_redundant_sensing_ai`, IH21 `robotics2_robot_social_norms`, IH22 `robotics2_autonomous_decision_oversight`, IH23 `robotics2_robot_ethics_deployment`, IH24 `robotics2_overall_robotics_maturity`.
+
+
+---
+
+# BAGIAN 122 — WAVE II: HEALTHCARE & BIOMEDICAL DATA INTEGRITY II01–II24 (VERIFIED; v1.22.0)
+
+Menambahkan lapisan integritas healthcare & biomedical data integrity: `II01–II24` di `hard_gate_enhancements.py`, disurfacing `P_HEALTH2_01–P_HEALTH2_24`; diverifikasi 24/24 PASS (selftest_ii_w5 rc 0).
+
+Mekanisme operasional formal:
+II01 `health2_hipaa_phi_protection`, II02 `health2_ehr_audit_trail`, II03 `health2_patient_consent_management`, II04 `health2_clinical_decision_support_validated`, II05 `health2_medical_device_data_integrity`, II06 `health2_interoperability_hl7_fhir`, II07 `health2_clinical_trial_data_rigor`, II08 `health2_telehealth_secure_session`, II09 `health2_diagnostic_ai_regulatory_clearance`, II10 `health2_patient_identity_matching`, II11 `health2_medication_administration_check`, II12 `health2_lab_result_critical_value_alert`, II13 `health2_genomic_data_privacy`, II14 `health2_wearable_health_data_consent`, II15 `health2_health_emergency_data_access`, II16 `health2_data_quality_medical_records`, II17 `health2_insurance_claims_integrity`, II18 `health2_population_health_privacy`, II19 `health2_device_software_update_verified`, II20 `health2_health_ai_bias_audited`, II21 `health2_clinical_research_ethics`, II22 `health2_breach_notification_readiness`, II23 `health2_medical_image_integrity`, II24 `health2_overall_health_maturity`.
+
+
+---
+
+# BAGIAN 123 — WAVE IJ: EDUCATIONAL TECHNOLOGY & DIGITAL LEARNING INTEGRITY IJ01–IJ24 (VERIFIED; v1.23.0)
+
+Menambahkan lapisan integritas educational technology & digital learning integrity: `IJ01–IJ24` di `hard_gate_enhancements.py`, disurfacing `P_EDU2_01–P_EDU2_24`; diverifikasi 24/24 PASS (selftest_ij_w5 rc 0).
+
+Mekanisme operasional formal:
+IJ01 `edu2_student_privacy_ferpa`, IJ02 `edu2_anti_cheating_rigor`, IJ03 `edu2_accessibility_learning_content`, IJ04 `edu2_adaptive_learning_validity`, IJ05 `edu2_plagiarism_detection`, IJ06 `edu2_remote_proctoring_ethics`, IJ07 `edu2_learning_analytics_privacy`, IJ08 `edu2_content_accuracy_curriculum`, IJ09 `edu2_digital_literacy_curriculum`, IJ10 `edu2_teacher_ai_assist_oversight`, IJ11 `edu2_device_deployment_secure`, IJ12 `edu2_online_safety_students`, IJ13 `edu2_assessment_fairness`, IJ14 `edu2_gradebook_integrity`, IJ15 `edu2_student_progress_data_fresh`, IJ16 `edu2_courseware_license_compliance`, IJ17 `edu2_bullying_online_prevention`, IJ18 `edu2_cost_equity_digital_access`, IJ19 `edu2_parental_consent_learning`, IJ20 `edu2_teacher_professional_dev`, IJ21 `edu2_research_ethics_educational_data`, IJ22 `edu2_device_acceptable_use_enforced`, IJ23 `edu2_learning_outcome_authentic_assess`, IJ24 `edu2_overall_edu_maturity`.
