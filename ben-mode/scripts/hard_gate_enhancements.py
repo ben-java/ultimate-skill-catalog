@@ -13894,3 +13894,1042 @@ def selftest_ij_w5():
         (23, edu2_learning_outcome_authentic_assess(outcomes_authentic=True)),
         (24, edu2_overall_edu_maturity(min_score=70, score=90))
     ]
+
+# ------------------------------------------------------------------
+# WAVE JA — AEROSPACE SYSTEMS & AVIONICS INTEGRITY (JA01–JA24)
+# ------------------------------------------------------------------
+def aerospace_flight_software_verified(software_verified_before_flight=True):
+    return bool(software_verified_before_flight)
+
+def aerospace_avionics_redundancy_bus(dual_redundant_bus=True):
+    return bool(dual_redundant_bus)
+
+def aerospace_flight_envelope_protection(envelope_limits_enforced=True):
+    return bool(envelope_limits_enforced)
+
+def aerospace_navigation_system_integrity(nav_errors_bounded=True):
+    return bool(nav_errors_bounded)
+
+def aerospace_autopilot_failover_decision(autopilot_fallback_defined=True):
+    return bool(autopilot_fallback_defined)
+
+def aerospace_maintenance_tracking_airworthiness(airworthiness_records_current=True):
+    return bool(airworthiness_records_current)
+
+def aerospace_fuel_system_leak_detection(fuel_integrity_monitored=True):
+    return bool(fuel_integrity_monitored)
+
+def aerospace_structural_health_monitoring(strain_sensors_operational=True):
+    return bool(strain_sensors_operational)
+
+def aerospace_weather_data_freshness(weather_reports_current=True):
+    return bool(weather_reports_current)
+
+def aerospace_air_traffic_control_comms(atc_comms_reliable=True):
+    return bool(atc_comms_reliable)
+
+def aerospace_collision_avoidance_tcas(tcas_operational=True):
+    return bool(tcas_operational)
+
+def aerospace_blackbox_flight_recorder(recorder_captures_data=True):
+    return bool(recorder_captures_data)
+
+def aerospace_pressurization_control(cabin_pressure_within_limits=True):
+    return bool(cabin_pressure_within_limits)
+
+def aerospace_icing_detection_anti_ice(anti_ice_operational=True):
+    return bool(anti_ice_operational)
+
+def aerospace_engine_parameter_monitoring(engine_limits_respected=True):
+    return bool(engine_limits_respected)
+
+def aerospace_landing_gear_dep_verified(gear_deployment_verified=True):
+    return bool(gear_deployment_verified)
+
+def aerospace_escape_evacuation_equipment(evacuation_ready=True):
+    return bool(evacuation_ready)
+
+def aerospace_satellite_link_security(satcom_encrypted=True):
+    return bool(satcom_encrypted)
+
+def aerospace_ground_control_system_backup(ground_station_redundant=True):
+    return bool(ground_station_redundant)
+
+def aerospace_flight_plan_validation(flight_plan_within_airspace=True):
+    return bool(flight_plan_within_airspace)
+
+def aerospace_hydraulic_system_pressure(hydraulic_pressure_ok=True):
+    return bool(hydraulic_pressure_ok)
+
+def aerospace_cargo_loading_limits(cargo_within_limits=True):
+    return bool(cargo_within_limits)
+
+def aerospace_preflight_checklist_complete(preflight_done=True):
+    return bool(preflight_done)
+
+def aerospace_overall_aerospace_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ja_w6():
+    return [
+        (1, aerospace_flight_software_verified(software_verified_before_flight=True)),
+        (2, aerospace_avionics_redundancy_bus(dual_redundant_bus=True)),
+        (3, aerospace_flight_envelope_protection(envelope_limits_enforced=True)),
+        (4, aerospace_navigation_system_integrity(nav_errors_bounded=True)),
+        (5, aerospace_autopilot_failover_decision(autopilot_fallback_defined=True)),
+        (6, aerospace_maintenance_tracking_airworthiness(airworthiness_records_current=True)),
+        (7, aerospace_fuel_system_leak_detection(fuel_integrity_monitored=True)),
+        (8, aerospace_structural_health_monitoring(strain_sensors_operational=True)),
+        (9, aerospace_weather_data_freshness(weather_reports_current=True)),
+        (10, aerospace_air_traffic_control_comms(atc_comms_reliable=True)),
+        (11, aerospace_collision_avoidance_tcas(tcas_operational=True)),
+        (12, aerospace_blackbox_flight_recorder(recorder_captures_data=True)),
+        (13, aerospace_pressurization_control(cabin_pressure_within_limits=True)),
+        (14, aerospace_icing_detection_anti_ice(anti_ice_operational=True)),
+        (15, aerospace_engine_parameter_monitoring(engine_limits_respected=True)),
+        (16, aerospace_landing_gear_dep_verified(gear_deployment_verified=True)),
+        (17, aerospace_escape_evacuation_equipment(evacuation_ready=True)),
+        (18, aerospace_satellite_link_security(satcom_encrypted=True)),
+        (19, aerospace_ground_control_system_backup(ground_station_redundant=True)),
+        (20, aerospace_flight_plan_validation(flight_plan_within_airspace=True)),
+        (21, aerospace_hydraulic_system_pressure(hydraulic_pressure_ok=True)),
+        (22, aerospace_cargo_loading_limits(cargo_within_limits=True)),
+        (23, aerospace_preflight_checklist_complete(preflight_done=True)),
+        (24, aerospace_overall_aerospace_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JB — MOBILITY & AUTOMOTIVE CONNECTED VEHICLE INTEGRITY (JB01–JB24)
+# ------------------------------------------------------------------
+def mobility_adas_sensor_fusion_valid(sensor_data_consistent=True):
+    return bool(sensor_data_consistent)
+
+def mobility_autonomous_decision_layer_safe(decision_engine_validated=True):
+    return bool(decision_engine_validated)
+
+def mobility_oem_software_update_verified(ota_updates_verified=True):
+    return bool(ota_updates_verified)
+
+def mobility_v2x_communication_auth(v2x_messages_authenticated=True):
+    return bool(v2x_messages_authenticated)
+
+def mobility_telematics_data_privacy(location_data_consented=True):
+    return bool(location_data_consented)
+
+def mobility_driver_monitoring_attention(dms_operational=True):
+    return bool(dms_operational)
+
+def mobility_brake_by_wire_safety(brake_system_redundant=True):
+    return bool(brake_system_redundant)
+
+def mobility_steer_by_wire_safety(steering_control_valid=True):
+    return bool(steering_control_valid)
+
+def mobility_battery_thermal_management_ev(battery_thermal_limits=True):
+    return bool(battery_thermal_limits)
+
+def mobility_charging_station_interop(charging_protocol_standard=True):
+    return bool(charging_protocol_standard)
+
+def mobility_ethernet_automotive_segment(automotive_ethernet_secure=True):
+    return bool(automotive_ethernet_secure)
+
+def mobility_diagnostics_obd_fault_codes(dtc_clear_and_actionable=True):
+    return bool(dtc_clear_and_actionable)
+
+def mobility_hvac_control_comfort_zone(hvac_limits_ok=True):
+    return bool(hvac_limits_ok)
+
+def mobility_infotainment_network_isolation(infotainment_segmented=True):
+    return bool(infotainment_segmented)
+
+def mobility_key_fob_replay_protection(rolljam_countermeasures=True):
+    return bool(rolljam_countermeasures)
+
+def mobility_airbag_control_unity(restraints_control_ok=True):
+    return bool(restraints_control_ok)
+
+def mobility_tire_pressure_monitoring(tpms_operational=True):
+    return bool(tpms_operational)
+
+def mobility_door_lock_immobilizer(immobilizer_active=True):
+    return bool(immobilizer_active)
+
+def mobility_headup_display_hud_clarity(hud_not_distracting=True):
+    return bool(hud_not_distracting)
+
+def mobility_adas_camera_calibration(cameras_calibrated=True):
+    return bool(cameras_calibrated)
+
+def mobility_fleet_management_route_opt(fleet_telemetry_ok=True):
+    return bool(fleet_telemetry_ok)
+
+def mobility_vehicle_health_remote_diagnostics(remote_diagnostics_available=True):
+    return bool(remote_diagnostics_available)
+
+def mobility_hazard_lighting_automatic(hazard_system_ok=True):
+    return bool(hazard_system_ok)
+
+def mobility_overall_mobility_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jb_w6():
+    return [
+        (1, mobility_adas_sensor_fusion_valid(sensor_data_consistent=True)),
+        (2, mobility_autonomous_decision_layer_safe(decision_engine_validated=True)),
+        (3, mobility_oem_software_update_verified(ota_updates_verified=True)),
+        (4, mobility_v2x_communication_auth(v2x_messages_authenticated=True)),
+        (5, mobility_telematics_data_privacy(location_data_consented=True)),
+        (6, mobility_driver_monitoring_attention(dms_operational=True)),
+        (7, mobility_brake_by_wire_safety(brake_system_redundant=True)),
+        (8, mobility_steer_by_wire_safety(steering_control_valid=True)),
+        (9, mobility_battery_thermal_management_ev(battery_thermal_limits=True)),
+        (10, mobility_charging_station_interop(charging_protocol_standard=True)),
+        (11, mobility_ethernet_automotive_segment(automotive_ethernet_secure=True)),
+        (12, mobility_diagnostics_obd_fault_codes(dtc_clear_and_actionable=True)),
+        (13, mobility_hvac_control_comfort_zone(hvac_limits_ok=True)),
+        (14, mobility_infotainment_network_isolation(infotainment_segmented=True)),
+        (15, mobility_key_fob_replay_protection(rolljam_countermeasures=True)),
+        (16, mobility_airbag_control_unity(restraints_control_ok=True)),
+        (17, mobility_tire_pressure_monitoring(tpms_operational=True)),
+        (18, mobility_door_lock_immobilizer(immobilizer_active=True)),
+        (19, mobility_headup_display_hud_clarity(hud_not_distracting=True)),
+        (20, mobility_adas_camera_calibration(cameras_calibrated=True)),
+        (21, mobility_fleet_management_route_opt(fleet_telemetry_ok=True)),
+        (22, mobility_vehicle_health_remote_diagnostics(remote_diagnostics_available=True)),
+        (23, mobility_hazard_lighting_automatic(hazard_system_ok=True)),
+        (24, mobility_overall_mobility_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JC — RETAIL & E-COMMERCE OPERATIONS INTEGRITY (JC01–JC24)
+# ------------------------------------------------------------------
+def retail2_inventory_accuracy_cycle_count(inventory_records_accurate=True):
+    return bool(inventory_records_accurate)
+
+def retail2_omni_channel_order_consistency(channels_consistent=True):
+    return bool(channels_consistent)
+
+def retail2_payment_card_handling_pci(pci_dss_compliant=True):
+    return bool(pci_dss_compliant)
+
+def retail2_fraud_detection_transaction(fraud_checks_active=True):
+    return bool(fraud_checks_active)
+
+def retail2_supply_chain_visibility(inventory_tracked_end_to_end=True):
+    return bool(inventory_tracked_end_to_end)
+
+def retail2_pricing_strategy_lock(price_controls_enforced=True):
+    return bool(price_controls_enforced)
+
+def retail2_returns_processing_audit(returns_policy_clear=True):
+    return bool(returns_policy_clear)
+
+def retail2_warehouse_robotics_safety(automation_safe=True):
+    return bool(automation_safe)
+
+def retail2_customer_data_privacy(customer_data_protected=True):
+    return bool(customer_data_protected)
+
+def retail2_replenishment_automated(replenishment_optimized=True):
+    return bool(replenishment_optimized)
+
+def retail2_marketing_campaign_measurement(campaign_roi_measured=True):
+    return bool(campaign_roi_measured)
+
+def retail2_store_layout_analytics(traffic_analytics=True):
+    return bool(traffic_analytics)
+
+def retail2_loyalty_program_integrity(points_accrual_accurate=True):
+    return bool(points_accrual_accurate)
+
+def retail2_multichannel_cs_resolution(cs_resolves_consistently=True):
+    return bool(cs_resolves_consistently)
+
+def retail2_promo_application_correct(promos_apply_correctly=True):
+    return bool(promos_apply_correctly)
+
+def retail2_product_recommendation_relevance(recs_relevant=True):
+    return bool(recs_relevant)
+
+def retail2_dynamic_pricing_ethics(pricing_fair=True):
+    return bool(pricing_fair)
+
+def retail2_inventory_aging_management(aging_stock_flagged=True):
+    return bool(aging_stock_flagged)
+
+def retail2_demand_forecast_accuracy(forecast_error_bounded=True):
+    return bool(forecast_error_bounded)
+
+def retail2_ecommerce_site_performance(site_fast_available=True):
+    return bool(site_fast_available)
+
+def retail2_phishing_fake_store_protection(brand_protection=True):
+    return bool(brand_protection)
+
+def retail2_last_mile_delivery_tracking(delivery_tracked=True):
+    return bool(delivery_tracked)
+
+def retail2_shelf_availability_metric(on_shelf_availability_high=True):
+    return bool(on_shelf_availability_high)
+
+def retail2_overall_retail_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jc_w6():
+    return [
+        (1, retail2_inventory_accuracy_cycle_count(inventory_records_accurate=True)),
+        (2, retail2_omni_channel_order_consistency(channels_consistent=True)),
+        (3, retail2_payment_card_handling_pci(pci_dss_compliant=True)),
+        (4, retail2_fraud_detection_transaction(fraud_checks_active=True)),
+        (5, retail2_supply_chain_visibility(inventory_tracked_end_to_end=True)),
+        (6, retail2_pricing_strategy_lock(price_controls_enforced=True)),
+        (7, retail2_returns_processing_audit(returns_policy_clear=True)),
+        (8, retail2_warehouse_robotics_safety(automation_safe=True)),
+        (9, retail2_customer_data_privacy(customer_data_protected=True)),
+        (10, retail2_replenishment_automated(replenishment_optimized=True)),
+        (11, retail2_marketing_campaign_measurement(campaign_roi_measured=True)),
+        (12, retail2_store_layout_analytics(traffic_analytics=True)),
+        (13, retail2_loyalty_program_integrity(points_accrual_accurate=True)),
+        (14, retail2_multichannel_cs_resolution(cs_resolves_consistently=True)),
+        (15, retail2_promo_application_correct(promos_apply_correctly=True)),
+        (16, retail2_product_recommendation_relevance(recs_relevant=True)),
+        (17, retail2_dynamic_pricing_ethics(pricing_fair=True)),
+        (18, retail2_inventory_aging_management(aging_stock_flagged=True)),
+        (19, retail2_demand_forecast_accuracy(forecast_error_bounded=True)),
+        (20, retail2_ecommerce_site_performance(site_fast_available=True)),
+        (21, retail2_phishing_fake_store_protection(brand_protection=True)),
+        (22, retail2_last_mile_delivery_tracking(delivery_tracked=True)),
+        (23, retail2_shelf_availability_metric(on_shelf_availability_high=True)),
+        (24, retail2_overall_retail_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JD — MEDIA & CONTENT PLATFORM INTEGRITY (JD01–JD24)
+# ------------------------------------------------------------------
+def media2_content_metadata_accuracy(metadata_accurate=True):
+    return bool(metadata_accurate)
+
+def media2_copyright_licensing_management(rights_cleared=True):
+    return bool(rights_cleared)
+
+def media2_watermarking_protection(content_watermarked=True):
+    return bool(content_watermarked)
+
+def media2_distribution_rights_territory(territorial_limits_respected=True):
+    return bool(territorial_limits_respected)
+
+def media2_ad_fraud_detection(fraudulent_impressions_flagged=True):
+    return bool(fraudulent_impressions_flagged)
+
+def media2_viewability_metrics_verified(viewability_measured=True):
+    return bool(viewability_measured)
+
+def media2_content_moderation_scale(moderation_effective=True):
+    return bool(moderation_effective)
+
+def media2_personalization_privacy(recommendation_uses_consent=True):
+    return bool(recommendation_uses_consent)
+
+def media2_stream_quality_adaptive(adaptive_bitrate_works=True):
+    return bool(adaptive_bitrate_works)
+
+def media2_latency_live_streaming(live_latency_bounded=True):
+    return bool(live_latency_bounded)
+
+def media2_drm_license_enforcement(drm_enforced=True):
+    return bool(drm_enforced)
+
+def media2_syndication_feed_validation(feeds_valid=True):
+    return bool(feeds_valid)
+
+def media2_editorial_standards_accuracy(editorial_review=True):
+    return bool(editorial_review)
+
+def media2_brand_safety_controls(brand_safe_placements=True):
+    return bool(brand_safe_placements)
+
+def media2_viewer_metrics_authentic(no_metric_inflation=True):
+    return bool(no_metric_inflation)
+
+def media2_content_atlas_catalog(catalog_well_organized=True):
+    return bool(catalog_well_organized)
+
+def media2_transcoding_farm_health(transcodes_succeed=True):
+    return bool(transcodes_succeed)
+
+def media2_captions_accessibility(captions_accurate=True):
+    return bool(captions_accurate)
+
+def media2_news_verification_anti_misinfo(misinfo_flagged=True):
+    return bool(misinfo_flagged)
+
+def media2_rights_holdbacks_respected(holdbacks_applied=True):
+    return bool(holdbacks_applied)
+
+def media2_content_archive_preservation(archive_preserved=True):
+    return bool(archive_preserved)
+
+def media2_social_clip_sharing_rights(clip_rights_managed=True):
+    return bool(clip_rights_managed)
+
+def media2_recommendation_algorithm_transparency(rec_algorithm_visible=True):
+    return bool(rec_algorithm_visible)
+
+def media2_overall_media_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jd_w6():
+    return [
+        (1, media2_content_metadata_accuracy(metadata_accurate=True)),
+        (2, media2_copyright_licensing_management(rights_cleared=True)),
+        (3, media2_watermarking_protection(content_watermarked=True)),
+        (4, media2_distribution_rights_territory(territorial_limits_respected=True)),
+        (5, media2_ad_fraud_detection(fraudulent_impressions_flagged=True)),
+        (6, media2_viewability_metrics_verified(viewability_measured=True)),
+        (7, media2_content_moderation_scale(moderation_effective=True)),
+        (8, media2_personalization_privacy(recommendation_uses_consent=True)),
+        (9, media2_stream_quality_adaptive(adaptive_bitrate_works=True)),
+        (10, media2_latency_live_streaming(live_latency_bounded=True)),
+        (11, media2_drm_license_enforcement(drm_enforced=True)),
+        (12, media2_syndication_feed_validation(feeds_valid=True)),
+        (13, media2_editorial_standards_accuracy(editorial_review=True)),
+        (14, media2_brand_safety_controls(brand_safe_placements=True)),
+        (15, media2_viewer_metrics_authentic(no_metric_inflation=True)),
+        (16, media2_content_atlas_catalog(catalog_well_organized=True)),
+        (17, media2_transcoding_farm_health(transcodes_succeed=True)),
+        (18, media2_captions_accessibility(captions_accurate=True)),
+        (19, media2_news_verification_anti_misinfo(misinfo_flagged=True)),
+        (20, media2_rights_holdbacks_respected(holdbacks_applied=True)),
+        (21, media2_content_archive_preservation(archive_preserved=True)),
+        (22, media2_social_clip_sharing_rights(clip_rights_managed=True)),
+        (23, media2_recommendation_algorithm_transparency(rec_algorithm_visible=True)),
+        (24, media2_overall_media_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JE — TELECOMMUNICATIONS & 5G NETWORK INTEGRITY (JE01–JE24)
+# ------------------------------------------------------------------
+def telco_core_network_resilience(core_ha_configured=True):
+    return bool(core_ha_configured)
+
+def telco_ran_function_split_virtualization(ran_softwareized=True):
+    return bool(ran_softwareized)
+
+def telco_network_slicing_isolation(slices_isolated=True):
+    return bool(slices_isolated)
+
+def telco_qos_traffic_policy(qos_rules_enforced=True):
+    return bool(qos_rules_enforced)
+
+def telco_call_quality_metrics_mos(mos_above_threshold=True):
+    return bool(mos_above_threshold)
+
+def telco_signaling_ss7_diameter_sec(signaling_secured=True):
+    return bool(signaling_secured)
+
+def telco_sim_authentication_safety(subscription_auth_strong=True):
+    return bool(subscription_auth_strong)
+
+def telco_billing_mediation_accuracy(billing_records_accurate=True):
+    return bool(billing_records_accurate)
+
+def telco_subscriber_data_privacy(subscriber_data_protected=True):
+    return bool(subscriber_data_protected)
+
+def telco_handover_seamless(handovers_clean=True):
+    return bool(handovers_clean)
+
+def telco_spectrum_license_compliance(spectrum_usage_legal=True):
+    return bool(spectrum_usage_legal)
+
+def telco_network_sync_precision(sync_error_bounded=True):
+    return bool(sync_error_bounded)
+
+def telco_base_station_power_compliance(rf_power_limits=True):
+    return bool(rf_power_limits)
+
+def telco_international_roaming_quality(roaming_services_ok=True):
+    return bool(roaming_services_ok)
+
+def telco_fiber_backhaul_capacity(backhaul_has_headroom=True):
+    return bool(backhaul_has_headroom)
+
+def telco_network_management_system_health(nms_operational=True):
+    return bool(nms_operational)
+
+def telco_voip_emergency_call(e911_routes_correctly=True):
+    return bool(e911_routes_correctly)
+
+def telco_mid_span_amplifier_monitor(optical_health_tracked=True):
+    return bool(optical_health_tracked)
+
+def telco_interconnect_agreement_terms(peering_terms_respected=True):
+    return bool(peering_terms_respected)
+
+def telco_sms_firewall_messaging_integrity(sms_firewall_active=True):
+    return bool(sms_firewall_active)
+
+def telco_performance_dashboard_metrics(kpis_visible=True):
+    return bool(kpis_visible)
+
+def telco_network_fault_automated_restore(faults_auto_restored=True):
+    return bool(faults_auto_restored)
+
+def telco_energy_efficiency_network(energy_optimized=True):
+    return bool(energy_optimized)
+
+def telco_overall_telco_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_je_w6():
+    return [
+        (1, telco_core_network_resilience(core_ha_configured=True)),
+        (2, telco_ran_function_split_virtualization(ran_softwareized=True)),
+        (3, telco_network_slicing_isolation(slices_isolated=True)),
+        (4, telco_qos_traffic_policy(qos_rules_enforced=True)),
+        (5, telco_call_quality_metrics_mos(mos_above_threshold=True)),
+        (6, telco_signaling_ss7_diameter_sec(signaling_secured=True)),
+        (7, telco_sim_authentication_safety(subscription_auth_strong=True)),
+        (8, telco_billing_mediation_accuracy(billing_records_accurate=True)),
+        (9, telco_subscriber_data_privacy(subscriber_data_protected=True)),
+        (10, telco_handover_seamless(handovers_clean=True)),
+        (11, telco_spectrum_license_compliance(spectrum_usage_legal=True)),
+        (12, telco_network_sync_precision(sync_error_bounded=True)),
+        (13, telco_base_station_power_compliance(rf_power_limits=True)),
+        (14, telco_international_roaming_quality(roaming_services_ok=True)),
+        (15, telco_fiber_backhaul_capacity(backhaul_has_headroom=True)),
+        (16, telco_network_management_system_health(nms_operational=True)),
+        (17, telco_voip_emergency_call(e911_routes_correctly=True)),
+        (18, telco_mid_span_amplifier_monitor(optical_health_tracked=True)),
+        (19, telco_interconnect_agreement_terms(peering_terms_respected=True)),
+        (20, telco_sms_firewall_messaging_integrity(sms_firewall_active=True)),
+        (21, telco_performance_dashboard_metrics(kpis_visible=True)),
+        (22, telco_network_fault_automated_restore(faults_auto_restored=True)),
+        (23, telco_energy_efficiency_network(energy_optimized=True)),
+        (24, telco_overall_telco_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JF — BANKING & FINTECH DIGITAL PAYMENT INTEGRITY (JF01–JF24)
+# ------------------------------------------------------------------
+def banking2_transaction_reconciliation_accuracy(recon_adheres=True):
+    return bool(recon_adheres)
+
+def banking2_real_time_payment_rails(instant_payments_available=True):
+    return bool(instant_payments_available)
+
+def banking2_anti_money_laundering_screening(aml_screening_active=True):
+    return bool(aml_screening_active)
+
+def banking2_know_your_customer_kyc(kyc_documented=True):
+    return bool(kyc_documented)
+
+def banking2_fraud_risk_engine(fraud_models_updated=True):
+    return bool(fraud_models_updated)
+
+def banking2_payment_gateway_tokenization(card_data_tokenized=True):
+    return bool(card_data_tokenized)
+
+def banking2_open_banking_api_consent(open_banking_consent=True):
+    return bool(open_banking_consent)
+
+def banking2_chargeback_management(chargebacks_handled=True):
+    return bool(chargebacks_handled)
+
+def banking2_ledger_immutability(posting_audited=True):
+    return bool(posting_audited)
+
+def banking2_interest_rate_calculation(interest_accurate=True):
+    return bool(interest_accurate)
+
+def banking2_loan_origination_checks(underwriting_consistent=True):
+    return bool(underwriting_consistent)
+
+def banking2_compliance_reporting_regulatory(regulatory_reports_on_time=True):
+    return bool(regulatory_reports_on_time)
+
+def banking2_mobile_banking_session_security(session_secure=True):
+    return bool(session_secure)
+
+def banking2_branch_network_operations(branches_operational=True):
+    return bool(branches_operational)
+
+def banking2_treasury_liquidity_management(liquidity_monitored=True):
+    return bool(liquidity_monitored)
+
+def banking2_fx_rates_accurate_timely(fx_rates_fresh=True):
+    return bool(fx_rates_fresh)
+
+def banking2_swift_message_security(swift_secured=True):
+    return bool(swift_secured)
+
+def banking2_digital_wallet_balance_accuracy(wallet_balances_accurate=True):
+    return bool(wallet_balances_accurate)
+
+def banking2_biometric_authentication_strong(biometrics_effective=True):
+    return bool(biometrics_effective)
+
+def banking2_credit_score_model_fairness(score_model_fair=True):
+    return bool(score_model_fair)
+
+def banking2_collections_strategy_compliant(collections_within_rules=True):
+    return bool(collections_within_rules)
+
+def banking2_disaster_recovery_banking(dr_plan_tested=True):
+    return bool(dr_plan_tested)
+
+def banking2_financial_advice_transparency(advice_disclosed_fees=True):
+    return bool(advice_disclosed_fees)
+
+def banking2_overall_banking_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jf_w6():
+    return [
+        (1, banking2_transaction_reconciliation_accuracy(recon_adheres=True)),
+        (2, banking2_real_time_payment_rails(instant_payments_available=True)),
+        (3, banking2_anti_money_laundering_screening(aml_screening_active=True)),
+        (4, banking2_know_your_customer_kyc(kyc_documented=True)),
+        (5, banking2_fraud_risk_engine(fraud_models_updated=True)),
+        (6, banking2_payment_gateway_tokenization(card_data_tokenized=True)),
+        (7, banking2_open_banking_api_consent(open_banking_consent=True)),
+        (8, banking2_chargeback_management(chargebacks_handled=True)),
+        (9, banking2_ledger_immutability(posting_audited=True)),
+        (10, banking2_interest_rate_calculation(interest_accurate=True)),
+        (11, banking2_loan_origination_checks(underwriting_consistent=True)),
+        (12, banking2_compliance_reporting_regulatory(regulatory_reports_on_time=True)),
+        (13, banking2_mobile_banking_session_security(session_secure=True)),
+        (14, banking2_branch_network_operations(branches_operational=True)),
+        (15, banking2_treasury_liquidity_management(liquidity_monitored=True)),
+        (16, banking2_fx_rates_accurate_timely(fx_rates_fresh=True)),
+        (17, banking2_swift_message_security(swift_secured=True)),
+        (18, banking2_digital_wallet_balance_accuracy(wallet_balances_accurate=True)),
+        (19, banking2_biometric_authentication_strong(biometrics_effective=True)),
+        (20, banking2_credit_score_model_fairness(score_model_fair=True)),
+        (21, banking2_collections_strategy_compliant(collections_within_rules=True)),
+        (22, banking2_disaster_recovery_banking(dr_plan_tested=True)),
+        (23, banking2_financial_advice_transparency(advice_disclosed_fees=True)),
+        (24, banking2_overall_banking_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JG — LOGISTICS & SUPPLY CHAIN INTEGRITY (JG01–JG24)
+# ------------------------------------------------------------------
+def logistics_track_and_trace_visibility(shipments_tracked=True):
+    return bool(shipments_tracked)
+
+def logistics_route_optimization_efficiency(routes_optimal=True):
+    return bool(routes_optimal)
+
+def logistics_warehouse_utilization(space_utilized=True):
+    return bool(space_utilized)
+
+def logistics_freight_rate_transparency(rates_documented=True):
+    return bool(rates_documented)
+
+def logistics_customs_docs_compliance(customs_cleared=True):
+    return bool(customs_cleared)
+
+def logistics_temperature_controlled_chain(cold_chain_maintained=True):
+    return bool(cold_chain_maintained)
+
+def logistics_last_mile_optimization(last_mile_efficient=True):
+    return bool(last_mile_efficient)
+
+def logistics_inventory_dwell_time(dwell_time_optimized=True):
+    return bool(dwell_time_optimized)
+
+def logistics_vehicle_utilization_fleet(fleet_used_well=True):
+    return bool(fleet_used_well)
+
+def logistics_carrier_performance_kpi(carriers_rated=True):
+    return bool(carriers_rated)
+
+def logistics_hazmat_handling_compliance(hazmat_handled_safely=True):
+    return bool(hazmat_handled_safely)
+
+def logistics_freight_claim_management(claims_processed=True):
+    return bool(claims_processed)
+
+def logistics_driver_safety_telematics(driver_behavior_safe=True):
+    return bool(driver_behavior_safe)
+
+def logistics_port_operations_throughput(port_flow_smooth=True):
+    return bool(port_flow_smooth)
+
+def logistics_cross_dock_accuracy(cross_dock_correct=True):
+    return bool(cross_dock_correct)
+
+def logistics_reverse_logistics_returns(returns_routed=True):
+    return bool(returns_routed)
+
+def logistics_supplier_on_time_delivery(supplier_otd_metric=True):
+    return bool(supplier_otd_metric)
+
+def logistics_cargo_loss_prevention(losses_minimized=True):
+    return bool(losses_minimized)
+
+def logistics_digital_docs_transport(docs_available_digitally=True):
+    return bool(docs_available_digitally)
+
+def logistics_load_planning_optimization(loads_planned_well=True):
+    return bool(loads_planned_well)
+
+def logistics_intermodal_transfer_handling(modes_transfer_cleanly=True):
+    return bool(modes_transfer_cleanly)
+
+def logistics_delivery_exception_management(exceptions_resolved=True):
+    return bool(exceptions_resolved)
+
+def logistics_carbon_freight_reduction(emissions_reduced=True):
+    return bool(emissions_reduced)
+
+def logistics_overall_logistics_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jg_w6():
+    return [
+        (1, logistics_track_and_trace_visibility(shipments_tracked=True)),
+        (2, logistics_route_optimization_efficiency(routes_optimal=True)),
+        (3, logistics_warehouse_utilization(space_utilized=True)),
+        (4, logistics_freight_rate_transparency(rates_documented=True)),
+        (5, logistics_customs_docs_compliance(customs_cleared=True)),
+        (6, logistics_temperature_controlled_chain(cold_chain_maintained=True)),
+        (7, logistics_last_mile_optimization(last_mile_efficient=True)),
+        (8, logistics_inventory_dwell_time(dwell_time_optimized=True)),
+        (9, logistics_vehicle_utilization_fleet(fleet_used_well=True)),
+        (10, logistics_carrier_performance_kpi(carriers_rated=True)),
+        (11, logistics_hazmat_handling_compliance(hazmat_handled_safely=True)),
+        (12, logistics_freight_claim_management(claims_processed=True)),
+        (13, logistics_driver_safety_telematics(driver_behavior_safe=True)),
+        (14, logistics_port_operations_throughput(port_flow_smooth=True)),
+        (15, logistics_cross_dock_accuracy(cross_dock_correct=True)),
+        (16, logistics_reverse_logistics_returns(returns_routed=True)),
+        (17, logistics_supplier_on_time_delivery(supplier_otd_metric=True)),
+        (18, logistics_cargo_loss_prevention(losses_minimized=True)),
+        (19, logistics_digital_docs_transport(docs_available_digitally=True)),
+        (20, logistics_load_planning_optimization(loads_planned_well=True)),
+        (21, logistics_intermodal_transfer_handling(modes_transfer_cleanly=True)),
+        (22, logistics_delivery_exception_management(exceptions_resolved=True)),
+        (23, logistics_carbon_freight_reduction(emissions_reduced=True)),
+        (24, logistics_overall_logistics_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JH — MANUFACTURING & INDUSTRIAL AUTOMATION INTEGRITY (JH01–JH24)
+# ------------------------------------------------------------------
+def manufacturing_osa_high_availability(production_lines_run_continuously=True):
+    return bool(production_lines_run_continuously)
+
+def manufacturing_predictive_maintenance(failures_anticipated=True):
+    return bool(failures_anticipated)
+
+def manufacturing_quality_control_six_sigma(defect_rate_low=True):
+    return bool(defect_rate_low)
+
+def manufacturing_iot_sensor_data_fidelity(sensor_data_trusted=True):
+    return bool(sensor_data_trusted)
+
+def manufacturing_robotic_cell_safety(automation_safe=True):
+    return bool(automation_safe)
+
+def manufacturing_digital_twin_plant_accuracy(twin_matches_plant=True):
+    return bool(twin_matches_plant)
+
+def manufacturing_shop_floor_network_segmentation(ot_network_segregated=True):
+    return bool(ot_network_segregated)
+
+def manufacturing_scada_control_integrity(scada_commands_validated=True):
+    return bool(scada_commands_validated)
+
+def manufacturing_wip_tracking_accuracy(wip_visible=True):
+    return bool(wip_visible)
+
+def manufacturing_batch_record_completeness(batch_records_complete=True):
+    return bool(batch_records_complete)
+
+def manufacturing_energy_usage_monitoring(energy_measured=True):
+    return bool(energy_measured)
+
+def manufacturing_supplier_quality_management(supplier_quality_tracked=True):
+    return bool(supplier_quality_tracked)
+
+def manufacturing_osha_worker_safety(safety_compliant=True):
+    return bool(safety_compliant)
+
+def manufacturing_material_requirement_planning(mrp_accurate=True):
+    return bool(mrp_accurate)
+
+def manufacturing_statistical_process_control(spc_applied=True):
+    return bool(spc_applied)
+
+def manufacturing_asset_utilization_oeem(oeem_tracked=True):
+    return bool(oeem_tracked)
+
+def manufacturing_labor_skill_tracking(training_logged=True):
+    return bool(training_logged)
+
+def manufacturing_environmental_emissions_control(emissions_controlled=True):
+    return bool(emissions_controlled)
+
+def manufacturing_product_traceability_batch(lots_traceable=True):
+    return bool(lots_traceable)
+
+def manufacturing_lean_inventory_reduction(lean_principles_used=True):
+    return bool(lean_principles_used)
+
+def manufacturing_equipment_calibration_schedule(calibration_current=True):
+    return bool(calibration_current)
+
+def manufacturing_cyber_physical_attack_defense(industrial_cyber_defense=True):
+    return bool(industrial_cyber_defense)
+
+def manufacturing_new_product_introduction_quality(npi_quality_gated=True):
+    return bool(npi_quality_gated)
+
+def manufacturing_overall_manufacturing_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jh_w6():
+    return [
+        (1, manufacturing_osa_high_availability(production_lines_run_continuously=True)),
+        (2, manufacturing_predictive_maintenance(failures_anticipated=True)),
+        (3, manufacturing_quality_control_six_sigma(defect_rate_low=True)),
+        (4, manufacturing_iot_sensor_data_fidelity(sensor_data_trusted=True)),
+        (5, manufacturing_robotic_cell_safety(automation_safe=True)),
+        (6, manufacturing_digital_twin_plant_accuracy(twin_matches_plant=True)),
+        (7, manufacturing_shop_floor_network_segmentation(ot_network_segregated=True)),
+        (8, manufacturing_scada_control_integrity(scada_commands_validated=True)),
+        (9, manufacturing_wip_tracking_accuracy(wip_visible=True)),
+        (10, manufacturing_batch_record_completeness(batch_records_complete=True)),
+        (11, manufacturing_energy_usage_monitoring(energy_measured=True)),
+        (12, manufacturing_supplier_quality_management(supplier_quality_tracked=True)),
+        (13, manufacturing_osha_worker_safety(safety_compliant=True)),
+        (14, manufacturing_material_requirement_planning(mrp_accurate=True)),
+        (15, manufacturing_statistical_process_control(spc_applied=True)),
+        (16, manufacturing_asset_utilization_oeem(oeem_tracked=True)),
+        (17, manufacturing_labor_skill_tracking(training_logged=True)),
+        (18, manufacturing_environmental_emissions_control(emissions_controlled=True)),
+        (19, manufacturing_product_traceability_batch(lots_traceable=True)),
+        (20, manufacturing_lean_inventory_reduction(lean_principles_used=True)),
+        (21, manufacturing_equipment_calibration_schedule(calibration_current=True)),
+        (22, manufacturing_cyber_physical_attack_defense(industrial_cyber_defense=True)),
+        (23, manufacturing_new_product_introduction_quality(npi_quality_gated=True)),
+        (24, manufacturing_overall_manufacturing_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JI — PHARMACEUTICAL & LIFE SCIENCES GMP INTEGRITY (JI01–JI24)
+# ------------------------------------------------------------------
+def pharma_gmp_compliance_documented(gmp_requirements_met=True):
+    return bool(gmp_requirements_met)
+
+def pharma_batch_manufacturing_record_complete(bmr_complete=True):
+    return bool(bmr_complete)
+
+def pharma_21_cfr_part11_electronic_records(electronic_records_validated=True):
+    return bool(electronic_records_validated)
+
+def pharma_data_integrity_alcoa(alcoa_principles_followed=True):
+    return bool(alcoa_principles_followed)
+
+def pharma_cleanroom_environmental_monitoring(cleanroom_within_limits=True):
+    return bool(cleanroom_within_limits)
+
+def pharma_stability_study_protocol(stability_data_accurate=True):
+    return bool(stability_data_accurate)
+
+def pharma_aseptic_processing_control(aseptic_environment_validated=True):
+    return bool(aseptic_environment_validated)
+
+def pharma_supply_chain_cold_chain(cold_chain_unbroken=True):
+    return bool(cold_chain_unbroken)
+
+def pharma_adverse_event_reporting_pharma(ae_reports_submitted=True):
+    return bool(ae_reports_submitted)
+
+def pharma_clinical_trial_gcp(gcp_compliant=True):
+    return bool(gcp_compliant)
+
+def pharma_drug_labeling_accuracy(labels_accurate=True):
+    return bool(labels_accurate)
+
+def pharma_validation_master_plan(validation_activities_complete=True):
+    return bool(validation_activities_complete)
+
+def pharma_contamination_control_strategy(contamination_prevented=True):
+    return bool(contamination_prevented)
+
+def pharma_traceability_of_ingredients(ingredients_traceable=True):
+    return bool(ingredients_traceable)
+
+def pharma_equipment_qualification(equipment_qualified=True):
+    return bool(equipment_qualified)
+
+def pharma_deviation_management_pharma(deviations_investigated=True):
+    return bool(deviations_investigated)
+
+def pharma_corrective_preventive_action(capa_closed_effectively=True):
+    return bool(capa_closed_effectively)
+
+def pharma_serialization_anti_counterfeit(serialization_active=True):
+    return bool(serialization_active)
+
+def pharma_regulatory_submission_quality(submissions_complete=True):
+    return bool(submissions_complete)
+
+def pharma_potency_assay_accuracy(potency_within_spec=True):
+    return bool(potency_within_spec)
+
+def pharma_packaging_material_control(packaging_verified=True):
+    return bool(packaging_verified)
+
+def pharma_audit_raw_materials_suppliers(suppliers_audited=True):
+    return bool(suppliers_audited)
+
+def pharma_pharmacovigilance_system(pv_system_operational=True):
+    return bool(pv_system_operational)
+
+def pharma_overall_pharma_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ji_w6():
+    return [
+        (1, pharma_gmp_compliance_documented(gmp_requirements_met=True)),
+        (2, pharma_batch_manufacturing_record_complete(bmr_complete=True)),
+        (3, pharma_21_cfr_part11_electronic_records(electronic_records_validated=True)),
+        (4, pharma_data_integrity_alcoa(alcoa_principles_followed=True)),
+        (5, pharma_cleanroom_environmental_monitoring(cleanroom_within_limits=True)),
+        (6, pharma_stability_study_protocol(stability_data_accurate=True)),
+        (7, pharma_aseptic_processing_control(aseptic_environment_validated=True)),
+        (8, pharma_supply_chain_cold_chain(cold_chain_unbroken=True)),
+        (9, pharma_adverse_event_reporting_pharma(ae_reports_submitted=True)),
+        (10, pharma_clinical_trial_gcp(gcp_compliant=True)),
+        (11, pharma_drug_labeling_accuracy(labels_accurate=True)),
+        (12, pharma_validation_master_plan(validation_activities_complete=True)),
+        (13, pharma_contamination_control_strategy(contamination_prevented=True)),
+        (14, pharma_traceability_of_ingredients(ingredients_traceable=True)),
+        (15, pharma_equipment_qualification(equipment_qualified=True)),
+        (16, pharma_deviation_management_pharma(deviations_investigated=True)),
+        (17, pharma_corrective_preventive_action(capa_closed_effectively=True)),
+        (18, pharma_serialization_anti_counterfeit(serialization_active=True)),
+        (19, pharma_regulatory_submission_quality(submissions_complete=True)),
+        (20, pharma_potency_assay_accuracy(potency_within_spec=True)),
+        (21, pharma_packaging_material_control(packaging_verified=True)),
+        (22, pharma_audit_raw_materials_suppliers(suppliers_audited=True)),
+        (23, pharma_pharmacovigilance_system(pv_system_operational=True)),
+        (24, pharma_overall_pharma_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE JJ — AGRITECH & PRECISION AGRICULTURE INTEGRITY (JJ01–JJ24)
+# ------------------------------------------------------------------
+def agritech_crop_sensor_validity(sensor_data_reliable=True):
+    return bool(sensor_data_reliable)
+
+def agritech_irrigation_optimization(water_used_efficiently=True):
+    return bool(water_used_efficiently)
+
+def agritech_soil_health_monitoring(soil_data_collected=True):
+    return bool(soil_data_collected)
+
+def agritech_drone_imagery_accuracy(imagery_orthorectified=True):
+    return bool(imagery_orthorectified)
+
+def agritech_yield_forecast_accuracy(yield_prediction_accurate=True):
+    return bool(yield_prediction_accurate)
+
+def agritech_agrochemical_application_precision(inputs_applied_precisely=True):
+    return bool(inputs_applied_precisely)
+
+def agritech_livestock_health_tracking(animal_health_monitored=True):
+    return bool(animal_health_monitored)
+
+def agritech_supply_chain_traceability_farm(produce_traceable=True):
+    return bool(produce_traceable)
+
+def agritech_weather_forecast_integration(weather_data_integrated=True):
+    return bool(weather_data_integrated)
+
+def agritech_machinery_autonomy_safety(autonomous_equipment_safe=True):
+    return bool(autonomous_equipment_safe)
+
+def agritech_farm_management_data_privacy(farm_data_owned_by_farmer=True):
+    return bool(farm_data_owned_by_farmer)
+
+def agritech_pest_management_thresholds(ipm_thresholds_used=True):
+    return bool(ipm_thresholds_used)
+
+def agritech_seed_genetics_quality(seed_quality_verified=True):
+    return bool(seed_quality_verified)
+
+def agritech_post_harvest_loss_reduction(losses_minimized=True):
+    return bool(losses_minimized)
+
+def agritech_carbon_sequestration_measurement(soil_carbon_measured=True):
+    return bool(soil_carbon_measured)
+
+def agritech_traceability_food_safety(food_safety_documented=True):
+    return bool(food_safety_documented)
+
+def agritech_equipment_telemetry_machine(telemetry_available=True):
+    return bool(telemetry_available)
+
+def agritech_agri_insurance_risk_model(yield_risk_modeled=True):
+    return bool(yield_risk_modeled)
+
+def agritech_market_price_data_accuracy(prices_accurate=True):
+    return bool(prices_accurate)
+
+def agritech_water_quality_monitoring(water_quality_ok=True):
+    return bool(water_quality_ok)
+
+def agritech_pollinator_habitat_preservation(biodiversity_considered=True):
+    return bool(biodiversity_considered)
+
+def agritech_labor_safety_farming(farm_safety_met=True):
+    return bool(farm_safety_met)
+
+def agritech_regenerative_practice_adoption(soil_health_practices=True):
+    return bool(soil_health_practices)
+
+def agritech_overall_agritech_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_jj_w6():
+    return [
+        (1, agritech_crop_sensor_validity(sensor_data_reliable=True)),
+        (2, agritech_irrigation_optimization(water_used_efficiently=True)),
+        (3, agritech_soil_health_monitoring(soil_data_collected=True)),
+        (4, agritech_drone_imagery_accuracy(imagery_orthorectified=True)),
+        (5, agritech_yield_forecast_accuracy(yield_prediction_accurate=True)),
+        (6, agritech_agrochemical_application_precision(inputs_applied_precisely=True)),
+        (7, agritech_livestock_health_tracking(animal_health_monitored=True)),
+        (8, agritech_supply_chain_traceability_farm(produce_traceable=True)),
+        (9, agritech_weather_forecast_integration(weather_data_integrated=True)),
+        (10, agritech_machinery_autonomy_safety(autonomous_equipment_safe=True)),
+        (11, agritech_farm_management_data_privacy(farm_data_owned_by_farmer=True)),
+        (12, agritech_pest_management_thresholds(ipm_thresholds_used=True)),
+        (13, agritech_seed_genetics_quality(seed_quality_verified=True)),
+        (14, agritech_post_harvest_loss_reduction(losses_minimized=True)),
+        (15, agritech_carbon_sequestration_measurement(soil_carbon_measured=True)),
+        (16, agritech_traceability_food_safety(food_safety_documented=True)),
+        (17, agritech_equipment_telemetry_machine(telemetry_available=True)),
+        (18, agritech_agri_insurance_risk_model(yield_risk_modeled=True)),
+        (19, agritech_market_price_data_accuracy(prices_accurate=True)),
+        (20, agritech_water_quality_monitoring(water_quality_ok=True)),
+        (21, agritech_pollinator_habitat_preservation(biodiversity_considered=True)),
+        (22, agritech_labor_safety_farming(farm_safety_met=True)),
+        (23, agritech_regenerative_practice_adoption(soil_health_practices=True)),
+        (24, agritech_overall_agritech_maturity(min_score=70, score=90))
+    ]

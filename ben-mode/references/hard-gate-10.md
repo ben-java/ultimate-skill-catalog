@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.23.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.33.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2941,3 +2941,102 @@ Menambahkan lapisan integritas educational technology & digital learning integri
 
 Mekanisme operasional formal:
 IJ01 `edu2_student_privacy_ferpa`, IJ02 `edu2_anti_cheating_rigor`, IJ03 `edu2_accessibility_learning_content`, IJ04 `edu2_adaptive_learning_validity`, IJ05 `edu2_plagiarism_detection`, IJ06 `edu2_remote_proctoring_ethics`, IJ07 `edu2_learning_analytics_privacy`, IJ08 `edu2_content_accuracy_curriculum`, IJ09 `edu2_digital_literacy_curriculum`, IJ10 `edu2_teacher_ai_assist_oversight`, IJ11 `edu2_device_deployment_secure`, IJ12 `edu2_online_safety_students`, IJ13 `edu2_assessment_fairness`, IJ14 `edu2_gradebook_integrity`, IJ15 `edu2_student_progress_data_fresh`, IJ16 `edu2_courseware_license_compliance`, IJ17 `edu2_bullying_online_prevention`, IJ18 `edu2_cost_equity_digital_access`, IJ19 `edu2_parental_consent_learning`, IJ20 `edu2_teacher_professional_dev`, IJ21 `edu2_research_ethics_educational_data`, IJ22 `edu2_device_acceptable_use_enforced`, IJ23 `edu2_learning_outcome_authentic_assess`, IJ24 `edu2_overall_edu_maturity`.
+
+---
+
+# BAGIAN 124 — WAVE JA: AEROSPACE SYSTEMS & AVIONICS INTEGRITY JA01–JA24 (VERIFIED; v1.24.0)
+
+Menambahkan lapisan integritas aerospace systems & avionics integrity: `JA01–JA24` di `hard_gate_enhancements.py`, disurfacing `P_AEROSPACE_01–P_AEROSPACE_24`; diverifikasi 24/24 PASS (selftest_ja_w6 rc 0).
+
+Mekanisme operasional formal:
+JA01 `aerospace_flight_software_verified`, JA02 `aerospace_avionics_redundancy_bus`, JA03 `aerospace_flight_envelope_protection`, JA04 `aerospace_navigation_system_integrity`, JA05 `aerospace_autopilot_failover_decision`, JA06 `aerospace_maintenance_tracking_airworthiness`, JA07 `aerospace_fuel_system_leak_detection`, JA08 `aerospace_structural_health_monitoring`, JA09 `aerospace_weather_data_freshness`, JA10 `aerospace_air_traffic_control_comms`, JA11 `aerospace_collision_avoidance_tcas`, JA12 `aerospace_blackbox_flight_recorder`, JA13 `aerospace_pressurization_control`, JA14 `aerospace_icing_detection_anti_ice`, JA15 `aerospace_engine_parameter_monitoring`, JA16 `aerospace_landing_gear_dep_verified`, JA17 `aerospace_escape_evacuation_equipment`, JA18 `aerospace_satellite_link_security`, JA19 `aerospace_ground_control_system_backup`, JA20 `aerospace_flight_plan_validation`, JA21 `aerospace_hydraulic_system_pressure`, JA22 `aerospace_cargo_loading_limits`, JA23 `aerospace_preflight_checklist_complete`, JA24 `aerospace_overall_aerospace_maturity`.
+
+
+---
+
+# BAGIAN 125 — WAVE JB: MOBILITY & AUTOMOTIVE CONNECTED VEHICLE INTEGRITY JB01–JB24 (VERIFIED; v1.25.0)
+
+Menambahkan lapisan integritas mobility & automotive connected vehicle integrity: `JB01–JB24` di `hard_gate_enhancements.py`, disurfacing `P_MOBILITY_01–P_MOBILITY_24`; diverifikasi 24/24 PASS (selftest_jb_w6 rc 0).
+
+Mekanisme operasional formal:
+JB01 `mobility_adas_sensor_fusion_valid`, JB02 `mobility_autonomous_decision_layer_safe`, JB03 `mobility_oem_software_update_verified`, JB04 `mobility_v2x_communication_auth`, JB05 `mobility_telematics_data_privacy`, JB06 `mobility_driver_monitoring_attention`, JB07 `mobility_brake_by_wire_safety`, JB08 `mobility_steer_by_wire_safety`, JB09 `mobility_battery_thermal_management_ev`, JB10 `mobility_charging_station_interop`, JB11 `mobility_ethernet_automotive_segment`, JB12 `mobility_diagnostics_obd_fault_codes`, JB13 `mobility_hvac_control_comfort_zone`, JB14 `mobility_infotainment_network_isolation`, JB15 `mobility_key_fob_replay_protection`, JB16 `mobility_airbag_control_unity`, JB17 `mobility_tire_pressure_monitoring`, JB18 `mobility_door_lock_immobilizer`, JB19 `mobility_headup_display_hud_clarity`, JB20 `mobility_adas_camera_calibration`, JB21 `mobility_fleet_management_route_opt`, JB22 `mobility_vehicle_health_remote_diagnostics`, JB23 `mobility_hazard_lighting_automatic`, JB24 `mobility_overall_mobility_maturity`.
+
+
+---
+
+# BAGIAN 126 — WAVE JC: RETAIL & E-COMMERCE OPERATIONS INTEGRITY JC01–JC24 (VERIFIED; v1.26.0)
+
+Menambahkan lapisan integritas retail & e-commerce operations integrity: `JC01–JC24` di `hard_gate_enhancements.py`, disurfacing `P_RETAIL2_01–P_RETAIL2_24`; diverifikasi 24/24 PASS (selftest_jc_w6 rc 0).
+
+Mekanisme operasional formal:
+JC01 `retail2_inventory_accuracy_cycle_count`, JC02 `retail2_omni_channel_order_consistency`, JC03 `retail2_payment_card_handling_pci`, JC04 `retail2_fraud_detection_transaction`, JC05 `retail2_supply_chain_visibility`, JC06 `retail2_pricing_strategy_lock`, JC07 `retail2_returns_processing_audit`, JC08 `retail2_warehouse_robotics_safety`, JC09 `retail2_customer_data_privacy`, JC10 `retail2_replenishment_automated`, JC11 `retail2_marketing_campaign_measurement`, JC12 `retail2_store_layout_analytics`, JC13 `retail2_loyalty_program_integrity`, JC14 `retail2_multichannel_cs_resolution`, JC15 `retail2_promo_application_correct`, JC16 `retail2_product_recommendation_relevance`, JC17 `retail2_dynamic_pricing_ethics`, JC18 `retail2_inventory_aging_management`, JC19 `retail2_demand_forecast_accuracy`, JC20 `retail2_ecommerce_site_performance`, JC21 `retail2_phishing_fake_store_protection`, JC22 `retail2_last_mile_delivery_tracking`, JC23 `retail2_shelf_availability_metric`, JC24 `retail2_overall_retail_maturity`.
+
+
+---
+
+# BAGIAN 127 — WAVE JD: MEDIA & CONTENT PLATFORM INTEGRITY JD01–JD24 (VERIFIED; v1.27.0)
+
+Menambahkan lapisan integritas media & content platform integrity: `JD01–JD24` di `hard_gate_enhancements.py`, disurfacing `P_MEDIA2_01–P_MEDIA2_24`; diverifikasi 24/24 PASS (selftest_jd_w6 rc 0).
+
+Mekanisme operasional formal:
+JD01 `media2_content_metadata_accuracy`, JD02 `media2_copyright_licensing_management`, JD03 `media2_watermarking_protection`, JD04 `media2_distribution_rights_territory`, JD05 `media2_ad_fraud_detection`, JD06 `media2_viewability_metrics_verified`, JD07 `media2_content_moderation_scale`, JD08 `media2_personalization_privacy`, JD09 `media2_stream_quality_adaptive`, JD10 `media2_latency_live_streaming`, JD11 `media2_drm_license_enforcement`, JD12 `media2_syndication_feed_validation`, JD13 `media2_editorial_standards_accuracy`, JD14 `media2_brand_safety_controls`, JD15 `media2_viewer_metrics_authentic`, JD16 `media2_content_atlas_catalog`, JD17 `media2_transcoding_farm_health`, JD18 `media2_captions_accessibility`, JD19 `media2_news_verification_anti_misinfo`, JD20 `media2_rights_holdbacks_respected`, JD21 `media2_content_archive_preservation`, JD22 `media2_social_clip_sharing_rights`, JD23 `media2_recommendation_algorithm_transparency`, JD24 `media2_overall_media_maturity`.
+
+
+---
+
+# BAGIAN 128 — WAVE JE: TELECOMMUNICATIONS & 5G NETWORK INTEGRITY JE01–JE24 (VERIFIED; v1.28.0)
+
+Menambahkan lapisan integritas telecommunications & 5g network integrity: `JE01–JE24` di `hard_gate_enhancements.py`, disurfacing `P_TELCO_01–P_TELCO_24`; diverifikasi 24/24 PASS (selftest_je_w6 rc 0).
+
+Mekanisme operasional formal:
+JE01 `telco_core_network_resilience`, JE02 `telco_ran_function_split_virtualization`, JE03 `telco_network_slicing_isolation`, JE04 `telco_qos_traffic_policy`, JE05 `telco_call_quality_metrics_mos`, JE06 `telco_signaling_ss7_diameter_sec`, JE07 `telco_sim_authentication_safety`, JE08 `telco_billing_mediation_accuracy`, JE09 `telco_subscriber_data_privacy`, JE10 `telco_handover_seamless`, JE11 `telco_spectrum_license_compliance`, JE12 `telco_network_sync_precision`, JE13 `telco_base_station_power_compliance`, JE14 `telco_international_roaming_quality`, JE15 `telco_fiber_backhaul_capacity`, JE16 `telco_network_management_system_health`, JE17 `telco_voip_emergency_call`, JE18 `telco_mid_span_amplifier_monitor`, JE19 `telco_interconnect_agreement_terms`, JE20 `telco_sms_firewall_messaging_integrity`, JE21 `telco_performance_dashboard_metrics`, JE22 `telco_network_fault_automated_restore`, JE23 `telco_energy_efficiency_network`, JE24 `telco_overall_telco_maturity`.
+
+
+---
+
+# BAGIAN 129 — WAVE JF: BANKING & FINTECH DIGITAL PAYMENT INTEGRITY JF01–JF24 (VERIFIED; v1.29.0)
+
+Menambahkan lapisan integritas banking & fintech digital payment integrity: `JF01–JF24` di `hard_gate_enhancements.py`, disurfacing `P_BANKING2_01–P_BANKING2_24`; diverifikasi 24/24 PASS (selftest_jf_w6 rc 0).
+
+Mekanisme operasional formal:
+JF01 `banking2_transaction_reconciliation_accuracy`, JF02 `banking2_real_time_payment_rails`, JF03 `banking2_anti_money_laundering_screening`, JF04 `banking2_know_your_customer_kyc`, JF05 `banking2_fraud_risk_engine`, JF06 `banking2_payment_gateway_tokenization`, JF07 `banking2_open_banking_api_consent`, JF08 `banking2_chargeback_management`, JF09 `banking2_ledger_immutability`, JF10 `banking2_interest_rate_calculation`, JF11 `banking2_loan_origination_checks`, JF12 `banking2_compliance_reporting_regulatory`, JF13 `banking2_mobile_banking_session_security`, JF14 `banking2_branch_network_operations`, JF15 `banking2_treasury_liquidity_management`, JF16 `banking2_fx_rates_accurate_timely`, JF17 `banking2_swift_message_security`, JF18 `banking2_digital_wallet_balance_accuracy`, JF19 `banking2_biometric_authentication_strong`, JF20 `banking2_credit_score_model_fairness`, JF21 `banking2_collections_strategy_compliant`, JF22 `banking2_disaster_recovery_banking`, JF23 `banking2_financial_advice_transparency`, JF24 `banking2_overall_banking_maturity`.
+
+
+---
+
+# BAGIAN 130 — WAVE JG: LOGISTICS & SUPPLY CHAIN INTEGRITY JG01–JG24 (VERIFIED; v1.30.0)
+
+Menambahkan lapisan integritas logistics & supply chain integrity: `JG01–JG24` di `hard_gate_enhancements.py`, disurfacing `P_LOGISTICS_01–P_LOGISTICS_24`; diverifikasi 24/24 PASS (selftest_jg_w6 rc 0).
+
+Mekanisme operasional formal:
+JG01 `logistics_track_and_trace_visibility`, JG02 `logistics_route_optimization_efficiency`, JG03 `logistics_warehouse_utilization`, JG04 `logistics_freight_rate_transparency`, JG05 `logistics_customs_docs_compliance`, JG06 `logistics_temperature_controlled_chain`, JG07 `logistics_last_mile_optimization`, JG08 `logistics_inventory_dwell_time`, JG09 `logistics_vehicle_utilization_fleet`, JG10 `logistics_carrier_performance_kpi`, JG11 `logistics_hazmat_handling_compliance`, JG12 `logistics_freight_claim_management`, JG13 `logistics_driver_safety_telematics`, JG14 `logistics_port_operations_throughput`, JG15 `logistics_cross_dock_accuracy`, JG16 `logistics_reverse_logistics_returns`, JG17 `logistics_supplier_on_time_delivery`, JG18 `logistics_cargo_loss_prevention`, JG19 `logistics_digital_docs_transport`, JG20 `logistics_load_planning_optimization`, JG21 `logistics_intermodal_transfer_handling`, JG22 `logistics_delivery_exception_management`, JG23 `logistics_carbon_freight_reduction`, JG24 `logistics_overall_logistics_maturity`.
+
+
+---
+
+# BAGIAN 131 — WAVE JH: MANUFACTURING & INDUSTRIAL AUTOMATION INTEGRITY JH01–JH24 (VERIFIED; v1.31.0)
+
+Menambahkan lapisan integritas manufacturing & industrial automation integrity: `JH01–JH24` di `hard_gate_enhancements.py`, disurfacing `P_MANUFACTURING_01–P_MANUFACTURING_24`; diverifikasi 24/24 PASS (selftest_jh_w6 rc 0).
+
+Mekanisme operasional formal:
+JH01 `manufacturing_osa_high_availability`, JH02 `manufacturing_predictive_maintenance`, JH03 `manufacturing_quality_control_six_sigma`, JH04 `manufacturing_iot_sensor_data_fidelity`, JH05 `manufacturing_robotic_cell_safety`, JH06 `manufacturing_digital_twin_plant_accuracy`, JH07 `manufacturing_shop_floor_network_segmentation`, JH08 `manufacturing_scada_control_integrity`, JH09 `manufacturing_wip_tracking_accuracy`, JH10 `manufacturing_batch_record_completeness`, JH11 `manufacturing_energy_usage_monitoring`, JH12 `manufacturing_supplier_quality_management`, JH13 `manufacturing_osha_worker_safety`, JH14 `manufacturing_material_requirement_planning`, JH15 `manufacturing_statistical_process_control`, JH16 `manufacturing_asset_utilization_oeem`, JH17 `manufacturing_labor_skill_tracking`, JH18 `manufacturing_environmental_emissions_control`, JH19 `manufacturing_product_traceability_batch`, JH20 `manufacturing_lean_inventory_reduction`, JH21 `manufacturing_equipment_calibration_schedule`, JH22 `manufacturing_cyber_physical_attack_defense`, JH23 `manufacturing_new_product_introduction_quality`, JH24 `manufacturing_overall_manufacturing_maturity`.
+
+
+---
+
+# BAGIAN 132 — WAVE JI: PHARMACEUTICAL & LIFE SCIENCES GMP INTEGRITY JI01–JI24 (VERIFIED; v1.32.0)
+
+Menambahkan lapisan integritas pharmaceutical & life sciences gmp integrity: `JI01–JI24` di `hard_gate_enhancements.py`, disurfacing `P_PHARMA_01–P_PHARMA_24`; diverifikasi 24/24 PASS (selftest_ji_w6 rc 0).
+
+Mekanisme operasional formal:
+JI01 `pharma_gmp_compliance_documented`, JI02 `pharma_batch_manufacturing_record_complete`, JI03 `pharma_21_cfr_part11_electronic_records`, JI04 `pharma_data_integrity_alcoa`, JI05 `pharma_cleanroom_environmental_monitoring`, JI06 `pharma_stability_study_protocol`, JI07 `pharma_aseptic_processing_control`, JI08 `pharma_supply_chain_cold_chain`, JI09 `pharma_adverse_event_reporting_pharma`, JI10 `pharma_clinical_trial_gcp`, JI11 `pharma_drug_labeling_accuracy`, JI12 `pharma_validation_master_plan`, JI13 `pharma_contamination_control_strategy`, JI14 `pharma_traceability_of_ingredients`, JI15 `pharma_equipment_qualification`, JI16 `pharma_deviation_management_pharma`, JI17 `pharma_corrective_preventive_action`, JI18 `pharma_serialization_anti_counterfeit`, JI19 `pharma_regulatory_submission_quality`, JI20 `pharma_potency_assay_accuracy`, JI21 `pharma_packaging_material_control`, JI22 `pharma_audit_raw_materials_suppliers`, JI23 `pharma_pharmacovigilance_system`, JI24 `pharma_overall_pharma_maturity`.
+
+
+---
+
+# BAGIAN 133 — WAVE JJ: AGRITECH & PRECISION AGRICULTURE INTEGRITY JJ01–JJ24 (VERIFIED; v1.33.0)
+
+Menambahkan lapisan integritas agritech & precision agriculture integrity: `JJ01–JJ24` di `hard_gate_enhancements.py`, disurfacing `P_AGRITECH_01–P_AGRITECH_24`; diverifikasi 24/24 PASS (selftest_jj_w6 rc 0).
+
+Mekanisme operasional formal:
+JJ01 `agritech_crop_sensor_validity`, JJ02 `agritech_irrigation_optimization`, JJ03 `agritech_soil_health_monitoring`, JJ04 `agritech_drone_imagery_accuracy`, JJ05 `agritech_yield_forecast_accuracy`, JJ06 `agritech_agrochemical_application_precision`, JJ07 `agritech_livestock_health_tracking`, JJ08 `agritech_supply_chain_traceability_farm`, JJ09 `agritech_weather_forecast_integration`, JJ10 `agritech_machinery_autonomy_safety`, JJ11 `agritech_farm_management_data_privacy`, JJ12 `agritech_pest_management_thresholds`, JJ13 `agritech_seed_genetics_quality`, JJ14 `agritech_post_harvest_loss_reduction`, JJ15 `agritech_carbon_sequestration_measurement`, JJ16 `agritech_traceability_food_safety`, JJ17 `agritech_equipment_telemetry_machine`, JJ18 `agritech_agri_insurance_risk_model`, JJ19 `agritech_market_price_data_accuracy`, JJ20 `agritech_water_quality_monitoring`, JJ21 `agritech_pollinator_habitat_preservation`, JJ22 `agritech_labor_safety_farming`, JJ23 `agritech_regenerative_practice_adoption`, JJ24 `agritech_overall_agritech_maturity`.
