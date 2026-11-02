@@ -1,3 +1,8 @@
+## v1.47.0 (2026-11-02) — SBOM Hash Validity Predicate (BAGIAN 147)
+
+- **P_sbom_hash_valid**: predikat baru yang memverifikasi setiap hash komponen SBOM cocok dengan file on-disk (deteksi SBOM drift). Refresh-baseline kini ikut meregenerasi SBOM.
+- **BAGIAN 147** ditambahkan; bump v1.47.0.
+
 ## v1.46.0 (2026-11-02) — Doc->Code Binding Predicate (BAGIAN 146)
 
 - **P_spec_code_binding**: predikat baru yang memverifikasi setiap mekanisme terdokumentasi di spec (section "Mekanisme operasional formal:") punya fungsi nyata di hard_gate_enhancements.py. 1776 terdokumentasi, 0 missing. RED/restore test PASS.

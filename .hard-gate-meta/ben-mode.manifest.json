@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-02T12:32:06.296988+00:00",
+  "generated_at": "2026-11-02T12:56:42.926197+00:00",
   "file_count": 101,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 78261,
-      "sha256": "9042bfc2a661b1edc8ed1db160eeb673e85384edb825cccf6ae619e6a4783d14"
+      "size": 78560,
+      "sha256": "a776cdd8a6ed8c204342ab007c9eadcdc62c34913fc7446e5d58e4513bc23086"
     },
     {
       "path": "SKILL.md",
-      "size": 61196,
-      "sha256": "5a4678f55eaf9e9e7969b3da6ad98d620b9227cde4c7a2dfca6d109c73ba02a5"
+      "size": 62448,
+      "sha256": "1d45abd0abe28c70234f9a22988dd0d75a81da47ad99fed8f8463506a436e5ae"
     },
     {
       "path": "gate.conf",
@@ -82,8 +82,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 260640,
-      "sha256": "2b3a2c1a0e32b91df220f3b3c7e9b4c1f83db9775c95354685fe78c9a97f8429"
+      "size": 261662,
+      "sha256": "0cebddb76edd43bee4bbe6638fe26d91431b1dc718174ba1925fa3ef6a7cad57"
     },
     {
       "path": "references/large-document-editing.md",
@@ -92,8 +92,8 @@
     },
     {
       "path": "references/mechanism-extension-recipe.md",
-      "size": 15005,
-      "sha256": "c5aa04b4e19dc016a1a05d038fc0a56df7298d4c9c56fe6b742d80dfec79d502"
+      "size": 15914,
+      "sha256": "b14bb87432a29519fba307339d17cd9057a5d4ecafd2deb2337b2e5f9c256d0f"
     },
     {
       "path": "references/pdf-corpus-regeneration.md",
@@ -207,8 +207,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 889557,
-      "sha256": "e436f355df1d83232b3d9803e52733815efec325b950998607a053412b5c6c92"
+      "size": 892054,
+      "sha256": "cad4d8d39dbfeb723e8a3ac3166499db3b6bedbee8ab679386dfc58966046028"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -262,8 +262,8 @@
     },
     {
       "path": "scripts/refresh-baseline.sh",
-      "size": 1675,
-      "sha256": "3f0740a441dfd2d867073e39a537ccda61d367152bc185804c78565c75509681"
+      "size": 1954,
+      "sha256": "ce695232480b6a726ccbdeb0fed5e2d4ef53687fbe0b5c29dedb129889b94565"
     },
     {
       "path": "scripts/regression-oracle.py",

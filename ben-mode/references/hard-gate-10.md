@@ -3200,3 +3200,23 @@ menegakkan arah **dokumen -> kode** (cermin dari `P_substantiation` yang menegak
 - Verifikasi nyata (v1.46.0): 1776 terdokumentasi, 0 missing. RED test: inject
   token hantu `zz_ghost_never_implemented_zz` ke spec -> FAIL (0/1); restore -> PASS.
 - Bump v1.46.0.
+
+
+---
+
+# BAGIAN 147 — SBOM HASH VALIDITY PREDICATE (VERIFIED; v1.47.0)
+
+Menambahkan predikat **`P_sbom_hash_valid`** di `gate_predicates.py::evaluate()` yang
+mendeteksi **SBOM drift**: memverifikasi setiap hash SHA-256 komponen CycloneDX di
+`ben-mode.sbom.json` cocok dengan file on-disk yang sebenarnya.
+
+- Lokasi SBOM di-resolve multi-kandidat (`<meta>/ben-mode.sbom.json`, `<skill>/.hard-gate-meta/...`,
+  `<skill>/ben-mode.sbom.json`).
+- Untuk setiap komponen yang punya hash SHA-256: cari file relatif terhadap root skill, hitung
+  hash aktual, tandai STALE bila tidak cocok.
+- `P_sbom_hash_valid = (checked > 0) and (not stale)` — FAIL bila ada komponen basi.
+- **refresh-baseline.sh** kini ikut meregenerasi SBOM (`generate-sbom.py --out`) setelah baseline,
+  sehingga SBOM tidak basi antar-run.
+- Verifikasi nyata (v1.47.0): sebelum perbaikan, 1/100 komponen STALE (SKILL.md); setelah regen
+  100/100 cocok. RED test: edit SKILL.md lalu bypass regen -> FAIL; regen -> PASS.
+- Bump v1.47.0.

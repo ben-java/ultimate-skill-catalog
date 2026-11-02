@@ -36,6 +36,8 @@ MAN="$MDIR/$SKILL.manifest.json"
 "$PY_BIN" "$SCRIPT_W/generate_manifest.py" "$(cygpath -w "$SKDIR")" --baseline "$(cygpath -w "$SIG")" >/dev/null
 "$PY_BIN" "$SCRIPT_W/generate_manifest.py" "$(cygpath -w "$SKDIR")" --out "$(cygpath -w "$MAN")" >/dev/null
 echo "✅ baseline regenerated: $SIG"
+# regenerate SBOM so component hashes match the current tree (drift guard)
+"$PY_BIN" "$SCRIPT_W/generate-sbom.py" "$(cygpath -w "$SKDIR")" --out "$(cygpath -w "$MDIR/$SKILL.sbom.json")" >/dev/null 2>&1 || echo "  (sbom regen skipped)"
 echo "   full manifest: $MAN"
 
 echo "→ re-running gate"

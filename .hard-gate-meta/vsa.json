@@ -5,13 +5,13 @@
     {
       "name": "ben-mode.manifest.json",
       "digest": {
-        "sha256": "59df945effbcd880815fefe6a4675893357634dcb8ce4432c38f93c6e6cf89b7"
+        "sha256": "9af5fbbec7185b830a728e71f7d3c59929d321db60c1a0e5906c6ddaca176008"
       }
     },
     {
       "name": "transparency.merkle",
       "digest": {
-        "sha256": "e5afeeeed391cdb346cd9d11bda82d8692f554efbf3c8dbb3b06c807efdc83b5"
+        "sha256": "558cd056727ea638110142869db4d2506550d0f754533c330682d103bee88782"
       }
     }
   ],
@@ -25,5 +25,5 @@
     "SLSA_SOURCE_L3",
     "SLSA_BUILD_L2"
   ],
-  "timestamp": "2026-11-02T12:32:28.610251Z"
+  "timestamp": "2026-11-02T12:57:06.928468Z"
 }

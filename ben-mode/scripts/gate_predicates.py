@@ -11898,10 +11898,64 @@ def evaluate(roots, meta_dir, runtime_inputs):
     except Exception as _e:
         status["P_spec_code_binding"] = False
         _spec_msg = "err: %s" % _e
+    # P_sbom_hash_valid: every CycloneDX SBOM component hash must match the
+    # on-disk file (SBOM drift detection). Finds SBOM in meta-dir candidates.
+    try:
+        import hashlib as _hl
+        _sbom_path = None
+        for _c in (os.path.join(meta_dir, "ben-mode.sbom.json"),
+                   os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                                ".hard-gate-meta", "ben-mode.sbom.json"),
+                   os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
+                                "ben-mode.sbom.json")):
+            if os.path.isfile(_c):
+                _sbom_path = _c
+                break
+        if _sbom_path is None:
+            status["P_sbom_hash_valid"] = False
+            _sbom_msg = "no sbom found"
+        else:
+            _sbom = json.load(open(_sbom_path, encoding="utf-8"))
+            _bad = []
+            _checked = 0
+            _root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+            for _c2 in _sbom.get("components", []):
+                _sha = None
+                for _h in _c2.get("hashes", []):
+                    if _h.get("alg") == "SHA-256":
+                        _sha = _h.get("content")
+                        break
+                if not _sha:
+                    continue
+                _name = _c2.get("name", "")
+                _found = None
+                for _cand in (os.path.join(_root, _name),
+                              os.path.join(_root, "ben-mode", _name)):
+                    if os.path.isfile(_cand):
+                        _found = _cand
+                        break
+                if _found is None:
+                    continue
+                _checked += 1
+                _actual = _hl.sha256(open(_found, "rb").read()).hexdigest()
+                if _actual != _sha:
+                    _bad.append(_name)
+            status["P_sbom_hash_valid"] = (_checked > 0) and (not _bad)
+            _sbom_msg = "checked " + str(_checked) + " stale " + ",".join(_bad) if _bad else ("ok (" + str(_checked) + " components)")
+    except Exception as _e:
+        status["P_sbom_hash_valid"] = False
+        _sbom_msg = "err: %s" % _e
+    try:
+        _ev3 = os.path.join(tempfile.gettempdir(), "ben_sbom_hash_valid.json")
+        with open(_ev3, "w", encoding="utf-8") as _f:
+            json.dump({"P_sbom_hash_valid": _sbom_msg}, _f, ensure_ascii=False)
+    except Exception:
+        pass
+
     try:
         _ev2 = os.path.join(tempfile.gettempdir(), "ben_spec_code_binding.json")
         with open(_ev2, "w", encoding="utf-8") as _f:
-            _json.dump({"P_spec_code_binding": _spec_msg}, _f, ensure_ascii=False)
+            json.dump({"P_spec_code_binding": _spec_msg}, _f, ensure_ascii=False)
     except Exception:
         pass
 
@@ -11909,7 +11963,7 @@ def evaluate(roots, meta_dir, runtime_inputs):
         import json as _json
         _ev = os.path.join(tempfile.gettempdir(), "ben_substantiation_detail.json")
         with open(_ev, "w", encoding="utf-8") as _f:
-            _json.dump({"P_substantiation": _msub_msg}, _f, ensure_ascii=False)
+            json.dump({"P_substantiation": _msub_msg}, _f, ensure_ascii=False)
     except Exception:
         pass
 
