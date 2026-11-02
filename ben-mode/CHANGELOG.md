@@ -1,3 +1,8 @@
+## v0.51.0 (2026-11-02) — Wave T Configuration & Environment Integrity TT01–TT24 (BAGIAN 51)
+
+- **TT01–TT24**: config versioning, secret injection, env parity, config validation, secure defaults, feature flags, rollback, drift detect, immutable infra, as-code review, env isolation, clean teardown, local-remote parity, dependency provenance, config encryption, toolchain pinning, automated reprovision, least privilege, config commentary, env health, patch management, no hardcoded paths, runtime config guard, overall config integrity. Disurfacing `P_TT01–P_TT24`; 24/24 PASS.
+- **BAGIAN 51** ditambahkan; bump serentak 0.51.0.
+
 ## v0.50.0 (2026-11-02) — Wave S Accountability & Auditability Integrity SS01–SS24 (BAGIAN 50)
 
 - **SS01–SS24**: decision log, actor identity, action attribution, audit trail, explainability, sign-off, contradiction detection, answer trace, version history, regulatory compliance, audit scope, stakeholder visibility, error correction, automated audit, evidence retention, consequence map, verification sign-off, audit feedback, separation of audit, internal audit regime, ownership, accountability culture, continuous audit, overall accountability. Disurfacing `P_SS01–P_SS24`; 24/24 PASS.

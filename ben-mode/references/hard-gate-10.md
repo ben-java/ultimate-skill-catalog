@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.50.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.51.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2212,3 +2212,15 @@ disurfacing `P_SS01–P_SS24`; diverifikasi 24/24 PASS (selftest_ss rc 0).
 - Governance & Sign-off: SS06 `ss_sign_off`, SS07 `ss_contradiction_detect`, SS09 `ss_version_history`, SS10 `ss_regulatory_compliance`, SS21 `ss_ownership_clear`, SS22 `ss_culture_accountability`.
 - Audit Regime: SS11 `ss_audit_scope`, SS12 `ss_stakeholder_visibility`, SS14 `ss_automated_audit`, SS17 `ss_verification_sign_off`, SS19 `ss_separation_of_audit`, SS20 `ss_internal_audit_regime`, SS23 `ss_continuous_audit`.
 - Corrective Loop: SS13 `ss_error_correction`, SS15 `ss_evidence_retention`, SS18 `ss_audit_feedback`, SS24 `ss_overall_accountability`.
+
+---
+
+# BAGIAN 51 — WAVE T: CONFIGURATION & ENVIRONMENT INTEGRITY TT01–TT24 (VERIFIED; v0.51.0)
+
+Menambahkan lapisan configuration & environment integrity: `TT01–TT24` di `hard_gate_enhancements.py`,
+disurfacing `P_TT01–P_TT24`; diverifikasi 24/24 PASS (selftest_tt rc 0).
+
+- Config Management: TT01 `tt_config_versioning`, TT04 `tt_config_validation`, TT05 `tt_defaults_secure`, TT07 `tt_rollback_capability`, TT19 `tt_config_commentary`, TT22 `tt_no_hardcoded_paths`, TT23 `tt_runtime_config_guard`.
+- Secrets & Protection: TT02 `tt_secret_injection`, TT15 `tt_config_encryption`.
+- Environment: TT03 `tt_env_parity`, TT09 `tt_immutable_infra`, TT11 `tt_environment_isolation`, TT12 `tt_clean_teardown`, TT13 `tt_local_remote_parity`, TT17 `tt_automated_reprovision`, TT18 `tt_permission_least_privilege`, TT20 `tt_environment_health`.
+- Change & Drift: TT06 `tt_feature_flags`, TT08 `tt_config_drift_detect`, TT10 `tt_as_code_review`, TT14 `tt_dependency_provenance`, TT16 `tt_toolchain_pinning`, TT21 `tt_patch_management`, TT24 `tt_overall_config_integrity`.

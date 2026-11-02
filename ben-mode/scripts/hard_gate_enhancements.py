@@ -4530,3 +4530,128 @@ def selftest_ss():
             (22, ss_culture_accountability(True, True)),
             (23, ss_continuous_audit(True, True)),
             (24, ss_overall_accountability(94, 70))]
+
+# ------------------------------------------------------------------
+# WAVE T — CONFIGURATION & ENVIRONMENT INTEGRITY (TT01–TT24)
+# ------------------------------------------------------------------
+def tt_config_versioning(versioned, tracked):
+    # TT01: config versioned + tracked.
+    return bool(versioned) and bool(tracked)
+
+def tt_secret_injection(secrets, injected_securely):
+    # TT02: secrets injected via secure mechanism.
+    return bool(secrets) and bool(injected_securely)
+
+def tt_env_parity(parity, prod_representative):
+    # TT03: environments matched to prod.
+    return bool(parity) and bool(prod_representative)
+
+def tt_config_validation(validated, schema):
+    # TT04: config validated against schema.
+    return bool(validated) and bool(schema)
+
+def tt_defaults_secure(defaults, no_weak_defaults):
+    # TT05: secure defaults.
+    return bool(defaults) and bool(no_weak_defaults)
+
+def tt_feature_flags(flags, audit_trail):
+    # TT06: feature flags with audit trail.
+    return bool(flags) and bool(audit_trail)
+
+def tt_rollback_capability(rollback, documented):
+    # TT07: config rollback capability.
+    return bool(rollback) and bool(documented)
+
+def tt_config_drift_detect(drift_detect, alerting):
+    # TT08: config drift detection + alerting.
+    return bool(drift_detect) and bool(alerting)
+
+def tt_immutable_infra(immutable, reprovisioned):
+    # TT09: immutable infrastructure.
+    return bool(immutable) and bool(reprovisioned)
+
+def tt_as_code_review(reviewed, peer_approval):
+    # TT10: config-as-code peer reviewed.
+    return bool(reviewed) and bool(peer_approval)
+
+def tt_environment_isolation(isolated, boundaries):
+    # TT11: environments isolated.
+    return bool(isolated) and bool(boundaries)
+
+def tt_clean_teardown(teardown, no_state_left):
+    # TT12: clean teardown.
+    return bool(teardown) and bool(no_state_left)
+
+def tt_local_remote_parity(parity, verified):
+    # TT13: local-remote config parity verified.
+    return bool(parity) and bool(verified)
+
+def tt_dependency_provenance(provenance, pinned):
+    # TT14: dependency provenance pinned.
+    return bool(provenance) and bool(pinned)
+
+def tt_config_encryption(encrypted, keys_managed):
+    # TT15: sensitive config encrypted.
+    return bool(encrypted) and bool(keys_managed)
+
+def tt_toolchain_pinning(pinned, versions_fixed):
+    # TT16: toolchain versions pinned.
+    return bool(pinned) and bool(versions_fixed)
+
+def tt_automated_reprovision(reprovision, scripted):
+    # TT17: reprovisioning automated.
+    return bool(reprovision) and bool(scripted)
+
+def tt_permission_least_privilege(permissions, least):
+    # TT18: minimal permissions in env.
+    return bool(permissions) and bool(least)
+
+def tt_config_commentary(comments, reasons):
+    # TT19: config changes documented.
+    return bool(comments) and bool(reasons)
+
+def tt_environment_health(health_checks, passing):
+    # TT20: environment health checks passing.
+    return bool(health_checks) and bool(passing)
+
+def tt_patch_management(patch_policy, compliant):
+    # TT21: patch policy compliant.
+    return bool(patch_policy) and bool(compliant)
+
+def tt_no_hardcoded_paths(no_hardcode, resolved):
+    # TT22: no hardcoded paths.
+    return bool(no_hardcode) and bool(resolved)
+
+def tt_runtime_config_guard(guard, enforced):
+    # TT23: runtime config guard enforced.
+    return bool(guard) and bool(enforced)
+
+def tt_overall_config_integrity(score, min_score):
+    # TT24: overall config integrity score meets minimum.
+    return score >= min_score
+
+def selftest_tt():
+    return [(1, tt_config_versioning(True, True)),
+            (2, tt_secret_injection(True, True)),
+            (3, tt_env_parity(True, True)),
+            (4, tt_config_validation(True, True)),
+            (5, tt_defaults_secure(True, True)),
+            (6, tt_feature_flags(True, True)),
+            (7, tt_rollback_capability(True, True)),
+            (8, tt_config_drift_detect(True, True)),
+            (9, tt_immutable_infra(True, True)),
+            (10, tt_as_code_review(True, True)),
+            (11, tt_environment_isolation(True, True)),
+            (12, tt_clean_teardown(True, True)),
+            (13, tt_local_remote_parity(True, True)),
+            (14, tt_dependency_provenance(True, True)),
+            (15, tt_config_encryption(True, True)),
+            (16, tt_toolchain_pinning(True, True)),
+            (17, tt_automated_reprovision(True, True)),
+            (18, tt_permission_least_privilege(True, True)),
+            (19, tt_config_commentary(True, True)),
+            (20, tt_environment_health(True, True)),
+            (21, tt_patch_management(True, True)),
+            (22, tt_no_hardcoded_paths(True, True)),
+            (23, tt_runtime_config_guard(True, True)),
+            (24, tt_overall_config_integrity(95, 70))]

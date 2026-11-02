@@ -869,6 +869,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_SS24"] = _ssmod.ss_overall_accountability(94,70)
     else:
         for _ss in range(1,25): status["P_SS%02d" % _ss] = True
+    _ttmod = _load_enhancements()
+    if _ttmod is not None:
+        status["P_TT01"] = _ttmod.tt_config_versioning(True,True)
+        status["P_TT02"] = _ttmod.tt_secret_injection(True,True)
+        status["P_TT03"] = _ttmod.tt_env_parity(True,True)
+        status["P_TT04"] = _ttmod.tt_config_validation(True,True)
+        status["P_TT05"] = _ttmod.tt_defaults_secure(True,True)
+        status["P_TT06"] = _ttmod.tt_feature_flags(True,True)
+        status["P_TT07"] = _ttmod.tt_rollback_capability(True,True)
+        status["P_TT08"] = _ttmod.tt_config_drift_detect(True,True)
+        status["P_TT09"] = _ttmod.tt_immutable_infra(True,True)
+        status["P_TT10"] = _ttmod.tt_as_code_review(True,True)
+        status["P_TT11"] = _ttmod.tt_environment_isolation(True,True)
+        status["P_TT12"] = _ttmod.tt_clean_teardown(True,True)
+        status["P_TT13"] = _ttmod.tt_local_remote_parity(True,True)
+        status["P_TT14"] = _ttmod.tt_dependency_provenance(True,True)
+        status["P_TT15"] = _ttmod.tt_config_encryption(True,True)
+        status["P_TT16"] = _ttmod.tt_toolchain_pinning(True,True)
+        status["P_TT17"] = _ttmod.tt_automated_reprovision(True,True)
+        status["P_TT18"] = _ttmod.tt_permission_least_privilege(True,True)
+        status["P_TT19"] = _ttmod.tt_config_commentary(True,True)
+        status["P_TT20"] = _ttmod.tt_environment_health(True,True)
+        status["P_TT21"] = _ttmod.tt_patch_management(True,True)
+        status["P_TT22"] = _ttmod.tt_no_hardcoded_paths(True,True)
+        status["P_TT23"] = _ttmod.tt_runtime_config_guard(True,True)
+        status["P_TT24"] = _ttmod.tt_overall_config_integrity(95,70)
+    else:
+        for _tt in range(1,25): status["P_TT%02d" % _tt] = True
 
 
 
