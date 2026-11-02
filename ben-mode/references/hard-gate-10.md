@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.56.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.57.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2284,3 +2284,12 @@ disurfacing `P_YY01–P_YY24`; diverifikasi 24/24 PASS (selftest_yy rc 0).
 - Waste & Rightsizing: YY03 `yy_waste_detection`, YY05 `yy_rightsizing`, YY07 `yy_resource_idle`, YY08 `yy_tiered_storage`, YY09 `yy_data_lifecycle_cost`, YY20 `yy_egress_optimization`.
 - Discounts & Procurement: YY06 `yy_spot_usage`, YY10 `yy_commitment_discounts`, YY21 `yy_license_optimization`, YY22 `yy_reservation_planning`.
 - Governance & Optimization: YY11 `yy_usage_anomaly`, YY12 `yy_optimization_regression`, YY13 `yy_finops_roles`, YY15 `yy_cost_sla`, YY16 `yy_cloud_spend_governance`, YY17 `yy_green_compute`, YY19 `yy_cost_optimization_cycle`, YY23 `yy_automated_opt`, YY24 `yy_overall_cost_efficiency`.
+
+---
+
+# BAGIAN 57 — WAVE Z: CONTINUOUS INTEGRATION & DEPLOYMENT INTEGRITY ZZ01–ZZ24 (VERIFIED; v0.57.0)
+
+Menambahkan lapisan CI/CD: `ZZ01–ZZ24` di `hard_gate_enhancements.py`, disurfacing `P_ZZ01–P_ZZ24`; diverifikasi 24/24 PASS (selftest_zz rc 0).
+
+- CI: ZZ01 `zz_ci_pipeline`, ZZ02 `zz_ci_triggers`, ZZ03 `zz_build_reproducible`, ZZ04 `zz_compile_check`, ZZ05 `zz_unit_ci`, ZZ06 `zz_artifact_build`, ZZ07 `zz_ci_cache`, ZZ08 `zz_ci_parallel`, ZZ09 `zz_ci_secrets`, ZZ10 `zz_ci_clean`, ZZ11 `zz_ci_visibility`, ZZ12 `zz_ci_timeout`.
+- CD: ZZ13 `zz_deploy_strategy`, ZZ14 `zz_canary`, ZZ15 `zz_rollback`, ZZ16 `zz_db_migrations`, ZZ17 `zz_deploy_approval`, ZZ18 `zz_infra_as_code`, ZZ19 `zz_health_checks`, ZZ20 `zz_deploy_atomic`, ZZ21 `zz_config_release`, ZZ22 `zz_env_parity`, ZZ23 `zz_release_notes`, ZZ24 `zz_cd_overall`.

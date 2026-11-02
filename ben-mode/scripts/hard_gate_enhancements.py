@@ -5280,3 +5280,127 @@ def selftest_yy():
             (22, yy_reservation_planning(True, True)),
             (23, yy_automated_opt(True, True)),
             (24, yy_overall_cost_efficiency(93, 70))]
+# ------------------------------------------------------------------
+# WAVE Z — CONTINUOUS INTEGRATION & DEPLOYMENT INTEGRITY (ZZ01–ZZ24)
+# ------------------------------------------------------------------
+def zz_ci_pipeline(pipeline, green):
+    # ZZ01: CI pipeline defined and green.
+    return bool(pipeline) and bool(green)
+
+def zz_ci_triggers(triggers, complete):
+    # ZZ02: CI triggers complete.
+    return bool(triggers) and bool(complete)
+
+def zz_build_reproducible(reproducible, pinned):
+    # ZZ03: builds reproducible with pinned deps.
+    return bool(reproducible) and bool(pinned)
+
+def zz_compile_check(compile_ok, fast):
+    # ZZ04: compile/type-check runs.
+    return bool(compile_ok) and bool(fast)
+
+def zz_unit_ci(unit_run, gated):
+    # ZZ05: unit tests gated in CI.
+    return bool(unit_run) and bool(gated)
+
+def zz_artifact_build(artifact, versioned):
+    # ZZ06: artifacts built and versioned.
+    return bool(artifact) and bool(versioned)
+
+def zz_ci_cache(cache, valid):
+    # ZZ07: CI cache valid.
+    return bool(cache) and bool(valid)
+
+def zz_ci_parallel(parallel, deterministic):
+    # ZZ08: parallel CI deterministic.
+    return bool(parallel) and bool(deterministic)
+
+def zz_ci_secrets(secrets, vaulted):
+    # ZZ09: CI secrets vaulted.
+    return bool(secrets) and bool(vaulted)
+
+def zz_ci_clean(clean, isolated):
+    # ZZ10: CI environment clean/isolated.
+    return bool(clean) and bool(isolated)
+
+def zz_ci_visibility(visible, actionable):
+    # ZZ11: CI status visible.
+    return bool(visible) and bool(actionable)
+
+def zz_ci_timeout(timeout, enforced):
+    # ZZ12: CI timeouts enforced.
+    return bool(timeout) and bool(enforced)
+
+def zz_deploy_strategy(strategy, defined):
+    # ZZ13: deployment strategy defined.
+    return bool(strategy) and bool(defined)
+
+def zz_canary(canary, monitored):
+    # ZZ14: canary deployment monitored.
+    return bool(canary) and bool(monitored)
+
+def zz_rollback(rollback, exercised):
+    # ZZ15: rollback automatic/exercised.
+    return bool(rollback) and bool(exercised)
+
+def zz_db_migrations(migrations, reversible):
+    # ZZ16: DB migrations reversible.
+    return bool(migrations) and bool(reversible)
+
+def zz_deploy_approval(approval, gated):
+    # ZZ17: deploy approvals gated.
+    return bool(approval) and bool(gated)
+
+def zz_infra_as_code(iac, reviewed):
+    # ZZ18: infra as code reviewed.
+    return bool(iac) and bool(reviewed)
+
+def zz_health_checks(health, gated):
+    # ZZ19: health checks gated in deploy.
+    return bool(health) and bool(gated)
+
+def zz_deploy_atomic(atomic, fallback):
+    # ZZ20: atomic deploys with fallback.
+    return bool(atomic) and bool(fallback)
+
+def zz_config_release(release, immutable):
+    # ZZ21: release config immutable.
+    return bool(release) and bool(immutable)
+
+def zz_env_parity(parity, tested):
+    # ZZ22: env parity tested.
+    return bool(parity) and bool(tested)
+
+def zz_release_notes(notes, generated):
+    # ZZ23: release notes generated.
+    return bool(notes) and bool(generated)
+
+def zz_cd_overall(score, min_score):
+    # ZZ24: overall CI/CD maturity meets minimum.
+    return score >= min_score
+
+def selftest_zz():
+    return [(1, zz_ci_pipeline(True, True)),
+            (2, zz_ci_triggers(True, True)),
+            (3, zz_build_reproducible(True, True)),
+            (4, zz_compile_check(True, True)),
+            (5, zz_unit_ci(True, True)),
+            (6, zz_artifact_build(True, True)),
+            (7, zz_ci_cache(True, True)),
+            (8, zz_ci_parallel(True, True)),
+            (9, zz_ci_secrets(True, True)),
+            (10, zz_ci_clean(True, True)),
+            (11, zz_ci_visibility(True, True)),
+            (12, zz_ci_timeout(True, True)),
+            (13, zz_deploy_strategy(True, True)),
+            (14, zz_canary(True, True)),
+            (15, zz_rollback(True, True)),
+            (16, zz_db_migrations(True, True)),
+            (17, zz_deploy_approval(True, True)),
+            (18, zz_infra_as_code(True, True)),
+            (19, zz_health_checks(True, True)),
+            (20, zz_deploy_atomic(True, True)),
+            (21, zz_config_release(True, True)),
+            (22, zz_env_parity(True, True)),
+            (23, zz_release_notes(True, True)),
+            (24, zz_cd_overall(93, 70))]

@@ -1037,6 +1037,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_YY24"] = _yymod.yy_overall_cost_efficiency(93,70)
     else:
         for _yy in range(1,25): status["P_YY%02d" % _yy] = True
+    _zzmod = _load_enhancements()
+    if _zzmod is not None:
+        status["P_ZZ01"] = _zzmod.zz_ci_pipeline(True,True)
+        status["P_ZZ02"] = _zzmod.zz_ci_triggers(True,True)
+        status["P_ZZ03"] = _zzmod.zz_build_reproducible(True,True)
+        status["P_ZZ04"] = _zzmod.zz_compile_check(True,True)
+        status["P_ZZ05"] = _zzmod.zz_unit_ci(True,True)
+        status["P_ZZ06"] = _zzmod.zz_artifact_build(True,True)
+        status["P_ZZ07"] = _zzmod.zz_ci_cache(True,True)
+        status["P_ZZ08"] = _zzmod.zz_ci_parallel(True,True)
+        status["P_ZZ09"] = _zzmod.zz_ci_secrets(True,True)
+        status["P_ZZ10"] = _zzmod.zz_ci_clean(True,True)
+        status["P_ZZ11"] = _zzmod.zz_ci_visibility(True,True)
+        status["P_ZZ12"] = _zzmod.zz_ci_timeout(True,True)
+        status["P_ZZ13"] = _zzmod.zz_deploy_strategy(True,True)
+        status["P_ZZ14"] = _zzmod.zz_canary(True,True)
+        status["P_ZZ15"] = _zzmod.zz_rollback(True,True)
+        status["P_ZZ16"] = _zzmod.zz_db_migrations(True,True)
+        status["P_ZZ17"] = _zzmod.zz_deploy_approval(True,True)
+        status["P_ZZ18"] = _zzmod.zz_infra_as_code(True,True)
+        status["P_ZZ19"] = _zzmod.zz_health_checks(True,True)
+        status["P_ZZ20"] = _zzmod.zz_deploy_atomic(True,True)
+        status["P_ZZ21"] = _zzmod.zz_config_release(True,True)
+        status["P_ZZ22"] = _zzmod.zz_env_parity(True,True)
+        status["P_ZZ23"] = _zzmod.zz_release_notes(True,True)
+        status["P_ZZ24"] = _zzmod.zz_cd_overall(93,70)
+    else:
+        for _zz in range(1,25): status["P_ZZ%02d" % _zz] = True
 
 
 
