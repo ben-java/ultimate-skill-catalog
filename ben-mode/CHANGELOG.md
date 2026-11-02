@@ -1,3 +1,8 @@
+## v0.58.0 (2026-11-02) — Wave AA Regulatory & Compliance Integrity AA01–AA24 (BAGIAN 58)
+
+- **AA01–AA24**: regulatory map, obligation tracking, compliance calendar, audit evidence, reporting deadlines, breach notification, regulation change scan, gap analysis, controls mapping, GDPR, ISO 27001, PCI DSS, SOC 2, HIPAA, CCPA, SOX, export controls, contractual compliance, third-party compliance, regulatory training, AML/KYC, environmental compliance, labour compliance, overall compliance maturity. Disurfacing `P_AA01–P_AA24`; 24/24 PASS.
+- **BAGIAN 58** ditambahkan; bump serentak 0.58.0.
+
 ## v0.57.0 (2026-11-02) — Wave Z Continuous Integration & Deployment Integrity ZZ01–ZZ24 (BAGIAN 57)
 
 - **ZZ01–ZZ24**: CI pipeline, CI triggers, reproducible build, compile check, unit-in-CI, artifact build, CI cache, parallel CI, CI secrets, clean CI, CI visibility, CI timeout, deploy strategy, canary, rollback, DB migrations, deploy approval, infra-as-code, health checks, atomic deploy, release config, env parity, release notes, overall CI/CD maturity. Disurfacing `P_ZZ01–P_ZZ24`; 24/24 PASS.

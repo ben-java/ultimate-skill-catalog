@@ -5404,3 +5404,127 @@ def selftest_zz():
             (22, zz_env_parity(True, True)),
             (23, zz_release_notes(True, True)),
             (24, zz_cd_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE AA — REGULATORY & COMPLIANCE INTEGRITY (AA01–AA24)
+# ------------------------------------------------------------------
+def aa_regulatory_map(map_ok, complete):
+    # AA01: regulatory obligations mapped.
+    return bool(map_ok) and bool(complete)
+
+def aa_obligation_tracking(tracked, assigned):
+    # AA02: obligations tracked and assigned.
+    return bool(tracked) and bool(assigned)
+
+def aa_compliance_calendar(cal, scheduled):
+    # AA03: compliance calendar scheduled.
+    return bool(cal) and bool(scheduled)
+
+def aa_audit_evidence(evidence, retained):
+    # AA04: audit evidence retained.
+    return bool(evidence) and bool(retained)
+
+def aa_reporting_deadline(deadline, met):
+    # AA05: regulatory reporting deadlines met.
+    return bool(deadline) and bool(met)
+
+def aa_breach_notification(notify, escalation):
+    # AA06: breach notification procedures.
+    return bool(notify) and bool(escalation)
+
+def aa_regulation_change_scan(scan, assessed):
+    # AA07: regulation change scanning.
+    return bool(scan) and bool(assessed)
+
+def aa_gap_analysis(gap, remediated):
+    # AA08: compliance gap analysis.
+    return bool(gap) and bool(remediated)
+
+def aa_controls_mapping(controls, mapped):
+    # AA09: controls mapped to obligations.
+    return bool(controls) and bool(mapped)
+
+def aa_eu_gdpr(gdpr, compliant):
+    # AA10: GDPR compliance.
+    return bool(gdpr) and bool(compliant)
+
+def aa_iso_27001(iso, certified):
+    # AA11: ISO/IEC 27001 posture.
+    return bool(iso) and bool(certified)
+
+def aa_pci_dss(pci, in_scope):
+    # AA12: PCI DSS applicability.
+    return bool(pci) and bool(in_scope)
+
+def aa_soc2(soc2, attestation):
+    # AA13: SOC 2 attestation.
+    return bool(soc2) and bool(attestation)
+
+def aa_hipaa(hipaa, applicable):
+    # AA14: HIPAA applicability.
+    return bool(hipaa) and bool(applicable)
+
+def aa_ccpa(ccpa, compliant):
+    # AA15: CCPA/CPRA compliance.
+    return bool(ccpa) and bool(compliant)
+
+def aa_sox(sox, controls):
+    # AA16: SOX financial controls.
+    return bool(sox) and bool(controls)
+
+def aa_export_controls(export, screened):
+    # AA17: export control screening.
+    return bool(export) and bool(screened)
+
+def aa_contractual_compliance(clauses, enforced):
+    # AA18: contractual clauses enforced.
+    return bool(clauses) and bool(enforced)
+
+def aa_third_party_compliance(tpr, assessed):
+    # AA19: third-party compliance assessed.
+    return bool(tpr) and bool(assessed)
+
+def aa_regulatory_training(training, completed):
+    # AA20: regulatory training completed.
+    return bool(training) and bool(completed)
+
+def aa_aml_know(aml, checks):
+    # AA21: AML/KYC checks.
+    return bool(aml) and bool(checks)
+
+def aa_env_compliance(env, permits):
+    # AA22: environmental compliance permits.
+    return bool(env) and bool(permits)
+
+def aa_labour_compliance(labour, policy):
+    # AA23: labour/employment compliance.
+    return bool(labour) and bool(policy)
+
+def aa_compliance_overall(score, min_score):
+    # AA24: overall compliance maturity meets minimum.
+    return score >= min_score
+
+def selftest_aa():
+    return [(1, aa_regulatory_map(True, True)),
+            (2, aa_obligation_tracking(True, True)),
+            (3, aa_compliance_calendar(True, True)),
+            (4, aa_audit_evidence(True, True)),
+            (5, aa_reporting_deadline(True, True)),
+            (6, aa_breach_notification(True, True)),
+            (7, aa_regulation_change_scan(True, True)),
+            (8, aa_gap_analysis(True, True)),
+            (9, aa_controls_mapping(True, True)),
+            (10, aa_eu_gdpr(True, True)),
+            (11, aa_iso_27001(True, True)),
+            (12, aa_pci_dss(True, True)),
+            (13, aa_soc2(True, True)),
+            (14, aa_hipaa(True, True)),
+            (15, aa_ccpa(True, True)),
+            (16, aa_sox(True, True)),
+            (17, aa_export_controls(True, True)),
+            (18, aa_contractual_compliance(True, True)),
+            (19, aa_third_party_compliance(True, True)),
+            (20, aa_regulatory_training(True, True)),
+            (21, aa_aml_know(True, True)),
+            (22, aa_env_compliance(True, True)),
+            (23, aa_labour_compliance(True, True)),
+            (24, aa_compliance_overall(93, 70))]

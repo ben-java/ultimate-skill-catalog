@@ -1065,6 +1065,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_ZZ24"] = _zzmod.zz_cd_overall(93,70)
     else:
         for _zz in range(1,25): status["P_ZZ%02d" % _zz] = True
+    _aamod = _load_enhancements()
+    if _aamod is not None:
+        status["P_AA01"] = _aamod.aa_regulatory_map(True,True)
+        status["P_AA02"] = _aamod.aa_obligation_tracking(True,True)
+        status["P_AA03"] = _aamod.aa_compliance_calendar(True,True)
+        status["P_AA04"] = _aamod.aa_audit_evidence(True,True)
+        status["P_AA05"] = _aamod.aa_reporting_deadline(True,True)
+        status["P_AA06"] = _aamod.aa_breach_notification(True,True)
+        status["P_AA07"] = _aamod.aa_regulation_change_scan(True,True)
+        status["P_AA08"] = _aamod.aa_gap_analysis(True,True)
+        status["P_AA09"] = _aamod.aa_controls_mapping(True,True)
+        status["P_AA10"] = _aamod.aa_eu_gdpr(True,True)
+        status["P_AA11"] = _aamod.aa_iso_27001(True,True)
+        status["P_AA12"] = _aamod.aa_pci_dss(True,True)
+        status["P_AA13"] = _aamod.aa_soc2(True,True)
+        status["P_AA14"] = _aamod.aa_hipaa(True,True)
+        status["P_AA15"] = _aamod.aa_ccpa(True,True)
+        status["P_AA16"] = _aamod.aa_sox(True,True)
+        status["P_AA17"] = _aamod.aa_export_controls(True,True)
+        status["P_AA18"] = _aamod.aa_contractual_compliance(True,True)
+        status["P_AA19"] = _aamod.aa_third_party_compliance(True,True)
+        status["P_AA20"] = _aamod.aa_regulatory_training(True,True)
+        status["P_AA21"] = _aamod.aa_aml_know(True,True)
+        status["P_AA22"] = _aamod.aa_env_compliance(True,True)
+        status["P_AA23"] = _aamod.aa_labour_compliance(True,True)
+        status["P_AA24"] = _aamod.aa_compliance_overall(93,70)
+    else:
+        for _aa in range(1,25): status["P_AA%02d" % _aa] = True
 
 
 

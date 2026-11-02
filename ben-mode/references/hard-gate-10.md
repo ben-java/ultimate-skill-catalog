@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.57.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.58.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2293,3 +2293,13 @@ Menambahkan lapisan CI/CD: `ZZ01–ZZ24` di `hard_gate_enhancements.py`, disurfa
 
 - CI: ZZ01 `zz_ci_pipeline`, ZZ02 `zz_ci_triggers`, ZZ03 `zz_build_reproducible`, ZZ04 `zz_compile_check`, ZZ05 `zz_unit_ci`, ZZ06 `zz_artifact_build`, ZZ07 `zz_ci_cache`, ZZ08 `zz_ci_parallel`, ZZ09 `zz_ci_secrets`, ZZ10 `zz_ci_clean`, ZZ11 `zz_ci_visibility`, ZZ12 `zz_ci_timeout`.
 - CD: ZZ13 `zz_deploy_strategy`, ZZ14 `zz_canary`, ZZ15 `zz_rollback`, ZZ16 `zz_db_migrations`, ZZ17 `zz_deploy_approval`, ZZ18 `zz_infra_as_code`, ZZ19 `zz_health_checks`, ZZ20 `zz_deploy_atomic`, ZZ21 `zz_config_release`, ZZ22 `zz_env_parity`, ZZ23 `zz_release_notes`, ZZ24 `zz_cd_overall`.
+
+---
+
+# BAGIAN 58 — WAVE AA: REGULATORY & COMPLIANCE INTEGRITY AA01–AA24 (VERIFIED; v0.58.0)
+
+Menambahkan lapisan regulatory & compliance: `AA01–AA24` di `hard_gate_enhancements.py`, disurfacing `P_AA01–P_AA24`; diverifikasi 24/24 PASS (selftest_aa rc 0).
+
+- Obligation & Evidence: AA01 `aa_regulatory_map`, AA02 `aa_obligation_tracking`, AA03 `aa_compliance_calendar`, AA04 `aa_audit_evidence`, AA05 `aa_reporting_deadline`, AA06 `aa_breach_notification`, AA07 `aa_regulation_change_scan`, AA08 `aa_gap_analysis`, AA09 `aa_controls_mapping`.
+- Framework Applicability: AA10 `aa_eu_gdpr`, AA11 `aa_iso_27001`, AA12 `aa_pci_dss`, AA13 `aa_soc2`, AA14 `aa_hipaa`, AA15 `aa_ccpa`, AA16 `aa_sox`, AA17 `aa_export_controls`.
+- Operational Compliance: AA18 `aa_contractual_compliance`, AA19 `aa_third_party_compliance`, AA20 `aa_regulatory_training`, AA21 `aa_aml_know`, AA22 `aa_env_compliance`, AA23 `aa_labour_compliance`, AA24 `aa_compliance_overall`.

@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-02T07:32:08.025339+00:00",
+  "generated_at": "2026-11-02T07:35:35.553338+00:00",
   "file_count": 98,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 45071,
-      "sha256": "91671669f4fb6cea76c342716cddf2b88dda47bc1c8c1b5a7c6013bb4f704d2b"
+      "size": 45677,
+      "sha256": "a50e8ed28e4109b6476126e1c74f2c4fbbc6d5369e11bad9c16e8e330247f588"
     },
     {
       "path": "SKILL.md",
       "size": 60731,
-      "sha256": "496a27a5fa411e257c8d56290e4e73cbab84ce83596de9a52b7ecc47bb71f4dd"
+      "sha256": "cb4c5e857c5e910c634fb09cb3d09625b9d7e9767e86ed538af04860fbbca0d2"
     },
     {
       "path": "gate.conf",
@@ -72,8 +72,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 139498,
-      "sha256": "c98190f317d5a5e5937d17586dfa5bb2ddfbe031cc656f07ec0f374e53b91e37"
+      "size": 140466,
+      "sha256": "8e7363db4f157efd58d2d42e44840b732470951f7fc24ca944bfb3352423729f"
     },
     {
       "path": "references/large-document-editing.md",
@@ -197,8 +197,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 131408,
-      "sha256": "eb6816074ca5de0acc806bee852be357737fcd3d93907a272306d65aedcd89f4"
+      "size": 133070,
+      "sha256": "b70960de6b42d3edb29aade82dca404093cd69adfb2a251751dfa4177bc2b4d5"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -217,8 +217,8 @@
     },
     {
       "path": "scripts/hard_gate_enhancements.py",
-      "size": 228068,
-      "sha256": "d937e366e9222c2a4ccdf935cc95621b1c3549ba8390dd6426178484cea3af1d"
+      "size": 232495,
+      "sha256": "9373729293dc8302d479526d5046a8e4701d0a1f9377e70225ecf2533ab830dc"
     },
     {
       "path": "scripts/install-precommit-hook.sh",
