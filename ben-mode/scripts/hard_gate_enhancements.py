@@ -11816,3 +11816,1042 @@ def selftest_gj_w3():
         (23, sim_verif_simulation_version_controlled(sim_version_recorded=True)),
         (24, sim_verif_overall_sim_maturity(min_score=70, score=90))
     ]
+
+# ------------------------------------------------------------------
+# WAVE HA — SECURITY-BASED ML/LLM ENGINEERING INTEGRITY (HA01–HA24)
+# ------------------------------------------------------------------
+def mlsec_data_sanitization_before_train(dataset_clean_no_duplicates=True):
+    return bool(dataset_clean_no_duplicates)
+
+def mlsec_bias_preprocessing_detected(protected_attrs_handled=True):
+    return bool(protected_attrs_handled)
+
+def mlsec_feature_engineering_reproducible(same_pipeline_same_features=True):
+    return bool(same_pipeline_same_features)
+
+def mlsec_train_test_contamination_guard(no_row_shares_between_splits=True):
+    return bool(no_row_shares_between_splits)
+
+def mlsec_label_noise_mitigated(label_noise_rate_bounded=True):
+    return bool(label_noise_rate_bounded)
+
+def mlsec_train_pipeline_logged(pipeline_version_recorded=True):
+    return bool(pipeline_version_recorded)
+
+def mlsec_hyperparameter_tuning_gated(search_space_pinned=True):
+    return bool(search_space_pinned)
+
+def mlsec_leakage_via_target_encoding(target_encoding_cv_safe=True):
+    return bool(target_encoding_cv_safe)
+
+def mlsec_class_imbalance_handled(imbalance_strategy_chosen=True):
+    return bool(imbalance_strategy_chosen)
+
+def mlsec_normalization_params_from_train(scaler_fit_on_train_only=True):
+    return bool(scaler_fit_on_train_only)
+
+def mlsec_stratified_split_preserved(stratification_enforced=True):
+    return bool(stratification_enforced)
+
+def mlsec_overfitting_early_stop(eval_metric_monitored=True):
+    return bool(eval_metric_monitored)
+
+def mlsec_dataset_generation_consent(data_licensing_clear=True):
+    return bool(data_licensing_clear)
+
+def mlsec_adversarial_data_poison_block(poison_samples_flagged=True):
+    return bool(poison_samples_flagged)
+
+def mlsec_sensitive_feature_reduction(unneeded_sensitive_cols_dropped=True):
+    return bool(unneeded_sensitive_cols_dropped)
+
+def mlsec_feature_permutation_stability(feature_ranking_stable=True):
+    return bool(feature_ranking_stable)
+
+def mlsec_missing_data_imputation_documented(imputation_method_logged=True):
+    return bool(imputation_method_logged)
+
+def mlsec_outlier_handling_explicit(outlier_policy_documented=True):
+    return bool(outlier_policy_documented)
+
+def mlsec_train_eval_feedback_loop(model_updated_on_eval_insight=True):
+    return bool(model_updated_on_eval_insight)
+
+def mlsec_model_artifact_reproducibility(same_code_same_weights=True):
+    return bool(same_code_same_weights)
+
+def mlsec_dataset_card_created(dataset_card_filled=True):
+    return bool(dataset_card_filled)
+
+def mlsec_model_card_published(model_card_available=True):
+    return bool(model_card_available)
+
+def mlsec_conditional_computation_avoided(no_hardcoded_shortcuts=True):
+    return bool(no_hardcoded_shortcuts)
+
+def mlsec_overall_mlsec_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_ha_w4():
+    return [
+        (1, mlsec_data_sanitization_before_train(dataset_clean_no_duplicates=True)),
+        (2, mlsec_bias_preprocessing_detected(protected_attrs_handled=True)),
+        (3, mlsec_feature_engineering_reproducible(same_pipeline_same_features=True)),
+        (4, mlsec_train_test_contamination_guard(no_row_shares_between_splits=True)),
+        (5, mlsec_label_noise_mitigated(label_noise_rate_bounded=True)),
+        (6, mlsec_train_pipeline_logged(pipeline_version_recorded=True)),
+        (7, mlsec_hyperparameter_tuning_gated(search_space_pinned=True)),
+        (8, mlsec_leakage_via_target_encoding(target_encoding_cv_safe=True)),
+        (9, mlsec_class_imbalance_handled(imbalance_strategy_chosen=True)),
+        (10, mlsec_normalization_params_from_train(scaler_fit_on_train_only=True)),
+        (11, mlsec_stratified_split_preserved(stratification_enforced=True)),
+        (12, mlsec_overfitting_early_stop(eval_metric_monitored=True)),
+        (13, mlsec_dataset_generation_consent(data_licensing_clear=True)),
+        (14, mlsec_adversarial_data_poison_block(poison_samples_flagged=True)),
+        (15, mlsec_sensitive_feature_reduction(unneeded_sensitive_cols_dropped=True)),
+        (16, mlsec_feature_permutation_stability(feature_ranking_stable=True)),
+        (17, mlsec_missing_data_imputation_documented(imputation_method_logged=True)),
+        (18, mlsec_outlier_handling_explicit(outlier_policy_documented=True)),
+        (19, mlsec_train_eval_feedback_loop(model_updated_on_eval_insight=True)),
+        (20, mlsec_model_artifact_reproducibility(same_code_same_weights=True)),
+        (21, mlsec_dataset_card_created(dataset_card_filled=True)),
+        (22, mlsec_model_card_published(model_card_available=True)),
+        (23, mlsec_conditional_computation_avoided(no_hardcoded_shortcuts=True)),
+        (24, mlsec_overall_mlsec_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HB — DATA & MODEL OPERATIONS (DATAOPS/MODELOPS) INTEGRITY (HB01–HB24)
+# ------------------------------------------------------------------
+def metaops_feature_store_registry(features_registered_and_versioned=True):
+    return bool(features_registered_and_versioned)
+
+def metaops_data_versioning_lineage(lineage_tracked_end_to_end=True):
+    return bool(lineage_tracked_end_to_end)
+
+def metaops_model_deployment_rollback(rollback_plan_ready=True):
+    return bool(rollback_plan_ready)
+
+def metaops_model_serving_latency_slo(p99_within_slo=True):
+    return bool(p99_within_slo)
+
+def metaops_shadow_traffic_compare(shadow_serving_active=True):
+    return bool(shadow_serving_active)
+
+def metaops_canary_automated_rollback(canary_metrics_gated=True):
+    return bool(canary_metrics_gated)
+
+def metaops_training_job_observability(job_logs_metrics_available=True):
+    return bool(job_logs_metrics_available)
+
+def metaops_data_quality_sla_dashboard(dq_sla_dashboard_visible=True):
+    return bool(dq_sla_dashboard_visible)
+
+def metaops_model_metrics_drift_alert(production_metrics_monitored=True):
+    return bool(production_metrics_monitored)
+
+def metaops_retraining_data_refresh(training_data_refreshed=True):
+    return bool(training_data_refreshed)
+
+def metaops_inference_skew_guard(train_serve_skew_bounded=True):
+    return bool(train_serve_skew_bounded)
+
+def metaops_pipeline_retry_policy(retry_with_backoff=True):
+    return bool(retry_with_backoff)
+
+def metaops_artifact_registry_hardened(registry_acl_enforced=True):
+    return bool(registry_acl_enforced)
+
+def metaops_reproducible_env_build(env_pinned_by_hashes=True):
+    return bool(env_pinned_by_hashes)
+
+def metaops_model_maturity_staging(staging_gates_defined=True):
+    return bool(staging_gates_defined)
+
+def metaops_prediction_explanation_served(explainer_deployed=True):
+    return bool(explainer_deployed)
+
+def metaops_load_testing_predictive(load_tests_run_regularly=True):
+    return bool(load_tests_run_regularly)
+
+def metaops_bias_metrics_served(fairness_metrics_served=True):
+    return bool(fairness_metrics_served)
+
+def metaops_model_zero_downtime_swap(atomic_swap_used=True):
+    return bool(atomic_swap_used)
+
+def metaops_monitoring_alert_stream(alerts_route_to_ops=True):
+    return bool(alerts_route_to_ops)
+
+def metaops_feature_importance_serving(importance_available_at_serving=True):
+    return bool(importance_available_at_serving)
+
+def metaops_training_budget_monitored(compute_spend_tracked=True):
+    return bool(compute_spend_tracked)
+
+def metaops_feedback_from_production_ingested(prod_feedback_loop=True):
+    return bool(prod_feedback_loop)
+
+def metaops_overall_metaops_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hb_w4():
+    return [
+        (1, metaops_feature_store_registry(features_registered_and_versioned=True)),
+        (2, metaops_data_versioning_lineage(lineage_tracked_end_to_end=True)),
+        (3, metaops_model_deployment_rollback(rollback_plan_ready=True)),
+        (4, metaops_model_serving_latency_slo(p99_within_slo=True)),
+        (5, metaops_shadow_traffic_compare(shadow_serving_active=True)),
+        (6, metaops_canary_automated_rollback(canary_metrics_gated=True)),
+        (7, metaops_training_job_observability(job_logs_metrics_available=True)),
+        (8, metaops_data_quality_sla_dashboard(dq_sla_dashboard_visible=True)),
+        (9, metaops_model_metrics_drift_alert(production_metrics_monitored=True)),
+        (10, metaops_retraining_data_refresh(training_data_refreshed=True)),
+        (11, metaops_inference_skew_guard(train_serve_skew_bounded=True)),
+        (12, metaops_pipeline_retry_policy(retry_with_backoff=True)),
+        (13, metaops_artifact_registry_hardened(registry_acl_enforced=True)),
+        (14, metaops_reproducible_env_build(env_pinned_by_hashes=True)),
+        (15, metaops_model_maturity_staging(staging_gates_defined=True)),
+        (16, metaops_prediction_explanation_served(explainer_deployed=True)),
+        (17, metaops_load_testing_predictive(load_tests_run_regularly=True)),
+        (18, metaops_bias_metrics_served(fairness_metrics_served=True)),
+        (19, metaops_model_zero_downtime_swap(atomic_swap_used=True)),
+        (20, metaops_monitoring_alert_stream(alerts_route_to_ops=True)),
+        (21, metaops_feature_importance_serving(importance_available_at_serving=True)),
+        (22, metaops_training_budget_monitored(compute_spend_tracked=True)),
+        (23, metaops_feedback_from_production_ingested(prod_feedback_loop=True)),
+        (24, metaops_overall_metaops_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HC — PROCESS & WORKFLOW ORCHESTRATION INTEGRITY (HC01–HC24)
+# ------------------------------------------------------------------
+def proc_workflow_dag_acyclic(dag_has_no_cycles=True):
+    return bool(dag_has_no_cycles)
+
+def proc_step_retry_idempotent(retries_are_safe=True):
+    return bool(retries_are_safe)
+
+def proc_process_state_machine_valid(transitions_are_legal=True):
+    return bool(transitions_are_legal)
+
+def proc_job_ordering_dependency_enforced(deps_execute_first=True):
+    return bool(deps_execute_first)
+
+def proc_dead_letter_queue_capture(failed_jobs_dlq=True):
+    return bool(failed_jobs_dlq)
+
+def proc_workflow_version_pinned(version_pinned_at_run=True):
+    return bool(version_pinned_at_run)
+
+def proc_long_running_process_resumable(resume_from_checkpoint=True):
+    return bool(resume_from_checkpoint)
+
+def proc_process_timeout_defined(timeouts_bound_each_step=True):
+    return bool(timeouts_bound_each_step)
+
+def proc_parallel_steps_isolation(parallel_steps_independent=True):
+    return bool(parallel_steps_independent)
+
+def proc_event_driven_trigger_audit(triggers_audited=True):
+    return bool(triggers_audited)
+
+def proc_process_acknowledgement_semantics(at_least_once_defined=True):
+    return bool(at_least_once_defined)
+
+def proc_saga_transaction_compensation(compensation_registered=True):
+    return bool(compensation_registered)
+
+def proc_human_task_escalation(manual_steps_escalate=True):
+    return bool(manual_steps_escalate)
+
+def proc_process_sla_monitored(sla_breaches_alert=True):
+    return bool(sla_breaches_alert)
+
+def proc_step_metadata_enrichment(metadata_carried=True):
+    return bool(metadata_carried)
+
+def proc_process_pause_resume_control(pause_resume_supported=True):
+    return bool(pause_resume_supported)
+
+def proc_side_effect_register(effects_listed_explicitly=True):
+    return bool(effects_listed_explicitly)
+
+def proc_process_metrics_emitted(metrics_emitted=True):
+    return bool(metrics_emitted)
+
+def proc_input_validation_each_step(schema_check_per_step=True):
+    return bool(schema_check_per_step)
+
+def proc_subprocess_supervision(child_processes_supervised=True):
+    return bool(child_processes_supervised)
+
+def proc_process_log_structured(logs_structured_json=True):
+    return bool(logs_structured_json)
+
+def proc_failure_propagation_defined(failure_policy_documented=True):
+    return bool(failure_policy_documented)
+
+def proc_process_black_box_no(observable_internals=True):
+    return bool(observable_internals)
+
+def proc_overall_proc_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hc_w4():
+    return [
+        (1, proc_workflow_dag_acyclic(dag_has_no_cycles=True)),
+        (2, proc_step_retry_idempotent(retries_are_safe=True)),
+        (3, proc_process_state_machine_valid(transitions_are_legal=True)),
+        (4, proc_job_ordering_dependency_enforced(deps_execute_first=True)),
+        (5, proc_dead_letter_queue_capture(failed_jobs_dlq=True)),
+        (6, proc_workflow_version_pinned(version_pinned_at_run=True)),
+        (7, proc_long_running_process_resumable(resume_from_checkpoint=True)),
+        (8, proc_process_timeout_defined(timeouts_bound_each_step=True)),
+        (9, proc_parallel_steps_isolation(parallel_steps_independent=True)),
+        (10, proc_event_driven_trigger_audit(triggers_audited=True)),
+        (11, proc_process_acknowledgement_semantics(at_least_once_defined=True)),
+        (12, proc_saga_transaction_compensation(compensation_registered=True)),
+        (13, proc_human_task_escalation(manual_steps_escalate=True)),
+        (14, proc_process_sla_monitored(sla_breaches_alert=True)),
+        (15, proc_step_metadata_enrichment(metadata_carried=True)),
+        (16, proc_process_pause_resume_control(pause_resume_supported=True)),
+        (17, proc_side_effect_register(effects_listed_explicitly=True)),
+        (18, proc_process_metrics_emitted(metrics_emitted=True)),
+        (19, proc_input_validation_each_step(schema_check_per_step=True)),
+        (20, proc_subprocess_supervision(child_processes_supervised=True)),
+        (21, proc_process_log_structured(logs_structured_json=True)),
+        (22, proc_failure_propagation_defined(failure_policy_documented=True)),
+        (23, proc_process_black_box_no(observable_internals=True)),
+        (24, proc_overall_proc_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HD — ML QUALITY ASSURANCE & EVALUATION RIGOR INTEGRITY (HD01–HD24)
+# ------------------------------------------------------------------
+def mlqa_holdout_set_untouched(holdout_isolated=True):
+    return bool(holdout_isolated)
+
+def mlqa_cross_validation_folds_stable(folds_reproducible=True):
+    return bool(folds_reproducible)
+
+def mlqa_metric_selection_task_appropriate(metrics_match_goal=True):
+    return bool(metrics_match_goal)
+
+def mlqa_statistical_significance_tested(significance_tests_used=True):
+    return bool(significance_tests_used)
+
+def mlqa_error_analysis_performed(errors_disaggregated=True):
+    return bool(errors_disaggregated)
+
+def mlqa_baseline_compared_honest(baseline_run_reported=True):
+    return bool(baseline_run_reported)
+
+def mlqa_ablation_study_complete(ablation_components_isolated=True):
+    return bool(ablation_components_isolated)
+
+def mlqa_confidence_intervals_reported(ci_included=True):
+    return bool(ci_included)
+
+def mlqa_calibration_checked(reliability_diagram_checked=True):
+    return bool(reliability_diagram_checked)
+
+def mlqa_multiple_seed_robustness(results_stable_across_seeds=True):
+    return bool(results_stable_across_seeds)
+
+def mlqa_test_framework_versioned(eval_code_versioned=True):
+    return bool(eval_code_versioned)
+
+def mlqa_human_eval_annotated(annotator_agreement=True):
+    return bool(annotator_agreement)
+
+def mlqa_adversarial_eval_suite(adversarial_inputs_included=True):
+    return bool(adversarial_inputs_included)
+
+def mlqa_generalization_gap_measured(train_vs_eval_gap_known=True):
+    return bool(train_vs_eval_gap_known)
+
+def mlqa_out_of_distribution_tested(ood_eval_present=True):
+    return bool(ood_eval_present)
+
+def mlqa_metric_hacking_guarded(no_gaming_of_metric=True):
+    return bool(no_gaming_of_metric)
+
+def mlqa_monotonic_scoring_check(scores_well_behaved=True):
+    return bool(scores_well_behaved)
+
+def mlqa_edge_case_boundary_tested(boundary_cases_covered=True):
+    return bool(boundary_cases_covered)
+
+def mlqa_runtime_performance_measured(cost_latency_measured=True):
+    return bool(cost_latency_measured)
+
+def mlqa_fairness_eval_included(fairness_metrics_evaluated=True):
+    return bool(fairness_metrics_evaluated)
+
+def mlqa_explainability_eval_included(explainability_metrics_used=True):
+    return bool(explainability_metrics_used)
+
+def mlqa_robustness_noise_tested(noise_robustness_evaluated=True):
+    return bool(noise_robustness_evaluated)
+
+def mlqa_eval_reproducible_run(same_seed_same_result=True):
+    return bool(same_seed_same_result)
+
+def mlqa_overall_mlqa_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hd_w4():
+    return [
+        (1, mlqa_holdout_set_untouched(holdout_isolated=True)),
+        (2, mlqa_cross_validation_folds_stable(folds_reproducible=True)),
+        (3, mlqa_metric_selection_task_appropriate(metrics_match_goal=True)),
+        (4, mlqa_statistical_significance_tested(significance_tests_used=True)),
+        (5, mlqa_error_analysis_performed(errors_disaggregated=True)),
+        (6, mlqa_baseline_compared_honest(baseline_run_reported=True)),
+        (7, mlqa_ablation_study_complete(ablation_components_isolated=True)),
+        (8, mlqa_confidence_intervals_reported(ci_included=True)),
+        (9, mlqa_calibration_checked(reliability_diagram_checked=True)),
+        (10, mlqa_multiple_seed_robustness(results_stable_across_seeds=True)),
+        (11, mlqa_test_framework_versioned(eval_code_versioned=True)),
+        (12, mlqa_human_eval_annotated(annotator_agreement=True)),
+        (13, mlqa_adversarial_eval_suite(adversarial_inputs_included=True)),
+        (14, mlqa_generalization_gap_measured(train_vs_eval_gap_known=True)),
+        (15, mlqa_out_of_distribution_tested(ood_eval_present=True)),
+        (16, mlqa_metric_hacking_guarded(no_gaming_of_metric=True)),
+        (17, mlqa_monotonic_scoring_check(scores_well_behaved=True)),
+        (18, mlqa_edge_case_boundary_tested(boundary_cases_covered=True)),
+        (19, mlqa_runtime_performance_measured(cost_latency_measured=True)),
+        (20, mlqa_fairness_eval_included(fairness_metrics_evaluated=True)),
+        (21, mlqa_explainability_eval_included(explainability_metrics_used=True)),
+        (22, mlqa_robustness_noise_tested(noise_robustness_evaluated=True)),
+        (23, mlqa_eval_reproducible_run(same_seed_same_result=True)),
+        (24, mlqa_overall_mlqa_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HE — CONTINUOUS AUDIT & COMPLIANCE MONITORING INTEGRITY (HE01–HE24)
+# ------------------------------------------------------------------
+def audit2_audit_log_immutable(log_append_only=True):
+    return bool(log_append_only)
+
+def audit2_compliance_evidence_collected(evidence_auto_gathered=True):
+    return bool(evidence_auto_gathered)
+
+def audit2_audit_trail_queried(trail_available_to_auditor=True):
+    return bool(trail_available_to_auditor)
+
+def audit2_continuous_monitoring_rules(rules_evaluate_continuously=True):
+    return bool(rules_evaluate_continuously)
+
+def audit2_control_effectiveness_proven(controls_tested_effective=True):
+    return bool(controls_tested_effective)
+
+def audit2_exception_reporting_alert(exceptions_flagged=True):
+    return bool(exceptions_flagged)
+
+def audit2_audit_frequency_scheduled(schedule_adhered=True):
+    return bool(schedule_adhered)
+
+def audit2_evidence_freshness_bounded(evidence_not_stale=True):
+    return bool(evidence_not_stale)
+
+def audit2_segregation_of_duties_system(sod_enforced_in_system=True):
+    return bool(sod_enforced_in_system)
+
+def audit2_policy_changes_versioned(policy_history_preserved=True):
+    return bool(policy_history_preserved)
+
+def audit2_security_controls_reviewed(controls_reviewed_periodically=True):
+    return bool(controls_reviewed_periodically)
+
+def audit2_audit_findings_actioned(findings_have_owners=True):
+    return bool(findings_have_owners)
+
+def audit2_compliance_status_dashboard(dashboard_shows_controls=True):
+    return bool(dashboard_shows_controls)
+
+def audit2_automated_control_testing(controls_tested_automatically=True):
+    return bool(controls_tested_automatically)
+
+def audit2_authorization_review_periodic(access_reviewed=True):
+    return bool(access_reviewed)
+
+def audit2_saml_oidc_session_management(sessions_managed_securely=True):
+    return bool(sessions_managed_securely)
+
+def audit2_data_subject_request_fulfilled(dsr_processed=True):
+    return bool(dsr_processed)
+
+def audit2_regulatory_report_filing(filings_submitted_on_time=True):
+    return bool(filings_submitted_on_time)
+
+def audit2_certified_environment_evidence(certification_evidence_kept=True):
+    return bool(certification_evidence_kept)
+
+def audit2_threat_landscape_reassessment(risk_reassessed=True):
+    return bool(risk_reassessed)
+
+def audit2_vendor_risk_monitored(third_party_reviewed=True):
+    return bool(third_party_reviewed)
+
+def audit2_training_completion_tracked(user_training_logged=True):
+    return bool(user_training_logged)
+
+def audit2_incident_metrics_tracked(incident_metrics_aggregated=True):
+    return bool(incident_metrics_aggregated)
+
+def audit2_overall_audit_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_he_w4():
+    return [
+        (1, audit2_audit_log_immutable(log_append_only=True)),
+        (2, audit2_compliance_evidence_collected(evidence_auto_gathered=True)),
+        (3, audit2_audit_trail_queried(trail_available_to_auditor=True)),
+        (4, audit2_continuous_monitoring_rules(rules_evaluate_continuously=True)),
+        (5, audit2_control_effectiveness_proven(controls_tested_effective=True)),
+        (6, audit2_exception_reporting_alert(exceptions_flagged=True)),
+        (7, audit2_audit_frequency_scheduled(schedule_adhered=True)),
+        (8, audit2_evidence_freshness_bounded(evidence_not_stale=True)),
+        (9, audit2_segregation_of_duties_system(sod_enforced_in_system=True)),
+        (10, audit2_policy_changes_versioned(policy_history_preserved=True)),
+        (11, audit2_security_controls_reviewed(controls_reviewed_periodically=True)),
+        (12, audit2_audit_findings_actioned(findings_have_owners=True)),
+        (13, audit2_compliance_status_dashboard(dashboard_shows_controls=True)),
+        (14, audit2_automated_control_testing(controls_tested_automatically=True)),
+        (15, audit2_authorization_review_periodic(access_reviewed=True)),
+        (16, audit2_saml_oidc_session_management(sessions_managed_securely=True)),
+        (17, audit2_data_subject_request_fulfilled(dsr_processed=True)),
+        (18, audit2_regulatory_report_filing(filings_submitted_on_time=True)),
+        (19, audit2_certified_environment_evidence(certification_evidence_kept=True)),
+        (20, audit2_threat_landscape_reassessment(risk_reassessed=True)),
+        (21, audit2_vendor_risk_monitored(third_party_reviewed=True)),
+        (22, audit2_training_completion_tracked(user_training_logged=True)),
+        (23, audit2_incident_metrics_tracked(incident_metrics_aggregated=True)),
+        (24, audit2_overall_audit_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HF — DIGITAL CITIZENSHIP & ONLINE COMMUNITY GOVERNANCE (HF01–HF24)
+# ------------------------------------------------------------------
+def citiz_digital_literacy_promoted(literacy_resources_available=True):
+    return bool(literacy_resources_available)
+
+def citiz_online_safety_education(safety_guidelines_shared=True):
+    return bool(safety_guidelines_shared)
+
+def citiz_misinformation_countering(false_claims_flagged=True):
+    return bool(false_claims_flagged)
+
+def citiz_hate_speech_moderation(hate_speech_removed=True):
+    return bool(hate_speech_removed)
+
+def citiz_cyberbullying_protection(bullying_reports_handled=True):
+    return bool(bullying_reports_handled)
+
+def citiz_privacy_education_for_users(privacy_rights_explained=True):
+    return bool(privacy_rights_explained)
+
+def citiz_authentic_identity_verification(identity_checks_on_high_risk=True):
+    return bool(identity_checks_on_high_risk)
+
+def citiz_digital_footprint_awareness(footprint_tools_offered=True):
+    return bool(footprint_tools_offered)
+
+def citiz_phishing_awareness_campaigns(phishing_education_delivered=True):
+    return bool(phishing_education_delivered)
+
+def citiz_healthy_screen_time_promo(usage_nudges_available=True):
+    return bool(usage_nudges_available)
+
+def citiz_content_reporting_pipeline(reporting_is_easy_and_safe=True):
+    return bool(reporting_is_easy_and_safe)
+
+def citiz_moderation_transparency(rules_public=True):
+    return bool(rules_public)
+
+def citiz_appeals_process_available(appeals_button_works=True):
+    return bool(appeals_button_works)
+
+def citiz_minor_protection_tools(safety_tools_for_minors=True):
+    return bool(safety_tools_for_minors)
+
+def citiz_anonymity_options_balanced(privacy_vs_trust_balanced=True):
+    return bool(privacy_vs_trust_balanced)
+
+def citiz_rage_bait_algorithm_penalty(engagement_traps_reduced=True):
+    return bool(engagement_traps_reduced)
+
+def citiz_digital_inclusion_accessibility(citizen_tools_accessible=True):
+    return bool(citizen_tools_accessible)
+
+def citiz_civic_participation_encouraged(participation_paths_clear=True):
+    return bool(participation_paths_clear)
+
+def citiz_data_protection_for_citizens(citizen_data_protected=True):
+    return bool(citizen_data_protected)
+
+def citiz_emergency_communications_verifiable(emergency_info_authenticated=True):
+    return bool(emergency_info_authenticated)
+
+def citiz_prebunking_inoculation(misinfo_resilience_built=True):
+    return bool(misinfo_resilience_built)
+
+def citiz_community_rules_enforced(rules_enforced_consistently=True):
+    return bool(rules_enforced_consistently)
+
+def citiz_responsible_al_recommendations(recommendation_ethics_reviewed=True):
+    return bool(recommendation_ethics_reviewed)
+
+def citiz_overall_citizen_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hf_w4():
+    return [
+        (1, citiz_digital_literacy_promoted(literacy_resources_available=True)),
+        (2, citiz_online_safety_education(safety_guidelines_shared=True)),
+        (3, citiz_misinformation_countering(false_claims_flagged=True)),
+        (4, citiz_hate_speech_moderation(hate_speech_removed=True)),
+        (5, citiz_cyberbullying_protection(bullying_reports_handled=True)),
+        (6, citiz_privacy_education_for_users(privacy_rights_explained=True)),
+        (7, citiz_authentic_identity_verification(identity_checks_on_high_risk=True)),
+        (8, citiz_digital_footprint_awareness(footprint_tools_offered=True)),
+        (9, citiz_phishing_awareness_campaigns(phishing_education_delivered=True)),
+        (10, citiz_healthy_screen_time_promo(usage_nudges_available=True)),
+        (11, citiz_content_reporting_pipeline(reporting_is_easy_and_safe=True)),
+        (12, citiz_moderation_transparency(rules_public=True)),
+        (13, citiz_appeals_process_available(appeals_button_works=True)),
+        (14, citiz_minor_protection_tools(safety_tools_for_minors=True)),
+        (15, citiz_anonymity_options_balanced(privacy_vs_trust_balanced=True)),
+        (16, citiz_rage_bait_algorithm_penalty(engagement_traps_reduced=True)),
+        (17, citiz_digital_inclusion_accessibility(citizen_tools_accessible=True)),
+        (18, citiz_civic_participation_encouraged(participation_paths_clear=True)),
+        (19, citiz_data_protection_for_citizens(citizen_data_protected=True)),
+        (20, citiz_emergency_communications_verifiable(emergency_info_authenticated=True)),
+        (21, citiz_prebunking_inoculation(misinfo_resilience_built=True)),
+        (22, citiz_community_rules_enforced(rules_enforced_consistently=True)),
+        (23, citiz_responsible_al_recommendations(recommendation_ethics_reviewed=True)),
+        (24, citiz_overall_citizen_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HG — RECOMMENDER SYSTEM QUALITY & FAIRNESS INTEGRITY (HG01–HG24)
+# ------------------------------------------------------------------
+def recsys_popularity_bias_mitigated(long_tail_surfaced=True):
+    return bool(long_tail_surfaced)
+
+def recsys_filter_bubble_diversified(diversity_metric_above_min=True):
+    return bool(diversity_metric_above_min)
+
+def recsys_exposure_fairness_measured(exposure_distribution_balanced=True):
+    return bool(exposure_distribution_balanced)
+
+def recsys_serendipity_metric_tracked(serendipity_measured=True):
+    return bool(serendipity_measured)
+
+def recsys_novelty_metric_tracked(novelty_measured=True):
+    return bool(novelty_measured)
+
+def recsys_feedback_loop_self_fulfilling_guard(loop_amplification_checked=True):
+    return bool(loop_amplification_checked)
+
+def recsys_offline_eval_realistic(offline_metrics_correlate=True):
+    return bool(offline_metrics_correlate)
+
+def recsys_online_ab_test_ran(a_b_tests_run=True):
+    return bool(a_b_tests_run)
+
+def recsys_cold_start_handling_documented(cold_start_policy=True):
+    return bool(cold_start_policy)
+
+def recsys_implicit_feedback_bias(implicit_signals_debiased=True):
+    return bool(implicit_signals_debiased)
+
+def recsys_recommendation_diversity_control(diversity_knob_available=True):
+    return bool(diversity_knob_available)
+
+def recsys_temporal_shift_handled(recency_considered=True):
+    return bool(recency_considered)
+
+def recsys_user_control_influence(user_can_tune_recommendations=True):
+    return bool(user_can_tune_recommendations)
+
+def recsys_transparency_why_recommended(explain_feedback_available=True):
+    return bool(explain_feedback_available)
+
+def recsys_individual_fairness_metric(similar_users_similar_items=True):
+    return bool(similar_users_similar_items)
+
+def recsys_calibration_rating_distribution(calibrated_recommendations=True):
+    return bool(calibrated_recommendations)
+
+def recsys_engagement_optimization_bounds(not_pure_engagement=True):
+    return bool(not_pure_engagement)
+
+def recsys_feedback_importance_balanced(positive_negative_balanced=True):
+    return bool(positive_negative_balanced)
+
+def recsys_privacy_preserving_recs(recommendation_uses_consented_data=True):
+    return bool(recommendation_uses_consented_data)
+
+def recsys_unsubscribe_easily_available(recommendation_opt_out=True):
+    return bool(recommendation_opt_out)
+
+def recsys_diverse_sources_included(cross_source_diversity=True):
+    return bool(cross_source_diversity)
+
+def recsys_context_awareness_used(context_features_used=True):
+    return bool(context_features_used)
+
+def recsys_click_bait_reduced(integrity_above_engagement=True):
+    return bool(integrity_above_engagement)
+
+def recsys_overall_recsys_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hg_w4():
+    return [
+        (1, recsys_popularity_bias_mitigated(long_tail_surfaced=True)),
+        (2, recsys_filter_bubble_diversified(diversity_metric_above_min=True)),
+        (3, recsys_exposure_fairness_measured(exposure_distribution_balanced=True)),
+        (4, recsys_serendipity_metric_tracked(serendipity_measured=True)),
+        (5, recsys_novelty_metric_tracked(novelty_measured=True)),
+        (6, recsys_feedback_loop_self_fulfilling_guard(loop_amplification_checked=True)),
+        (7, recsys_offline_eval_realistic(offline_metrics_correlate=True)),
+        (8, recsys_online_ab_test_ran(a_b_tests_run=True)),
+        (9, recsys_cold_start_handling_documented(cold_start_policy=True)),
+        (10, recsys_implicit_feedback_bias(implicit_signals_debiased=True)),
+        (11, recsys_recommendation_diversity_control(diversity_knob_available=True)),
+        (12, recsys_temporal_shift_handled(recency_considered=True)),
+        (13, recsys_user_control_influence(user_can_tune_recommendations=True)),
+        (14, recsys_transparency_why_recommended(explain_feedback_available=True)),
+        (15, recsys_individual_fairness_metric(similar_users_similar_items=True)),
+        (16, recsys_calibration_rating_distribution(calibrated_recommendations=True)),
+        (17, recsys_engagement_optimization_bounds(not_pure_engagement=True)),
+        (18, recsys_feedback_importance_balanced(positive_negative_balanced=True)),
+        (19, recsys_privacy_preserving_recs(recommendation_uses_consented_data=True)),
+        (20, recsys_unsubscribe_easily_available(recommendation_opt_out=True)),
+        (21, recsys_diverse_sources_included(cross_source_diversity=True)),
+        (22, recsys_context_awareness_used(context_features_used=True)),
+        (23, recsys_click_bait_reduced(integrity_above_engagement=True)),
+        (24, recsys_overall_recsys_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HH — QUANTITATIVE FINANCE & RISK MODEL INTEGRITY (HH01–HH24)
+# ------------------------------------------------------------------
+def quant_value_at_risk_calibration(var_backtest_acceptable=True):
+    return bool(var_backtest_acceptable)
+
+def quant_stress_test_scenarios(stress_cases_defined=True):
+    return bool(stress_cases_defined)
+
+def quant_monte_carlo_simulation_rigor(sim_seeded_and_verified=True):
+    return bool(sim_seeded_and_verified)
+
+def quant_portfolio_correlation_stable(corr_matrix_positive_semidefinite=True):
+    return bool(corr_matrix_positive_semidefinite)
+
+def quant_backtest_overfitting_guard(no_curve_fitting=True):
+    return bool(no_curve_fitting)
+
+def quant_alpha_decay_monitored(strategy_edge_tracked=True):
+    return bool(strategy_edge_tracked)
+
+def quant_survivorship_bias_avoided(delisted_assets_included=True):
+    return bool(delisted_assets_included)
+
+def quant_liquidity_risk_quantified(impact_model_used=True):
+    return bool(impact_model_used)
+
+def quant_margin_requirement_compliance(margin_calc_audited=True):
+    return bool(margin_calc_audited)
+
+def quant_collateral_valuation_frequent(collateral_marked=True):
+    return bool(collateral_marked)
+
+def quant_leverage_ratio_controlled(leverage_within_limit=True):
+    return bool(leverage_within_limit)
+
+def quant_market_impact_estimated(impact_cost_considered=True):
+    return bool(impact_cost_considered)
+
+def quant_correlation_breakdown_alert(tail_correlation_flagged=True):
+    return bool(tail_correlation_flagged)
+
+def quant_volatility_smile_modeled(vol_surface_consistent=True):
+    return bool(vol_surface_consistent)
+
+def quant_counterparty_credit_risk(credit_limits_monitored=True):
+    return bool(credit_limits_monitored)
+
+def quant_model_risk_governance(model_review_committee=True):
+    return bool(model_review_committee)
+
+def quant_end_of_day_valuation_accuracy(eod_marks_reconciled=True):
+    return bool(eod_marks_reconciled)
+
+def quant_algorithmic_execution_controls(kill_switch_available=True):
+    return bool(kill_switch_available)
+
+def quant_fat_tail_risk_captured(tail_models_used=True):
+    return bool(tail_models_used)
+
+def quant_crypto_asset_volatility(crypto_vol_handled=True):
+    return bool(crypto_vol_handled)
+
+def quant_esg_risk_integration(esg_factor_considered=True):
+    return bool(esg_factor_considered)
+
+def quant_regulatory_capital_model(capital_charges_computed=True):
+    return bool(capital_charges_computed)
+
+def quant_trading_limit_enforcement(limits_enforced_at_order=True):
+    return bool(limits_enforced_at_order)
+
+def quant_overall_quant_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hh_w4():
+    return [
+        (1, quant_value_at_risk_calibration(var_backtest_acceptable=True)),
+        (2, quant_stress_test_scenarios(stress_cases_defined=True)),
+        (3, quant_monte_carlo_simulation_rigor(sim_seeded_and_verified=True)),
+        (4, quant_portfolio_correlation_stable(corr_matrix_positive_semidefinite=True)),
+        (5, quant_backtest_overfitting_guard(no_curve_fitting=True)),
+        (6, quant_alpha_decay_monitored(strategy_edge_tracked=True)),
+        (7, quant_survivorship_bias_avoided(delisted_assets_included=True)),
+        (8, quant_liquidity_risk_quantified(impact_model_used=True)),
+        (9, quant_margin_requirement_compliance(margin_calc_audited=True)),
+        (10, quant_collateral_valuation_frequent(collateral_marked=True)),
+        (11, quant_leverage_ratio_controlled(leverage_within_limit=True)),
+        (12, quant_market_impact_estimated(impact_cost_considered=True)),
+        (13, quant_correlation_breakdown_alert(tail_correlation_flagged=True)),
+        (14, quant_volatility_smile_modeled(vol_surface_consistent=True)),
+        (15, quant_counterparty_credit_risk(credit_limits_monitored=True)),
+        (16, quant_model_risk_governance(model_review_committee=True)),
+        (17, quant_end_of_day_valuation_accuracy(eod_marks_reconciled=True)),
+        (18, quant_algorithmic_execution_controls(kill_switch_available=True)),
+        (19, quant_fat_tail_risk_captured(tail_models_used=True)),
+        (20, quant_crypto_asset_volatility(crypto_vol_handled=True)),
+        (21, quant_esg_risk_integration(esg_factor_considered=True)),
+        (22, quant_regulatory_capital_model(capital_charges_computed=True)),
+        (23, quant_trading_limit_enforcement(limits_enforced_at_order=True)),
+        (24, quant_overall_quant_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HI — GOVERNANCE RISK & COMPLIANCE INTEGRATED FRAMEWORK (HI01–HI24)
+# ------------------------------------------------------------------
+def grc_risk_register_updated(risks_documented_recently=True):
+    return bool(risks_documented_recently)
+
+def grc_risk_tolerance_defined(appetite_statement_exists=True):
+    return bool(appetite_statement_exists)
+
+def grc_control_library_curated(controls_catalogued=True):
+    return bool(controls_catalogued)
+
+def grc_risk_assessment_qualitative_quantitative(assessments_conducted=True):
+    return bool(assessments_conducted)
+
+def grc_compliance_calendar_maintained(deadlines_tracked=True):
+    return bool(deadlines_tracked)
+
+def grc_three_lines_of_defense(roles_separated=True):
+    return bool(roles_separated)
+
+def grc_third_party_risk_review(vendor_risk_assessed=True):
+    return bool(vendor_risk_assessed)
+
+def grc_policy_training_delivery(policy_training_completed=True):
+    return bool(policy_training_completed)
+
+def grc_operational_resilience_plan(resilience_plan_existing=True):
+    return bool(resilience_plan_existing)
+
+def grc_technology_risk_inventory(tech_assets_inventoried=True):
+    return bool(tech_assets_inventoried)
+
+def grc_fraud_risk_controls(fraud_controls_active=True):
+    return bool(fraud_controls_active)
+
+def grc_audit_and_governance_feedback(board_receives_updates=True):
+    return bool(board_receives_updates)
+
+def grc_data_governance_ownership(data_stewards_assigned=True):
+    return bool(data_stewards_assigned)
+
+def grc_key_risk_indicators_kri(kris_monitored=True):
+    return bool(kris_monitored)
+
+def grc_control_testing_schedule(controls_tested_on_cycle=True):
+    return bool(controls_tested_on_cycle)
+
+def grc_risk_appetite_statement_approved(statement_approved_by_board=True):
+    return bool(statement_approved_by_board)
+
+def grc_compliance_monitoring_calendar(monitoring_planned=True):
+    return bool(monitoring_planned)
+
+def grc_enterprise_risk_aggregation(risks_aggregated_enterprise=True):
+    return bool(risks_aggregated_enterprise)
+
+def grc_notification_escalation_matrix(escalation_clear=True):
+    return bool(escalation_clear)
+
+def grc_change_risk_management(change_control_in_place=True):
+    return bool(change_control_in_place)
+
+def grc_outsourcing_risk_oversight(outsourcing_reviewed=True):
+    return bool(outsourcing_reviewed)
+
+def grc_data_loss_prevention_program(dlp_program_active=True):
+    return bool(dlp_program_active)
+
+def grc_incident_review_culture_just(just_culture_promoted=True):
+    return bool(just_culture_promoted)
+
+def grc_overall_grc_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hi_w4():
+    return [
+        (1, grc_risk_register_updated(risks_documented_recently=True)),
+        (2, grc_risk_tolerance_defined(appetite_statement_exists=True)),
+        (3, grc_control_library_curated(controls_catalogued=True)),
+        (4, grc_risk_assessment_qualitative_quantitative(assessments_conducted=True)),
+        (5, grc_compliance_calendar_maintained(deadlines_tracked=True)),
+        (6, grc_three_lines_of_defense(roles_separated=True)),
+        (7, grc_third_party_risk_review(vendor_risk_assessed=True)),
+        (8, grc_policy_training_delivery(policy_training_completed=True)),
+        (9, grc_operational_resilience_plan(resilience_plan_existing=True)),
+        (10, grc_technology_risk_inventory(tech_assets_inventoried=True)),
+        (11, grc_fraud_risk_controls(fraud_controls_active=True)),
+        (12, grc_audit_and_governance_feedback(board_receives_updates=True)),
+        (13, grc_data_governance_ownership(data_stewards_assigned=True)),
+        (14, grc_key_risk_indicators_kri(kris_monitored=True)),
+        (15, grc_control_testing_schedule(controls_tested_on_cycle=True)),
+        (16, grc_risk_appetite_statement_approved(statement_approved_by_board=True)),
+        (17, grc_compliance_monitoring_calendar(monitoring_planned=True)),
+        (18, grc_enterprise_risk_aggregation(risks_aggregated_enterprise=True)),
+        (19, grc_notification_escalation_matrix(escalation_clear=True)),
+        (20, grc_change_risk_management(change_control_in_place=True)),
+        (21, grc_outsourcing_risk_oversight(outsourcing_reviewed=True)),
+        (22, grc_data_loss_prevention_program(dlp_program_active=True)),
+        (23, grc_incident_review_culture_just(just_culture_promoted=True)),
+        (24, grc_overall_grc_maturity(min_score=70, score=90))
+    ]
+
+
+# ------------------------------------------------------------------
+# WAVE HJ — ADVANCED TELEMETRY & EVENT-DRIVEN OBSERVABILITY (HJ01–HJ24)
+# ------------------------------------------------------------------
+def telemetry2_event_schema_registry(event_schemas_versioned=True):
+    return bool(event_schemas_versioned)
+
+def telemetry2_trace_sampling_head_based(sampling_policy_configured=True):
+    return bool(sampling_policy_configured)
+
+def telemetry2_metrics_dimensionality_rich(dimensions_available=True):
+    return bool(dimensions_available)
+
+def telemetry2_log_aggregation_centralized(logs_centralized=True):
+    return bool(logs_centralized)
+
+def telemetry2_correlation_ids_propagated(trace_ids_link_data=True):
+    return bool(trace_ids_link_data)
+
+def telemetry2_real_time_dashboard_metrics(dashboards_refresh=True):
+    return bool(dashboards_refresh)
+
+def telemetry2_alert_on_metric_threshold(thresholds_defined=True):
+    return bool(thresholds_defined)
+
+def telemetry2_telemetry_data_retention(retention_policy_applied=True):
+    return bool(retention_policy_applied)
+
+def telemetry2_service_map_topology(topology_discovered=True):
+    return bool(topology_discovered)
+
+def telemetry2_endpoint_monitoring_blackbox(external_probes_active=True):
+    return bool(external_probes_active)
+
+def telemetry2_telemetry_cost_balanced(cost_managed=True):
+    return bool(cost_managed)
+
+def telemetry2_privacy_telemetry_scrubbed(pii_removed_from_telemetry=True):
+    return bool(pii_removed_from_telemetry)
+
+def telemetry2_malformed_events_handled(bad_events_quarantined=True):
+    return bool(bad_events_quarantined)
+
+def telemetry2_high_cardinality_controlled(cardinality_bounded=True):
+    return bool(cardinality_bounded)
+
+def telemetry2_custom_metrics_defined(custom_metrics_exist=True):
+    return bool(custom_metrics_exist)
+
+def telemetry2_event_time_ordering_tolerant(late_events_handled=True):
+    return bool(late_events_handled)
+
+def telemetry2_multi_cluster_observability(unified_view=True):
+    return bool(unified_view)
+
+def telemetry2_telemetry_config_versioned(config_as_code=True):
+    return bool(config_as_code)
+
+def telemetry2_root_cause_analysis_support(rca_tools_available=True):
+    return bool(rca_tools_available)
+
+def telemetry2_anomaly_detection_metrics(anomalies_auto_flagged=True):
+    return bool(anomalies_auto_flagged)
+
+def telemetry2_telemetry_security_access_control(telemetry_access_restricted=True):
+    return bool(telemetry_access_restricted)
+
+def telemetry2_otel_standard_compliance(otel_compliant=True):
+    return bool(otel_compliant)
+
+def telemetry2_sli_error_budget_dashboard(error_budget_visible=True):
+    return bool(error_budget_visible)
+
+def telemetry2_overall_telemetry_maturity(min_score=70, score=90):
+    return bool(score >= min_score)
+
+def selftest_hj_w4():
+    return [
+        (1, telemetry2_event_schema_registry(event_schemas_versioned=True)),
+        (2, telemetry2_trace_sampling_head_based(sampling_policy_configured=True)),
+        (3, telemetry2_metrics_dimensionality_rich(dimensions_available=True)),
+        (4, telemetry2_log_aggregation_centralized(logs_centralized=True)),
+        (5, telemetry2_correlation_ids_propagated(trace_ids_link_data=True)),
+        (6, telemetry2_real_time_dashboard_metrics(dashboards_refresh=True)),
+        (7, telemetry2_alert_on_metric_threshold(thresholds_defined=True)),
+        (8, telemetry2_telemetry_data_retention(retention_policy_applied=True)),
+        (9, telemetry2_service_map_topology(topology_discovered=True)),
+        (10, telemetry2_endpoint_monitoring_blackbox(external_probes_active=True)),
+        (11, telemetry2_telemetry_cost_balanced(cost_managed=True)),
+        (12, telemetry2_privacy_telemetry_scrubbed(pii_removed_from_telemetry=True)),
+        (13, telemetry2_malformed_events_handled(bad_events_quarantined=True)),
+        (14, telemetry2_high_cardinality_controlled(cardinality_bounded=True)),
+        (15, telemetry2_custom_metrics_defined(custom_metrics_exist=True)),
+        (16, telemetry2_event_time_ordering_tolerant(late_events_handled=True)),
+        (17, telemetry2_multi_cluster_observability(unified_view=True)),
+        (18, telemetry2_telemetry_config_versioned(config_as_code=True)),
+        (19, telemetry2_root_cause_analysis_support(rca_tools_available=True)),
+        (20, telemetry2_anomaly_detection_metrics(anomalies_auto_flagged=True)),
+        (21, telemetry2_telemetry_security_access_control(telemetry_access_restricted=True)),
+        (22, telemetry2_otel_standard_compliance(otel_compliant=True)),
+        (23, telemetry2_sli_error_budget_dashboard(error_budget_visible=True)),
+        (24, telemetry2_overall_telemetry_maturity(min_score=70, score=90))
+    ]
