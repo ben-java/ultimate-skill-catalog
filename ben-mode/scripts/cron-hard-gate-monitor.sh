@@ -70,7 +70,7 @@ if "$BASH_BIN" "$SCRIPT_DIR/benctl.sh" --quick --no-report >/dev/null 2>&1; then
         # P19-B1: daily budget threshold alert (80%)
         "$PY_BIN" "$SCRIPT_DIR/cost-report.py" "$(cygpath -w "$ROOT/.hard-gate-meta")" --budget "${HARD_GATE_BUDGET:-1000000}" --threshold 80 >>"$ALERT_LOG" 2>&1 || true
         # P21-C1: rotate audit logs (threshold 512KB)
-        "$PY_BIN" "$SCRIPT_DIR/rotate-audit-logs.py" "$(cygpath -w "$ROOT/.hard-gate-meta")" --threshold 524288 >>"$ALERT_LOG" 2>&1 || true
+        "$PY_BIN" "$SCRIPT_W/rotate-audit-logs.py" "$(cygpath -w "$ROOT/.hard-gate-meta")" --threshold 524288 >>"$ALERT_LOG" 2>&1 || true
         # P14-A2: daily signed-root anchor
         "$SCRIPT_DIR/daily-root-anchor.sh" "$ROOT" >>"$ALERT_LOG" 2>&1 || true
         # P14-D2: alert if consecutive daily anchors differ (root drift)

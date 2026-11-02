@@ -16,7 +16,7 @@ def main():
 
     targets = [
         "gate-time.jsonl", "gate-cost.jsonl", "runtime-audit.jsonl",
-        "gate-audit-aggregated.jsonl", "hard-gate-audit.log",
+        "gate-audit-aggregated.jsonl", "hard-gate-audit.jsonl", "hard-gate-audit.log",
         "hard-gate-audit.log.json", "transparency.merkle.json",
     ]
     ts = time.strftime("%Y%m%d-%H%M%S")

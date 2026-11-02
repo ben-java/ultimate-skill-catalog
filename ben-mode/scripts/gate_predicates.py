@@ -11967,15 +11967,68 @@ def evaluate(roots, meta_dir, runtime_inputs):
     except Exception:
         pass
 
+    # P_spec_version_consistent: SKILL.md version, CHANGELOG.md first entry,
+    # and references/hard-gate-10.md header MUST all agree bit-for-bit.
+    # Prevents silent spec drift (e.g. spec staying at 1.43 while code bumps to 1.47).
+    _ver_msg = ""
+    try:
+        _cur_dir = os.path.dirname(os.path.abspath(__file__))
+        _skill_p = os.path.join(_cur_dir, "..", "SKILL.md")
+        _cl_p = os.path.join(_cur_dir, "..", "CHANGELOG.md")
+        _spec_p = os.path.join(_cur_dir, "..", "references", "hard-gate-10.md")
+
+        _v_skill = ""
+        if os.path.isfile(_skill_p):
+            _vm = re.search(r"^version:\s*([0-9]+\.[0-9]+\.[0-9]+)", open(_skill_p, encoding="utf-8").read(), re.M)
+            if _vm:
+                _v_skill = _vm.group(1).strip()
+
+        _v_cl = ""
+        if os.path.isfile(_cl_p):
+            _cm = re.search(r"^##\s+v?([0-9]+\.[0-9]+\.[0-9]+)", open(_cl_p, encoding="utf-8").read(), re.M)
+            if _cm:
+                _v_cl = _cm.group(1).strip()
+
+        _v_spec = ""
+        if os.path.isfile(_spec_p):
+            _sm = re.search(r"Spec version.*?([0-9]+\.[0-9]+\.[0-9]+)", open(_spec_p, encoding="utf-8", errors="ignore").read())
+            if _sm:
+                _v_spec = _sm.group(1).strip()
+
+        _all_match = bool(_v_skill and _v_skill == _v_cl and _v_skill == _v_spec)
+        status["P_spec_version_consistent"] = _all_match
+        _ver_msg = "skill=%s cl=%s spec=%s (match=%s)" % (_v_skill, _v_cl, _v_spec, _all_match)
+    except Exception as _e:
+        status["P_spec_version_consistent"] = False
+        _ver_msg = "err: %s" % _e
+    try:
+        _ev4 = os.path.join(tempfile.gettempdir(), "ben_spec_version_consistent.json")
+        with open(_ev4, "w", encoding="utf-8") as _f:
+            json.dump({"P_spec_version_consistent": _ver_msg}, _f, ensure_ascii=False)
+    except Exception:
+        pass
+
+
+
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),
              "predicates": {k: v for k, v in status.items()},
              "status": "PASS" if ok else "FAIL"}
     with open(log_path, "a", encoding="utf-8") as f:
         f.write(json.dumps(entry, ensure_ascii=False) + "\n")
-    with open(log_path, encoding="utf-8") as f:
-        lines = [l for l in f.read().splitlines() if l.strip()]
-    att_ok = bool(lines) and json.loads(lines[-1]).get("ts") == entry["ts"]
+    try:
+        with open(log_path, "rb") as _lf:
+            _lf.seek(0, os.SEEK_END)
+            _lsz = _lf.tell()
+            _lbuf = min(_lsz, 8192)
+            _lf.seek(_lsz - _lbuf)
+            _ltail = _lf.read().decode("utf-8", errors="replace").splitlines()
+            _last_l = [l for l in _ltail if l.strip()][-1] if any(l.strip() for l in _ltail) else ""
+        att_ok = bool(_last_l) and json.loads(_last_l).get("ts") == entry["ts"]
+    except Exception:
+        with open(log_path, encoding="utf-8") as f:
+            lines = [l for l in f.read().splitlines() if l.strip()]
+        att_ok = bool(lines) and json.loads(lines[-1]).get("ts") == entry["ts"]
     status["P_attestation"] = att_ok
     ok = ok and att_ok
     return status, ok, entry, m_msg, bom, _spec_parity, _formal_note

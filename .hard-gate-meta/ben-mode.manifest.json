@@ -2,18 +2,18 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-02T12:56:42.926197+00:00",
+  "generated_at": "2026-11-02T13:29:37.018750+00:00",
   "file_count": 101,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 78560,
-      "sha256": "a776cdd8a6ed8c204342ab007c9eadcdc62c34913fc7446e5d58e4513bc23086"
+      "size": 79316,
+      "sha256": "66ed0e88449c6d216ebd5acb192bd967f96fc0c07c6ffab0daa9884f2588d4ff"
     },
     {
       "path": "SKILL.md",
-      "size": 62448,
-      "sha256": "1d45abd0abe28c70234f9a22988dd0d75a81da47ad99fed8f8463506a436e5ae"
+      "size": 63598,
+      "sha256": "e1a376571eea0b58fec8911f69d01c27ae0a1140b0f869173ba8f778545758cd"
     },
     {
       "path": "gate.conf",
@@ -82,8 +82,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 261662,
-      "sha256": "0cebddb76edd43bee4bbe6638fe26d91431b1dc718174ba1925fa3ef6a7cad57"
+      "size": 263559,
+      "sha256": "d9268046ae211999af8baad41ad632a0c2de41399f486a09e9487d2e684cafd1"
     },
     {
       "path": "references/large-document-editing.md",
@@ -187,8 +187,8 @@
     },
     {
       "path": "scripts/cron-hard-gate-monitor.sh",
-      "size": 6235,
-      "sha256": "5180574294f858d71e2d3054967af45daeda8ef016a9c90ba53aef73a262e530"
+      "size": 6345,
+      "sha256": "9dc61f2e66615a036c1ba7a86701cb0eca050ac6e1182e16a020c67a5b13a784"
     },
     {
       "path": "scripts/cron-watchdog.sh",
@@ -207,8 +207,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 892054,
-      "sha256": "cad4d8d39dbfeb723e8a3ac3166499db3b6bedbee8ab679386dfc58966046028"
+      "size": 894467,
+      "sha256": "fb68c103d31f37a926fdf9145d40fcb5885a266f96cdba1d615f1b407dabf748"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -282,8 +282,8 @@
     },
     {
       "path": "scripts/rotate-audit-logs.py",
-      "size": 1373,
-      "sha256": "3ef1080bae6c4106b96a7117de3cf467199738ba0087b9e4fdb955662ec450ae"
+      "size": 1440,
+      "sha256": "f32c3f1804d418945b3cbdf7db3ff3077b1f823e43e767b2542c1ddcef8d080b"
     },
     {
       "path": "scripts/routing-health.py",
@@ -342,8 +342,8 @@
     },
     {
       "path": "scripts/status-matrix.py",
-      "size": 11646,
-      "sha256": "2bb333e5d7ca43ee615f067c7252f90dd40a37dd4730c6f4c4f0bbd602a9da0a"
+      "size": 11860,
+      "sha256": "51ced4d0f644304c24071f9c8aaadfe7f6b8bd5c1c4d5cdafd4afc5abd6fa76f"
     },
     {
       "path": "scripts/substantiation_audit.py",

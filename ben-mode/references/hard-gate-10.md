@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `1.43.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `1.48.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -3220,3 +3220,30 @@ mendeteksi **SBOM drift**: memverifikasi setiap hash SHA-256 komponen CycloneDX 
 - Verifikasi nyata (v1.47.0): sebelum perbaikan, 1/100 komponen STALE (SKILL.md); setelah regen
   100/100 cocok. RED test: edit SKILL.md lalu bypass regen -> FAIL; regen -> PASS.
 - Bump v1.47.0.
+
+# BAGIAN 148 — SPECIFICATION VERSION TRIPLE-CONSISTENCY PREDICATE & AUDIT ROTATION (VERIFIED; v1.48.0)
+
+Menambahkan predikat **`P_spec_version_consistent`** di `gate_predicates.py::evaluate()` dan
+penegakan integritas pada `status-matrix.py` serta perbaikan rotasi audit log:
+
+1. **Tri-Partite Version Consistency (`P_spec_version_consistent`)**:
+   - `SKILL.md` (frontmatter `version`), `CHANGELOG.md` (heading rilis pertama `## vX.Y.Z`),
+     dan `references/hard-gate-10.md` (header `**Spec version**: X.Y.Z`) wajib bit-identik.
+   - Sebelumnya versi spec tertinggal di 1.43.0 selama 4 rilis tanpa memicu kegagalan gate;
+     predikat ini mengubah drift versi spec menjadi kegagalan keras (*hard fail*).
+   - `status-matrix.py` kini secara eksplisit mengembalikan exit code 1 bila `spec_version_consistent` False.
+
+2. **Audit Log Rotation & Tail-Seek I/O Optimization**:
+   - `scripts/rotate-audit-logs.py`: menambahkan `"hard-gate-audit.jsonl"` ke daftar target rotasi
+     sehingga file audit log utama (yang membengkak >1,9 MB) terarsip ke `.hard-gate-meta/archive/<ts>/`
+     dan live file di-truncate bersih.
+   - `scripts/cron-hard-gate-monitor.sh`: memperbaiki argumen eksekusi dari path POSIX `$SCRIPT_DIR`
+     menjadi Windows-native `$SCRIPT_W/rotate-audit-logs.py` untuk kompatibilitas Git-Bash/Python.
+   - `gate_predicates.py`: mengoptimalkan verifikasi `P_attestation` dengan membaca chunk 8KB terakhir
+     dari `hard-gate-audit.jsonl` via `seek(SEEK_END)` alih-alih me-load jutaan byte ke dalam memori.
+
+3. **Verifikasi**:
+   - RED: mutilasi versi spec menjadi `1.99.9` -> `P_spec_version_consistent` FAIL (0/1), `status-matrix.py` exit 1.
+   - GREEN: restorasi versi -> PASS, `status-matrix.py` exit 0.
+   - Rotasi: `rotate-audit-logs.py` merotasi `hard-gate-audit.jsonl` (1.913.248 bytes -> 0 bytes live, terarsip aman).
+   - Bump versi v1.48.0.

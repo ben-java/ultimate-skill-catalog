@@ -1,3 +1,12 @@
+## v1.48.0 (2026-11-02) — Spec Version Triple-Consistency Predicate & Audit Rotation (BAGIAN 148)
+
+- **P_spec_version_consistent**: predikat baru yang memverifikasi SKILL.md (version), CHANGELOG.md (first release), dan hard-gate-10.md (Spec version) bit-identik. Menutup silent spec drift.
+- **status-matrix.py**: penegakan exit code 1 bila `spec_version_consistent` False.
+- **rotate-audit-logs.py**: menambahkan `hard-gate-audit.jsonl` ke daftar target (rotasi file >1,9MB ke archive/<ts>/).
+- **cron-hard-gate-monitor.sh**: perbaikan path native `$SCRIPT_W` pada pemanggilan rotasi audit.
+- **gate_predicates.py**: optimasi tail seek 8KB pada `P_attestation` alih-alih me-load jutaan byte memori.
+- **BAGIAN 148** ditambahkan; bump v1.48.0.
+
 ## v1.47.0 (2026-11-02) — SBOM Hash Validity Predicate (BAGIAN 147)
 
 - **P_sbom_hash_valid**: predikat baru yang memverifikasi setiap hash komponen SBOM cocok dengan file on-disk (deteksi SBOM drift). Refresh-baseline kini ikut meregenerasi SBOM.

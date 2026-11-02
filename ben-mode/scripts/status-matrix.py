@@ -257,6 +257,10 @@ def main():
         sys.stderr.write("VERSION MISMATCH: SKILL.md=%s vs CHANGELOG=%s\n"
                          % (matrix["version"], matrix["changelog_version"]))
         code = 1
+    if not matrix["spec_version_consistent"]:
+        sys.stderr.write("SPEC VERSION MISMATCH: SKILL.md=%s vs spec=%s\n"
+                         % (matrix["version"], matrix["spec_version"]))
+        code = 1
     if not matrix["negative_pass_consistent"]:
         sys.stderr.write("NEGATIVE PASS INCONSISTENT: declared=%s present=%s\n"
                          % (matrix["negative_declared"], matrix["negative_test_count"]))
