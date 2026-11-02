@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.68.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.69.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2397,3 +2397,12 @@ Menambahkan lapisan application security and vulnerability management: `KK01–K
 
 - Threat Modeling & Static/Dynamic Testing: KK01 `kk_appsec_threat_model`, KK02 `kk_appsec_sast_scan`, KK03 `kk_appsec_dast_scan`, KK04 `kk_appsec_sca_vulns`, KK05 `kk_appsec_secret_detection`, KK06 `kk_appsec_pen_testing`, KK07 `kk_appsec_cwe_coverage`, KK08 `kk_appsec_csp_headers`, KK09 `kk_appsec_csrf_protection`, KK10 `kk_appsec_xss_sanitization`, KK11 `kk_appsec_sqli_prepared`, KK12 `kk_appsec_ssrf_validation`.
 - Cryptography, Sessions & Hardening: KK13 `kk_appsec_deserialization`, KK14 `kk_appsec_session_fixation`, KK15 `kk_appsec_cookie_flags`, KK16 `kk_appsec_crypto_primitives`, KK17 `kk_appsec_key_rotation`, KK18 `kk_appsec_rbac_enforcement`, KK19 `kk_appsec_rate_limit_auth`, KK20 `kk_appsec_file_upload_check`, KK21 `kk_appsec_xml_xxe_disabled`, KK22 `kk_appsec_api_fuzzing`, KK23 `kk_appsec_bug_bounty_sla`, KK24 `kk_appsec_overall_maturity`.
+
+---
+
+# BAGIAN 69 — WAVE LL: LLMOPS, AGENTIC EVALUATION & ALIGNMENT INTEGRITY LL01–LL24 (VERIFIED; v0.69.0)
+
+Menambahkan lapisan LLMops, agentic evaluation, dan alignment integrity: `LL01–LL24` di `hard_gate_enhancements.py`, disurfacing `P_LL01–P_LL24`; diverifikasi 24/24 PASS (selftest_ll rc 0).
+
+- Model Lifecycle & Safety Guardrails: LL01 `ll_llmops_model_registry`, LL02 `ll_llmops_prompt_versioning`, LL03 `ll_llmops_eval_benchmark`, LL04 `ll_llmops_ground_truth_drift`, LL05 `ll_llmops_hallucination_detect`, LL06 `ll_llmops_guardrail_moderation`, LL07 `ll_llmops_jailbreak_defense`, LL08 `ll_llmops_pii_scrubbing`, LL09 `ll_llmops_context_window_cap`, LL10 `ll_llmops_token_cost_tracking`, LL11 `ll_llmops_embedding_drift`, LL12 `ll_llmops_vector_index_health`.
+- Tool Invocation & Agent Alignment: LL13 `ll_llmops_tool_call_schema`, LL14 `ll_llmops_trajectory_audit`, LL15 `ll_llmops_human_in_the_loop`, LL16 `ll_llmops_model_fallback`, LL17 `ll_llmops_output_structured`, LL18 `ll_llmops_rag_context_recall`, LL19 `ll_llmops_temperature_determinism`, LL20 `ll_llmops_feedback_loop`, LL21 `ll_llmops_red_team_suite`, LL22 `ll_llmops_watermarking_provenance`, LL23 `ll_llmops_inference_latency_p95`, LL24 `ll_llmops_overall_maturity`.

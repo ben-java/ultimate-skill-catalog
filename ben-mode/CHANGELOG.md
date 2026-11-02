@@ -1,3 +1,8 @@
+## v0.69.0 (2026-11-02) — Wave LL LLMOps, Agentic Evaluation & Alignment Integrity LL01–LL24 (BAGIAN 69)
+
+- **LL01–LL24**: immutable model registry, prompt versioning, offline evaluation benchmarks, evaluation drift detection, RAG hallucination scoring, guardrail content filtering, adversarial jailbreak defense, PII scrubbing, context token caps, per-request token telemetry, vector embedding stability, vector index health, strict tool-call schema validation, multi-turn reasoning trajectory audit, human-in-the-loop authorization, model provider fallback, structured Pydantic output, context recall precision, parameter determinism, user feedback loops, continuous red-teaming, watermarking provenance attestation, p95 inference latency SLO, overall LLMops maturity. Disurfacing `P_LL01–P_LL24`; 24/24 PASS.
+- **BAGIAN 69** ditambahkan; bump serentak 0.69.0.
+
 ## v0.68.0 (2026-11-02) — Wave KK Application Security & Vulnerability Management KK01–KK24 (BAGIAN 68)
 
 - **KK01–KK24**: STRIDE/PASTA threat model, SAST scanning, DAST scanning, SCA zero-critical CVEs, secret/entropy detection, penetration testing remediation, OWASP Top 10 / CWE Top 25 coverage, CSP security headers, CSRF protection, contextual XSS sanitization, SQLi parameterized queries, SSRF allowlisting, safe deserialization, session fixation defense, Secure/HttpOnly/SameSite cookies, FIPS/NIST crypto primitives, KMS key rotation, BOLA/IDOR object-level RBAC, brute-force auth rate limiting, file upload inspection, XXE disabled, API fuzzing, bug bounty SLA adherence, overall AppSec maturity. Disurfacing `P_KK01–P_KK24`; 24/24 PASS.

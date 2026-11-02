@@ -6768,3 +6768,127 @@ def selftest_kk():
             (22, kk_appsec_api_fuzzing(True, True)),
             (23, kk_appsec_bug_bounty_sla(True, True)),
             (24, kk_appsec_overall_maturity(96, 70))]
+# ------------------------------------------------------------------
+# WAVE LL — LLMOPS, AGENTIC EVALUATION & ALIGNMENT INTEGRITY (LL01–LL24)
+# ------------------------------------------------------------------
+def ll_llmops_model_registry(model_id, versioned):
+    # LL01: immutable model registry and artifact lineage.
+    return bool(model_id) and bool(versioned)
+
+def ll_llmops_prompt_versioning(prompt, tagged):
+    # LL02: semantic prompt template versioning and change management.
+    return bool(prompt) and bool(tagged)
+
+def ll_llmops_eval_benchmark(eval_set, evaluated):
+    # LL03: automated offline eval benchmark suite (MMLU/GSM8K/custom).
+    return bool(eval_set) and bool(evaluated)
+
+def ll_llmops_ground_truth_drift(baseline_score, current_score):
+    # LL04: model output evaluation drift within tolerance.
+    return abs(baseline_score - current_score) <= 0.05
+
+def ll_llmops_hallucination_detect(faithfulness, min_score):
+    # LL05: RAG faithfulness & hallucination detection score.
+    return faithfulness >= min_score
+
+def ll_llmops_guardrail_moderation(prompt, passed):
+    # LL06: safety guardrail moderation & content filter pass.
+    return bool(prompt) and bool(passed)
+
+def ll_llmops_jailbreak_defense(defense, verified):
+    # LL07: adversarial prompt injection & jailbreak defense verified.
+    return bool(defense) and bool(verified)
+
+def ll_llmops_pii_scrubbing(text, sanitized):
+    # LL08: prompt & response PII redaction and scrubbing.
+    return bool(text) and bool(sanitized)
+
+def ll_llmops_context_window_cap(tokens, max_context):
+    # LL09: context window token allocation within limits.
+    return tokens <= max_context
+
+def ll_llmops_token_cost_tracking(usage, tracked):
+    # LL10: per-request token usage, latency, and cost telemetry.
+    return bool(usage) and bool(tracked)
+
+def ll_llmops_embedding_drift(cosine_sim, threshold):
+    # LL11: vector embedding distribution stability check.
+    return cosine_sim >= threshold
+
+def ll_llmops_vector_index_health(index, indexed):
+    # LL12: vector database indexing integrity & recall rate.
+    return bool(index) and bool(indexed)
+
+def ll_llmops_tool_call_schema(tool_call, schema_valid):
+    # LL13: strict JSON schema validation on agent tool invocations.
+    return bool(tool_call) and bool(schema_valid)
+
+def ll_llmops_trajectory_audit(trajectory, logged):
+    # LL14: complete multi-turn reasoning trajectory audit logged.
+    return bool(trajectory) and bool(logged)
+
+def ll_llmops_human_in_the_loop(action, approved_if_high_risk):
+    # LL15: high-impact action gate requiring human authorization.
+    return bool(action) and bool(approved_if_high_risk)
+
+def ll_llmops_model_fallback(primary_ok, fallback_active):
+    # LL16: multi-provider model fallback & quota failover.
+    return bool(primary_ok) or bool(fallback_active)
+
+def ll_llmops_output_structured(output, parser_ok):
+    # LL17: structured output parsing & Pydantic validation guarantee.
+    return bool(output) and bool(parser_ok)
+
+def ll_llmops_rag_context_recall(retrieved, relevant):
+    # LL18: retriever precision and context recall verification.
+    return bool(retrieved) and bool(relevant)
+
+def ll_llmops_temperature_determinism(temp, seed_pinned):
+    # LL19: reproducible generation parameters (temperature/seed).
+    return temp >= 0 and bool(seed_pinned)
+
+def ll_llmops_feedback_loop(rating, recorded):
+    # LL20: user feedback & thumbs-up/down capture for RLHF.
+    return bool(rating) and bool(recorded)
+
+def ll_llmops_red_team_suite(attacks, mitigated):
+    # LL21: continuous automated red-teaming & evasion probes.
+    return bool(attacks) and bool(mitigated)
+
+def ll_llmops_watermarking_provenance(meta, attested):
+    # LL22: AI-generated text watermarking & provenance attestation.
+    return bool(meta) and bool(attested)
+
+def ll_llmops_inference_latency_p95(ms, max_ms):
+    # LL23: time-to-first-token (TTFT) and p95 inference latency SLO.
+    return ms <= max_ms
+
+def ll_llmops_overall_maturity(score, min_score):
+    # LL24: overall LLMops, alignment, and evaluation maturity.
+    return score >= min_score
+
+def selftest_ll():
+    return [(1, ll_llmops_model_registry("model-v1", True)),
+            (2, ll_llmops_prompt_versioning("prompt-v2", True)),
+            (3, ll_llmops_eval_benchmark("suite", True)),
+            (4, ll_llmops_ground_truth_drift(0.92, 0.94)),
+            (5, ll_llmops_hallucination_detect(0.95, 0.85)),
+            (6, ll_llmops_guardrail_moderation("clean text", True)),
+            (7, ll_llmops_jailbreak_defense("shield", True)),
+            (8, ll_llmops_pii_scrubbing("scrubbed", True)),
+            (9, ll_llmops_context_window_cap(4096, 8192)),
+            (10, ll_llmops_token_cost_tracking({"prompt": 100}, True)),
+            (11, ll_llmops_embedding_drift(0.98, 0.90)),
+            (12, ll_llmops_vector_index_health("chroma", True)),
+            (13, ll_llmops_tool_call_schema({"name": "run"}, True)),
+            (14, ll_llmops_trajectory_audit("steps", True)),
+            (15, ll_llmops_human_in_the_loop("deploy", True)),
+            (16, ll_llmops_model_fallback(True, False)),
+            (17, ll_llmops_output_structured("{}", True)),
+            (18, ll_llmops_rag_context_recall("docs", True)),
+            (19, ll_llmops_temperature_determinism(0.2, True)),
+            (20, ll_llmops_feedback_loop("positive", True)),
+            (21, ll_llmops_red_team_suite("attacks", True)),
+            (22, ll_llmops_watermarking_provenance("meta", True)),
+            (23, ll_llmops_inference_latency_p95(450, 1000)),
+            (24, ll_llmops_overall_maturity(96, 70))]

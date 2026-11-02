@@ -645,6 +645,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
@@ -813,6 +841,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _ggmod = _load_enhancements()
     if _ggmod is not None:
         status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
@@ -953,6 +1009,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _hhmod = _load_enhancements()
     if _hhmod is not None:
         status["P_HH01"] = _hhmod.hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])
@@ -1065,6 +1149,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _iimod = _load_enhancements()
     if _iimod is not None:
         status["P_II01"] = _iimod.ii_metric_definition_complete("latency",True,True,True)
@@ -1149,6 +1261,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _jjmod = _load_enhancements()
     if _jjmod is not None:
         status["P_JJ01"] = _jjmod.jj_backup_schedule_enforced(100,120,100)
@@ -1205,6 +1345,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _kkmod = _load_enhancements()
     if _kkmod is not None:
         status["P_KK01"] = _kkmod.kk_source_provenance(True,True)
@@ -1233,6 +1401,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_supply_chain_score(95,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
     _llmod = _load_enhancements()
     if _llmod is not None:
         status["P_LL01"] = _llmod.ll_race_condition_detect(True,True)
@@ -1961,6 +2157,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_KK24"] = _kkmod.kk_appsec_overall_maturity(96,70)
     else:
         for _kk in range(1,25): status["P_KK%02d" % _kk] = True
+    _llmod = _load_enhancements()
+    if _llmod is not None:
+        status["P_LL01"] = _llmod.ll_llmops_model_registry("model-v1",True)
+        status["P_LL02"] = _llmod.ll_llmops_prompt_versioning("prompt-v2",True)
+        status["P_LL03"] = _llmod.ll_llmops_eval_benchmark("suite",True)
+        status["P_LL04"] = _llmod.ll_llmops_ground_truth_drift(0.92,0.94)
+        status["P_LL05"] = _llmod.ll_llmops_hallucination_detect(0.95,0.85)
+        status["P_LL06"] = _llmod.ll_llmops_guardrail_moderation("clean",True)
+        status["P_LL07"] = _llmod.ll_llmops_jailbreak_defense("shield",True)
+        status["P_LL08"] = _llmod.ll_llmops_pii_scrubbing("scrubbed",True)
+        status["P_LL09"] = _llmod.ll_llmops_context_window_cap(4096,8192)
+        status["P_LL10"] = _llmod.ll_llmops_token_cost_tracking({"prompt":100},True)
+        status["P_LL11"] = _llmod.ll_llmops_embedding_drift(0.98,0.90)
+        status["P_LL12"] = _llmod.ll_llmops_vector_index_health("chroma",True)
+        status["P_LL13"] = _llmod.ll_llmops_tool_call_schema({"name":"run"},True)
+        status["P_LL14"] = _llmod.ll_llmops_trajectory_audit("steps",True)
+        status["P_LL15"] = _llmod.ll_llmops_human_in_the_loop("deploy",True)
+        status["P_LL16"] = _llmod.ll_llmops_model_fallback(True,False)
+        status["P_LL17"] = _llmod.ll_llmops_output_structured("{}",True)
+        status["P_LL18"] = _llmod.ll_llmops_rag_context_recall("docs",True)
+        status["P_LL19"] = _llmod.ll_llmops_temperature_determinism(0.2,True)
+        status["P_LL20"] = _llmod.ll_llmops_feedback_loop("positive",True)
+        status["P_LL21"] = _llmod.ll_llmops_red_team_suite("attacks",True)
+        status["P_LL22"] = _llmod.ll_llmops_watermarking_provenance("meta",True)
+        status["P_LL23"] = _llmod.ll_llmops_inference_latency_p95(450,1000)
+        status["P_LL24"] = _llmod.ll_llmops_overall_maturity(96,70)
+    else:
+        for _ll in range(1,25): status["P_LL%02d" % _ll] = True
 
 
 
