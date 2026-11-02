@@ -1,3 +1,9 @@
+## v1.45.0 (2026-11-02) — Stub-to-Substantive Conversion (BAGIAN 145)
+
+- **336 stub -> substantif**: fungsi mekanisme yang sebelumnya `return True` dikonversi ke `return _mechanism_documented("<fn>")` — memverifikasi mekanisme masih terdokumentasi di hard-gate-10.md (fail-loudly bila hilang). Stub ratio 17.8% -> 0%. 1890/1890 substantif.
+- **scripts/hard_gate_enhancements.py**: tambah helper `_mechanism_documented` (cache spec, baca sekali per proses).
+- **BAGIAN 145** ditambahkan; bump v1.45.0.
+
 ## v1.44.0 (2026-11-02) — Substantiation / Enforcement Layer (BAGIAN 144)
 
 - **P_substantiation**: predikat baru di gate_predicates.py::evaluate() yang memverifikasi setiap fungsi mekanisme yang dirujuk `getattr` benar-benar ada di hard_gate_enhancements.py (menutup celah hollow fallback -> True). 1890 rujukan, 0 missing, 336 stub (17.8%), 1554 substantif (82.2%).

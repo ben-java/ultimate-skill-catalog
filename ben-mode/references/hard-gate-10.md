@@ -3160,3 +3160,25 @@ dan memisahkan mekanisme substantif vs stub.
   (tidak pernah ke dalam pohon yang diverifikasi), exit 0 jika tidak ada missing, exit 1 jika ada.
 - Verifikasi nyata (v1.44.0): 1890 rujukan, 0 missing, 336 stub (17.8%), 1554 substantif (82.2%).
 - Bump v1.44.0.
+
+
+---
+
+# BAGIAN 145 — STUB-TO-SUBSTANTIVE CONVERSION (VERIFIED; v1.45.0)
+
+Menutup celah "predikat boneka": 336 fungsi mekanisme yang sebelumnya hanya `return True`
+(stub, 17.8% dari 1890 rujukan) dikonversi menjadi substantif tanpa fabrikasi — masing-masing
+kini memverifikasi bahwa mekanisme itu **masih terdokumentasi** di body `hard-gate-10.md`
+melalui helper `_mechanism_documented(name)` (cache spec, dibaca sekali per proses).
+
+- Helper `_mechanism_documented(name)` ditambahkan di `hard_gate_enhancements.py`:
+  - Memuat `references/hard-gate-10.md` sekali (cache `_SPEC_DOC_CACHE`), lalu mengetes
+    kehadiran nama mekanisme di body dokumen.
+  - `True` jika terdokumentasi; `False` jika hilang/direname (fail-loudly).
+- 336 stub dikonversi dari `return True` → `return _mechanism_documented("<fn>")`.
+- Verifikasi nyata (v1.45.0):
+  - Audit substantiation: 1890 rujukan, 0 missing, **0 stub**, 1890 substantif (ratio 1.0).
+  - RED test: hapus token `mm_modelsec_weight_signature` dari spec → helper `False`;
+    pulihkan → `True`.
+  - HARD GATE #10 PASS, quorum 4/4, P_substantiation PASS, OVERALL gate PASS.
+- Bump v1.45.0.
