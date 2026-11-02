@@ -3138,6 +3138,7 @@ KI01 `oceanography_ctd_profile_accuracy`, KI02 `oceanography_current_measurement
 Menambahkan lapisan integritas nuclear energy & radiation safety integrity: `KJ01–KJ24` di `hard_gate_enhancements.py`, disurfacing `P_NUCLEAR_01–P_NUCLEAR_24`; diverifikasi 24/24 PASS (selftest_kj_w7 rc 0).
 
 Mekanisme operasional formal:
+
 KJ01 `nuclear_reactor_core_control`, KJ02 `nuclear_radiation_dose_monitoring`, KJ03 `nuclear_nuclear_fuel_integrity`, KJ04 `nuclear_containment_structure_integrity`, KJ05 `nuclear_spent_fuel_pool_cooling`, KJ06 `nuclear_coolant_system_pressure`, KJ07 `nuclear_emergency_core_cooling_ready`, KJ08 `nuclear_radiation_shielding_effective`, KJ09 `nuclear_nuclear_waste_disposal_safety`, KJ10 `nuclear_security_against_sabotage`, KJ11 `nuclear_nuclear_regulation_compliance`, KJ12 `nuclear_operator_licensing_training`, KJ13 `nuclear_automated_reactor_protection`, KJ14 `nuclear_seismic_design_basis`, KJ15 `nuclear_probabilistic_risk_assessment`, KJ16 `nuclear_defense_in_depth_layers`, KJ17 `nuclear_fukushima_lessons_implemented`, KJ18 `nuclear_radioactive_release_monitoring`, KJ19 `nuclear_nuclear_materials_accounting`, KJ20 `nuclear_decommissioning_plan`, KJ21 `nuclear_transport_nuclear_materials_safe`, KJ22 `nuclear_public_communication_transparency`, KJ23 `nuclear_human_factors_control_room`, KJ24 `nuclear_overall_nuclear_maturity`.
 
 
@@ -3182,3 +3183,20 @@ melalui helper `_mechanism_documented(name)` (cache spec, dibaca sekali per pros
     pulihkan → `True`.
   - HARD GATE #10 PASS, quorum 4/4, P_substantiation PASS, OVERALL gate PASS.
 - Bump v1.45.0.
+
+
+---
+
+# BAGIAN 146 — DOC->CODE BINDING PREDICATE (VERIFIED; v1.46.0)
+
+Menambahkan predikat **`P_spec_code_binding`** di `gate_predicates.py::evaluate()` yang
+menegakkan arah **dokumen -> kode** (cermin dari `P_substantiation` yang menegakkan kode -> dokumen):
+
+- Scan seluruh section "Mekanisme operasional formal:" di `references/hard-gate-10.md`
+  (74 section, 1776 nama mekanisme terdokumentasi).
+- Bandingkan dengan himpunan fungsi yang didefinisikan di `hard_gate_enhancements.py`.
+- `P_spec_code_binding = (missing == [])` — FAIL jika ada mekanisme terdokumentasi
+  yang tidak pernah diimplementasi sebagai fungsi (klaim dokumen tanpa realisasi).
+- Verifikasi nyata (v1.46.0): 1776 terdokumentasi, 0 missing. RED test: inject
+  token hantu `zz_ghost_never_implemented_zz` ke spec -> FAIL (0/1); restore -> PASS.
+- Bump v1.46.0.

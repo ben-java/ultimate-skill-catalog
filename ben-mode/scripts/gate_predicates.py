@@ -11877,6 +11877,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
     except Exception as _e:
         status["P_substantiation"] = False
         _msub_msg = "err: %s" % _e
+    # P_spec_code_binding: every mechanism documented in the spec's formal
+    # BAGIAN lists must have a corresponding function in hard_gate_enhancements.py
+    # (doc -> code direction; P_substantiation covers code -> doc). Fails when a
+    # documented mechanism was never implemented.
+    try:
+        _spec_p = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "..", "references", "hard-gate-10.md")
+        _spec_txt = open(_spec_p, encoding="utf-8").read()
+        _doc_names = set()
+        for _m in re.finditer(r"Mekanisme operasional formal:\n(.*?)(?=\n\n---|\n\n# BAGIAN|\Z)", _spec_txt, re.S):
+            _doc_names.update(re.findall(r"[a-z][a-z0-9_]*(?:_[a-z0-9_]+)+", _m.group(1)))
+        _enh_fn = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "hard_gate_enhancements.py")
+        _enh_txt = open(_enh_fn, encoding="utf-8").read()
+        _code_defs = set(re.findall(r"def ([a-zA-Z0-9_]+)\(", _enh_txt))
+        _impl_missing = sorted(n for n in _doc_names if n not in _code_defs)
+        status["P_spec_code_binding"] = len(_impl_missing) == 0
+        _spec_msg = "missing: " + ",".join(_impl_missing) if _impl_missing else ("ok (" + str(len(_doc_names)) + " documented)")
+    except Exception as _e:
+        status["P_spec_code_binding"] = False
+        _spec_msg = "err: %s" % _e
+    try:
+        _ev2 = os.path.join(tempfile.gettempdir(), "ben_spec_code_binding.json")
+        with open(_ev2, "w", encoding="utf-8") as _f:
+            _json.dump({"P_spec_code_binding": _spec_msg}, _f, ensure_ascii=False)
+    except Exception:
+        pass
+
     try:
         import json as _json
         _ev = os.path.join(tempfile.gettempdir(), "ben_substantiation_detail.json")

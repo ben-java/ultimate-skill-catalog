@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:2f90de7f-b891-47ff-85a6-593307f59ff0",
+  "serialNumber": "urn:uuid:44a789d3-62b1-4f8d-83ef-a38b5df0c0a6",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-02T12:15:15Z",
+    "timestamp": "2026-11-02T12:32:05Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "3c3601a568d415aa5156216ad353854f182f25027a33b1a78f45958e0406d899"
+          "content": "6bd2911c7bb2ce5b3a5f16188bbe84b9d6f7f8f4543e678c1a67b4563dd7db6b"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "0cdbb6cd71dc9128ecc09f3e3e381031787f7365f03833d2080a2d6ae9988382"
+          "content": "57c8b9b950524eeb9e79f9d8571ad8ba768951ba73bbb7ad68f703b37bcafbad"
         }
       ]
     },
@@ -175,7 +175,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "c59d40bb94f16863697476d7162cf52457d1af2f84fa7e761a2972f42b1c600a"
+          "content": "a5c1c6a801fd0c1e94563b7679317bb6a103335881c42600b623c47f492319a5"
         }
       ]
     },
@@ -197,7 +197,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "dee91088e6518f7da106297cec24cdb04319cc29bf732a73bbb890d15a8c47ef"
+          "content": "bbbd75d5f7e8532287c9374d48b037c81ee2dff845512636b7d71b222b96f295"
         }
       ]
     },
@@ -450,7 +450,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "e185ce3f45774907f718faa19ac23319f8c76bfd1af470954ee1bd3e305e7143"
+          "content": "78fb27909ea88d3bec469c3e531300bb554009e7b4aec7d9d6f9a3a2822d24df"
         }
       ]
     },

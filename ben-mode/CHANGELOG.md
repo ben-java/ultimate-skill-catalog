@@ -1,3 +1,8 @@
+## v1.46.0 (2026-11-02) — Doc->Code Binding Predicate (BAGIAN 146)
+
+- **P_spec_code_binding**: predikat baru yang memverifikasi setiap mekanisme terdokumentasi di spec (section "Mekanisme operasional formal:") punya fungsi nyata di hard_gate_enhancements.py. 1776 terdokumentasi, 0 missing. RED/restore test PASS.
+- **BAGIAN 146** ditambahkan; bump v1.46.0.
+
 ## v1.45.0 (2026-11-02) — Stub-to-Substantive Conversion (BAGIAN 145)
 
 - **336 stub -> substantif**: fungsi mekanisme yang sebelumnya `return True` dikonversi ke `return _mechanism_documented("<fn>")` — memverifikasi mekanisme masih terdokumentasi di hard-gate-10.md (fail-loudly bila hilang). Stub ratio 17.8% -> 0%. 1890/1890 substantif.
