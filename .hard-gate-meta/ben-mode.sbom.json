@@ -2,10 +2,10 @@
   "$schema": "http://cyclonedx.org/schema/bom-1.5.json",
   "bomFormat": "CycloneDX",
   "specVersion": "1.5",
-  "serialNumber": "urn:uuid:3e359803-8e29-48da-8524-6a1b1258ef91",
+  "serialNumber": "urn:uuid:cae6d719-683c-49d2-a319-e9610dbaa1dd",
   "version": 1,
   "metadata": {
-    "timestamp": "2026-11-01T23:38:57Z",
+    "timestamp": "2026-11-02T11:29:59Z",
     "component": {
       "type": "application",
       "name": "ben-mode",
@@ -21,7 +21,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "4e6d9c03a3d90e4ed5128d9357e6f37a6ae678c7266ef498f536a66724f5e9bf"
+          "content": "62329407382a47861d2a1290a174bbffad3fd67ae1dda7d77f1529fe2db29b71"
         }
       ]
     },
@@ -32,7 +32,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "66ad442bf7f782d50726c52cf0693d5043614a712fbdc026fdfff954e6db4a26"
+          "content": "973f077c7e9824784f7b851296101895b67b99a87f5ee335d65bb4e1c351fbd2"
         }
       ]
     },
@@ -175,7 +175,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "081691377690bca278f53a65202da47c8f6291775c4a7240219b4a36a3a8e0e3"
+          "content": "43284d5b07859d8d502ea536fcdfd651342cacda0adb394b2739e4a7db3450e0"
         }
       ]
     },
@@ -197,7 +197,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "7927bada0e17df9ef9388a4fff823f68673a4ab0dbd1f870832b1bc15ffd321c"
+          "content": "dee91088e6518f7da106297cec24cdb04319cc29bf732a73bbb890d15a8c47ef"
         }
       ]
     },
@@ -219,7 +219,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "ec9653ffde616130c84899059ccd5c87d87a62d97fa659a7e46ef78f70984c4b"
+          "content": "86efdf2dd4cc15094a8c21134ff888bc3433d92184b014e13a55ed29f4894474"
         }
       ]
     },
@@ -450,7 +450,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "65bf87de8d17181845d2961fd67e67c594fc63283518b0f80255df18f6bebe02"
+          "content": "e185ce3f45774907f718faa19ac23319f8c76bfd1af470954ee1bd3e305e7143"
         }
       ]
     },
@@ -494,7 +494,7 @@
       "hashes": [
         {
           "alg": "SHA-256",
-          "content": "1866433b4f36b9213e2638e8837b3ce9296981f31a5e48d42d5209e3ba534a69"
+          "content": "c060dcf9e8bf15958805e05d42288e0a99c156d8b7cca69c00df884c01053bc6"
         }
       ]
     },
@@ -748,6 +748,17 @@
         {
           "alg": "SHA-256",
           "content": "6532624fdebe50d2dcdfb433c115ba51b7840f9c78187c9d776aa61f55df1cc9"
+        }
+      ]
+    },
+    {
+      "type": "framework",
+      "name": "scripts/substantiation_audit.py",
+      "version": "1.0",
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "2a139de930bf73c22625cb8e7cae1a5a29e7806118c3f829df14a1dee9c3c081"
         }
       ]
     },

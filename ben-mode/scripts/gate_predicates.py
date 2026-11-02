@@ -4,7 +4,7 @@ Usage: python gate_predicates.py --root <canonical> --replica <target1> [--repli
 Baseline & audit log disimpan di --meta-dir (DI LUAR pohon skill).
 Exit: 0 PASS, 1 FAIL, 2 PRECONDITION.
 """
-import sys, os, hashlib, json, datetime, re, argparse
+import sys, os, hashlib, json, datetime, re, argparse, tempfile
 SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
 
 def sha256_file(p):
@@ -11859,6 +11859,31 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_NUCLEAR_22"] = True
         status["P_NUCLEAR_23"] = True
         status["P_NUCLEAR_24"] = True
+
+    # P_substantiation: every getattr-referenced mechanism fn must exist in
+    # hard_gate_enhancements.py. Closes the hollow fallback (missing fn -> True).
+    try:
+        _suba_src = open(os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "gate_predicates.py"), encoding="utf-8").read()
+        _suba_refs = {n for n in re.findall(r'getattr\([^,]+,\s*"([a-zA-Z0-9_]+)"', _suba_src)
+                       if not n.startswith("_")}
+        _suba_enh = os.path.join(os.path.dirname(os.path.abspath(__file__)),
+                        "hard_gate_enhancements.py")
+        _suba_enh_src_ = open(_suba_enh, encoding="utf-8").read()
+        _suba_defs = set(re.findall(r"def ([a-zA-Z0-9_]+)\(", _suba_enh_src_))
+        _suba_missing = sorted(_suba_refs - _suba_defs)
+        status["P_substantiation"] = len(_suba_missing) == 0
+        _msub_msg = "missing: " + ",".join(_suba_missing) if _suba_missing else "ok"
+    except Exception as _e:
+        status["P_substantiation"] = False
+        _msub_msg = "err: %s" % _e
+    try:
+        import json as _json
+        _ev = os.path.join(tempfile.gettempdir(), "ben_substantiation_detail.json")
+        with open(_ev, "w", encoding="utf-8") as _f:
+            _json.dump({"P_substantiation": _msub_msg}, _f, ensure_ascii=False)
+    except Exception:
+        pass
 
     ok = all(status.values())
     entry = {"ts": datetime.datetime.now(datetime.timezone.utc).isoformat(),

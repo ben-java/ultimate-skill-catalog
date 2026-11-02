@@ -3139,3 +3139,24 @@ Menambahkan lapisan integritas nuclear energy & radiation safety integrity: `KJ0
 
 Mekanisme operasional formal:
 KJ01 `nuclear_reactor_core_control`, KJ02 `nuclear_radiation_dose_monitoring`, KJ03 `nuclear_nuclear_fuel_integrity`, KJ04 `nuclear_containment_structure_integrity`, KJ05 `nuclear_spent_fuel_pool_cooling`, KJ06 `nuclear_coolant_system_pressure`, KJ07 `nuclear_emergency_core_cooling_ready`, KJ08 `nuclear_radiation_shielding_effective`, KJ09 `nuclear_nuclear_waste_disposal_safety`, KJ10 `nuclear_security_against_sabotage`, KJ11 `nuclear_nuclear_regulation_compliance`, KJ12 `nuclear_operator_licensing_training`, KJ13 `nuclear_automated_reactor_protection`, KJ14 `nuclear_seismic_design_basis`, KJ15 `nuclear_probabilistic_risk_assessment`, KJ16 `nuclear_defense_in_depth_layers`, KJ17 `nuclear_fukushima_lessons_implemented`, KJ18 `nuclear_radioactive_release_monitoring`, KJ19 `nuclear_nuclear_materials_accounting`, KJ20 `nuclear_decommissioning_plan`, KJ21 `nuclear_transport_nuclear_materials_safe`, KJ22 `nuclear_public_communication_transparency`, KJ23 `nuclear_human_factors_control_room`, KJ24 `nuclear_overall_nuclear_maturity`.
+
+
+---
+
+# BAGIAN 144 — SUBSTANTIATION / ENFORCEMENT LAYER (VERIFIED; v1.44.0)
+
+Menambahkan lapisan enforcement yang menutup celah "hollow getattr": predikat statis sebelumnya
+di-wire melalui `getattr(_, "fn", lambda *a, **k: True)`, sehingga jika sebuah fungsi mekanisme
+dihapus/diubah nama, predikat diam-diam lulus (`True`) tanpa memberi sinyal. Lapisan ini
+memverifikasi **setiap fungsi yang dirujuk predikat benar-benar ada** di `hard_gate_enhancements.py`,
+dan memisahkan mekanisme substantif vs stub.
+
+- Predikat baru **`P_substantiation`** di `gate_predicates.py::evaluate()`:
+  - Men-scan `gate_predicates.py` untuk seluruh referensi `getattr(..., "<fn>", ...)` (mengabaikan token `_`-prefixed internal).
+  - Membandingkan dengan himpunan fungsi yang didefinisikan di `hard_gate_enhancements.py`.
+  - `P_substantiation = (missing == [])` — FAIL jika ada fungsi rujukan yang hilang (fail-loudly), PASS jika semua ada.
+- Audit mandiri **`scripts/substantiation_audit.py`** (CLI): mem-parse kedua file, menghitung
+  `wired/present/missing/stub/substantive` + rasio, menulis bukti JSON ke `tempfile.gettempdir()`
+  (tidak pernah ke dalam pohon yang diverifikasi), exit 0 jika tidak ada missing, exit 1 jika ada.
+- Verifikasi nyata (v1.44.0): 1890 rujukan, 0 missing, 336 stub (17.8%), 1554 substantif (82.2%).
+- Bump v1.44.0.

@@ -85,3 +85,12 @@ Then `benctl.sh --quick` to confirm quick-PASS still holds post-bump.
   is rewritten, or `P_model_signed` fails with no change to the manifest.
 - **Copy dashboard to docs last**: `generate-dashboard.py` writes only meta;
   `docs/dashboard.html` is the published copy — copy it after the final regen.
+- **Single-root args only for refresh/verify**: `refresh-baseline.sh` and
+  `verify-hard-gate.sh` take exactly ONE project root. Passing a second arg (e.g.
+  `refresh-baseline.sh . ben-mode`) makes the gate run an extra pass against that
+  path as a per-skill dir — it then false-FAILs (e.g. `SBOM FAIL: no *.sbom.json
+  in <skill>/.hard-gate-meta`) even though the catalog gate is fine. A FAIL whose
+  message names a skill path, not the catalog root, after you passed two args is
+  the extra-arg artifact, not a gate break — re-run with the single `.` root.
+  Multi-root orchestration belongs to `benctl.sh`/`sync-all-roots.sh`, not these
+  two scripts.

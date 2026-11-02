@@ -1,3 +1,9 @@
+## v1.44.0 (2026-11-02) — Substantiation / Enforcement Layer (BAGIAN 144)
+
+- **P_substantiation**: predikat baru di gate_predicates.py::evaluate() yang memverifikasi setiap fungsi mekanisme yang dirujuk `getattr` benar-benar ada di hard_gate_enhancements.py (menutup celah hollow fallback -> True). 1890 rujukan, 0 missing, 336 stub (17.8%), 1554 substantif (82.2%).
+- **scripts/substantiation_audit.py**: audit mandiri (wired/present/missing/stub/substantive) + bukti JSON ke tempdir, exit 0/1.
+- **BAGIAN 144** ditambahkan; bump v1.44.0.
+
 ## v1.43.0 (2026-11-02) — Wave KJ NUCLEAR ENERGY & RADIATION SAFETY INTEGRITY KJ01–KJ24 (BAGIAN 143)
 
 - **KJ01–KJ24**: nuclear energy & radiation safety integrity mechanisms added to hard_gate_enhancements.py and wired to P_NUCLEAR_01–P_NUCLEAR_24. 24/24 PASS.

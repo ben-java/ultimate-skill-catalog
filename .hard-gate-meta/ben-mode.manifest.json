@@ -2,23 +2,33 @@
   "schema": "agent-skill-manifest/v1",
   "skill": "ben-mode",
   "algorithm": "sha256",
-  "generated_at": "2026-11-02T11:00:03.424426+00:00",
-  "file_count": 98,
+  "generated_at": "2026-11-02T11:30:00.395378+00:00",
+  "file_count": 101,
   "files": [
     {
       "path": "CHANGELOG.md",
-      "size": 76834,
-      "sha256": "c4b62144ef5467ea8731783c8786953a9451e48d9f1befb376b565a33b38fe55"
+      "size": 77383,
+      "sha256": "e1fbd59bb00b1abf28fe5c635850de89acf6064fe377504884833f3a249d3858"
     },
     {
       "path": "SKILL.md",
       "size": 60731,
-      "sha256": "6809bd47d3067ad8fb1e87715826db44a3aeaaa96eb50b56ff3da6218e2e37e3"
+      "sha256": "342d47335024f714ee2613786ec6b6e660f0ad5662bb8704dff6709ff758ef98"
     },
     {
       "path": "gate.conf",
       "size": 1298,
       "sha256": "275932b76c85992227df5bcc677e60144e431b5dade86c85e0540f994e0b7f45"
+    },
+    {
+      "path": "python_install_20261101202830_18356.log",
+      "size": 8904,
+      "sha256": "c434baec85b0efc0daf9688bf36f12a865d509a65c028bd843f82226f044ccfa"
+    },
+    {
+      "path": ".hard-gate-meta/gate-time.jsonl",
+      "size": 35,
+      "sha256": "94f1e24251a670acfb65b341963790523a8ad80b95730781e149444ab41edb38"
     },
     {
       "path": "references/article-evidence.md",
@@ -72,8 +82,8 @@
     },
     {
       "path": "references/hard-gate-10.md",
-      "size": 257262,
-      "sha256": "d15c223a527ecf9462aef3af17b1542337a4ea77c07f8cf38162f61fa9bc8425"
+      "size": 258616,
+      "sha256": "28ac79c31b0588af1f915a38df182a90b68379d9d41e58529bcc5eb219b6988d"
     },
     {
       "path": "references/large-document-editing.md",
@@ -82,8 +92,8 @@
     },
     {
       "path": "references/mechanism-extension-recipe.md",
-      "size": 8900,
-      "sha256": "188972d1b7be9c8d63d7e88266bda1f8f16251c13b0fac4c799fade402d6f044"
+      "size": 13315,
+      "sha256": "35c6d02b6d0bb41eccfd7cae782fe232bedb44c89c6447c4a5b9f91d95a688c5"
     },
     {
       "path": "references/pdf-corpus-regeneration.md",
@@ -92,8 +102,8 @@
     },
     {
       "path": "references/release-verification-routine.md",
-      "size": 4381,
-      "sha256": "3b0c5c91d2ca5ac6f25507d843d0c3a794b84bc2444d296c2e45b00e95ee711a"
+      "size": 5050,
+      "sha256": "e14062b86eb9423e35d0b1523aca2dbdeeb1ea141b8774fc516928fdc811c1cc"
     },
     {
       "path": "references/runtime-trace-validation.md",
@@ -197,8 +207,8 @@
     },
     {
       "path": "scripts/gate_predicates.py",
-      "size": 886525,
-      "sha256": "641b77cbf4b05d91a77b215fc6a0bcc7504ad7c94666224563358bafe07c65ac"
+      "size": 887899,
+      "sha256": "50e2797b71967bacf9a5960dad2a2aa5d2bc0845fe514ec3620a3ddd6dd9242d"
     },
     {
       "path": "scripts/generate-dashboard.py",
@@ -334,6 +344,11 @@
       "path": "scripts/status-matrix.py",
       "size": 11646,
       "sha256": "2bb333e5d7ca43ee615f067c7252f90dd40a37dd4730c6f4c4f0bbd602a9da0a"
+    },
+    {
+      "path": "scripts/substantiation_audit.py",
+      "size": 3321,
+      "sha256": "03655c79b54d7ddc156a9fb8dee114c0992885c3fc30ac01f311d6a94a06f248"
     },
     {
       "path": "scripts/sync-all-roots.sh",
