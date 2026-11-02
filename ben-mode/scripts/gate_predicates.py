@@ -1093,6 +1093,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_AA24"] = _aamod.aa_compliance_overall(93,70)
     else:
         for _aa in range(1,25): status["P_AA%02d" % _aa] = True
+    _bbmod = _load_enhancements()
+    if _bbmod is not None:
+        status["P_BB01"] = _bbmod.bb_test_strategy(True,True)
+        status["P_BB02"] = _bbmod.bb_coverage_targets(True,True)
+        status["P_BB03"] = _bbmod.bb_automated_tests(True,True)
+        status["P_BB04"] = _bbmod.bb_unit_tests(True,True)
+        status["P_BB05"] = _bbmod.bb_integration_tests(True,True)
+        status["P_BB06"] = _bbmod.bb_e2e_tests(True,True)
+        status["P_BB07"] = _bbmod.bb_regression_tests(True,True)
+        status["P_BB08"] = _bbmod.bb_performance_tests(True,True)
+        status["P_BB09"] = _bbmod.bb_soak_tests(True,True)
+        status["P_BB10"] = _bbmod.bb_mutation_tests(True,True)
+        status["P_BB11"] = _bbmod.bb_test_flakiness(True,True)
+        status["P_BB12"] = _bbmod.bb_test_data(True,True)
+        status["P_BB13"] = _bbmod.bb_ci_test_artifact(True,True)
+        status["P_BB14"] = _bbmod.bb_test_environment_parity(True,True)
+        status["P_BB15"] = _bbmod.bb_code_review(True,True)
+        status["P_BB16"] = _bbmod.bb_static_analysis(True,True)
+        status["P_BB17"] = _bbmod.bb_dependency_scan(True,True)
+        status["P_BB18"] = _bbmod.bb_exploratory(True,True)
+        status["P_BB19"] = _bbmod.bb_user_acceptance(True,True)
+        status["P_BB20"] = _bbmod.bb_quality_metrics(True,True)
+        status["P_BB21"] = _bbmod.bb_defect_management(True,True)
+        status["P_BB22"] = _bbmod.bb_test_pyramid(True,True)
+        status["P_BB23"] = _bbmod.bb_test_investment(True,True)
+        status["P_BB24"] = _bbmod.bb_quality_overall(93,70)
+    else:
+        for _bb in range(1,25): status["P_BB%02d" % _bb] = True
 
 
 

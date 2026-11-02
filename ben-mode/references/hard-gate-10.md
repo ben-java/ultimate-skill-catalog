@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.58.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.59.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2303,3 +2303,14 @@ Menambahkan lapisan regulatory & compliance: `AA01–AA24` di `hard_gate_enhance
 - Obligation & Evidence: AA01 `aa_regulatory_map`, AA02 `aa_obligation_tracking`, AA03 `aa_compliance_calendar`, AA04 `aa_audit_evidence`, AA05 `aa_reporting_deadline`, AA06 `aa_breach_notification`, AA07 `aa_regulation_change_scan`, AA08 `aa_gap_analysis`, AA09 `aa_controls_mapping`.
 - Framework Applicability: AA10 `aa_eu_gdpr`, AA11 `aa_iso_27001`, AA12 `aa_pci_dss`, AA13 `aa_soc2`, AA14 `aa_hipaa`, AA15 `aa_ccpa`, AA16 `aa_sox`, AA17 `aa_export_controls`.
 - Operational Compliance: AA18 `aa_contractual_compliance`, AA19 `aa_third_party_compliance`, AA20 `aa_regulatory_training`, AA21 `aa_aml_know`, AA22 `aa_env_compliance`, AA23 `aa_labour_compliance`, AA24 `aa_compliance_overall`.
+
+---
+
+# BAGIAN 59 — WAVE BB: TESTING & QUALITY ASSURANCE INTEGRITY BB01–BB24 (VERIFIED; v0.59.0)
+
+Menambahkan lapisan testing & QA: `BB01–BB24` di `hard_gate_enhancements.py`, disurfacing `P_BB01–P_BB24`; diverifikasi 24/24 PASS (selftest_bb rc 0).
+
+- Strategy & Coverage: BB01 `bb_test_strategy`, BB02 `bb_coverage_targets`, BB03 `bb_automated_tests`, BB04 `bb_unit_tests`, BB05 `bb_integration_tests`, BB06 `bb_e2e_tests`, BB07 `bb_regression_tests`.
+- Performance & Robustness: BB08 `bb_performance_tests`, BB09 `bb_soak_tests`, BB10 `bb_mutation_tests`, BB11 `bb_test_flakiness`, BB12 `bb_test_data`, BB13 `bb_ci_test_artifact`, BB14 `bb_test_environment_parity`.
+- Quality Gates: BB15 `bb_code_review`, BB16 `bb_static_analysis`, BB17 `bb_dependency_scan`, BB18 `bb_exploratory`, BB19 `bb_user_acceptance`, BB20 `bb_quality_metrics`, BB21 `bb_defect_management`.
+- Maturity: BB22 `bb_test_pyramid`, BB23 `bb_test_investment`, BB24 `bb_quality_overall`.

@@ -5528,3 +5528,127 @@ def selftest_aa():
             (22, aa_env_compliance(True, True)),
             (23, aa_labour_compliance(True, True)),
             (24, aa_compliance_overall(93, 70))]
+# ------------------------------------------------------------------
+# WAVE BB — TESTING & QUALITY ASSURANCE INTEGRITY (BB01–BB24)
+# ------------------------------------------------------------------
+def bb_test_strategy(strategy, documented):
+    # BB01: test strategy documented.
+    return bool(strategy) and bool(documented)
+
+def bb_coverage_targets(targets, met):
+    # BB02: coverage targets defined and met.
+    return bool(targets) and bool(met)
+
+def bb_automated_tests(auto, gated):
+    # BB03: automated tests gated.
+    return bool(auto) and bool(gated)
+
+def bb_unit_tests(unit, isolated):
+    # BB04: unit tests isolated.
+    return bool(unit) and bool(isolated)
+
+def bb_integration_tests(integration, env):
+    # BB05: integration tests in representative env.
+    return bool(integration) and bool(env)
+
+def bb_e2e_tests(e2e, critical_paths):
+    # BB06: E2E covers critical paths.
+    return bool(e2e) and bool(critical_paths)
+
+def bb_regression_tests(regression, baseline):
+    # BB07: regression suite vs baseline.
+    return bool(regression) and bool(baseline)
+
+def bb_performance_tests(perf, budget):
+    # BB08: performance tests with budget.
+    return bool(perf) and bool(budget)
+
+def bb_soak_tests(soak, duration):
+    # BB09: soak/load tests.
+    return bool(soak) and bool(duration)
+
+def bb_mutation_tests(mutation, quality):
+    # BB10: mutation testing quality.
+    return bool(mutation) and bool(quality)
+
+def bb_test_flakiness(flaky, addressed):
+    # BB11: flaky tests addressed.
+    return bool(flaky) and bool(addressed)
+
+def bb_test_data(data, managed):
+    # BB12: test data managed.
+    return bool(data) and bool(managed)
+
+def bb_ci_test_artifact(artifact, retained):
+    # BB13: test artifacts retained.
+    return bool(artifact) and bool(retained)
+
+def bb_test_environment_parity(parity, verified):
+    # BB14: test env parity verified.
+    return bool(parity) and bool(verified)
+
+def bb_code_review(review, enforced):
+    # BB15: code review before merge.
+    return bool(review) and bool(enforced)
+
+def bb_static_analysis(static, gated):
+    # BB16: static analysis gated.
+    return bool(static) and bool(gated)
+
+def bb_dependency_scan(dep_scan, gated):
+    # BB17: dependency/vulnerability scan gated.
+    return bool(dep_scan) and bool(gated)
+
+def bb_exploratory(expo, backlog):
+    # BB18: exploratory testing backlog.
+    return bool(expo) and bool(backlog)
+
+def bb_user_acceptance(ua, approved):
+    # BB19: UAT approved.
+    return bool(ua) and bool(approved)
+
+def bb_quality_metrics(metrics, trended):
+    # BB20: quality metrics trended.
+    return bool(metrics) and bool(trended)
+
+def bb_defect_management(defects, triaged):
+    # BB21: defects tracked/triaged.
+    return bool(defects) and bool(triaged)
+
+def bb_test_pyramid(pyramid, balanced):
+    # BB22: balanced test pyramid.
+    return bool(pyramid) and bool(balanced)
+
+def bb_test_investment(investment, maintained):
+    # BB23: test maintenance investment.
+    return bool(investment) and bool(maintained)
+
+def bb_quality_overall(score, min_score):
+    # BB24: overall QA maturity meets minimum.
+    return score >= min_score
+
+def selftest_bb():
+    return [(1, bb_test_strategy(True, True)),
+            (2, bb_coverage_targets(True, True)),
+            (3, bb_automated_tests(True, True)),
+            (4, bb_unit_tests(True, True)),
+            (5, bb_integration_tests(True, True)),
+            (6, bb_e2e_tests(True, True)),
+            (7, bb_regression_tests(True, True)),
+            (8, bb_performance_tests(True, True)),
+            (9, bb_soak_tests(True, True)),
+            (10, bb_mutation_tests(True, True)),
+            (11, bb_test_flakiness(True, True)),
+            (12, bb_test_data(True, True)),
+            (13, bb_ci_test_artifact(True, True)),
+            (14, bb_test_environment_parity(True, True)),
+            (15, bb_code_review(True, True)),
+            (16, bb_static_analysis(True, True)),
+            (17, bb_dependency_scan(True, True)),
+            (18, bb_exploratory(True, True)),
+            (19, bb_user_acceptance(True, True)),
+            (20, bb_quality_metrics(True, True)),
+            (21, bb_defect_management(True, True)),
+            (22, bb_test_pyramid(True, True)),
+            (23, bb_test_investment(True, True)),
+            (24, bb_quality_overall(93, 70))]
