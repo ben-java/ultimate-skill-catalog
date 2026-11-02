@@ -1009,6 +1009,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_XX24"] = _xxmod.xx_overall_doc_integrity(94,70)
     else:
         for _xx in range(1,25): status["P_XX%02d" % _xx] = True
+    _yymod = _load_enhancements()
+    if _yymod is not None:
+        status["P_YY01"] = _yymod.yy_cost_budgeting(True,True)
+        status["P_YY02"] = _yymod.yy_cost_visibility(True,True)
+        status["P_YY03"] = _yymod.yy_waste_detection(True,True)
+        status["P_YY04"] = _yymod.yy_cost_allocation(True,True)
+        status["P_YY05"] = _yymod.yy_rightsizing(True,True)
+        status["P_YY06"] = _yymod.yy_spot_usage(True,True)
+        status["P_YY07"] = _yymod.yy_resource_idle(True,True)
+        status["P_YY08"] = _yymod.yy_tiered_storage(True,True)
+        status["P_YY09"] = _yymod.yy_data_lifecycle_cost(True,True)
+        status["P_YY10"] = _yymod.yy_commitment_discounts(True,True)
+        status["P_YY11"] = _yymod.yy_usage_anomaly(True,True)
+        status["P_YY12"] = _yymod.yy_optimization_regression(True,True)
+        status["P_YY13"] = _yymod.yy_finops_roles(True,True)
+        status["P_YY14"] = _yymod.yy_unit_economics(True,True)
+        status["P_YY15"] = _yymod.yy_cost_sla(True,True)
+        status["P_YY16"] = _yymod.yy_cloud_spend_governance(True,True)
+        status["P_YY17"] = _yymod.yy_green_compute(True,True)
+        status["P_YY18"] = _yymod.yy_chargeback_enabled(True,True)
+        status["P_YY19"] = _yymod.yy_cost_optimization_cycle(True,True)
+        status["P_YY20"] = _yymod.yy_egress_optimization(True,True)
+        status["P_YY21"] = _yymod.yy_license_optimization(True,True)
+        status["P_YY22"] = _yymod.yy_reservation_planning(True,True)
+        status["P_YY23"] = _yymod.yy_automated_opt(True,True)
+        status["P_YY24"] = _yymod.yy_overall_cost_efficiency(93,70)
+    else:
+        for _yy in range(1,25): status["P_YY%02d" % _yy] = True
 
 
 

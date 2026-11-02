@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.55.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.56.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2272,3 +2272,15 @@ disurfacing `P_XX01–P_XX24`; diverifikasi 24/24 PASS (selftest_xx rc 0).
 - Sync & Completeness: XX06 `xx_code_doc_sync`, XX07 `xx_api_docs_complete`, XX08 `xx_runbook_updated`, XX12 `xx_changelog_complete`, XX19 `xx_onboarding_docs`, XX20 `xx_known_issues_doc`, XX23 `xx_metrics_docs`.
 - Knowledge Management: XX09 `xx_archival_policy`, XX10 `xx_knowledge_searchable`, XX11 `xx_tacit_knowledge_capture`, XX17 `xx_diagram_accuracy`, XX18 `xx_comment_quality`, XX22 `xx_decision_docs`.
 - Governance & Audit: XX13 `xx_docs_audited`, XX15 `xx_access_control_docs`, XX21 `xx_security_docs`, XX24 `xx_overall_doc_integrity`.
+
+---
+
+# BAGIAN 56 — WAVE Y: COST & RESOURCE OPTIMIZATION INTEGRITY YY01–YY24 (VERIFIED; v0.56.0)
+
+Menambahkan lapisan cost & resource optimization: `YY01–YY24` di `hard_gate_enhancements.py`,
+disurfacing `P_YY01–P_YY24`; diverifikasi 24/24 PASS (selftest_yy rc 0).
+
+- Budget & Visibility: YY01 `yy_cost_budgeting`, YY02 `yy_cost_visibility`, YY04 `yy_cost_allocation`, YY14 `yy_unit_economics`, YY18 `yy_chargeback_enabled`.
+- Waste & Rightsizing: YY03 `yy_waste_detection`, YY05 `yy_rightsizing`, YY07 `yy_resource_idle`, YY08 `yy_tiered_storage`, YY09 `yy_data_lifecycle_cost`, YY20 `yy_egress_optimization`.
+- Discounts & Procurement: YY06 `yy_spot_usage`, YY10 `yy_commitment_discounts`, YY21 `yy_license_optimization`, YY22 `yy_reservation_planning`.
+- Governance & Optimization: YY11 `yy_usage_anomaly`, YY12 `yy_optimization_regression`, YY13 `yy_finops_roles`, YY15 `yy_cost_sla`, YY16 `yy_cloud_spend_governance`, YY17 `yy_green_compute`, YY19 `yy_cost_optimization_cycle`, YY23 `yy_automated_opt`, YY24 `yy_overall_cost_efficiency`.

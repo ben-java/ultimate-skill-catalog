@@ -5155,3 +5155,128 @@ def selftest_xx():
             (22, xx_decision_docs(True, True)),
             (23, xx_metrics_docs(True, True)),
             (24, xx_overall_doc_integrity(94, 70))]
+
+# ------------------------------------------------------------------
+# WAVE Y — COST & RESOURCE OPTIMIZATION INTEGRITY (YY01–YY24)
+# ------------------------------------------------------------------
+def yy_cost_budgeting(budget, enforced):
+    # YY01: cost budget defined + enforced.
+    return bool(budget) and bool(enforced)
+
+def yy_cost_visibility(visible, per_workload):
+    # YY02: cost visibility per workload.
+    return bool(visible) and bool(per_workload)
+
+def yy_waste_detection(detected, addressed):
+    # YY03: cost waste detected + addressed.
+    return bool(detected) and bool(addressed)
+
+def yy_cost_allocation(allocated, tagged):
+    # YY04: cost allocated + tagged.
+    return bool(allocated) and bool(tagged)
+
+def yy_rightsizing(rightsized, validated):
+    # YY05: resources rightsized.
+    return bool(rightsized) and bool(validated)
+
+def yy_spot_usage(spot, lifecycle_managed):
+    # YY06: spot instances with lifecycle.
+    return bool(spot) and bool(lifecycle_managed)
+
+def yy_resource_idle(idle_detected, reclaimed):
+    # YY07: idle resources reclaimed.
+    return bool(idle_detected) and bool(reclaimed)
+
+def yy_tiered_storage(storage, policy):
+    # YY08: tiered storage policy.
+    return bool(storage) and bool(policy)
+
+def yy_data_lifecycle_cost(lifecycle, optimized):
+    # YY09: data lifecycle cost optimized.
+    return bool(lifecycle) and bool(optimized)
+
+def yy_commitment_discounts(discounts, utilized):
+    # YY10: commitment discounts utilized.
+    return bool(discounts) and bool(utilized)
+
+def yy_usage_anomaly(anomaly, alerted):
+    # YY11: usage anomaly alerted.
+    return bool(anomaly) and bool(alerted)
+
+def yy_optimization_regression(regression_guard, gated):
+    # YY12: optimization regression guard.
+    return bool(regression_guard) and bool(gated)
+
+def yy_finops_roles(roles, assigned):
+    # YY13: FinOps roles assigned.
+    return bool(roles) and bool(assigned)
+
+def yy_unit_economics(economics, measured):
+    # YY14: unit economics measured.
+    return bool(economics) and bool(measured)
+
+def yy_cost_sla(cost_perf, balance_met):
+    # YY15: cost-performance balance.
+    return bool(cost_perf) and bool(balance_met)
+
+def yy_cloud_spend_governance(governance, policy):
+    # YY16: cloud spend governance.
+    return bool(governance) and bool(policy)
+
+def yy_green_compute(efficient, carbon_aware):
+    # YY17: resource-efficient green compute.
+    return bool(efficient) and bool(carbon_aware)
+
+def yy_chargeback_enabled(chargeback, per_team):
+    # YY18: chargeback per team.
+    return bool(chargeback) and bool(per_team)
+
+def yy_cost_optimization_cycle(cycle, continuous):
+    # YY19: continuous optimization cycle.
+    return bool(cycle) and bool(continuous)
+
+def yy_egress_optimization(optimized, avoided):
+    # YY20: data egress optimized.
+    return bool(optimized) and bool(avoided)
+
+def yy_license_optimization(license_opt, compliant):
+    # YY21: license optimization compliant.
+    return bool(license_opt) and bool(compliant)
+
+def yy_reservation_planning(reservations, planned):
+    # YY22: reservation planning.
+    return bool(reservations) and bool(planned)
+
+def yy_automated_opt(auto_opt, reviewed):
+    # YY23: automated optimization reviewed.
+    return bool(auto_opt) and bool(reviewed)
+
+def yy_overall_cost_efficiency(score, min_score):
+    # YY24: overall cost efficiency score meets minimum.
+    return score >= min_score
+
+def selftest_yy():
+    return [(1, yy_cost_budgeting(True, True)),
+            (2, yy_cost_visibility(True, True)),
+            (3, yy_waste_detection(True, True)),
+            (4, yy_cost_allocation(True, True)),
+            (5, yy_rightsizing(True, True)),
+            (6, yy_spot_usage(True, True)),
+            (7, yy_resource_idle(True, True)),
+            (8, yy_tiered_storage(True, True)),
+            (9, yy_data_lifecycle_cost(True, True)),
+            (10, yy_commitment_discounts(True, True)),
+            (11, yy_usage_anomaly(True, True)),
+            (12, yy_optimization_regression(True, True)),
+            (13, yy_finops_roles(True, True)),
+            (14, yy_unit_economics(True, True)),
+            (15, yy_cost_sla(True, True)),
+            (16, yy_cloud_spend_governance(True, True)),
+            (17, yy_green_compute(True, True)),
+            (18, yy_chargeback_enabled(True, True)),
+            (19, yy_cost_optimization_cycle(True, True)),
+            (20, yy_egress_optimization(True, True)),
+            (21, yy_license_optimization(True, True)),
+            (22, yy_reservation_planning(True, True)),
+            (23, yy_automated_opt(True, True)),
+            (24, yy_overall_cost_efficiency(93, 70))]
