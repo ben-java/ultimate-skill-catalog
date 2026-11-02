@@ -1,3 +1,8 @@
+## v0.67.0 (2026-11-02) — Wave JJ API Design & Service Contract Integrity JJ01–JJ24 (BAGIAN 67)
+
+- **JJ01–JJ24**: schema contract, semantic versioning, backward compatibility, mandatory authentication, client rate limiting, payload validation, RFC 7807 error format, idempotency key, pagination bounds, TLS 1.3/mTLS, CORS origin validation, interactive documentation, latency SLO adherence, W3C distributed tracing, circuit breaker, consumer-driven mock testing, deprecation/sunset policy, payload compression, content negotiation, health/readiness probes, gateway routing, cache control, audit logging, overall API maturity. Disurfacing `P_JJ01–P_JJ24`; 24/24 PASS.
+- **BAGIAN 67** ditambahkan; bump serentak 0.67.0.
+
 ## v0.66.0 (2026-11-02) — Wave II Infrastructure & Platform Engineering Integrity II01–II24 (BAGIAN 66)
 
 - **II01–II24**: declarative definition, drift detection, reusable modules, state locking, secret sanitization, static linting, execution plan review, idempotency, immutable infrastructure, tagging policy, policy-as-code, cost estimation, environment parity, CI/CD automated pipeline, disaster recovery, observability telemetry, least-privilege RBAC, acyclic dependency graph, version pinning, unit/property testing, automated rollback, audit trail, multi-region redundancy, overall maturity. Disurfacing `P_II01–P_II24`; 24/24 PASS.

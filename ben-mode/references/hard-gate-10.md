@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.66.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.67.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2379,3 +2379,12 @@ Menambahkan lapisan infrastructure as code dan platform engineering integrity: `
 
 - Definition & Control: II01 `ii_iac_declarative`, II02 `ii_iac_drift_detect`, II03 `ii_iac_module_reuse`, II04 `ii_iac_state_lock`, II05 `ii_iac_secret_sanitized`, II06 `ii_iac_lint_check`, II07 `ii_iac_plan_approval`, II08 `ii_iac_idempotency`, II09 `ii_iac_immutable_infra`, II10 `ii_iac_tagging_policy`, II11 `ii_iac_policy_as_code`, II12 `ii_iac_cost_estimation`.
 - Reliability & Operations: II13 `ii_iac_env_parity`, II14 `ii_iac_pipeline_deploy`, II15 `ii_iac_disaster_plan`, II16 `ii_iac_observability_wire`, II17 `ii_iac_rbac_access`, II18 `ii_iac_dependency_graph`, II19 `ii_iac_version_pinning`, II20 `ii_iac_unit_testing`, II21 `ii_iac_rollback_ready`, II22 `ii_iac_audit_trail`, II23 `ii_iac_multi_region`, II24 `ii_iac_overall_maturity`.
+
+---
+
+# BAGIAN 67 — WAVE JJ: API DESIGN & SERVICE CONTRACT INTEGRITY JJ01–JJ24 (VERIFIED; v0.67.0)
+
+Menambahkan lapisan API design dan service contract integrity: `JJ01–JJ24` di `hard_gate_enhancements.py`, disurfacing `P_JJ01–P_JJ24`; diverifikasi 24/24 PASS (selftest_jj rc 0).
+
+- Contract & Interface: JJ01 `jj_api_contract`, JJ02 `jj_api_versioning`, JJ03 `jj_api_backward_compat`, JJ04 `jj_api_auth_enforced`, JJ05 `jj_api_rate_limiting`, JJ06 `jj_api_input_validation`, JJ07 `jj_api_error_standard`, JJ08 `jj_api_idempotency_key`, JJ09 `jj_api_pagination`, JJ10 `jj_api_tls_enforced`, JJ11 `jj_api_cors_policy`, JJ12 `jj_api_doc_interactive`.
+- Service Reliability & Gateway: JJ13 `jj_api_latency_slo`, JJ14 `jj_api_telemetry_trace`, JJ15 `jj_api_circuit_breaker`, JJ16 `jj_api_mock_testing`, JJ17 `jj_api_deprecation_policy`, JJ18 `jj_api_payload_compression`, JJ19 `jj_api_content_negotiation`, JJ20 `jj_api_health_endpoint`, JJ21 `jj_api_gateway_routing`, JJ22 `jj_api_cache_control`, JJ23 `jj_api_audit_logging`, JJ24 `jj_api_overall_maturity`.

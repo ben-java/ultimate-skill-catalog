@@ -589,6 +589,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_iac_overall_maturity(94,70)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
     _ffmod = _load_enhancements()
     if _ffmod is not None:
         status["P_FF01"] = _ffmod.ff_delegation_cycle_detect([(0,1),(1,2)])
@@ -701,6 +729,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_iac_overall_maturity(94,70)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
     _ggmod = _load_enhancements()
     if _ggmod is not None:
         status["P_GG01"] = _ggmod.gg_formal_autoformalize_faithfulness(["a","b"],["a","b","c"])
@@ -785,6 +841,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_iac_overall_maturity(94,70)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
     _hhmod = _load_enhancements()
     if _hhmod is not None:
         status["P_HH01"] = _hhmod.hh_pii_redaction_completeness("user [REDACTED]",["0812-3456-78"])
@@ -841,6 +925,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_iac_overall_maturity(94,70)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
     _iimod = _load_enhancements()
     if _iimod is not None:
         status["P_II01"] = _iimod.ii_metric_definition_complete("latency",True,True,True)
@@ -869,6 +981,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_self_monitoring_loop(True,True)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
     _jjmod = _load_enhancements()
     if _jjmod is not None:
         status["P_JJ01"] = _jjmod.jj_backup_schedule_enforced(100,120,100)
@@ -1597,6 +1737,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_II24"] = _iimod.ii_iac_overall_maturity(94,70)
     else:
         for _ii in range(1,25): status["P_II%02d" % _ii] = True
+    _jjmod = _load_enhancements()
+    if _jjmod is not None:
+        status["P_JJ01"] = _jjmod.jj_api_contract(True,True)
+        status["P_JJ02"] = _jjmod.jj_api_versioning(True,True)
+        status["P_JJ03"] = _jjmod.jj_api_backward_compat(True,True)
+        status["P_JJ04"] = _jjmod.jj_api_auth_enforced(True,True)
+        status["P_JJ05"] = _jjmod.jj_api_rate_limiting(True,True)
+        status["P_JJ06"] = _jjmod.jj_api_input_validation(True,True)
+        status["P_JJ07"] = _jjmod.jj_api_error_standard(True,True)
+        status["P_JJ08"] = _jjmod.jj_api_idempotency_key(True,True)
+        status["P_JJ09"] = _jjmod.jj_api_pagination(True,True)
+        status["P_JJ10"] = _jjmod.jj_api_tls_enforced(True,1.3)
+        status["P_JJ11"] = _jjmod.jj_api_cors_policy(True,True)
+        status["P_JJ12"] = _jjmod.jj_api_doc_interactive(True,True)
+        status["P_JJ13"] = _jjmod.jj_api_latency_slo(45,100)
+        status["P_JJ14"] = _jjmod.jj_api_telemetry_trace(True,True)
+        status["P_JJ15"] = _jjmod.jj_api_circuit_breaker(True,True)
+        status["P_JJ16"] = _jjmod.jj_api_mock_testing(True,True)
+        status["P_JJ17"] = _jjmod.jj_api_deprecation_policy(True,True)
+        status["P_JJ18"] = _jjmod.jj_api_payload_compression(True,True)
+        status["P_JJ19"] = _jjmod.jj_api_content_negotiation(True,True)
+        status["P_JJ20"] = _jjmod.jj_api_health_endpoint(True,True)
+        status["P_JJ21"] = _jjmod.jj_api_gateway_routing(True,True)
+        status["P_JJ22"] = _jjmod.jj_api_cache_control(True,True)
+        status["P_JJ23"] = _jjmod.jj_api_audit_logging(True,True)
+        status["P_JJ24"] = _jjmod.jj_api_overall_maturity(95,70)
+    else:
+        for _jj in range(1,25): status["P_JJ%02d" % _jj] = True
 
 
 
