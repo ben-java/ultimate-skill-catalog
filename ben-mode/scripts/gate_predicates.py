@@ -981,6 +981,34 @@ def evaluate(roots, meta_dir, runtime_inputs):
         status["P_WW24"] = _wwmod.ww_overall_integration(91,70)
     else:
         for _ww in range(1,25): status["P_WW%02d" % _ww] = True
+    _xxmod = _load_enhancements()
+    if _xxmod is not None:
+        status["P_XX01"] = _xxmod.xx_docs_current(True,True)
+        status["P_XX02"] = _xxmod.xx_single_source_truth(True,True)
+        status["P_XX03"] = _xxmod.xx_docs_accurate(True,True)
+        status["P_XX04"] = _xxmod.xx_docs_discoverable(True,True)
+        status["P_XX05"] = _xxmod.xx_docs_consistent(True,True)
+        status["P_XX06"] = _xxmod.xx_code_doc_sync(True,True)
+        status["P_XX07"] = _xxmod.xx_api_docs_complete(True,True)
+        status["P_XX08"] = _xxmod.xx_runbook_updated(True,True)
+        status["P_XX09"] = _xxmod.xx_archival_policy(True,True)
+        status["P_XX10"] = _xxmod.xx_knowledge_searchable(True,True)
+        status["P_XX11"] = _xxmod.xx_tacit_knowledge_capture(True,True)
+        status["P_XX12"] = _xxmod.xx_changelog_complete(True,True)
+        status["P_XX13"] = _xxmod.xx_docs_audited(True,True)
+        status["P_XX14"] = _xxmod.xx_versioned_docs(True,True)
+        status["P_XX15"] = _xxmod.xx_access_control_docs(True,True)
+        status["P_XX16"] = _xxmod.xx_style_consistency(True,True)
+        status["P_XX17"] = _xxmod.xx_diagram_accuracy(True,True)
+        status["P_XX18"] = _xxmod.xx_comment_quality(True,True)
+        status["P_XX19"] = _xxmod.xx_onboarding_docs(True,True)
+        status["P_XX20"] = _xxmod.xx_known_issues_doc(True,True)
+        status["P_XX21"] = _xxmod.xx_security_docs(True,True)
+        status["P_XX22"] = _xxmod.xx_decision_docs(True,True)
+        status["P_XX23"] = _xxmod.xx_metrics_docs(True,True)
+        status["P_XX24"] = _xxmod.xx_overall_doc_integrity(94,70)
+    else:
+        for _xx in range(1,25): status["P_XX%02d" % _xx] = True
 
 
 

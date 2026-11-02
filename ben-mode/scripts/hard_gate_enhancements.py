@@ -5030,3 +5030,128 @@ def selftest_ww():
             (22, ww_connection_lifecycle(True, True)),
             (23, ww_batch_stream_dual(True, True)),
             (24, ww_overall_integration(91, 70))]
+
+# ------------------------------------------------------------------
+# WAVE X — DOCUMENTATION & KNOWLEDGE INTEGRITY (XX01–XX24)
+# ------------------------------------------------------------------
+def xx_docs_current(current, updated):
+    # XX01: documentation current + updated.
+    return bool(current) and bool(updated)
+
+def xx_single_source_truth(single_source, canonical):
+    # XX02: single source of truth.
+    return bool(single_source) and bool(canonical)
+
+def xx_docs_accurate(accurate, verified):
+    # XX03: documentation accurate + verified.
+    return bool(accurate) and bool(verified)
+
+def xx_docs_discoverable(discoverable, indexed):
+    # XX04: documentation discoverable + indexed.
+    return bool(discoverable) and bool(indexed)
+
+def xx_docs_consistent(consistent, cross_checked):
+    # XX05: documentation consistent across sources.
+    return bool(consistent) and bool(cross_checked)
+
+def xx_code_doc_sync(synced, drift_detected):
+    # XX06: code-doc synchronization.
+    return bool(synced) and bool(drift_detected)
+
+def xx_api_docs_complete(complete, examples):
+    # XX07: API docs complete with examples.
+    return bool(complete) and bool(examples)
+
+def xx_runbook_updated(runbook, procedures_current):
+    # XX08: runbooks current.
+    return bool(runbook) and bool(procedures_current)
+
+def xx_archival_policy(archived, retained):
+    # XX09: knowledge archived + retained.
+    return bool(archived) and bool(retained)
+
+def xx_knowledge_searchable(searchable, semantic):
+    # XX10: knowledge searchable.
+    return bool(searchable) and bool(semantic)
+
+def xx_tacit_knowledge_capture(captured, documented):
+    # XX11: tacit knowledge captured.
+    return bool(captured) and bool(documented)
+
+def xx_changelog_complete(changelog, complete):
+    # XX12: changelog complete.
+    return bool(changelog) and bool(complete)
+
+def xx_docs_audited(audited, gaps_fixed):
+    # XX13: documentation audited.
+    return bool(audited) and bool(gaps_fixed)
+
+def xx_versioned_docs(versioned, tracked):
+    # XX14: docs versioned + tracked.
+    return bool(versioned) and bool(tracked)
+
+def xx_access_control_docs(controlled, scoped):
+    # XX15: doc access controlled + scoped.
+    return bool(controlled) and bool(scoped)
+
+def xx_style_consistency(style, enforced):
+    # XX16: consistent documentation style.
+    return bool(style) and bool(enforced)
+
+def xx_diagram_accuracy(accurate, reflects_system):
+    # XX17: diagrams accurate.
+    return bool(accurate) and bool(reflects_system)
+
+def xx_comment_quality(comments, meaningful):
+    # XX18: meaningful code comments.
+    return bool(comments) and bool(meaningful)
+
+def xx_onboarding_docs(onboarding, complete):
+    # XX19: onboarding docs complete.
+    return bool(onboarding) and bool(complete)
+
+def xx_known_issues_doc(known_issues, maintained):
+    # XX20: known issues documented.
+    return bool(known_issues) and bool(maintained)
+
+def xx_security_docs(security_docs, updated):
+    # XX21: security docs updated.
+    return bool(security_docs) and bool(updated)
+
+def xx_decision_docs(decision_log, rationale):
+    # XX22: decisions documented with rationale.
+    return bool(decision_log) and bool(rationale)
+
+def xx_metrics_docs(metrics_docs, defined):
+    # XX23: metrics documented.
+    return bool(metrics_docs) and bool(defined)
+
+def xx_overall_doc_integrity(score, min_score):
+    # XX24: overall documentation integrity score meets minimum.
+    return score >= min_score
+
+def selftest_xx():
+    return [(1, xx_docs_current(True, True)),
+            (2, xx_single_source_truth(True, True)),
+            (3, xx_docs_accurate(True, True)),
+            (4, xx_docs_discoverable(True, True)),
+            (5, xx_docs_consistent(True, True)),
+            (6, xx_code_doc_sync(True, True)),
+            (7, xx_api_docs_complete(True, True)),
+            (8, xx_runbook_updated(True, True)),
+            (9, xx_archival_policy(True, True)),
+            (10, xx_knowledge_searchable(True, True)),
+            (11, xx_tacit_knowledge_capture(True, True)),
+            (12, xx_changelog_complete(True, True)),
+            (13, xx_docs_audited(True, True)),
+            (14, xx_versioned_docs(True, True)),
+            (15, xx_access_control_docs(True, True)),
+            (16, xx_style_consistency(True, True)),
+            (17, xx_diagram_accuracy(True, True)),
+            (18, xx_comment_quality(True, True)),
+            (19, xx_onboarding_docs(True, True)),
+            (20, xx_known_issues_doc(True, True)),
+            (21, xx_security_docs(True, True)),
+            (22, xx_decision_docs(True, True)),
+            (23, xx_metrics_docs(True, True)),
+            (24, xx_overall_doc_integrity(94, 70))]

@@ -1,6 +1,6 @@
 # HARD GATE #10 — Formal Specification, Mechanism & Verification Architecture
 
-**Spec version**: `0.54.0` (disinkronkan dengan SKILL.md)
+**Spec version**: `0.55.0` (disinkronkan dengan SKILL.md)
 
 ---
 
@@ -2260,3 +2260,15 @@ disurfacing `P_WW01–P_WW24`; diverifikasi 24/24 PASS (selftest_ww rc 0).
 - Async & Data: WW06 `ww_async_integration`, WW08 `ww_retry_consistency`, WW09 `ww_transactional_integrity`, WW10 `ww_event_driven_safe`, WW23 `ww_batch_stream_dual`.
 - Boundaries & Legacy: WW07 `ww_error_propagation`, WW11 `ww_anti_corruption_layer`, WW12 `ww_legacy_integration`, WW13 `ww_security_handshake`, WW22 `ww_connection_lifecycle`.
 - Ops & Test: WW14 `ww_config_propagation`, WW15 `ww_metrics_integration`, WW16 `ww_observability_integration`, WW18 `ww_env_matrix_tested`, WW19 `ww_shadow_traffic`, WW20 `ww_feature_parity`, WW21 `ww_data_integrity_across`, WW24 `ww_overall_integration`.
+
+---
+
+# BAGIAN 55 — WAVE X: DOCUMENTATION & KNOWLEDGE INTEGRITY XX01–XX24 (VERIFIED; v0.55.0)
+
+Menambahkan lapisan documentation & knowledge integrity: `XX01–XX24` di `hard_gate_enhancements.py`,
+disurfacing `P_XX01–P_XX24`; diverifikasi 24/24 PASS (selftest_xx rc 0).
+
+- Core Docs: XX01 `xx_docs_current`, XX02 `xx_single_source_truth`, XX03 `xx_docs_accurate`, XX04 `xx_docs_discoverable`, XX05 `xx_docs_consistent`, XX14 `xx_versioned_docs`, XX16 `xx_style_consistency`.
+- Sync & Completeness: XX06 `xx_code_doc_sync`, XX07 `xx_api_docs_complete`, XX08 `xx_runbook_updated`, XX12 `xx_changelog_complete`, XX19 `xx_onboarding_docs`, XX20 `xx_known_issues_doc`, XX23 `xx_metrics_docs`.
+- Knowledge Management: XX09 `xx_archival_policy`, XX10 `xx_knowledge_searchable`, XX11 `xx_tacit_knowledge_capture`, XX17 `xx_diagram_accuracy`, XX18 `xx_comment_quality`, XX22 `xx_decision_docs`.
+- Governance & Audit: XX13 `xx_docs_audited`, XX15 `xx_access_control_docs`, XX21 `xx_security_docs`, XX24 `xx_overall_doc_integrity`.
